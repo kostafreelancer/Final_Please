@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="lancer.mappers.e_mypageMapper">
+
+	
+	<select id="selectEnterprise" resultType="lancer.e_mypage.domain.Enterprise">
+		SELECT * FROM enterprise WHERE e_num = #{e_num}
+	</select>
+	
+	<update id="updateEnterprise" parameterType="c_login_enterpriseVO">
+		UPDATE enterprise SET
+		e_pwd=#{e_pwd},
+		e_mail=#{e_mail},
+		e_ownerfile=#{e_ownerfile},
+		e_name=#{e_name},
+		e_ename=#{e_ename},
+		e_owner=#{e_owner},
+		e_regno=#{e_regno},
+		e_phone=#{e_phone},
+		e_bf=#{e_bf},
+		manager_name=#{manager_name},
+		manager_hphone=#{manager_hphone},
+		manager_mail=#{manager_mail},
+		e_address=#{e_address},
+		e_homepage=#{e_homepage},
+		start_year=#{start_year},
+		e_enum=#{e_enum},
+		e_listing=#{e_listing},
+		e_capital=#{e_capital},
+		e_sales=#{e_sales},
+		e_scale=#{e_scale},
+		e_licensefile=#{e_licensefile} WHERE e_num=#{e_num}
+	</update>
+	
+	<select id="listProjectReady" resultType="lancer.e_mypage.domain.Project">
+		SELECT * FROM project WHERE e_num = #{e_num} AND state = '모집중'
+	</select>
+
+	<select id="listProjectDoing" resultType="lancer.e_mypage.domain.Project">
+		SELECT * FROM project WHERE e_num = #{e_num} AND state = '진행중'
+	</select>
+
+	<select id="listProjectDone" resultType="lancer.e_mypage.domain.Project">
+		SELECT * FROM project WHERE e_num = #{e_num} AND state = '완료'
+	</select>
+
+	<select id="selectProject" parameterType="java.util.HashMap" resultType="lancer.e_mypage.domain.Project">
+		SELECT * FROM project WHERE e_num = #{e_num} AND e_pr_num = #{e_pr_num}
+	</select>
+	
+	<select id="selectP_job" resultType="Integer">
+		SELECT job_id FROM p_job WHERE e_pr_num = #{e_pr_num}
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
