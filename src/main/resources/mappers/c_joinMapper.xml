@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="lancer.mapper.c_joinMapper">
+	
+	<!-- 프리랜서 -->
+	<select id="getF_num" resultType="int">
+		select nvl(max(f_num),0) from freelancer
+	</select>
+	
+	<insert id="insertF_join" parameterType="F_join">
+		insert into freelancer(
+			f_num, f_id, f_pwd, f_fname, f_name, f_birth, f_sex, 
+			f_hphone, f_phone, f_email, f_address, f_major, f_nowstate,
+			f_recentlogin, f_score
+		 )
+		values(
+			#{f_num}, #{f_id}, #{f_pwd}, #{f_fname}, #{f_name}, #{f_birth}, 
+			#{f_sex}, #{f_hphone}, #{f_phone}, #{f_email}, #{f_address}, 
+			#{f_major}, #{f_nowstate}, #{f_recentlogin}, #{f_score}
+		)
+	</insert>
+	
+	<insert id="insertF_Job" parameterType="F_job">
+		insert into f_job values(
+		#{f_num}, #{job_id}
+		)
+	</insert>
+	
+	<select id="getAllF_Id" resultType="String">
+		select f_id from freelancer
+	</select>
+	
+	
+	<!-- 기업 -->
+		<select id="getE_num" resultType="Integer">
+		select max(e_num) from enterprise
+	</select>
+	
+	<insert id="insertE_join" parameterType="E_join">
+		insert into enterprise(
+			e_num, e_id , e_pwd, e_mail, e_name, e_ename, e_owner, e_score,
+			e_ownerfile, e_regno, e_phone, e_bf, manager_name, manager_hphone,
+			manager_mail, e_address, e_homepage, start_year, e_enum, 
+			e_listing, e_capital, e_sales, e_scale, e_licensefile, e_check
+		 )
+		values(			
+			#{e_num}, #{e_id}, #{e_pwd}, #{e_mail}, #{e_name}, 
+			#{e_ename}, #{e_owner}, #{e_score}, #{e_ownerfile}, #{e_regno}, 
+			#{e_phone}, #{e_bf}, #{manager_name}, #{manager_hphone},
+			#{manager_mail}, #{e_address}, #{e_homepage}, #{start_year}, 
+			#{e_enum}, #{e_listing}, #{e_capital}, #{e_sales}, #{e_scale}, 
+			#{e_licensefile}, #{e_check} 
+		)
+	</insert>
+
+	<select id="getAllE_Id" resultType="String">
+		select e_id from enterprise
+	</select>
+	
+	</mapper>
+
