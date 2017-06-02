@@ -46,12 +46,11 @@ public class e_insertprojectController{
 	}
 	
 	@RequestMapping(value = "/e_insertproject", method = RequestMethod.POST)
-	public String insertprojectPOST(E_Insert project, HttpSession session, Model model, Map<String, Integer> map,
-			@ModelAttribute("p_location1") String p_location1, @ModelAttribute("p_location2") String p_location2,@ModelAttribute("check") String check[]) throws Exception{
+	public String insertprojectPOST(HttpServletRequest request,E_Insert project, HttpSession session, Model model, Map<String, Integer> map,
+			@ModelAttribute("p_location1") String p_location1, @ModelAttribute("p_location2") String p_location2) throws Exception{
 		
 		model.addAttribute("project", session.getAttribute("project"));
 	
-		System.out.println(p_location1+p_location2+"주소야");
 		project.setP_location(p_location1+p_location2);
 		int e_pr_num = service.getnum()+1;
 		map.put("e_pr_num", e_pr_num);
@@ -60,9 +59,8 @@ public class e_insertprojectController{
 
 		model.addAttribute("map", session.getAttribute("map"));
 		
+		String check[] = request.getParameterValues("check");
 		
-		
-		System.out.println(check.length+"사이즈");
 		for(int i=0;i<check.length;i++)
 		{
 			if(map.get("job_id") == null){
@@ -70,7 +68,6 @@ public class e_insertprojectController{
 			}else{
 				map.replace("job_id", Integer.parseInt(check[i]));
 			}
-			System.out.println(map);
 			service.insertP_Job(map);
 		}
 
