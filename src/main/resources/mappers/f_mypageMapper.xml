@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="lancer.mapper.f_mypageMapper">
+
+    <select id="showFreelancerInfo" resultType="Freelancer" parameterType="int">
+		select * from freelancer where f_num = #{f_num}
+	</select>
+  	
+  	<select id="showFreelancerJobInfo" resultType="Integer" parameterType="int">
+		select job_id from f_job where f_num = #{f_num}
+	</select> 
+	
+	<update id="updateFreelancerInfo" parameterType="Freelancer">
+		update freelancer set f_pwd = #{f_pwd}, f_name =#{f_name}, f_birth = #{f_birth},
+		f_sex = #{f_sex}, f_hphone = #{f_hphone}, f_phone = #{f_phone}, f_email = #{f_email},
+		f_address = #{f_address} where f_num = #{f_num}
+	</update>
+	
+	<delete id="deleteFreelancerJobInfo" parameterType="int">
+		delete from f_job where f_num = #{f_num}
+	</delete>
+	
+	<insert id="insertFreelancerJobInfo" parameterType="F_job">
+		insert into f_job values(#{f_num}, #{job_id})
+	</insert>
+	
+	<select id="getFreelancerPassword" parameterType="int" resultType="String">
+		select f_pwd from freelancer where f_num = #{f_num}
+	</select>
+	
+	<select id="showCareerInfo" parameterType="int" resultType="Career">
+		select * from career where f_num = #{f_num}
+	</select>
+	
+	<select id="getCareerNum" resultType="int">
+		select nvl(max(career_num), 0) from career
+	</select>
+	
+	<insert id="insertCareer" parameterType="Career">
+		insert into career values(#{career_num}, #{f_num}, #{company}, #{dept}, #{rank}, #{career_term}, #{career_location})
+	</insert>
+	
+	<update id="updateCareer" parameterType="Career">
+		update career set company = #{company}, dept = #{dept}, rank = #{rank}, career_term = #{career_term}, career_location = #{career_location} where career_num = #{career_num}
+	</update>
+	
+	<delete id="deleteCareer" parameterType="int">
+		delete from career where career_num = #{career_num}
+	</delete>
+	
+	<select id="showSchoolInfo" parameterType="int" resultType="School">
+		select * from school where f_num = #{f_num}
+	</select>
+	
+	<select id="getSchoolNum" resultType="int">
+		select nvl(max(school_num), 0) from school
+	</select>
+	
+	<insert id="insertSchool" parameterType="School">
+		insert into school values(#{school_num}, #{f_num}, #{school_name}, #{major}, #{school_term}, #{school_location})
+	</insert>
+	
+	<update id="updateSchool" parameterType="School">
+		update school set school_name=#{school_name}, major = #{major}, school_term = #{school_term}, school_location = #{school_location} where school_num = #{school_num}
+	</update>
+	
+	<delete id="deleteSchool" parameterType="int">
+		delete from school where school_num = #{school_num}
+	</delete>
+	
+	<select id="showCertiInfo" parameterType="int" resultType="Certificate">
+		select * from certificate where f_num = #{f_num}
+	</select>
+	
+	<select id="getCertiNum" resultType="int">
+		select nvl(max(certificate_num), 0) from certificate
+	</select>
+	
+	<insert id="insertCerti" parameterType="Certificate">
+		insert into certificate values(#{certificate_num}, #{f_num}, #{certificate_name}, #{organization}, #{accept_date})
+	</insert>
+	
+	<update id="updateCerti" parameterType="Certificate">
+		update certificate set certificate_name=#{certificate_name}, organization=#{organization}, accept_date = #{accept_date} where certificate_num = #{certificate_num}
+	</update>
+		
+	<delete id="deleteCerti" parameterType="int">
+		delete from certificate where certificate_num = #{certificate_num}
+	</delete>
+	
+	<select id="getMyProjectName" parameterType="int" resultType="String">
+		select p_name from sign_project sp, f_project_request fpr, e_request_project erp 
+		where sp.E_PR_NUM = fpr.F_PR_NUM and sp.E_PR_NUM=erp.E_PR_NUM and fpr.f_num = #{f_num} and sp.state='진행중'
+	</select>
+	
+	<select id="getMySchedule" parameterType="int" resultType="Calendar">
+		select * from calendar where f_num = #{f_num}
+	</select>
+	
+	<select id="getApplyProject" parameterType="int" resultType="ApplyProject">
+		select con.c_num, pro.p_name, e.manager_hphone, con.c_request_date, con.state from project pro, contract con, enterprise e 
+		where pro.e_pr_num = con.e_pr_num and pro.e_num = e.e_num and con.state='지원 중' and con.f_num = #{f_num}
+		
+	</select>
+	
+	<delete id="deleteApplyProject" parameterType="int">
+		delete from contract where c_num = #{c_num}
+	</delete>
+
+	<select id="getTemp" resultType="Date">
+		select p_startdate from e_request_project where e_pr_num = 1 
+	</select>
+  
+</mapper>  
+
+
+
+
+
+
+
+
+
+
