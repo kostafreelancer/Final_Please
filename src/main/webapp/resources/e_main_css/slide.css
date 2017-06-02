@@ -1,0 +1,47 @@
+.main_slide {
+	border: 1px solid lightgray; /* 추후 삭제 */
+	height: 425px;
+	min-width: 960px;
+	overflow: hidden;
+	position: relative;
+	/*   background-color: gray; */
+	/*  margin-top: 100px; */
+}
+
+.slideshow_images {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+.slideshow_images .slide {
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+}
+
+.slideshow_images .slide img {
+	left: 50%;
+	margin-left: -800px;
+	position: absolute;
+}
+
+.slideshow_images {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+.slideshow_images .slide {
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+}
+
+.slideshow-slides .slide img {
+	left: 50%;
+	margin-left: -800px;
+	position: absolute;
+}

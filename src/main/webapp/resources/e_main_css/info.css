@@ -1,0 +1,35 @@
+.tab{
+	
+}
+
+button{
+	border:1px solid #f1f1f1;
+	width:50%;
+	height:50px;
+	float:left;
+	font-weight:bold;
+	font-size:18px;
+}
+
+button.active{
+	background-color:#ccc;
+}
+
+#Project{
+	display:none;
+}
+
+.tabcontent{
+	overflow:hidden;
+	border:1px solid lightgray;
+}
+
+.content{
+	margin-left:150px;
+}
+
+.e_main_content_ul li {
+	display: inline-block;
+	list-style-type: none;
+	padding: 15px;
+}
