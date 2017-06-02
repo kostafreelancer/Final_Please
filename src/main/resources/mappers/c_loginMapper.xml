@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="lancer.mappers.c_loginMapper">
+	<select id = "select_f_login" parameterType="c_loginVO" resultType="c_login_freelancerVO">
+		select * from freelancer
+						where f_id = #{c_id} and f_pwd = #{pwd}
+	</select>
+
+	<select id = "select_e_login" parameterType="c_loginVO" resultType="c_login_enterpriseVO">
+		select * from enterprise
+						where e_id = #{c_id} and e_pwd = #{pwd}
+	</select> 
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
