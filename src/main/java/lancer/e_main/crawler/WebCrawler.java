@@ -7,7 +7,7 @@ public class WebCrawler {
 	Document doc = Jsoup.connect("http://en.wikipedia.org/").get();  
 	Elements newsHeadlines = doc.select("#mp-itn b a");
 	*/
-	List<String> list = new 
+/*	List<String> list = new 
 	   try {
            URL url = new URL("크롤링할URL");
         
@@ -22,5 +22,5 @@ public class WebCrawler {
            e.printStackTrace();
         }finally{
            System.out.println("완료");
-        }
+        }*/
 }
