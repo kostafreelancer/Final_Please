@@ -13,7 +13,6 @@ import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.Freelancer;
 import lancer.f_mypage.domain.School;
-import oracle.net.aso.f;
 
 @Repository
 public class F_MypageDAO {
