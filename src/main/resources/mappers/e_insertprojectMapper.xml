@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="lancer.mappers.e_insertprojectMapper">
+
+<select id="getnum" resultType="int">
+		select nvl(max(e_pr_num),0) from project
+	</select>
+	
+	<insert id="insertProject" parameterType="E_Insert">
+		insert into project(
+		e_pr_num,e_num,p_name, p_content,p_lowerAge, p_upperAge,p_academic,p_requireNum,p_regDate,p_exDate,p_lowerCost,p_upperCost,p_startDate,p_endDate,p_location,p_experience
+		)
+		values(
+		#{e_pr_num}, #{e_num}, #{p_name}, #{p_content}, #{p_lowerAge}, #{p_upperAge},#{p_academic},#{p_requireNum}, SYSDATE, #{p_exDate},#{p_lowerCost},#{p_upperCost},#{p_startDate},#{p_endDate},#{p_location},#{p_experience}	<!-- #변수명# 으로 사용. -->
+		)
+	</insert>
+	
+	<insert id="insertP_Job" parameterType="java.util.HashMap">
+		insert into p_job(
+		e_pr_num, job_id
+		)
+		values(
+		#{e_pr_num}, #{job_id}
+		)
+	</insert>
+	
+
+
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
