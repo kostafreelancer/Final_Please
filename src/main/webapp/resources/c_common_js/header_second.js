@@ -6,12 +6,43 @@ $(window).load(function() {
 		$('.login_checking a').text("로그 아웃");
 		$('.header_join').hide();
 	}
-	$('.login_checking a').click(function(){
+	$('.login_checking a').click(function(event){
+		event.preventDefault();
 		if($('.login_checking a').text() === "로그 아웃"){
+			
 			$('.login_checking a').text("로그인");
 			$('.header_welcome_content span').text("");
-			alert("우와");
-			self.location = "/c_login/logout";
+			var url = location.pathname;
+			alert(url+"이거 보내면 될려나?");
+			 $.ajax({
+					type:'POST',
+					url:'/c_login/logout',
+					headers: { 
+					      "Content-Type": "application/json",
+					      "X-HTTP-Method-Override": "POST" },
+					data:JSON.stringify({url:url}), 
+					dataType:'text', 
+					success:function(result){
+						console.log("result: " + result);
+						if(result == 'SUCCESS'){
+							alert("페이지가 이동이 됫나?");
+						}
+				}});
+		}else{
+			alert(url+"이거 보내면 될려나?");
+			 $.ajax({
+					type:'GET',
+					url:'/c_login/login',
+					headers: { 
+					      "Content-Type": "application/json",
+					      "X-HTTP-Method-Override": "GET" },
+					dataType:'text', 
+					success:function(result){
+						console.log("result: " + result);
+						if(result == 'SUCCESS'){
+							alert("페이지가 이동이 됫나?");
+						}
+				}});
 		}
 	});
 

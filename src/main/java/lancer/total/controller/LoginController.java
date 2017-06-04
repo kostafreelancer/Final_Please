@@ -11,14 +11,17 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.support.RequestPartServletServerHttpRequest;
 
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import lancer.c_login.domain.c_loginVO;
 import lancer.c_login.domain.c_login_enterpriseVO;
 import lancer.c_login.domain.c_login_freelancerVO;
+import lancer.c_login.domain.c_login_url;
 import lancer.c_login.domain.checking_identity;
 import lancer.f_mypage.domain.Freelancer;
 import lancer.total.service.c_loginService;
@@ -32,8 +35,9 @@ public class LoginController {
 	c_loginService service;
 	
 	@RequestMapping(value = "login", method= RequestMethod.GET)
-	public void login(){
-	
+	public String login(HttpServletResponse response) throws IOException{
+		System.out.println("여기왜?");
+		return "/c_login/login";
 	}
 	@RequestMapping(value="loginpost" , method= RequestMethod.GET)
 	public void loginpost(){
@@ -66,13 +70,21 @@ public class LoginController {
 		return "redirect:/c_login/loginpost";
 	}
 	
-	@RequestMapping("/logout")
-	public void logout(HttpServletRequest request, HttpServletResponse response,HttpSession session) throws IOException{
-		String uri = request.getRequestURI();
-		String query = request.getQueryString();
+	@RequestMapping(value="/logout" ,method= RequestMethod.POST )
+	public void logout(HttpServletRequest request, HttpServletResponse response,HttpSession session,@RequestBody c_login_url url) throws IOException{
 		session.invalidate();
-		System.out.println("여기 들어 온거 맞어? 로그아웃으로?");
+		System.out.println(url.getUrl()+"여기가 url주소 ");
+		response.sendRedirect(url.getUrl());
 		
-		response.sendRedirect(uri+query);
+	}
+	
+	@RequestMapping("/exam")
+	public void exam(){
+		
+	}
+	@RequestMapping("/exam1")
+	public void exam1(){
+		System.out.println("exam1들어 오나요?");
+		
 	}
 }
