@@ -92,8 +92,8 @@
 	</delete>
 	
 	<select id="getMyProjectName" parameterType="int" resultType="String">
-		select p_name from sign_project sp, f_project_request fpr, e_request_project erp 
-		where sp.E_PR_NUM = fpr.F_PR_NUM and sp.E_PR_NUM=erp.E_PR_NUM and fpr.f_num = #{f_num} and sp.state='진행중'
+		select p_name from project pro, contract con 
+		where con.e_pr_num = pro.e_pr_num and con.f_num = #{f_num} and con.state=2
 	</select>
 	
 	<select id="getMySchedule" parameterType="int" resultType="Calendar">
