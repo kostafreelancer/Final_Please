@@ -1,0 +1,29 @@
+.star_rating {
+	font-size: 25px;
+	color: #2257ad;
+}
+
+.star_rating a {
+	padding: 5px;
+	font-size: 30px;
+	letter-spacing: 0;
+	display: inline-block;
+	margin-left: 5px;
+	color: #e6e6e6;
+	text-decoration: none;
+}
+
+.star_rating a:first-child {
+	margin-left: 0;
+}
+
+.star_rating a.on {
+	color: #2257ad;
+}
+
+.star_rating a.half {
+	font-size: 30px;
+	background: -webkit-linear-gradient(left, #062ee6, #e6e6e6);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

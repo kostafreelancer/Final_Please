@@ -1,0 +1,227 @@
+a {
+	color: #333;
+}
+
+#nav {
+	height: 40px;
+	background-color: #f7f4f0;
+}
+
+.nav_txt {
+	width: 1000px;
+	margin: 0 auto;
+	padding-top: 0px;
+	color: #333;
+	vertical-align: bottom;
+	font-size: 13px;
+}
+
+.nav_txt a {
+	color: #999;
+	text-align: right;
+	vertical-align: bottom
+}
+
+.nav_txt p {
+	float: right
+}
+
+.padd {
+	padding: 0 3px
+}
+
+section {
+	width: 1000px;
+	margin-top: 50px;
+	margin-left: 300px;
+	margin-right: 50px;
+	font-family: Arial, Helvetica;
+	font-size: small;
+	border: 1px solid #d6d6d6;
+	border-width: 2px 0 1px 0;
+	border-top: solid #d6d6d6;
+}
+
+section a {
+	text-decoration: none;
+}
+
+/* 탭 버튼 */
+#tabs {
+	overflow: hidden;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#tabs li {
+	float: left;
+	margin: 0 .5em 0 0;
+}
+
+#tabs a {
+	position: relative;
+	background: #ddd;
+	background-image: linear-gradient(to bottom, #fff, #d2e0f7);
+	padding: .7em 3.5em;
+	float: left;
+	text-decoration: none;
+	color: #444;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+	border-radius: 5px 0 0 0;
+	-moz-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+	-webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+}
+
+#tabs a:hover, #tabs a:hover::after, #tabs a:focus, #tabs a:focus::after
+	{
+	background: #f5f9fe;
+}
+
+#tabs a:focus {
+	outline: 0;
+}
+
+#tabs a::after {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: -.5em;
+	bottom: 0;
+	width: 1em;
+	background: #ddd;
+	background-image: linear-gradient(to bottom, #fff, #d2e0f7);
+	-moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+	-webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+	-webkit-transform: skew(10deg);
+	-moz-transform: skew(10deg);
+	-ms-transform: skew(10deg);
+	-o-transform: skew(10deg);
+	transform: skew(10deg);
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+	border-radius: 0 5px 0 0;
+}
+
+#tabs #current a, #tabs #current a::after {
+	background: #f5f9fe;
+	z-index: 3;
+}
+
+/*탭 안의 내용 */
+#tcontent {
+	background: #fff;
+	padding: 2em;
+	height: 220px;
+	position: relative;
+	z-index: 2;
+	-moz-border-radius: 0 5px 5px 5px;
+	-webkit-border-radius: 0 5px 5px 5px;
+	border-radius: 0 5px 5px 5px;
+	-moz-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+	-webkit-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+	box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+}
+
+#tcontent h2, #tcontent h3, #tcontent p {
+	margin: 0 0 15px 0;
+}
+
+/* 게시판 */
+section table {
+	border-collapse: collapse;
+	table-layout: fixed;
+	word-break: break-all;
+	padding: 0;
+	margin: 0;
+	display: table;
+	border-spacing: 2px;
+	border-color: gray;
+	line-height: 1.25em;
+}
+
+section th {
+	padding: 15px 20px;
+	border: 1px solid #d6d6d6;
+	border-width: 0 1px 1px 0;
+	font-weight: normal;
+	font-size: 14px;
+	display: table-cell;
+	vertical-align: inherit;
+}
+
+section td {
+	padding: 15px 13px;
+	border-bottom: 1px solid #d6d6d6;
+	font-size: 12px;
+	margin: 0;
+	display: table-cell;
+	vertical-align: inherit;
+}
+
+.tb_st01 {
+	border-top: 2px solid #d6d6d6;
+	table-layout: fixed;
+	word-break: break-all;
+	width: 100%;
+}
+
+.tb_st01 th {
+	padding: 15px 20px;
+	border: 1px solid #d6d6d6;
+	border-width: 0 1px 1px 0;
+	background-color: #f4f4f4;
+	font-weight: normal;
+	font-size: 14px;
+}
+
+.ac {
+	text-align: center !important;
+}
+
+.tb_box {
+	margin-bottom: 30px;
+}
+
+/* 페이지이동버튼 */
+.num_box {
+	text-align: center;
+	margin-bottom: 200px;
+}
+
+.btn_lef {
+	margin-right: 20px;
+}
+
+.btn_lef a, .btn_rit a {
+	height: 25px;
+}
+
+.num_box a {
+	width: 25px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.first {
+	background: #fff url(../e_mypage_img/bg_first.jpg) center 10px no-repeat;
+	text-indent: -9999px;
+	overflow: hidden;
+	border: 1px solid #999;
+	margin-right: -3px;
+}
+
+.num_box .last {
+	background: #fff url(../e_mypage_img/bg_last.jpg) center 10px no-repeat;
+	text-indent: -9999px;
+	overflow: hidden;
+	border: 1px solid #999;
+	margin-right: -3px;
+}
