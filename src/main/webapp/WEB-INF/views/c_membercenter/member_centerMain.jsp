@@ -62,10 +62,52 @@
 					<ul class="ask_text">
 						<li>문의하신 내용의 답변을 확인할 수 있습니다.</li>
 					</ul>
+					
+					<table class="email_table">
+						<tr>
+							<th style="width:10px">작성자</th>
+							<th>문의제목</th>
+							<th>문의날짜</th>
+						</tr>
+					
+					<%-- 	<colgroup>
+						<col style="width: 15%">
+							<col style="width: 35%">
+							<col style="width: 15%">
+							<col style="width: 35%">
+						</colgroup>
+						
+						<tbody>
+						
+							<tr>
+								<th scope="row"><span class="text_star">*</span> <label
+									for="q_name">작성자</label></th>
+								<td colspan="3" class="join">
+								
+								<input type="text"
+									id="fm_name" name="writer" class="wid02"
+									value=<c:choose>
+									<c:when test="${identity.identity == 'freelancer' }">
+										${client.f_name }
+									</c:when>
+									<c:when test="${identity.identity == 'enterprise' }">
+										${client.e_name }
+									</c:when>
+									<c:otherwise>
+									이름을&nbsp;입력해&nbsp;주세요.
+									</c:otherwise>
+								</c:choose>>
+								
+								</td>
+							</tr>
+						</tbody> --%>
+					</table>
+					
+					
 				</div>
 				<div id="tab2">
 
-					<h3>이메일 문의</h3>
+					<h3>1:1문의</h3>
 
 					<ul class="email_text">
 						<li>· 문의하신 내용의 답변이 완료되면 고객님의 이메일로 답변을 보내드립니다.</li>
@@ -92,7 +134,7 @@
 								<td colspan="3" class="join">
 								
 								<input type="text"
-									id="fm_name" name="fm_name" class="wid02"
+									id="fm_name" name="writer" class="wid02"
 									value=<c:choose>
 									<c:when test="${identity.identity == 'freelancer' }">
 										${client.f_name }
@@ -147,13 +189,35 @@
 							<tr>
 								<th scope="row"><span class="text_star">*</span> 제목</th>
 								<td colspan="3" class="join"><input type="text"
-									id="fm_subject" name="title" class="wid"></td>
+									id="asktitle" name="asktitle" class="wid"></td>
 							</tr>
 							<tr>
 								<th scope="row"><span class="text_star">*</span> 내용</th>
 								<td colspan="3" class="join"><textarea id="fm_content"
-										name="content" class="text_area text_area2">
-      					</textarea></td>
+										name="askcontents" class="text_area text_area2">
+      					</textarea>
+      					<input type="hidden" name="f_num" value=<c:choose>
+									<c:when test="${identity.identity == 'freelancer' }">
+										${client.f_num }
+									</c:when>
+									<c:when test="${indentity.identity == 'enterprise' }">
+										${client.e_num }
+									</c:when>
+									
+								</c:choose>>
+      					<input type="hidden" name="e_num" value=<c:choose>
+									<c:when test="${identity.identity == 'freelancer' }">
+										1
+									</c:when>
+								<c:when test="${indentity.identity == 'enterprise' }">
+										${client.e_num }
+									</c:when>
+
+								</c:choose>>
+      					<!-- <input type="hidden" name="asknum" value="1">
+      					<input type="hidden" name="askdate" value="sysdate"> -->
+      					
+      					</td>
 							</tr>
 
 						</tbody>

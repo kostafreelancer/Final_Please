@@ -18,7 +18,7 @@ public class A_MainController {
 	private A_MainService service;
 	
 	@RequestMapping(value = "/a_main", method = RequestMethod.GET)
-	public void e_infoGET(Model model,HttpSession session){
+	public void a_mainGET(Model model,HttpSession session){
 		
 
 		

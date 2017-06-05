@@ -19,7 +19,6 @@ public class E_MypageService{
 	private E_MypageDao dao;
 	
 	public List<Project> listProjectReady(int e_num) throws Exception {
-		System.out.println(e_num + "서비스");
 		return dao.listProjectReady(e_num);
 	}
 	

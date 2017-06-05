@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="lancer.mappers.c_tempMapper">
+
+	<select id="listFreelancer" resultType="lancer.temp.domain.Freelancer">
+		SELECT * FROM freelancer
+	</select>
+	
+	<select id="listEnterprise" resultType="lancer.temp.domain.Enterprise">
+		SELECT * FROM enterprise
+	</select>
+	
+	<select id="listEnterprisePermit" resultType="lancer.temp.domain.Enterprise">
+		SELECT * FROM enterprise WHERE e_check = '미승인'
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
