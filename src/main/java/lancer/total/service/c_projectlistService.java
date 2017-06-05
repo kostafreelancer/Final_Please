@@ -1,0 +1,23 @@
+package lancer.total.service;
+
+import java.util.List;
+
+import lancer.c_projectlist.domain.Criteria;
+import lancer.c_projectlist.domain.SearchCriteria;
+import lancer.e_insertproject.domain.E_Insert;
+
+public interface c_projectlistService {
+
+	List<E_Insert> listAll() throws Exception;
+
+	List<E_Insert> listCriteria(Criteria cri) throws Exception;
+
+	int countPaging(Criteria cri) throws Exception;
+
+	List<E_Insert> listSearch(SearchCriteria cri) throws Exception;
+
+	int listSearchCount(SearchCriteria cri) throws Exception;
+
+	E_Insert read(Integer e_pr_num) throws Exception;
+
+}

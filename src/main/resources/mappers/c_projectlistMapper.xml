@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="lancer.mappers.c_projectlistMapper">
+
+<select id="listAll" resultType="E_Insert"> 
+		<![CDATA[ select e_pr_num, e_num, p_name, p_content, p_lowerAge, p_upperAge,
+			 p_academic, p_requireNum, p_regDate, p_exDate,p_lowerCost, p_upperCost,
+			 p_startDate, p_endDate, p_location, p_experience
+	 							from project
+	 							where e_pr_num > 0 ]]> 
+	 		
+		<![CDATA[ order by e_pr_num desc, p_regdate desc ]]> 
+	</select> 
+	
+	 <!-- <sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and title like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and content like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and writer like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'tc'.toString()">
+				and ( title like '%'|| #{keyword}||'%' OR content like
+				'%'||
+				#{keyword}||'%')
+			</if>
+			<if test="searchType == 'cw'.toString()">
+				and ( content like '%'|| #{keyword}||'%' OR writer like
+				'%'||
+				#{keyword}||'%')
+			</if>
+			<if test="searchType == 'tcw'.toString()">
+				and ( title like '%'|| #{keyword}||'%'
+				OR
+				content like
+				'%'|| #{keyword}||'%'
+				OR
+				writer like '%'|| #{keyword}||'%')
+			</if>
+		</if>
+	</sql> -->
+
+	<select id="read" resultType="E_Insert">
+		select
+		e_pr_num, e_num, p_name, p_content, p_lowerAge, p_upperAge,
+			 p_academic, p_requireNum, p_regDate, p_exDate,p_lowerCost, p_upperCost,
+			 p_startDate, p_endDate, p_location, p_experience
+		from
+		project
+		where e_pr_num = #{e_pr_num}
+	</select> 
+	 
+	<select id="countPaging" resultType="int">
+	<![CDATA[
+		select count(e_pr_num) from project where e_pr_num > 0			
+	]]>
+	
+	<!-- <include refid="search"></include> -->
+	</select>
+	
+	<select id="listSearch" resultType="E_Insert">
+		<![CDATA[
+			select * from project
+			where e_pr_num > 0
+		]]>
+			<!-- <include refid="search"></include> -->
+		<![CDATA[
+			order by e_pr_num desc
+		]]>
+		
+	</select>
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[
+			select count(e_pr_num)
+				from project
+				where e_pr_num > 0
+		]]>
+			<!-- <include refid="search"></include> -->
+	
+	</select>
+	
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

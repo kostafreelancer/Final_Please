@@ -51,7 +51,7 @@ public class e_insertprojectController{
 		
 		model.addAttribute("project", session.getAttribute("project"));
 	
-		project.setP_location(p_location1+p_location2);
+		project.setP_location(p_location1+" "+p_location2);
 		int e_pr_num = service.getnum()+1;
 		map.put("e_pr_num", e_pr_num);
 		project.setE_pr_num(e_pr_num);

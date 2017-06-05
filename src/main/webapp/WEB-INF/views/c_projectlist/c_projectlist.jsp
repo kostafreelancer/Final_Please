@@ -201,44 +201,43 @@
 					<thead>
 						<th scope="col">프로젝트</th>
 						<th scope="col">모집분야</th>
-						<th scope="col">계약기간</th>
-						<th scope="col">근무지</th>
-						<th scope="col">예상금액</th>
-						<th scope="col" class="last">마감일</th>
+						<th scope="col">근무시작일</th>
+						<th scope="col">근무종료일</th>
+						<th scope="col">모집인원</th>
+						<th scope="col" class="last">모집마감일</th>
 					</thead>
 					<tbody>
+					
+					<c:forEach items="${list}" var="E_Insert">
 
 						<tr>
 							<td class="al">
 								<p class="infor_txt"
 									style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
 									<a
-										href="view.php?fm_str=cHJvamVjdGtleT1FMTBJOTYwJnBhZ2U9MSZpbmNyZW1lbnQ9MA==">[등급무관/Unity
-										3D/선릉/7개월] <br> Unity 기반 시뮬레이션용 3D 그래픽 데이터를 생성
+									href='/c_projectlist/c_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&e_pr_num=${E_Insert.e_pr_num}'>
+									[${E_Insert.p_state }/${E_Insert.p_location }/${E_Insert.p_academic }] <br> ${E_Insert.p_name }
 									</a>
 								</p>
 
 								<p class="ell_hidd">
 									<a
-										href="view.php?fm_str=cHJvamVjdGtleT1FMTBJOTYwJnBhZ2U9MSZpbmNyZW1lbnQ9MA==">
-										등급무관/Unity D/선릉/개월 Unity 기반 시뮬레이션용 D 그래픽 데이터를 생성 담당업무  Unity
-										기반 시뮬레이션용 D 그래픽 데이터를 생성하는 일입니다 Unity 엔진으로 만든 시뮬레이션용 가상현실에 들어갈
-										요소를 DS MAX를 이 용하여 모델링 하는 작업 DS Max를 사용하는 캐릭터 배경 모델러 맵핑을 구...</a>
+									href='/c_projectlist/c_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&e_pr_num=${E_Insert.e_pr_num}'>
+										${E_Insert.p_content }</a>
 								</p>
 							</td>
 							<td class="ac">
 								<div class="tb_ball04">UNITY</div>
 							</td>
-							<!-- 2017.02.03 수정
-								<td></td>
-								-->
-							<td>7개월</td>
-							<td>서울<br> 강남구
+							<td>${E_Insert.p_startDate }</td>
+							<td>${E_Insert.p_endDate }<br>
 							</td>
-							<td>가격제안</td>
-							<td class="last finish"><strong>3</strong><span>일후</span></td>
+							<td>${E_Insert.p_requireNum }명</td>
+							<td class="last finish"><strong>${E_Insert.p_exDate }</strong></td>
 						</tr>
-						<tr>
+						</c:forEach>
+						
+						<!-- <tr>
 							<td class="al">
 								<p class="infor_txt"
 									style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
@@ -260,9 +259,9 @@
 							<td class="ac">
 								<div class="tb_ball05">REACT.JS</div>
 							</td>
-							<!-- 2017.02.03 수정
+							2017.02.03 수정
 								<td></td>
-								-->
+								
 							<td>3.0개월</td>
 							<td>서울 <br>강남구
 							</td>
@@ -292,9 +291,9 @@
 							<td class="ac">
 								<div class="tb_ball06">C#</div>
 							</td>
-							<!-- 2017.02.03 수정
+							2017.02.03 수정
 								<td></td>
-								-->
+								
 							<td>5개월</td>
 							<td>경기 <br>화성시
 							</td>
@@ -323,9 +322,9 @@
 							<td class="ac">
 								<div class="tb_ball03">PM</div>
 							</td>
-							<!-- 2017.02.03 수정
+							2017.02.03 수정
 								<td></td>
-								-->
+								
 							<td>4.5개월</td>
 							<td>서울<br>용산구
 							</td>
@@ -352,9 +351,9 @@
 							<td class="ac">
 								<div class="tb_ball06">C</div>
 							</td>
-							<!-- 2017.02.03 수정
+							2017.02.03 수정
 								<td></td>
-								-->
+								
 							<td>1개월</td>
 							<td>서울<br>금천구
 							</td>
@@ -382,9 +381,9 @@
 							<td class="ac">
 								<div class="tb_ball02">퍼블리싱</div>
 							</td>
-							<!-- 2017.02.03 수정
+							2017.02.03 수정
 								<td></td>
-								-->
+								
 							<td>3개월</td>
 							<td>서울<br>용산구
 							</td>
@@ -412,9 +411,9 @@
 							<td class="ac">
 								<div class="tb_ball05">JAVA</div>
 							</td>
-							<!-- 2017.02.03 수정
+							2017.02.03 수정
 								<td></td>
-								-->
+								
 							<td>3개월</td>
 							<td>서울<br>강남구
 							</td>
@@ -443,9 +442,9 @@
 							<td class="ac">
 								<div class="tb_ball04">자바스크립트</div>
 							</td>
-							<!-- 2017.02.03 수정
+							2017.02.03 수정
 								<td></td>
-								-->
+								
 							<td>3개월</td>
 							<td>서울<br>영등포구
 							</td>
@@ -471,9 +470,9 @@
 							<td class="ac">
 								<div class="tb_ball05">JAVA</div>
 							</td>
-							<!-- 2017.02.03 수정
+							2017.02.03 수정
 								<td></td>
-								-->
+								
 							<td>4개월</td>
 							<td>서울<br>송파구
 							</td>
@@ -501,31 +500,53 @@
 							<td class="ac">
 								<div class="tb_ball02">모바일</div>
 							</td>
-							<!-- 2017.02.03 수정
+							2017.02.03 수정
 								<td></td>
-								-->
+								
 							<td>1개월</td>
 							<td>서울<br>강남구
 							</td>
 							<td>400 만원</td>
 							<td class="last finish"><strong>3</strong><span>일후</span></td>
 						</tr>
-						<tr>
-
-						</tr>
+					
+ -->
+				
 					</tbody>
 				</table>
 			</div>
-			<!-- //tb_box : e -->
+			
 			<div class="num_box">
-				<span class="btn_lef"> <a href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0xJmluY3JlbWVudD0w#Member_list');"
-					class="first" alt="처음으로"></a></span><a class="on">1</a><a href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0yJmluY3JlbWVudD0w#Member_list');">2</a><a
-					href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0zJmluY3JlbWVudD0w#Member_list');">3</a><a
-					href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT00JmluY3JlbWVudD0w#Member_list');">4</a><a
+						<ul class="pagination">
+
+							<c:if test="${pageMaker.prev}">
+								<li><a
+									href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+							</c:if>
+
+							<c:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="list${pageMaker.makeSearch(idx)}">${idx}</a>
+								</li>
+							</c:forEach>
+
+							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+							</c:if>
+
+						</ul>
+					</div>
+			<!-- //tb_box : e -->
+			<!-- <div class="num_box">
+				<span class="btn_lef"> 
+				<a href="#" onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0xJmluY3JlbWVudD0w#Member_list');" class="first" alt="처음으로"></a></span>
+				<a class="on">1</a><a href="#" onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0yJmluY3JlbWVudD0w#Member_list');">2</a>
+				<a href="#" onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0zJmluY3JlbWVudD0w#Member_list');">3</a>
+				<a href="#" onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT00JmluY3JlbWVudD0w#Member_list');">4</a>
+				<a
 					href="#"
 					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT01JmluY3JlbWVudD0w#Member_list');">5</a><a
 					href="#"
@@ -543,7 +564,7 @@
 					class="next" alt="다음 페이지"></a><a href="#"
 					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0zMjMmaW5jcmVtZW50PTMy#Member_list');"
 					class="last" alt="마지막으로"></a> </span>
-			</div>
+			</div> -->
 		</div>
 		<!-- //content : e  -->
 
