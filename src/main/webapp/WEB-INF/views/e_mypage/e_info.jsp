@@ -344,7 +344,7 @@
 	</div>
 
 	<div class="btn_box mb30 mb02">
-		<input type="submit" class="btn_check06" id="checkValue" value="수정하기">
+		<button class="btn_check06" id="checkValue">수정하기</button>
 	</div>
 	
 	</form>

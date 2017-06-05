@@ -6,7 +6,17 @@
 
 <mapper namespace="lancer.mappers.a_mainMapper">
 
-
+	<select id="listFreelancer" resultType="lancer.temp.domain.Freelancer">
+		SELECT * FROM freelancer
+	</select>
+	
+	<select id="listEnterprise" resultType="lancer.temp.domain.Enterprise">
+		SELECT * FROM enterprise
+	</select>
+	
+	<select id="listEnterprisePermit" resultType="lancer.temp.domain.Enterprise">
+		SELECT * FROM enterprise WHERE e_check = '미승인'
+	</select>
 
 </mapper>
 
