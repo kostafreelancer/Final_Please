@@ -76,10 +76,10 @@ $(function(){
 	<div id="content">
 		
 		<div id="tab1">
-			<form name="updateForm" method="post" action="updateFreelancerInfo.f_mypage" onsubmit="return check();">
-			<input type="text" hidden name="f_num" value="${client.f_num}">
-			<input type="text" hidden id="pwd_error" name="pwd_error" value="${pwd_error}">
-			<div class="tb_box">
+			<form name="updateForm" method="post" action="updateInfo" onsubmit="return check();">
+			<input type="text" name="f_num" value="${client.f_num}">
+		 	<input type="text" id="pwd_error" name="pwd_error" value="${pwd_error}"> 
+		<div class="tb_box">
 				<h4>아이디 및 비밀번호</h4>
 				<table class="tb_st01">
 					
@@ -112,7 +112,7 @@ $(function(){
 				</table>
 			</div>
 
-			<div class="tb_box">
+			 <div class="tb_box">
 				<div class="ct overf">
 					<h4 class="fl">개인정보</h4>
 				</div>
@@ -291,9 +291,9 @@ $(function(){
 						</tr>
 					</tbody>
 				</table>
-			</div>
+			</div> 
 
-			<div class="tb_box">
+			<%-- <div class="tb_box">
 				<h4>현황정보</h4>
 				<table class="tb_st01">
 					<caption></caption>
@@ -491,7 +491,7 @@ $(function(){
 
 					</tbody>
 				</table>
-			</div>
+			</div> --%>
 			<div class="btn_box mb30 mb02">
 				<input type="submit" value="수정하기">
 				<input type="reset" value="초기화">
@@ -624,9 +624,9 @@ $(function(){
 							<td>${myschool.major}</td>
 							<td>${myschool.school_term}</td>
 							<td>${myschool.school_location}</td>
-							<td class="last"><input type="button" value="수정" onclick="modifySchool(${myschool.school_num});">&nbsp;&nbsp;<input
-								type="button" value="삭제" onclick="deleteSchool(${myschool.school_num});"></td>
-
+							<td class="last">
+							<input type="button" value="수정" onclick="modifySchool(${myschool.school_num});">&nbsp;&nbsp;
+							<input type="button" value="삭제" onclick="deleteSchool(${myschool.school_num});"></td>
 						</tr>
 						</form>
 					</c:forEach>
