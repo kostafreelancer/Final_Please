@@ -19,11 +19,11 @@ public class c_memberCenterEmailController {
 	@Autowired
 	private JavaMailSender mailSender;
 	
-	@RequestMapping(value="/member_centerMain", method=RequestMethod.GET)
+	/*@RequestMapping(value="/member_centerMain", method=RequestMethod.GET)
 	public void getMailSending(){
 		System.out.println("^^");
 	}
-	
+	*/
 	/*@RequestMapping(value="/member_centerMain", method=RequestMethod.POST)
 	public String mailSending(HttpServletRequest request){
 		
@@ -54,7 +54,7 @@ public class c_memberCenterEmailController {
 		return "redirect:/c_membercenter/member_centerMain";
 	}*/
 	
-	@RequestMapping(value="/member_centerMain", method=RequestMethod.POST)
+	/*@RequestMapping(value="/member_centerMain", method=RequestMethod.POST)
 	public void sendEmailAction(HttpServletRequest request) throws Exception {
         // 메일 내용을 작성한다
         SimpleMailMessage msg = new SimpleMailMessage();
@@ -90,6 +90,6 @@ public class c_memberCenterEmailController {
             // 적절히 처리
         }
         
-    }
+    }*/
 
 }
