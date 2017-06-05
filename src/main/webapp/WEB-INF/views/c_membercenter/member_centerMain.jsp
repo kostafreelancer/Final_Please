@@ -227,18 +227,24 @@
 										${client.f_num }
 									</c:when>
 									<c:when test="${indentity.identity == 'enterprise' }">
-										0
+										${client.e_num }
 									</c:when>
+									<c:otherwise>
+									 0
+									</c:otherwise>
 									
 								</c:choose>>
 										<input type="hidden" name="e_num"
 										value=<c:choose>
 									<c:when test="${identity.identity == 'freelancer' }">
-										0
+										${client.f_num }
 									</c:when>
 								<c:when test="${indentity.identity == 'enterprise' }">
 										${client.e_num }
 									</c:when>
+									<c:otherwise>
+									 0
+									</c:otherwise>
 
 								</c:choose>>
 										<!-- <input type="hidden" name="asknum" value="1">
@@ -262,8 +268,7 @@
 						</p>
 						<p class="email_send">
 							<!-- <a href="#" class="email_btn">작성완료</a> -->
-							<input type="submit" value="작성완료" class="btn"
-								<%-- name="/c_membercenter/member_centerMain?f_num=${client.f_num }" --%>>
+							<input type="submit" value="작성완료" class="btn">
 
 						</p>
 					</form>

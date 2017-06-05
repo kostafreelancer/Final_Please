@@ -29,15 +29,24 @@ public class c_membercenterASKController {
 	}*/
 	
 	@RequestMapping(value="/member_centerMain", method = RequestMethod.POST)
-	public String insertAskPOST(MembercenterASKVO vo, Model model) throws Exception{
+	public String insertAskPOST(MembercenterASKVO vo, Model model, HttpSession session) throws Exception{
 		System.out.println("문의POST");
 		
-		System.out.println(vo.toString());
-		service.insertAsk(vo);
 		
-		model.addAttribute("f_num", vo.getF_num());
+		String check = (String) session.getAttribute("f_num");
+		
+		if(check.equals("f_num")){
+			service.insertAsk(vo);
+			model.addAttribute("f_num", vo.getF_num());
+		}else if(check.equals("e_num")){
+			service.insertAsk(vo);
+			model.addAttribute("e_num", vo.getE_num());
+		}
+		
+		/*model.addAttribute("f_num", vo.getF_num());*/
 		
 		return "redirect:/c_membercenter/member_centerMain";
+		
 	}
 	
 
