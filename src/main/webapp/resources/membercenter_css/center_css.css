@@ -1,0 +1,377 @@
+/* tab */
+#tabs {
+	overflow: hidden;
+	width: 400px;
+	margin-left: 300px;
+	padding: 0px;
+	list-style: none;
+}
+
+#tabs li {
+	float: left;
+	margin: 0 .5em 0 0;
+}
+
+#tabs a {
+	padding-left: 50px;
+	position: relative;
+	background: #ddd;
+	/*  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+  background-image: -webkit-linear-gradient(top, #fff, #ddd);
+  background-image: -moz-linear-gradient(top, #fff, #ddd);
+  background-image: -ms-linear-gradient(top, #fff, #ddd);
+  background-image: -o-linear-gradient(top, #fff, #ddd);
+  background-image: linear-gradient(to bottom, #fff, #ddd); */
+	padding: .7em 3.5em;
+	float: left;
+	text-decoration: none;
+	color: #444;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+	border-radius: 5px 0 0 0;
+	-moz-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+	-webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+}
+
+#tabs a:hover, #tabs a:hover::after, #tabs a:focus, #tabs a:focus::after
+	{
+	background: #fff;
+}
+
+#tabs a:focus {
+	outline: 0;
+}
+
+#content {
+	margin-bottom: 100px;
+}
+
+#tabs a::after {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: -.5em;
+	bottom: 0;
+	width: 1em;
+	background: #ddd;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff),
+		to(#ddd));
+	background-image: -webkit-linear-gradient(top, #fff, #ddd);
+	background-image: -moz-linear-gradient(top, #fff, #ddd);
+	background-image: -ms-linear-gradient(top, #fff, #ddd);
+	background-image: -o-linear-gradient(top, #fff, #ddd);
+	background-image: linear-gradient(to bottom, #fff, #ddd) -moz-box-shadow:
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		 2px 2px 2px rgba(0, 0, 0, .4);
+	-webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+	-webkit-transform: skew(10deg);
+	-moz-transform: skew(10deg);
+	-ms-transform: skew(10deg);
+	-o-transform: skew(10deg);
+	transform: skew(10deg);
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+	border-radius: 0 5px 0 0;
+}
+
+#tabs #current a, #tabs #current a::after {
+	background: #fff;
+	z-index: 3;
+}
+
+/* ------------------------------------------------- */
+#content div {
+	background: #fff;
+	width: 1000px;
+	/*    margin-left : 300px; */
+	padding-left: 50px;
+	padding-top: 70px;
+	height: 100%;
+	position: relative;
+	z-index: 2;
+	-moz-border-radius: 0 5px 5px 5px;
+	-webkit-border-radius: 0 5px 5px 5px;
+	border-radius: 0 5px 5px 5px;
+	-moz-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+	-webkit-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+	box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+	background-image: url(../lancer_imgs/bg_content01.jpg);
+	margin-bottom: 100px;
+}
+
+#content h2, #content h3 {
+	margin: 0 0 15px 0;
+}
+
+/* ------------------------------------------------- */
+#about {
+	color: #999;
+}
+
+#about a {
+	color: #eee;
+}
+/* tab */
+* {
+	/*    font-size:10px; */
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+h1 {
+	margin: 20px 0;
+	text-align: center;
+}
+
+.tab {
+	width: 900px;
+	margin: 0 auto;
+}
+
+.tab .tit {
+	border-top: 1px solid #ccc;
+	/* margin-bottom:0px; */
+	margin-top: 5px;
+}
+
+.tab .tit a {
+	display: block;
+	padding: 10px 20px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.tab .tab_con {
+	background: url(../membercenter_img/a_img.jpg) no-repeat;
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin-bottom: 15px;
+	height: 300px;
+	display: none;
+	border: 1px solid #ccc;
+}
+
+.tit {
+	font-size: 20px;
+	font-weight: normal;
+	margin-bottom: 30px;
+}
+
+.tit a {
+	background: url(../membercenter_img/q_img.jpg) no-repeat 18px 50%;
+	padding: 10px 0 10px 57px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#member_nav {
+	height: 40px;
+	background-color: #f7f4f0;
+}
+
+.nav_txt {
+	width: 1000px;
+	margin: 0 auto;
+	padding-top: 15px;
+	color: #999;
+	vertical-align: bottom
+}
+
+.nav_txt a {
+	color: #999;
+	text-align: right;
+	vertical-align: bottom
+}
+
+.nav_txt p {
+	float: right
+}
+
+.padd {
+	padding: 0 3px
+}
+
+.tit_box {
+	padding: 50px 0 40px 200px;
+	clear: both;
+	overflow: hidden;
+	border-bottom: 1px solid #d6d6d6;
+	margin-bottom: 50px
+}
+
+.tit_box h2 {
+	font-size: 36px;
+	color: #2257ad;
+	float: left;
+	line-height: 36px;
+	margin-right: 25px
+}
+
+.tit_txt {
+	float: left;
+	color: #333;
+	font-size: 16px;
+	line-height: 22px
+}
+
+.tit_txt span {
+	color: #999;
+	font-size: 12px;
+	display: block
+}
+
+#tab2>h3 {
+	padding: 30px 0 10px 0;
+	clear: both;
+	font-size: 20px;
+	border-bottom: 1px solid #d6d6d6;
+	overflow: hidden;
+	margin-bottom: 20px;
+	color: #2257ad;
+	line-height: 25px;
+}
+
+#tab1>h3 {
+	padding: 30px 0 10px 0;
+	clear: both;
+	font-size: 20px;
+	border-bottom: 1px solid #d6d6d6;
+	overflow: hidden;
+	margin-bottom: 20px;
+	color: #2257ad;
+	line-height: 25px;
+}
+
+
+.email_text {
+	font-size: 14px;
+	line-height: 24px;
+	margin-bottom: 20px;
+	display: inline;
+	border-bottom: 1px solid #d6d6d6;
+	
+}
+
+.ask_text {
+	font-size: 14px;
+	line-height: 24px;
+	margin-bottom: 20px;
+	display: inline;
+	border-bottom: 1px solid #d6d6d6;
+	
+}
+
+.must {
+	margin-left: 70%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.color_or {
+	color: #f05922;
+}
+
+/* 이메일문의 입력 */
+.email_table {
+	border-top: 2px solid #d6d6d6;
+	width: 100%
+}
+
+.email_table th {
+	padding: 15px 20px;
+	border: 1px solid #d6d6d6;
+	border-width: 0 1px 1px 0;
+	font-size: 14px;
+	background-color: #f4f4f4;
+	text-align: left;
+	font-weight: normal;
+	font-size: 14px;
+}
+
+.email_table td {
+	padding: 15px 13px;
+	border-bottom: 1px solid #d6d6d6;
+	font-size: 12px;
+}
+
+.text_star {
+	color: #f36a33;
+	margin-bottom: 10px;
+	font-family: 'NanumGothic_b';
+}
+
+
+.text_area {
+	height: 770px;
+	width: 90%;
+	padding: 15px;
+	line-height: 26px;
+	font-size: 14px;
+	text-align: left;
+	color: #666
+}
+
+.text_area2 {
+	height: 135px;
+}
+
+.wid {
+	width: 100%;
+}
+
+.text_box {
+	background-color: #f4f4f4;
+	padding: 25px;
+	border: 1px solid #d6d6d6;
+	font-size: 14px;
+	line-height: 25px;
+	margin-top: 10px
+}
+
+.ok_q {
+	float: right;
+	margin-top: 15px
+}
+
+.ok_q input {
+	vertical-align: middle;
+	margin-right: 5px
+}
+
+.ok_q label {
+	vertical-align: middle;
+	font-size: 14px
+}
+
+.email_btn {
+	width: 95px;
+	padding: 17px 0 20px 0;
+	display: inline-block;
+	font-size: 20px;
+	text-align: left;
+	line-height: 20px;
+	background: url(../FAQ/bg_btn_ok.jpg) no-repeat;
+	color: #fff;
+	padding-left: 50px;
+	margin-left: 45%;
+	margin-top: 70px;
+}
+

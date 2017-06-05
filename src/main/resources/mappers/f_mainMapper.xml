@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="lancer.mappers.f_mainMapper">
+	<cache />
+	
+	<select id="getF_info" resultType="member">
+		
+		 select f_name<!-- , f_sex, f_email, f_major, f_recentlogin --> from freelancer 
+		
+	</select>
+	
+	<select id="countFreelancer" resultType="int">
+		select count(*) from freelancer 
+	</select>
+	
+	<select id="countProject" resultType="int">
+		select count(*) from project
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
