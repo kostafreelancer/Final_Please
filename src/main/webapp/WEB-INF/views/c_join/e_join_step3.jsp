@@ -35,7 +35,7 @@
 
 </head>
 <body>
-<%-- <%@include file="../c_common/header.jsp" %> --%>
+<%@include file="../c_common/header.jsp" %>
 
 	<div id="conainer">
 		<div id="nav">
@@ -365,6 +365,6 @@
 </form>
 
 
-<%-- <%@include file="../c_common/footer.jsp" %> --%>
+<%@include file="../c_common/footer.jsp" %>
 </body>
 </html>

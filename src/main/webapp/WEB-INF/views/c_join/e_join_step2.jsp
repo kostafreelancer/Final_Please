@@ -15,7 +15,7 @@
 <script type="text/javascript" src="../../../resources/c_join_js/e_join_step2.js"></script>
 </head>
 <body>
-<%-- <%@include file="../c_common/header.jsp" %> --%>
+<%@include file="../c_common/header.jsp" %>
 
     <div  id="conainer">
     	<div id="nav">
@@ -919,6 +919,6 @@ kr)를 통하여 제공하는 e-marketplace서비스(이하“서비스”라고
 
 	<!-- //wrap : e -->
 
-<%-- <%@include file="../c_common/footer.jsp" %> --%>
+<%@include file="../c_common/footer.jsp" %>
 </body>
 </html>

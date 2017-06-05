@@ -23,7 +23,7 @@ public class C_JoinServiceImpl implements C_JoinService{
 	}
 
 	@Override
-	public int getF_num() throws Exception {
+	public Integer getF_num() throws Exception {
 		return dao.getF_num();
 	}
 
@@ -33,8 +33,8 @@ public class C_JoinServiceImpl implements C_JoinService{
 	}
 
 	@Override
-	public int insertF_Job(F_job f_job) throws Exception {
-		return dao.insertF_Job(f_job);
+	public void insertF_Job(F_job f_job) throws Exception {
+		 dao.insertF_Job(f_job);
 	}
 
 	@Override

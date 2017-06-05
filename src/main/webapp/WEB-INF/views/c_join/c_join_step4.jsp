@@ -17,7 +17,7 @@
 <body>
 <body onload="member_check();">
 
-<%-- <%@include file="../c_common/header.jsp" %> --%>
+<%@include file="../c_common/header.jsp" %>
     <div  id="conainer">
     	<div id="nav">
         	<div class="nav_txt">
@@ -59,6 +59,6 @@
 
 
 <!-- //wrap : e -->
-<%-- <%@include file="../c_common/footer.jsp" %> --%>
+<%@include file="../c_common/footer.jsp" %>
 </body>
 </html>

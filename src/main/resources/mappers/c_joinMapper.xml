@@ -6,8 +6,8 @@
 <mapper namespace="lancer.mapper.c_joinMapper">
 	
 	<!-- 프리랜서 -->
-	<select id="getF_num" resultType="int">
-		select nvl(max(f_num),0) from freelancer
+	<select id="getF_num" resultType="Integer">
+		select max(f_num) from freelancer
 	</select>
 	
 	<insert id="insertF_join" parameterType="F_join">
@@ -24,9 +24,7 @@
 	</insert>
 	
 	<insert id="insertF_Job" parameterType="F_job">
-		insert into f_job values(
-		#{f_num}, #{job_id}
-		)
+		insert into f_job values(#{f_num}, #{job_id})
 	</insert>
 	
 	<select id="getAllF_Id" resultType="String">

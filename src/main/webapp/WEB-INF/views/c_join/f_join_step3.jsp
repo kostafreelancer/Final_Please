@@ -17,7 +17,7 @@
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </head>
 <body>
-<%-- <%@include file="../c_common/header.jsp" %> --%>
+ <%@include file="../c_common/header.jsp" %> 
 	<div id="conainer">
 		<div id="nav">
 			<div class="nav_txt">
@@ -228,7 +228,7 @@
                 </table>
             </div>
             
-					<!-- //tb_box02 : e -->
+					
 					<div class="tb_box">
 						<h4 class="fl">전문분야</h4>
 						<table class="tb_st01">
@@ -254,7 +254,7 @@
 									<td colspan="2"></td>
 
 								</tr>
-								<tr class="line_bottom">
+							<tr class="line_bottom">
 									<th scope="row" rowspan="3" class="ac"><span
 										class="txt_or"></span>기본분야</th>
 									<th scope="row" class="ac"><span class="txt_or"></span>개발</th>
@@ -270,77 +270,77 @@
 											</colgroup>
 											<tr>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="1"> .NET</td>
+													name="fm_new_keyword" value="1"> .NET</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="2"> ABAP</td>
+													name="fm_new_keyword" value="2"> ABAP</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="3"> ANDROID</td>
+													name="fm_new_keyword" value="3"> ANDROID</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="4"> ASP</td>
+													name="fm_new_keyword" value="4"> ASP</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="5"> ASP.NET</td>
+													name="fm_new_keyword" value="5"> ASP.NET</td>
 											</tr>
 											<tr>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="6"> C</td>
+													name="fm_new_keyword" value="6"> C</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="7"> C#</td>
+													name="fm_new_keyword" value="7"> C#</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="8"> C++</td>
+													name="fm_new_keyword" value="8"> C++</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="9"> COBOL</td>
+													name="fm_new_keyword" value="9"> COBOL</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="10"> CSS</td>
+													name="fm_new_keyword" value="10"> CSS</td>
 											</tr>
 											<tr>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="11"> DB</td>
+													name="fm_new_keyword" value="11"> DB</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="12"> DELPHI</td>
+													name="fm_new_keyword" value="12"> DELPHI</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="13"> HTML</td>
+													name="fm_new_keyword" value="13"> HTML</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="14"> IOS</td>
+													name="fm_new_keyword" value="14"> IOS</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="15"> JAVA</td>
+													name="fm_new_keyword" value="15"> JAVA</td>
 											</tr>
 											<tr>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="16"> JS</td>
+													name="fm_new_keyword" value="16"> JS</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="17"> JSP</td>
+													name="fm_new_keyword" value="17"> JSP</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="18"> LINUX</td>
+													name="fm_new_keyword" value="18"> LINUX</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="19"> NETWORK</td>
+													name="fm_new_keyword" value="19"> NETWORK</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="20"> PHP</td>
+													name="fm_new_keyword" value="20"> PHP</td>
 											</tr>
 											<tr>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="21">
+													name="fm_new_keyword" value="21">
 													파워빌더</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="22"> PYTHON</td>
+													name="fm_new_keyword" value="22"> PYTHON</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="23"> QA</td>
+													name="fm_new_keyword" value="23"> QA</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="24"> RUBY</td>
+													name="fm_new_keyword" value="24"> RUBY</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="25"> SERVER개발</td>
+													name="fm_new_keyword" value="25"> SERVER개발</td>
 											</tr>
 											<tr>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="26"> VB</td>
+													name="fm_new_keyword" value="26"> VB</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="27"> VC++</td>
+													name="fm_new_keyword" value="27"> VC++</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="28"> WINDOWS</td>
+													name="fm_new_keyword" value="28"> WINDOWS</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="29"> 임베디드</td>
+													name="fm_new_keyword" value="29"> 임베디드</td>
 												<td class="td_bor_bott">&nbsp;</td>
 											</tr>
-										</table> <!--img src="../img/sb_category.gif" width="87" height="18" align="absmiddle"-->
+										</table>
 									</td>
 								</tr>
 								<tr class="line_bottom">
@@ -358,37 +358,37 @@
 											</colgroup>
 											<tr>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="30"> HTML5</td>
+													name="fm_new_keyword" value="30"> HTML5</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="31"> 그래픽디자인</td>
+													name="fm_new_keyword" value="31"> 그래픽디자인</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="32"> 모바일</td>
+													name="fm_new_keyword" value="32"> 모바일</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="33"> 액션스크립트</td>
+													name="fm_new_keyword" value="33"> 액션스크립트</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="34"> 웹디자인</td>
+													name="fm_new_keyword" value="34"> 웹디자인</td>
 											</tr>
 											<tr>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="35"> 웹표준</td>
+													name="fm_new_keyword" value="35"> 웹표준</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="36"> 파워포인트</td>
+													name="fm_new_keyword" value="36"> 파워포인트</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="37"> 퍼블리싱</td>
+													name="fm_new_keyword" value="37"> 퍼블리싱</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="38"> 포토샵편집</td>
+													name="fm_new_keyword" value="38"> 포토샵편집</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="39"> 플래시</td>
+													name="fm_new_keyword" value="39"> 플래시</td>
 											</tr>
 											<tr>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="40"> 3D</td>
+													name="fm_new_keyword" value="40"> 3D</td>
 												<td class="td_bor_bott">&nbsp;</td>
 												<td class="td_bor_bott">&nbsp;</td>
 												<td class="td_bor_bott">&nbsp;</td>
 												<td class="td_bor_bott">&nbsp;</td>
 											</tr>
-										</table> <!--img src="../img/sb_category.gif" width="87" height="18" align="absmiddle"-->
+										</table> 
 									</td>
 								</tr>
 								<tr class="line_bottom">
@@ -406,32 +406,32 @@
 											</colgroup>
 											<tr>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="41"> DB컨설턴트</td>
+													name="fm_new_keyword" value="41"> DB컨설턴트</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="42"> PM</td>
+													name="fm_new_keyword" value="42"> PM</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="43"> PMO</td>
+													name="fm_new_keyword" value="43"> PMO</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="44"> SAP컨설턴트</td>
+													name="fm_new_keyword" value="44"> SAP컨설턴트</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="45"> 기획</td>
+													name="fm_new_keyword" value="45"> 기획</td>
 											</tr>
 											<tr>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="46"> 모바일기획</td>
+													name="fm_new_keyword" value="46"> 모바일기획</td>
 												<td class="td_bor_bott"><input type="checkbox"
-													name="fm_new_keyword[]" value="47"> 웹기획</td>
+													name="fm_new_keyword" value="47"> 웹기획</td>
 												<td class="td_bor_bott">&nbsp;</td>
 												<td class="td_bor_bott">&nbsp;</td>
 												<td class="td_bor_bott">&nbsp;</td>
 											</tr>
-										</table> <!--img src="../img/sb_category.gif" width="87" height="18" align="absmiddle"-->
+										</table> 
 									</td>
 								</tr>
 
 							</tbody>
 						</table>
-					</div>
+					</div> 
 
 					<!-- //tb_box01 : e -->
 					<div class="btn_box">
@@ -443,7 +443,7 @@
 
 
 		</form>
-<%-- 
-<%@include file="../c_common/footer.jsp" %> --%>
+
+<%@include file="../c_common/footer.jsp" %> 
 </body>
 </html>

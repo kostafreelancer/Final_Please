@@ -14,7 +14,7 @@
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 </head>
 <body>
-<%-- <%@include file="../c_common/header.jsp" %> --%>
+ <%@include file="../c_common/header.jsp" %>
 
 
 
@@ -116,6 +116,6 @@
 	</div>
 
 <!-- //wrap : e -->
-<%-- <%@include file="../c_common/footer.jsp" %> --%>
+<%@include file="../c_common/footer.jsp" %>
 </body>
 </html>

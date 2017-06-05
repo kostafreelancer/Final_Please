@@ -3,6 +3,7 @@ package lancer.total.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,14 +46,16 @@ public class C_JoinController {
 	public void e_joinstep3()throws Exception{
 		
 	}
+	
 	@RequestMapping(value="f_join_step3", method=RequestMethod.POST)
-	public String f_joinstep3(F_join f_join, Model model)throws Exception{
-				
+	public String f_joinstep3(F_join f_join, Model model, HttpServletRequest request)throws Exception{
+				System.out.println("남과시...ㄱ....");
 		String f_hphone1 = f_join.getF_hphone1();
 		String f_hphone2 = f_join.getF_hphone2();
 		String f_hphone3 = f_join.getF_hphone3();
 		String f_hphone = f_hphone1 +"-"+ f_hphone2 +"-"+ f_hphone3;
 		f_join.setF_hphone(f_hphone);
+		System.out.println(f_join.getF_hphone());
 		
 		String f_phone1 = f_join.getF_phone1();
 		String f_phone2 = f_join.getF_phone2();
@@ -91,16 +94,18 @@ public class C_JoinController {
 			f_join.setF_sex("여");
 		}
 		System.out.println(f_join.getF_sex());
+		service.insertF_join(f_join);
 		
-		String[] checkBasic = f_join.getFm_new_keyword();
+		String[] checkBasic = request.getParameterValues("fm_new_keyword");
 		int mynum = service.getF_num();
+		System.out.println(mynum);
 		for(int i=0;i<checkBasic.length;i++)
 		{
 			service.insertF_Job(new F_job(mynum, Integer.parseInt(checkBasic[i])));
 			System.out.println(checkBasic[i]);
 		}
 		
-		service.insertF_join(f_join);
+		
 		
 		return "redirect:/c_join/c_join_step4";
 	}

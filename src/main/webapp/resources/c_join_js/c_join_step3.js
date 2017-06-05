@@ -282,7 +282,7 @@ $('#idCheckbox').click(function(){
         	alert("주 분야를 선택하세요.");
         	return false;
         }
-        if($('input:checkbox[name="fm_new_keyword[]"]:checked').length == 0){
+        if($('input:checkbox[name="fm_new_keyword"]:checked').length == 0){
         	alert("기본 분야를 선택하세요.");
         	return false;
         }

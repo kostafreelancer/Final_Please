@@ -26,7 +26,7 @@ public class C_JoinDAOImpl implements C_JoinDAO{
 	}
 
 	@Override
-	public int getF_num() throws Exception {
+	public Integer getF_num() throws Exception {
 		return session.selectOne(namespace+".getF_num");
 	}
 
@@ -36,8 +36,8 @@ public class C_JoinDAOImpl implements C_JoinDAO{
 	}
 
 	@Override
-	public int insertF_Job(F_job f_job) throws Exception {
-		return session.insert(namespace+".insertF_Job", f_job);
+	public void insertF_Job(F_job f_job) throws Exception {
+		 session.insert(namespace+".insertF_Job", f_job);
 	}
 
 	@Override
