@@ -57,7 +57,7 @@ newJquery(document).ready(function() {
 			editable: true,
 			events : function(start, end, callback) {
 				$.ajax({
-				url : "scheduleInfoAjax.f_mypage",
+				url : "scheduleInfoAjax",
 				type : "get",
 				data : {num : $('#clientnum').val()},
 				dataType : 'json',
@@ -66,7 +66,6 @@ newJquery(document).ready(function() {
 						$('#resultPrint').val = scheduleList.contents;	
 					})
 					 */
-					
 			        callback(data);
 				}
 				})

@@ -16,11 +16,12 @@ public class c_login_freelancerVO {
 	private String f_major;
 	private String f_nowstate;
 	private Date f_recentlogin;
+	private double f_score;
 	private String f_fname;
 	public c_login_freelancerVO(){}
 	public c_login_freelancerVO(int f_num, String f_id, String f_pwd, String f_name, String f_birth, String f_sex,
 			String f_hphone, String f_phone, String f_email, String f_address, String f_major, String f_nowstate,
-			Date f_recentlogin, String f_fname) {
+			Date f_recentlogin, double f_score, String f_fname) {
 		super();
 		this.f_num = f_num;
 		this.f_id = f_id;
@@ -35,6 +36,7 @@ public class c_login_freelancerVO {
 		this.f_major = f_major;
 		this.f_nowstate = f_nowstate;
 		this.f_recentlogin = f_recentlogin;
+		this.f_score = f_score;
 		this.f_fname = f_fname;
 	}
 	public int getF_num() {
@@ -93,6 +95,12 @@ public class c_login_freelancerVO {
 	}
 	public String getF_address() {
 		return f_address;
+	}
+	public double getF_score() {
+		return f_score;
+	}
+	public void setF_score(double f_score) {
+		this.f_score = f_score;
 	}
 	public void setF_address(String f_address) {
 		this.f_address = f_address;

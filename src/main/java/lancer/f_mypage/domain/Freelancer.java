@@ -10,7 +10,6 @@ public class Freelancer implements Serializable{
 	private String f_name;
 	private String f_birth;
 	private String f_sex;
-	private int temp_sex;
 	private String f_hphone;
 	private String fm_phone1;
 	private String fm_phone2;
@@ -122,12 +121,7 @@ public class Freelancer implements Serializable{
 	public void setF_recentlogin(Timestamp f_recentlogin) {
 		this.f_recentlogin = f_recentlogin;
 	}
-	public int getTemp_sex() {
-		return temp_sex;
-	}
-	public void setTemp_sex(int temp_sex) {
-		this.temp_sex = temp_sex;
-	}
+
 	public String getFm_phone1() {
 		return fm_phone1;
 	}

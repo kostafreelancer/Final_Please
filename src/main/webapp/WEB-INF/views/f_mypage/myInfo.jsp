@@ -37,11 +37,15 @@ $(function(){
 			checks[arr[i]-1].checked = true;
 	}
 	
-	var errorcheck = document.getElementById("pwd_error");
+/* 	var errorcheck = document.getElementById("pwd_error");
 	<c:if test="${pwd_error=='error'}">
 		alert("비밀번호가 틀립니다.");
-	</c:if>
+	</c:if> */
 	
+	var errorcheck = '${pwd_error}';
+	if(errorcheck =='error'){
+		alert("비밀번호가 틀립니다.");
+	}
 });
 
 
@@ -76,9 +80,9 @@ $(function(){
 	<div id="content">
 		
 		<div id="tab1">
-			<form name="updateForm" method="post" action="updateInfo" onsubmit="return check();">
-			<input type="text" name="f_num" value="${client.f_num}">
-		 	<input type="text" id="pwd_error" name="pwd_error" value="${pwd_error}"> 
+			<form name="updateForm" method="post" action="myInfo" onsubmit="return check();">
+			<input type="text" hidden name="f_num" value="${client.f_num}">
+		 	<input type="text" hidden id="pwd_error" name="pwd_error" value="${pwd_error}"> 
 		<div class="tb_box">
 				<h4>아이디 및 비밀번호</h4>
 				<table class="tb_st01">
@@ -276,7 +280,7 @@ $(function(){
 								</div>
 							</td>
 						</tr>
-						<tr>
+						<%-- <tr>
 							<th><span class="txt_or">*</span> 내가 받은 평가</th>
 							<td colspan="4">
 								<p class="star_rating">
@@ -288,12 +292,12 @@ $(function(){
 									<a id="fifth">★</a>
 								</p>
 							</td>
-						</tr>
+						</tr> --%>
 					</tbody>
 				</table>
 			</div> 
 
-			<%-- <div class="tb_box">
+			 <div class="tb_box">
 				<h4>현황정보</h4>
 				<table class="tb_st01">
 					<caption></caption>
@@ -491,7 +495,7 @@ $(function(){
 
 					</tbody>
 				</table>
-			</div> --%>
+			</div> 
 			<div class="btn_box mb30 mb02">
 				<input type="submit" value="수정하기">
 				<input type="reset" value="초기화">

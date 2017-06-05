@@ -1,20 +1,30 @@
 package lancer.total.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.f_mypage.domain.ApplyProject;
+import lancer.f_mypage.domain.CalEvent;
+import lancer.f_mypage.domain.Calendar;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
+import lancer.f_mypage.domain.F_job;
 import lancer.f_mypage.domain.Freelancer;
 import lancer.f_mypage.domain.School;
 import lancer.total.service.F_MypageService;
@@ -87,38 +97,43 @@ public class F_MypageController {
 		}
 	}
 	
-	@RequestMapping(value="/updateInfo", method=RequestMethod.POST)
-	public String updateFreelancerInfo(Freelancer freelancer, Model model) throws Exception{
-		System.out.println("우에에");
-		String my_pwd = service.getFreelancerPassword(3);
-	
-		/*if(!freelancer.getF_pwd().equals(my_pwd)){
-			model.addAttribute("pwd_error", "error");
-			return "redirect:/myInfo";
+	@RequestMapping(value="/myInfo", method=RequestMethod.POST)
+	public String updateFreelancerInfo(Freelancer freelancer,RedirectAttributes rttr, Model model, HttpSession session, HttpServletRequest request) throws Exception{
+		System.out.println(freelancer.getF_sex());
+		c_login_freelancerVO original =  (c_login_freelancerVO) session.getAttribute("client");
+		String my_pwd = original.getF_pwd();
+		System.out.println(my_pwd);
+		if(!freelancer.getF_pwd().equals(my_pwd)){
+			rttr.addFlashAttribute("pwd_error", "error");
+			return "redirect:/f_mypage/myInfo";
 		}else{
-			if(freelancer.getTemp_sex()==1){
-				freelancer.setF_sex("남");
+			if(freelancer.getF_sex().equals("1")){
+				original.setF_sex("남");
 			}else{
-				freelancer.setF_sex("여");
+				original.setF_sex("여");
 			}
+			
 			String f_hphone = freelancer.getFm_phone1() + "-" + freelancer.getFm_phone2() + "-" + freelancer.getFm_phone3(); 
-			freelancer.setF_hphone(f_hphone);
+			original.setF_hphone(f_hphone);
 			String f_phone = freelancer.getFm_tel1() + "-" + freelancer.getFm_tel2() + "-" + freelancer.getFm_tel3(); 
-			freelancer.setF_phone(f_phone);
+			original.setF_phone(f_phone);
 			String f_email = freelancer.getFm_email11() + "@" + freelancer.getFm_email12();
-			freelancer.setF_email(f_email);
+			original.setF_email(f_email);
 			String f_address = freelancer.getFm_zip() + "&" + freelancer.getFm_address() + "&" + freelancer.getFm_address_etc();
-			freelancer.setF_address(f_address);
+			original.setF_address(f_address);
 			
+			original.setF_name(freelancer.getF_name());
+			original.setF_birth(freelancer.getF_birth());
+			original.setF_fname(freelancer.getF_fname());
+			service.updateFreelancerInfo(original);
+			session.setAttribute("client", original);
 			
-			service.updateFreelancerInfo(freelancer);*/
-			
-			/*String checkArr[] = request.getParameterValues("fm_new_keyword[]");
-			service.deleteFreelancerJobInfo(freelancer.getF_num());
-			int total=0;
+			String checkArr[] = request.getParameterValues("fm_new_keyword[]");
+			service.deleteFreelancerJobInfo(original.getF_num());
+			int f_num = original.getF_num();
 			for(int i=0; i<checkArr.length; i++){
-				total += dao.insertFreelancerJobInfo(new F_job(f_num, Integer.parseInt(checkArr[i])));
-			}*/
+				service.insertFreelancerJobInfo(new F_job(f_num, Integer.parseInt(checkArr[i])));
+			}
 			
 /*
 			if(re>0 && total==checkArr.length){
@@ -128,14 +143,37 @@ public class F_MypageController {
 				forward.setRedirect(true);
 				forward.setPath("/Matching_Project/f_mypage/updateSuccess.jsp?f_num="+freelancer.getF_num());
 			}*/
-			return "redirect:/updateSuccess";
-		//}
+			return "redirect:/f_mypage/updateSuccess";
+			}
+	}
+	
+	@RequestMapping(value="/updateSuccess")
+	public void updateSuccess(){
+		
 	}
 	
 	
 	@RequestMapping(value = "/scheduleManager", method = RequestMethod.GET)
 	public void scheduleManager(Model model, HttpSession session) throws Exception{
-		model.addAttribute("proName", service.getMyProjectName(3));
-		model.addAttribute("scheduleList", service.getMySchedule(3));	
+		c_login_freelancerVO freelancer = (c_login_freelancerVO) session.getAttribute("client");
+		int f_num = freelancer.getF_num();
+		model.addAttribute("proName", service.getMyProjectName(f_num));
+		model.addAttribute("scheduleList", service.getMySchedule(f_num));	
 	}
+	
+	@RequestMapping(value="/scheduleInfoAjax")
+	public @ResponseBody List<CalEvent> scheduleInfoAjax(@RequestParam("num") int num) throws Exception{
+			System.out.println(num);
+			List<Calendar> scheduleList = service.getMySchedule(num);	
+			List<CalEvent> ceList = new ArrayList<CalEvent>();
+			for(int i=0; i<scheduleList.size(); i++){
+				CalEvent ce = new CalEvent();
+				ce.setTitle(scheduleList.get(i).getContents());
+				ce.setStart(scheduleList.get(i).getStartdate());
+				ce.setEnd(scheduleList.get(i).getEnddate());
+				ceList.add(ce);
+			}
+			return ceList;
+	}
+	
 }

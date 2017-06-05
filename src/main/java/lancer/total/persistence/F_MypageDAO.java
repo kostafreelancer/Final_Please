@@ -8,10 +8,12 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.Calendar;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
+import lancer.f_mypage.domain.F_job;
 import lancer.f_mypage.domain.Freelancer;
 import lancer.f_mypage.domain.School;
 
@@ -51,12 +53,16 @@ public class F_MypageDAO {
 		return session.selectOne(namespace + ".getFreelancerPassword", f_num);
 	}
 	
-	public void updateFreelancerInfo(Freelancer freelancer) throws Exception{
-		session.update(namespace + ".updateFreelancerInfo", freelancer);
+	public void updateFreelancerInfo(c_login_freelancerVO original) throws Exception{
+		session.update(namespace + ".updateFreelancerInfo", original);
 	}
 	
 	public void deleteFreelancerJobInfo(int f_num) throws Exception{
 		session.delete(namespace + ".deleteFreelancerJobInfo", f_num); 
+	}
+	
+	public void insertFreelancerJobInfo(F_job f_job) throws Exception{
+		session.insert(namespace + ".insertFreelancerJobInfo", f_job);
 	}
 	
 	public String getMyProjectName(int f_num) throws Exception{

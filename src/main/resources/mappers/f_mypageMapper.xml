@@ -13,8 +13,8 @@
 		select job_id from f_job where f_num = #{f_num}
 	</select> 
 	
-	<update id="updateFreelancerInfo" parameterType="Freelancer">
-		update freelancer set f_pwd = #{f_pwd}, f_name =#{f_name}, f_birth = #{f_birth},
+	<update id="updateFreelancerInfo" parameterType="c_login_freelancerVO">
+		update freelancer set f_name =#{f_name}, f_birth = #{f_birth},
 		f_sex = #{f_sex}, f_hphone = #{f_hphone}, f_phone = #{f_phone}, f_email = #{f_email},
 		f_address = #{f_address} where f_num = #{f_num}
 	</update>

@@ -6,10 +6,12 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.Calendar;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
+import lancer.f_mypage.domain.F_job;
 import lancer.f_mypage.domain.Freelancer;
 import lancer.f_mypage.domain.School;
 import lancer.total.persistence.F_MypageDAO;
@@ -48,12 +50,16 @@ public class F_MypageService {
 		return dao.getFreelancerPassword(f_num);
 	}
 	
-	public void updateFreelancerInfo(Freelancer freelancer) throws Exception{
-		dao.updateFreelancerInfo(freelancer);
+	public void updateFreelancerInfo(c_login_freelancerVO original) throws Exception{
+		dao.updateFreelancerInfo(original);
 	}
 	
 	public void deleteFreelancerJobInfo(int f_num) throws Exception{
 		dao.deleteFreelancerJobInfo(f_num);
+	}
+	
+	public void insertFreelancerJobInfo(F_job f_job) throws Exception{
+		dao.insertFreelancerJobInfo(f_job);
 	}
 	
 	public String getMyProjectName(int f_num) throws Exception{
