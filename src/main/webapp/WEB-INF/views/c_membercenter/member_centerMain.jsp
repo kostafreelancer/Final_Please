@@ -92,9 +92,6 @@
 									</tr>
 								</c:forEach>
 							</c:when>
-							<c:otherwise>
-									이름을&nbsp;입력해&nbsp;주세요.
-									</c:otherwise>
 						</c:choose>
 
 
@@ -227,7 +224,7 @@
 										${client.f_num }
 									</c:when>
 									<c:when test="${indentity.identity == 'enterprise' }">
-										${client.e_num }
+										"0"
 									</c:when>
 									<c:otherwise>
 									 0
@@ -237,13 +234,13 @@
 										<input type="hidden" name="e_num"
 										value=<c:choose>
 									<c:when test="${identity.identity == 'freelancer' }">
-										${client.f_num }
+										3
 									</c:when>
 								<c:when test="${indentity.identity == 'enterprise' }">
-										${client.e_num }
+										1
 									</c:when>
 									<c:otherwise>
-									 0
+									${client.e_num }
 									</c:otherwise>
 
 								</c:choose>>

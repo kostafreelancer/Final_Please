@@ -33,15 +33,20 @@ public class c_membercenterASKController {
 		System.out.println("문의POST");
 		
 		
-		String check = (String) session.getAttribute("f_num");
+		/*String check = (String) session.getAttribute("f_num");*/
+		/*checking_identity identity = (checking_identity) session.getAttribute("identity");
 		
-		if(check.equals("f_num")){
-			service.insertAsk(vo);
-			model.addAttribute("f_num", vo.getF_num());
-		}else if(check.equals("e_num")){
+		if(identity.equals("enterprise")){
 			service.insertAsk(vo);
 			model.addAttribute("e_num", vo.getE_num());
-		}
+		}else if(identity.equals("freelancer")){
+			service.insertAsk(vo);
+			model.addAttribute("f_num", vo.getF_num());
+		}*/
+		
+		service.insertAsk(vo);
+		
+		System.out.println(vo.toString()+213312);
 		
 		/*model.addAttribute("f_num", vo.getF_num());*/
 		
@@ -58,16 +63,18 @@ public class c_membercenterASKController {
 		if(identity.getIdentity().equals("freelancer")){
 			c_login_freelancerVO vo = (c_login_freelancerVO) session.getAttribute("client");
 			num = vo.getF_num();
+			System.out.println(num+"프리번호");
 			model.addAttribute("list", service.myAskList(num));
 		}else if(identity.getIdentity().equals("enterprise")){
 			c_login_enterpriseVO vo = (c_login_enterpriseVO) session.getAttribute("client");
 			num = vo.getE_num();
+			System.out.println(num+"기업번호");
 			model.addAttribute("list",service.e_myAskList(num));
 		}
 		
 		System.out.println("리스트");
 		
-		
+		 
 	}
 	
 }

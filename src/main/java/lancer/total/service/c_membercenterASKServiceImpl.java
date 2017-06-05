@@ -29,7 +29,7 @@ public class c_membercenterASKServiceImpl implements c_membercenterASKService {
 	
 	@Override
 	public List<MembercenterASKVO> e_myAskList(int num) throws Exception{
-		return dao.myAskList(num);
+		return dao.e_myAskList(num);
 	}
 
 }

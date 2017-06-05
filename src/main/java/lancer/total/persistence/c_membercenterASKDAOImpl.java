@@ -35,7 +35,7 @@ public class c_membercenterASKDAOImpl implements c_membercenterASKDAO {
 	@Override
 	public List<MembercenterASKVO> e_myAskList(int num) throws Exception{
 		
-		return session.selectList(namespace+".myAskList",num);
+		return session.selectList(namespace+".e_myAskList",num);
 	}
 
 }
