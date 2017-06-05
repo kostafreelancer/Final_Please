@@ -3,19 +3,19 @@ package lancer.e_main.domain;
 public class Newslist {
 	
 	String img;
+	
+	String ttl_addr;
 	String title;
+	
 	String txt;
 	
 	public Newslist(){}
-	
-	public Newslist(String img, String title, String txt) {
+
+	public Newslist(String img, String ttl_addr, String title, String txt) {
+		super();
 		this.img = img;
+		this.ttl_addr = ttl_addr;
 		this.title = title;
-		this.txt = txt;
-	}
-	
-	public Newslist(String img, String txt){
-		this.img = img;
 		this.txt = txt;
 	}
 
@@ -25,6 +25,14 @@ public class Newslist {
 
 	public void setImg(String img) {
 		this.img = img;
+	}
+
+	public String getTtl_addr() {
+		return ttl_addr;
+	}
+
+	public void setTtl_addr(String ttl_addr) {
+		this.ttl_addr = ttl_addr;
 	}
 
 	public String getTitle() {
@@ -45,8 +53,8 @@ public class Newslist {
 
 	@Override
 	public String toString() {
-		return "Newslist [img=" + img + ", title=" + title + ", txt=" + txt + "]";
+		return "Newslist [img=" + img + ", ttl_addr=" + ttl_addr + ", title=" + title + ", txt=" + txt + "]";
 	}
-
-
+	
+	
 }

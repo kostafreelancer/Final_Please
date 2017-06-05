@@ -26,25 +26,21 @@ public class e_mainController {
 		
 		Crawler crawler = new Crawler();
 		List<String> imglist = crawler.imgcrw();
+		
+		List<String> ttl_addr_list = crawler.ttl_addr_crw();
 		List<String> titlelist = crawler.titlecrw();
+		
 		List<String> txtlist = crawler.txtcrw();
-		
-	/*	model.addAttribute("news_img", imglist);
-		model.addAttribute("news_title", titlelist);
-		model.addAttribute("news_txt", txtlist);*/
-		
+
 		Newslist newslist = new Newslist();
 		
 		List<Newslist> list = new ArrayList<Newslist>();
 		
 		for(int i=0; i<imglist.size();i++){
-			list.add(new Newslist(imglist.get(i), txtlist.get(i)));
-			/*newslist.setImg(imglist.get(i));
-			newslist.setTitle(titlelist.get(i));
-			newslist.setTxt(txtlist.get(i));*/
-			
+			list.add(new Newslist(imglist.get(i), ttl_addr_list.get(i), titlelist.get(i), txtlist.get(i)));
+
 			System.out.println(newslist + "aaa");
-			/*list.add(newslist);*/
+
 		}
 		model.addAttribute("news_list", list);
 		
