@@ -30,7 +30,7 @@
 	
 				<li><img alt="log_img"
 					src="/resources/c_common_img/header_log_icon01.jpg">
-					<a href="remove_session.c_login">로그 아웃</a></li>
+					<a href=${pageContext.request.contextPath}"/c_login/login">로그 아웃</a></li>
 				<li><img alt="home_img"
 					src="/resources/c_common_img/header_home_icon01.jpg">
 					<!-- <a href="/Matching_Project/e_main/e_main.jsp">홈</a></li> -->
