@@ -27,6 +27,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		if(identity.getIdentity().equals("no")){
 			response.sendRedirect("/c_login/login");
 		}
+		/*if(identity.getIdentity().equals("enterprise")){
+			response.sendRedirect("/f_main/f_main");
+		}*/
 		if(session.getAttribute("client") != null){
 			logger.info("new login success");
 			System.out.println("new login success");

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lancer.c_freelancerlist.mapper.c_freelancerMapper">
+<cache />
+	<select id = "c_freelancerlist_select_basic" resultType="c_freelancerlist_total">
+		select * from freelancer 
+	</select>
+	<select id="c_freelancer_list" resultType="String">
+		select f_name from freelancer
+	</select>
+	<select id="c_freelancerlist_select_school" resultType="c_freelancerlist_school" parameterType="int">
+		select * from school
+						where f_num = #{f_num}
+	</select>
+	<select id="c_freelancerlist_select_career" resultType="c_freelancerlist_career" parameterType="int">
+		select * from career
+						where f_num = #{f_num}
+	</select>
+	<select id="c_freelancerlist_select_portfolio" resultType="c_freelancerlist_portfolio" parameterType="int">
+		select * from portfolio
+						where f_num = #{f_num}
+	</select>
+	<select id="c_freelancerlist_select_job" resultType="String" parameterType="int">
+		select j.job_name from f_job f, job j
+							where f.job_id = j.job_id
+								and f.f_num = #{f_num}	
+	</select>
+</mapper>

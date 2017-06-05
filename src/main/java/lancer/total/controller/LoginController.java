@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.stream.Location;
+import javax.xml.ws.RespectBinding;
 
 /*import org.apache.catalina.util.RequestUtil;*/
 import org.springframework.stereotype.Controller;
@@ -85,9 +86,11 @@ public class LoginController {
 		/*response.sendRedirect(url.getUrl());*/
 		
 	}
-	@RequestMapping(value="/logout", method= RequestMethod.GET)
-	public void logout(HttpSession session,@RequestBody c_login_url url){
-		
+	@RequestMapping(value="/e_logout", method= RequestMethod.GET)
+	public String logout(HttpSession session){
+		System.out.println("여기 e로그아웃 들어 오는거지?");
+		session.invalidate();
+		return "redirect:/f_main/f_main";
 	}
 	
 }

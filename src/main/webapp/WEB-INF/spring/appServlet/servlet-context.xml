@@ -29,7 +29,6 @@
 			<mapping path="/f_mypage/*"/>
 			<mapping path="/e_mypage/*"/>
 			<mapping path="/e_main/*"/>
-			<mapping path="/c_login/exam"/>
 			<beans:ref bean="AuthInterceptor"/>
 		</interceptor>
 		<interceptor>
