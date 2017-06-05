@@ -7,8 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lancer.c_join.domain.E_join;
 import lancer.c_join.domain.F_join;
@@ -22,6 +25,15 @@ public class C_JoinController {
 
 	@Inject
 	private C_JoinService service;
+	
+	@RequestMapping(value = "duplicationCheck")
+	public @ResponseBody Object duplicationCheck(@RequestParam("f_id") String f_id) throws Exception {
+		System.out.println("들어와떠");
+		System.out.println(f_id);
+		List<String> f_join1 =service.getAllF_Id();
+
+		return f_join1;
+	}
 	
 	@RequestMapping(value="c_join_step1")
 	public void joinstep1()throws Exception{
@@ -166,7 +178,7 @@ public class C_JoinController {
 		e_join.setE_bf(e_join.getE_bf());
 		e_join.setE_capital(e_join.getE_capital());	
 		//e_join.setE_check(request.getParameter("e_check"));
-		e_join.setE_check("0");
+		e_join.setE_check("미승인");
 		e_join.setE_ename(e_join.getE_ename());
 		e_join.setE_enum(e_join.getE_enum());
 		e_join.setE_homepage(e_join.getE_homepage());

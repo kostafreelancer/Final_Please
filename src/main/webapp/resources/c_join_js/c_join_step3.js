@@ -1,39 +1,13 @@
 
+    // 아이디 입력창에 값 입력시 hidden에 idUncheck를 세팅한다.
+    // 이렇게 하는 이유는 중복체크 후 다시 아이디 창이 새로운 아이디를 입력했을 때
+    // 다시 중복체크를 하도록 한다.
+    function inputIdChk(){
+        document.userInfo.idDuplication.value ="idUncheck";
+    }
+
+
 $(function(){
-	
-	//아이디 중복확인 창 띄우기
-
-$('#idCheckbox').click(function(){
-    var id = document.getElementById("e_id").value;
-    
-    if (!id) {
-        alert("아이디를 입력하지 않았습니다.");
-        return false;
-    } 
-    else if((id < "0" || id > "9") && (id < "A" || id > "Z") && (id < "a" || id > "z")){ 
-        alert("한글 및 특수문자는 아이디로 사용하실 수 없습니다.");
-        return false;
-    }
-    else
-    {
-       $('#checkForm').submit();
-    }
-});
-
-   
-	/*        $('#idCheckbox').click(function(){
-                 if($('input[name="e_id"]').val() == ""){           //속성을 통해 접근, var : name에 있는 값을 뽑아옴
-                            $('input[name="e_id"]').css('border', '1px solid red');
-                            $('#idCheckbox').after("<span>아이디을 입력하세요.</span>");               //after : 동생, 뒤에 붙여줌
-                  }
-                  if($('input[name="e_id]').val()==${e_id}){
-                	  $('input[name="e_id"]').css('border', '1px solid red');
-                  $('#idCheckbox').after("<span>이미 존재하는 아이디입니다.</span>");
-                  }
-                  return false;                   //form이 submit로 하려는 기본이벤트를 가지고 있다
-                  
-                  
-        });*/
 	
 
 	//사진이미지 미리보기

@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>ì•„ì´ë”” ì¤‘ë³µ ì²´í¬</title>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+    <title>¾ÆÀÌµğ Áßº¹ Ã¼Å©</title>
     
     <style type="text/css">
         #wrap {
@@ -31,7 +30,7 @@
     
         var httpRequest = null;
         
-        // httpRequest ê°ì²´ ìƒì„±
+        // httpRequest °´Ã¼ »ı¼º
         function getXMLHttpRequest(){
             var httpRequest = null;
         
@@ -51,37 +50,41 @@
         }
         
         
-        // íšŒì›ê°€ì…ì°½ì˜ ì•„ì´ë”” ì…ë ¥ë€ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
+        // È¸¿ø°¡ÀÔÃ¢ÀÇ ¾ÆÀÌµğ ÀÔ·Â¶õÀÇ °ªÀ» °¡Á®¿Â´Ù.
         function pValue(){
-            document.getElementById("userId").value = opener.document.userInfo.e_id.value;
+            document.getElementById("userId").value = opener.document.userInfo.id.value;
         }
         
-        // ì•„ì´ë”” ì¤‘ë³µì²´í¬
+        // ¾ÆÀÌµğ Áßº¹Ã¼Å©
         function idCheck(){
  
             var id = document.getElementById("userId").value;
  
             if (!id) {
-                alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
+                alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
                 return false;
             } 
             else if((id < "0" || id > "9") && (id < "A" || id > "Z") && (id < "a" || id > "z")){ 
-                alert("í•œê¸€ ë° íŠ¹ìˆ˜ë¬¸ìëŠ” ì•„ì´ë””ë¡œ ì‚¬ìš©í•˜ì‹¤ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+                alert("ÇÑ±Û ¹× Æ¯¼ö¹®ÀÚ´Â ¾ÆÀÌµğ·Î »ç¿ëÇÏ½Ç ¼ö ¾ø½À´Ï´Ù.");
                 return false;
             }
             else
             {
-               var frm= document.checkForm;
-             frm.submit();
+                var param="id="+id
+                httpRequest = getXMLHttpRequest();
+                httpRequest.onreadystatechange = callback;
+                httpRequest.open("POST", "MemberIdCheckAction.do", true);    
+                httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 
+                httpRequest.send(param);
             }
         }
         
         function callback(){
             if(httpRequest.readyState == 4){
-                // ê²°ê³¼ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
+                // °á°ú°ªÀ» °¡Á®¿Â´Ù.
                 var resultText = httpRequest.responseText;
                 if(resultText == 0){
-                    alert("ì‚¬ìš©í• ìˆ˜ì—†ëŠ” ì•„ì´ë””ì…ë‹ˆë‹¤.");
+                    alert("»ç¿ëÇÒ¼ö¾ø´Â ¾ÆÀÌµğÀÔ´Ï´Ù.");
                     document.getElementById("cancelBtn").style.visibility='visible';
                     document.getElementById("useBtn").style.visibility='hidden';
                     document.getElementById("msg").innerHTML ="";
@@ -89,16 +92,16 @@
                 else if(resultText == 1){ 
                     document.getElementById("cancelBtn").style.visibility='hidden';
                     document.getElementById("useBtn").style.visibility='visible';
-                    document.getElementById("msg").innerHTML = "ì‚¬ìš© ê°€ëŠ¥í•œ ì•„ì´ë””ì…ë‹ˆë‹¤.";
+                    document.getElementById("msg").innerHTML = "»ç¿ë °¡´ÉÇÑ ¾ÆÀÌµğÀÔ´Ï´Ù.";
                 }
             }
         }
         
-        // ì‚¬ìš©í•˜ê¸° í´ë¦­ ì‹œ ë¶€ëª¨ì°½ìœ¼ë¡œ ê°’ ì „ë‹¬ 
+        // »ç¿ëÇÏ±â Å¬¸¯ ½Ã ºÎ¸ğÃ¢À¸·Î °ª Àü´Ş 
         function sendCheckValue(){
-            // ì¤‘ë³µì²´í¬ ê²°ê³¼ì¸ idCheck ê°’ì„ ì „ë‹¬í•œë‹¤.
+            // Áßº¹Ã¼Å© °á°úÀÎ idCheck °ªÀ» Àü´ŞÇÑ´Ù.
             opener.document.userInfo.idDuplication.value ="idCheck";
-            // íšŒì›ê°€ì… í™”ë©´ì˜ IDì…ë ¥ë€ì— ê°’ì„ ì „ë‹¬
+            // È¸¿ø°¡ÀÔ È­¸éÀÇ IDÀÔ·Â¶õ¿¡ °ªÀ» Àü´Ş
             opener.document.userInfo.id.value = document.getElementById("userId").value;
             
             if (opener != null) {
@@ -112,21 +115,20 @@
 <body onload="pValue()">
 <div id="wrap">
     <br>
-    <b><font size="4" color="gray">ì•„ì´ë”” ì¤‘ë³µì²´í¬</font></b>
+    <b><font size="4" color="gray">¾ÆÀÌµğ Áßº¹Ã¼Å©</font></b>
     <hr size="1" width="460">
     <br>
     <div id="chk">
-        <form id="checkForm" name="checkForm" action="e_memberIdCheck.e_join">
+        <form id="checkForm">
             <input type="text" name="idinput" id="userId">
-            <input type="button" value="ì¤‘ë³µí™•ì¸" onclick="idCheck()">
+            <input type="button" value="Áßº¹È®ÀÎ" onclick="idCheck()">
         </form>
         <div id="msg"></div>
         <br>
-        <input id="cancelBtn" type="button" value="ì·¨ì†Œ" onclick="window.close()"><br>
-        <input id="useBtn" type="button" value="ì‚¬ìš©í•˜ê¸°" onclick="sendCheckValue()">
+        <input id="cancelBtn" type="button" value="Ãë¼Ò" onclick="window.close()"><br>
+        <input id="useBtn" type="button" value="»ç¿ëÇÏ±â" onclick="sendCheckValue()">
     </div>
 </div>    
-
-
 </body>
 </html>
+

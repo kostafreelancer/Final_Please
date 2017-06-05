@@ -13,6 +13,21 @@
 <title>회원가입</title>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 <script type="text/javascript" src="../../../resources/c_join_js/f_join_step2.js"></script>
+<script type="text/javascript">
+function chk(){
+	var chk1=document.lawchkform.chk_law.checked;
+	var chk2=document.lawchkform.chk_law2.checked;
+	 var num = 0;
+	 if(chk1 == true && chk2 == true){
+	  num = 1;
+	 }
+	 if(num==1){
+	  location.href="f_join_step3";
+	 }else{
+	  alert("회원약관 및 개인정보 보호정책, 개인정보 수집에 동의하셔야 합니다.");
+	 }
+}
+</script>
 </head>
 <body>
 <%@include file="../c_common/header.jsp" %> 
@@ -863,16 +878,17 @@ kr)를 통하여 제공하는 e-marketplace서비스(이하“서비스”라고
 				</p>
 			</div>
 			<!-- //form :e  -->
-			<form name="form_ipin" method="post">
+			<form name="form_ipin" method="post" >
 				<input type="hidden" name="m" value="pubmain"> <input
 					type="hidden" name="enc_data" value=""> <input
 					type="hidden" name="param_r1" value="드림랜서"> <input
 					type="hidden" name="param_r2" value="개인">
 				<div class="btn_box">
-					<a href="javascript: jsSubmit();" class="btn_check04">회원가입</a>
+					<input type="button" onclick="chk()" class="btn_check04" value="회원가입">
 				</div>
 				<input type="hidden" name="in_tp_bit" value="0">
 			</form>
+			
 			<form name="vnoform" method="post">
 				<input type="hidden" name="enc_data"> <input type="hidden"
 					name="fm_type" value="드림랜서"> <input type="hidden"
