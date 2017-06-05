@@ -1,5 +1,7 @@
 package lancer.total.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -18,6 +20,16 @@ public class c_membercenterASKServiceImpl implements c_membercenterASKService {
 	public void insertAsk(MembercenterASKVO vo) throws Exception {
 		dao.insertAsk(vo);
 
+	}
+	
+	@Override
+	public List<MembercenterASKVO> myAskList(int num) throws Exception{
+		return dao.myAskList(num);
+	}
+	
+	@Override
+	public List<MembercenterASKVO> e_myAskList(int num) throws Exception{
+		return dao.myAskList(num);
 	}
 
 }

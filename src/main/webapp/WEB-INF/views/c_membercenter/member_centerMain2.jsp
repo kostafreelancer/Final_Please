@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"
-	href="../../../resources/membercenter_css/center_css.css">
+<link rel="stylesheet" href="../../../resources/membercenter_css/center_css.css">
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script type="text/javascript"
@@ -30,7 +29,7 @@
 			<%@include file="../c_common/header.jsp"%>
 		</c:otherwise>
 	</c:choose>
-	<%@include file="../c_common/chatting.jsp"%>
+	<%@include file="../c_common/chatting.jsp" %>
 
 	<section>
 
@@ -38,8 +37,7 @@
 		<div id=member_nav>
 			<div class="nav_txt">
 				<p>
-					<a href="/Matching_Project/f_main/f_main.fm">Home</a> <span
-						class="padd">></span> <span id="aaa">고객센터</span>
+					<a href="/Matching_Project/f_main/f_main.fm">Home</a> <span class="padd">></span> <span id="aaa">고객센터</span>
 				</p>
 			</div>
 		</div>
@@ -64,42 +62,24 @@
 					<ul class="ask_text">
 						<li>문의하신 내용의 답변을 확인할 수 있습니다.</li>
 					</ul>
-
+					
 					<table class="email_table">
 						<tr>
 							<th>작성자</th>
 							<th>문의제목</th>
 							<th>문의날짜</th>
 						</tr>
-						<c:choose>
-							<c:when test="${identity.identity == 'freelancer' }">
-								<c:forEach items="${list }" var="MembercenterASKVO">
-
-									<tr>
-										<td>${MembercenterASKVO.writer }</td>
-										<td>${MembercenterASKVO.asktitle }</td>
-										<td>${MembercenterASKVO.askdate }</td>
-									</tr>
-								</c:forEach>
-							</c:when>
-							<c:when test="${identity.identity == 'enterprise' }">
-								<c:forEach items="${list }" var="MembercenterASKVO">
-
-									<tr>
-										<td>${MembercenterASKVO.writer }</td>
-										<td>${MembercenterASKVO.asktitle }</td>
-										<td>${MembercenterASKVO.askdate }</td>
-									</tr>
-								</c:forEach>
-							</c:when>
-							<c:otherwise>
-									이름을&nbsp;입력해&nbsp;주세요.
-									</c:otherwise>
-						</c:choose>
-
-
-
-						<%-- 	<colgroup>
+						
+						<c:forEach items="${list }" var="MembercenterASKVO">
+						
+						<tr>
+							<td>${Membercenter.writer }</td>
+							<td>${Membercenter.asktitle }</td>
+							<td>${Membercenter.askdate }</td>
+						</c:forEach>
+					
+					
+					<%-- 	<colgroup>
 						<col style="width: 15%">
 							<col style="width: 35%">
 							<col style="width: 15%">
@@ -131,8 +111,8 @@
 							</tr>
 						</tbody> --%>
 					</table>
-
-
+					
+					
 				</div>
 				<div id="tab2">
 
@@ -148,21 +128,23 @@
 						<span class="color_or">(*)</span> 표시는 필수 입력 사항입니다.
 					</p>
 					<form action="/c_membercenter/member_centerMain" method="POST">
-						<table class="email_table">
-							<colgroup>
-								<col style="width: 15%">
-								<col style="width: 35%">
-								<col style="width: 15%">
-								<col style="width: 35%">
-							</colgroup>
-							<tbody>
-
-								<tr>
-									<th scope="row"><span class="text_star">*</span> <label
-										for="q_name">작성자</label></th>
-									<td colspan="3" class="join"><input type="text"
-										id="fm_name" name="writer" class="wid02"
-										value=<c:choose>
+					<table class="email_table">
+						<colgroup>
+							<col style="width: 15%">
+							<col style="width: 35%">
+							<col style="width: 15%">
+							<col style="width: 35%">
+						</colgroup>
+						<tbody>
+							
+							<tr>
+								<th scope="row"><span class="text_star">*</span> <label
+									for="q_name">작성자</label></th>
+								<td colspan="3" class="join">
+								
+								<input type="text"
+									id="fm_name" name="writer" class="wid02"
+									value=<c:choose>
 									<c:when test="${identity.identity == 'freelancer' }">
 										${client.f_name }
 									</c:when>
@@ -173,15 +155,15 @@
 									이름을&nbsp;입력해&nbsp;주세요.
 									</c:otherwise>
 								</c:choose>>
-
-									</td>
-								</tr>
-								<tr>
-									<th scope="row"><span class="text_star">*</span> <label
-										for="fm_phone">연락처</label></th>
-									<td colspan="3" class="join"><input type="text"
-										id="fm_phone" name="fm_phone" class="wid02"
-										value=<c:choose>
+								
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><span class="text_star">*</span> <label
+									for="fm_phone">연락처</label></th>
+								<td colspan="3" class="join"><input type="text"
+									id="fm_phone" name="fm_phone" class="wid02"
+									value=<c:choose>
 									<c:when test="${identity.identity == 'freelancer' }">
 										${client.f_hphone }
 									</c:when>
@@ -192,11 +174,12 @@
 									연락처를&nbsp;입력해&nbsp;주세요.
 									</c:otherwise>
 								</c:choose>>
-									</td>
-								</tr>
-								<tr>
-									<th scope="row"><span class="text_star">*</span> 이메일</th>
-									<td colspan="3"><label for></label> <%-- <input type="text" name="tomail" id="fm_email_1" name="fm_email_1" class="wid04"
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><span class="text_star">*</span> 이메일</th>
+								<td colspan="3"><label for></label> 
+								<%-- <input type="text" name="tomail" id="fm_email_1" name="fm_email_1" class="wid04"
 									value=<c:choose>
 									<c:when test="${identity.identity == 'freelancer' }">
 										${client.f_email }
@@ -207,65 +190,65 @@
 									<c:otherwise>
 									
 									</c:otherwise>
-								</c:choose>> --%> <input type="text" name="tomail" size="120"
-										style="width: 100%" placeholder="상대의 이메일" class="form-control">
+								</c:choose>> --%>
+								 <input type="text" name="tomail" size="120" style="width:100%" placeholder="상대의 이메일" class="form-control" >
 
-									</td>
-								</tr>
-								<tr>
-									<th scope="row"><span class="text_star">*</span> 제목</th>
-									<td colspan="3" class="join"><input type="text"
-										id="asktitle" name="asktitle" class="wid"></td>
-								</tr>
-								<tr>
-									<th scope="row"><span class="text_star">*</span> 내용</th>
-									<td colspan="3" class="join"><textarea id="fm_content"
-											name="askcontents" class="text_area text_area2">
-      					</textarea> <input type="hidden" name="f_num"
-										value=<c:choose>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><span class="text_star">*</span> 제목</th>
+								<td colspan="3" class="join"><input type="text"
+									id="asktitle" name="asktitle" class="wid"></td>
+							</tr>
+							<tr>
+								<th scope="row"><span class="text_star">*</span> 내용</th>
+								<td colspan="3" class="join"><textarea id="fm_content"
+										name="askcontents" class="text_area text_area2">
+      					</textarea>
+      					<input type="hidden" name="f_num" value=<c:choose>
 									<c:when test="${identity.identity == 'freelancer' }">
 										${client.f_num }
 									</c:when>
 									<c:when test="${indentity.identity == 'enterprise' }">
-										0
+										${client.e_num }
 									</c:when>
 									
 								</c:choose>>
-										<input type="hidden" name="e_num"
-										value=<c:choose>
+      					<input type="hidden" name="e_num" value=<c:choose>
 									<c:when test="${identity.identity == 'freelancer' }">
-										0
+										1
 									</c:when>
 								<c:when test="${indentity.identity == 'enterprise' }">
 										${client.e_num }
 									</c:when>
 
 								</c:choose>>
-										<!-- <input type="hidden" name="asknum" value="1">
-      					<input type="hidden" name="askdate" value="sysdate"> --></td>
-								</tr>
+      					<!-- <input type="hidden" name="asknum" value="1">
+      					<input type="hidden" name="askdate" value="sysdate"> -->
+      					
+      					</td>
+							</tr>
 
-							</tbody>
-						</table>
+						</tbody>
+					</table>
 
 
-						<ol class="text_box">
-							<li>수집·이용목적: 서비스 문의 및 제안사항에 따른 민원 처리 및 결과 회신을 위함</li>
-							<li>수집 항목: 아이디, e-메일</li>
-							<li>보유 및 이용기간: 소비자의 불만 또는 분쟁처리에 관한 기록에 의거하여 규정된 보존기간 동안 보유</li>
-							<li>회원님은 동의를 거부하실 수 있으며, 거부 시 서비스 문의에 대한 응대지원이 원활하지 않을 수
-								있습니다.</li>
-						</ol>
-						<p class="ok_q">
-							<input type="checkbox" name="chk_agree" id="chk_agree"> <label
-								for="chk_agree">위의 ‘개인정보 수집 및 이용’ 에 동의합니다.</label>
-						</p>
-						<p class="email_send">
-							<!-- <a href="#" class="email_btn">작성완료</a> -->
-							<input type="submit" value="작성완료" class="btn"
-								<%-- name="/c_membercenter/member_centerMain?f_num=${client.f_num }" --%>>
+					<ol class="text_box">
+						<li>수집·이용목적: 서비스 문의 및 제안사항에 따른 민원 처리 및 결과 회신을 위함</li>
+						<li>수집 항목: 아이디, e-메일</li>
+						<li>보유 및 이용기간: 소비자의 불만 또는 분쟁처리에 관한 기록에 의거하여 규정된 보존기간 동안 보유</li>
+						<li>회원님은 동의를 거부하실 수 있으며, 거부 시 서비스 문의에 대한 응대지원이 원활하지 않을 수
+							있습니다.</li>
+					</ol>
+					<p class="ok_q">
+						<input type="checkbox" name="chk_agree" id="chk_agree"> <label
+							for="chk_agree">위의 ‘개인정보 수집 및 이용’ 에 동의합니다.</label>
+					</p>
+					<p class="email_send">
+						<!-- <a href="#" class="email_btn">작성완료</a> -->
+						<input type="submit" value="작성완료" class="btn" name="/c_membercenter/member_centerMain?f_num=${client.f_num }">
 
-						</p>
+					</p>
 					</form>
 				</div>
 

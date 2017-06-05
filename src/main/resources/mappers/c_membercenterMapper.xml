@@ -11,14 +11,20 @@
 		select max(asknum) +1 from ask
 	</select>
 	<insert id="insertAsk">
-		insert into ask (asknum, askcontents, askdate, f_num, e_num, asktitle)
-		values(ask_seq.nextval, #{askcontents}, sysdate, #{f_num}, #{e_num}, #{asktitle})
+		insert into ask (writer, asknum, askcontents, askdate, f_num, e_num, asktitle)
+		values(#{writer}, ask_seq.nextval, #{askcontents}, sysdate, #{f_num}, #{e_num}, #{asktitle})
 	</insert>
 	
-	<select id="myAskList" resultType="member">
+	<select id="myAskList" resultType="lancer.c_membercenter.domain.MembercenterASKVO">
 		
-		 select f_name<!-- , f_sex, f_email, f_major, f_recentlogin --> from freelancer 
+		select writer, asktitle, askdate from ask
+		where f_num = #{f_num}
 		
+	</select>
+	
+	<select id="e_myAskList" resultType="lancer.c_membercenter.domain.MembercenterASKVO">
+		select writer, asktitle, askdate from ask
+		where e_num = #{e_num}
 	</select>
 	
 	<select id="countFreelancer" resultType="int">
