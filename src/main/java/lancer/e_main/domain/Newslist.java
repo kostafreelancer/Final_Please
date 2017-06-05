@@ -53,7 +53,11 @@ public class Newslist {
 
 	@Override
 	public String toString() {
-		return "Newslist [img=" + img + ", ttl_addr=" + ttl_addr + ", title=" + title + ", txt=" + txt + "]";
+		return "Newslist"+"\n"
+				+"img : "+img+"\n"
+				+"ttl_addr: " + ttl_addr+"\n"
+				+"title : "+title+"\n"
+				+"txt : "+txt+"\n"+"\n";
 	}
 	
 	

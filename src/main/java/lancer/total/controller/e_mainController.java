@@ -25,24 +25,12 @@ public class e_mainController {
 	public void e_mainControl(Model model) throws Exception{
 		
 		Crawler crawler = new Crawler();
-		List<String> imglist = crawler.imgcrw();
 		
-		List<String> ttl_addr_list = crawler.ttl_addr_crw();
-		List<String> titlelist = crawler.titlecrw();
+		List<String> newspack1 = crawler.newscrw1();
+		List<String> newspack2 = crawler.newscrw2();
 		
-		List<String> txtlist = crawler.txtcrw();
-
-		Newslist newslist = new Newslist();
-		
-		List<Newslist> list = new ArrayList<Newslist>();
-		
-		for(int i=0; i<imglist.size();i++){
-			list.add(new Newslist(imglist.get(i), ttl_addr_list.get(i), titlelist.get(i), txtlist.get(i)));
-
-			System.out.println(newslist + "aaa");
-
-		}
-		model.addAttribute("news_list", list);
+		model.addAttribute("news_pack1", newspack1);
+		model.addAttribute("news_pack2", newspack2);
 		
 		model.addAttribute("freelancerNum", e_mainService.countFreelancer());
 		model.addAttribute("projectNum", e_mainService.countProject());

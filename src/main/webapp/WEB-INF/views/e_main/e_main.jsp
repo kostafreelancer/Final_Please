@@ -50,30 +50,26 @@
 	<h3 class="e_main_h3">IT 뉴스</h3>
 	<div class="news1tab">
 		<div class="news1">
-			<a
-				href="http://news.naver.com/main/read.nhn?mode=LSD&amp;mid=shm&amp;sid1=105&amp;oid=293&amp;aid=0000019728">
-				<img
-				src="http://imgnews.naver.net/image/origin/293/2017/04/27/19728.jpg?type=nf136_90">
-			</a> <a
-				href="http://news.naver.com/main/read.nhn?mode=LSD&amp;mid=shm&amp;sid1=105&amp;oid=293&amp;aid=0000019728">
+			<c:forEach var="a" items="${news_pack1 }">
+			
+				${a }
+				
+			</c:forEach>
+			<!-- <a href="http://news.naver.com/main/read.nhn?mode=LSD&amp;mid=shm&amp;sid1=105&amp;oid=293&amp;aid=0000019728">
+				<img src="http://imgnews.naver.net/image/origin/293/2017/04/27/19728.jpg?type=nf136_90">
+			</a> 
+			<a href="http://news.naver.com/main/read.nhn?mode=LSD&amp;mid=shm&amp;sid1=105&amp;oid=293&amp;aid=0000019728">
 				<h4>"4차 산업혁명 시대, 일자리 줄고 빈부격차 심해질 것"</h4>
-			</a> (사진=Pixabay)국민이 '4차 산업혁명'을 어떻게 받아들이고 있는지 조사한 결과가 나왔다. 사람들은 4차 산업혁명이
-			가져올 일자리 문제와 부의 분배에 대해 부정적으로 평가했다. 국…
+			</a> 
+			(사진=Pixabay)국민이 '4차 산업혁명'을 어떻게 받아들이고 있는지 조사한 결과가 나왔다. 사람들은 4차 산업혁명이
+			가져올 일자리 문제와 부의 분배에 대해 부정적으로 평가했다. 국… -->
 		</div>
 	</div>
 
 	<div class="news2tab">
 		<div class="news2">
-			<c:forEach var="a" items="${news_list }">
-
-				<a href="${a.ttl_addr }"> <img src=${a.img }>
-				</a>
-
-				<a href="${a.ttl_addr }">
-					<h4>${a.title }</h4>
-				</a> 
-			
-			${a.txt }
+			<c:forEach var="b" items="${news_pack2 }">
+			${b }
 			<br>
 			</c:forEach>
 
