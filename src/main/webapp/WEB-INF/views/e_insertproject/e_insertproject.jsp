@@ -201,7 +201,7 @@
 											<td class="td_bor_bott"><input type="checkbox"
 												name="check" value="28"> WINDOWS</td>
 											<td class="td_bor_bott"><input type="checkbox"
-												name="check29" value="29"> 임베디드</td>
+												name="check" value="29"> 임베디드</td>
 											<td class="td_bor_bott">&nbsp;</td>
 										</tr>
 									</table> <!--img src="../img/sb_category.gif" width="87" height="18" align="absmiddle"-->

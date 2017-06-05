@@ -32,16 +32,9 @@ public class c_projectlistController {
 		
 		model.addAttribute("pageMaker", pageMaker);
 		
-		/*E_Insert e_insert = (E_Insert)session.getAttribute("project");
-		model.addAttribute("project", session.getAttribute("project"));
-	
-		String[] p_location = e_insert.getP_location().split("&");
-		model.addAttribute("p_location1", p_location[0]);
-		model.addAttribute("p_location2", p_location[1]);*/
-			
 	}
 	
-	@RequestMapping(value="/readPage", method= RequestMethod.GET)
+	@RequestMapping(value="/c_readpage", method= RequestMethod.GET)
 	public void readPage(@ModelAttribute("cri") SearchCriteria cri,@RequestParam("e_pr_num") int e_pr_num, Model model) throws Exception{
 		model.addAttribute(service.read(e_pr_num));
 	}

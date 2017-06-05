@@ -5,16 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/e_mypage/e_mypage_css/e_projectInfo.css"
+<link rel="stylesheet" href="/resources/e_mypage_css/e_projectInfo.css"
 	type="text/css" media="screen" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/e_mypage/e_mypage_css/e_leftmenu.css"
+<link rel="stylesheet" href="/resources/e_mypage_css/e_leftmenu.css"
 	type="text/css" media="screen" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/e_mypage/e_mypage_css/memberlist.css"
+<link rel="stylesheet" href="/resources/e_mypage_css/memberlist.css"
 	type="text/css" media="screen" />
 
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/e_mypage/e_mypage_js/tabs.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/e_mypage/e_mypage_js/e_projectInfo.js"></script>
+<script type="text/javascript" src="/resources/e_mypage_js/tabs.js"></script>
+<script type="text/javascript" src="/resources/e_mypage_js/e_projectInfo.js"></script>
 
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -37,18 +37,7 @@ $(function(){
 <body>
 	<%@include file="../c_common/header_enterprise.jsp"%>
 
-	<nav class="left_menu">
-	<div class="left_menu_title">
-		<h2>마이 페이지</h2>
-	</div>
-	<div class="left_menu_content">
-		<ul class="left_menu_contents">
-			<li><a href="e_infoSelectAction.e_mypage">기업 정보</a></li>
-			<li><a href="e_projectListAction.e_mypage">프로젝트 관리</a></li>
-		</ul>
-	</div>
-	</nav>
-
+	
 	<!-- //header_wrap : e -->
 	<div id="conainer">
 		<div id="nav">
@@ -59,11 +48,10 @@ $(function(){
 				</p>
 			</div>
 		</div>
-
-
+		
 		<div id="content">
 			<div class="tit_box">
-				<h2>${project.p_name }</h2>
+				<h2>${E_Insert.p_name }</h2>
 			</div>
 
 			<div class="table_tit">
@@ -121,7 +109,7 @@ $(function(){
 						<tr>
 							<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span><label
 								for="fm_name">프로젝트 명</label></th>
-							<td colspan="5">${project.p_name }</td>
+							<td colspan="5">${E_Insert.p_name }</td>
 						</tr>
 						<tr>
 							<th scope="row" rowspan="3" class="ac"><span class="txt_or">*</span>기본분야</th>
@@ -305,46 +293,46 @@ $(function(){
 								for="fm_content">상세내용</label></th>
 							<td colspan="5">
 							<textarea id="fm_content" name="fm_content" class="txt_area" disabled="disabled">
-								${project.p_content }
+								${E_Insert.p_content }
 							</textarea></td>
 						</tr>
 						<tr>
 							<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span>
 								연령</th>
-							<td colspan="2">${project.p_lowerage }<span>~</span>${project.p_upperage }
+							<td colspan="2">${E_Insert.p_lowerage }<span>~</span>${E_Insert.p_upperage }
 							</td>
 							<th scope="row" class="ac"><span class="txt_or"></span> 학력</th>
-							<td colspan="2">${project.p_academic }</td>
+							<td colspan="2">${E_Insert.p_academic }</td>
 						</tr>
 						<tr>
 							<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span>
 								인원</th>
-							<td colspan="2">${project.p_requirenum }명</td>
+							<td colspan="2">${E_Insert.p_requirenum }명</td>
 							<th scope="row" class="ac"><span class="txt_or">*</span>모집마감일자</th>
-							<td colspan="2">${project.p_regdate }</td>
+							<td colspan="2">${E_Insert.p_regdate }</td>
 						</tr>
 						<tr>
 							<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span>프로젝트
 								금액(월단위)</th>
-							<td colspan="5"><span>${project.p_lowercost }만원 ~ </span> <span>${project.p_uppercost }만원
+							<td colspan="5"><span>${E_Insert.p_lowercost }만원 ~ </span> <span>${E_Insert.p_uppercost }만원
 									&nbsp;</span> <span class="txt_red">* VAT별도 금액입니다.</span></td>
 						</tr>
 
 						<tr>
 							<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span>근무기간</th>
-							<td colspan="5">${project.p_startdate }<span> ~ </span>${project.p_enddate }
+							<td colspan="5">${E_Insert.p_startdate }<span> ~ </span>${E_Insert.p_enddate }
 							</td>
 						</tr>
 
 						<tr>
 							<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span>
 								근무지</th>
-							<td colspan="5">${project.p_location }
+							<td colspan="5">${E_Insert.p_location }
 						</tr>
 						<tr>
 							<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span>
 								희망 경력년수</th>
-							<td colspan="5">${project.p_experience } 년차
+							<td colspan="5">${E_Insert.p_experience } 년차
 							</td>
 						</tr>
 
