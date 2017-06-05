@@ -16,7 +16,6 @@
 	<div class="header">
 		<div class="header_top_menu">
 			<div class="header_welcome_content">
-				<span>${client.f_name}</span>
 			</div>
 			<ul class="header_top_menus">
 				<li><img alt="center_img"
@@ -75,7 +74,7 @@
 						<c:when test="${identity.identity == 'freelancer' }">
 							<a href="/f_mypage/myInfo">
 						</c:when>
-						<c:otherwise>s
+						<c:otherwise>
 							<a href=${pageContext.request.contextPath}"/f_mypage/myInfo">
 						</c:otherwise>
 					</c:choose>마이페이지</a></li>

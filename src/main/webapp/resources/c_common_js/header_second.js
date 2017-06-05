@@ -26,7 +26,6 @@ $(window).load(function() {
 					data:JSON.stringify({url:url}), 
 					dataType:'text', 
 					success:function(result){
-						alert($('.header_hidden').text());
 						if($('.header_hidden').text() === 'enterprise'){
 							self.location = '/f_main/f_main';
 						}
