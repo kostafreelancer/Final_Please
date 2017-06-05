@@ -73,7 +73,7 @@ public class Crawler {
 			url = "http://news.naver.com/main/main.nhn?mode=LSD&mid=shm&sid1=105"; // 신문기사
 			Document doc = Jsoup.connect(url).get(); // document 객체 생성.
 			
-			Elements title = doc.select(".sphoto1 dt a");
+			Elements title = doc.select(".sphoto1 dt:eq(1) a");
 			
 			for(int i=0;i<title.size();i++){
 				ttl_addr_list.add(title.get(i).attr("href"));
