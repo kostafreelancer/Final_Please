@@ -73,7 +73,7 @@
 				<!-- <li><a href="/Matching_Project/f_mypage/myInfo.jsp">마이페이지</a> -->
 				<li><c:choose>
 						<c:when test="${identity.identity == 'freelancer' }">
-							<a href="showScheduleInfo.f_mypage?f_num=${client.f_num}">
+							<a href="/f_mypage/myInfo">
 						</c:when>
 						<c:otherwise>s
 							<a href=${pageContext.request.contextPath}"/f_mypage/myInfo">

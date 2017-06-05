@@ -17,7 +17,7 @@ public class c_loginDAOImpl implements c_loginDAO {
 	
 	@Override
 	public c_login_freelancerVO select_f_login(c_loginVO vo) {
-		
+		System.out.println(vo.getC_id()+"아이디야 아이디~~");
 		return session.selectOne(namespace+".select_f_login",vo);
 	}
 	@Override

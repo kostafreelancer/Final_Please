@@ -3,10 +3,12 @@
  */
 $(function(){
 	
+	
 	if($('.checking_login').val() === 'no'){
 		alert("잘못된 회원의 정보를 입력하였습니다.");
 		$('.checking_login').val('');
 		$('#fm_id').focus();
+	
 	};
 	
 	$('.btn_login').click(function(){
@@ -23,5 +25,6 @@ $(function(){
 		$('.c_login').submit();
 		
 	});
+	
 
 })

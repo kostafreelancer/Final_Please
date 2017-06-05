@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.stream.Location;
 
 /*import org.apache.catalina.util.RequestUtil;*/
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.support.RequestPartServletServerHttpRequest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import lancer.c_login.domain.c_loginVO;
@@ -36,7 +38,6 @@ public class LoginController {
 	
 	@RequestMapping(value = "login", method= RequestMethod.GET)
 	public String login(HttpServletResponse response) throws IOException{
-		System.out.println("여기왜?");
 		return "/c_login/login";
 	}
 	@RequestMapping(value="loginpost" , method= RequestMethod.GET)
@@ -44,47 +45,49 @@ public class LoginController {
 		
 	}
 	@RequestMapping(value="/insert.c_login")
-	public String check_login(c_loginVO vo,@ModelAttribute("checking") String checked,Model model,HttpSession session){
+	public String check_login(c_loginVO vo,@ModelAttribute("checking") String checked,Model model,HttpSession session, RedirectAttributes rttr){
 		checking_identity identity = new checking_identity();
 		
 		if(checked.equals("freelancer")){
-			/*if(service.select_f_login(vo) == null){
-				return "redirect:/c_login/login";
-			}*/
-			identity.setFree(service.select_f_login(vo));
-			identity.setIdentity(checked);
-			session.setAttribute("client",identity.getFree());
-			session.setAttribute("identity", identity);
-		}else if(checked.equals("enterprise")){
-		/*	if(service.select_e_login(vo) == null){
+			
+			if(service.select_f_login(vo)!=null){
+				identity.setFree(service.select_f_login(vo));
+				identity.setIdentity(checked);
+				session.setAttribute("client",identity.getFree());
 				
+			}else{
+			
+				identity.setIdentity("no");
+				rttr.addFlashAttribute("msg", "no");
 				return "redirect:/c_login/login";
-			}*/
-			identity.setEnter(service.select_e_login(vo));
-			identity.setIdentity(checked);
-			session.setAttribute("client",identity.getEnter());
+			}
 			session.setAttribute("identity", identity);
 			
+		}else if(checked.equals("enterprise")){
+			if(service.select_e_login(vo)!=null){
+				identity.setEnter(service.select_e_login(vo));
+				identity.setIdentity(checked);
+				session.setAttribute("client",identity.getEnter());
+				
+			}else{
+				identity.setIdentity("no");
+				rttr.addFlashAttribute("msg", "no");
+				return "redirect:/c_login/login";
+			}
+			session.setAttribute("identity", identity);
 		}
-		System.out.println("여기가 실행되고 인터셉터가 실행이 되야 한다!");
 		return "redirect:/c_login/loginpost";
 	}
 	
 	@RequestMapping(value="/logout" ,method= RequestMethod.POST )
 	public void logout(HttpServletRequest request, HttpServletResponse response,HttpSession session,@RequestBody c_login_url url) throws IOException{
 		session.invalidate();
-		System.out.println(url.getUrl()+"여기가 url주소 ");
-		response.sendRedirect(url.getUrl());
+		/*response.sendRedirect(url.getUrl());*/
+		
+	}
+	@RequestMapping(value="/logout", method= RequestMethod.GET)
+	public void logout(HttpSession session,@RequestBody c_login_url url){
 		
 	}
 	
-	@RequestMapping("/exam")
-	public void exam(){
-		
-	}
-	@RequestMapping("/exam1")
-	public void exam1(){
-		System.out.println("exam1들어 오나요?");
-		
-	}
 }

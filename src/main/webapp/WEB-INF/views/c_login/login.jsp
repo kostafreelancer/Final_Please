@@ -5,10 +5,13 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <script type="text/javascript" src="/resources/c_login_js/c_login.js"></script>
+
 <link rel="stylesheet" href="/resources/c_login_css/join.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/resources/c_login_css/reset.css" type="text/css" media="screen" />
 
 <%@include file="../c_common/header.jsp"%>
+
+
 <div id="conainer">
 	<div id="nav">
 		<div class="nav_txt">
@@ -32,7 +35,7 @@
 						<input type="hidden" name="fm_url" value=""> <input
 							type="hidden" name="fm_str" value=""> <input
 							type="hidden" class="checking_login"
-							value="${identity.identity }"> <label for="fm_id"
+							value="${msg}"> <label for="fm_id"
 							class="tx_skip">아이디 입력</label>
 						<div>
 							<input type="text" id="fm_id" class="log_inp01" name="c_id" />

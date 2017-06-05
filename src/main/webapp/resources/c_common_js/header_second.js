@@ -13,7 +13,7 @@ $(window).load(function() {
 			$('.login_checking a').text("로그인");
 			$('.header_welcome_content span').text("");
 			var url = location.pathname;
-			alert(url+"이거 보내면 될려나?");
+			
 			 $.ajax({
 					type:'POST',
 					url:'/c_login/logout',
@@ -23,14 +23,11 @@ $(window).load(function() {
 					data:JSON.stringify({url:url}), 
 					dataType:'text', 
 					success:function(result){
-						console.log("result: " + result);
-						if(result == 'SUCCESS'){
-							alert("페이지가 이동이 됫나?");
-						}
+						$('.header_join').show();
+						window.location.reload();
 				}});
 		}else{
-			alert(url+"이거 보내면 될려나?");
-			 $.ajax({
+			 /*$.ajax({
 					type:'GET',
 					url:'/c_login/login',
 					headers: { 
@@ -42,7 +39,9 @@ $(window).load(function() {
 						if(result == 'SUCCESS'){
 							alert("페이지가 이동이 됫나?");
 						}
-				}});
+				}});*/
+			
+			self.location = "/c_login/login";
 		}
 	});
 

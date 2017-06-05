@@ -5,7 +5,7 @@
 
 <mapper namespace="lancer.mappers.c_loginMapper">
 	<select id = "select_f_login" parameterType="c_loginVO" resultType="c_login_freelancerVO">
-		select * from freelancer
+		select * from FREELANCER
 						where f_id = #{c_id} and f_pwd = #{pwd}
 	</select>
 
