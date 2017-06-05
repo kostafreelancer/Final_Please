@@ -68,7 +68,6 @@
 				<li><a href=${pageContext.request.contextPath}"/e_mypage/e_info">마이페이지</a></li>
 				<li><a href="/Matching_Project/c_using/service.jsp">이용
 						방법</a></li>
-SS
 			</ul>
 		</div>
 		<!--헤드 메뉴 -->

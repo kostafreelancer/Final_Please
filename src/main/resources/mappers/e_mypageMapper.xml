@@ -37,15 +37,15 @@
 	</update>
 	
 	<select id="listProjectReady" resultType="lancer.e_mypage.domain.Project">
-		SELECT * FROM project WHERE e_num = #{e_num} AND state = '모집중'
+		SELECT * FROM project WHERE e_num = #{e_num} AND p_state = '모집중'
 	</select>
 
 	<select id="listProjectDoing" resultType="lancer.e_mypage.domain.Project">
-		SELECT * FROM project WHERE e_num = #{e_num} AND state = '진행중'
+		SELECT * FROM project WHERE e_num = #{e_num} AND p_state = '진행중'
 	</select>
 
 	<select id="listProjectDone" resultType="lancer.e_mypage.domain.Project">
-		SELECT * FROM project WHERE e_num = #{e_num} AND state = '완료'
+		SELECT * FROM project WHERE e_num = #{e_num} AND p_state = '완료'
 	</select>
 
 	<select id="selectProject" parameterType="java.util.HashMap" resultType="lancer.e_mypage.domain.Project">
