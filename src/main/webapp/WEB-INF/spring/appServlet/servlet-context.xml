@@ -24,17 +24,18 @@
 	<context:component-scan base-package="lancer.total.controller" />
 	<beans:bean id="AuthInterceptor" class="lancer.total.interceptor.AuthInterceptor"> </beans:bean>
 	<beans:bean id="LoginInterceptor" class="lancer.total.interceptor.LoginInterceptor"></beans:bean>
-	<interceptors>
+ 	<interceptors>
 		<interceptor>
 			<mapping path="/f_mypage/*"/>
 			<mapping path="/e_mypage/*"/>
+			<mapping path="/c_login/exam"/>
 			<beans:ref bean="AuthInterceptor"/>
 		</interceptor>
 		<interceptor>
 			<mapping path="/c_login/loginpost"/>
 			<beans:ref bean="LoginInterceptor"/>
 		</interceptor>
-	</interceptors>	
+	</interceptors>	 
 	
 	
 </beans:beans>

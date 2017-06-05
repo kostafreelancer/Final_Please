@@ -9,17 +9,17 @@
 	media="screen" />
 <link rel="stylesheet" href="../common/footer.css" type="text/css"
 	media="screen" />
-<link rel="stylesheet" href="/resources/e_insertproject_js/e_insertproject.css"
+<link rel="stylesheet" href="/resources/e_insertproject_css/e_insertproject.css"
 	type="text/css" media="screen" />
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-<script type="text/javascript" src="../common/header.js"></script>
+
 </head>
 <body>
 	<%@include file="../c_common/header_enterprise.jsp"%>
 	<!-- //header_wrap : e -->
 	<div id="conainer">
-		<div id="nav">
+		<div id="nav">   
 			<div class="nav_txt">
 				<p>
 					<a href="/e_lan/index.php">Home</a> <span class="padd">&gt;</span>

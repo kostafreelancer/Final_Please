@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import lancer.f_mypage.domain.ApplyProject;
+import lancer.f_mypage.domain.Calendar;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.Freelancer;
@@ -55,4 +56,12 @@ public class F_MypageService {
 		dao.deleteFreelancerJobInfo(f_num);
 	}
 	
+	public String getMyProjectName(int f_num) throws Exception{
+		return dao.getMyProjectName(f_num);
+	}
+	
+	public List<Calendar> getMySchedule(int f_num) throws Exception{
+		return dao.getMySchedule(f_num);
+	}
+
 }

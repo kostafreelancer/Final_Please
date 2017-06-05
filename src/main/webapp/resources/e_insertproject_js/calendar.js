@@ -7,7 +7,7 @@
 	var startAt = 0			// 0 - sunday ; 1 - monday
 	var showWeekNumber = 0	// 0 - don't show; 1 - show
 	var showToday = 1		// 0 - don't show; 1 - show
-	var imgDir = '/Matching_Project/e_insertproject/e_insertproject_img/'		// directory for images ... e.g. var imgDir="/img/"
+	var imgDir = '/resouces/e_insertproject_img/'		// directory for images ... e.g. var imgDir="/img/"
 
 	var gotoString = "현재 달로 이동"
 	var todayString = "오늘은"

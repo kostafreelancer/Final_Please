@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import lancer.f_mypage.domain.ApplyProject;
+import lancer.f_mypage.domain.Calendar;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.Freelancer;
@@ -58,7 +59,13 @@ public class F_MypageDAO {
 		session.delete(namespace + ".deleteFreelancerJobInfo", f_num); 
 	}
 	
-
+	public String getMyProjectName(int f_num) throws Exception{
+		return session.selectOne(namespace + ".getMyProjectName", f_num);
+	}
+	
+	public List<Calendar> getMySchedule(int f_num) throws Exception{
+		return session.selectList(namespace + ".getMySchedule", f_num);
+	}
 	
 	
 }
