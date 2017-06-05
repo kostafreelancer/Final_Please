@@ -22,9 +22,6 @@
 			<div class="header_welcome_content">
 				<span>${client.e_name}</span> 
 			</div>
-			<div class="identity_checking">
-				<span class="header_hidden">enterprise</span>
-			</div>
 			<ul class="header_top_menus">
 				<li><img alt="center_img"
 					src="/resources/c_common_img/header_center_icon.jpg">

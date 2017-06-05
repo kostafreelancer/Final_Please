@@ -6,10 +6,7 @@ $(window).load(function() {
 		$('.login_checking a').text("로그 아웃");
 		$('.header_join').hide();
 	}
-	$('.identity_checking').hide();
-	
-	
-	
+			
 	$('.login_checking a').click(function(event){
 		event.preventDefault();
 		if($('.login_checking a').text() === "로그 아웃"){
