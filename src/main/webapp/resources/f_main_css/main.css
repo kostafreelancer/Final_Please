@@ -1,0 +1,254 @@
+@charset "UTF-8";
+
+.main_slide {
+	border: 1px solid; /* 추후 삭제 */
+	height: 425px;
+	min-width: 960px;
+	overflow: hidden;
+	position: relative;
+	/*   background-color: gray; */
+	/*  margin-top: 100px; */
+}
+
+.slideshow_images {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+.slideshow_images .slide {
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+}
+
+.slideshow_images .slide img {
+	left: 50%;
+	margin-left: -800px;
+	position: absolute;
+}
+
+.slideshow_images {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+.slideshow_images .slide {
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+}
+
+.slideshow-slides .slide img {
+	left: 50%;
+	margin-left: -800px;
+	position: absolute;
+}
+
+.main_news {
+	border: 1px solid; /* 추후 삭제 */
+	height: 300px;
+	min-width: 960px;
+	overflow: hidden;
+	position: relative;
+}
+
+.left_news {
+	border: 1px solid;
+	height: 400px;
+	width: 672.5px;
+	overflow: hidden;
+	position: relative;
+	float: left;
+	/* 	background-color: gray; */
+}
+
+#chart_div { /* 차트 */
+	height: 230px;
+	width: 672.5px;
+	overflow: hidden;
+	position: relative;
+	/* 	margin-left: 500px; */
+	margin-bottom: 500px;
+}
+
+#news {
+	/* background-color: red; */
+	/* background-image: url(../lancer_imgs/bg_list_sky.jpg) */
+	
+}
+/* 탭 영역css */
+
+/* ------------------------------------------------- */
+/* body
+{
+    width: 700px;
+    margin: 100px auto 0 auto;
+    font-family: Arial, Helvetica;
+    font-size: small;
+	background: #444;
+} */
+#tabs {
+	overflow: hidden;
+	width: 400px;
+	margin-left: 300px;
+	padding: 0px;
+	list-style: none;
+}
+
+#tabs li {
+	float: left;
+	margin: 0 .5em 0 0;
+}
+
+#tabs a {
+	padding-left: 50px;
+	position: relative;
+	background: #ddd;
+	/*  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+  background-image: -webkit-linear-gradient(top, #fff, #ddd);
+  background-image: -moz-linear-gradient(top, #fff, #ddd);
+  background-image: -ms-linear-gradient(top, #fff, #ddd);
+  background-image: -o-linear-gradient(top, #fff, #ddd);
+  background-image: linear-gradient(to bottom, #fff, #ddd); */
+	padding: .7em 3.5em;
+	float: left;
+	text-decoration: none;
+	color: #444;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+	border-radius: 5px 0 0 0;
+	-moz-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+	-webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+	box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+}
+
+#tabs a:hover, #tabs a:hover::after, #tabs a:focus, #tabs a:focus::after
+	{
+	background: #fff;
+}
+
+#tabs a:focus {
+	outline: 0;
+}
+
+#tabs a::after {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: -.5em;
+	bottom: 0;
+	width: 1em;
+	background: #ddd;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff),
+		to(#ddd));
+	background-image: -webkit-linear-gradient(top, #fff, #ddd);
+	background-image: -moz-linear-gradient(top, #fff, #ddd);
+	background-image: -ms-linear-gradient(top, #fff, #ddd);
+	background-image: -o-linear-gradient(top, #fff, #ddd);
+	background-image: linear-gradient(to bottom, #fff, #ddd) -moz-box-shadow:
+		 2px 2px 2px rgba(0, 0, 0, .4);
+	-webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+	-webkit-transform: skew(10deg);
+	-moz-transform: skew(10deg);
+	-ms-transform: skew(10deg);
+	-o-transform: skew(10deg);
+	transform: skew(10deg);
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+	border-radius: 0 5px 0 0;
+}
+
+#tabs #current a, #tabs #current a::after {
+	background: #fff;
+	z-index: 3;
+}
+
+/* ------------------------------------------------- */
+#content {
+	background: #fff;
+	width: 700px;
+	margin-left: 300px;
+	padding-left: 100px;
+	padding-top: 70px;
+	height: 500px;
+	position: relative;
+	z-index: 2;
+	-moz-border-radius: 0 5px 5px 5px;
+	-webkit-border-radius: 0 5px 5px 5px;
+	border-radius: 0 5px 5px 5px;
+	-moz-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+	-webkit-box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+	box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+	background-image: url(../f_main_img/bg_content01.jpg)
+}
+
+#content h2, #content h3 {
+	margin: 0 0 15px 0;
+}
+
+/* ------------------------------------------------- */
+#about {
+	color: #999;
+}
+
+#about a {
+	color: #eee;
+}
+
+/* 탭 css끝 */
+#tab1>img {
+	margin-top: 50px;
+	margin-right: 50px;
+}
+
+#tab2>img {
+	margin-top: 50px;
+	margin-right: 50px;
+}
+
+#active_inf {
+	background-image: url(../f_main_img/bg_content01.jpg);
+	border: 1px solid;
+}
+
+.left_news ul {
+	width: 350px;
+	height: 150px;
+	overflow: hidden;
+	border: 1px solid #DDD;
+	margin: 0;
+	padding-left: 5px;
+	list-style: none;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px #DDD;
+	margin-left: 50px;
+	margin-bottom: -100px;
+	margin-top: 40px;
+}
+
+.main_news {
+	background-image: url(../f_main_img/bg_cont05.jpg);
+}
+
+#introduce_site>h2 {
+	text-align: center;
+}
+
+#introduce_img>img {
+	margin-right: 50px;
+}
+
+#introduce_img {
+	margin-left: 27%;
+}
+
+#introduce_site{
+	margin-bottom: 100px;
+}

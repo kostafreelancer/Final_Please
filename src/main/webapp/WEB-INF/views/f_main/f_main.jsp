@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/Matching_Project/f_main/f_main_css/main.css">
+<link rel="stylesheet" href="../../../resources/f_main_css/main.css">
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="/Matching_Project/f_main/f_main_js/f_main.js"></script>
+<script src="../../../resources/f_main_js/f_main.js"></script>
 <!-- <script src="js/vendor/modernizr.custom.min.js"></script>
 <script src="js/vendor/jquery-1.10.2.min.js"></script>
 <script src="js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
@@ -60,12 +60,12 @@ function drawMultSeries() {
 	<div class="main_slide">
 		<div class="slideshow_images">
 		
-			<a href="#" class="slide"><img src="/Matching_Project/f_main/f_main_img/bg_visual01.jpg"
+			<a href="#" class="slide"><img src="../../../resources/f_main_img/bg_visual01.jpg"
 				alt="" width="1911" height="432"></a> <a href="#" class="slide"><img
-				src="/Matching_Project/f_main/f_main_img/bg_visual02.jpg" alt="" width="1911" height="432"></a>
-			<a href="#" class="slide"><img src="/Matching_Project/f_main/f_main_img/bg_visual03.jpg"
+				src="../../../resources/f_main_img/bg_visual02.jpg" alt="" width="1911" height="432"></a>
+			<a href="#" class="slide"><img src="../../../resources/f_main_img/bg_visual03.jpg"
 				alt="" width="1911" height="432"></a> <a href="#" class="slide"><img
-				src="/Matching_Project/f_main/f_main_img/bg_visual04.jpg" alt="" width="1911" height="432"></a>
+				src="../../../resources/f_main_img/bg_visual04.jpg" alt="" width="1911" height="432"></a>
 		</div>
 	</div>
 
@@ -102,10 +102,10 @@ function drawMultSeries() {
 			<div id="tab1">
 				<h2>프리랜서 정보</h2>
 				<h3>현재 활동중인 프리랜서는 ${count }명 입니다.</h3>
-				<img alt="" src="/Matching_Project/f_main/f_main_img/icon01_off.png"> <img alt=""
-					src="/Matching_Project/f_main/f_main_img/icon02_off.png"> <img alt=""
-					src="/Matching_Project/f_main/f_main_img/icon03_off.png"> <img alt=""
-					src="/Matching_Project/f_main/f_main_img/icon04_off.png">
+				<img alt="" src="../../../resources/f_main_img/icon01_off.png"> <img alt=""
+					src="../../../resources/f_main_img/icon02_off.png"> <img alt=""
+					src="../../../resources/f_main_img/icon03_off.png"> <img alt=""
+					src="../../../resources/f_main_img/icon04_off.png">
 				<form action="" method="post">
 					<table class="active_p">
 						<tr>
@@ -130,10 +130,10 @@ function drawMultSeries() {
 				<h2>프로젝트 정보</h2>
 				<h3>현재 등록된 프로젝트 수</h3>
 				<h3>현재 등록된 프로젝트 수는 ${countP }개 입니다.</h3>
-				<img alt="" src="/Matching_Project/f_main/f_main_img/icon01_off.png"> <img alt=""
-					src="/Matching_Project/f_main/f_main_img/icon02_off.png"> <img alt=""
-					src="/Matching_Project/f_main/f_main_img/icon03_off.png"> <img alt=""
-					src="/Matching_Project/f_main/f_main_img/icon04_off.png">
+				<img alt="" src="../../../resources/f_main_img/icon01_off.png"> <img alt=""
+					src="../../../resources/f_main_img/icon02_off.png"> <img alt=""
+					src="../../../resources/f_main_img/icon03_off.png"> <img alt=""
+					src="../../../resources/f_main_img/icon04_off.png">
 				<h3>--분야별 프로젝트 수 구현예정--</h3>
 				<tr>
 					<td>1 프로젝트DB</td>
@@ -155,10 +155,10 @@ function drawMultSeries() {
 		<br>
 		<div id="introduce_img">
 
-			<img alt="" src="/Matching_Project/f_main/f_main_img/cont04_icon01.png"> <img alt=""
-				src="/Matching_Project/f_main/f_main_img/cont04_icon02.png"> <img alt=""
-				src="/Matching_Project/f_main/f_main_img/cont04_icon03.png"> <img alt=""
-				src="/Matching_Project/f_main/f_main_img/cont04_icon04.png">
+			<img alt="" src="../../../resources/f_main_img/cont04_icon01.png"> <img alt=""
+				src="../../../resources/f_main_img/cont04_icon02.png"> <img alt=""
+				src="../../../resources/f_main_img/cont04_icon03.png"> <img alt=""
+				src=../../../resources/f_main_img/cont04_icon04.png">
 
 		</div>
 	</div>
