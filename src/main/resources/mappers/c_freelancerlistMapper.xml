@@ -26,5 +26,8 @@
 							where f.job_id = j.job_id
 								and f.f_num = #{f_num}	
 	</select> 
+	<select id="c_freelancerlist_totalCount" resultType="Integer">
+		select count(*) from FREELANCER
+	</select>
 
 </mapper>

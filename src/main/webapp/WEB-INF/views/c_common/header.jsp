@@ -56,7 +56,7 @@
 
 		<div class="header_menu">
 			<ul class="header_menus">
-				<li><a href="/Matching_Project/c_projectlist/project_list.jsp">프로젝트
+				<li><a href=${pageContext.request.contextPath}"/c_projectlist/c_projectlist">프로젝트
 						목록</a></li>
 				<!-- <li><a href="/Matching_Project/c_freelancerlist/f_list.jsp">프리랜서 목록</a></li> -->
 				<li><a href="/c_freelancerlist/f_list">프리랜서 목록</a></li>

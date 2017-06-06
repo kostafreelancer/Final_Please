@@ -4,14 +4,17 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import lancer.c_freelancerlist.domain.c_freelancerlist_SearchCriteria;
 import lancer.c_freelancerlist.domain.c_freelancerlist_careerVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_portfolioVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_schoolVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
 import lancer.c_login.domain.c_login_freelancerVO;
+import lancer.c_projectlist.domain.SearchCriteria;
 
 @Repository
 public class c_freelancerlistDAOImpl implements c_freelancerlistDAO{
@@ -23,11 +26,11 @@ public class c_freelancerlistDAOImpl implements c_freelancerlistDAO{
 	private static String namepace = "lancer.mappers.c_freelancerlistMapper";
 	
 	@Override
-	public List<c_freelancerlist_totalVO> c_freelancerlist_select_basic() {
+	public List<c_freelancerlist_totalVO> c_freelancerlist_select_basic(c_freelancerlist_SearchCriteria cri) {
 		
 		/*List<c_freelancerlist_total> list = session.selectList(namepace+".c_freelancerlist_select_basic");
 		System.out.println(list.size()+"리스트 사이즈 ");*/
-		return session.selectList(namepace+".c_freelancerlist_select_basic");
+		return session.selectList(namepace+".c_freelancerlist_select_basic",cri,new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
 	}
 
 	@Override
@@ -52,6 +55,11 @@ public class c_freelancerlistDAOImpl implements c_freelancerlistDAO{
 	public List<c_freelancerlist_schoolVO> c_freelancerlist_select_school(int f_num) {
 		
 		return session.selectList(namepace+".c_freelancerlist_select_school",f_num);
+	}
+
+	@Override
+	public Integer c_freelancerlist_totalCount() {
+		return session.selectOne(namepace+".c_freelancerlist_totalCount");
 	}
 
 
