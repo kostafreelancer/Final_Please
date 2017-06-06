@@ -26,5 +26,7 @@ public class e_insertprojectServiceImpl implements e_insertprojectService {
 	public void insertP_Job(Map<String, Integer> map) throws Exception{
 	  dao.insertP_Job(map);
 	}
+	
+	
 
 }

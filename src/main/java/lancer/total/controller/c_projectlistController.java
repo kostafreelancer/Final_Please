@@ -1,5 +1,9 @@
 package lancer.total.controller;
 
+
+import java.util.HashMap;
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import lancer.c_projectlist.domain.PageMaker;
 import lancer.c_projectlist.domain.SearchCriteria;
 import lancer.e_insertproject.domain.E_Insert;
+import lancer.e_insertproject.domain.Enterprise;
+import lancer.e_mypage.domain.Project;
 import lancer.total.service.c_projectlistService;
 
 @Controller
@@ -35,8 +41,28 @@ public class c_projectlistController {
 	}
 	
 	@RequestMapping(value="/c_readpage", method= RequestMethod.GET)
-	public void readPage(@ModelAttribute("cri") SearchCriteria cri,@RequestParam("e_pr_num") int e_pr_num, Model model) throws Exception{
-		model.addAttribute(service.read(e_pr_num));
+	public void readPage(@ModelAttribute("cri") SearchCriteria cri,@RequestParam("e_pr_num") int e_pr_num,@RequestParam("e_num") int e_num, Model model) throws Exception{
+		
+		//담당자정보 구하기
+		Enterprise enterprise = service.selectEnterprise(e_num);
+		model.addAttribute("enterprise", enterprise);
+		
+		String[] manager_hphone = enterprise.getManager_hphone().split("-");
+		model.addAttribute("manager_hphone_1", manager_hphone[0]);
+		model.addAttribute("manager_hphone_2", manager_hphone[1]);
+		model.addAttribute("manager_hphone_3", manager_hphone[2]);
+		
+		String[] manager_mail = enterprise.getManager_mail().split("@");
+		model.addAttribute("manager_mail_1", manager_mail[0]);
+		model.addAttribute("manager_mail_2", manager_mail[1]);
+		
+		//프로젝트 정보구하기
+		E_Insert project = service.read(e_pr_num);
+	    model.addAttribute("project", project);
+				
+		//상세분야 구하기
+		List<Integer> p_job = service.selectP_job(e_pr_num);
+		model.addAttribute("p_job", p_job);
 	}
 	
 

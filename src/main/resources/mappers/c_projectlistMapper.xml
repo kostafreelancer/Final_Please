@@ -4,16 +4,6 @@
 
 
 <mapper namespace="lancer.mappers.c_projectlistMapper">
-
-<select id="listAll" resultType="E_Insert"> 
-		<![CDATA[ select e_pr_num, e_num, p_name, p_content, p_lowerAge, p_upperAge,
-			 p_academic, p_requireNum, p_regDate, p_exDate,p_lowerCost, p_upperCost,
-			 p_startDate, p_endDate, p_location, p_experience
-	 							from project
-	 							where e_pr_num > 0 ]]> 
-	 		
-		<![CDATA[ order by e_pr_num desc, p_regdate desc ]]> 
-	</select> 
 	
 	 <!-- <sql id="search">
 		<if test="searchType != null">
@@ -48,14 +38,18 @@
 	</sql> -->
 
 	<select id="read" resultType="E_Insert">
-		select
-		e_pr_num, e_num, p_name, p_content, p_lowerAge, p_upperAge,
-			 p_academic, p_requireNum, p_regDate, p_exDate,p_lowerCost, p_upperCost,
-			 p_startDate, p_endDate, p_location, p_experience
-		from
-		project
+		select * from project
 		where e_pr_num = #{e_pr_num}
 	</select> 
+	
+	<select id="selectEnterprise" resultType="Enterprise">
+		select * from Enterprise
+		where e_num = #{e_num}
+	</select> 
+	
+	<select id="selectP_job" resultType="Integer">
+		SELECT job_id FROM p_job WHERE e_pr_num = #{e_pr_num}
+	</select>
 	 
 	<select id="countPaging" resultType="int">
 	<![CDATA[

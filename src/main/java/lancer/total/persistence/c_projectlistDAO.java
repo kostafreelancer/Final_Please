@@ -5,6 +5,7 @@ import java.util.List;
 import lancer.c_projectlist.domain.Criteria;
 import lancer.c_projectlist.domain.SearchCriteria;
 import lancer.e_insertproject.domain.E_Insert;
+import lancer.e_insertproject.domain.Enterprise;
 
 public interface c_projectlistDAO {
 
@@ -19,5 +20,9 @@ public interface c_projectlistDAO {
 	int listSearchCount(SearchCriteria cri) throws Exception;
 
 	E_Insert read(Integer e_pr_num) throws Exception;
+
+	List<Integer> selectP_job(int e_pr_num) throws Exception;
+
+	Enterprise selectEnterprise(Integer e_num) throws Exception;
 
 }

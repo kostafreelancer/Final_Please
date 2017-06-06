@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -215,21 +217,21 @@
 								<p class="infor_txt"
 									style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
 									<a
-									href='/c_projectlist/c_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&e_pr_num=${E_Insert.e_pr_num}'>
+									href='/c_projectlist/c_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&e_pr_num=${E_Insert.e_pr_num}&e_num=${E_Insert.e_num}'>
 									[${E_Insert.p_state }/${E_Insert.p_location }/${E_Insert.p_academic }] <br> ${E_Insert.p_name }
 									</a>
 								</p>
 
 								<p class="ell_hidd">
 									<a
-									href='/c_projectlist/c_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&e_pr_num=${E_Insert.e_pr_num}'>
+									href='/c_projectlist/c_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&e_pr_num=${E_Insert.e_pr_num}&e_num=${E_Insert.e_num}'>
 										${E_Insert.p_content }</a>
 								</p>
 							</td>
 							<td class="ac">
 								<div class="tb_ball04">UNITY</div>
 							</td>
-							<td>${E_Insert.p_startDate }</td>
+							<td>${E_Insert.p_startDate }<%-- <fmt:formatDate value="${E_Insert.p_startDate }" pattern="yyyy-MM-dd"/> --%></td>
 							<td>${E_Insert.p_endDate }<br>
 							</td>
 							<td>${E_Insert.p_requireNum }명</td>
@@ -243,28 +245,34 @@
 			</div>
 			
 			<div class="num_box">
-			<span class="btn_lef">
+			<span class="btn_lef"> <a href="#"
+					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0xJmluY3JlbWVudD0w#Member_list');"
+					class="first" alt="처음으로"></a></span>
 					
 							<c:if test="${pageMaker.prev}">
-								<li><a
-									href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+								<a
+									href="c_projectlist${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a>
 							</c:if>
 
 							<c:forEach begin="${pageMaker.startPage }"
 								end="${pageMaker.endPage }" var="idx">
-								<li
-									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="list${pageMaker.makeSearch(idx)}">${idx}</a>
-								</li>
+								<span
+								<c:out value="${pageMaker.cri.page == idx?'class=on':''}"/>>
+									<a href="c_projectlist${pageMaker.makeSearch(idx)}">${idx}</a>
+								</span>
 							</c:forEach>
 
 							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 								<li><a
-									href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+									href="c_projectlist${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
 							</c:if>
-
-						</span>
-					</div>
+							
+							<span class='btn_rit'><a href="#"
+					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0xMSZpbmNyZW1lbnQ9MQ==#Member_list');"
+					class="next" alt="다음 페이지"></a><a href="#"
+					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0zMjMmaW5jcmVtZW50PTMy#Member_list');"
+					class="last" alt="마지막으로"></a> </span>
+			</div>
 			<!-- //tb_box : e -->
 			<!-- <div class="num_box">
 				<span class="btn_lef"> 
@@ -295,196 +303,7 @@
 		<!-- //content : e  -->
 
 
-	</div>
 
-
-	</div>
-	<!-- //wrap : e -->
-
-	<style type="text/css" media="screen">
-/* Base styles for the element that has a tooltip */
-[data-tooltip], .tooltip {
-	position: relative;
-	cursor: pointer;
-	text-decoration: none;
-	z-index: 100
-}
-
-.tooltip {
-	display: inline-block
-}
-/* Base styles for the entire tooltip */
-[data-tooltip]:before, [data-tooltip]:after, .tooltip:before, .tooltip:after
-	{
-	text-decoration: none;
-	position: absolute;
-	visibility: hidden;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-	opacity: 0;
-	-webkit-transition: opacity 0.2s ease-in-out, visibility 0.2s
-		ease-in-out, -webkit-transform 0.2s
-		cubic-bezier(0.71, 1.7, 0.77, 1.24);
-	-moz-transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out,
-		-moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-	transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out,
-		transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-	-webkit-transform: translate3d(0, 0, 0);
-	-moz-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0);
-	pointer-events: none;
-}
-
-/* Show the entire tooltip on hover and focus */
-[data-tooltip]:hover:before, [data-tooltip]:hover:after, [data-tooltip]:focus:before,
-	[data-tooltip]:focus:after, .tooltip:hover:before, .tooltip:hover:after,
-	.tooltip:focus:before, .tooltip:focus:after {
-	visibility: visible;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-	opacity: 1;
-}
-
-/* Base styles for the tooltip's directional arrow */
-.tooltip:before, [data-tooltip]:before {
-	z-index: 1001;
-	border: 6px solid transparent;
-	background: transparent;
-	content: "";
-	text-decoration: none;
-}
-
-/* Base styles for the tooltip's content area */
-.tooltip:after, [data-tooltip]:after {
-	z-index: 1000;
-	padding: 8px;
-	width: 120px;
-	background-color: #000;
-	background-color: hsla(0, 0%, 20%, 0.9);
-	color: #fff;
-	content: attr(data-tooltip);
-	font-size: 12px;
-	text-decoration: none;
-	font-family: malgun gothic;
-	line-height: 1.2;
-}
-
-/* Directions */
-
-/* Top (default) */
-[data-tooltip]:before, [data-tooltip]:after, .tooltip:before, .tooltip:after,
-	.tooltip-top:before, .tooltip-top:after {
-	bottom: 100%;
-	left: 50%;
-	text-decoration: none;
-}
-
-[data-tooltip]:before, .tooltip:before, .tooltip-top:before {
-	margin-left: -6px;
-	margin-bottom: -12px;
-	border-top-color: #000;
-	border-top-color: hsla(0, 0%, 20%, 0.9);
-	text-decoration: none;
-}
-
-/* Horizontally align top/bottom tooltips */
-[data-tooltip]:after, .tooltip:after, .tooltip-top:after {
-	margin-left: -80px;
-	text-decoration: none;
-}
-
-[data-tooltip]:hover:before, [data-tooltip]:hover:after, [data-tooltip]:focus:before,
-	[data-tooltip]:focus:after, .tooltip:hover:before, .tooltip:hover:after,
-	.tooltip:focus:before, .tooltip:focus:after, .tooltip-top:hover:before,
-	.tooltip-top:hover:after, .tooltip-top:focus:before, .tooltip-top:focus:after
-	{
-	-webkit-transform: translateY(-12px);
-	-moz-transform: translateY(-12px);
-	transform: translateY(-12px);
-	text-decoration: none;
-}
-
-/* Left */
-.tooltip-left:before, .tooltip-left:after {
-	right: 100%;
-	bottom: 50%;
-	left: auto;
-}
-
-.tooltip-left:before {
-	margin-left: 0;
-	margin-right: -12px;
-	margin-bottom: 0;
-	border-top-color: transparent;
-	border-left-color: #000;
-	border-left-color: hsla(0, 0%, 20%, 0.9);
-}
-
-.tooltip-left:hover:before, .tooltip-left:hover:after, .tooltip-left:focus:before,
-	.tooltip-left:focus:after {
-	-webkit-transform: translateX(-12px);
-	-moz-transform: translateX(-12px);
-	transform: translateX(-12px);
-}
-
-/* Bottom */
-.tooltip-bottom:before, .tooltip-bottom:after {
-	top: 100%;
-	bottom: auto;
-	left: 50%;
-}
-
-.tooltip-bottom:before {
-	margin-top: -12px;
-	margin-bottom: 0;
-	border-top-color: transparent;
-	border-bottom-color: #000;
-	border-bottom-color: hsla(0, 0%, 20%, 0.9);
-}
-
-.tooltip-bottom:hover:before, .tooltip-bottom:hover:after,
-	.tooltip-bottom:focus:before, .tooltip-bottom:focus:after {
-	-webkit-transform: translateY(12px);
-	-moz-transform: translateY(12px);
-	transform: translateY(12px);
-}
-
-/* Right */
-.tooltip-right:before, .tooltip-right:after {
-	bottom: 50%;
-	left: 100%;
-}
-
-.tooltip-right:before {
-	margin-bottom: 0;
-	margin-left: -12px;
-	border-top-color: transparent;
-	border-right-color: #000;
-	border-right-color: hsla(0, 0%, 20%, 0.9);
-}
-
-.tooltip-right:hover:before, .tooltip-right:hover:after, .tooltip-right:focus:before,
-	.tooltip-right:focus:after {
-	-webkit-transform: translateX(12px);
-	-moz-transform: translateX(12px);
-	transform: translateX(12px);
-}
-
-/* Move directional arrows down a bit for left/right tooltips */
-.tooltip-left:before, .tooltip-right:before {
-	top: 3px;
-}
-
-/* Vertically center tooltip content for left/right tooltips */
-.tooltip-left:after, .tooltip-right:after {
-	margin-left: 0;
-	margin-bottom: -16px;
-}
-
-a[href*=view]:after {
-	font-size: 13px;
-}
-</style>
 
 <%@include file="../c_common/footer.jsp" %>
 </body>
