@@ -243,8 +243,8 @@
 			</div>
 			
 			<div class="num_box">
-						<ul class="pagination">
-
+			<span class="btn_lef">
+					
 							<c:if test="${pageMaker.prev}">
 								<li><a
 									href="list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
@@ -263,7 +263,7 @@
 									href="list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
 							</c:if>
 
-						</ul>
+						</span>
 					</div>
 			<!-- //tb_box : e -->
 			<!-- <div class="num_box">

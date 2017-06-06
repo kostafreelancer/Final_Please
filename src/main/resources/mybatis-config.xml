@@ -12,6 +12,7 @@
     <package name="lancer.c_join.domain"/>
 	<package name="lancer.c_freelancerlist.domain"/>
 	<package name="lancer.c_membercenter.domain"/>
+	<package name="lancer.c_projectlist.domain"/>
   </typeAliases>
 
 
