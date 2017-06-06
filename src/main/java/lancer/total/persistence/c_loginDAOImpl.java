@@ -11,7 +11,7 @@ import lancer.c_login.domain.c_login_freelancerVO;
 @Repository
 public class c_loginDAOImpl implements c_loginDAO {
 	
-	String namespace = "lancer.mappers.c_loginMapper";
+	private static String namespace = "lancer.mappers.c_loginMapper";
 	@Inject
 	private SqlSession session;
 	

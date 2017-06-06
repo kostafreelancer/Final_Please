@@ -260,7 +260,6 @@
 						</c:forEach> 
 						
 						
-						
 						<!--
 						<tr
 							onclick="javascript:getDetail('cGFnZT0xJmluY3JlbWVudD0wJnVzZXJfbm89MTEyMzgwMw==');"
