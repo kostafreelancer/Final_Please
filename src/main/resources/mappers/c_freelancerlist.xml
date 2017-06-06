@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="lancer.c_freelancerlist.mapper.c_freelancerMapper">
+<mapper namespace="lancer.mappers.c_freelancerlistMapper">
 <cache />
 	<select id = "c_freelancerlist_select_basic" resultType="c_freelancerlist_total">
-		select * from freelancer 
+		select * from FREELANCER
 	</select>
 	<select id="c_freelancer_list" resultType="String">
 		select f_name from freelancer

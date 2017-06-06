@@ -59,7 +59,7 @@
 				<li><a href="/Matching_Project/c_projectlist/project_list.jsp">프로젝트
 						목록</a></li>
 				<!-- <li><a href="/Matching_Project/c_freelancerlist/f_list.jsp">프리랜서 목록</a></li> -->
-				<li><a href="freelist.f_list">프리랜서 목록</a></li>
+				<li><a href="/c_freelancerlist/f_list">프리랜서 목록</a></li>
 
 				<%-- 	<c:choose>
 					<c:when test="${identity.identity == 'freelancer' }">
