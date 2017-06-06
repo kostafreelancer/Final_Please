@@ -69,5 +69,13 @@ public class F_MypageService {
 	public List<Calendar> getMySchedule(int f_num) throws Exception{
 		return dao.getMySchedule(f_num);
 	}
+	
+	public int getScheduleNum() throws Exception{
+		return dao.getScheduleNum();
+	}
+	
+	public void insertMySchedule(Calendar calen) throws Exception{
+		dao.insertMySchedule(calen);
+	}
 
 }

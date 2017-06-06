@@ -23,6 +23,10 @@
 <script src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/ko.js"></script>
 
 <script type="text/javascript">
+function addScheduleSubmit(){
+	document.scheduleAdd.submit();
+}
+
 var newJquery = $.noConflict(true);
 
 
@@ -78,10 +82,10 @@ newJquery(document).ready(function() {
 		            revertFunc();
 		        }
 
-		    } */
+		    },  */
 
 		    dayClick: function() {
-		        alert('a day has been clicked!');
+		    	window.open('/f_mypage/scheduleAdd','win','width=350, height=250');
 		    }
 			/* events: [
 				{
@@ -189,6 +193,13 @@ newJquery(document).ready(function() {
 <li><span id="secondSch">두번째</span></li>
 <li><span id="thirdSch">메롱</span></li>
 </ul> 
+
+	<form name="scheduleAdd"  action="/f_mypage/scheduleAdd" method="post">
+			<input type="text" hidden name="f_num" value="${client.f_num}">
+			<input type="text" hidden name="contents">
+			<input type="text" hidden name="startdate">
+			<input type="text" hidden name="enddate">
+	</form>
 
 	</section>
 

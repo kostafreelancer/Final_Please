@@ -73,5 +73,12 @@ public class F_MypageDAO {
 		return session.selectList(namespace + ".getMySchedule", f_num);
 	}
 	
+	public int getScheduleNum() throws Exception{
+		return session.selectOne(namespace + ".getScheduleNum");
+	}
+	
+	public void insertMySchedule(Calendar calen) throws Exception{
+		session.insert(namespace + ".insertMySchedule", calen);
+	}
 	
 }

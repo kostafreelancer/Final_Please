@@ -73,8 +73,9 @@ $(function(){
 	<ul id="tabs">
 		<li><a href="#" title="tab1">내 정보</a></li>
 		<li><a href="#" title="tab2">이력 정보</a></li>
-		<li><a href="#" title="tab3">지원내역</a></li>
-		<li><a href="#" title="tab4">히스토리</a></li>
+		<li><a href="#" title="tab3">포트폴리오</a></li>
+		<li><a href="#" title="tab4">지원내역</a></li>
+		<li><a href="#" title="tab5">히스토리</a></li>
 	</ul>
 
 	<div id="content">
@@ -738,7 +739,11 @@ $(function(){
 							style="height: 602px; width: 804px; position: absolute; top: 20%; left: 50%; margin: 0 -420px"></iframe>
 					</form>
 				</div>
-				<div>
+			</div>
+		</div>
+
+		<div id="tab3">
+
 					<div class="ct overf">
 						<h4 class="fl myfl">포트폴리오</h4>
 						<button id="add" class="portFolio_add">추가하기</button>
@@ -768,11 +773,11 @@ $(function(){
 
 						</tbody>
 					</table>
-				</div>
-			</div>
+
 		</div>
 
-		<div id="tab3">
+
+		<div id="tab4">
 			<h4>내가 지원한 프로젝트</h4>
 			<table class="tb_st01 tb_st03">
 				<caption></caption>
@@ -816,7 +821,7 @@ $(function(){
 			</table>
 		</div>
 
-		<div id="tab4">
+		<div id="tab5">
 			<h4>내가 완료한 프로젝트</h4>
 			<table class="tb_st01 tb_st03">
 				<caption></caption>

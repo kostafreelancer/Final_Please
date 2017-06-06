@@ -100,6 +100,14 @@
 		select * from calendar where f_num = #{f_num}
 	</select>
 	
+	<select id="getScheduleNum" resultType="int">
+		select nvl(max(calendar_num), 0) from calendar
+	</select>
+	
+	<insert id="insertMySchedule" parameterType="Calendar">
+		insert into calendar values(#{calendar_num}, #{f_num}, #{contents}, #{startdate}, #{enddate})
+	</insert>
+	
 	<select id="getApplyProject" parameterType="int" resultType="ApplyProject">
 		select con.c_num, pro.p_name, e.manager_hphone, con.c_request_date, con.c_state from project pro, contract con, enterprise e 
 		where pro.e_pr_num = con.e_pr_num and pro.e_num = e.e_num and con.c_state='지원 중' and con.f_num = #{f_num}

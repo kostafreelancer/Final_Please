@@ -165,15 +165,33 @@ public class F_MypageController {
 	public @ResponseBody List<CalEvent> scheduleInfoAjax(@RequestParam("num") int num) throws Exception{
 			System.out.println(num);
 			List<Calendar> scheduleList = service.getMySchedule(num);	
+			
 			List<CalEvent> ceList = new ArrayList<CalEvent>();
 			for(int i=0; i<scheduleList.size(); i++){
 				CalEvent ce = new CalEvent();
 				ce.setTitle(scheduleList.get(i).getContents());
 				ce.setStart(scheduleList.get(i).getStartdate());
 				ce.setEnd(scheduleList.get(i).getEnddate());
+				System.out.println(ce.getStart());
+				System.out.println(ce.getEnd());
 				ceList.add(ce);
 			}
 			return ceList;
+	}
+	
+	@RequestMapping(value="/scheduleAdd", method=RequestMethod.GET)
+	public void scheduleAdd() throws Exception{
+	}
+	
+	@RequestMapping(value="/scheduleAdd", method=RequestMethod.POST)
+	public String scheduleAdd(Calendar calen, HttpSession session, Model model) throws Exception{
+		System.out.println("컨트롤러 들어오셨어요?");
+		//c_login_freelancerVO freelancer = (c_login_freelancerVO) session.getAttribute("client");
+		//int f_num = freelancer.getF_num();
+		//calen.setF_num(f_num);
+		calen.setCalendar_num(service.getScheduleNum()+1);
+		service.insertMySchedule(calen);
+		return "/f_mypage/scheduleManager";
 	}
 	
 }
