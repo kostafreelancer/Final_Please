@@ -64,10 +64,7 @@
 		</div>
 	</div>
 	</section>
-	<br>
-	<br>
-	<br>
-	<br>
+	
 	<section id="info">
 	<div class="tab">
 		<button class="tablinks" onclick="openbtn(event, 'FreeLancer')">프리랜서</button>
