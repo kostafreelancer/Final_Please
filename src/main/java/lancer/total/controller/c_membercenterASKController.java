@@ -5,9 +5,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import lancer.c_login.domain.c_login_enterpriseVO;
 import lancer.c_login.domain.c_login_freelancerVO;
@@ -30,7 +32,7 @@ public class c_membercenterASKController {
 	
 	@RequestMapping(value="/member_centerMain", method = RequestMethod.POST)
 	public String insertAskPOST(MembercenterASKVO vo, Model model, HttpSession session) throws Exception{
-		System.out.println("문의POST");
+		System.out.println("문의POST + ajax");
 		
 		
 		/*String check = (String) session.getAttribute("f_num");*/
@@ -70,11 +72,29 @@ public class c_membercenterASKController {
 			num = vo.getE_num();
 			System.out.println(num+"기업번호");
 			model.addAttribute("list",service.e_myAskList(num));
+		}else{
+			model.addAttribute("list",service.e_myAskList(num));
 		}
 		
 		System.out.println("리스트");
+		/*System.out.println(asknum + "문의번호");*/
 		
 		 
+	}
+	
+	@RequestMapping(value="/myAnswer", method = RequestMethod.GET)
+	public void myAnswerGET(Model model, @RequestParam("asknum") int asknum) throws Exception{
+		System.out.println("답변확인 GET");
+		
+		
+		
+	
+	}
+	
+	
+	@RequestMapping(value="/myAnswer", method = RequestMethod.POST)
+	public void myAnswerPOST(Model model) throws Exception{
+		System.out.println("답변확인!");
 	}
 	
 }

@@ -64,12 +64,12 @@
 					<ul class="ask_text">
 						<li>문의하신 내용의 답변을 확인할 수 있습니다.</li>
 					</ul>
-
 					<table class="email_table">
 						<tr>
 							<th>작성자</th>
 							<th>문의제목</th>
 							<th>문의날짜</th>
+							<th>답변내용</th>
 						</tr>
 						<c:choose>
 							<c:when test="${identity.identity == 'freelancer' }">
@@ -87,49 +87,38 @@
 
 									<tr>
 										<td>${MembercenterASKVO.writer }</td>
+										<td>
+										<form action="/c_membercenter/myanswer/${MembercenterASKVO.asknum }" class="viewAnswer" method="POST">
+										
+										<input type="submit" value="${MembercenterASKVO.asktitle }"></form></td> 
+										<td>${MembercenterASKVO.askdate }</td>
+										<td>${MembercenterASKVO.answercontents }
+									</tr>
+								</c:forEach>
+							</c:when>
+						</c:choose>
+					</table>
+					
+					<p class="myAnswer">
+						<c:choose>
+							<c:when test="${identity.identity == 'freelancer' }">
+								<c:forEach items="${list }" var="MembercenterASKVO">
+
+									<tr>
+										<td>${MembercenterASKVO.writer }</td>
 										<td>${MembercenterASKVO.asktitle }</td>
 										<td>${MembercenterASKVO.askdate }</td>
 									</tr>
 								</c:forEach>
 							</c:when>
+							<c:when test="${identity.identity == 'enterprise' }">
+								<c:forEach items="${list }" var="MembercenterASKVO">
+									${MembercenterASKVO.answercontents }
+								</c:forEach>
+							</c:when>
 						</c:choose>
-
-
-
-						<%-- 	<colgroup>
-						<col style="width: 15%">
-							<col style="width: 35%">
-							<col style="width: 15%">
-							<col style="width: 35%">
-						</colgroup>
-						
-						<tbody>
-						
-							<tr>
-								<th scope="row"><span class="text_star">*</span> <label
-									for="q_name">작성자</label></th>
-								<td colspan="3" class="join">
-								
-								<input type="text"
-									id="fm_name" name="writer" class="wid02"
-									value=<c:choose>
-									<c:when test="${identity.identity == 'freelancer' }">
-										${client.f_name }
-									</c:when>
-									<c:when test="${identity.identity == 'enterprise' }">
-										${client.e_name }
-									</c:when>
-									<c:otherwise>
-									이름을&nbsp;입력해&nbsp;주세요.
-									</c:otherwise>
-								</c:choose>>
-								
-								</td>
-							</tr>
-						</tbody> --%>
-					</table>
-
-
+					</p>
+					
 				</div>
 				<div id="tab2">
 

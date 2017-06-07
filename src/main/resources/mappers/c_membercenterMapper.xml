@@ -17,14 +17,19 @@
 	
 	<select id="myAskList" resultType="lancer.c_membercenter.domain.MembercenterASKVO">
 		
-		select writer, asktitle, askdate from ask
+		select writer, asktitle, askdate, answercontents, answerdate, asknum, ad_num from ask
 		where f_num = #{f_num}
 		
 	</select>
 	
 	<select id="e_myAskList" resultType="lancer.c_membercenter.domain.MembercenterASKVO">
-		select writer, asktitle, askdate from ask
+		select writer, asktitle, askdate , answercontents, answerdate, asknum, ad_num from ask
 		where e_num = #{e_num}
+	</select>
+	
+	<select id="myAnswer" resultType="lancer.c_membercenter.domain.MemberCenterAnswerVO">
+		select answertitle, answercontents, ad_num, answerdate from ask
+		where asknum = #{asknum}
 	</select>
 	
 	<select id="countFreelancer" resultType="int">

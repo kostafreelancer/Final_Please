@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import lancer.c_membercenter.domain.MemberCenterAnswerVO;
 import lancer.c_membercenter.domain.MembercenterASKVO;
 import lancer.total.persistence.c_membercenterASKDAO;
 
@@ -30,6 +31,11 @@ public class c_membercenterASKServiceImpl implements c_membercenterASKService {
 	@Override
 	public List<MembercenterASKVO> e_myAskList(int num) throws Exception{
 		return dao.e_myAskList(num);
+	}
+	
+	@Override
+	public List<MemberCenterAnswerVO> myAnswer(int asknum) throws Exception{
+		return dao.myAnswer(asknum);
 	}
 
 }

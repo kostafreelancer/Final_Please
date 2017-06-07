@@ -12,6 +12,28 @@ public class MembercenterASKVO implements Serializable {
 	private int e_num;
 	private String asktitle;
 	private String writer;
+	private String answercontents;
+	private Date answerdate;
+	private int ad_num;
+	
+	public Date getAnswerdate() {
+		return answerdate;
+	}
+	public void setAnswerdate(Date answerdate) {
+		this.answerdate = answerdate;
+	}
+	public int getAd_num() {
+		return ad_num;
+	}
+	public void setAd_num(int ad_num) {
+		this.ad_num = ad_num;
+	}
+	public String getAnswercontents() {
+		return answercontents;
+	}
+	public void setAnswercontents(String answercontents) {
+		this.answercontents = answercontents;
+	}
 	public int getAsknum() {
 		return asknum;
 	}

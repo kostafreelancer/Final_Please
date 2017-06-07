@@ -368,10 +368,14 @@ h1 {
 	font-size: 20px;
 	text-align: left;
 	line-height: 20px;
-	background: url(../FAQ/bg_btn_ok.jpg) no-repeat;
+	/* background: url(../membercenter_img/FAQ/bg_btn_ok.jpg) no-repeat; */
 	color: #fff;
 	padding-left: 50px;
 	margin-left: 45%;
 	margin-top: 70px;
 }
 
+/* .myAnswer{
+	display: none;
+	color : red;
+} */

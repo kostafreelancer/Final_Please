@@ -70,13 +70,16 @@
 							<th>문의날짜</th>
 						</tr>
 						
-						<c:forEach items="${list }" var="MembercenterASKVO">
+						<c:forEach items="${myAnswer }" var="MembercenterASKVO">
 						
 						<tr>
 							<td>${Membercenter.writer }</td>
 							<td>${Membercenter.asktitle }</td>
-							<td>${Membercenter.askdate }</td>
+							<td>${myAnswer.askcontents }</td>
 						</c:forEach>
+						<h2>${MembercenterASKVO.answercontents }f fqfweasd</h2>
+						${myAnswer }aa
+						${meAnswer.answercontents }
 					
 					
 					<%-- 	<colgroup>
@@ -246,7 +249,7 @@
 					</p>
 					<p class="email_send">
 						<!-- <a href="#" class="email_btn">작성완료</a> -->
-						<input type="submit" value="작성완료" class="btn" name="/c_membercenter/member_centerMain?f_num=${client.f_num }">
+						<%-- <input type="submit" value="작성완료" class="btn" name="/c_membercenter/member_centerMain?f_num=${client.f_num }"> --%>
 
 					</p>
 					</form>

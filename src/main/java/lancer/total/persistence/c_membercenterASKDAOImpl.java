@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import lancer.c_membercenter.domain.MemberCenterAnswerVO;
 import lancer.c_membercenter.domain.MembercenterASKVO;
 
 @Repository
@@ -36,6 +37,12 @@ public class c_membercenterASKDAOImpl implements c_membercenterASKDAO {
 	public List<MembercenterASKVO> e_myAskList(int num) throws Exception{
 		
 		return session.selectList(namespace+".e_myAskList",num);
+	}
+	
+	@Override
+	public List<MemberCenterAnswerVO> myAnswer(int asknum) throws Exception{
+		
+		return session.selectList(namespace + ".myAnswer", asknum);
 	}
 
 }
