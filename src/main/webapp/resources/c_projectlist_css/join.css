@@ -1914,7 +1914,7 @@ a.read_more {
 	border-width: 0 1px 1px 0;
 	font-size: 14px;
 	background-color: #f4f4f4;
-	text-align: left;
+	text-align: center;
 	font-weight: normal;
 	font-size: 14px;
 }
@@ -4384,7 +4384,7 @@ th.th_bor0 {
 .tb_box h4{color:#333;font-size:15px;font-family: 'NanumGothic_b';margin-bottom:15px; padding-left: 30px;}
 
 .tb_st01{border-top:2px solid #d6d6d6; width:100%; margin-left: 30px;}
-.tb_st01 th{padding:30px 5px; border:1px solid #d6d6d6; border-width:0 1px 1px 0; font-size:14px; background-color:#f4f4f4; text-align:left;font-weight:normal; font-size:14px;}
+.tb_st01 th{padding:30px 5px; border:1px solid #d6d6d6; border-width:0 1px 1px 0; font-size:14px; background-color:#f4f4f4; text-align:center;font-weight:normal; font-size:14px;}
 .tb_st01 th.last{ border-right:0}
 .tb_st01 td{padding:10px 10px 13px 5px;border-bottom:1px solid #d6d6d6;font-size:12px;}
 .tb_st01 td input[type="text"],.tb_st01 td input[type="password"],.tb_st01 td input[type="file"], input[type="text"], input[type="password"]{padding:7px 0;border:1px solid #d6d6d6; text-indent:10px;color:#666}
@@ -4504,8 +4504,7 @@ li.ball06{background:url(/resources/c_projectlist_img/ball07.png) no-repeat; col
 .tb_ball01_2{padding-top:25px}
 .tb_ball02{background:url(/resources/c_projectlist_img/ball03.png) no-repeat;padding-top:25px;}
 .tb_ball03{background:url(/resources/c_projectlist_img/ball04.png) no-repeat;padding-top:25px;}
-.tb_ball04{background:url(/resources/c_projectlist_img/ball05.png) no-repeat;padding-top:25px;}
-.tb_ball05{background:url(/resources/c_projectlist_img/ball06.png) no-repeat;padding-top:25px;}
+.tb_ball04{background:url(/resources/c_projectlist_img/ball06.png) no-repeat;padding-top:25px;}
 .tb_ball06{background:url(/resources/c_projectlist_img/ball07.png) no-repeat;padding-top:25px;}
 .tb_ball_hold{background:url(/resources/c_projectlist_img/ball07.png) no-repeat;}
 li.day_txt strong{color:#f36a33; font-size:20px;}

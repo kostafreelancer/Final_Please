@@ -20,6 +20,7 @@
 <title>프로젝트 목록</title>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 <script type="text/javascript" src="../common/header.js"></script>
+
 </head>
 <body>
 	
@@ -68,53 +69,53 @@
                             <td class="ct ">
                             <div  class="che_top_pa">
                                 <ul class="che_list03">
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value=".NET" > .NET</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="ABAP" > ABAP</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="ANDROID" > ANDROID</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="1" > .NET</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="2" > ABAP</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="3" > ANDROID</li>
 												
 													
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="ASP" > ASP</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="ASP.NET" > ASP.NET</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="C" > C</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="4" > ASP</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="5" > ASP.NET</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="6" > C</li>
 												
 													
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="C#" > C#</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="C++" > C++</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="COBOL" > COBOL</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="7" > C#</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="8" > C++</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="9" > COBOL</li>
 												
 													
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="CSS" > CSS</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="DB" > DB</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="DELPHI" > DELPHI</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="10" > CSS</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="11" > DB</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="12" > DELPHI</li>
 												
 													
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="HTML" > HTML</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="IOS" > IOS</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="JAVA" > JAVA</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="13" > HTML</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="14" > IOS</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="15" > JAVA</li>
 												
 													
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="JS" > JS</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="JSP" > JSP</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="LINUX" > LINUX</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="16" > JS</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="17" > JSP</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="18" > LINUX</li>
 												
 													
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="NETWORK" > NETWORK</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="PHP" > PHP</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="POWER BUILDER"> 파워빌더</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="19" > NETWORK</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="20" > PHP</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="21"> 파워빌더</li>
 												
 													
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="PYTHON" > PYTHON</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="QA" > QA</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="RUBY" > RUBY</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="22" > PYTHON</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="23" > QA</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="24" > RUBY</li>
 												
 													
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="SERVER개발" > SERVER개발</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="VB" > VB</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="VC++" > VC++</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="25" > SERVER개발</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="26" > VB</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="27" > VC++</li>
 												
 													
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="WINDOWS" > WINDOWS</li>
-						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="임베디드" > 임베디드</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="28" > WINDOWS</li>
+						                                        <li><input type="checkbox" name="fm_new_keyword[]" value="29" > 임베디드</li>
 													
 						                                </ul>
                             </div>
@@ -130,23 +131,23 @@
                             <div  class="che_top_pa">
                                 <ul class="che_list03">
 													
-													<li><input type="checkbox" name="fm_new_keyword[]" value="HTML5" > HTML5</li>
-													<li><input type="checkbox" name="fm_new_keyword[]" value="그래픽디자인" > 그래픽디자인</li>
-													<li><input type="checkbox" name="fm_new_keyword[]" value="모바일" > 모바일</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="30" > HTML5</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="31" > 그래픽디자인</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="32" > 모바일</li>
 												
 													
-													<li><input type="checkbox" name="fm_new_keyword[]" value="액션스크립트" > 액션스크립트</li>
-													<li><input type="checkbox" name="fm_new_keyword[]" value="웹디자인" > 웹디자인</li>
-													<li><input type="checkbox" name="fm_new_keyword[]" value="웹표준" > 웹표준</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="33" > 액션스크립트</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="34" > 웹디자인</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="35" > 웹표준</li>
 												
 													
-													<li><input type="checkbox" name="fm_new_keyword[]" value="파워포인트" > 파워포인트</li>
-													<li><input type="checkbox" name="fm_new_keyword[]" value="퍼블리싱" > 퍼블리싱</li>
-													<li><input type="checkbox" name="fm_new_keyword[]" value="포토샵편집" > 포토샵편집</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="36" > 파워포인트</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="37" > 퍼블리싱</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="38" > 포토샵편집</li>
 												
 													
-													<li><input type="checkbox" name="fm_new_keyword[]" value="플래시" > 플래시</li>
-													<li><input type="checkbox" name="fm_new_keyword[]" value="3D" > 3D</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="39" > 플래시</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="40" > 3D</li>
 													
 						                                </ul>
                             </div>
@@ -160,17 +161,17 @@
                             <div  class="che_top_pa">
                                 <ul class="che_list03">
 													
-													<li><input type="checkbox" name="fm_new_keyword[]" value="Oracle컨설턴트" > <a id="small" >DB컨설턴트</a></li>
-													<li><input type="checkbox" name="fm_new_keyword[]" value="PM" > PM</li>
-													<li><input type="checkbox" name="fm_new_keyword[]" value="PMO" > PMO</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="41" >DB컨설턴트</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="42" > PM</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="43" > PMO</li>
 												
 													
-													<li><input type="checkbox" name="fm_new_keyword[]" value="SAP컨설턴트"  > <a id="small" >SAP컨설턴트</a></li>
-													<li><input type="checkbox" name="fm_new_keyword[]" value="기획" > 기획</li>
-													<li><input type="checkbox" name="fm_new_keyword[]" value="모바일기획" > 모바일기획</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="44"  >SAP컨설턴트</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="45" > 기획</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="46" > 모바일기획</li>
 												
 													
-													<li><input type="checkbox" name="fm_new_keyword[]" value="웹기획" > 웹기획</li>
+													<li><input type="checkbox" name="fm_new_keyword[]" value="47" > 웹기획</li>
 													
 													
 						                                </ul>
@@ -179,14 +180,15 @@
                         </tr> 
                     </tbody>
                 </table>
+                <div class="ac">
+				<input id="checkValue" class="btn_check03" id="searchBtn" autocomplete="off" data-loading-text="제출 중" name="post_a_job"
+						value="검색하기" type="submit">
+            	<a href="/19_ESERCH/page/list.php" class="btn_check02">초기화</a>
+            </div>
 				</form>
             </div>
             <!-- //tb_box : e -->
-            <div class="ac">
-				<input type="hidden" name="page" value="1" />
-            	<a href="javascript:page_submit('/19_ESERCH/page/list.php#Member_list');" class="btn_check03">검색하기</a>
-                <a href="/19_ESERCH/page/list.php" class="btn_check02">초기화</a>
-            </div>
+        
 	</div>
 			</form>
 			<div class="tb_box tb_top" style="float: left; width: 770px;">
@@ -196,9 +198,9 @@
 						<col style="width: *" />
 						<col style="width: 10%" />
 						<col style="width: 10%" />
-						<col style="width: 11%" />
 						<col style="width: 10%" />
-						<col style="width: 11%" />
+						<col style="width: 10%" />
+						<col style="width: 12%" />
 					</colgroup>
 					<thead>
 						<th scope="col">프로젝트</th>
@@ -229,13 +231,22 @@
 								</p>
 							</td>
 							<td class="ac">
-								<div class="tb_ball04">UNITY</div>
+						
+							
+								<div  
+								<c:out value="${E_Insert.p_field eq '개발'? 'class=tb_ball04':' '}"/><c:out value="${E_Insert.p_field eq '디자인'? 'class=tb_ball02':' '}"/><c:out value="${E_Insert.p_field eq '기획'? 'class=tb_ball06':' '}"/><c:out value="${E_Insert.p_field eq '공통'? 'class=tb_ball03':' '}"/>>
+								${E_Insert.p_field }
+								</div>
+								
+								
 							</td>
-							<td>${E_Insert.p_startDate }<%-- <fmt:formatDate value="${E_Insert.p_startDate }" pattern="yyyy-MM-dd"/> --%></td>
-							<td>${E_Insert.p_endDate }<br>
+							<td>
+							<fmt:formatDate  value = "${E_Insert.p_startDate }"  pattern = "MM-dd-yyyy"/>
+						 </td>
+							<td><fmt:formatDate  value = "${E_Insert.p_endDate }"  pattern = "MM-dd-yyyy"/><br>
 							</td>
 							<td>${E_Insert.p_requireNum }명</td>
-							<td class="last finish"><strong>${E_Insert.p_exDate }</strong></td>
+							<td class="last finish"><strong><fmt:formatDate  value = "${E_Insert.p_exDate }"  pattern = "MM-dd-yyyy"/></strong></td>
 						</tr>
 						</c:forEach>
 							
@@ -273,34 +284,7 @@
 					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0zMjMmaW5jcmVtZW50PTMy#Member_list');"
 					class="last" alt="마지막으로"></a> </span>
 			</div>
-			<!-- //tb_box : e -->
-			<!-- <div class="num_box">
-				<span class="btn_lef"> 
-				<a href="#" onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0xJmluY3JlbWVudD0w#Member_list');" class="first" alt="처음으로"></a></span>
-				<a class="on">1</a><a href="#" onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0yJmluY3JlbWVudD0w#Member_list');">2</a>
-				<a href="#" onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0zJmluY3JlbWVudD0w#Member_list');">3</a>
-				<a href="#" onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT00JmluY3JlbWVudD0w#Member_list');">4</a>
-				<a
-					href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT01JmluY3JlbWVudD0w#Member_list');">5</a><a
-					href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT02JmluY3JlbWVudD0w#Member_list');">6</a><a
-					href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT03JmluY3JlbWVudD0w#Member_list');">7</a><a
-					href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT04JmluY3JlbWVudD0w#Member_list');">8</a><a
-					href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT05JmluY3JlbWVudD0w#Member_list');">9</a><a
-					href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0xMCZpbmNyZW1lbnQ9MA==#Member_list');">10</a><span
-					class='btn_rit'><a href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0xMSZpbmNyZW1lbnQ9MQ==#Member_list');"
-					class="next" alt="다음 페이지"></a><a href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0zMjMmaW5jcmVtZW50PTMy#Member_list');"
-					class="last" alt="마지막으로"></a> </span>
-			</div> -->
-		</div>
-		<!-- //content : e  -->
+			
 
 
 
