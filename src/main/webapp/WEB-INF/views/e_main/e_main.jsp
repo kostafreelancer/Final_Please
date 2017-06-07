@@ -51,9 +51,7 @@
 	<div class="news1tab">
 		<div class="news1">
 			<c:forEach var="a" items="${news_pack }">
-				<br>
-				${a }
-				<br>
+				<br><span>${a }<br></span>
 			</c:forEach>
 		</div>
 	</div>
@@ -61,15 +59,15 @@
 	<div class="news2tab">
 		<div class="news2">
 			<c:forEach var="b" items="${news_pack2 }">
-				<br>
-				${b }
-				<br>
+				<br><span>${b }<br></span>
 			</c:forEach>
 		</div>
 	</div>
-
 	</section>
-
+	<br>
+	<br>
+	<br>
+	<br>
 	<section id="info">
 	<div class="tab">
 		<button class="tablinks" onclick="openbtn(event, 'FreeLancer')">프리랜서</button>
