@@ -14,13 +14,21 @@
 <link rel="stylesheet" href="f_mypage_css/fullcalendar.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/f_mypage/f_mypage_css/scheduleManager.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/f_mypage/f_mypage_css/fullcalendar.css" type="text/css" media="screen" /> --%>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/fullcalendar.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/scheduleManager.css" type="text/css" media="screen" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/f_mypage_css/fullcalendar.css"
+	type="text/css" media="screen" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/f_mypage_css/scheduleManager.css"
+	type="text/css" media="screen" />
 
-<script src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery.js"></script>
-<script src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery-ui-custom.js"></script>
-<script src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/fullcalendar.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/ko.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery-ui-custom.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/fullcalendar.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/ko.js"></script>
 
 <script type="text/javascript">
 function addScheduleSubmit(){
@@ -74,15 +82,47 @@ newJquery(document).ready(function() {
 				}
 				})
 			},
-			/* eventDrop: function(event, delta, revertFunc) {
+		 	eventDrop: function(event, delta, revertFunc) {
 
 		        alert(event.title + " was dropped on " + event.start);
+				var start = event.start;
+				var smonth = start.getMonth()+1;
+				var end = event.end;
+				var emonth = end.getMonth()+1;
 
-		        if (!confirm("Are you sure about this change?")) {
-		            revertFunc();
-		        }
+		            $.ajax({
+						url : "scheduleModify",
+						type : "get",
+						data : "title="+event.title+"&syear="+event.start.getFullYear()+
+						"&smonth="+smonth+"&sdate="+event.start.getDate()+
+						"&eyear="+event.end.getFullYear()+"&emonth="+emonth+
+						"&edate="+event.end.getDate() + "&f_num=" +${client.f_num},
+						//dataType : 'json',
+						success : function(){
+							/* $.each(responseData, function(index, scheduleList){
+								$('#resultPrint').val = scheduleList.contents;	
+							})
+							 */
+							console.log("성공");
+				            //revertFunc();
+						}
+						});
 
-		    },  */
+		    },  
+		    
+		    eventClick: function(event) {
+		    	$.ajax({
+					url : "scheduleDelete",
+					type : "get",
+					data : "title="+event.title+ "&f_num=" +${client.f_num},
+					//dataType : 'json',
+					success : function(){
+						  newJquery('#calendar').fullCalendar('removeEvents' , function(ev){  
+							    return (ev._id == event._id);
+						  })
+					}
+				});
+		    },
 
 		    dayClick: function() {
 		    	window.open('/f_mypage/scheduleAdd','win','width=350, height=250');
@@ -134,27 +174,24 @@ newJquery(document).ready(function() {
 				}
 			] */
 			 
-	    })
-
+	    });
 });	
  
 
 </script>
 
 <style type='text/css'>
+body {
+	margin-top: 40px;
+	text-align: center;
+	font-size: 14px;
+	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+}
 
-	body {
-		margin-top: 40px;
-		text-align: center;
-		font-size: 14px;
-		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-		}
-
-	#calendar {
-		width: 900px;
-		margin: 0 auto;
-		}
-
+#calendar {
+	width: 900px;
+	margin: 0 auto;
+}
 </style>
 </head>
 <body>
@@ -167,39 +204,50 @@ newJquery(document).ready(function() {
 		</div>
 		<div class="left_menu_content">
 			<ul class="left_menu_contents">
-				<li><a href="showScheduleInfo.f_mypage?f_num=${client.f_num}">일정 관리</a></li>
-				<li><a href="/Matching_Project/f_mypage/accountingManager.jsp?f_num=${client.f_num}">회계 관리</a></li>
-				<li><a href="showFreelancerInfo.f_mypage?f_num=${client.f_num}">내 정보</a></li>
+				<li><a href="showScheduleInfo.f_mypage?f_num=${client.f_num}">일정
+						관리</a></li>
+				<li><a
+					href="/Matching_Project/f_mypage/accountingManager.jsp?f_num=${client.f_num}">회계
+						관리</a></li>
+				<li><a href="showFreelancerInfo.f_mypage?f_num=${client.f_num}">내
+						정보</a></li>
 			</ul>
 		</div>
 	</div>
 
 	<section id="firstsection">
 	<div id="calendar"></div>
-	<input type = "text" hidden id="clientnum" name="clientnum" value="${client.f_num}">
+	<input type="text" hidden id="clientnum" name="clientnum"
+		value="${client.f_num}">
 	<div id="list">
 		<table border="1px solid" cellpadding="0" cellspacing="0">
-			<tr><td>${proName}</td></tr>
+			<tr>
+				<td>${proName}</td>
+			</tr>
 			<c:forEach var="schedule" items="${scheduleList}" varStatus="status">
-			<%-- <input type="text" hidden name="calendar_num" value="${status.index+1}"> --%>
-				<tr><td><input type="text" hidden id="sch_num" name="calendar_num${status.index+1}">${schedule.contents}</td></tr>
+				<%-- <input type="text" hidden name="calendar_num" value="${status.index+1}"> --%>
+				<tr>
+					<td><input type="text" hidden id="sch_num"
+						name="calendar_num${status.index+1}">${schedule.contents}</td>
+				</tr>
 			</c:forEach>
 		</table>
 	</div>
 	<div id="space"></div>
 	<input type="text" id="resultPrint" value="">
-<ul>
-<li><span id="firstSch">첫번</span></li>
-<li><span id="secondSch">두번째</span></li>
-<li><span id="thirdSch">메롱</span></li>
-</ul> 
+	<ul>
+		<li><span id="firstSch">첫번</span></li>
+		<li><span id="secondSch">두번째</span></li>
+		<li><span id="thirdSch">메롱</span></li>
+	</ul>
 
-	<form name="scheduleAdd"  action="/f_mypage/scheduleAdd" method="post">
-			<input type="text" hidden name="f_num" value="${client.f_num}">
-			<input type="text" hidden name="contents">
-			<input type="text" hidden name="startdate">
-			<input type="text" hidden name="enddate">
+	<form name="scheduleAdd" action="/f_mypage/scheduleAdd" method="post">
+		<input type="text" hidden name="f_num" value="${client.f_num}">
+		<input type="text" hidden name="contents"> <input type="text"
+			hidden name="startdate"> <input type="text" hidden
+			name="enddate">
 	</form>
+
 
 	</section>
 

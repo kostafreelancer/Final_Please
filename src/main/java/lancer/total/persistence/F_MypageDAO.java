@@ -81,4 +81,12 @@ public class F_MypageDAO {
 		session.insert(namespace + ".insertMySchedule", calen);
 	}
 	
+	public void updateMySchedule(Calendar calen) throws Exception{
+		session.update(namespace + ".updateMySchedule", calen);		
+	}
+	
+	public void deleteMySchedule(Calendar calen) throws Exception{
+		session.delete(namespace + ".deleteMySchedule", calen);
+	}
+	
 }

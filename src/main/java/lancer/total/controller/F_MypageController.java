@@ -1,6 +1,7 @@
 package lancer.total.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -191,6 +192,42 @@ public class F_MypageController {
 		//calen.setF_num(f_num);
 		calen.setCalendar_num(service.getScheduleNum()+1);
 		service.insertMySchedule(calen);
+		return "/f_mypage/scheduleManager";
+	}
+	
+	@RequestMapping(value="/scheduleModify", method=RequestMethod.GET)
+	public void scheduleModify(@RequestParam("title") String title, @RequestParam("syear") String syear,  @RequestParam("smonth") String smonth, @RequestParam("sdate") String sdate, @RequestParam("eyear") String eyear, @RequestParam("emonth") String emonth, @RequestParam("edate") String edate, @RequestParam("f_num") int f_num) throws Exception{
+		
+		System.out.println("들어온거 맞아?");
+		System.out.println(title);
+		System.out.println(syear);
+		System.out.println(smonth);
+		System.out.println(sdate);
+		System.out.println(syear);
+		System.out.println(emonth);
+		System.out.println(edate);
+		if(smonth.length()==1){
+			smonth = "0"+smonth;
+		}if(emonth.length()==1){
+			emonth = "0"+emonth;
+		}
+		
+		String start = syear.substring(2) +"/" + smonth + "/" + sdate;
+		String end = eyear.substring(2) +"/" + emonth + "/" + edate;
+		Calendar cal = new Calendar();
+		cal.setF_num(f_num);
+		cal.setContents(title);
+		cal.setStartdate(start);
+		cal.setEnddate(end);
+		service.updateMySchedule(cal);
+	}
+	
+	@RequestMapping(value="/scheduleDelete", method=RequestMethod.GET)
+	public String scheduleDelete(@RequestParam("title") String title, @RequestParam("f_num") int f_num) throws Exception{
+		Calendar cal = new Calendar();
+		cal.setContents(title);
+		cal.setF_num(f_num);
+		service.deleteMySchedule(cal);
 		return "/f_mypage/scheduleManager";
 	}
 	

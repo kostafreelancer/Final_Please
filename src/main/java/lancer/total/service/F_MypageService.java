@@ -78,4 +78,11 @@ public class F_MypageService {
 		dao.insertMySchedule(calen);
 	}
 
+	public void updateMySchedule(Calendar calen) throws Exception{
+		dao.updateMySchedule(calen);
+	}
+	
+	public void deleteMySchedule(Calendar calen) throws Exception{
+		dao.deleteMySchedule(calen);
+	}
 }
