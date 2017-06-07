@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="lancer.mappers.c_dropMapper">
+
+	
+<!-- 프리랜서 정보 삭제 관련 -->
+	<delete id="deleteCalendar">
+		DELETE FROM calendar WHERE f_num = #{f_num}
+	</delete>
+	<delete id="deleteF_job">
+		DELETE FROM f_job WHERE f_num = #{f_num}
+	</delete>
+	<delete id="deletePortfolio">
+		DELETE FROM portfolio WHERE f_num = #{f_num}
+	</delete>
+	<delete id="deleteCareer">
+		DELETE FROM career WHERE f_num = #{f_num}
+	</delete>
+	<delete id="deleteSchool">
+		DELETE FROM school WHERE f_num = #{f_num}
+	</delete>
+	<delete id="deleteCertificate">
+		DELETE FROM certificate WHERE f_num = #{f_num}
+	</delete>
+	<delete id="deleteAccounting">
+		DELETE FROM accounting WHERE f_num = #{f_num}
+	</delete>
+	<delete id="deleteF_grade">
+		DELETE FROM f_grade WHERE f_num = #{f_num}
+	</delete>
+	<delete id="deleteFreelancerAsk">
+		DELETE FROM ask WHERE f_num = #{f_num}
+	</delete>
+	<delete id="deleteFreelancer">
+		DELETE FROM freelancer WHERE f_num = #{f_num}
+	</delete>
+
+	
+	
+	
+	
+<!-- 프로젝트 정보 삭제 관련 -->
+	 <select id="selectContract" resultType="Integer">
+	 	SELECT c_num FROM contract WHERE e_pr_num = #{e_pr_num}
+	 </select>
+	 <delete id="deleteContractSheet">
+		 DELETE FROM contract_sheet WHERE c_num = #{c_num}
+	 </delete>
+	<delete id="deleteContract">
+		DELETE FROM contract WHERE e_pr_num = #{e_pr_num}
+	</delete>
+	<delete id="deleteP_job">
+		DELETE FROM P_job WHERE e_pr_num = #{e_pr_num}
+	</delete>
+	
+	<!--    ※주의※        완료된 프로젝트는 삭제하면 안됨!! -->
+	<delete id="deleteProject">
+		DELETE FROM project WHERE e_pr_num = #{e_pr_num}
+	</delete>
+
+
+
+
+
+<!-- 기업 정보 삭제 관련 -->
+	<delete id="deleteE_grade">
+		DELETE FROM e_grade WHERE e_num = #{e_num}
+	</delete>
+	<delete id="deleteEnterpriseAsk">
+		DELETE FROM ask WHERE e_num = #{e_num}
+	</delete>
+		
+	<!-- 해당 기업의 모집중, 진행중 프로젝트 삭제 -->
+	<select id="selectProjects" resultType="Integer">
+		SELECT e_pr_num FROM project WHERE (p_state = '모집중' OR p_state = '진행중') AND e_num = #{e_num}
+	</select>
+	
+	<delete id="deleteEnterprise">
+		DELETE FROM enterprise WHERE e_num = #{e_num}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

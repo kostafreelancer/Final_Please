@@ -17,6 +17,18 @@
 	<select id="listEnterprisePermit" resultType="lancer.temp.domain.Enterprise">
 		SELECT * FROM enterprise WHERE e_check = '미승인'
 	</select>
+	
+	<delete id="deleteAccountF">
+		DELETE FROM freelancer WHERE f_num = #{deleteF_num}
+	</delete>
+	
+	<delete id="deleteAccountE">
+		DELETE FROM enterprise WHERE e_num = #{deleteE_num}
+	</delete>
+	
+	<update id="permitAccount">
+		UPDATE enterprise SET e_check='승인' WHERE e_num = #{permitE_num}
+	</update>
 
 </mapper>
 

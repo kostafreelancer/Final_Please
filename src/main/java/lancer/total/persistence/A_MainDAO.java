@@ -28,5 +28,17 @@ public class A_MainDAO {
 	
 	public List<Enterprise> listEnterprisePermit() throws Exception {
 		return session.selectList(namespace+".listEnterprisePermit");
-	}	
+	}
+	
+	public void deleteAccountF(int deleteF_num) throws Exception {
+		session.delete(namespace+".deleteAccountF", deleteF_num);
+	}
+	
+	public void deleteAccountE(int deleteE_num) throws Exception {
+		session.delete(namespace+".deleteAccountE", deleteE_num);
+	}
+	
+	public void permitAccount(int permitE_num) throws Exception {
+		session.update(namespace+".permitAccount", permitE_num);
+	}
 }

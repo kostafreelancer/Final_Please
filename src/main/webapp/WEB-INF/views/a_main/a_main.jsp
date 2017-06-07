@@ -17,7 +17,6 @@
 	
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 
-<script type="text/javascript" src="/resources/a_main_js/a_main_star.js"></script>
 <script type="text/javascript" src="/resources/a_main_js/a_main.js"></script>
 <script type="text/javascript" src="/resources/a_main_js/tabs.js"></script>
 
@@ -48,40 +47,45 @@
 				<table class="tb_st01 tb_st03">
 					<colgroup>
 						<col style="width: 9%">
+						<col style="width: 13%">
+						<col style="width: 9%">
+						<col style="width: 10%">
+						<col style="width: 12%">
 						<col style="width: *">
-						<col style="width: 8%">
-						<col style="width: 8%">
 						<col style="width: 11%">
-						<col style="width: 10%">
-						<col style="width: 10%">
+						<col style="width: 14%">
 					</colgroup>
-					<thead>
-						<tr>
-							<th>아이디</th>
-							<th>이름</th>
-							<th>생년월일</th>
-							<th>핸드폰</th>
-							<th>이메일</th>
-							<th>주소</th>
-							<th>분야</th>
-							<th>상태</th>
-							<th>최근접속일</th>
-							<th>-</th>
-						</tr>
-					</thead>
+					<thead></thead>
 					<tbody>
 						<c:forEach var="f" items="${listFreelancer }">
 							<tr>
+								<td class="hidden">${f.f_num }</td>
+								<th>아이디</th>
 								<td>${f.f_id }</td>
+								<th>이름</th>
 								<td>${f.f_name }</td>
-								<td>${f.f_birth }</td>
+								<th>핸드폰</th>
 								<td>${f.f_hphone }</td>
-								<td>${f.f_email }</td>
-								<td>${f.f_address }</td>
+								<th>생년월일</th>
+								<td>${f.f_birth }</td>
+							</tr>
+							<tr>
+								<th>이메일</th>
+								<td colspan="3">${f.f_email }</td>
+								<th>주소</th>
+								<td colspan="3">${f.f_address }</td>
+							</tr>
+							<tr>
+								<th>분야</th>
 								<td>${f.f_major }</td>
+								<th>상태</th>
 								<td>${f.f_nowstate }</td>
+								<th>최근접속일</th>
 								<td>${f.f_recentlogin }</td>
-								<td><button>메일 발송</button><button>계정 삭제</button></td>
+								<th colspan="2"><button class="mailSend">메일 발송</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="deleteAccountF">계정 삭제</button></th>
+							</tr>
+							<tr>
+								<td colspan="8"></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -99,43 +103,47 @@
 			<div class="tb_box">
 				<table class="tb_st01 tb_st03">
 					<colgroup>
+						<col style="width: 10%">
+						<col style="width: 13%">
 						<col style="width: 9%">
 						<col style="width: *">
-						<col style="width: 8%">
-						<col style="width: 8%">
-						<col style="width: 11%">
+						<col style="width: 9%">
+						<col style="width: *">
 						<col style="width: 10%">
-						<col style="width: 10%">
+						<col style="width: 13%">
 					</colgroup>
-					<thead>
-						<tr>
-							<th>아이디</th>
-							<th>가입자명</th>
-							<th>기업명</th>
-							<th>전화번호</th>
-							<th>이메일</th>
-							<th>주소</th>
-							<th>규모</th>
-							<th>사업자등록번호</th>
-							<th>사업자등록증</th>
-							<th>승인여부</th>
-							<th>-</th>
-						</tr>
-					</thead>
 					<tbody>
 						<c:forEach var="e" items="${listEnterprise }">
 							<tr>
+								<td class="hidden">${e.e_num }</td>
+								<th>아이디</th>
 								<td>${e.e_id}</td>
+								<th>가입자명</th>
 								<td>${e.e_name}</td>
+								<th>기업명</th>
 								<td>${e.e_ename}</td>
+								<th>전화번호</th>
 								<td>${e.e_phone}</td>
+							</tr>
+							<tr>
+								<th>이메일</th>
 								<td>${e.e_mail}</td>
-								<td>${e.e_address}</td>
+								<th>주소</th>
+								<td colspan="3">${e.e_address}</td>
+								<th>규모</th>
 								<td>${e.e_scale}</td>
+							</tr>
+							<tr>
+								<th>사업자등록번호</th>
 								<td>${e.e_regno}</td>
+								<th>사업자등록증</th>
 								<td>${e.e_licensefile}</td>
+								<th>승인여부</th>
 								<td>${e.e_check}</td>
-								<td><button>메일 발송</button><button>계정 삭제</button></td>
+								<th  colspan="2"><button class="mailSend">메일 발송</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="deleteAccountE">계정 삭제</button></th>
+							</tr>
+							<tr>
+								<td colspan="8"></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -153,43 +161,47 @@
 			<div class="tb_box">
 				<table class="tb_st01 tb_st03">
 					<colgroup>
+						<col style="width: 10%">
+						<col style="width: 13%">
 						<col style="width: 9%">
 						<col style="width: *">
-						<col style="width: 8%">
-						<col style="width: 8%">
-						<col style="width: 11%">
+						<col style="width: 9%">
+						<col style="width: *">
 						<col style="width: 10%">
-						<col style="width: 10%">
+						<col style="width: 13%">
 					</colgroup>
-					<thead>
-						<tr>
-							<th>아이디</th>
-							<th>가입자명</th>
-							<th>기업명</th>
-							<th>전화번호</th>
-							<th>이메일</th>
-							<th>주소</th>
-							<th>규모</th>
-							<th>사업자등록번호</th>
-							<th>사업자등록증</th>
-							<th>승인여부</th>
-							<th>-</th>
-						</tr>
-					</thead>
 					<tbody>
 						<c:forEach var="ep" items="${listEnterprisePermit }">
 							<tr>
+								<td class="hidden">${ep.e_num }</td>
+								<th>아이디</th>
 								<td>${ep.e_id}</td>
+								<th>가입자명</th>
 								<td>${ep.e_name}</td>
+								<th>기업명</th>
 								<td>${ep.e_ename}</td>
+								<th>전화번호</th>
 								<td>${ep.e_phone}</td>
+							</tr>
+							<tr>
+								<th>이메일</th>
 								<td>${ep.e_mail}</td>
-								<td>${ep.e_address}</td>
+								<th>주소</th>
+								<td colspan="3">${ep.e_address}</td>
+								<th>규모</th>
 								<td>${ep.e_scale}</td>
+							</tr>
+							<tr>
+								<th>사업자등록번호</th>
 								<td>${ep.e_regno}</td>
+								<th>사업자등록증</th>
 								<td>${ep.e_licensefile}</td>
+								<th>승인여부</th>
 								<td>${ep.e_check}</td>
-								<td><button>메일 발송</button><button>가입 승인</button></td>
+								<th  colspan="2"><button id="mailSend">메일 발송</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="permitJoin">가입 승인</button></th>
+							</tr>
+							<tr>
+								<td colspan="8"></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -202,6 +214,16 @@
 			</div>
 		</div>
 	</div>
+	
+	<form action="/a_main/a_deleteF" method="post" name="deleteFormF">
+		<input type="hidden" name="deleteF_num">
+	</form>
+	<form action="/a_main/a_deleteE" method="post" name="deleteFormE">
+		<input type="hidden" name="deleteE_num">
+	</form>
+	<form action="/a_main/a_permit" method="post" name="permitForm">
+		<input type="hidden" name="permitE_num">
+	</form>
 	
 	</section>
 

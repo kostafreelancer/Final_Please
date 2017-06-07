@@ -26,4 +26,16 @@ public class A_MainService {
 	public List<Enterprise> listEnterprisePermit() throws Exception {
 		return dao.listEnterprisePermit();
 	}
+	
+	public void deleteAccountF(int deleteF_num) throws Exception {
+		dao.deleteAccountF(deleteF_num);
+	}
+	
+	public void deleteAccountE(int deleteE_num) throws Exception {
+		dao.deleteAccountE(deleteE_num);
+	}
+	
+	public void permitAccount(int permitE_num) throws Exception {
+		dao.permitAccount(permitE_num);
+	}
 }
