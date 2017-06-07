@@ -20,5 +20,9 @@ public interface C_JoinService {
 	public Integer getE_num() throws Exception;
 
 	public List<String> getAllE_Id() throws Exception;
+	
+	public int f_idcheck(String f_id) throws Exception;
+	
+	public int e_idcheck(String e_id)throws Exception;
 
 }

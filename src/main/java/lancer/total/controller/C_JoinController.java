@@ -1,12 +1,16 @@
 package lancer.total.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,14 +30,46 @@ public class C_JoinController {
 	@Inject
 	private C_JoinService service;
 	
-	@RequestMapping(value = "duplicationCheck")
-	public @ResponseBody Object duplicationCheck(@RequestParam("f_id") String f_id) throws Exception {
-		System.out.println("들어와떠");
-		System.out.println(f_id);
-		List<String> f_join1 =service.getAllF_Id();
+	   @RequestMapping(value = "duplicationCheck")
+	   public @ResponseBody boolean duplicationCheck(@RequestParam("id") String f_id) throws Exception {
+	      System.out.println("들어와떠");
+	      System.out.println(f_id);
+	      
+	      if(service.f_idcheck(f_id)==1){
+	    	  return false;
+	      }else{
+/*	    	  if((f_id < "0" || f_id > "9") 
+						 && (f_id < "A" || f_id > "Z") 
+						 && (f_id < "a" || f_id > "z")
+						 && (f_id="-")
+						 && (f_id="_")){ 
+				        alert("한글 및 특수문자는 아이디로 사용하실 수 없습니다.");
+				        return false;
+				 }
+				 
+				 if(f_id.length < 5){
+					 alert("길이확인");
+					 return false;
+				 } */
+	    	  return true;
+	      }
+     
+	   }
+	   @RequestMapping(value = "duplicationCheck2")
+	   public @ResponseBody boolean duplicationCheck2(@RequestParam("id") String e_id) throws Exception {
+		   System.out.println("들어와떠");
+		   System.out.println(e_id);
+		   
+		   
+		   
+		   if(service.e_idcheck(e_id)==1){
+			   return false;
+		   }else{
+			   return true;
+		   }
+		   
+	   }
 
-		return f_join1;
-	}
 	
 	@RequestMapping(value="c_join_step1")
 	public void joinstep1()throws Exception{

@@ -31,8 +31,20 @@
 		select f_id from freelancer
 	</select>
 	
+	<select id="f_idcheck" resultType="int">
+	select count(f_id)
+	from freelancer
+	where f_id=#{f_id}
+	</select>
 	
+
 	<!-- 기업 -->
+		<select id="e_idcheck" resultType="int">
+	select count(e_id)
+	from enterprise
+	where e_id=#{e_id}
+	</select>
+	
 		<select id="getE_num" resultType="Integer">
 		select max(e_num) from enterprise
 	</select>

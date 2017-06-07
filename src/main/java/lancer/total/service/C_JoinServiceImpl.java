@@ -52,4 +52,14 @@ public class C_JoinServiceImpl implements C_JoinService{
 		return dao.getAllE_Id();
 	}
 
+	@Override
+	public int f_idcheck(String f_id) throws Exception {
+		return dao.f_idcheck(f_id);
+	}
+
+	@Override
+	public int e_idcheck(String e_id) throws Exception {
+		return dao.e_idcheck(e_id);
+	}
+
 }

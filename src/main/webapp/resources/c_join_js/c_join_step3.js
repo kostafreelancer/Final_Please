@@ -1,10 +1,4 @@
 
-    // 아이디 입력창에 값 입력시 hidden에 idUncheck를 세팅한다.
-    // 이렇게 하는 이유는 중복체크 후 다시 아이디 창이 새로운 아이디를 입력했을 때
-    // 다시 중복체크를 하도록 한다.
-    function inputIdChk(){
-        document.userInfo.idDuplication.value ="idUncheck";
-    }
 
 
 $(function(){
@@ -55,10 +49,10 @@ $(function(){
             alert("아이디를 입력하세요.");
             return false;
         }
-/*       if(form.idDuplication.value != "idCheck"){
-            alert("아이디 중복체크를 해주세요.");
-            return false;
-        }*/
+		 if(form.idDuplication.value != "idCheck"){
+	            alert("아이디 중복체크를 해주세요.");
+	            return false;
+	        }
         
         if(!form.e_pwd.value){
             alert("비밀번호를 입력하세요.");
@@ -115,7 +109,11 @@ $(function(){
         	alert("사업자등록번호는 숫자만 입력가능합니다.");
         	return false;
         }
-
+        
+        if(form.regnoDuplication.value != "idCheck"){
+            alert("사업자등록번호 유효성검사를 해주세요.");
+            return false;
+        }
         
         if(!form.e_bf.value){
             alert("주요사업내용을 입력하세요.");
@@ -187,15 +185,34 @@ $(function(){
 	 //프리랜서
 	$('#f_checkValue').click(function(){
 		var form1 = document.f_userInfo;  
-        if(!form1.f_id.value){
-        	alert("아이디를 입력하세요.");
-        	return false;
-        }
+		
+		   if(!form1.f_id.value){
+	        	alert("아이디를 입력하세요.");
+	        	return false;
+	        }
+		   
+		 if(form1.idDuplication.value != "idCheck"){
+	            alert("아이디 중복체크를 해주세요.");
+	            return false;
+	        }
+		 
+/* 		 if((form1.f_id.value < "0" || form1.f_id.value > "9") 
+				 && (form1.f_id.value < "A" || form1.f_id.value > "Z") 
+				 && (form1.f_id.value < "a" || form1.f_id.value > "z")
+				 && (form1.f_id.value="-")
+				 && (form1.f_id.value="_")){ 
+		        alert("한글 및 특수문자는 아이디로 사용하실 수 없습니다.");
+		        return false;
+		 }
+		 
+		 if(form1.f_id.length<6 || form1.f_id.length>15){
+			 alert("길이확인");
+			 return false;
+		 }*/
+		 
+     
         
-        /*       if(form.idDuplication.value != "idCheck"){
-            alert("아이디 중복체크를 해주세요.");
-            return false;
-        }*/
+       
         
         if(!form1.f_pwd.value){
         	alert("비밀번호를 입력하세요.");

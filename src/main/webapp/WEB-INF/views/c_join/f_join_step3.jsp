@@ -11,37 +11,47 @@
 <link rel="stylesheet" href="../c_common/header.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="../c_common/footer.css" type="text/css" media="screen" />
 <title>회원가입</title>
+<style type="text/css">
+#duplicateResult{
+	color: red;
+	font-size: 12px;
+	font-weight: bold;
+}
+</style>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 <script type="text/javascript" src="../../../resources/c_join_js/c_join_step3.js"></script>
 <script type="text/javascript" src="../../../resources/c_join_js/f_zipAddress.js"></script>
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
  <script type="text/javascript">
- function ffff(){
-	 $("#f_id").keyup(function() {
-			$.ajax({
-				url : "duplicationCheck",
-				type : "post",
-				data :{id : $("#f_id").value()},
-				success : function(data) {
-					if (data.length > 0) {
-					document.getElementById("duplicateResult").value = "이미 해당 아이디로 가입된 회원가 있습니다.";
-					} else {
-						if ($("#f_id").val().length < 5) {
-						document.getElementById("duplicateResult").value = "아이디를 5자 이상 입력해주세요.";
-						} else {
-							document.getElementById("duplicateResult").value = "사용 가능한 아이디입니다.";
-						}
+ function checkcheck(){
+
+	 var pattern = /[A-Za-z0-9_]{3,15}$/;
+
+		$.ajax({
+			url : "duplicationCheck",
+			type : "get",
+			data : "id="+$("#f_id").val(),
+		
+			success : function(data) {
+ 				
+				 
+				if (data== true) {
+					if(!pattern.test($("#f_id").val() )) {
+						$("#duplicateResult").html("3~15자의 영문, 숫자만 가능합니다.");
+					}else{
+						$("#duplicateResult").html("사용 가능한 아이디입니다.");
+						$("#idDuplication").val("idCheck");
 					}
-				},
-				error : function(error) {
-					alert(error.statusText);
+				} else {
+					$("#duplicateResult").html("중복된 아이디입니다.");
 				}
-			});
-
-			return false;
+			},
+			error : function(error) {
+				alert(error.statusText);
+			}
 		});
-}
 
+ }
  
 
  </script>
@@ -98,11 +108,12 @@
                         <tr>
                             <th scope="row" class="ac"><label for="f_id"><span class="txt_or">*</span> 회원아이디</label></th>
                             <td colspan="3">
-                               <input type="text" id="f_id" name="f_id" onkeyup="ffff()"/>
-                               <input type="button" value="중복확인" class="btn_overlap">    
-            				   <input type="hidden" name="idDuplication" value="idUncheck" >
-                                * 6~15자의 영문, 영문+숫자, 일부 특수문자( _ - )만 사용 가능합니다.
-                                <span id="duplicateResult"></span>
+                               <input type="text" id="f_id" name="f_id" />
+                               <input type="button" value="중복확인" class="btn_overlap"  onClick="checkcheck()">    
+            				   <input type="hidden" id="idDuplication" name="idDuplication" value="idUncheck"/>
+            				   <span id="duplicateResult"></span>
+                                * 3~15자의 영문, 영문+숫자, 일부 특수문자( _ )만 사용 가능합니다.
+                             
                             </td>
                         </tr>
                         <tr>

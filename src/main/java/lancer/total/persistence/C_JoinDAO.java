@@ -12,8 +12,12 @@ public interface C_JoinDAO {
 	public Integer getF_num()throws Exception;
 	public List<String> getAllF_Id()throws Exception;
 	public void insertF_Job(F_job f_job)throws Exception;
+
 	//기업
 	void insertE_join(E_join e_join)throws Exception;
 	public Integer getE_num()throws Exception;
 	public List<String> getAllE_Id()throws Exception;
+	
+	public int f_idcheck(String f_id) throws Exception;
+	public int e_idcheck(String e_id)throws Exception;
 }

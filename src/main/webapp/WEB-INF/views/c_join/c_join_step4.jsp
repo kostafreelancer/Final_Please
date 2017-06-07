@@ -15,7 +15,7 @@
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 </head>
 <body>
-<body onload="member_check();">
+<!-- <body onload="member_check();"> -->
 
 <%@include file="../c_common/header.jsp" %>
     <div  id="conainer">

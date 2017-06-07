@@ -11,24 +11,84 @@
 <link rel="stylesheet" href="../c_common/header.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="../c_common/footer.css" type="text/css" media="screen" />
 <title>회원가입</title>
+<style type="text/css">
+#duplicateResult{
+	color: red;
+	font-size: 12px;
+	font-weight: bold;
+}
+#regnoResult{
+	color: red;
+	font-size: 12px;
+	font-weight: bold;
+}
+</style>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 <script type="text/javascript" src="../../../resources/c_join_js/c_join_step3.js"></script>
 <script type="text/javascript" src="../../../resources/c_join_js/zipAddress.js"></script>
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
-/* function inputIdChk(){
-    document.userInfo.idDuplication.value ="idUncheck";
+function checkcheck(){
+	
+	 var pattern = /[A-Za-z0-9_]{3,15}$/;
+
+	$.ajax({
+		url : "duplicationCheck2",
+		type : "get",
+		data : "id="+$("#e_id").val(),
+	
+		success : function(data) {
+			if (data== true) {
+				if(!pattern.test($("#e_id").val() )) {
+					$("#duplicateResult").html("3~15자의 영문, 숫자만 가능합니다.");
+				}else{
+					$("#duplicateResult").html("사용 가능한 아이디입니다.");
+					$("#idDuplication").val("idCheck");
+				}
+			} else {
+				$("#duplicateResult").html("중복된 아이디입니다.");
+			}
+		},
+		error : function(error) {
+			alert(error.statusText);
+		}
+	});
+
 }
 
-	
-	if(document.getElementById("check").value != null){
-		if(check == "1"){
-			alert('그거쓰지마');
-		}else{
-			alert('중복확인 성공');
-		}	
-	}
- */
+
+
+function chkWorkNumb(e_regno1, e_regno2, e_regno3)
+{
+	e_regno1=$("#e_regno1").val();
+	e_regno2=$("#e_regno2").val();
+	e_regno3=$("#e_regno3").val();
+    strNumb = e_regno1+e_regno2+e_regno3;
+    
+    sumMod = 0;
+    sumMod += parseInt(strNumb.substring(0,1));
+    sumMod += parseInt(strNumb.substring(1,2)) * 3 % 10;
+    sumMod += parseInt(strNumb.substring(2,3)) * 7 % 10;
+    sumMod += parseInt(strNumb.substring(3,4)) * 1 % 10;
+    sumMod += parseInt(strNumb.substring(4,5)) * 3 % 10;
+    sumMod += parseInt(strNumb.substring(5,6)) * 7 % 10;
+    sumMod += parseInt(strNumb.substring(6,7)) * 1 % 10;
+    sumMod += parseInt(strNumb.substring(7,8)) * 3 % 10;
+    sumMod += Math.floor(parseInt(strNumb.substring(8,9)) * 5 / 10);
+    sumMod += parseInt(strNumb.substring(8,9)) * 5 % 10;
+    sumMod += parseInt(strNumb.substring(9,10));
+    
+    if (sumMod % 10 != 0) {
+    	$("#regnoResult").html("사업자등록번호 불일치");
+        return false;
+    }else{
+    	$("#regnoResult").html("사업자등록번호 확인완료");
+    	$("#regnoDuplication").val("idCheck");
+    	return true;
+    }
+    
+}
+
 
 
 </script>
@@ -92,11 +152,11 @@
 								<td colspan="3">
 								<!-- <form id="checkForm" name="checkForm" action="e_memberIdCheck.e_join" method="post"> -->
 								<input type="text" id="e_id" name="e_id"> 
-								<input type="button"  id="idCheckbox" value="중복확인" class="btn_overlap" >	
-								<input type="hidden" name="idDuplication" value="idUncheck" >				
-									* 6~15자의 영문, 영문+숫자, 일부 특수문자( _ - )만 사용 가능합니다.</td>
-								<!-- </form> -->
-								<input type="text" hidden id="check" value="${check}">
+								<input type="button" value="중복확인" class="btn_overlap"  onClick="checkcheck()">    
+            				   <input type="hidden" id="idDuplication" name="idDuplication" value="idUncheck"/>
+            				   <span id="duplicateResult"></span>
+            				   * 3~15자의 영문, 영문+숫자, 일부 특수문자( _ )만 사용 가능합니다.
+            				   </td>
 							</tr>
 							<tr>
 								<th scope="row" class="ac"><label for="e_pwd"><span
@@ -173,12 +233,17 @@
 						</tr>
 						<tr>
 							<th scope="row"><span class="txt_or">*</span> 사업자 등록번호</th>
-							<td colspan="4"><label for="e_regno1"></label> <input type="text"
-								id="e_regno1" name="e_regno1" class="wid03" maxlength="3" />
-								- <label for="e_regno2"></label> <input type="text"
-								id="e_regno2" name="e_regno2" class="wid03" maxlength="2" />
-								- <label for="e_regno3"></label> <input type="text" id="e_regno3"
-								name="e_regno3" class="wid03" maxlength="5" /></td>
+							<td colspan="2"><label for="e_regno1"></label> 
+							<input type="text" id="e_regno1" name="e_regno1" class="wid03" maxlength="3" />
+								ㅡ <label for="e_regno2"></label> 
+							<input type="text" id="e_regno2" name="e_regno2" class="wid03" maxlength="2" />
+								ㅡ <label for="e_regno3"></label> 
+							<input type="text" id="e_regno3" name="e_regno3" class="wid03" maxlength="5" /></td>
+								<td colspan="2">
+								<input type="button" value="유효성확인" class="btn_overlap" onClick="chkWorkNumb()">
+								<input type="hidden" id="regnoDuplication" name="regnoDuplication" value="idUncheck"/>
+								<span id="regnoResult" ></span>
+								</td>
 						</tr>
 						
 						<tr>

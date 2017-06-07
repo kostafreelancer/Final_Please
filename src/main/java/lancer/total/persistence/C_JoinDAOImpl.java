@@ -54,5 +54,16 @@ public class C_JoinDAOImpl implements C_JoinDAO{
 	public List<String> getAllE_Id() throws Exception {
 		return session.selectList(namespace + ".getAllE_Id");
 	}
+
+	@Override
+	public int f_idcheck(String f_id) throws Exception {
+	
+		return session.selectOne(namespace+".f_idcheck", f_id);
+	}
+
+	@Override
+	public int e_idcheck(String e_id) throws Exception {
+		return session.selectOne(namespace+".e_idcheck", e_id);
+	}
 	
 }
