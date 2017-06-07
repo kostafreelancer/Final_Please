@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="lancer.mapper.f_boardMapper">
+	
+	<insert id="create">
+		insert into f_board (f_board_title, f_board_content, f_id)
+		values (#{f_board_title}, #{f_board_content}, #{f_id})
+	</insert>
+	
+	<select id="read" resultType="F_BoardVO">
+		select
+			f_board_num, f_board_title, f_board_content, f_id, f_board_hits, 
+			f_board_date, f_reply_count, f_num
+		from f_board
+		where f_board_num=#{f_board_num}
+	</select>
+	
+	<update id="update">
+		update f_board set f_board_title=#{f_board_title}, f_board_content=#{f_board_content}
+		where f_board_num=#{f_board_num}
+	</update>
+	
+	<delete id="delete">
+		delete from f_board 
+		where f_board_num=#{f_board_num}
+	</delete>
+	
+	<select id="listAll" resultType="F_BoardVO">
+		<![CDATA[
+			select 
+				f_board_num, f_board_title, f_board_content, f_id, f_board_hits, 
+				f_board_date, f_reply_count, f_num
+			from f_board
+			where f_board_num>0
+			order by f_board_num desc, f_board_date desc
+		]]>
+	</select>
+	
+	</mapper>
+
