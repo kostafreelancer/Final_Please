@@ -146,7 +146,7 @@ function openDaumZipAddress() {
     }).open();
 }
 function addCareer(){
-	window.open('/Matching_Project/f_mypage/careerAdd.jsp','win','width=350, height=250');
+	window.open('/f_mypage/careerAdd','win','width=350, height=250');
 }
 function addSchool(){
 	window.open('/Matching_Project/f_mypage/schoolAdd.jsp','win','width=350, height=250');

@@ -10,8 +10,9 @@ function check(){
 	window.opener.document.tempCareerAdd.company.value = document.myform.company.value;
 	window.opener.document.tempCareerAdd.dept.value = document.myform.dept.value;
 	window.opener.document.tempCareerAdd.rank.value = document.myform.rank.value;
-	window.opener.document.tempCareerAdd.term.value = document.myform.term.value;
-	window.opener.document.tempCareerAdd.location.value = document.myform.location.value;
+	window.opener.document.tempCareerAdd.career_term.value = document.myform.term.value;
+	window.opener.document.tempCareerAdd.career_location.value = document.myform.location.value;
+	window.opener.document.tempCareerAdd.career_year.value = document.myform.year.value;
 	window.opener.addCareerSubmit();
 	self.close();
 	
@@ -30,6 +31,8 @@ function check(){
 	<input type="text" name="term"><br>
 	<label>소재지</label>
 	<input type="text" name="location"><br>
+	<label>연차</label>
+	<input type="text" name="year"><br>
 	<input type="button" value="저장" onclick="check();">
 	<input type="reset" value="초기화">
 </form>

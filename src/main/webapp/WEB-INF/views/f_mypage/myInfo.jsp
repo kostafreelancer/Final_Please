@@ -61,9 +61,9 @@ $(function(){
 		</div>
 		<div class="left_menu_content">
 			<ul class="left_menu_contents">
-				<li><a href="showScheduleInfo.f_mypage?f_num=${client.f_num}">일정 관리</a></li>
-				<li><a href="/Matching_Project/f_mypage/accountingManager.jsp?f_num=${client.f_num}">회계 관리</a></li>
-				<li><a href="showFreelancerInfo.f_mypage?f_num=${client.f_num}">내 정보</a></li>
+				<li><a href="/f_mypage/scheduleManager">일정 관리</a></li>
+				<li><a href="/f_mypage/accountingManager">회계 관리</a></li>
+				<li><a href="/f_mypage/myInfo">내 정보</a></li>
 			</ul>
 		</div>
 	</div>
@@ -515,10 +515,11 @@ $(function(){
 					<caption></caption>
 					<colgroup>
 						<col style="width: 15%">
-						<col style="width: 15%">
-						<col style="width: 15%">
+						<col style="width: 10%">
+						<col style="width: 10%">
 						<col style="width: 25%">
 						<col style="width: 15%">
+						<col style="width: 10%">
 						<col style="width: 15%">
 					</colgroup>
 					<thead>
@@ -528,6 +529,7 @@ $(function(){
 							<th scope="col" class="ac">직위</th>
 							<th scope="col" class="ac">근무기간</th>
 							<th scope="col" class="ac">소재지</th>
+							<th scope="col" class="ac">근속년수</th>
 							<th scope="col" class="last ac">관리</th>
 						</tr>
 						
@@ -538,19 +540,21 @@ $(function(){
 					</c:if>
 				
 						<c:forEach var="mycareer" items="${career}">
-						<form id="careerForm${mycareer.career_num}" name="mycareerModify${mycareer.career_num}" method="post" action="/Matching_Project/f_mypage/careerModify.jsp" target='popup_window'>
-						<input type="text" hidden name="mycareer_career_num" value="${mycareer.career_num}">
-						<input type="text" hidden name="mycareer_company" value="${mycareer.company}">
-						<input type="text" hidden name="mycareer_dept" value="${mycareer.dept}">
-						<input type="text" hidden name="mycareer_rank" value="${mycareer.rank}">
-						<input type="text" hidden name="mycareer_career_term" value="${mycareer.career_term}">
-						<input type="text" hidden name="mycareer_career_location" value="${mycareer.career_location}">
+						<form id="careerForm${mycareer.career_num}" name="mycareerModify${mycareer.career_num}" method="post" action="/f_mypage/careerModify" target='popup_window'>
+						<input type="text" hidden name="career_num" value="${mycareer.career_num}">
+						<input type="text" hidden name="company" value="${mycareer.company}">
+						<input type="text" hidden name="dept" value="${mycareer.dept}">
+						<input type="text" hidden name="rank" value="${mycareer.rank}">
+						<input type="text" hidden name="career_term" value="${mycareer.career_term}">
+						<input type="text" hidden name="career_location" value="${mycareer.career_location}">
+						<input type="text" hidden name="career_year" value="${mycareer.career_year}">
 						<tr>							
 							<td>${mycareer.company}</td>
 							<td>${mycareer.dept}</td>
 							<td>${mycareer.rank}</td>
 							<td>${mycareer.career_term}</td>
 							<td>${mycareer.career_location}</td>
+							<td>${mycareer.career_year}</td>
 							<td class="last"><input type="button" value="수정" onclick="modifyCareer(${mycareer.career_num});">&nbsp;&nbsp;<input
 								type="button" value="삭제" onclick="deleteCareer(${mycareer.career_num});"></td>
 
@@ -559,21 +563,23 @@ $(function(){
 					</c:forEach>
 					</tbody>
 				</table>
-				<form name="tempCareerAdd"  action="insertCareer.f_mypage">
-					<input type="text" hidden name="tempf_num" value="${client.f_num}">
+				<form name="tempCareerAdd"  action="/f_mypage/careerAdd" method="post">
+					<input type="text" hidden name="f_num" value="${client.f_num}">
 					<input type="text" hidden name="company">
 					<input type="text" hidden name="dept">
 					<input type="text" hidden name="rank">
-					<input type="text" hidden name="term">
-					<input type="text" hidden name="location">
+					<input type="text" hidden name="career_term">
+					<input type="text" hidden name="career_location">
+					<input type="text" hidden name="career_year">
 				</form>
-				<form name="tempCareerModify"  action="updateCareer.f_mypage">
+				<form name="tempCareerModify"  action="/f_mypage/updateCareer" method="post">
 					<input type="text" hidden name="career_num">
 					<input type="text" hidden name="company">
 					<input type="text" hidden name="dept">
 					<input type="text" hidden name="rank">
-					<input type="text" hidden name="term">
-					<input type="text" hidden name="location">
+					<input type="text" hidden name="career_term">
+					<input type="text" hidden name="career_location">
+					<input type="text" hidden name="career_year">
 				</form>
 				<form name="tempCareerDelete" action="deleteCareer.f_mypage">
 					<input type="text" hidden name="deleteCareer_num">
@@ -598,9 +604,10 @@ $(function(){
 				<table class="tb_st01 tb_st03">
 					<caption></caption>
 					<colgroup>
-						<col style="width: 20%">
-						<col style="width: 20%">
+						<col style="width: 15%">
+						<col style="width: 15%">
 						<col style="width: 25%">
+						<col style="width: 15%">
 						<col style="width: 15%">
 						<col style="width: 15%">
 					</colgroup>
@@ -610,6 +617,7 @@ $(function(){
 							<th scope="col" class="ac">전공</th>
 							<th scope="col" class="ac">기간</th>
 							<th scope="col" class="ac">소재지</th>
+							<th scope="col" class="ac">학위</th>
 							<th scope="col" class="last ac">관리</th>
 						</tr>
 					</thead>
@@ -624,11 +632,13 @@ $(function(){
 						<input type="text" hidden name="myschool_major" value="${myschool.major}">
 						<input type="text" hidden name="myschool_school_term" value="${myschool.school_term}">
 						<input type="text" hidden name="myschool_school_location" value="${myschool.school_location}">
+						<input type="text" hidden name="myschool_school_degree" value="${myschool.school_degree}">
 						<tr>							
 							<td>${myschool.school_name}</td>
 							<td>${myschool.major}</td>
 							<td>${myschool.school_term}</td>
 							<td>${myschool.school_location}</td>
+							<td>${myschool.school_degree}</td>
 							<td class="last">
 							<input type="button" value="수정" onclick="modifySchool(${myschool.school_num});">&nbsp;&nbsp;
 							<input type="button" value="삭제" onclick="deleteSchool(${myschool.school_num});"></td>
@@ -644,6 +654,7 @@ $(function(){
 					<input type="text" hidden name="major">
 					<input type="text" hidden name="term">
 					<input type="text" hidden name="location">
+					<input type="text" hidden name="degree">
 				</form>
 				<form name="tempSchoolModify"  action="updateSchool.f_mypage">
 					<input type="text" hidden name="school_num">
@@ -651,6 +662,7 @@ $(function(){
 					<input type="text" hidden name="major">
 					<input type="text" hidden name="term">
 					<input type="text" hidden name="location">
+					<input type="text" hidden name="degree">
 				</form>
 				<form name="tempSchoolDelete" action="deleteSchool.f_mypage">
 					<input type="text" hidden name="deleteSchool_num">
