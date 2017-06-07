@@ -26,10 +26,21 @@ public class e_mainController {
 		
 		Crawler crawler = new Crawler();
 		
-		List<String> newspack1 = crawler.newscrw1();
-		List<String> newspack2 = crawler.newscrw2();
+		List<String> newslist = crawler.scrap_method();
 		
-		model.addAttribute("news_pack1", newspack1);
+		List<String> newspack = new ArrayList<String>();
+		List<String> newspack2= new ArrayList<String>();
+		
+		
+		for(int i=0; i<(newslist.size()/2);i++){
+			newspack.add(newslist.get(i*2));
+			newspack2.add(newslist.get(i*2+1));
+		}
+		
+		if((newslist.size()%2)!=0){
+			newspack.add(newslist.get(newslist.size()-1));
+		}
+		model.addAttribute("news_pack", newspack);
 		model.addAttribute("news_pack2", newspack2);
 		
 		model.addAttribute("freelancerNum", e_mainService.countFreelancer());

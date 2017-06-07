@@ -10,11 +10,11 @@
 	border: 1px solid gray;
 }
 
-.news1 img {
+/* .news1 img {
 	margin-top: 20px;
 	margin-right: 10px;
 	float: left;
-}
+} */
 
 .news2 {
 	width: 49.85%;
@@ -24,11 +24,11 @@
 	border: 1px solid gray;
 }
 
-.news2 img {
+/* .news2 img {
 	margin-top: 20px;
 	margin-right: 10px;
 	float: left;
 }
 .e_main_h3{
 	margin-left: 150px;
-}
+} 
