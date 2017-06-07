@@ -30,6 +30,13 @@ public class c_freelancerlistDAOImpl implements c_freelancerlistDAO{
 		
 		/*List<c_freelancerlist_total> list = session.selectList(namepace+".c_freelancerlist_select_basic");
 		System.out.println(list.size()+"리스트 사이즈 ");*/
+		if(cri.getJobs()!=null){
+			String str[] = cri.getJobs();
+			for(int i=0;i<cri.getJobs().length;i++){
+				
+				System.out.println(str[i]+"이거다 제발쫌!");
+			}
+		}
 		return session.selectList(namepace+".c_freelancerlist_select_basic",cri,new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
 	}
 
@@ -58,8 +65,8 @@ public class c_freelancerlistDAOImpl implements c_freelancerlistDAO{
 	}
 
 	@Override
-	public Integer c_freelancerlist_totalCount() {
-		return session.selectOne(namepace+".c_freelancerlist_totalCount");
+	public Integer c_freelancerlist_totalCount(c_freelancerlist_SearchCriteria cri) {
+		return session.selectOne(namepace+".c_freelancerlist_totalCount",cri);
 	}
 
 
