@@ -6,8 +6,10 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
-public class verificationDAOImpl implements verificationDAO {
+@Repository
+public class VerificationDAOImpl implements VerificationDAO {
 
 	@Inject
 	private SqlSession session;
