@@ -13,7 +13,10 @@
 		select * from enterprise
 						where e_id = #{c_id} and e_pwd = #{pwd}
 	</select> 
-	
+	<select id="select_a_login" parameterType="c_loginVO" resultType="c_login_adminVO">
+		select * from ADMINISTRATOR
+						where ad_id = #{c_id} and ad_pwd = #{pwd}
+	</select>
 </mapper>
 
 

@@ -41,6 +41,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 				response.sendRedirect("/f_main/f_main");
 			}else if(identity.getIdentity().equals("enterprise")){
 				response.sendRedirect("/e_main/e_main");
+			}else if(identity.getIdentity().equals("admin")){
+				System.out.println("여기 안드와?");
+				response.sendRedirect("/a_main/a_main");
 			}
 		}
 	}
