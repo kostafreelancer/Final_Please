@@ -22,7 +22,7 @@
 
 </head>
 <body>
-	<%-- <c:choose>
+ 	<c:choose>
 		<c:when test="${identity.identity == 'freelancer' }">
 			<%@include file="../c_common/header.jsp"%>
 		</c:when>
@@ -33,7 +33,7 @@
 			<%@include file="../c_common/header.jsp"%>
 		</c:otherwise>
 	</c:choose>
-	<%@include file="../c_common/chatting.jsp"%> --%>
+	<%@include file="../c_common/chatting.jsp"%>
 
 	<section>
 
