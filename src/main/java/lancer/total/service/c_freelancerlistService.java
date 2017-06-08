@@ -10,4 +10,6 @@ import lancer.c_projectlist.domain.SearchCriteria;
 public interface c_freelancerlistService {
 	public List<c_freelancerlist_totalVO> c_freelancerlist_select_basic(c_freelancerlist_SearchCriteria cri);
 	public Integer c_freelancerlist_totalCount(c_freelancerlist_SearchCriteria cri);
+	c_freelancerlist_totalVO selectFreelancer(Integer f_num) throws Exception;
+	List<Integer> selectF_job(int f_num) throws Exception;
 }

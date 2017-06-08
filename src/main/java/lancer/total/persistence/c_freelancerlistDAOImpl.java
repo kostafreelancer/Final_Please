@@ -68,6 +68,16 @@ public class c_freelancerlistDAOImpl implements c_freelancerlistDAO{
 	public Integer c_freelancerlist_totalCount(c_freelancerlist_SearchCriteria cri) {
 		return session.selectOne(namepace+".c_freelancerlist_totalCount",cri);
 	}
+	
+    @Override
+	public c_freelancerlist_totalVO selectFreelancer(Integer f_num) throws Exception{
+		return session.selectOne(namepace + ".selectFreelancer",f_num);
+	}
+    
+    @Override
+    public List<Integer> selectF_job(int f_num) throws Exception{
+    	return session.selectList(namepace+".selectF_job", f_num);
+    }
 
 
 }
