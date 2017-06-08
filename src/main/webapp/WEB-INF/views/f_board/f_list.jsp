@@ -33,7 +33,7 @@
             <!-- //tit_box : e -->
             <dl  class="tab_d02">
                 <dd>
-                	<div class="tb_box" style="margin-top:15px;">
+                	<div class="tb_box" style="margin-top:15px; margin-left: 1px;">
                         <table class="tb_st05">
                             <caption>공지사항 : 번호, 제목, 등록일, 조회로 구성된 표</caption>
                             <colgroup>

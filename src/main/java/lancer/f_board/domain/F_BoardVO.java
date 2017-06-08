@@ -12,6 +12,7 @@ public class F_BoardVO {
 	private Integer f_num;
 	private String f_id;
 	
+	public F_BoardVO(){}
 	
 	public F_BoardVO(Integer f_board_num, String f_board_title, String f_board_content, Integer f_board_hits,
 			Date f_board_date, Integer f_reply_count, Integer f_num, String f_id) {
