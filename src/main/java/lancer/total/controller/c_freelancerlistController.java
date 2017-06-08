@@ -44,6 +44,7 @@ public class c_freelancerlistController {
 		}else{
 			cri.setJobs(job);
 		}
+		//주석주석
 		model.addAttribute("totallists", list);
 		c_freelancerlist_PageMaker pageMaker = new c_freelancerlist_PageMaker();
 		pageMaker.setCri(cri);
