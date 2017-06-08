@@ -16,7 +16,7 @@
 <body>
 	<section id="verification">
 	<div class="tab">
-		<button class="tablinks" onclick="openbtn(event, 'find_id')">아이디
+		<button class="tablinks active" onclick="openbtn(event, 'find_id')">아이디
 			찾기</button>
 		<button class="tablinks" onclick="openbtn(event, 'find_pwd')">비밀번호
 			찾기</button>

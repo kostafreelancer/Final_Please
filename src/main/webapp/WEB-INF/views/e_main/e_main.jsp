@@ -67,7 +67,7 @@
 	
 	<section id="info">
 	<div class="tab">
-		<button class="tablinks" onclick="openbtn(event, 'FreeLancer')">프리랜서</button>
+		<button class="tablinks active" onclick="openbtn(event, 'FreeLancer')">프리랜서</button>
 		<button class="tablinks" onclick="openbtn(event, 'Project')">프로젝트</button>
 	</div>
 
