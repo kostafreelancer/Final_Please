@@ -1,25 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%-- <%@ page isELIgnored="true" %> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="../../../resources/membercenter_js/center_js.js"></script>
+
 <link rel="stylesheet"
 	href="../../../resources/membercenter_css/center_css.css">
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="../../../resources/membercenter_js/center_js.js"></script>
+<!-- <script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script> -->
 
+<!--  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  -->
 <title>Insert title here</title>
 
 </head>
 <body>
-	<c:choose>
+	<%-- <c:choose>
 		<c:when test="${identity.identity == 'freelancer' }">
 			<%@include file="../c_common/header.jsp"%>
 		</c:when>
@@ -30,7 +33,7 @@
 			<%@include file="../c_common/header.jsp"%>
 		</c:otherwise>
 	</c:choose>
-	<%@include file="../c_common/chatting.jsp"%>
+	<%@include file="../c_common/chatting.jsp"%> --%>
 
 	<section>
 
@@ -66,57 +69,44 @@
 					</ul>
 					<table class="email_table">
 						<tr>
-							<th>작성자</th>
+							<th>문의번호</th>
 							<th>문의제목</th>
 							<th>문의날짜</th>
-							<th>답변내용</th>
+							<th>작성자</th>
 						</tr>
 						<c:choose>
 							<c:when test="${identity.identity == 'freelancer' }">
 								<c:forEach items="${list }" var="MembercenterASKVO">
-
+									
 									<tr>
-										<td>${MembercenterASKVO.writer }</td>
-										<td>${MembercenterASKVO.asktitle }</td>
+										<td id="asknum">${MembercenterASKVO.asknum}</td>
+										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button><!-- </form> --></td> 
 										<td>${MembercenterASKVO.askdate }</td>
-									</tr>
-								</c:forEach>
-							</c:when>
-							<c:when test="${identity.identity == 'enterprise' }">
-								<c:forEach items="${list }" var="MembercenterASKVO">
-
-									<tr>
-										<td>${MembercenterASKVO.writer }</td>
-										<td>
-										<form action="/c_membercenter/myanswer/${MembercenterASKVO.asknum }" class="viewAnswer" method="POST">
+										<td>${MembercenterASKVO.writer }
 										
-										<input type="submit" value="${MembercenterASKVO.asktitle }"></form></td> 
-										<td>${MembercenterASKVO.askdate }</td>
-										<td>${MembercenterASKVO.answercontents }
-									</tr>
-								</c:forEach>
-							</c:when>
-						</c:choose>
-					</table>
-					
-					<p class="myAnswer">
-						<c:choose>
-							<c:when test="${identity.identity == 'freelancer' }">
-								<c:forEach items="${list }" var="MembercenterASKVO">
-
-									<tr>
-										<td>${MembercenterASKVO.writer }</td>
-										<td>${MembercenterASKVO.asktitle }</td>
-										<td>${MembercenterASKVO.askdate }</td>
+										
 									</tr>
 								</c:forEach>
 							</c:when>
 							<c:when test="${identity.identity == 'enterprise' }">
 								<c:forEach items="${list }" var="MembercenterASKVO">
-									${MembercenterASKVO.answercontents }
+									<tr>
+										<td id="asknum">${MembercenterASKVO.asknum}</td>
+										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button><!-- </form> --></td> 
+										<td>${MembercenterASKVO.askdate }</td>
+										<td>${MembercenterASKVO.writer }
+										
+										
+									</tr>
 								</c:forEach>
 							</c:when>
 						</c:choose>
+						
+						
+					</table>
+				
+					<p class="myAnswer">
+						
 					</p>
 					
 				</div>
@@ -265,9 +255,9 @@
 
 		</div>
 	</div>
-	<div>
+	<%-- <div>
 		<%@ include file="../c_common/footer.jsp"%>
-	</div>
+	</div> --%>
 	</section>
 
 </body>
