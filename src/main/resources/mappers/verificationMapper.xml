@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="lancer.mappers.verificationMapper">
+	
+	<select id="verifying_freelancer_id" parameterType="java.util.HashMap" resultType="String">
+		select f_id from FREELANCER where f_name = #{f_name} AND f_mail = #{f_mail}
+	</select>
+	<select id="verifying_freelancer_pwd" parameterType="java.util.HashMap" resultType="String">
+		select f_pwd from FREELANCER where f_id = #{f_id} AND f_name = #{f_name} AND f_mail = #{f_mail}
+	</select>
+	
+	<select id="verifying_enterprise_id" parameterType="java.util.HashMap" resultType="String">
+		select e_id from enterprise where e_name = #{e_name} AND e_mail = #{e_mail}
+	</select>
+	<select id="verifying_enterprise_pwd" parameterType="java.util.HashMap" resultType="String">
+		select e_pwd from enterprise where e_id = #{e_id} AND e_name = #{e_name} AND e_mail = #{e_mail} 
+	</select>
+  
+</mapper>  
