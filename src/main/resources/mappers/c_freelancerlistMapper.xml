@@ -39,11 +39,11 @@
 			<if test="jobs != null">
 			<where>
 				<!-- b_title LIKE %자바% OR b_writer LIKE %자바%-->
-				<foreach collection="jobs" item="item" separator="OR" open="(" close=")">
+				<foreach collection="jobs" item="item" separator="AND" open="(" close=")">
 					f_num in (select f_num from f_job where job_id = #{item})
 				</foreach>
 			</where>
-			</if>
+		</if>
 	</select>
 
 	<select id="c_freelancerlist_high" resultType="String" parameterType="Int">

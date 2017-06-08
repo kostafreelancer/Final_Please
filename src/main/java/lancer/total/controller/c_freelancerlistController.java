@@ -28,13 +28,14 @@ public class c_freelancerlistController {
 	@RequestMapping("/f_list")
 	public void f_list(@ModelAttribute("cri") c_freelancerlist_SearchCriteria cri,HttpServletRequest request,Model model,@ModelAttribute("reset") String reset){
 		String[] job = request.getParameterValues("fm_new_keyword[]");
-		System.out.println(reset+"이거 리셋");
+		if(cri.getJobs()==null){
+			cri.setJobs(job);
+		}
 		if(reset.equals("reset")){
 			cri.setJobs(null);
 		}
 		List<c_freelancerlist_totalVO> list = service.c_freelancerlist_select_basic(cri);
 		if(cri.getJobs()!=null){
-			System.out.println("여기 몇번 드와?");
 			String str[] =cri.getJobs();
 			for(int i=0;i<cri.getJobs().length;i++){
 				
@@ -47,7 +48,6 @@ public class c_freelancerlistController {
 		c_freelancerlist_PageMaker pageMaker = new c_freelancerlist_PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.c_freelancerlist_totalCount(cri));
-		System.out.println(pageMaker.getCri().getPage()+"이게 지금 페이지 ");
 		model.addAttribute("pageMaker", pageMaker);
 		
 	}
