@@ -37,6 +37,18 @@ public class F_MypageDAO {
 		return session.selectList(namespace + ".showCareerInfo", f_num);
 	}
 	
+	public int getCareerNum() throws Exception{
+		return session.selectOne(namespace + ".getCareerNum");
+	}
+	
+	public void insertCareer(Career career) throws Exception{
+		session.insert(namespace + ".insertCareer", career);
+	}
+	
+	public void updateCareer(Career career) throws Exception{
+		session.update(namespace + ".updateCareer", career);
+	}
+	
 	public List<School> showSchoolInfo(int f_num) throws Exception{
 		return session.selectList(namespace + ".showSchoolInfo", f_num);
 	}

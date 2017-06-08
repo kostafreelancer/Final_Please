@@ -76,6 +76,18 @@ public class LoginController {
 				return "redirect:/c_login/login";
 			}
 			session.setAttribute("identity", identity);
+		}else if(checked.equals("admin")){
+			if(service.select_a_login(vo)!=null){
+				identity.setAdmin((service.select_a_login(vo)));
+				identity.setIdentity(checked);
+				session.setAttribute("client",identity.getAdmin());
+				
+			}else{
+				identity.setIdentity("no");
+				rttr.addFlashAttribute("msg", "no");
+				return "redirect:/c_login/login";
+			}
+			session.setAttribute("identity", identity);
 		}
 		return "redirect:/c_login/loginpost";
 	}

@@ -2386,7 +2386,7 @@ th.bg_gy {
 
 .num_box .on {
 	color: #ef6c3e;
-	text-decoration: underline;
+	
 	font-weight: bold
 }
 
@@ -4362,7 +4362,7 @@ th.th_bor0 {
 	color: #ffb10b;
 	background: #333 url(../../images/portfolio/bg_popup_snb_on.jpg) 187px
 		17px no-repeat
-}
+} 
 
 <<<<<<< HEAD:WebContent/join/join.css
 .btn_category {
@@ -4420,7 +4420,7 @@ th.th_bor0 {
 .btn_box{text-align:center;/*margin-right:15px;*/}
 .btn_check01,.btn_check02,.btn_check03,.btn_check04,.btn_check05,.btn_check06,.btn_check07,.btn_zzim{width:150px;padding:17px 0 20px 0;display:inline-block;font-size:20px;text-align:left; line-height:20px}
 .btn_check01{ background:url(images/bg/bg_check01.jpg) no-repeat;color:#fff;padding-left:50px; }
-.btn_check02{ background:url(../c_join_img/bg_btn_ck02.jpg) no-repeat;color:#666;padding-left:55px; }
+.btn_check02{ background:url(/resources/c_join_img/bg_btn_ck02.jpg) no-repeat;color:#666;text-align: center;margin-top: 2px; }
 .btn_check03{ background:url(/resources/c_freelancerlist_img/bg_btn_search.jpg) no-repeat;color:#fff;padding-left:55px; }
 .btn_check04{ background:url(../c_join_img/bg_btn_ok.jpg) no-repeat;color:#fff;padding-left:50px; }
 .btn_check05{ background:url(images/bg/bg_btn_list.jpg) no-repeat;color:#666;padding-left:50px; }
@@ -4459,7 +4459,7 @@ th.tb_lef_bor,td.tb_lef_bor{ border-left:1px solid #d6d6d6}
 
 .num_box{ text-align:center; clear: both;}
 .num_box a{width:25px;display:inline-block; text-align:center; vertical-align:middle}
-.num_box .on{color:#ef6c3e; text-decoration:underline; font-weight:bold}
+.num_box .on{color:#ef6c3e;  font-weight:bold}
 .btn_lef{margin-right:20px}
 .btn_rit{margin-left:20px}
 .btn_lef a,.btn_rit a{height:25px}
@@ -5218,7 +5218,9 @@ th.th_bor0{border-bottom:0}
 	font-size: 14px;
 	color: #333
 }
-
+.action{
+	
+}
 .tab_st_second li.one a {
 	width: 9%;
 }
@@ -5293,6 +5295,7 @@ th.th_bor0{border-bottom:0}
 }
 
 .che_list03 {
+	padding:0;
 	display: inline;
 }
 

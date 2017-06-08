@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import lancer.c_login.domain.c_loginVO;
+import lancer.c_login.domain.c_login_adminVO;
 import lancer.c_login.domain.c_login_enterpriseVO;
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.total.persistence.c_loginDAO;
@@ -25,6 +26,12 @@ public class c_loginServiceImpl implements c_loginService {
 	public c_login_enterpriseVO select_e_login(c_loginVO vo) {
 		
 		return dao.select_e_login(vo);
+	}
+
+	@Override
+	public c_login_adminVO select_a_login(c_loginVO vo) {
+		
+		return dao.select_a_login(vo);
 	}
 	
 }

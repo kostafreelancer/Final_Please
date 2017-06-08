@@ -16,6 +16,8 @@ public interface c_freelancerlistDAO {
 	public List<c_freelancerlist_portfolioVO> c_freelancerlist_select_portfolio(int f_num);
 	public List<String> c_freelancerlist_select_job(int f_num);
 	public List<c_freelancerlist_schoolVO> c_freelancerlist_select_school(int f_num);
-	public Integer c_freelancerlist_totalCount();
+	public Integer c_freelancerlist_totalCount(c_freelancerlist_SearchCriteria cri);
+	c_freelancerlist_totalVO selectFreelancer(Integer f_num) throws Exception;
+	List<Integer> selectF_job(int f_num) throws Exception;
 	
 }

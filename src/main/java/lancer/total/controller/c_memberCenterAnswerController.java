@@ -18,23 +18,48 @@ import lancer.c_membercenter.domain.MemberCenterAnswerVO;
 import lancer.total.service.c_membercenterASKService;
 
 @RestController
-@RequestMapping("/c_membercenter")
+@RequestMapping("/answer")
 public class c_memberCenterAnswerController {
 
 	@Inject
 	private c_membercenterASKService service;
 	
-	@RequestMapping(value="/myanswer/{asknum}", method = RequestMethod.GET)
-	public void myanswerGET(){
-		System.out.println("GET");
+	@RequestMapping(value="/a", method = RequestMethod.POST)
+	public ResponseEntity<String> get(@PathVariable("asknum") int asknum){
+		ResponseEntity<String> entity = null;
+		
+		try {
+			service.myAnswer(asknum);
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return entity;
 	}
 	
-	@RequestMapping(value="/myanswer/{asknum}", method = RequestMethod.POST)
-	public ResponseEntity<List<MemberCenterAnswerVO>> myAnswer(@PathVariable("asknum") int asknum){
+	@RequestMapping(value="/all/{asknum}", method = RequestMethod.GET)
+	public ResponseEntity<List<MemberCenterAnswerVO>> myanswerGET(@PathVariable("asknum") int asknum){
+		System.out.println("GET");
 		
 		ResponseEntity<List<MemberCenterAnswerVO>> entity = null;
 		try {
 			entity = new ResponseEntity<>(service.myAnswer(asknum), HttpStatus.OK);
+			System.out.println("ajax");
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	@RequestMapping(value="/myanswer/{asknum}", method = RequestMethod.POST)
+	public ResponseEntity<List<MemberCenterAnswerVO>> myAnswer(@PathVariable("asknum") int asknum){
+		System.out.println("^^1");
+		ResponseEntity<List<MemberCenterAnswerVO>> entity = null;
+		try {
+			entity = new ResponseEntity<>(service.myAnswer(asknum), HttpStatus.OK);
+			System.out.println("^^2");
+			System.out.println(asknum + "asknum");
 		} catch (Exception e) {
 			e.printStackTrace();
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);

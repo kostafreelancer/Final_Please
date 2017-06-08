@@ -27,8 +27,8 @@
 	</div>
 	<div class="left_menu_content">
 		<ul class="left_menu_contents">
-			<li><a href="/e_info">기업 정보</a></li>
-			<li><a href="/e_project">프로젝트 관리</a></li>
+			<li><a href="/e_mypage/e_info">기업 정보</a></li>
+			<li><a href="/e_mypage/e_project">프로젝트 관리</a></li>
 		</ul>
 	</div>
 	</nav>

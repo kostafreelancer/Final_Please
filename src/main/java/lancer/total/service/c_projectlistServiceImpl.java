@@ -1,5 +1,6 @@
 package lancer.total.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -31,8 +32,41 @@ public class c_projectlistServiceImpl implements c_projectlistService {
 	
 	@Override
 	public List<E_Insert> listSearch(SearchCriteria cri) throws Exception {
+		List<E_Insert> list = new ArrayList<E_Insert>();
+		List<Integer> job_list =new ArrayList<Integer>();
+		int count1 =0;
+		int count2 =0;
+		int count3=0;
 		
-		return dao.listSearch(cri);
+		list = dao.listSearch(cri);
+		for(int i=0;i<list.size();i++){
+			job_list = dao.selectP_job(list.get(i).getE_pr_num());
+			//프로젝트 번호로 분야를 배열로 가져온거
+			for(int j=0;j<job_list.size();j++){ //그 분야 만큼 불러서 카운팅하고 
+				if(job_list.get(j)<30){
+					count1++;
+				}else if(job_list.get(j)<41){
+					count2++;
+				}else{
+					count3++;
+				}
+			}
+			if(count1>count2&count1>count3){
+				list.get(i).setP_field("개발");
+			}else if(count2>count1&count2>count3){
+				list.get(i).setP_field("디자인");
+			}else if(count3>count1&count3>count2){
+				list.get(i).setP_field("기획");
+			}else{
+				list.get(i).setP_field("공통");
+			}
+			count1=0;
+			count2=0;
+			count3=0;
+		}
+		
+		
+		return list;
 	}
 
 	@Override

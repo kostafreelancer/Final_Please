@@ -34,6 +34,18 @@ public class F_MypageService {
 		return dao.showCareerInfo(f_num);
 	}
 	
+	public int getCareerNum() throws Exception{
+		return dao.getCareerNum();
+	}
+	
+	public void insertCareer(Career career) throws Exception{
+		dao.insertCareer(career);
+	}
+	
+	public void updateCareer(Career career) throws Exception{
+		dao.updateCareer(career);
+	}
+	
 	public List<School> showSchoolInfo(int f_num) throws Exception{
 		return dao.showSchoolInfo(f_num);
 	}

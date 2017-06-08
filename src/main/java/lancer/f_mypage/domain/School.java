@@ -9,11 +9,12 @@ public class School implements Serializable{
 	private String major;
 	private String school_term;
 	private String school_location;
+	private String school_degree;
 	
 	public School(){}
 
 	public School(int school_num, int f_num, String school_name, String major, String school_term,
-			String school_location) {
+			String school_location, String school_degree) {
 		super();
 		this.school_num = school_num;
 		this.f_num = f_num;
@@ -21,6 +22,7 @@ public class School implements Serializable{
 		this.major = major;
 		this.school_term = school_term;
 		this.school_location = school_location;
+		this.school_degree = school_degree;
 	}
 
 	public int getSchool_num() {
@@ -69,6 +71,14 @@ public class School implements Serializable{
 
 	public void setSchool_location(String school_location) {
 		this.school_location = school_location;
+	}
+
+	public String getSchool_degree() {
+		return school_degree;
+	}
+
+	public void setSchool_degree(String school_degree) {
+		this.school_degree = school_degree;
 	}
 	
 	

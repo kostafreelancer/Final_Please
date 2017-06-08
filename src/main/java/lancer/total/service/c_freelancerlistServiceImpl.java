@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import lancer.c_freelancerlist.domain.c_freelancerlist_SearchCriteria;
+import lancer.c_freelancerlist.domain.c_freelancerlist_careerVO;
+import lancer.c_freelancerlist.domain.c_freelancerlist_schoolVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.c_projectlist.domain.SearchCriteria;
@@ -19,19 +21,67 @@ public class c_freelancerlistServiceImpl implements c_freelancerlistService {
 	c_freelancerlistDAO dao;
 	@Override
 	public List<c_freelancerlist_totalVO> c_freelancerlist_select_basic(c_freelancerlist_SearchCriteria cri) {
-		System.out.println("여기 들어 오는거지?");
 		List<c_freelancerlist_totalVO> list = dao.c_freelancerlist_select_basic(cri);
+		List<c_freelancerlist_schoolVO> schoollist = new ArrayList<c_freelancerlist_schoolVO>();
+		List<c_freelancerlist_careerVO> careerlist = new ArrayList<c_freelancerlist_careerVO>();
 		for(int i=0;i<list.size();i++){
+			int check1 = 0;
+			int check2 = 0;
+			int check3 = 0;
+			int check4 = 0;
+			int total_career=0;
 			list.get(i).setList_career(dao.c_freelancerlist_select_career(list.get(i).getF_num()));
 			list.get(i).setList_job(dao.c_freelancerlist_select_job(list.get(i).getF_num()));
 			list.get(i).setList_portfolio(dao.c_freelancerlist_select_portfolio(list.get(i).getF_num()));
 			list.get(i).setList_school(dao.c_freelancerlist_select_school(list.get(i).getF_num()));
+			careerlist = list.get(i).getList_career();
+			if(!careerlist.isEmpty()){
+				for(int j=0;j<careerlist.size();j++){
+					total_career += careerlist.get(j).getCareer_year();
+				}
+				list.get(i).setF_highest_career(total_career+" 년 ");
+			}
+			schoollist = dao.c_freelancerlist_select_school(list.get(i).getF_num());
+			if(schoollist.size()>0){
+				
+				for(int j=0;j<schoollist.size();j++){
+					if(schoollist.get(j).getSchool_degree().equals("박사")){
+						check1++;
+					}else if(schoollist.get(j).getSchool_degree().equals("석사")){
+						check2++;
+					}else if(schoollist.get(j).getSchool_degree().equals("학사")){
+						check3++;
+					}else{
+						check4++;
+					}
+				}
+				if(check1!=0){
+					list.get(i).setF_highest_school("박사");
+				}else if(check2!=0){
+					list.get(i).setF_highest_school("석사");
+				}else if(check3!=0){
+					list.get(i).setF_highest_school("학사");
+				}else{
+					list.get(i).setF_highest_school("전문 학사");
+				}
+			}
+			
 		}
 		return list;
 	}
 	@Override
-	public Integer c_freelancerlist_totalCount() {
-		return dao.c_freelancerlist_totalCount();
+	public Integer c_freelancerlist_totalCount(c_freelancerlist_SearchCriteria cri) {
+		return dao.c_freelancerlist_totalCount(cri);
+	}
+	
+	@Override
+	public c_freelancerlist_totalVO selectFreelancer(Integer f_num) throws Exception{
+		return dao.selectFreelancer(f_num);
+	}
+	
+	@Override
+	public List<Integer> selectF_job(int f_num) throws Exception{
+		return dao.selectF_job(f_num);
 	}
 
 }

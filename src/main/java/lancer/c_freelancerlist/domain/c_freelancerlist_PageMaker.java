@@ -86,8 +86,9 @@ public class c_freelancerlist_PageMaker {
               UriComponentsBuilder.newInstance()
               .queryParam("page", page)
               .queryParam("perPageNum", cri.getPerPageNum())
-              .queryParam("searchType", ((c_freelancerlist_SearchCriteria)cri).getSearchType())
-              .queryParam("keyword", ((c_freelancerlist_SearchCriteria)cri).getKeyword())
+              .queryParam("jobs", ((c_freelancerlist_SearchCriteria)cri).getJobs())
+              /*.queryParam("searchType", ((c_freelancerlist_SearchCriteria)cri).getSearchType())
+              .queryParam("keyword", ((c_freelancerlist_SearchCriteria)cri).getKeyword())*/
               .build();             
     
     return uriComponents.toUriString();

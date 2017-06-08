@@ -11,6 +11,7 @@ function check(){
 	window.opener.document.tempSchoolAdd.major.value = document.myform.major.value;
 	window.opener.document.tempSchoolAdd.term.value = document.myform.term.value;
 	window.opener.document.tempSchoolAdd.location.value = document.myform.location.value;
+	window.opener.document.tempSchoolAdd.degree.value = document.myform.degree.value;
 	window.opener.addSchoolSubmit();
 	self.close();
 }
@@ -26,6 +27,8 @@ function check(){
 	<input type="text" name="term"><br>
 	<label>소재지</label>
 	<input type="text" name="location"><br>
+	<label>학위</label>
+	<input type="text" name="degree"><br>
 	<input type="button" value="저장" onclick="check();">
 	<input type="reset" value="초기화">
 </form>

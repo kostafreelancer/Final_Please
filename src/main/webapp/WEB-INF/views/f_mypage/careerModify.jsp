@@ -9,6 +9,7 @@
 	String rank = request.getParameter("mycareer_rank");
 	String term = request.getParameter("mycareer_career_term");
 	String location = request.getParameter("mycareer_career_location");
+	String year = request.getParameter("mycareer_career_year");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -21,8 +22,9 @@ function check(){
 	window.opener.document.tempCareerModify.company.value = document.myform.company.value;
 	window.opener.document.tempCareerModify.dept.value = document.myform.dept.value;
 	window.opener.document.tempCareerModify.rank.value = document.myform.rank.value;
-	window.opener.document.tempCareerModify.term.value = document.myform.term.value;
-	window.opener.document.tempCareerModify.location.value = document.myform.location.value;
+	window.opener.document.tempCareerModify.career_term.value = document.myform.term.value;
+	window.opener.document.tempCareerModify.career_location.value = document.myform.location.value;
+	window.opener.document.tempCareerModify.career_year.value = document.myform.year.value;
 	window.opener.modifyCareerSubmit();
 	self.close();
 }
@@ -30,17 +32,19 @@ function check(){
 </head>
 <body>
 	<form name="myform">
-	<input type="text" hidden name="career_num" value="<%=career_num%>">
+	<input type="text" hidden name="career_num" value="${career.career_num}">
 	<label>회사명</label>
-	<input type="text" name="company" value="<%=company%>"><br>
+	<input type="text" name="company" value="${career.company}"><br>
 	<label>근무부서</label>
-	<input type="text" name="dept" value="<%=dept%>"><br>
+	<input type="text" name="dept" value="${career.dept}"><br>
 	<label>직위</label>
-	<input type="text" name="rank" value="<%=rank%>"><br>
+	<input type="text" name="rank" value="${career.rank}"><br>
 	<label>근무기간</label>
-	<input type="text" name="term" value="<%=term%>"><br>
+	<input type="text" name="term" value="${career.career_term }"><br>
 	<label>소재지</label>
-	<input type="text" name="location" value="<%=location%>"><br>
+	<input type="text" name="location" value="${career.career_location}"><br>
+	<label>근속년수</label>
+	<input type="text" name="year" value="${career.career_year}"><br>
 	<input type="button" value="저장" onclick="check();">
 	<input type="reset" value="초기화">
 </form>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,7 +32,9 @@ $(function(){
          check[arr[i]-1].checked = true;
    }
 });
+
 </script>
+
 </head>
 
 <body>
@@ -48,7 +51,7 @@ $(function(){
 				</p>
 			</div>
 		</div>
-		
+
 		<div id="content">
 			<div class="tit_box">
 				<h2>${E_Insert.p_name }</h2>
@@ -309,7 +312,7 @@ $(function(){
 								인원</th>
 							<td colspan="2">${project.p_requireNum }명</td>
 							<th scope="row" class="ac"><span class="txt_or">*</span>모집마감일자</th>
-							<td colspan="2">${project.p_regDate }</td>
+							<td colspan="2"><fmt:formatDate  value = "${project.p_regDate }"  pattern = "yyyy년 MM월 dd일"/></td>
 						</tr>
 						<tr>
 							<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span>프로젝트
@@ -320,7 +323,7 @@ $(function(){
 
 						<tr>
 							<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span>근무기간</th>
-							<td colspan="5">${project.p_startDate }<span> ~ </span>${project.p_endDate }
+							<td colspan="5"><fmt:formatDate  value = "${project.p_startDate }"  pattern = "yyyy년 MM월 dd일"/><span> ~ </span><fmt:formatDate  value = "${project.p_endDate }"  pattern = "yyyy년 MM월 dd일"/>
 							</td>
 						</tr>
 
@@ -341,11 +344,11 @@ $(function(){
 			</div>
 			
 			<div class="btn_box">
-				<input class="btn btn-lg btn-default js-disable-on-click"
-					autocomplete="off" data-loading-text="저장 중" name="save_for_later"
-					value="프로젝트 목록가기" type="submit">
+				<a href="/c_projectlist/c_projectlist"  class="btn btn-lg btn-default js-disable-on-click"
+					autocomplete="off" data-loading-text="저장 중" name="save_for_later">프로젝트 목록가기</a>
 			</div>
 			<!-- //tb_box : e -->
+			
 
 		
 

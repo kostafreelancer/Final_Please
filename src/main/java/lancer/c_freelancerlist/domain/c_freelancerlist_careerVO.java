@@ -9,11 +9,12 @@ public class c_freelancerlist_careerVO implements Serializable{
 	private String rank;
 	private String career_term;
 	private String career_location;
+	private int career_year; 
 	
 	public c_freelancerlist_careerVO(){}
 
 	public c_freelancerlist_careerVO(int career_num, int f_num, String dept, String rank, String career_term,
-			String career_location) {
+			String career_location, int career_year) {
 		super();
 		this.career_num = career_num;
 		this.f_num = f_num;
@@ -21,6 +22,7 @@ public class c_freelancerlist_careerVO implements Serializable{
 		this.rank = rank;
 		this.career_term = career_term;
 		this.career_location = career_location;
+		this.career_year = career_year;
 	}
 
 	public int getCareer_num() {
@@ -70,6 +72,16 @@ public class c_freelancerlist_careerVO implements Serializable{
 	public void setCareer_location(String career_location) {
 		this.career_location = career_location;
 	}
+
+	public int getCareer_year() {
+		return career_year;
+	}
+
+	public void setCareer_year(int career_year) {
+		this.career_year = career_year;
+	}
+
+	
 	
 	
 }

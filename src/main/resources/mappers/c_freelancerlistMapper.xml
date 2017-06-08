@@ -3,16 +3,35 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="lancer.mappers.c_freelancerlistMapper">
 <cache />
-	<select id = "c_freelancerlist_select_basic" resultType="c_freelancerlist_totalVO">
-		select * from FREELANCER
+	<select id = "c_freelancerlist_select_basic" resultType="c_freelancerlist_totalVO" parameterType="c_freelancerlist_SearchCriteria">
+		select * from FREELANCER 
+			<if test="jobs != null">
+			<where>
+				<!-- b_title LIKE %자바% OR b_writer LIKE %자바%-->
+				<foreach collection="jobs" item="item" separator="AND" open="(" close=")">
+					f_num in (select f_num from f_job where job_id = #{item})
+				</foreach>
+			</where>
+		</if>
 	</select>
 <!--  	<select id="c_freelancer_list" resultType="String">
 		select f_name from freelancer
 	</select> -->
+	
+	<select id="selectFreelancer" resultType="c_freelancerlist_totalVO">
+	select * from FREELANCER 
+						where f_num = #{f_num}
+	</select>
+	
+	<select id="selectF_job" resultType="Integer">
+		SELECT job_id FROM f_job WHERE f_num = #{f_num}
+	</select>
+	
 	<select id="c_freelancerlist_select_school" resultType="c_freelancerlist_schoolVO" parameterType="int">
 		select * from school
 						where f_num = #{f_num}
 	</select>
+	
 	<select id="c_freelancerlist_select_career" resultType="c_freelancerlist_careerVO" parameterType="int">
 		select * from career
 						where f_num = #{f_num}
@@ -26,8 +45,22 @@
 							where f.job_id = j.job_id
 								and f.f_num = #{f_num}	
 	</select> 
-	<select id="c_freelancerlist_totalCount" resultType="Integer">
+	<select id="c_freelancerlist_totalCount" resultType="Integer" parameterType="c_freelancerlist_SearchCriteria">
 		select count(*) from FREELANCER
+			<if test="jobs != null">
+			<where>
+				<!-- b_title LIKE %자바% OR b_writer LIKE %자바%-->
+				<foreach collection="jobs" item="item" separator="AND" open="(" close=")">
+					f_num in (select f_num from f_job where job_id = #{item})
+				</foreach>
+			</where>
+		</if>
+	</select>
+
+	<select id="c_freelancerlist_high" resultType="String" parameterType="Int">
+		select school_name from c_freelancerlist_schoolVO 
+								where f_num = #{f_num} 
+														
 	</select>
 
 </mapper>

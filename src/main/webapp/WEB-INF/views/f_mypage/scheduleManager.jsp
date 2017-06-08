@@ -204,13 +204,9 @@ body {
 		</div>
 		<div class="left_menu_content">
 			<ul class="left_menu_contents">
-				<li><a href="showScheduleInfo.f_mypage?f_num=${client.f_num}">일정
-						관리</a></li>
-				<li><a
-					href="/Matching_Project/f_mypage/accountingManager.jsp?f_num=${client.f_num}">회계
-						관리</a></li>
-				<li><a href="showFreelancerInfo.f_mypage?f_num=${client.f_num}">내
-						정보</a></li>
+				<li><a href="/f_mypage/scheduleManager">일정 관리</a></li>
+				<li><a href="/f_mypage/accountingManager">회계 관리</a></li>
+				<li><a href="/f_mypage/myInfo">내 정보</a></li>
 			</ul>
 		</div>
 	</div>
@@ -243,9 +239,9 @@ body {
 
 	<form name="scheduleAdd" action="/f_mypage/scheduleAdd" method="post">
 		<input type="text" hidden name="f_num" value="${client.f_num}">
-		<input type="text" hidden name="contents"> <input type="text"
-			hidden name="startdate"> <input type="text" hidden
-			name="enddate">
+		<input type="text" hidden name="contents"> 
+		<input type="text" hidden name="startdate"> 
+		<input type="text" hidden name="enddate">
 	</form>
 
 

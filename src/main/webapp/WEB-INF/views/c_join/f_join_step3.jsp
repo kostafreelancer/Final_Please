@@ -485,6 +485,7 @@
 
 
 		</form>
+		</div>
 
 <%@include file="../c_common/footer.jsp" %> 
 </body>

@@ -7,6 +7,7 @@
 	String major = request.getParameter("myschool_major");
 	String term = request.getParameter("myschool_school_term");
 	String location = request.getParameter("myschool_school_location");
+	String degree = request.getParameter("myschool_school_degree");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,6 +21,7 @@ function check(){
 	window.opener.document.tempSchoolModify.major.value = document.myform.major.value;
 	window.opener.document.tempSchoolModify.term.value = document.myform.term.value;
 	window.opener.document.tempSchoolModify.location.value = document.myform.location.value;
+	window.opener.document.tempSchoolModify.degree.value = document.myform.degree.value;
 	window.opener.modifySchoolSubmit();
 	self.close();
 }
@@ -36,6 +38,8 @@ function check(){
 	<input type="text" name="term" value="<%=term%>"><br>
 	<label>소재지</label>
 	<input type="text" name="location" value="<%=location%>"><br>
+	<label>학위</label>
+	<input type="text" name="degree" value="<%=degree%>"><br>
 	<input type="button" value="저장" onclick="check();">
 	<input type="reset" value="초기화">
 </form>

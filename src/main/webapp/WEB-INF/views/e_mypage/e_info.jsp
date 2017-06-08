@@ -40,8 +40,8 @@
 	</div>
 	<div class="left_menu_content">
 		<ul class="left_menu_contents">
-			<li><a href="e_info">기업 정보</a></li>
-			<li><a href="e_project">프로젝트 관리</a></li>
+			<li><a href="/e_mypage/e_info">기업 정보</a></li>
+			<li><a href="/e_mypage/e_project">프로젝트 관리</a></li>
 		</ul>
 	</div>
 	</nav>
@@ -61,7 +61,7 @@
 	</div>
 
 
-<form action="/e_mypage/e_info" method="post" name="EnterpriseWriteFm">
+<form action="/e_mypage/e_info" method="post" name="EnterpriseWriteFm" enctype="multipart/form-data">
 	<div class="e_info_table1">
 		<h4>아이디 및 비밀번호</h4>
 		
@@ -145,9 +145,9 @@
 				<td rowspan="5"><img name="IMG1" id="e_ownerimage"
 					src="${client.e_ownerfile }">
 					<div class="filebutton">
-						<span>사진업로드</span> <input type="file" name="e_ownerfile" id="e_ownerfile" value="${client.e_ownerfile }"
+						<span>사진업로드</span>  <!--  <input type="file" name="e_ownerfile" id="e_ownerfile" value="${client.e_ownerfile }"
 							class="searchfile" title="파일 찾기"
-							style="width: 820px;">
+							style="width: 820px;"> -->
 					</div></td>
 				<th scope="row">가입자 명</th>
 				<td colspan="4"><input type="text" id="e_name"

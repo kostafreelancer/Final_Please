@@ -153,7 +153,35 @@ public class F_MypageController {
 		
 	}
 	
+	@RequestMapping(value="/careerAdd", method=RequestMethod.GET)
+	public void careerAdd() throws Exception{
+	}
 	
+	@RequestMapping(value="/careerAdd", method=RequestMethod.POST)
+	public String careerAdd(Career career) throws Exception{
+		career.setCareer_num(service.getCareerNum()+1);
+		service.insertCareer(career);
+		return "redirect:/f_mypage/updateSuccess";
+	}
+	
+	@RequestMapping(value="/careerModify", method=RequestMethod.GET)
+	public void careerModify() throws Exception{
+	}
+	
+	@RequestMapping(value="/careerModify", method=RequestMethod.POST)
+	public void careerModify(Career career, Model model) throws Exception{
+		//service.updateCareer(career);
+		model.addAttribute("career", career);
+		System.out.println(career.getCareer_location());
+	}
+	
+	@RequestMapping(value="/updateCareer", method=RequestMethod.POST)
+	public String updateCareer(Career career) throws Exception{
+		service.updateCareer(career);
+		return "redirect:/f_mypage/updateSuccess";
+	}
+	
+	//일정관리
 	@RequestMapping(value = "/scheduleManager", method = RequestMethod.GET)
 	public void scheduleManager(Model model, HttpSession session) throws Exception{
 		c_login_freelancerVO freelancer = (c_login_freelancerVO) session.getAttribute("client");
@@ -185,7 +213,7 @@ public class F_MypageController {
 	}
 	
 	@RequestMapping(value="/scheduleAdd", method=RequestMethod.POST)
-	public String scheduleAdd(Calendar calen, HttpSession session, Model model) throws Exception{
+	public String scheduleAdd(Calendar calen, Model model) throws Exception{
 		System.out.println("컨트롤러 들어오셨어요?");
 		//c_login_freelancerVO freelancer = (c_login_freelancerVO) session.getAttribute("client");
 		//int f_num = freelancer.getF_num();
@@ -229,6 +257,14 @@ public class F_MypageController {
 		cal.setF_num(f_num);
 		service.deleteMySchedule(cal);
 		return "/f_mypage/scheduleManager";
+	}
+	
+	
+	
+	//회계관리
+	@RequestMapping(value="/accountingManager", method=RequestMethod.GET)
+	public void accountingManager() throws Exception{
+		
 	}
 	
 }

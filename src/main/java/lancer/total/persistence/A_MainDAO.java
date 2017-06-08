@@ -7,8 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import lancer.temp.domain.Enterprise;
-import lancer.temp.domain.Freelancer;
+import lancer.a_main.domain.Enterprise;
+import lancer.a_main.domain.Freelancer;
 
 @Repository
 public class A_MainDAO {
