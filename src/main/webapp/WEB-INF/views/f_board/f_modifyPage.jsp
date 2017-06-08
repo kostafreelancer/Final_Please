@@ -118,7 +118,7 @@
 					</table>
 				</div>
 				<div class="btn_box">
-					<input type="submit" id="checkValue" class="btn_check04"  value="등록하기">
+					<input type="submit" id="checkValue" class="btn_check04"  value="수정하기">
 				</div>
 			</div>
 		</div>

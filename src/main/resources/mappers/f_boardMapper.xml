@@ -5,17 +5,17 @@
 
 <mapper namespace="lancer.mapper.f_boardMapper">
 	
-	<insert id="create">
-		insert into f_board (f_board_title, f_board_content, f_id)
-		values (#{f_board_title}, #{f_board_content}, #{f_id})
+	<insert id="create" parameterType="F_BoardVO">
+		insert into f_board (f_board_num, f_board_title, f_board_content, f_board_date)
+		values (f_board_seq.nextval, #{f_board_title}, #{f_board_content}, sysdate)
 	</insert>
 	
 	<select id="read" resultType="F_BoardVO">
 		select
-			f_board_num, f_board_title, f_board_content, f_id, f_board_hits, 
-			f_board_date, f_reply_count, f_num
-		from f_board
-		where f_board_num=#{f_board_num}
+			f_board_num, f_board_title, f_board_content, f_board_hits, 
+			f_board_date, f_reply_count, freelancer.f_num, f_id
+		from f_board, freelancer
+		where f_board_num=#{f_board_num} and f_board.f_num = freelancer.f_num
 	</select>
 	
 	<update id="update">
@@ -31,7 +31,7 @@
 	<select id="listAll" resultType="F_BoardVO">
 		<![CDATA[
 			select 
-				f_board_num, f_board_title, f_board_content, f_id, f_board_hits, 
+				f_board_num, f_board_title, f_board_content, f_board_hits, 
 				f_board_date, f_reply_count, f_num
 			from f_board
 			where f_board_num>0

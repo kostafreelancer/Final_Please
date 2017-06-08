@@ -17,6 +17,7 @@
 </head>
 <body>
 	<%@include file="../c_common/header.jsp"%>
+	
 	<div id="conainer">
 		<div id="nav">
 			<div class="nav_txt">
@@ -44,6 +45,8 @@
 				</div>
 
 				<!-- //tb_box : e -->
+				<form method="post">
+				<input type="text" hidden name="f_num" value="${client.f_num }">
 				<div class="tb_box">
 				<h1>&nbsp</h1>
 					<table class="tb_st01">

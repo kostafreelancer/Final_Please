@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,9 +15,16 @@
 <link rel="stylesheet" href="../c_common/footer.css" type="text/css" media="screen" />
 <title>프리랜서 자유게시판</title>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script type="text/javascript">
+	var result='${msg}';
+	if(result=='SUCCESS'){
+		alert("처리가 완료되었습니다.");
+	}
+</script>
 </head>
 <body>
  <%@include file="../c_common/header.jsp" %>
+
      <div  id="conainer">
     	<div id="nav">
         	<div class="nav_txt">
@@ -40,70 +50,32 @@
                                 <col style="width:10%" />
                                 <col style="width:*" />
                                 <col style="width:17%" />
+                                <col style="width:17%" />
                                 <col style="width:15%" />
                             </colgroup>
                             <thead>
                             	<tr>
                                 	<th scope="col">번호</th>
                                     <th scope="col">제목</th>
+                                    <th scope="col">글쓴이</th>
                                     <th scope="col">등록일</th>
                                     <th scope="col">조회</th>
                                 </tr>
                             </thead>
-                            <tbody>
-				            	<tr><td>30</td>
-		<td class="al">&nbsp;&nbsp;&nbsp;<a href="board_view.php?fm_str=c2VsdW5vPTkzJnBhZ2U9MSZpbmNyZW1lbnQ9MA==" class="SOLU_green">[머니투데이]이랜서, 검증된 IT인재들과 기업이 상생하는 기업</a></td>
-		<td>2017-03-24</td>
-		<td>1479</td>
-	</tr>
-	<tr><td>29</td>
-		<td class="al">&nbsp;&nbsp;&nbsp;<a href="board_view.php?fm_str=c2VsdW5vPTkwJnBhZ2U9MSZpbmNyZW1lbnQ9MA==" class="SOLU_green">이랜서 이용약관 변경</a></td>
-		<td>2016-10-31</td>
-		<td>3718</td>
-	</tr>
-	<tr><td>28</td>
-		<td class="al">&nbsp;&nbsp;&nbsp;<a href="board_view.php?fm_str=c2VsdW5vPTg5JnBhZ2U9MSZpbmNyZW1lbnQ9MA==" class="SOLU_green">머니투데이 이랜서  철저한 시스템과 투명한 관리로 프리랜서 보유</a></td>
-		<td>2016-10-24</td>
-		<td>3699</td>
-	</tr>
-	<tr><td>27</td>
-		<td class="al">&nbsp;&nbsp;&nbsp;<a href="board_view.php?fm_str=c2VsdW5vPTg1JnBhZ2U9MSZpbmNyZW1lbnQ9MA==" class="SOLU_green">스타트업 멘토 공동 협력 협약서 체결</a></td>
-		<td>2015-12-17</td>
-		<td>11992</td>
-	</tr>
-	<tr><td>26</td>
-		<td class="al">&nbsp;&nbsp;&nbsp;<a href="board_view.php?fm_str=c2VsdW5vPTU4JnBhZ2U9MSZpbmNyZW1lbnQ9MA==" class="SOLU_green">(주)이랜서 본사 이전 안내</a></td>
-		<td>2014-10-02</td>
-		<td>69092</td>
-	</tr>
-	<tr><td>25</td>
-		<td class="al">&nbsp;&nbsp;&nbsp;<a href="board_view.php?fm_str=c2VsdW5vPTU3JnBhZ2U9MSZpbmNyZW1lbnQ9MA==" class="SOLU_green">2014/9/27(토) 이랜서 서버점검 안내</a></td>
-		<td>2014-09-26</td>
-		<td>15613</td>
-	</tr>
-	<tr><td>24</td>
-		<td class="al">&nbsp;&nbsp;&nbsp;<a href="board_view.php?fm_str=c2VsdW5vPTU1JnBhZ2U9MSZpbmNyZW1lbnQ9MA==" class="SOLU_green">[대외활동] 대학생들을 위한 '이랜서 대학생 서포터즈 2기' 모집(~7/7)</a></td>
-		<td>2014-06-12</td>
-		<td>9676</td>
-	</tr>
-	<tr><td>23</td>
-		<td class="al">&nbsp;&nbsp;&nbsp;<a href="board_view.php?fm_str=c2VsdW5vPTUyJnBhZ2U9MSZpbmNyZW1lbnQ9MA==" class="SOLU_green">[이벤트] 2014년 3월 이랜서데이 페이스북 이벤트(~4/8)</a></td>
-		<td>2014-04-03</td>
-		<td>12214</td>
-	</tr>
-	<tr><td>22</td>
-		<td class="al">&nbsp;&nbsp;&nbsp;<a href="board_view.php?fm_str=c2VsdW5vPTUwJnBhZ2U9MSZpbmNyZW1lbnQ9MA==" class="SOLU_green">2014년 4월 이랜서 자격 취득을 위한 이랜서 특화교육 안내</a></td>
-		<td>2014-03-20</td>
-		<td>4965</td>
-	</tr>
-	<tr><td>21</td>
-		<td class="al">&nbsp;&nbsp;&nbsp;<a href="board_view.php?fm_str=c2VsdW5vPTQ5JnBhZ2U9MSZpbmNyZW1lbnQ9MA==" class="SOLU_green">2014년 3월 이랜서 자격 취득을 위한 이랜서 특화교육 안내</a></td>
-		<td>2014-02-20</td>
-		<td>2988</td>
-	</tr>
+                            
+                     <c:forEach items="${list}" var="F_BoardVO">
+                         <tbody>
+							<tr><td>${F_BoardVO.f_board_num }</td>
+								<td class="al">&nbsp;&nbsp;&nbsp;<a href='/f_board/f_readPage?f_board_num=${F_BoardVO.f_board_num}' class="SOLU_green">${F_BoardVO.f_board_title}</a></td>
+								<td>아이디</td>
+								<td><fmt:formatDate pattern="yyy-MM-dd HH:mm" value="${F_BoardVO.f_board_date }"/></td>
+								<td>${F_BoardVO.f_board_hits }</td>
+						</tr>
                             </tbody>
+                            </c:forEach>
                         </table>
                     </div>
+                    
                     <!-- //tb_box : e -->
                     <div class="num_box">
 				<span class='btn_lef'><a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=Y29kZT0mcGFnZT0xJmluY3JlbWVudD0w" class="first">맨 처음</a></span><a class="on">1</a><a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=cGFnZT0yJmluY3JlbWVudD0w" onclick="javascript:tab('tab_d02',2);">2</a><a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=cGFnZT0zJmluY3JlbWVudD0w" onclick="javascript:tab('tab_d02',2);">3</a><span class='btn_rit'></span><a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=Y29kZT0mcGFnZT0zJmluY3JlbWVudD0w" class="last">맨 마지막</a>                    </div>

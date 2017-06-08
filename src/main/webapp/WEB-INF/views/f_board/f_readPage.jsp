@@ -12,9 +12,33 @@
 <link rel="stylesheet" href="../c_common/footer.css" type="text/css" media="screen" />
 <title>프리랜서 자유게시판</title>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var formObj = ${"form[role='form']"}
+		console.log(formObj);
+		
+		$(".btn_check04").on("click", function(){
+			formObj.attr("action", "/f_board/modify");
+			formObj.attr("method", "get");
+			formObj.submit();
+		})
+		$(".butt").on("click", function(){
+			formObj.attr("action", "/f_board/remove");
+			formObj.submit();
+		})
+		$(".btn_check04").on("click", function(){
+			formObj.attr("action", "/f_board/listAll");
+		});
+		
+	});
+	
+</script>
 </head>
 <body>
  <%@include file="../c_common/header.jsp" %>
+  <form method="post">
+  	<input type='hidden' name='bno' value="${F_BoardVO.f_board_num }">
+  </form>
 	<div id="conainer">
 		<div id="nav">
 			<div class="nav_txt">
@@ -61,13 +85,13 @@
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">글번호</label></th>
 								<td colspan="2">
-								1
+								${F_BoardVO.f_board_num}
 								<!-- <input type="text" id="f_board_title" name="f_board_title" class="wid" /> -->
 								</td>
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">조회수</label></th>
 								<td colspan="2">
-								1
+								${F_BoardVO.f_board_hits}
 								<!-- <input type="text" id="f_board_title" name="f_board_title" class="wid" /> -->
 								</td>
 							</tr>
@@ -75,13 +99,14 @@
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">아이디</label></th>
 								<td colspan="2">
-								kosta
+								아이디이이이이이
+								<%-- ${F_BoardVO.f_id} --%>
 								<!-- <input type="text" id="f_id" name="f_id" class="wid" /> -->
 								</td>
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">등록일</label></th>
 								<td colspan="2">
-								2017-06-09
+								${F_BoardVO.f_board_date }
 								<!-- <input type="text" id="f_board_title" name="f_board_title" class="wid" /> -->
 								</td> 
 							</tr>
@@ -89,8 +114,8 @@
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">제목</label></th>
 								<td colspan="5">
-								안녕
-								<!-- <input type="text" id="f_board_title" name="f_board_title" class="wid" /> -->
+								<input type="text" id="f_board_title" name="f_board_title" class="wid" 
+										readonly="readonly" value="${F_BoardVO.f_board_title }"/>
 								</td>
 							</tr>
 
@@ -98,9 +123,9 @@
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="p_content">상세내용</label></th>
 								<td colspan="5">
-								상세내용~~
-								<!-- <textarea id="f_board_content" name="f_board_content" class="txt_area">
-                                </textarea> -->
+								<textarea id="f_board_content" name="f_board_content" class="txt_area"
+											readonly="readonly" value="${F_BoardVO.f_board_content }">
+                                </textarea>
                                 </td>
 							</tr>
 							<tr>
@@ -118,13 +143,15 @@
 					</table>
 				</div>
 				<div class="btn_box">
-					<input type="submit" id="checkValue" class="btn_check04"  value="등록하기">
+					<input type="submit" id="checkValue" class="btn_check04"  value="수정하기">
+					<input type="submit" id="checkValue" class="butt"  value="     삭제하기">
+					<input type="submit" id="checkValue" class="bg_btn_list"  value="목록으로">
 				</div>
 			</div>
 		</div>
+</div>
 
-		</form>
-	</div>
+	
 <%@include file="../c_common/footer.jsp" %>
 </body>
 </html>
