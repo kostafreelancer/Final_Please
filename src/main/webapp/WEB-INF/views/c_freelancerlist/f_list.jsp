@@ -549,7 +549,7 @@
 							<c:forEach begin="${pageMaker.startPage }"
 								end="${pageMaker.endPage }" var="idx">
 								<span
-								<c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
+								<c:out value="${pageMaker.cri.page == idx?'class=action':''}"/>>
 									<a href="f_list${pageMaker.makeSearch(idx)}">${idx}</a>
 								</span>
 							</c:forEach>
