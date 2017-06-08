@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import lancer.c_login.domain.c_login_freelancerVO;
+import lancer.e_mypage.domain.Project;
+import lancer.f_mypage.domain.Accounting;
 import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.Calendar;
 import lancer.f_mypage.domain.Career;
@@ -46,12 +48,48 @@ public class F_MypageService {
 		dao.updateCareer(career);
 	}
 	
+	public void deleteCareer(int career_num) throws Exception{
+		dao.deleteCareer(career_num);
+	}
+	
 	public List<School> showSchoolInfo(int f_num) throws Exception{
 		return dao.showSchoolInfo(f_num);
 	}
 	
+	public int getSchoolNum() throws Exception{
+		return dao.getSchoolNum();
+	}
+	
+	public void insertSchool(School school) throws Exception{
+		dao.insertSchool(school);
+	}
+	
+	public void updateSchool(School school) throws Exception{
+		dao.updateSchool(school);
+	}
+	
+	public void deleteSchool(int school_num) throws Exception{
+		dao.deleteSchool(school_num);
+	}
+	
 	public List<Certificate> showCertiInfo(int f_num) throws Exception{
 		return dao.showCertiInfo(f_num);
+	}
+	
+	public int getCertiNum() throws Exception{
+		return dao.getCertiNum();
+	}
+	
+	public void insertCerti(Certificate certi) throws Exception{
+		dao.insertCerti(certi);
+	}
+	
+	public void updateCerti(Certificate certi) throws Exception{
+		dao.updateCerti(certi);
+	}
+	
+	public void deleteCerti(int certi_num) throws Exception{
+		dao.deleteCerti(certi_num);
 	}
 	
 	public List<ApplyProject> getApplyProject(int f_num) throws Exception{
@@ -72,6 +110,14 @@ public class F_MypageService {
 	
 	public void insertFreelancerJobInfo(F_job f_job) throws Exception{
 		dao.insertFreelancerJobInfo(f_job);
+	}
+	
+	public List<Project> getMyFinishProject(int f_num) throws Exception{
+		return dao.getMyFinishProject(f_num);
+	}
+	
+	public List<String> getProjectP_job(int e_pr_num) throws Exception{
+		return dao.getProjectP_job(e_pr_num);
 	}
 	
 	public String getMyProjectName(int f_num) throws Exception{
@@ -97,4 +143,12 @@ public class F_MypageService {
 	public void deleteMySchedule(Calendar calen) throws Exception{
 		dao.deleteMySchedule(calen);
 	}
+
+	public List<Accounting> getSpendAccounting(int f_num) throws Exception{
+		return dao.getSpendAccounting(f_num);
+	}
+	
+	public List<Accounting> getIncomeAccounting(int f_num) throws Exception{
+		return dao.getIncomeAccounting(f_num);
+	}	
 }

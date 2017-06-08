@@ -60,11 +60,11 @@
 	</select>
 	
 	<insert id="insertSchool" parameterType="School">
-		insert into school values(#{school_num}, #{f_num}, #{school_name}, #{major}, #{school_term}, #{school_location})
+		insert into school values(#{school_num}, #{f_num}, #{school_name}, #{major}, #{school_term}, #{school_location}, #{school_degree})
 	</insert>
 	
 	<update id="updateSchool" parameterType="School">
-		update school set school_name=#{school_name}, major = #{major}, school_term = #{school_term}, school_location = #{school_location} where school_num = #{school_num}
+		update school set school_name=#{school_name}, major = #{major}, school_term = #{school_term}, school_location = #{school_location}, school_degree=#{school_degree} where school_num = #{school_num}
 	</update>
 	
 	<delete id="deleteSchool" parameterType="int">
@@ -90,6 +90,16 @@
 	<delete id="deleteCerti" parameterType="int">
 		delete from certificate where certificate_num = #{certificate_num}
 	</delete>
+	
+	<select id="getMyFinishProject" parameterType="int" resultType="lancer.e_mypage.domain.Project">
+		select pro.p_name, pro.P_UPPERCOST, pro.P_STARTDATE, pro.P_ENDDATE, pro.e_pr_num from project pro, contract con
+		where con.E_PR_NUM = pro.E_PR_NUM and con.f_num = #{f_num} and con.c_state=3
+	</select>
+	
+	<select id="getProjectP_job" resultType="String">
+		select job.JOB_NAME from project pro, p_job p_job, job job 
+		where pro.E_PR_NUM = p_job.E_PR_NUM and p_job.JOB_ID = job.JOB_ID and pro.E_PR_NUM=#{e_pr_num}
+	</select>
 	
 	<select id="getMyProjectName" parameterType="int" resultType="String">
 		select p_name from project pro, contract con 
@@ -118,7 +128,7 @@
 	
 	<select id="getApplyProject" parameterType="int" resultType="ApplyProject">
 		select con.c_num, pro.p_name, e.manager_hphone, con.c_request_date, con.c_state from project pro, contract con, enterprise e 
-		where pro.e_pr_num = con.e_pr_num and pro.e_num = e.e_num and con.c_state='지원 중' and con.f_num = #{f_num}
+		where pro.e_pr_num = con.e_pr_num and pro.e_num = e.e_num and con.c_state=0 and con.f_num = #{f_num}
 		
 	</select>
 	
@@ -130,6 +140,15 @@
 		select p_startdate from e_request_project where e_pr_num = 1 
 	</select>
 	
+	<select id="getSpendAccounting" resultType="Accounting">
+		select * from accounting where monet_state = '지출' and f_num = #{f_num}
+	</select>
+  
+  	<select id="getIncomeAccounting" resultType="Accounting">
+		select * from accounting where monet_state = '수입' and f_num = #{f_num}
+	</select>
+  
+  
   
 </mapper>  
 

@@ -111,19 +111,20 @@ newJquery(document).ready(function() {
 		    },  
 		    
 		    eventClick: function(event) {
-		    	$.ajax({
-					url : "scheduleDelete",
-					type : "get",
-					data : "title="+event.title+ "&f_num=" +${client.f_num},
-					//dataType : 'json',
-					success : function(){
-						  newJquery('#calendar').fullCalendar('removeEvents' , function(ev){  
-							    return (ev._id == event._id);
-						  })
-					}
-				});
+		    	
+		    		$.ajax({
+						url : "scheduleDelete",
+						type : "get",
+						data : "title="+event.title+ "&f_num=" +${client.f_num},
+						//dataType : 'json',
+						success : function(){
+							  newJquery('#calendar').fullCalendar('removeEvents' , function(ev){  
+								    return (ev._id == event._id);
+							  })
+						}
+					});
+		   
 		    },
-
 		    dayClick: function() {
 		    	window.open('/f_mypage/scheduleAdd','win','width=350, height=250');
 		    }
@@ -181,12 +182,12 @@ newJquery(document).ready(function() {
 </script>
 
 <style type='text/css'>
-body {
+/* body {
 	margin-top: 40px;
 	text-align: center;
 	font-size: 14px;
 	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
-}
+} */
 
 #calendar {
 	width: 900px;

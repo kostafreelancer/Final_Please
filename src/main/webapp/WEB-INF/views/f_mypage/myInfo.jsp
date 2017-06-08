@@ -12,10 +12,11 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/myInfo.css" type="text/css" media="screen" />
 
 <title>내 정보</title>
-
+<!-- <script  src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 <!-- <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script> -->
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+
 
 <!-- <script type="text/javascript" src="f_mypage_js/myInfo.js"></script>
 <script type="text/javascript" src="f_mypage_js/my.js"></script> -->
@@ -26,7 +27,7 @@
 <script type="text/javascript">
 $(function(){
 	var checks = document.getElementsByName("fm_new_keyword[]");
-
+	
 	var arr = new Array();
 
 	<c:forEach var="item" items="${joblist}">
@@ -498,6 +499,7 @@ $(function(){
 				</table>
 			</div> 
 			<div class="btn_box mb30 mb02">
+				<input type="button" class="toDrop" value="회원탈퇴" onclick="location.href='/f_mypage/dropFreelancer?f_num='+${client.f_num}">
 				<input type="submit" value="수정하기">
 				<input type="reset" value="초기화">
 			</div>
@@ -581,7 +583,7 @@ $(function(){
 					<input type="text" hidden name="career_location">
 					<input type="text" hidden name="career_year">
 				</form>
-				<form name="tempCareerDelete" action="deleteCareer.f_mypage">
+				<form name="tempCareerDelete" action="/f_mypage/deleteCareer" method="get">
 					<input type="text" hidden name="deleteCareer_num">
 				</form>
 
@@ -626,13 +628,13 @@ $(function(){
 							<tr><td colspan="5">등록된 학력사항이 없습니다.</td></tr>
 					</c:if>
 						<c:forEach var="myschool" items="${school}">
-						<form id="schoolForm${myschool.school_num}" name="myschoolModify${myschool.school_num}" method="post" action="/Matching_Project/f_mypage/schoolModify.jsp" target='popup_window'>
-						<input type="text" hidden name="myschool_school_num" value="${myschool.school_num}">
-						<input type="text" hidden name="myschool_school_name" value="${myschool.school_name}">
-						<input type="text" hidden name="myschool_major" value="${myschool.major}">
-						<input type="text" hidden name="myschool_school_term" value="${myschool.school_term}">
-						<input type="text" hidden name="myschool_school_location" value="${myschool.school_location}">
-						<input type="text" hidden name="myschool_school_degree" value="${myschool.school_degree}">
+						<form id="schoolForm${myschool.school_num}" name="myschoolModify${myschool.school_num}" method="post" action="/f_mypage/schoolModify" target='popup_window'>
+						<input type="text" hidden name="school_num" value="${myschool.school_num}">
+						<input type="text" hidden name="school_name" value="${myschool.school_name}">
+						<input type="text" hidden name="major" value="${myschool.major}">
+						<input type="text" hidden name="school_term" value="${myschool.school_term}">
+						<input type="text" hidden name="school_location" value="${myschool.school_location}">
+						<input type="text" hidden name="school_degree" value="${myschool.school_degree}">
 						<tr>							
 							<td>${myschool.school_name}</td>
 							<td>${myschool.major}</td>
@@ -648,23 +650,23 @@ $(function(){
 
 					</tbody>
 				</table>
-				<form name="tempSchoolAdd"  action="insertSchool.f_mypage">
-					<input type="text" hidden name="tempf_num" value="${client.f_num}">
+				<form name="tempSchoolAdd"  action="/f_mypage/schoolAdd" method="post">
+					<input type="text" hidden name="f_num" value="${client.f_num}">
 					<input type="text" hidden name="school_name">
 					<input type="text" hidden name="major">
-					<input type="text" hidden name="term">
-					<input type="text" hidden name="location">
-					<input type="text" hidden name="degree">
+					<input type="text" hidden name="school_term">
+					<input type="text" hidden name="school_location">
+					<input type="text" hidden name="school_degree">
 				</form>
-				<form name="tempSchoolModify"  action="updateSchool.f_mypage">
+				<form name="tempSchoolModify"  action="/f_mypage/updateSchool" method="post">
 					<input type="text" hidden name="school_num">
 					<input type="text" hidden name="school_name">
 					<input type="text" hidden name="major">
-					<input type="text" hidden name="term">
-					<input type="text" hidden name="location">
-					<input type="text" hidden name="degree">
+					<input type="text" hidden name="school_term">
+					<input type="text" hidden name="school_location">
+					<input type="text" hidden name="school_degree">
 				</form>
-				<form name="tempSchoolDelete" action="deleteSchool.f_mypage">
+				<form name="tempSchoolDelete" action="/f_mypage/deleteSchool" method="get">
 					<input type="text" hidden name="deleteSchool_num">
 				</form>
 
@@ -705,11 +707,11 @@ $(function(){
 							<tr><td colspan="5">등록된 자격사항이 없습니다.</td></tr>
 					</c:if>
 					<c:forEach var="mycerti" items="${certificate}">
-						<form id="certiForm${mycerti.certificate_num}" name="mycertiModify${mycerti.certificate_num}" method="post" action="/Matching_Project/f_mypage/certiModify.jsp" target='popup_window'>
-						<input type="text" hidden name="mycerti_certi_num" value="${mycerti.certificate_num}">
-						<input type="text" hidden name="mycerti_certi_name" value="${mycerti.certificate_name}">
-						<input type="text" hidden name="mycerti_organization" value="${mycerti.organization}">
-						<input type="text" hidden name="mycerti_accept_date" value="${mycerti.accept_date}">
+						<form id="certiForm${mycerti.certificate_num}" name="mycertiModify${mycerti.certificate_num}" method="post" action="/f_mypage/certiModify" target='popup_window'>
+						<input type="text" hidden name="certificate_num" value="${mycerti.certificate_num}">
+						<input type="text" hidden name="certificate_name" value="${mycerti.certificate_name}">
+						<input type="text" hidden name="organization" value="${mycerti.organization}">
+						<input type="text" hidden name="accept_date" value="${mycerti.accept_date}">
 						<tr>							
 			
 							<td>${mycerti.certificate_name}</td>
@@ -724,20 +726,20 @@ $(function(){
 
 					</tbody>
 				</table>
-				<form name="tempCertiAdd"  action="insertCerti.f_mypage">
-					<input type="text" hidden name="tempf_num" value="${client.f_num}">
-					<input type="text" hidden name="certi_name">
+				<form name="tempCertiAdd"  action="/f_mypage/certiAdd" method="post">
+					<input type="text" hidden name="f_num" value="${client.f_num}">
+					<input type="text" hidden name="certificate_name">
 					<input type="text" hidden name="organization">
 					<input type="text" hidden name="accept_date">
 				</form>
-				<form name="tempCertiModify"  action="updateCerti.f_mypage">
-					<input type="text" hidden name="certi_num">
-					<input type="text" hidden name="certi_name">
+				<form name="tempCertiModify"  action="/f_mypage/updateCerti" method="post">
+					<input type="text" hidden name="certificate_num">
+					<input type="text" hidden name="certificate_name">
 					<input type="text" hidden name="organization">
 					<input type="text" hidden name="accept_date">
 					
 				</form>
-				<form name="tempCertiDelete" action="deleteCerti.f_mypage">
+				<form name="tempCertiDelete" action="/f_mypage/deleteCerti">
 					<input type="text" hidden name="deleteCerti_num">
 				</form>
 
@@ -816,13 +818,10 @@ $(function(){
 					</c:if>
 					
 					<c:forEach var="myApplyProject" items="${applyproject}">
-						
-						 <form method="post" action="deleteApplyProject.f_mypage">
-						 <input type="text" hidden name="f_pr_num" value="${myApplyProject.f_pr_num}">
 						 <tr>							
 							<td>${myApplyProject.p_name}</td>
 							<td>${myApplyProject.manager_hphone}</td>
-							<td>${myApplyProject.f_pr_date}</td>
+							<td>${myApplyProject.c_request_date}</td>
 							<td>${myApplyProject.state}</td>
 							<td class="last"><input type="submit" value="지원 취소"></td>
 						</tr>
@@ -855,9 +854,20 @@ $(function(){
 				</thead>
 				<tbody>
 
-					<tr>
-						<td class="ac" colspan="6">등록된 히스토리 정보가 없습니다.</td>
-					</tr>
+						<c:if test="${finishprojectcheck == 0}">
+							<tr><td colspan="5">완료한 내역이 없습니다.</td></tr>
+					</c:if>
+					
+					<c:forEach var="myFinishProject" items="${finishproject}">
+						
+						 <tr>							
+							<td>${myFinishProject.proName}</td>
+							<td>${myFinishProject.proTerm}</td>
+							<td>${myFinishProject.cost}</td>
+							<td>${myFinishProject.p_job}</td>
+						</tr>
+						
+					</c:forEach>
 
 				</tbody>
 			</table>

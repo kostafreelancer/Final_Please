@@ -14,8 +14,8 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 function check(){
-	window.opener.document.tempCertiModify.certi_num.value = document.myform.certi_num.value;
-	window.opener.document.tempCertiModify.certi_name.value = document.myform.certi_name.value;
+	window.opener.document.tempCertiModify.certificate_num.value = document.myform.certi_num.value;
+	window.opener.document.tempCertiModify.certificate_name.value = document.myform.certi_name.value;
 	window.opener.document.tempCertiModify.organization.value = document.myform.organization.value;
 	window.opener.document.tempCertiModify.accept_date.value = document.myform.accept_date.value;
 	window.opener.modifyCertiSubmit();
@@ -26,13 +26,13 @@ function check(){
 <body>
 
 <form name="myform">
-	<input type="text" hidden name="certi_num" value="<%=certi_num%>">
+	<input type="text" hidden name="certi_num" value="${certi.certificate_num }">
 	<label>자격증명</label>
-	<input type="text" name="certi_name" value="<%=certi_name%>"><br>
+	<input type="text" name="certi_name" value="${certi.certificate_name}"><br>
 	<label>발행처</label>
-	<input type="text" name="organization" value="<%=organization%>"><br>
+	<input type="text" name="organization" value="${certi.organization }"><br>
 	<label>취득일자</label>
-	<input type="text" name="accept_date" value="<%=accept_date%>"><br>
+	<input type="text" name="accept_date" value="${certi.accept_date }"><br>
 
 	<input type="button" value="저장" onclick="check();">
 	<input type="reset" value="초기화">
