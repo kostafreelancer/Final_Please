@@ -145,9 +145,9 @@
 				<td rowspan="5"><img name="IMG1" id="e_ownerimage"
 					src="${client.e_ownerfile }">
 					<div class="filebutton">
-						<span>사진업로드</span> <!--  <input type="file" name="e_ownerfile" id="e_ownerfile" value="${client.e_ownerfile }"
+						<span>사진업로드</span>  <!--  <input type="file" name="e_ownerfile" id="e_ownerfile" value="${client.e_ownerfile }"
 							class="searchfile" title="파일 찾기"
-							style="width: 820px;">-->
+							style="width: 820px;"> -->
 					</div></td>
 				<th scope="row">가입자 명</th>
 				<td colspan="4"><input type="text" id="e_name"

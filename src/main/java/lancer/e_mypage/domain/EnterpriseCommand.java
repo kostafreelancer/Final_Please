@@ -1,5 +1,7 @@
 package lancer.e_mypage.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class EnterpriseCommand {
 
 	private String e_pwd_1;	// 기업회원 비밀번호	(접속할때)
@@ -33,7 +35,7 @@ public class EnterpriseCommand {
 	private int e_capital;		// 자본금
 	private int e_sales;		// 연매출
 	private String e_scale;			// 기업규모 (대기업, 중소기업, 개인)
-	private String e_licensefile;		// 사업자등록증 사진파일 경로
+	private MultipartFile e_licensefile;		// 사업자등록증 사진파일 경로
 	
 	public EnterpriseCommand(){
 		
@@ -45,7 +47,7 @@ public class EnterpriseCommand {
 			String manager_hphone_1, String manager_hphone_2, String manager_hphone_3, String manager_mail_1,
 			String manager_mail_2, String e_address_1, String e_address_2, String e_address_3, String e_homepage,
 			int start_year, int e_enum, String e_listing, int e_capital, int e_sales, String e_scale,
-			String e_licensefile) {
+			MultipartFile e_licensefile) {
 		super();
 		this.e_pwd_1 = e_pwd_1;
 		this.e_pwd_2 = e_pwd_2;
@@ -329,11 +331,11 @@ public class EnterpriseCommand {
 		this.e_scale = e_scale;
 	}
 
-	public String getE_licensefile() {
+	public MultipartFile getE_licensefile() {
 		return e_licensefile;
 	}
 
-	public void setE_licensefile(String e_licensefile) {
+	public void setE_licensefile(MultipartFile e_licensefile) {
 		this.e_licensefile = e_licensefile;
 	}
 	
