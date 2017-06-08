@@ -3,6 +3,7 @@ package lancer.total.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -25,10 +26,28 @@ public class c_projectlistController {
 	@Inject
 	c_projectlistService service;
 	
-	@RequestMapping(value = "/c_projectlist", method = RequestMethod.GET)
-	public void projectlistGET(@ModelAttribute("cri") SearchCriteria cri,Model model,HttpSession session) throws Exception{
+	@RequestMapping(value = "/c_projectlist")
+	public void projectlistGET(@ModelAttribute("cri") SearchCriteria cri,Model model,HttpSession session,HttpServletRequest request) throws Exception{
+		String[] job = request.getParameterValues("fm_new_keyword[]");
 		
-		model.addAttribute("list", service.listSearch(cri));
+		if(cri.getJobs()==null){
+			cri.setJobs(job);
+		}
+		/*if(reset.equals("reset")){
+			cri.setJobs(null);
+		}*/
+		List<E_Insert> list = service.listSearch(cri);
+		if(cri.getJobs()!=null){
+			String str[] =cri.getJobs();
+			for(int i=0;i<cri.getJobs().length;i++){
+				
+				System.out.println(str[i]);
+			}
+		}else{
+			cri.setJobs(job);
+		}
+		
+		model.addAttribute("list", list);
 		PageMaker pageMaker =  new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.listSearchCount(cri));

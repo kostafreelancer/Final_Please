@@ -2373,6 +2373,7 @@ th.bg_gy {
 }
 
 .num_box {
+    padding-bottom: 30px;
 	text-align: center;
 	clear: both;
 }
@@ -4456,7 +4457,7 @@ th.tb_lef_bor,td.tb_lef_bor{ border-left:1px solid #d6d6d6}
 .name03{line-height:20px;padding-top:7px;}
 .rit_ma{margin-right:5px}
 
-.num_box{ text-align:center; clear: both;}
+.num_box{padding-bottom: 30px; text-align:center; clear: both;}
 .num_box a{width:25px;display:inline-block; text-align:center; vertical-align:middle}
 .num_box .on{color:#ef6c3e; font-weight:bold}
 .btn_lef{margin-right:20px}

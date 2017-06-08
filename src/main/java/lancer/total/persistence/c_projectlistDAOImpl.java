@@ -30,12 +30,21 @@ public class c_projectlistDAOImpl implements c_projectlistDAO {
 	@Override
 	public List<E_Insert> listCriteria(Criteria cri) throws Exception {
 		
+		
 		return session.selectList(namespace+".listAll",cri,new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
 	}
 	
 	@Override
 	public List<E_Insert> listSearch(SearchCriteria cri) throws Exception {
-	
+		
+		if(cri.getJobs()!=null){
+			String str[] = cri.getJobs();
+			for(int i=0;i<cri.getJobs().length;i++){
+				
+				System.out.println(str[i]);
+			}
+		}
+		
 		return session.selectList(namespace+".listSearch", cri ,new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
 	}
 

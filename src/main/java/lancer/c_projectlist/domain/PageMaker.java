@@ -3,6 +3,8 @@ package lancer.c_projectlist.domain;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import lancer.c_freelancerlist.domain.c_freelancerlist_SearchCriteria;
+
 public class PageMaker {
 
   private int totalCount;
@@ -86,8 +88,7 @@ public class PageMaker {
               UriComponentsBuilder.newInstance()
               .queryParam("page", page)
               .queryParam("perPageNum", cri.getPerPageNum())
-              .queryParam("searchType", ((SearchCriteria)cri).getSearchType())
-              .queryParam("keyword", ((SearchCriteria)cri).getKeyword())
+              .queryParam("jobs", ((SearchCriteria)cri).getJobs())
               .build();             
     
     return uriComponents.toUriString();

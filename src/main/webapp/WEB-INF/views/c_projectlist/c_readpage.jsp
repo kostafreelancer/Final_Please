@@ -32,7 +32,9 @@ $(function(){
          check[arr[i]-1].checked = true;
    }
 });
+
 </script>
+
 </head>
 
 <body>
@@ -49,7 +51,7 @@ $(function(){
 				</p>
 			</div>
 		</div>
-		
+
 		<div id="content">
 			<div class="tit_box">
 				<h2>${E_Insert.p_name }</h2>
@@ -342,11 +344,11 @@ $(function(){
 			</div>
 			
 			<div class="btn_box">
-				<input class="btn btn-lg btn-default js-disable-on-click"
-					autocomplete="off" data-loading-text="저장 중" name="save_for_later"
-					value="프로젝트 목록가기" type="submit">
+				<a href="/c_projectlist/c_projectlist"  class="btn btn-lg btn-default js-disable-on-click"
+					autocomplete="off" data-loading-text="저장 중" name="save_for_later">프로젝트 목록가기</a>
 			</div>
 			<!-- //tb_box : e -->
+			
 
 		
 

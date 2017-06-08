@@ -55,7 +55,7 @@
             <!-- //tit_box : e -->
 	<div class="project_list_filter" style="float:left">
             <div class="tb_box">
-				<form style="padding:0px;padding-top:0" action="list.php#Member_list" method="post" name="esearch">
+				<form style="padding:0px;padding-top:0" action="/c_projectlist/c_projectlist" method="post" name="esearch">
 					<input type="hidden" name="page" value="1" />
 					<input type="hidden" name="fm_str" value="" />
             	<table class="tb_st02">
@@ -181,9 +181,8 @@
                     </tbody>
                 </table>
                 <div class="ac">
-				<input id="checkValue" class="btn_check03" id="searchBtn" autocomplete="off" data-loading-text="제출 중" name="post_a_job"
-						value="검색하기" type="submit">
-            	<a href="/19_ESERCH/page/list.php" class="btn_check02">초기화</a>
+				<input id="checkValue" class="btn_check03" id="searchBtn" value="검색하기" type="submit">
+            	<a href="/c_projectlist/c_projectlist" class="btn_check02">초기화</a>
             </div>
 				</form>
             </div>

@@ -1,28 +1,28 @@
 package lancer.c_projectlist.domain;
 
-public class SearchCriteria extends Criteria{
+import java.io.Serializable;
+import java.util.Arrays;
 
-	private String searchType;
-	private String keyword;
-	
-	public String getSearchType() {
-		return searchType;
+public class SearchCriteria extends Criteria implements Serializable{
+
+	private String[] jobs;
+
+	public String[] getJobs() {
+		return jobs;
 	}
-	public void setSearchType(String searchType) {
-		this.searchType = searchType;
+
+	public void setJobs(String[] jobs) {
+		this.jobs = jobs;
 	}
-	public String getKeyword() {
-		return keyword;
-	}
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
+
 	@Override
 	public String toString() {
-		return super.toString() + " SearchCriteria "
-				+ "[searchType=" + searchType + ", keyword="
-				+ keyword + "]";
+		return "SearchCriteria [jobs=" + Arrays.toString(jobs) + "]";
 	}
+	
+	
+	
+	
 }
 
 
