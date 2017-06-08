@@ -12,7 +12,7 @@
 <link rel="stylesheet"
 	href="/Matching_Project/c_common/c_common_css/chatting_chang.css"
 	type="text/css" media="screen" />
-<script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript"
 	src="/Matching_Project/c_common/c_common_js/chatting.js"></script>
 
