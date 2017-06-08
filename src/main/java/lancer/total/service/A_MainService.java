@@ -6,8 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import lancer.temp.domain.Enterprise;
-import lancer.temp.domain.Freelancer;
+import lancer.a_main.domain.Enterprise;
+import lancer.a_main.domain.Freelancer;
 import lancer.total.persistence.A_MainDAO;
 
 @Service

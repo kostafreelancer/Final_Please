@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -62,7 +63,7 @@ public class E_MypageController {
 	}
 	
 	@RequestMapping(value = "/e_info", method = RequestMethod.POST)
-	public String e_projectUpdatePOST(EnterpriseCommand command, Model model, HttpSession session) throws Exception {
+	public String e_projectUpdatePOST(EnterpriseCommand command, Model model, HttpSession session, HttpServletRequest request) throws Exception {
 
 		//기존 기업정보
 		c_login_enterpriseVO enterprise = (c_login_enterpriseVO)session.getAttribute("client");
@@ -149,7 +150,7 @@ public class E_MypageController {
 		enterprise.setE_licensefile(command.getE_licensefile());		
 				
 		
-		service.updateEnterprise(enterprise);
+		service.updateEnterprise(enterprise, request);
 		
 		session.setAttribute("client", enterprise);		
 		

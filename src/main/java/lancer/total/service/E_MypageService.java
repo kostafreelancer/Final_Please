@@ -1,11 +1,15 @@
 package lancer.total.service;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import lancer.c_login.domain.c_login_enterpriseVO;
 import lancer.e_mypage.domain.Enterprise;
@@ -38,8 +42,23 @@ public class E_MypageService{
 		return dao.selectP_job(e_pr_num);
 	}
 
-	public void updateEnterprise(c_login_enterpriseVO enterprise) throws Exception {
+	public void updateEnterprise(c_login_enterpriseVO enterprise, HttpServletRequest request) throws Exception {
 		dao.updateEnterprise(enterprise);
+		
+	    MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
+/*	    Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
+	    MultipartFile multipartFile = null;
+	    while(iterator.hasNext()){
+	        multipartFile = multipartHttpServletRequest.getFile(iterator.next());
+	        if(multipartFile.isEmpty() == false){
+	            System.out.println("------------- file start -------------");
+	            System.out.println("name : "+multipartFile.getName());
+	            System.out.println("filename : "+multipartFile.getOriginalFilename());
+	            System.out.println("size : "+multipartFile.getSize());
+	            System.out.println("-------------- file end --------------\n");
+	        }
+	    }*/
+	
 	}
 	
 	/*@Transactional
