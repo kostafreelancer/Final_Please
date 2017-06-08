@@ -1,3 +1,27 @@
+  $(document).ready(function(){
+	  $('#e_mail_select1').change(function(){
+	      var e_mail = $(this).val();
+	      if(e_mail == ""){
+	         $('#e_mail_2_1').removeAttr('readonly');
+	      }else{
+	         $('#e_mail_2_1').attr('readonly', 'true')
+	      }
+	      $('#e_mail_2_1').val(e_mail);
+	   });	  
+	  
+	  $('#e_mail_select2').change(function(){
+		  var e_mail = $(this).val();
+		  if(e_mail == ""){
+			  $('#e_mail_2_2').removeAttr('readonly');
+		  }else{
+			  $('#e_mail_2_2').attr('readonly', 'true')
+		  }
+		  $('#e_mail_2_2').val(e_mail);
+	  });	  
+  });
+
+
+
 function openbtn(evt, btn) {
     // Declare all variables
     var i, tabcontent, tablinks;
