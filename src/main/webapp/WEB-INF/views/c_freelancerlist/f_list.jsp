@@ -190,7 +190,7 @@
 				<input type="hidden" name="page" value="1" />
 				<input type="submit" class="btn_check03" value="검색하기"/>
             	<!-- <a href="javascript:page_submit('/c_freelancerlist/exam');" class="btn_check03">검색하기</a> -->
-                <a href="/c_freelancerlist/f_list?reset=reset" class="btn_check02">초기화</a>
+                <a href="/c_freelancerlist/f_list?reset=reset" class="btn_check02">&nbsp;&nbsp;&nbsp;&nbsp;초기화</a>
             </div>
 				</form>
             </div>

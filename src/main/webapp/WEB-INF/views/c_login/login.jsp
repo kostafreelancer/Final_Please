@@ -51,8 +51,10 @@
                                     <label for="saveID">로그인 상태유지</label><br> -->
 								&nbsp; &nbsp; <input type="radio" name="checking"
 									value="freelancer" checked="checked">프리랜서
-								&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="checking"
+								&nbsp;&nbsp; <input type="radio" name="checking"
 									value="enterprise">기업
+									&nbsp;&nbsp; <input type="radio" name="checking"
+									value="admin">관리자
 
 							</p>
 
@@ -65,7 +67,7 @@
                                 </a>  -->
 							<span class="btn_login">로그인</span>
 							<!-- <input class = "login_submit" type="submit" value="로그인">  -->
-							<a href="/Matching_Project/c_join/c_join_step1.jsp"
+							<a href="${pageContext.request.contextPath}"/c_join/c_join_step1"
 								class="btn_join">회원가입</a>
 						</p>
 					</form>
