@@ -182,7 +182,7 @@
                 </table>
                 <div class="ac">
 				<input id="checkValue" class="btn_check03" id="searchBtn" value="검색하기" type="submit">
-            	<a href="/c_projectlist/c_projectlist" class="btn_check02">초기화</a>
+            	<a href="/c_projectlist/c_projectlist" class="btn_check02">&nbsp;&nbsp;&nbsp;&nbsp;초기화</a>
             </div>
 				</form>
             </div>
@@ -240,12 +240,12 @@
 								
 							</td>
 							<td>
-							<fmt:formatDate  value = "${E_Insert.p_startDate }"  pattern = "MM-dd-yyyy"/>
+							<fmt:formatDate  value = "${E_Insert.p_startDate }"  pattern = "yyyy 년 MM월dd일"/>
 						 </td>
-							<td><fmt:formatDate  value = "${E_Insert.p_endDate }"  pattern = "MM-dd-yyyy"/><br>
+							<td><fmt:formatDate  value = "${E_Insert.p_endDate }"  pattern = "yyyy 년 MM월dd일"/><br>
 							</td>
 							<td>${E_Insert.p_requireNum }명</td>
-							<td class="last finish"><strong><fmt:formatDate  value = "${E_Insert.p_exDate }"  pattern = "MM-dd-yyyy"/></strong></td>
+							<td class="last finish"><strong><fmt:formatDate  value = "${E_Insert.p_exDate }"  pattern = "yyyy 년 MM월dd일"/></strong></td>
 						</tr>
 						</c:forEach>
 							

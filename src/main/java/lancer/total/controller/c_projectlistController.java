@@ -33,9 +33,7 @@ public class c_projectlistController {
 		if(cri.getJobs()==null){
 			cri.setJobs(job);
 		}
-		/*if(reset.equals("reset")){
-			cri.setJobs(null);
-		}*/
+		
 		List<E_Insert> list = service.listSearch(cri);
 		if(cri.getJobs()!=null){
 			String str[] =cri.getJobs();
