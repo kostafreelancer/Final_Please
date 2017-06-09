@@ -13,6 +13,7 @@ import lancer.c_freelancerlist.domain.c_freelancerlist_schoolVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.c_projectlist.domain.SearchCriteria;
+import lancer.e_insertproject.domain.E_Insert;
 import lancer.e_mypage.domain.Project;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
@@ -25,8 +26,42 @@ public class c_freelancerlistServiceImpl implements c_freelancerlistService {
 	@Inject
 	c_freelancerlistDAO dao;
 	@Override
-	public List<c_freelancerlist_totalVO> c_freelancerlist_select_basic(c_freelancerlist_SearchCriteria cri) {
+	public List<c_freelancerlist_totalVO> c_freelancerlist_select_basic(c_freelancerlist_SearchCriteria cri) throws Exception {
+		
 		List<c_freelancerlist_totalVO> list = dao.c_freelancerlist_select_basic(cri);
+		
+		List<Integer> job_list =new ArrayList<Integer>();
+		int count1 =0;
+		int count2 =0;
+		int count3=0;
+		
+		list = dao.c_freelancerlist_select_basic(cri);
+		for(int i=0;i<list.size();i++){
+			job_list = dao.selectF_job(list.get(i).getF_num());
+			//프로젝트 번호로 분야를 배열로 가져온거
+			for(int j=0;j<job_list.size();j++){ //그 분야 만큼 불러서 카운팅하고 
+				if(job_list.get(j)<30){
+					count1++;
+				}else if(job_list.get(j)<41){
+					count2++;
+				}else{
+					count3++;
+				}
+			}
+			if(count1>count2&count1>count3){
+				list.get(i).setF_field("개발");
+			}else if(count2>count1&count2>count3){
+				list.get(i).setF_field("디자인");
+			}else if(count3>count1&count3>count2){
+				list.get(i).setF_field("기획");
+			}else{
+				list.get(i).setF_field("공통");
+			}
+			count1=0;
+			count2=0;
+			count3=0;
+		}
+		
 		List<c_freelancerlist_schoolVO> schoollist = new ArrayList<c_freelancerlist_schoolVO>();
 		List<c_freelancerlist_careerVO> careerlist = new ArrayList<c_freelancerlist_careerVO>();
 		for(int i=0;i<list.size();i++){

@@ -29,12 +29,13 @@ public class c_freelancerlist_totalVO implements Serializable{
 	private int f_age;
 	private String f_highest_career;
 	private String f_highest_school;
+	private String f_field;
 	public c_freelancerlist_totalVO(){}
 	public c_freelancerlist_totalVO(int f_num, String f_id, String f_pwd, String f_name, String f_birth, String f_sex,
 			String f_hphone, String f_phone, String f_email, String f_address, String f_major, String f_nowstate,
 			Date f_recentlogin, List<c_freelancerlist_schoolVO> list_school, List<c_freelancerlist_careerVO> list_career,
 			List<c_freelancerlist_portfolioVO> list_portfolio, List<String> list_job, int f_age, String f_highest_career,
-			String f_highest_school) {
+			String f_highest_school, String f_field) {
 		super();
 		this.f_num = f_num;
 		this.f_id = f_id;
@@ -56,6 +57,7 @@ public class c_freelancerlist_totalVO implements Serializable{
 		this.f_age = f_age;
 		this.f_highest_career = f_highest_career;
 		this.f_highest_school = f_highest_school;
+		this.f_field = f_field;
 	}
 	public int getF_num() {
 		return f_num;
@@ -176,6 +178,13 @@ public class c_freelancerlist_totalVO implements Serializable{
 	}
 	public void setF_highest_school(String f_highest_school) {
 		this.f_highest_school = f_highest_school;
+	}
+	
+	public String getF_field() {
+		return f_field;
+	}
+	public void setF_field(String f_field) {
+		this.f_field = f_field;
 	}
 	
 	

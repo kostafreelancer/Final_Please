@@ -32,7 +32,7 @@ public class c_freelancerlistDAOImpl implements c_freelancerlistDAO{
 	private static String namepace = "lancer.mappers.c_freelancerlistMapper";
 	
 	@Override
-	public List<c_freelancerlist_totalVO> c_freelancerlist_select_basic(c_freelancerlist_SearchCriteria cri) {
+	public List<c_freelancerlist_totalVO> c_freelancerlist_select_basic(c_freelancerlist_SearchCriteria cri) throws Exception {
 		
 		/*List<c_freelancerlist_total> list = session.selectList(namepace+".c_freelancerlist_select_basic");
 		System.out.println(list.size()+"리스트 사이즈 ");*/

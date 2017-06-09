@@ -243,8 +243,10 @@
 						
 						<c:forEach var="totallist" items="${totallists }">
 							<tr>
-								<td class="img_box"><a href="#none" class="tooltip" data-tooltip="Silver">
-								<img src="/resources/c_freelancerlist_img/Basic.jpg" class="fl" width="50px" /></a>
+								<td class="img_box">
+								<a href='/c_freelancerlist/f_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&f_num=${totallist.f_num}' class="tooltip" data-tooltip="${totallist.f_field}">
+								<img src="/resources/c_freelancerlist_img/Basic.jpg" class="fl" width="50px" />
+								</a>
 								<div class="name">
 									<a href='/c_freelancerlist/f_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&f_num=${totallist.f_num}'>
 										<strong>${totallist.f_id }</strong>

@@ -10,6 +10,8 @@
 <!-- <link rel="stylesheet" href="f_mypage_css/myInfo.css" type="text/css" media="screen" /> -->
 
 <link rel="stylesheet" href="/resources/c_freelancerlist_css/myInfo.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/resources/c_freelancerlist_css/join.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/resources/c_freelancerlist_css/reset.css" type="text/css" media="screen" />
 
 <title>프리랜서 정보</title>
 
@@ -45,7 +47,20 @@ $(function(){
 <body>
 
 	<%@include file="../c_common/header.jsp"%>
-
+	
+	<div id="conainer">
+		<div id="nav">
+			<div class="nav_txt">
+				<p>
+					<a href="/e_lan/index.php">Home</a>
+					 <span class="padd">&gt;</span>
+					<span>프리랜서 목록</span>
+					 <span class="padd">&gt;</span>
+					<span>프리랜서 상세보기</span>
+				</p>
+			</div>
+		</div>
+		
 	<section id="firstsection">
 
 	<ul id="tabs">
@@ -505,7 +520,8 @@ $(function(){
 		</div>
 
 		<div id="tab3">
-
+		
+		<div class="tb_box">
 					<div class="ct overf">
 						<h4 class="fl myfl">포트폴리오</h4>
 					</div>
@@ -530,12 +546,14 @@ $(function(){
 
 						</tbody>
 					</table>
+					</div>
 
 		</div>
 
 
 		
 		<div id="tab4">
+		<div class="tb_box">
 			<h4>프리랜서가 완료한 프로젝트</h4>
 			<table class="tb_st01 tb_st03">
 				<!-- 	<colgroup>
@@ -573,6 +591,7 @@ $(function(){
 
 				</tbody>
 			</table>
+			</div>
 
 
 		</div>

@@ -35,7 +35,7 @@ public class c_freelancerlistController {
 	c_freelancerlistService service; 
 	
 	@RequestMapping("/f_list")
-	public void f_list(@ModelAttribute("cri") c_freelancerlist_SearchCriteria cri,HttpServletRequest request,Model model,@ModelAttribute("reset") String reset){
+	public void f_list(@ModelAttribute("cri") c_freelancerlist_SearchCriteria cri,HttpServletRequest request,Model model,@ModelAttribute("reset") String reset) throws Exception{
 		String[] job = request.getParameterValues("fm_new_keyword[]");
 		if(cri.getJobs()==null){
 			cri.setJobs(job);

@@ -3,7 +3,8 @@
 #tabs {
 	overflow: hidden;
 	width: 1000px;
-	margin: 0;
+	margin-left: 200px;
+	margin-bottom: 50px;
 	padding: 0;
 	list-style: none;
 }
@@ -1397,7 +1398,6 @@ th.th_bor0 {
 
 #firstsection {
 	margin-top: 50px;
-	margin-left: 300px;
 }
 
 .star_rating {
@@ -1440,5 +1440,14 @@ th.th_bor0 {
 
 #last_table {
 	border-bottom-color: 1px solid #2257ad;
+}
+
+.table_tit {
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	padding-bottom: 5px;
+	clear: both;
+	overflow: hidden;
+	margin-bottom: 25px
 }
 

@@ -46,7 +46,10 @@ $(function(){
 		<div id="nav">
 			<div class="nav_txt">
 				<p>
-					<a href="/e_lan/index.php">Home</a> <span class="padd">&gt;</span>
+					<a href="/e_lan/index.php">Home</a>
+					 <span class="padd">&gt;</span>
+					<span>프로젝트 목록</span>
+					 <span class="padd">&gt;</span>
 					<span>프로젝트 상세보기</span>
 				</p>
 			</div>

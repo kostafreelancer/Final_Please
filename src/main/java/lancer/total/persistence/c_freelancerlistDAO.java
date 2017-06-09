@@ -17,7 +17,7 @@ import lancer.f_mypage.domain.Freelancer;
 import lancer.f_mypage.domain.School;
 
 public interface c_freelancerlistDAO {
-	public List<c_freelancerlist_totalVO> c_freelancerlist_select_basic(c_freelancerlist_SearchCriteria cri);
+	public List<c_freelancerlist_totalVO> c_freelancerlist_select_basic(c_freelancerlist_SearchCriteria cri) throws Exception;
 	public List<c_freelancerlist_careerVO> c_freelancerlist_select_career(int f_num);
 	public List<c_freelancerlist_portfolioVO> c_freelancerlist_select_portfolio(int f_num);
 	public List<String> c_freelancerlist_select_job(int f_num);
