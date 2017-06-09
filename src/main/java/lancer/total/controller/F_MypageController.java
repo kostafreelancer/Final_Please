@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.e_mypage.domain.Project;
 import lancer.f_mypage.domain.Accounting;
+import lancer.f_mypage.domain.AccountingCommand;
 import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.CalEvent;
 import lancer.f_mypage.domain.Calendar;
@@ -35,6 +36,7 @@ import lancer.f_mypage.domain.Portfolio;
 import lancer.f_mypage.domain.PortfolioCommand;
 import lancer.f_mypage.domain.School;
 import lancer.total.service.C_DropService;
+import lancer.total.service.C_FileService;
 import lancer.total.service.F_MypageService;
 
 @Controller
@@ -47,6 +49,9 @@ public class F_MypageController {
 	
 	@Inject
 	private C_DropService dropService;
+	
+	@Inject
+	private C_FileService fileUploadService;
 	
 	@RequestMapping(value="/myInfo", method = RequestMethod.GET)
 	public void myInfo(Model model, HttpSession session) throws Exception{
@@ -81,6 +86,7 @@ public class F_MypageController {
 		List<School> school = service.showSchoolInfo(3);
 		List<Certificate> certificate = service.showCertiInfo(3);
 		List<ApplyProject> applyproject = service.getApplyProject(3);
+		List<Portfolio> portfolio = service.showPortfolioInfo(3);
 		
 		List<Project> project = service.getMyFinishProject(3);
 		List<FinishProject> finishProject  = new ArrayList<FinishProject>();
@@ -122,6 +128,13 @@ public class F_MypageController {
 			model.addAttribute("certificate", certificate);
 		}
 		
+		if(portfolio.size()==0){
+			model.addAttribute("portfoliocheck", "0");
+		}else{
+
+			model.addAttribute("portfolio", portfolio);
+		}
+		
 		if(applyproject.size()==0){
 			model.addAttribute("applyprojectcheck", "0");
 		}else{
@@ -133,6 +146,7 @@ public class F_MypageController {
 		}else{
 			model.addAttribute("finishproject", finishProject);
 		}
+
 	}
 	
 	@RequestMapping(value="/myInfo", method=RequestMethod.POST)
@@ -286,10 +300,48 @@ public class F_MypageController {
 	
 	@RequestMapping(value="/portfolioAdd", method=RequestMethod.POST)
 	public String portfolioAdd(PortfolioCommand portFolioCommand) throws Exception{
-		System.out.println(portFolioCommand.getContents());
-		System.out.println(portFolioCommand.getPortfile().getOriginalFilename());
-		System.out.println(portFolioCommand.getPortfile().getName());
+		System.out.println(portFolioCommand.getF_num());
+		if(portFolioCommand.getPortfolio_num() == 0){
+			
+			System.out.println(portFolioCommand.getContents());
+			System.out.println(portFolioCommand.getPortfile().getOriginalFilename());
+			
+			Portfolio portfolio = new Portfolio();
+			portfolio.setPortfolio_num(service.getPortfolioNum()+1);
+			portfolio.setContents(portFolioCommand.getContents());
+			portfolio.setF_num(portFolioCommand.getF_num());
+			if(portFolioCommand.getPortfile().isEmpty()){
+				portfolio.setPortfile("");
+			}else{
+				portfolio.setPortfile(portFolioCommand.getPortfile().getOriginalFilename());
+			}
+			service.insertPortfolio(portfolio);
+			
+			MultipartFile portfile = portFolioCommand.getPortfile();
+			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num());
 		
+		}else{
+			System.out.println(portFolioCommand.getPortfolio_num());
+			Portfolio portfolio = new Portfolio();
+			portfolio.setPortfolio_num(portFolioCommand.getPortfolio_num());
+			portfolio.setF_num(portFolioCommand.getF_num());
+			portfolio.setContents(portFolioCommand.getContents());
+			if(portFolioCommand.getPortfile().isEmpty()){
+				portfolio.setPortfile("");
+			}else{
+				portfolio.setPortfile(portFolioCommand.getPortfile().getOriginalFilename());
+			}
+			service.updatePortfolio(portfolio);
+			MultipartFile portfile = portFolioCommand.getPortfile();
+			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num());
+		}
+		
+		return "redirect:/f_mypage/updateSuccess";
+	}
+	
+	@RequestMapping(value="/deletePortfolio", method = RequestMethod.GET)
+	public String deletePortfolio(@RequestParam("deletePortfolio_num") int portfolio_num) throws Exception{
+		Portfolio portfolio = service.selectOnePortfolio(portfolio_num);
 		return "redirect:/f_mypage/updateSuccess";
 	}
 
@@ -395,10 +447,52 @@ public class F_MypageController {
 	}
 	
 	@RequestMapping(value="/spendListAdd", method=RequestMethod.POST)
-	public void spendListAdd(MultipartFile a_addfile, Model model) throws Exception{
-		System.out.println(a_addfile.getOriginalFilename());
-		System.out.println(a_addfile.getSize());
-		System.out.println(a_addfile.getContentType());
+	public String spendListAdd(AccountingCommand command) throws Exception{
+		System.out.println("우아아아아아");
+		//if(command.getA_num() == 0){
+			
+			Accounting accounting = new Accounting();
+			accounting.setA_num(service.getSpendAccountingNum()+1);
+			accounting.setDetail_usage(command.getDetail_usage());
+			accounting.setA_money(command.getA_money());
+			accounting.setA_using_date(command.getA_using_date());
+			accounting.setMonet_state(command.getMonet_state());
+			accounting.setProject_relation_check(command.getProject_relation_check());
+			accounting.setF_num(command.getF_num());
+			
+			if(command.getA_addfile().isEmpty()){
+				accounting.setA_addfile("");
+			}else{
+				accounting.setA_addfile(command.getA_addfile().getOriginalFilename());
+			}
+			service.insertSpendAccounting(accounting);
+			
+			MultipartFile a_addfile = command.getA_addfile();
+			fileUploadService.uploadFile(a_addfile, "a_addfile", accounting.getF_num());
+		
+		/*}else{
+			
+			Accounting accounting = new Accounting();
+			
+			accounting.setA_num(command.getA_num());
+			accounting.setDetail_usage(command.getDetail_usage());
+			accounting.setA_money(command.getA_money());
+			accounting.setA_using_date(command.getA_using_date());
+			accounting.setMonet_state(command.getMonet_state());
+			accounting.setProject_relation_check(command.getProject_relation_check());
+			accounting.setF_num(command.getF_num());
+			
+			if(command.getA_addfile().isEmpty()){
+				accounting.setA_addfile("");
+			}else{
+				accounting.setA_addfile(command.getA_addfile().getOriginalFilename());
+			}
+			service.insertSpendAccounting(accounting);
+			MultipartFile a_addfile = command.getA_addfile();
+			fileUploadService.uploadFile(a_addfile, "a_addfile", accounting.getF_num());
+		}*/
+
+		return "redirect:/f_mypage/accountingManager";
 	}
 	
 	

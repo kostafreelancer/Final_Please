@@ -17,6 +17,7 @@ import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.F_job;
 import lancer.f_mypage.domain.Freelancer;
+import lancer.f_mypage.domain.Portfolio;
 import lancer.f_mypage.domain.School;
 
 @Repository
@@ -151,8 +152,37 @@ public class F_MypageDAO {
 	public List<Accounting> getSpendAccounting(int f_num) throws Exception{
 		return session.selectList(namespace + ".getSpendAccounting", f_num);
 	}
+	public int getSpendAccountingNum() throws Exception{
+		return session.selectOne(namespace + ".getSpendAccountingNum");
+	}
+	public void insertSpendAccounting(Accounting accounting) throws Exception{
+		session.insert(namespace + ".insertSpendAccounting", accounting);
+	}
+	
 	public List<Accounting> getIncomeAccounting(int f_num) throws Exception{
 		return session.selectList(namespace + ".getIncomeAccounting", f_num);
 	}
+	
+	public List<Portfolio> showPortfolioInfo(int f_num) throws Exception{
+		return session.selectList(namespace + ".showPortfolioInfo", f_num);
+	}
+	
+	public Portfolio selectOnePortfolio(int portfolio_num) throws Exception{
+		return session.selectOne(namespace + ".selectOnePortfolio", portfolio_num);
+	}
+	
+	public int getPortfolioNum() throws Exception{
+		return session.selectOne(namespace + ".getPortfolioNum");
+	}
+	
+	public void insertPortfolio(Portfolio portfolio) throws Exception{
+		session.insert(namespace + ".insertPortfolio", portfolio);
+	}
+	
+	public void updatePortfolio(Portfolio portfolio) throws Exception{
+		session.update(namespace + ".updatePortfolio", portfolio);
+	}
+	
+	
 	
 }

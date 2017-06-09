@@ -54,7 +54,7 @@
 					<button>4월</button>
 					<button>5월</button><br>
 					<h4 class="fl myfl">지출</h4>
-					<button id="add" class="right_add" onclick="addSpend();">추가하기</button><br><br><br>
+					<button id="add" class="right_add">추가하기</button><br><br><br>
 					
 				</div>
 				<table class="tb_st01 tb_st03 spend">
@@ -107,7 +107,9 @@
 				</table>
 				<form name="tempSpendListAdd"  action="/f_mypage/spendListAdd" method="post" enctype="multipart/form-data">
 					<input type="text" hidden name="f_num" value="${client.f_num}">
-					사용내역 : <input type="text"  name="detail_usage">
+					<input type="text" hidden name="monet_state" value="지출">	
+					<input type="text" hidden name="a_num" value="0"> 	
+					 사용내역 : <input type="text"  name="detail_usage">
 					사용금액 : <input type="text"  name="a_money">
 					사용날짜 : <input type="text"  name="a_using_date"><br>
 					프로젝트 관련여부 : <input type="text"  name="project_relation_check">

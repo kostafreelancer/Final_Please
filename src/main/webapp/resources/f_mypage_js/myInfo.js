@@ -187,6 +187,12 @@ function modifyCerti(num){
     frm.submit();
 }
 
+function modifyPort(num){
+	var wantForm = 'portForm'+num;
+	document.tempPortfolioAdd.contents.value = document.getElementById(wantForm).contents.value;
+	document.tempPortfolioAdd.portfolio_num.value = document.getElementById(wantForm).portfolio_num.value;
+	
+}
 
 function modifyCareerSubmit(){
 	document.tempCareerModify.submit();
@@ -211,4 +217,8 @@ function deleteSchool(num){
 function deleteCerti(num){
 	document.tempCertiDelete.deleteCerti_num.value = num;
 	document.tempCertiDelete.submit();
+}
+function deletePort(num){
+	document.tempPortfolioDelete.deletePortfolio_num.value = num;
+	document.tempPortfolioDelete.submit();
 }

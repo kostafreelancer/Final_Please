@@ -777,21 +777,34 @@ $(function(){
 							</tr>
 						</thead>
 						<tbody>
-
+							<c:if test="${portfoliocheck == 0}">
+								<tr><td colspan="5">등록된 포트폴리오가 없습니다.</td></tr>
+							</c:if>
+							
+							<c:forEach var="myport" items="${portfolio}">
+							<form id="portForm${myport.portfolio_num}" name="myportModify${myport.portfolio_num}">
+							<input type="text" hidden name="portfolio_num" value="${myport.portfolio_num}">
+							<input type="text" hidden name="contents" value="${myport.contents}">
+							<input type="text" hidden name="portfile" value="${myport.portfile}">
 							<tr>
-								<td>어쩌구저쩌구</td>
-								<td>file.zip</td>
-								<td class="last".><input type="button" value="수정">&nbsp;&nbsp;<input
-									type="button" value="삭제"></td>
+								<td>${myport.contents}</td>
+								<td>${myport.portfile}</td>
+								<td class="last"><input type="button" value="수정" onclick="modifyPort(${myport.portfolio_num});">&nbsp;&nbsp;<input
+									type="button" value="삭제" onclick="deletePort(${myport.portfolio_num});"></td>
 							</tr>
-
+							</form>
+							</c:forEach>
 						</tbody>
 					</table>
 				<form name="tempPortfolioAdd"  action="/f_mypage/portfolioAdd" method="post" enctype="multipart/form-data">
 					<input type="text" hidden name="f_num" value="${client.f_num}">
+					<input type="text" hidden name="portfolio_num" value="0">
 					포트폴리오 내용 : <input type="text"  name="contents">
 					첨부파일 : <input type="file"  name="portfile">
 					<input type="submit" value="저장">
+				</form>
+				<form name="tempPortfolioDelete" action="/f_mypage/deletePortfolio">
+					<input type="text" hidden name="deletePortfolio_num">
 				</form>
 		</div>
 

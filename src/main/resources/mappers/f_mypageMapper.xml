@@ -144,11 +144,37 @@
 		select * from accounting where monet_state = '지출' and f_num = #{f_num}
 	</select>
   
+ 	 <select id="getSpendAccountingNum" resultType="int">
+  		select nvl(max(a_num), 0) from accounting
+  	</select>
+  	
+  	<insert id="insertSpendAccounting" parameterType="Accounting">
+  		insert into accounting values(#{a_num}, #{detail_usage}, #{a_money}, #{a_addfile}, #{a_using_date}, #{f_num}, #{project_relation_check}, #{monet_state})
+  	</insert>
+  
   	<select id="getIncomeAccounting" resultType="Accounting">
 		select * from accounting where monet_state = '수입' and f_num = #{f_num}
 	</select>
   
+  	<select id="showPortfolioInfo" resultType="Portfolio">
+  		select * from portfolio where f_num = #{f_num}
+  	</select>
   	
+  	<select id="selectOnePortfolio" resultType="Portfolio">
+  		select * from portfolio where portfolio_num = #{portfolio_num}
+  	</select>
+  	
+  	<select id="getPortfolioNum" resultType="int">
+  		select nvl(max(portfolio_num), 0) from portfolio
+  	</select>
+  
+  	<insert id="insertPortfolio" parameterType = "Portfolio">
+  		insert into portfolio values(#{portfolio_num}, #{f_num}, #{contents}, #{portfile})
+  	</insert>
+  	
+  	<update id="updatePortfolio" parameterType="Portfolio">
+  		update portfolio set contents = #{contents}, portfile = #{portfile} where portfolio_num = #{portfolio_num}
+  	</update>
   
 </mapper>  
 
