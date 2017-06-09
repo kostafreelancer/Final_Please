@@ -37,7 +37,7 @@
 <script type="text/javascript">
 
 var newJquery = $.noConflict(true);
-
+//망했네망했어
 
 newJquery(document).ready(function() {
 //$(document).ready(function() {
