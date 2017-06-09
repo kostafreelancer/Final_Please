@@ -1,53 +1,54 @@
-#find_pwd{
-	display:none;
-}
-.tab{
-	border:1px solid gray;
-	border-bottom:0;
-	width:600px;
-	height:50px;
-	
+#find_pwd {
+	display: none;
 }
 
-button{
-	
-	border:1px solid #f1f1f1;
-	width:50%;
-	height:50px;
-	float:left;
-	display:inline-block;
-	font-weight:bold;
-	font-size:18px;
+.tab {
+	border: 1px solid gray;
+	border-bottom: 0;
+	width: 600px;
+	height: 50px;
 }
 
-button.active{
-	background-color:#ccc;
+button {
+	border: 1px solid #f1f1f1;
+	width: 50%;
+	height: 50px;
+	float: left;
+	display: inline-block;
+	font-weight: bold;
+	font-size: 18px;
 }
-.tabcontent{
-	border:1px solid gray;
+
+button.active {
+	background-color: #ccc;
+}
+
+.tabcontent {
+	border: 1px solid gray;
 	border-collapse: collapse;
-	width:600px;
+	width: 600px;
 }
 
-.tabmenu{
-	margin:20px;
-	
-}
-.txt{
-	color:#666;
+.tabmenu {
+	margin: 20px;
 }
 
-.space{
-	background-color:#faffbd;
+.txt {
+	color: #666;
 }
 
-.verify{
-	border:1px solid #f1f1f1;
-	background:#2257ad;
-	width:20%;
-	height:50px;
-	font-weight:bold;
-	font-size:18px;
-	color:white;
-	margin-left:40%;
+.space {
+	background-color: #faffbd;
+
+}
+
+.verify {
+	border: 1px solid #f1f1f1;
+	background: #2257ad;
+	width: 20%;
+	height: 50px;
+	font-weight: bold;
+	font-size: 18px;
+	color: white;
+	margin-left: 40%;
 }
