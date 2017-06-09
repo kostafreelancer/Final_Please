@@ -92,7 +92,7 @@ public class f_mainController {
         //내용
         String setText1 = "DreamLancer 이메일 인증 코드입니다. [";
         String setText2 = authNum;
-        String setText3 = " ] 코드를 정확히 입력해 주세요.";
+        String setText3 = "] 코드를 정확히 입력해 주세요.";
         
         
         msg.setFrom(From);
@@ -119,6 +119,7 @@ public class f_mainController {
 		System.out.println("인증페이지");
 	}
 	
+	//난수번호 발생함수
 	 public String randomNum(){
      	StringBuffer buffer = new StringBuffer();
      	for(int i=0;i<=6;i++){

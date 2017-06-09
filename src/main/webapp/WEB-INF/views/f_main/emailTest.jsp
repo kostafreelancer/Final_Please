@@ -11,7 +11,7 @@
 <input type="text" name="email" value="vionicterran@naver.com">
 <input type="submit" value="인증">
 <a href="/f_main/testEmail" onclick="window.open(this.href, '', 'width=1000, height=1000'); return false;">인증하기</a>
-
 </form>
+<input type="text" name="ok">
 </body>
 </html>
