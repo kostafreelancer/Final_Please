@@ -11,6 +11,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,12 +33,31 @@ public class A_MainController {
 	
 	
 	//관리자 이메일보내기 기능
-	@RequestMapping(value="/a_mailsender", method=RequestMethod.GET)
-	public void mailsender(){
-		System.out.println("메일");
+	
+	//이메일 보내기 성공시
+	@RequestMapping(value="/success", method=RequestMethod.GET)
+	public void success() throws Exception{
+		System.out.println("메일보냈당");
 	}
+	//메일발송 클릭시 새창에서 이메일값 가져오기 (프리랜서)
+	@RequestMapping(value="/a_mailsender", method=RequestMethod.GET)
+	public void mailsender(@RequestParam("f.f_num") int f_num, Model model) throws Exception{
+		
+		
+		System.out.println(f_num + "프리랜서번호");
+		model.addAttribute("freelancer", service.getF_mail(f_num));
+		
+	}
+	//메일발송 클릭시 새창에서 이메일값 가져오기(기업)
+	@RequestMapping(value="/a_mailsender_e", method=RequestMethod.GET)
+	public void mailsender_e(@RequestParam("e.e_num") int e_num, Model model) throws Exception{
+		System.out.println(e_num + "기업번호");
+		model.addAttribute("enterprise", service.getE_mail(e_num));
+	}
+	
+	
 	@RequestMapping(value="/a_mailsenderSubmit", method=RequestMethod.POST)
-	public void sendEmailAction(HttpServletRequest request) throws Exception {
+	public String sendEmailAction(HttpServletRequest request) throws Exception {
         // 메일 내용을 작성한다
         SimpleMailMessage msg = new SimpleMailMessage();
         //String From = "skidrow0725@gmail.com";
@@ -70,10 +90,12 @@ public class A_MainController {
 		mailsender.send(msg);
 		System.out.println("메일보내기 성공");
 	} catch (MailException e) {
-		// TODO: handle exception
+		e.printStackTrace();
 	}
-        
+        return "redirect:/a_main/success";
     }
+	
+	
 	@RequestMapping(value = "/a_main", method = RequestMethod.GET)
 	public void a_mainGET(Model model,HttpSession session)throws Exception{
 		

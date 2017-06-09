@@ -15,6 +15,12 @@ import lancer.c_freelancerlist.domain.c_freelancerlist_schoolVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.c_projectlist.domain.SearchCriteria;
+import lancer.e_mypage.domain.Project;
+import lancer.f_mypage.domain.ApplyProject;
+import lancer.f_mypage.domain.Career;
+import lancer.f_mypage.domain.Certificate;
+import lancer.f_mypage.domain.Freelancer;
+import lancer.f_mypage.domain.School;
 
 @Repository
 public class c_freelancerlistDAOImpl implements c_freelancerlistDAO{
@@ -78,6 +84,34 @@ public class c_freelancerlistDAOImpl implements c_freelancerlistDAO{
     public List<Integer> selectF_job(int f_num) throws Exception{
     	return session.selectList(namepace+".selectF_job", f_num);
     }
+    
+    @Override
+	public List<Career> showCareerInfo(int f_num) throws Exception{
+		return session.selectList(namepace + ".showCareerInfo", f_num);
+	}
+    
+    @Override
+    public List<School> showSchoolInfo(int f_num) throws Exception{
+		return session.selectList(namepace + ".showSchoolInfo", f_num);
+	}
+    
+    @Override
+    public List<Certificate> showCertiInfo(int f_num) throws Exception{
+		return session.selectList(namepace + ".showCertiInfo", f_num);
+	}
+    
+    @Override
+    public List<Project> getMyFinishProject(int f_num) throws Exception{
+		System.out.println(f_num);
+		return session.selectList(namepace + ".getMyFinishProject", f_num);
+	}
+    
+    @Override
+    public List<String> getProjectP_job(int e_pr_num) throws Exception{
+		return session.selectList(namepace + ".getProjectP_job", e_pr_num);
+	}
+    
+    
 
 
 }
