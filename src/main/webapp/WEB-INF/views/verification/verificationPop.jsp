@@ -55,7 +55,7 @@
 	<div id="find_pwd" class="tabcontent">
 		<div class="tabmenu">
 			<form name="form" action="/verification/verificationPop" method="POST">
-			<span class="txt">아이디 : <input class="space" type="text"><br>
+			<span class="txt">아이디 :</span> <input class="space" type="text"><br>
 			<span class="txt">이름 &nbsp; &nbsp;:</span> <input class="space" type="text"><br> 
 			<span class="txt">이메일 :</span> <input id="e_mail_1_2" class="space" type="text">@<input id="e_mail_2_2" class="space" type="text" name="EmailDomain" style="color:gray" value="선택해주세요." readonly="readonly"> 
 				
