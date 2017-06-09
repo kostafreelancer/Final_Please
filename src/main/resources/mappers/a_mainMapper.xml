@@ -18,8 +18,8 @@
 		SELECT * FROM enterprise WHERE e_check = '미승인'
 	</select>
 
-	<select id="getF_mail" resultType="lancer.a_main.domain.Enterprise">
-		select f_email from freelancer where f_num = #{f.f_num}
+	<select id="getF_mail" resultType="lancer.a_main.domain.Freelancer">
+		select f_email from freelancer where f_num = #{f_num}
 	</select>
 </mapper>
 

@@ -44,6 +44,6 @@ public class A_MainDAO {
 	
 	//메일발송 관련 회원메일주소 불러오기
 	public Freelancer getF_mail(int f_num) throws Exception{
-		return session.selectOne(namespace+".getF_mail" + f_num);
+		return session.selectOne(namespace+".getF_mail", f_num);
 	}
 }

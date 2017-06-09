@@ -11,6 +11,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,8 +34,12 @@ public class A_MainController {
 	
 	//관리자 이메일보내기 기능
 	@RequestMapping(value="/a_mailsender", method=RequestMethod.GET)
-	public void mailsender(){
-		System.out.println("메일");
+	public void mailsender(@RequestParam("f.f_num") int f_num, Model model) throws Exception{
+		
+		
+		System.out.println(f_num);
+		model.addAttribute("freelancer", service.getF_mail(f_num));
+		
 	}
 	@RequestMapping(value="/a_mailsenderSubmit", method=RequestMethod.POST)
 	public void sendEmailAction(HttpServletRequest request) throws Exception {
