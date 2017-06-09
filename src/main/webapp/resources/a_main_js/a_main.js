@@ -23,7 +23,7 @@ $(document).ready(function() {
 
 
 	
-	$('.mailSend').on("click",function(){
+	$('.mailSend').click(function(){
 		// 해당 계정의 번호를 구함
 		
 		var num = $(this).parent().parent().prev().prev().find('td:eq(0)').text();

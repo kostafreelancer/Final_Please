@@ -45,7 +45,7 @@
 								<th scope="row"><span class="text_star">*</span> 이메일</th>
 								<td colspan="3"><label for></label> 
 								 <input type="text" name="tomail" id="fm_email_1" name="fm_email_1" class="wid04"
-									value="vionicterran@naver.com">
+									value="${freelancer.f_email}">
 								
 
 								</td>
