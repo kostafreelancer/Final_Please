@@ -5,6 +5,7 @@
   
 <mapper namespace="lancer.mappers.verificationMapper">
 	
+	<!-- 프리랜서 계정 조회 -->
 	<select id="verifying_freelancer_id" parameterType="java.util.HashMap" resultType="String">
 		select f_id from FREELANCER where f_name = #{f_name} AND f_mail = #{f_mail}
 	</select>
@@ -12,11 +13,20 @@
 		select f_pwd from FREELANCER where f_id = #{f_id} AND f_name = #{f_name} AND f_mail = #{f_mail}
 	</select>
 	
+	<!-- 기업 계정 조회-->
 	<select id="verifying_enterprise_id" parameterType="java.util.HashMap" resultType="String">
 		select e_id from enterprise where e_name = #{e_name} AND e_mail = #{e_mail}
 	</select>
 	<select id="verifying_enterprise_pwd" parameterType="java.util.HashMap" resultType="String">
 		select e_pwd from enterprise where e_id = #{e_id} AND e_name = #{e_name} AND e_mail = #{e_mail} 
+	</select>
+	
+	<!-- 해당 계정 여부 파악 -->
+	<select id="checking_freelancer" resultType="Integer">
+		select count(*) where f_name = #{f_name} AND f_mail = #{f_mail}
+	</select>
+	<select id="checking_enterprise" resultType="Integer">
+		select count(*) where e_name = #{e_name} AND e_mail = #{e_mail}
 	</select>
   
 </mapper>  

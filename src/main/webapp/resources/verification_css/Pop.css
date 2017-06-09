@@ -39,6 +39,11 @@ button.active {
 	border:1px solid #ccc; */
 }
 
+.notice{
+	color:red;
+	font-size:12px;
+}
+
 .verify {
 	border: 1px solid #f1f1f1;
 	background: #2257ad;

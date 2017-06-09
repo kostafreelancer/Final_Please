@@ -25,19 +25,31 @@ public class VerificationDAOImpl implements VerificationDAO {
 	@Override
 	public String verifying_freelancer_pwd(HashMap<String, String> map) throws Exception {
 		
-		return session.selectOne(namespace+"verifying_freelancer_pwd", map);
+		return session.selectOne(namespace+".verifying_freelancer_pwd", map);
 	}
 
 	@Override
 	public String verifying_enterprise_id(HashMap<String, String> map) throws Exception {
 		
-		return session.selectOne(namespace+"verifying_enterprise_id", map);
+		return session.selectOne(namespace+".verifying_enterprise_id", map);
 	}
 
 	@Override
 	public String verifying_enterprise_pwd(HashMap<String, String> map) throws Exception {
 		
-		return session.selectOne(namespace+"verifying_enterprise_pwd", map);
+		return session.selectOne(namespace+".verifying_enterprise_pwd", map);
+	}
+
+	@Override
+	public Integer checking_freelancer(HashMap<String, String> map) throws Exception {
+		
+		return session.selectOne(namespace+".checking_freelancer", map);
+	}
+
+	@Override
+	public Integer checking_enterprise(HashMap<String, String> map) throws Exception {
+		
+		return session.selectOne(namespace+".checking_enterprise", map);
 	}
 
 }

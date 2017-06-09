@@ -38,4 +38,17 @@ public class VerificationServiceImpl implements VerificationService {
 		return verificationDao.verifying_freelancer_pwd(map);
 	}
 
+	@Override
+	public Integer checking_freelancer(HashMap<String, String> map) throws Exception {
+		
+		return verificationDao.checking_freelancer(map);
+	}
+
+	@Override
+	public Integer checking_enterprise(HashMap<String, String> map) throws Exception {
+		
+		return verificationDao.checking_enterprise(map);
+	}
+	
+
 }

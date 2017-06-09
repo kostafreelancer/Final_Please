@@ -15,7 +15,7 @@
 	src="../../../resources/verification_js/check.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>아이디 조회</title>
 </head>
 <body>
 	<section id="verification">
@@ -47,7 +47,7 @@
 					<option value="hanmail.net">hanmail.net</option>
 				</select>
 			<br>
-			<span style="color:red;font-size:12px;">*가입 시 입력한 이메일을 입력해주세요.</span>
+			<span id="notice">*가입 시 입력한 이메일을 입력해주세요.</span>
 			<br>
 			<input id="f_btn" type="radio" name="sort" value="f">프리랜서
 			<input id="e_btn" type="radio" name="sort" value="e">기업
