@@ -73,5 +73,15 @@ public class c_freelancerlistServiceImpl implements c_freelancerlistService {
 	public Integer c_freelancerlist_totalCount(c_freelancerlist_SearchCriteria cri) {
 		return dao.c_freelancerlist_totalCount(cri);
 	}
+	
+	@Override
+	public c_freelancerlist_totalVO selectFreelancer(Integer f_num) throws Exception{
+		return dao.selectFreelancer(f_num);
+	}
+	
+	@Override
+	public List<Integer> selectF_job(int f_num) throws Exception{
+		return dao.selectF_job(f_num);
+	}
 
 }

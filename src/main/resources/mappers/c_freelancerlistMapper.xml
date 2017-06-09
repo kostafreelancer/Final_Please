@@ -17,10 +17,21 @@
 <!--  	<select id="c_freelancer_list" resultType="String">
 		select f_name from freelancer
 	</select> -->
+	
+	<select id="selectFreelancer" resultType="c_freelancerlist_totalVO">
+	select * from FREELANCER 
+						where f_num = #{f_num}
+	</select>
+	
+	<select id="selectF_job" resultType="Integer">
+		SELECT job_id FROM f_job WHERE f_num = #{f_num}
+	</select>
+	
 	<select id="c_freelancerlist_select_school" resultType="c_freelancerlist_schoolVO" parameterType="int">
 		select * from school
 						where f_num = #{f_num}
 	</select>
+	
 	<select id="c_freelancerlist_select_career" resultType="c_freelancerlist_careerVO" parameterType="int">
 		select * from career
 						where f_num = #{f_num}
@@ -49,7 +60,7 @@
 	<select id="c_freelancerlist_high" resultType="String" parameterType="Int">
 		select school_name from c_freelancerlist_schoolVO 
 								where f_num = #{f_num} 
-								and 								
+														
 	</select>
 
 </mapper>

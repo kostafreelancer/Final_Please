@@ -7,14 +7,14 @@
 <title>회계관리</title>
 <!-- <link rel="stylesheet" href="../common/header.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="../common/footer.css" type="text/css" media="screen" /> -->
-<link rel="stylesheet" href="f_mypage_css/accountingManager.css"
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/accountingManager.css"
 	type="text/css" media="screen" />
-<script src="f_mypage_js/jquery-1.3.2.js"></script>
-<script src="f_mypage_js/accountingManager.js"></script>
+<script src="${pageContext.request.contextPath}/resources/f_mypage_js/jquery-1.3.2.js"></script>
+<script src="${pageContext.request.contextPath}/resources/f_mypage_js/accountingManager.js"></script>
 <!-- <script src="js/comma.js"></script> -->
-<script src="f_mypage_js/add.js"></script>
-<script src="f_mypage_js/superfish.js"></script>
-<script src="f_mypage_js/comment.js"></script>
+<script src="${pageContext.request.contextPath}/resources/f_mypage_js/add.js"></script>
+<script src="${pageContext.request.contextPath}/resources/f_mypage_js/superfish.js"></script>
+<script src="${pageContext.request.contextPath}/resources/f_mypage_js/comment.js"></script> 
 
 
 </head>
@@ -37,6 +37,177 @@
 	</div>
 
 	<section id="firstsection">
+	
+		<ul id="tabs">
+		<li><a href="#" title="tab1">내 회계내역</a></li>
+		<li><a href="#" title="tab2">세금 계산</a></li>
+		</ul>
+	
+	<div id="content">
+	<div id="tab1">
+		<div class="tb_box">
+				<div class="ct overf">
+				<br>
+				<button>1월</button>
+					<button>2월</button>
+					<button>3월</button>
+					<button>4월</button>
+					<button>5월</button><br>
+					<h4 class="fl myfl">지출</h4>
+					<button id="add" class="right_add" onclick="addSpend();">추가하기</button><br><br><br>
+					
+				</div>
+				<table class="tb_st01 tb_st03 spend">
+					<caption></caption>
+					<colgroup>
+						<col style="width: 25%">
+						<col style="width: 15%">
+						<col style="width: 15%">
+						<col style="width: 10%">
+						<col style="width: 20%">
+						<col style="width: 15%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col" class="ac">사용내역</th>
+							<th scope="col" class="ac">사용금액</th>
+							<th scope="col" class="ac">사용날짜</th>
+							<th scope="col" class="ac">프로젝트 관련여부</th>
+							<th scope="col" class="ac">첨부파일</th>
+							<th scope="col" class="last ac">관리</th>
+						</tr>
+					</thead>
+					<tbody>
+					<c:if test="${spendListCheck == 0}">
+							<tr><td colspan="5">등록된 내역이 없습니다.</td></tr>
+					</c:if>
+					<c:forEach var="myspendList" items="${spendList}">
+						<form id="spendListForm${myspendList.a_num}" name="myspendListModify${myspendList.a_num}" method="post" action="/f_mypage/spendListModify" target='popup_window'>
+						<input type="text" hidden name="detail_usage" value="${myspendList.detail_usage}">
+						<input type="text" hidden name="a_money" value="${myspendList.a_money}">
+						<input type="text" hidden name="a_using_date" value="${myspendList.a_using_date}">
+						<input type="text" hidden name="project_relation_check" value="${myspendList.project_relation_check}">
+						<input type="text" hidden name="a_addfile" value="${myspendList.a_addfile}">
+						<tr>							
+			
+							<td>${myspendList.detail_usage}</td>
+							<td>${myspendList.a_money}</td>
+							<td>${myspendList.a_using_date}</td>
+							<td>${myspendList.project_relation_check}</td>
+							<td>${myspendList.a_addfile}</td>
+							<td class="last"><input type="button" value="수정" onclick="modifySpendList(${myspendList.a_num});">&nbsp;&nbsp;<input
+								type="button" value="삭제" onclick="deleteSpendList(${myspendList.a_num});"></td>
+
+						</tr>
+						</form>
+						
+					</c:forEach>
+
+					</tbody>
+				</table>
+				<form name="tempSpendListAdd"  action="/f_mypage/spendListAdd" method="post" enctype="multipart/form-data">
+					<input type="text" hidden name="f_num" value="${client.f_num}">
+					사용내역 : <input type="text"  name="detail_usage">
+					사용금액 : <input type="text"  name="a_money">
+					사용날짜 : <input type="text"  name="a_using_date"><br>
+					프로젝트 관련여부 : <input type="text"  name="project_relation_check">
+					첨부파일 : <input type="file"  name="a_addfile">
+					<input type="submit" value="저장">
+				</form>
+				<form name="tempCertiModify"  action="/f_mypage/updateCerti" method="post">
+					<input type="text" hidden name="certificate_num">
+					<input type="text" hidden name="certificate_name">
+					<input type="text" hidden name="organization">
+					<input type="text" hidden name="accept_date">
+					
+				</form>
+				<form name="tempCertiDelete" action="/f_mypage/deleteCerti">
+					<input type="text" hidden name="deleteCerti_num">
+				</form>
+			</div>
+			
+				<div class="tb_box">
+				<div class="ct overf">
+				
+					<h4 class="fl myfl">수입</h4>
+					<button id="add" class="right_add" onclick="addCerti();">추가하기</button><br><br><br>
+					
+				</div>
+				<table class="tb_st01 tb_st03 income">
+					<caption></caption>
+					<colgroup>
+						<col style="width: 25%">
+						<col style="width: 15%">
+						<col style="width: 15%">
+						<col style="width: 10%">
+						<col style="width: 20%">
+						<col style="width: 15%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col" class="ac">사용내역</th>
+							<th scope="col" class="ac">사용금액</th>
+							<th scope="col" class="ac">사용날짜</th>
+							<th scope="col" class="ac">프로젝트 관련여부</th>
+							<th scope="col" class="ac">첨부파일</th>
+							<th scope="col" class="last ac">관리</th>
+						</tr>
+					</thead>
+					<tbody>
+					<c:if test="${certificatecheck == 0}">
+							<tr><td colspan="5">등록된 자격사항이 없습니다.</td></tr>
+					</c:if>
+					<c:forEach var="mycerti" items="${certificate}">
+						<form id="certiForm${mycerti.certificate_num}" name="mycertiModify${mycerti.certificate_num}" method="post" action="/f_mypage/certiModify" target='popup_window'>
+						<input type="text" hidden name="certificate_num" value="${mycerti.certificate_num}">
+						<input type="text" hidden name="certificate_name" value="${mycerti.certificate_name}">
+						<input type="text" hidden name="organization" value="${mycerti.organization}">
+						<input type="text" hidden name="accept_date" value="${mycerti.accept_date}">
+						<tr>							
+			
+							<td>${mycerti.certificate_name}</td>
+							<td>${mycerti.organization}</td>
+							<td>${mycerti.accept_date}</td>
+							<td class="last"><input type="button" value="수정" onclick="modifyCerti(${mycerti.certificate_num});">&nbsp;&nbsp;<input
+								type="button" value="삭제" onclick="deleteCerti(${mycerti.certificate_num});"></td>
+
+						</tr>
+						</form>
+					</c:forEach>
+
+					</tbody>
+				</table>
+				<form name="tempCertiAdd"  action="/f_mypage/certiAdd" method="post">
+					<input type="text" hidden name="f_num" value="${client.f_num}">
+					<input type="text" hidden name="certificate_name">
+					<input type="text" hidden name="organization">
+					<input type="text" hidden name="accept_date">
+				</form>
+				<form name="tempCertiModify"  action="/f_mypage/updateCerti" method="post">
+					<input type="text" hidden name="certificate_num">
+					<input type="text" hidden name="certificate_name">
+					<input type="text" hidden name="organization">
+					<input type="text" hidden name="accept_date">
+					
+				</form>
+				<form name="tempCertiDelete" action="/f_mypage/deleteCerti">
+					<input type="text" hidden name="deleteCerti_num">
+				</form>
+
+				<!-- <div id="ResumePANNEL5"
+					style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; background: url(../../images/popup/bg_popup.png) repeat; text-align: center; z-index: 5; display: none;">
+					<form method="post" name="ResumeFrame5" style="display: inline;"
+						onsubmit="return false;">
+						<input type="hidden" name="seluno" value="">
+						<iframe id="ResumeiFrame5" name="ResumeiFrame5" frameborder="0"
+							scrolling="no"
+							style="height: 602px; width: 804px; position: absolute; top: 20%; left: 50%; margin: 0 -420px"></iframe>
+					</form>
+				</div> -->
+			</div>
+	</div>
+	
+	<div id="tab2">
 	<div class="sum">
 		<h5>1) 소득공제액</h5>
 		<table class="chart2" border="0" cellspacing="0" cellpadding="0">
@@ -299,6 +470,8 @@
 				</tr>
 			</tbody>
 		</table>
+	</div>
+	</div>
 	</div>
 	</section>
 

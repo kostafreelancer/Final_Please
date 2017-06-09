@@ -67,7 +67,7 @@
 	
 	<section id="info">
 	<div class="tab">
-		<button class="tablinks" onclick="openbtn(event, 'FreeLancer')">프리랜서</button>
+		<button class="tablinks active" onclick="openbtn(event, 'FreeLancer')">프리랜서</button>
 		<button class="tablinks" onclick="openbtn(event, 'Project')">프로젝트</button>
 	</div>
 
@@ -125,6 +125,7 @@
 		</div>
 	</div>
 	</section>
+	
 	<section id="sponsor">
 	<h3>주요 고객사</h3>
 	<img src="../../../resources/e_main_img/company_img.png"> </section>

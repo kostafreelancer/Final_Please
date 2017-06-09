@@ -9,14 +9,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- <link rel="stylesheet" href="f_mypage_css/myInfo.css" type="text/css" media="screen" /> -->
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/myInfo.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/resources/c_freelancerlist_css/myInfo.css" type="text/css" media="screen" />
 
 <title>내 정보</title>
-<!-- <script  src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+
 <!-- <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script> -->
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-
 
 <!-- <script type="text/javascript" src="f_mypage_js/myInfo.js"></script>
 <script type="text/javascript" src="f_mypage_js/my.js"></script> -->
@@ -27,10 +26,10 @@
 <script type="text/javascript">
 $(function(){
 	var checks = document.getElementsByName("fm_new_keyword[]");
-	
+
 	var arr = new Array();
 
-	<c:forEach var="item" items="${joblist}">
+	<c:forEach var="item" items="${f_job}">
 		arr.push("${item}");
 	</c:forEach>
 	console.log(arr[0]);
@@ -38,15 +37,6 @@ $(function(){
 			checks[arr[i]-1].checked = true;
 	}
 	
-/* 	var errorcheck = document.getElementById("pwd_error");
-	<c:if test="${pwd_error=='error'}">
-		alert("비밀번호가 틀립니다.");
-	</c:if> */
-	
-	var errorcheck = '${pwd_error}';
-	if(errorcheck =='error'){
-		alert("비밀번호가 틀립니다.");
-	}
 });
 
 
@@ -56,27 +46,13 @@ $(function(){
 
 	<%@include file="../c_common/header.jsp"%>
 
-	<div class="left_menu">
-		<div class="left_menu_title">
-			<h2>마이 페이지</h2>
-		</div>
-		<div class="left_menu_content">
-			<ul class="left_menu_contents">
-				<li><a href="/f_mypage/scheduleManager">일정 관리</a></li>
-				<li><a href="/f_mypage/accountingManager">회계 관리</a></li>
-				<li><a href="/f_mypage/myInfo">내 정보</a></li>
-			</ul>
-		</div>
-	</div>
-
 	<section id="firstsection">
 
 	<ul id="tabs">
 		<li><a href="#" title="tab1">내 정보</a></li>
 		<li><a href="#" title="tab2">이력 정보</a></li>
 		<li><a href="#" title="tab3">포트폴리오</a></li>
-		<li><a href="#" title="tab4">지원내역</a></li>
-		<li><a href="#" title="tab5">히스토리</a></li>
+		<li><a href="#" title="tab4">히스토리</a></li>
 	</ul>
 
 	<div id="content">
@@ -85,38 +61,6 @@ $(function(){
 			<form name="updateForm" method="post" action="myInfo" onsubmit="return check();">
 			<input type="text" hidden name="f_num" value="${client.f_num}">
 		 	<input type="text" hidden id="pwd_error" name="pwd_error" value="${pwd_error}"> 
-		<div class="tb_box">
-				<h4>아이디 및 비밀번호</h4>
-				<table class="tb_st01">
-					
-					<input type="hidden" name="EventUno" value="">
-					<input type="hidden" name="fm_keyword" value="">
-					<caption></caption>
-					<colgroup>
-						<col style="width: 16%">
-						<col style="width: 34%">
-						<col style="width: 16%">
-						<col style="width: 34%">
-					</colgroup>
-					<tbody>
-						<tr>
-							<th scope="row" class="ac"><span class="txt_or">*</span>
-								회원아이디</th>
-							<td colspan="3">${freelancer.f_id} </td>
-						</tr>
-						<tr>
-							<th scope="row" class="ac"><label for="fm_passwd1"><span
-									class="txt_or">*</span> 비밀번호</label></th>
-							<td><input type="password" id="f_pwd" name="f_pwd"
-								class="wid02"></td>
-							<th scope="row" class="ac"><label for="fm_passwd2"><span
-									class="txt_or">*</span> 비밀번호 확인</label></th>
-							<td><input type="password" id="f_pwd2" name="f_pwd2"
-								class="wid02"></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
 
 			 <div class="tb_box">
 				<div class="ct overf">
@@ -147,138 +91,46 @@ $(function(){
 							</td>
 							<th scope="row"><label for="fm_korname"><span
 									class="txt_or">*</span> 성명</label></th>
-							<td colspan="3"><input type="text" id="f_name"
-								name="f_name" class="wid04" value="${freelancer.f_name}"></td>
+							<td colspan="3">${freelancer.f_name }</td>
 						</tr>
 						<tr>
 							<th scope="row"><label for=""><span class="txt_or">*</span>
 									생년월일</label></th>
-							<td colspan="3"><input type="text" id="f_birth"
-								name="f_birth" class="wid04" maxlength="6" value="${freelancer.f_birth}">
-								<span> - </span> 
-								
-								<select name="f_sex" id="f_sex">
-								<c:choose>
-									<c:when test="${freelancer.f_sex == '남'}">
-									<option value="1" selected="">남자</option>
-									<option value="2">여자</option>
-									</c:when>
-									
-									<c:when test="${freelancer.f_sex == '여'}">
-									<option value="1" >남자</option>
-									<option value="2" selected="">여자</option>
-									</c:when>
-								</c:choose>
-									
-								</select>
-							</td>
+							<td colspan="3">${freelancer.f_birth }</td>
 						</tr>
 						<tr>
 							<th scope="row"><label for="fm_tel1"><span
 									class="txt_or">*</span> 연락처(전화)</label></th>
 							<td colspan="3"><label for="fm_tel1"></label> 
-							<select class="wid03" name="fm_tel1" id="fm_tel1">
-									<option value="">--------</option>
-									<option value="02" <c:if test="${ph1 == '02'}">selected</c:if>>02</option>
-									<option value="031" <c:if test="${ph1 == '031'}">selected</c:if>>031</option>
-									<option value="032" <c:if test="${ph1 == '032'}">selected</c:if>>032</option>
-									<option value="033" <c:if test="${ph1 == '033'}">selected</c:if>>033</option>
-									<option value="041" <c:if test="${ph1 == '041'}">selected</c:if>>041</option>
-									<option value="042" <c:if test="${ph1 == '042'}">selected</c:if>>042</option>
-									<option value="043" <c:if test="${ph1 == '043'}">selected</c:if>>043</option>
-									<option value="051" <c:if test="${ph1 == '051'}">selected</c:if>>051</option>
-									<option value="052" <c:if test="${ph1 == '052'}">selected</c:if>>052</option>
-									<option value="053" <c:if test="${ph1 == '053'}">selected</c:if>>053</option>
-									<option value="054" <c:if test="${ph1 == '054'}">selected</c:if>>054</option>
-									<option value="055" <c:if test="${ph1 == '055'}">selected</c:if>>055</option>
-									<option value="061" <c:if test="${ph1 == '061'}">selected</c:if>>061</option>
-									<option value="062" <c:if test="${ph1 == '062'}">selected</c:if>>062</option>
-									<option value="063" <c:if test="${ph1 == '063'}">selected</c:if>>063</option>
-									<option value="064" <c:if test="${ph1 == '064'}">selected</c:if>>064</option>
-									<option value="070" <c:if test="${ph1 == '070'}">selected</c:if>>070</option>
-									<option value="">--------</option>
-									<option value="0502" <c:if test="${ph1 == '0502'}">selected</c:if>>0502</option>
-									<option value="0504" <c:if test="${ph1 == '0504'}">selected</c:if>>0504</option>
-									<option value="0505" <c:if test="${ph1 == '0505'}">selected</c:if>>0505</option>
-									<option value="0506" <c:if test="${ph1 == '0506'}">selected</c:if>>0506</option>
-									<option value="0130" <c:if test="${ph1 == '0130'}">selected</c:if>>0130</option>
-							</select>
+							${ph1}
 							<span>-</span> 
 							<label for="fm_tel2"></label> 
-							<input type="text" id="fm_tel2" name="fm_tel2" maxlength="4" class="wid03" value="${ph2}">
+							${ph2}
 							<span>-</span> 
 							<label for="fm_tel3"></label> 
-							<input type="text" id="fm_tel3" name="fm_tel3" maxlength="4" class="wid03" value="${ph3}">
+							${ph3}
 							</td>
 						</tr>
 						<tr>
 							<th scope="row"><label for="fm_phone1"><span
 									class="txt_or">*</span> 연락처(핸드폰)</label></th>
-							<td colspan="3"><label for="fm_phone1"></label> <select
-								class="wid03" name="fm_phone1" id="fm_phone1">
-									<option value="">--------</option>
-									<option value="010" <c:if test="${hph1 == '010'}">selected</c:if>>010</option>
-									<option value="011" <c:if test="${hph1 == '011'}">selected</c:if>>011</option>
-									<option value="016" <c:if test="${hph1 == '016'}">selected</c:if>>016</option>
-									<option value="017" <c:if test="${hph1 == '017'}">selected</c:if>>017</option>
-									<option value="018" <c:if test="${hph1 == '018'}">selected</c:if>>018</option>
-									<option value="019" <c:if test="${hph1 == '019'}">selected</c:if>>019</option>
-							</select> <span>-</span> <label for="fm_phone2"></label> <input
-								type="text" id="fm_phone2" name="fm_phone2" maxlength="4"
-								class="wid03" value="${hph2}">
+							<td colspan="3"><label for="fm_phone1"></label>
+						${hph1}
+							 <span>-</span> <label for="fm_phone2"></label>${hph2}
 								 <span>-</span> <label
-								for="fm_phone3"></label> <input type="text" id="fm_phone3"
-								name="fm_phone3" maxlength="4" class="wid03" value="${hph3}">
+								for="fm_phone3"></label> ${hph3}
 							</td>
 						</tr>
 						<tr>
 							<th><span class="txt_or">*</span> 이메일</th>
-							<td colspan="4"><label for="fm_email11"></label> <input
-								type="text" id="fm_email11" name="fm_email11" class="wid04"
-								value="${email1}"> <span>@</span> <label
-								for="fm_email12"></label> 
-								<input type="text" id="fm_email12" name="fm_email12" class="wid04" value="${email2}" readonly="">
-								<label for="fm_emailSel1"></label> 
-								<select class="wid04" name="fm_emailSel1" id="fm_emailSel1">
-									<option value="선택해주세요">선택해주세요.</option>
-									<option value="">직접입력</option>
-									<option value="chollian.net">chollian.net</option>
-									<option value="daum.net">daum.net</option>
-									<option value="dreamwiz.com">dreamwiz.com</option>
-									<option value="empal.com">empal.com</option>
-									<option value="freechal.com">freechal.com</option>
-									<option value="hanafos.com">hanafos.com</option>
-									<option value="hanmail.net">hanmail.net</option>
-									<option value="hanmir.com">hanmir.com</option>
-									<option value="hitel.net">hitel.net</option>
-									<option value="hotmail.com">hotmail.com</option>
-									<option value="korea.com">korea.com</option>
-									<option value="kornet.net">kornet.net</option>
-									<option value="lycos.co.kr">lycos.co.kr</option>
-									<option value="nate.com">nate.com</option>
-									<option value="naver.com">naver.com</option>
-									<option value="nownuri.net">nownuri.net</option>
-									<option value="paran.com">paran.com</option>
-									<option value="unitel.co.kr">unitel.co.kr</option>
-									<option value="yahoo.co.kr">yahoo.co.kr</option>
-							</select></td>
+							<td colspan="4"><label for="fm_email11"></label> ${email1}<span>@</span><label
+								for="fm_email12"></label>${email2}</td>
 						</tr>
 						<tr>
 							<th><span class="txt_or">*</span> 주소</th>
 							<td colspan="4">
-								<div class="mb10">
-									<label for="fm_zip"></label> 
-									<input type="text" id="fm_zip" name="fm_zip" class="wid60"
-										title="주소검색 새창" value="${address1}" readonly=""> 
-									<input type = "button" onClick = "openDaumZipAddress()" value = "주소 찾기" />
- 
-								</div>
 								<div>
-									<label for="fm_address"></label> <input type="text"
-										id="fm_address" name="fm_address" class="wid"
-										value="${address2}"><input type="text"
-										id="fm_address_etc" name="fm_address_etc" class="wid"
-										value="${address3}">
+									<label for="fm_address"></label> ${address2} ${address3}
 								</div>
 							</td>
 						</tr>
@@ -498,11 +350,7 @@ $(function(){
 					</tbody>
 				</table>
 			</div> 
-			<div class="btn_box mb30 mb02">
-				<input type="button" class="toDrop" value="회원탈퇴" onclick="location.href='/f_mypage/dropFreelancer?f_num='+${client.f_num}">
-				<input type="submit" value="수정하기">
-				<input type="reset" value="초기화">
-			</div>
+
 			</form>
 		</div>
 
@@ -583,7 +431,7 @@ $(function(){
 					<input type="text" hidden name="career_location">
 					<input type="text" hidden name="career_year">
 				</form>
-				<form name="tempCareerDelete" action="/f_mypage/deleteCareer" method="get">
+				<form name="tempCareerDelete" action="deleteCareer.f_mypage">
 					<input type="text" hidden name="deleteCareer_num">
 				</form>
 
@@ -628,13 +476,13 @@ $(function(){
 							<tr><td colspan="5">등록된 학력사항이 없습니다.</td></tr>
 					</c:if>
 						<c:forEach var="myschool" items="${school}">
-						<form id="schoolForm${myschool.school_num}" name="myschoolModify${myschool.school_num}" method="post" action="/f_mypage/schoolModify" target='popup_window'>
-						<input type="text" hidden name="school_num" value="${myschool.school_num}">
-						<input type="text" hidden name="school_name" value="${myschool.school_name}">
-						<input type="text" hidden name="major" value="${myschool.major}">
-						<input type="text" hidden name="school_term" value="${myschool.school_term}">
-						<input type="text" hidden name="school_location" value="${myschool.school_location}">
-						<input type="text" hidden name="school_degree" value="${myschool.school_degree}">
+						<form id="schoolForm${myschool.school_num}" name="myschoolModify${myschool.school_num}" method="post" action="/Matching_Project/f_mypage/schoolModify.jsp" target='popup_window'>
+						<input type="text" hidden name="myschool_school_num" value="${myschool.school_num}">
+						<input type="text" hidden name="myschool_school_name" value="${myschool.school_name}">
+						<input type="text" hidden name="myschool_major" value="${myschool.major}">
+						<input type="text" hidden name="myschool_school_term" value="${myschool.school_term}">
+						<input type="text" hidden name="myschool_school_location" value="${myschool.school_location}">
+						<input type="text" hidden name="myschool_school_degree" value="${myschool.school_degree}">
 						<tr>							
 							<td>${myschool.school_name}</td>
 							<td>${myschool.major}</td>
@@ -650,23 +498,23 @@ $(function(){
 
 					</tbody>
 				</table>
-				<form name="tempSchoolAdd"  action="/f_mypage/schoolAdd" method="post">
-					<input type="text" hidden name="f_num" value="${client.f_num}">
+				<form name="tempSchoolAdd"  action="insertSchool.f_mypage">
+					<input type="text" hidden name="tempf_num" value="${client.f_num}">
 					<input type="text" hidden name="school_name">
 					<input type="text" hidden name="major">
-					<input type="text" hidden name="school_term">
-					<input type="text" hidden name="school_location">
-					<input type="text" hidden name="school_degree">
+					<input type="text" hidden name="term">
+					<input type="text" hidden name="location">
+					<input type="text" hidden name="degree">
 				</form>
-				<form name="tempSchoolModify"  action="/f_mypage/updateSchool" method="post">
+				<form name="tempSchoolModify"  action="updateSchool.f_mypage">
 					<input type="text" hidden name="school_num">
 					<input type="text" hidden name="school_name">
 					<input type="text" hidden name="major">
-					<input type="text" hidden name="school_term">
-					<input type="text" hidden name="school_location">
-					<input type="text" hidden name="school_degree">
+					<input type="text" hidden name="term">
+					<input type="text" hidden name="location">
+					<input type="text" hidden name="degree">
 				</form>
-				<form name="tempSchoolDelete" action="/f_mypage/deleteSchool" method="get">
+				<form name="tempSchoolDelete" action="deleteSchool.f_mypage">
 					<input type="text" hidden name="deleteSchool_num">
 				</form>
 
@@ -707,11 +555,11 @@ $(function(){
 							<tr><td colspan="5">등록된 자격사항이 없습니다.</td></tr>
 					</c:if>
 					<c:forEach var="mycerti" items="${certificate}">
-						<form id="certiForm${mycerti.certificate_num}" name="mycertiModify${mycerti.certificate_num}" method="post" action="/f_mypage/certiModify" target='popup_window'>
-						<input type="text" hidden name="certificate_num" value="${mycerti.certificate_num}">
-						<input type="text" hidden name="certificate_name" value="${mycerti.certificate_name}">
-						<input type="text" hidden name="organization" value="${mycerti.organization}">
-						<input type="text" hidden name="accept_date" value="${mycerti.accept_date}">
+						<form id="certiForm${mycerti.certificate_num}" name="mycertiModify${mycerti.certificate_num}" method="post" action="/Matching_Project/f_mypage/certiModify.jsp" target='popup_window'>
+						<input type="text" hidden name="mycerti_certi_num" value="${mycerti.certificate_num}">
+						<input type="text" hidden name="mycerti_certi_name" value="${mycerti.certificate_name}">
+						<input type="text" hidden name="mycerti_organization" value="${mycerti.organization}">
+						<input type="text" hidden name="mycerti_accept_date" value="${mycerti.accept_date}">
 						<tr>							
 			
 							<td>${mycerti.certificate_name}</td>
@@ -726,20 +574,20 @@ $(function(){
 
 					</tbody>
 				</table>
-				<form name="tempCertiAdd"  action="/f_mypage/certiAdd" method="post">
-					<input type="text" hidden name="f_num" value="${client.f_num}">
-					<input type="text" hidden name="certificate_name">
+				<form name="tempCertiAdd"  action="insertCerti.f_mypage">
+					<input type="text" hidden name="tempf_num" value="${client.f_num}">
+					<input type="text" hidden name="certi_name">
 					<input type="text" hidden name="organization">
 					<input type="text" hidden name="accept_date">
 				</form>
-				<form name="tempCertiModify"  action="/f_mypage/updateCerti" method="post">
-					<input type="text" hidden name="certificate_num">
-					<input type="text" hidden name="certificate_name">
+				<form name="tempCertiModify"  action="updateCerti.f_mypage">
+					<input type="text" hidden name="certi_num">
+					<input type="text" hidden name="certi_name">
 					<input type="text" hidden name="organization">
 					<input type="text" hidden name="accept_date">
 					
 				</form>
-				<form name="tempCertiDelete" action="/f_mypage/deleteCerti">
+				<form name="tempCertiDelete" action="deleteCerti.f_mypage">
 					<input type="text" hidden name="deleteCerti_num">
 				</form>
 
@@ -791,48 +639,8 @@ $(function(){
 		</div>
 
 
+		
 		<div id="tab4">
-			<h4>내가 지원한 프로젝트</h4>
-			<table class="tb_st01 tb_st03">
-				<caption></caption>
-				<colgroup>
-					<col style="width: 40%">
-					<col style="width: 15%">
-					<col style="width: 15%">
-					<col style="width: 15%">
-					<col style="width: 15%">
-				</colgroup>
-				<thead>
-					<tr>
-						<th scope="col" class="ac">프로젝트 이름</th>
-						<th scope="col" class="ac">담당자 연락처</th>
-						<th scope="col" class="ac">신청일자</th>
-						<th scope="col" class="ac">기업 수락여부</th>
-						<th scope="col" class="ac">관리</th>
-					</tr>
-				</thead>
-
-				<tbody>
-					<c:if test="${applyprojectcheck == 0}">
-							<tr><td colspan="5">지원한 내역이 없습니다.</td></tr>
-					</c:if>
-					
-					<c:forEach var="myApplyProject" items="${applyproject}">
-						 <tr>							
-							<td>${myApplyProject.p_name}</td>
-							<td>${myApplyProject.manager_hphone}</td>
-							<td>${myApplyProject.c_request_date}</td>
-							<td>${myApplyProject.state}</td>
-							<td class="last"><input type="submit" value="지원 취소"></td>
-						</tr>
-						</form>
-					</c:forEach>
-
-				</tbody>
-			</table>
-		</div>
-
-		<div id="tab5">
 			<h4>내가 완료한 프로젝트</h4>
 			<table class="tb_st01 tb_st03">
 				<caption></caption>
@@ -854,20 +662,9 @@ $(function(){
 				</thead>
 				<tbody>
 
-						<c:if test="${finishprojectcheck == 0}">
-							<tr><td colspan="5">완료한 내역이 없습니다.</td></tr>
-					</c:if>
-					
-					<c:forEach var="myFinishProject" items="${finishproject}">
-						
-						 <tr>							
-							<td>${myFinishProject.proName}</td>
-							<td>${myFinishProject.proTerm}</td>
-							<td>${myFinishProject.cost}</td>
-							<td>${myFinishProject.p_job}</td>
-						</tr>
-						
-					</c:forEach>
+					<tr>
+						<td class="ac" colspan="6">등록된 히스토리 정보가 없습니다.</td>
+					</tr>
 
 				</tbody>
 			</table>

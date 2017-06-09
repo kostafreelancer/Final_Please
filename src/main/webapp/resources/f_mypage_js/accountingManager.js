@@ -1,3 +1,18 @@
+
+$(document).ready(function() {
+	$("#content>div").hide(); // Initially hide all content
+	$("#tabs li:first").attr("id","current"); // Activate first tab
+	$("#content>div:first").fadeIn(); // Show first tab content
+    
+    $('#tabs a').click(function(e) {
+        e.preventDefault();        
+        $("#content>div").hide(); //Hide all content
+        $("#tabs li").attr("id",""); //Reset id's
+        $(this).parent().attr("id","current"); // Activate this
+        $('#' + $(this).attr('title')).fadeIn(); // Show content for current tab
+    });
+});
+
 // JavaScript Document
  function set_comma(val1){
   var newValue = val1.toString(); //숫자를 문자열로 변환
@@ -371,3 +386,35 @@ function g_select(obj){//율
 
 $("#g_rate1").html( g_1 );
 $("#g_rate2").html( g_2 );
+
+
+
+function addSpend(){
+	window.open('/f_mypage/spendAdd','win','width=350, height=250');
+}
+
+function addCareerSubmit(){
+	document.tempCareerAdd.submit();
+}
+
+
+
+function modifyCareer(num){
+    window.open('about:blank','popup_window','width=350, height=250');
+    var wantForm = 'careerForm'+num;
+    var frm =document.getElementById(wantForm);
+    frm.submit();
+}
+
+
+
+function modifyCareerSubmit(){
+	document.tempCareerModify.submit();
+}
+
+
+function deleteCareer(num){
+	document.tempCareerDelete.deleteCareer_num.value = num;
+	document.tempCareerDelete.submit();
+}
+

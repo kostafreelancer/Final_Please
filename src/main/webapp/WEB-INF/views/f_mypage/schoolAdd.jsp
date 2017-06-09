@@ -9,9 +9,9 @@
 function check(){
 	window.opener.document.tempSchoolAdd.school_name.value = document.myform.school_name.value;
 	window.opener.document.tempSchoolAdd.major.value = document.myform.major.value;
-	window.opener.document.tempSchoolAdd.term.value = document.myform.term.value;
-	window.opener.document.tempSchoolAdd.location.value = document.myform.location.value;
-	window.opener.document.tempSchoolAdd.degree.value = document.myform.degree.value;
+	window.opener.document.tempSchoolAdd.school_term.value = document.myform.term.value;
+	window.opener.document.tempSchoolAdd.school_location.value = document.myform.location.value;
+	window.opener.document.tempSchoolAdd.school_degree.value = document.myform.degree.value;
 	window.opener.addSchoolSubmit();
 	self.close();
 }

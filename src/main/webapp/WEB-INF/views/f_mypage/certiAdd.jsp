@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 function check(){
-	window.opener.document.tempCertiAdd.certi_name.value = document.myform.certi_name.value;
+	window.opener.document.tempCertiAdd.certificate_name.value = document.myform.certi_name.value;
 	window.opener.document.tempCertiAdd.organization.value = document.myform.organization.value;
 	window.opener.document.tempCertiAdd.accept_date.value = document.myform.accept_date.value;
 	window.opener.addCertiSubmit();

@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import lancer.c_login.domain.c_login_freelancerVO;
+import lancer.e_mypage.domain.Project;
+import lancer.f_mypage.domain.Accounting;
 import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.Calendar;
 import lancer.f_mypage.domain.Career;
@@ -49,12 +51,48 @@ public class F_MypageDAO {
 		session.update(namespace + ".updateCareer", career);
 	}
 	
+	public void deleteCareer(int career_num) throws Exception{
+		session.delete(namespace + ".deleteCareer", career_num);
+	}
+	
 	public List<School> showSchoolInfo(int f_num) throws Exception{
 		return session.selectList(namespace + ".showSchoolInfo", f_num);
 	}
 	
+	public int getSchoolNum() throws Exception{
+		return session.selectOne(namespace + ".getSchoolNum");
+	}
+	
+	public void insertSchool(School school) throws Exception{
+		session.insert(namespace + ".insertSchool", school);
+	}
+	
+	public void updateSchool(School school) throws Exception{
+		session.update(namespace + ".updateSchool", school);
+	}
+	
+	public void deleteSchool(int school_num) throws Exception{
+		session.delete(namespace + ".deleteSchool", school_num);
+	}
+	
 	public List<Certificate> showCertiInfo(int f_num) throws Exception{
 		return session.selectList(namespace + ".showCertiInfo", f_num);
+	}
+	
+	public int getCertiNum() throws Exception{
+		return session.selectOne(namespace + ".getCertiNum");
+	}
+	
+	public void insertCerti(Certificate certi) throws Exception{
+		session.insert(namespace + ".insertCerti", certi);
+	}
+	
+	public void updateCerti(Certificate certi) throws Exception{
+		session.update(namespace + ".updateCerti", certi);
+	}
+	
+	public void deleteCerti(int certi_num) throws Exception{
+		session.delete(namespace + ".deleteCerti", certi_num);
 	}
 	
 	public List<ApplyProject> getApplyProject(int f_num) throws Exception{
@@ -75,6 +113,15 @@ public class F_MypageDAO {
 	
 	public void insertFreelancerJobInfo(F_job f_job) throws Exception{
 		session.insert(namespace + ".insertFreelancerJobInfo", f_job);
+	}
+	
+	public List<Project> getMyFinishProject(int f_num) throws Exception{
+		System.out.println(f_num);
+		return session.selectList(namespace + ".getMyFinishProject", f_num);
+	}
+	
+	public List<String> getProjectP_job(int e_pr_num) throws Exception{
+		return session.selectList(namespace + ".getProjectP_job", e_pr_num);
 	}
 	
 	public String getMyProjectName(int f_num) throws Exception{
@@ -99,6 +146,13 @@ public class F_MypageDAO {
 	
 	public void deleteMySchedule(Calendar calen) throws Exception{
 		session.delete(namespace + ".deleteMySchedule", calen);
+	}
+	
+	public List<Accounting> getSpendAccounting(int f_num) throws Exception{
+		return session.selectList(namespace + ".getSpendAccounting", f_num);
+	}
+	public List<Accounting> getIncomeAccounting(int f_num) throws Exception{
+		return session.selectList(namespace + ".getIncomeAccounting", f_num);
 	}
 	
 }

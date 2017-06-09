@@ -17,25 +17,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lancer.c_login.domain.c_login_freelancerVO;
+import lancer.e_mypage.domain.Project;
+import lancer.f_mypage.domain.Accounting;
 import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.CalEvent;
 import lancer.f_mypage.domain.Calendar;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.F_job;
+import lancer.f_mypage.domain.FinishProject;
 import lancer.f_mypage.domain.Freelancer;
 import lancer.f_mypage.domain.School;
+import lancer.total.service.C_DropService;
 import lancer.total.service.F_MypageService;
 
 @Controller
 @RequestMapping("/f_mypage")
 public class F_MypageController {
+
 	
 	@Inject
 	private F_MypageService service;
+	
+	@Inject
+	private C_DropService dropService;
 	
 	@RequestMapping(value="/myInfo", method = RequestMethod.GET)
 	public void myInfo(Model model, HttpSession session) throws Exception{
@@ -70,8 +79,28 @@ public class F_MypageController {
 		List<School> school = service.showSchoolInfo(3);
 		List<Certificate> certificate = service.showCertiInfo(3);
 		List<ApplyProject> applyproject = service.getApplyProject(3);
-		for(int i=0; i<applyproject.size(); i++){
-			System.out.println(i);
+		
+		List<Project> project = service.getMyFinishProject(3);
+		List<FinishProject> finishProject  = new ArrayList<FinishProject>();
+		for(int i=0; i<project.size(); i++){
+			FinishProject fp = new FinishProject();
+			fp.setProName(project.get(i).getP_name());
+			fp.setProTerm(project.get(i).getP_startdate().substring(0, 10) + " ~ " + project.get(i).getP_enddate().substring(0, 10));
+			fp.setCost(project.get(i).getP_uppercost());
+			List<String> tempList = service.getProjectP_job(project.get(i).getE_pr_num());
+			System.out.println(project.get(i).getE_pr_num());
+			String temp = "";
+			for(int j=0; j<tempList.size(); j++){
+				temp += tempList.get(j) + ", ";
+			}
+			fp.setP_job(temp.substring(0, temp.length()-2));
+			finishProject.add(fp);
+		}
+		
+		if(applyproject.size()==0){
+			model.addAttribute("applyprojectcheck", "0");
+		}else{
+			model.addAttribute("applyproject", applyproject);
 		}
 		if(career.size()==0){
 			model.addAttribute("careercheck", "0");
@@ -95,6 +124,12 @@ public class F_MypageController {
 			model.addAttribute("applyprojectcheck", "0");
 		}else{
 			model.addAttribute("applyproject", applyproject);
+		}
+		
+		if(finishProject.size() == 0 ){
+			model.addAttribute("finishprojectcheck", "0");
+		}else{
+			model.addAttribute("finishproject", finishProject);
 		}
 	}
 	
@@ -149,8 +184,14 @@ public class F_MypageController {
 	}
 	
 	@RequestMapping(value="/updateSuccess")
-	public void updateSuccess(){
-		
+	public void updateSuccess() throws Exception{
+	}
+	
+	@RequestMapping(value="/dropFreelancer", method=RequestMethod.GET)
+	public String dropFreelancer(@RequestParam("f_num") int f_num, HttpSession session) throws Exception{
+		dropService.deleteFreelancer(f_num);
+		session.invalidate();
+		return "redirect:/f_main/f_main";
 	}
 	
 	@RequestMapping(value="/careerAdd", method=RequestMethod.GET)
@@ -170,9 +211,7 @@ public class F_MypageController {
 	
 	@RequestMapping(value="/careerModify", method=RequestMethod.POST)
 	public void careerModify(Career career, Model model) throws Exception{
-		//service.updateCareer(career);
 		model.addAttribute("career", career);
-		System.out.println(career.getCareer_location());
 	}
 	
 	@RequestMapping(value="/updateCareer", method=RequestMethod.POST)
@@ -180,6 +219,72 @@ public class F_MypageController {
 		service.updateCareer(career);
 		return "redirect:/f_mypage/updateSuccess";
 	}
+	@RequestMapping(value="/deleteCareer", method=RequestMethod.GET)
+	public String deleteCareer(@RequestParam("deleteCareer_num") int career_num) throws Exception{
+		service.deleteCareer(career_num);
+		return "redirect:/f_mypage/updateSuccess";
+	}
+	
+	
+	@RequestMapping(value="/schoolAdd", method=RequestMethod.GET)
+	public void schoolAdd() throws Exception{
+	}
+	
+	@RequestMapping(value="/schoolAdd", method=RequestMethod.POST)
+	public String schoolAdd(School school) throws Exception{
+		school.setSchool_num(service.getSchoolNum()+1);
+		service.insertSchool(school);
+		return "redirect:/f_mypage/updateSuccess";
+	}
+	
+	@RequestMapping(value="/schoolModify", method=RequestMethod.POST)
+	public void schoolModify(School school, Model model) throws Exception{
+		model.addAttribute("school", school);
+	}
+	
+	@RequestMapping(value="/updateSchool", method=RequestMethod.POST)
+	public String updateSchool(School school) throws Exception{
+		service.updateSchool(school);
+		return "redirect:/f_mypage/updateSuccess";
+	}
+	@RequestMapping(value="/deleteSchool", method=RequestMethod.GET)
+	public String deleteSchool(@RequestParam("deleteSchool_num") int school_num) throws Exception{
+		service.deleteSchool(school_num);
+		System.out.println(school_num);
+		return "redirect:/f_mypage/updateSuccess";
+	}
+	
+	
+	
+
+	@RequestMapping(value="/certiAdd", method=RequestMethod.GET)
+	public void certiAdd() throws Exception{
+	}
+	
+	@RequestMapping(value="/certiAdd", method=RequestMethod.POST)
+	public String certiAdd(Certificate certi) throws Exception{
+		certi.setCertificate_num(service.getCertiNum()+1);
+		service.insertCerti(certi);
+		return "redirect:/f_mypage/updateSuccess";
+	}
+	@RequestMapping(value="/certiModify", method=RequestMethod.POST)
+	public void certiModify(Certificate certi, Model model) throws Exception{
+		model.addAttribute("certi", certi);
+	}
+	@RequestMapping(value="/updateCerti", method=RequestMethod.POST)
+	public String updateCerti(Certificate certi) throws Exception{
+		service.updateCerti(certi);
+		return "redirect:/f_mypage/updateSuccess";
+	}
+	@RequestMapping(value="/deleteCerti", method=RequestMethod.GET)
+	public String deleteCerti(@RequestParam("deleteCerti_num") int certi_num) throws Exception{
+		service.deleteCerti(certi_num);
+		return "redirect:/f_mypage/updateSuccess";
+	}
+	
+	
+
+	
 	
 	//일정관리
 	@RequestMapping(value = "/scheduleManager", method = RequestMethod.GET)
@@ -263,8 +368,30 @@ public class F_MypageController {
 	
 	//회계관리
 	@RequestMapping(value="/accountingManager", method=RequestMethod.GET)
-	public void accountingManager() throws Exception{
+	public void accountingManager(Model model, HttpSession session) throws Exception{
+		c_login_freelancerVO freelancer = (c_login_freelancerVO) session.getAttribute("client");
+		int f_num = freelancer.getF_num();
+		List<Accounting> spendList = service.getSpendAccounting(f_num);
+		if(spendList.size()==0){
+			model.addAttribute("spendListCheck", 0);
+		}
+		model.addAttribute("spendList", spendList);
+		
+		List<Accounting> incomeList = service.getIncomeAccounting(f_num);
+		if(incomeList.size()==0){
+			model.addAttribute("incomeListCheck", 0);
+		}
+		model.addAttribute("incomeList", incomeList);
 		
 	}
+	
+	@RequestMapping(value="/spendListAdd", method=RequestMethod.POST)
+	public void spendListAdd(MultipartFile a_addfile, Model model) throws Exception{
+		System.out.println(a_addfile.getOriginalFilename());
+		System.out.println(a_addfile.getSize());
+		System.out.println(a_addfile.getContentType());
+	}
+	
+	
 	
 }
