@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import lancer.e_main.domain.Newslist;
 import lancer.total.service.e_MainService;
 import lancer.total.util.Crawler;
 
