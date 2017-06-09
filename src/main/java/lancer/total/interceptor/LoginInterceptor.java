@@ -23,7 +23,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		
 		HttpSession session = request.getSession();
 		checking_identity identity = (checking_identity)session.getAttribute("identity");
-		System.out.println("여기 identity가 들어 와야 하는곳인데  순서가?");
 		if(identity.getIdentity().equals("no")){
 			response.sendRedirect("/c_login/login");
 		}
@@ -42,7 +41,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			}else if(identity.getIdentity().equals("enterprise")){
 				response.sendRedirect("/e_main/e_main");
 			}else if(identity.getIdentity().equals("admin")){
-				System.out.println("여기 안드와?");
 				response.sendRedirect("/a_main/a_main");
 			}
 		}
