@@ -43,4 +43,9 @@ public class A_MainService {
 	public Freelancer getF_mail(int f_num) throws Exception{
 		return dao.getF_mail(f_num);
 	}
+	
+	//기업 이메일 얻어오기
+	public Enterprise getE_mail(int e_num) throws Exception{
+		return dao.getE_mail(e_num);
+	}
 }

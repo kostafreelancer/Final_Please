@@ -1,26 +1,7 @@
-	/*function postPopUp() {
-		alert("aa");
-		frm = document.getElementById(f_info);
-		window.open('', 'viewer', 'width=1000, height=700');
-		frm.action = '../../../WEB-INF/views/a_main/a_mailsender';
-		frm.target = "viewer";
-		frm.method = "post";
-		frm.submit();
-		
-		var tw = window.open("","test","width=1000,height=700");
-		var v1 = $(".mailSend").parent().parent().prev().prev().find('td:eq(0)').text()
-		$(tw.document.body).html("<input type=text value="+v1+">")
-		
-		$(".f_info").taget = "test";
-		$(".f_info").submit();
-		}
-	*/
 
 
 $(document).ready(function() {
 	
-
-
 
 	
 	$('.mailSend').click(function(){

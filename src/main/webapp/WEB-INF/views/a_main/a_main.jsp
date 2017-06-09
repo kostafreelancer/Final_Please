@@ -144,7 +144,7 @@
 								<td>${e.e_licensefile}</td>
 								<th>승인여부</th>
 								<td>${e.e_check}</td>
-								<th  colspan="2"><button class="mailSend">메일 발송</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="deleteAccountE">계정 삭제</button></th>
+								<th  colspan="2"><a href="/a_main/a_mailsender_e?e.e_num=${e.e_num }" onClick="window.open(this.href, '', 'width=1000, height=1000'); return false;">메일 발송</a>&nbsp;&nbsp;&nbsp;&nbsp;<button class="deleteAccountE">계정 삭제</button></th>
 							</tr>
 							<tr>
 								<td colspan="8"></td>
