@@ -58,7 +58,7 @@
 
 							</p>
 
-							<a href="javascript:FindID();" class="pass_find">아이디 패스워드 찾기
+							<a href="${pageContext.request.contextPath}/verification/verificationPop" class="pass_find">아이디 패스워드 찾기
 								&gt;</a>
 						</div>
 						<p>
