@@ -23,15 +23,16 @@
 <!-- <script  src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 
 <script
-	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery.js"></script> 
+	src="../../../resources/f_mypage_js/fullcalendar/jquery.js"></script> 
 <script
-	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery-ui-custom.js"></script>
+	src="../../../resources/f_mypage_js/fullcalendar/jquery-ui-custom.js"></script>
 <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script> -->
-<script
+<%-- <script
 	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/fullcalendar.min.js"></script>
- 
+  --%>
+ <script src="../../../resources/f_mypage_js/fullcalendar/fullcalendar.min.js"></script>
  <script
-	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/ko.js"></script>
+	src="../../../resources/f_mypage_js/fullcalendar/ko.js"></script>
 
 <script type="text/javascript">
 
