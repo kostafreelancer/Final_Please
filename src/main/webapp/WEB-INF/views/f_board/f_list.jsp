@@ -66,7 +66,8 @@
                      <c:forEach items="${list}" var="F_BoardVO">
                          <tbody>
 							<tr><td>${F_BoardVO.f_board_num }</td>
-								<td class="al">&nbsp;&nbsp;&nbsp;<a href='/f_board/f_readPage?f_board_num=${F_BoardVO.f_board_num}' class="SOLU_green">${F_BoardVO.f_board_title}</a></td>
+								<td class="al">&nbsp;&nbsp;&nbsp;
+								<a href='/f_board/f_readPage${pageMaker.makeSearch(pageMaker.cri.page) }&f_board_num=${F_BoardVO.f_board_num}' class="SOLU_green">${F_BoardVO.f_board_title}</a></td>
 								<td>아이디</td>
 								<td><fmt:formatDate pattern="yyy-MM-dd HH:mm" value="${F_BoardVO.f_board_date }"/></td>
 								<td>${F_BoardVO.f_board_hits }</td>
@@ -75,6 +76,31 @@
                             </c:forEach>
                         </table>
                     </div>
+                    
+                <div class="box-footer">
+					<div class="num_box">
+						<ul class="pagination">
+
+							<c:if test="${pageMaker.prev}">
+								<li><a
+									href="f_list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+							</c:if>
+
+							<c:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="f_list${pageMaker.makeSearch(idx)}">${idx}</a>
+								</li>
+							</c:forEach>
+
+							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="f_list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+							</c:if>
+						</ul>
+					</div>
+				</div>
                     
                     <!-- //tb_box : e -->
                     <div class="num_box">

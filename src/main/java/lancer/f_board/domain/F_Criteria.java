@@ -7,7 +7,7 @@ public class F_Criteria {
 	
 	public F_Criteria(){
 		this.page=1;
-		this.perPageNum=2;
+		this.perPageNum=3;
 	}
 	
 	public void setPage(int page){
@@ -20,7 +20,7 @@ public class F_Criteria {
 	
 	public void setPerPageNum(int perPageNum){
 		if(perPageNum<=0 || perPageNum>100){
-			this.perPageNum=2;
+			this.perPageNum=3;
 			return;
 		}
 		this.perPageNum=perPageNum;

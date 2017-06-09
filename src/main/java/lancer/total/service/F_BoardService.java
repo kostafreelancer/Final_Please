@@ -5,6 +5,7 @@ import java.util.List;
 
 import lancer.f_board.domain.F_BoardVO;
 import lancer.f_board.domain.F_Criteria;
+import lancer.f_board.domain.F_SearchCriteria;
 
 public interface F_BoardService {
 	
@@ -18,5 +19,9 @@ public interface F_BoardService {
 	
 	public List<F_BoardVO> listAll() throws Exception;
 	
-	public List<F_BoardVO> listCriteria(F_Criteria cri)throws Exception;
+	public List<F_BoardVO> listCriteria(F_SearchCriteria cri)throws Exception;
+	
+	public int listCountCriteria(F_SearchCriteria cri) throws Exception;
+	
+	//public List<String> getAttach(Integer bno) throws Exception;
 }
