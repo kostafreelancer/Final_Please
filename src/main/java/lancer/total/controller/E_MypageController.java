@@ -160,6 +160,7 @@ public class E_MypageController {
 				
 	
 		//파일 업로드
+		System.out.println(command.getFileExist());
 		if(command.getFileExist().equals("true")){
 			MultipartFile e_licensefile = command.getE_licensefile();	
 			fileUploadService.uploadFile(e_licensefile, "e_licensefile", enterprise.getE_num());
