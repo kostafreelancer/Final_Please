@@ -31,6 +31,8 @@ import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.F_job;
 import lancer.f_mypage.domain.FinishProject;
 import lancer.f_mypage.domain.Freelancer;
+import lancer.f_mypage.domain.Portfolio;
+import lancer.f_mypage.domain.PortfolioCommand;
 import lancer.f_mypage.domain.School;
 import lancer.total.service.C_DropService;
 import lancer.total.service.F_MypageService;
@@ -282,7 +284,14 @@ public class F_MypageController {
 		return "redirect:/f_mypage/updateSuccess";
 	}
 	
-	
+	@RequestMapping(value="/portfolioAdd", method=RequestMethod.POST)
+	public String portfolioAdd(PortfolioCommand portFolioCommand) throws Exception{
+		System.out.println(portFolioCommand.getContents());
+		System.out.println(portFolioCommand.getPortfile().getOriginalFilename());
+		System.out.println(portFolioCommand.getPortfile().getName());
+		
+		return "redirect:/f_mypage/updateSuccess";
+	}
 
 	
 	

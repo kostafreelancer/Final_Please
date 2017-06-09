@@ -1,6 +1,7 @@
 
 $(function(){
 		$('.chatting').click(function(){
-		$(this).load('/Matching_Project/c_common/chatting_chang.html');
+			alert("걸리는거야?");
+		$(this).load('../../WEB-INF/views/c_common/chatting_chang.html');
 	});
 });

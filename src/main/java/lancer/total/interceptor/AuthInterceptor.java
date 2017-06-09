@@ -23,7 +23,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 		}
 		if(req.getMethod().equals("GET")){
 			logger.info("dest: "+(uri+query));
-			System.out.println("dest: "+(uri+query));
 			req.getSession().setAttribute("dest", uri+query);
 		}
 	}
@@ -31,10 +30,8 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		System.out.println("인터셉터 들어 온거네!!!");
 		HttpSession session = request.getSession();
 		if(session.getAttribute("identity") == null){
-			System.out.println("로그인이 되지 않았습니다.");
 			saveDest(request); 
 			response.sendRedirect("/c_login/login");
 			return false;

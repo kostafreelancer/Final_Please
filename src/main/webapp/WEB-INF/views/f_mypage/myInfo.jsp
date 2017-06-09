@@ -787,7 +787,12 @@ $(function(){
 
 						</tbody>
 					</table>
-
+				<form name="tempPortfolioAdd"  action="/f_mypage/portfolioAdd" method="post" enctype="multipart/form-data">
+					<input type="text" hidden name="f_num" value="${client.f_num}">
+					포트폴리오 내용 : <input type="text"  name="contents">
+					첨부파일 : <input type="file"  name="portfile">
+					<input type="submit" value="저장">
+				</form>
 		</div>
 
 

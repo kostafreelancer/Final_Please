@@ -7,14 +7,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet"
-	href="/Matching_Project/c_common/c_common_css/chatting.css"
+	href="/resources/c_common_css/chatting.css"
 	type="text/css" media="screen" />
 <link rel="stylesheet"
-	href="/Matching_Project/c_common/c_common_css/chatting_chang.css"
+	href="/resources/c_common_css/chatting_chang.css"
 	type="text/css" media="screen" />
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript"
-	src="/Matching_Project/c_common/c_common_js/chatting.js"></script>
+	src="/resources/c_common_js/chatting.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.chatting').click(function(){
+		alert("걸리는거야?");
+	$(this).load('/webapp/WEB-INF/views/c_common/chatting_chang.html');
+});
+});
+</script>
 
 
 </head>
@@ -22,7 +30,7 @@
 	<div class="chatting">
 		<div class="chatting_Detail">
 			<img class="chatting_img" alt="catting_open"
-				src="/Matching_Project/c_common/c_common_img/chatting.PNG">
+				src="/resources/c_common_img/chatting.PNG">
 			<p>채팅 문의</p>
 		</div>
 	</div>
