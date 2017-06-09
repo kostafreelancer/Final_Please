@@ -23,16 +23,16 @@
 <!-- <script  src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 
 <script
-	src="../../../resources/f_mypage_js/fullcalendar/jquery.js"></script> 
+	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery.js"></script> 
 <script
-	src="../../../resources/f_mypage_js/fullcalendar/jquery-ui-custom.js"></script>
+	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery-ui-custom.js"></script>
 <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script> -->
 <%-- <script
 	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/fullcalendar.min.js"></script>
   --%>
- <script src="../../../resources/f_mypage_js/fullcalendar/fullcalendar.min.js"></script>
+ <script src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/fullcalendar.min.js"></script>
  <script
-	src="../../../resources/f_mypage_js/fullcalendar/ko.js"></script>
+	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/ko.js"></script>
 
 <script type="text/javascript">
 
@@ -96,7 +96,7 @@ newJquery(document).ready(function() {
 						data : "title="+event.title+"&syear="+event.start.getFullYear()+
 						"&smonth="+smonth+"&sdate="+event.start.getDate()+
 						"&eyear="+event.end.getFullYear()+"&emonth="+emonth+
-						"&edate="+event.end.getDate() + "&f_num=" +${client.f_num},
+						"&edate="+event.end.getDate() + "&f_num=" +${client.f_num} ,
 						//dataType : 'json',
 						success : function(){
 							/* $.each(responseData, function(index, scheduleList){
