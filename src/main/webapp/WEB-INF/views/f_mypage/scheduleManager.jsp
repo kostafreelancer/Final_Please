@@ -120,7 +120,7 @@ newJquery(document).ready(function() {
 						success : function(){
 							  newJquery('#calendar').fullCalendar('removeEvents' , function(ev){  
 								    return (ev._id == event._id);
-							  })
+							  });
 						}
 					});
 		   
