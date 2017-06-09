@@ -38,4 +38,9 @@ public class A_MainService {
 	public void permitAccount(int permitE_num) throws Exception {
 		dao.permitAccount(permitE_num);
 	}
+	
+	//프리랜서 이메일 얻어오기
+	public Freelancer getF_mail(int f_num) throws Exception{
+		return dao.getF_mail(f_num);
+	}
 }

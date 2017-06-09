@@ -22,7 +22,7 @@
 
 </head>
 <body>
- 	<c:choose>
+ <c:choose>
 		<c:when test="${identity.identity == 'freelancer' }">
 			<%@include file="../c_common/header.jsp"%>
 		</c:when>
@@ -92,7 +92,7 @@
 								<c:forEach items="${list }" var="MembercenterASKVO">
 									<tr>
 										<td id="asknum">${MembercenterASKVO.asknum}</td>
-										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button><!-- </form> --></td> 
+										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button></td> 
 										<td>${MembercenterASKVO.askdate }</td>
 										<td>${MembercenterASKVO.writer }
 										
