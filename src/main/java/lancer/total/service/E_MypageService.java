@@ -38,12 +38,8 @@ public class E_MypageService{
 		return dao.selectP_job(e_pr_num);
 	}
 
-	public void updateEnterprise(c_login_enterpriseVO enterprise, MultipartFile e_licensefile) throws Exception {
+	public void updateEnterprise(c_login_enterpriseVO enterprise) throws Exception {
 		dao.updateEnterprise(enterprise);
-		
-		System.out.println("name: " + e_licensefile.getName());
-		System.out.println("filename: " + e_licensefile.getOriginalFilename());
-		System.out.println("size: " + e_licensefile.getSize());
 	}
 
 

@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="/resources/e_mypage_css/star.css" type="text/css"
 	media="screen" />
 	
-<script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <script type="text/javascript" src="/resources/e_mypage_js/e_info_star.js"></script>
 <script type="text/javascript" src="/resources/e_mypage_js/e_info.js"></script>
@@ -60,6 +60,21 @@
 		<h3>회원정보 입력</h3>
 	</div>
 
+	<div class="e_info_table1">
+		<h4>사업자등록증</h4>
+		<form action="/c_file/downloadFile" id="fileForm" name="fileForm" method="post">
+			<input type="hidden" name="file_num" value="${e_licenseFileNum}">
+		</form>
+		<table class="tb_st01">
+				 <tr>
+	                <th>첨부파일</th>
+	                <td colspan="5">
+	                        <a href="#" id="e_licenseDown">${e_licenseFileName}</a>
+	                        (${e_licenseFileSize}kb)
+	                </td>
+	            </tr>	
+		</table>
+	</div>
 
 <form action="/e_mypage/e_info" method="post" name="EnterpriseWriteFm" enctype="multipart/form-data">
 	<div class="e_info_table1">
@@ -337,8 +352,8 @@
 			</tr>
 			<tr>
 				<th>사업자등록증</th>
-				<td colspan="5"><input type="file" id="e_licensefile"
-					name="e_licensefile" class="wid"></td>
+				<input type="hidden" id="fileExist" name="fileExist" value="false">
+				<td colspan="5"><input type="file" id="e_licensefile" name="e_licensefile" class="wid"></td>
 			</tr>
 		</table>
 	</div>
@@ -346,10 +361,13 @@
 	<div class="btn_box mb30 mb02">
 		<button class="btn_check06" id="checkValue">수정하기</button>
 	</div>
-	
 	</form>
+	
 	</section>
+	
 
+
+			    
 <%@include file="../c_common/footer.jsp"%>
 </body>
 </html>

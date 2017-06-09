@@ -3,8 +3,8 @@ package lancer.total.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -12,13 +12,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import lancer.c_login.domain.c_login_enterpriseVO;
 import lancer.e_mypage.domain.EnterpriseCommand;
 import lancer.e_mypage.domain.Project;
+import lancer.total.service.C_FileService;
 import lancer.total.service.E_MypageService;
+import lancer.total.util.FileUtils;
 
 @Controller
 @RequestMapping("/e_mypage/*")
@@ -27,8 +28,11 @@ public class E_MypageController {
 	@Inject
 	private E_MypageService service;
 	
+	@Inject
+	private C_FileService fileUploadService;
+
 	@RequestMapping(value = "/e_info", method = RequestMethod.GET)
-	public void e_infoGET(Model model,HttpSession session){
+	public void e_infoGET(Model model,HttpSession session) throws Exception{
 		
 		c_login_enterpriseVO enterprise = (c_login_enterpriseVO)session.getAttribute("client");
 		model.addAttribute("client", enterprise);
@@ -60,6 +64,12 @@ public class E_MypageController {
 		model.addAttribute("e_address_1", e_address[0]);
 		model.addAttribute("e_address_2", e_address[1]);
 		model.addAttribute("e_address_3", e_address[2]);
+		
+		// 파일 정보 구해서 표시하기
+		HashMap<String, Object> fileMap = fileUploadService.selectFile("e_licensefile", enterprise.getE_num());
+		model.addAttribute("e_licenseFileNum", fileMap.get("file_num"));
+		model.addAttribute("e_licenseFileName", fileMap.get("original_file_name"));
+		model.addAttribute("e_licenseFileSize", fileMap.get("file_size"));
 		
 	}
 	
@@ -148,15 +158,19 @@ public class E_MypageController {
 				
 		enterprise.setE_scale(command.getE_scale());		
 				
-		MultipartFile e_licensefile = command.getE_licensefile();		
-				
+	
+		//파일 업로드
+		if(command.getFileExist().equals("true")){
+			MultipartFile e_licensefile = command.getE_licensefile();	
+			fileUploadService.uploadFile(e_licensefile, "e_licensefile", enterprise.getE_num());
+		}
 		
-		service.updateEnterprise(enterprise, e_licensefile);
 		
+		service.updateEnterprise(enterprise);
 		session.setAttribute("client", enterprise);		
-		
 		return "redirect:/e_mypage/e_info";
-	}	
+	}
+	
 	
 	@RequestMapping(value = "/e_project", method = RequestMethod.GET)
 	public void e_projectGET(Model model, HttpSession session) throws Exception{
@@ -206,5 +220,8 @@ public class E_MypageController {
 		List<Integer> p_job = service.selectP_job(e_pr_num);
 		model.addAttribute("p_job", p_job);
 	}
+	
+	
+
 	
 }

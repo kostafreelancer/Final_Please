@@ -81,7 +81,17 @@ $('#checkValue').click(function(){
 	    	return false;
 	    }
 	    else{
+	    	if($('#e_licensefile').val()){
+	    		$('#fileExist').val("true");
+	    	}
+	    	alert($('#fileExist').val());
 	    	form.submit();
 	    }
+	});
+
+	//파일 다운로드 이벤트
+	$('#e_licenseDown').click(function(e){ //파일 이름
+		e.preventDefault();
+		document.fileForm.submit();
 	});
 });
