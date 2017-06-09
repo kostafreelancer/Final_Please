@@ -57,7 +57,7 @@ newJquery(document).ready(function() {
 		arrEnd.push("${item.enddate}");
 	</c:forEach> */
 
-	var teeeemp;
+	
 	
 	  newJquery('#calendar').fullCalendar({
 	//$('#calendar').fullCalendar({	    
