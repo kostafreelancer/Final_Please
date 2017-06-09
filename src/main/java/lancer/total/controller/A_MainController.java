@@ -1,8 +1,14 @@
 package lancer.total.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +27,53 @@ public class A_MainController {
 	
 	@Inject
 	private C_DropService dropService;
+	@Autowired
+	private JavaMailSender mailsender;
 	
+	
+	//관리자 이메일보내기 기능
+	@RequestMapping(value="/a_mailsender", method=RequestMethod.GET)
+	public void mailsender(){
+		System.out.println("메일");
+	}
+	@RequestMapping(value="/a_mailsenderSubmit", method=RequestMethod.POST)
+	public void sendEmailAction(HttpServletRequest request) throws Exception {
+        // 메일 내용을 작성한다
+        SimpleMailMessage msg = new SimpleMailMessage();
+        //String From = "skidrow0725@gmail.com";
+        //System.out.println(From);
+        
+        // 보내는사람
+        
+        String From = "skidrow0725@gmail.com";
+        System.out.println(From + "보내는사람");
+        
+        //받는사람
+        String setTo = request.getParameter("tomail");
+        System.out.println(setTo + "받는사람");
+        //String setTo = request.getParameter("tomail");
+       
+        // 제목
+        String setSubject = request.getParameter("title");
+        System.out.println(setSubject);
+        
+        //내용
+        String setText = request.getParameter("content");
+        System.out.println(setText);
+        
+        msg.setFrom(From);
+        msg.setTo(new String[] { setTo });
+        msg.setSubject(setSubject);
+        msg.setText(setText);
+ 
+      try {
+		mailsender.send(msg);
+		System.out.println("메일보내기 성공");
+	} catch (MailException e) {
+		// TODO: handle exception
+	}
+        
+    }
 	@RequestMapping(value = "/a_main", method = RequestMethod.GET)
 	public void a_mainGET(Model model,HttpSession session)throws Exception{
 		

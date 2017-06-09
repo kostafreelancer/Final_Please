@@ -41,4 +41,9 @@ public class A_MainDAO {
 	public void permitAccount(int permitE_num) throws Exception {
 		session.update(namespace+".permitAccount", permitE_num);
 	}
+	
+	//메일발송 관련 회원메일주소 불러오기
+	public Freelancer getF_mail(int f_num) throws Exception{
+		return session.selectOne(namespace+".getF_mail" + f_num);
+	}
 }

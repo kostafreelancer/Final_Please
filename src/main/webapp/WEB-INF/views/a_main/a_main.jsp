@@ -44,6 +44,7 @@
 	<div id="tcontent">
 		<div id="tab1">
 			<div class="tb_box">
+			<form action="/a_main/a_send" class="f_info" name="f_info" method="post">
 				<table class="tb_st01 tb_st03">
 					<colgroup>
 						<col style="width: 9%">
@@ -57,6 +58,7 @@
 					</colgroup>
 					<thead></thead>
 					<tbody>
+					
 						<c:forEach var="f" items="${listFreelancer }">
 							<tr>
 								<td class="hidden">${f.f_num }</td>
@@ -71,7 +73,7 @@
 							</tr>
 							<tr>
 								<th>이메일</th>
-								<td colspan="3">${f.f_email }</td>
+								<td colspan="3" id="f_email">${f.f_email }</td>
 								<th>주소</th>
 								<td colspan="3">${f.f_address }</td>
 							</tr>
@@ -82,7 +84,7 @@
 								<td>${f.f_nowstate }</td>
 								<th>최근접속일</th>
 								<td>${f.f_recentlogin }</td>
-								<th colspan="2"><button class="mailSend">메일 발송</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="deleteAccountF">계정 삭제</button></th>
+								<th colspan="2"><input type="button" onclick="javascript:postPopUp()" value="메일 발송" class="mailSend">&nbsp;&nbsp;&nbsp;&nbsp;<button class="deleteAccountF">계정 삭제</button></th>
 							</tr>
 							<tr>
 								<td colspan="8"></td>
@@ -90,6 +92,7 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				</form>
 			</div>
 			<div class="num_box">
 				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
