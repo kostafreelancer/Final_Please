@@ -7,19 +7,19 @@ public class MembercenterASKVO implements Serializable {
 
 	private int asknum;
 	private String askcontents;
-	private Date askdate;
+	private String askdate;
 	private int f_num;
 	private int e_num;
 	private String asktitle;
 	private String writer;
 	private String answercontents;
-	private Date answerdate;
+	private String answerdate;
 	private int ad_num;
 	
-	public Date getAnswerdate() {
+	public String getAnswerdate() {
 		return answerdate;
 	}
-	public void setAnswerdate(Date answerdate) {
+	public void setAnswerdate(String answerdate) {
 		this.answerdate = answerdate;
 	}
 	public int getAd_num() {
@@ -46,10 +46,10 @@ public class MembercenterASKVO implements Serializable {
 	public void setAskcontents(String askcontents) {
 		this.askcontents = askcontents;
 	}
-	public Date getAskdate() {
+	public String getAskdate() {
 		return askdate;
 	}
-	public void setAskdate(Date askdate) {
+	public void setAskdate(String askdate) {
 		this.askdate = askdate;
 	}
 	public int getF_num() {

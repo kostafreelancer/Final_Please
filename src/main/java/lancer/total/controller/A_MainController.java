@@ -55,7 +55,7 @@ public class A_MainController {
 		model.addAttribute("enterprise", service.getE_mail(e_num));
 	}
 	
-	
+	//메일보내기
 	@RequestMapping(value="/a_mailsenderSubmit", method=RequestMethod.POST)
 	public String sendEmailAction(HttpServletRequest request) throws Exception {
         // 메일 내용을 작성한다
@@ -125,4 +125,6 @@ public class A_MainController {
 		
 		return "redirect:/a_main/a_main";
 	}
+	
+	
 }

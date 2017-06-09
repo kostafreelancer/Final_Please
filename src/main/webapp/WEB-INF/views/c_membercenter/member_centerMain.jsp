@@ -66,6 +66,7 @@
 					<h3>1:1문의</h3>
 					<ul class="ask_text">
 						<li>문의하신 내용의 답변을 확인할 수 있습니다.</li>
+						<li>제목을 클릭하면 답변 내용을 확인할 수 있습니다.</li>
 					</ul>
 					<table class="email_table">
 						<tr>
@@ -115,9 +116,8 @@
 					<h3>1:1문의</h3>
 
 					<ul class="email_text">
-						<li>· 문의하신 내용의 답변이 완료되면 고객님의 이메일로 답변을 보내드립니다.</li>
-						<li>· 온라인으로 접수된 문의는 24시간 이내에 답변을 드릴 수 있도록 노력하고 있습니다.</li>
-						<li>· 평일 17:00 이전 문의는 당일 답변이 가능하며, 17:00 이후 및 업무시간 외 문의는 다음
+						<li>온라인으로 접수된 문의는 24시간 이내에 답변을 드릴 수 있도록 노력하고 있습니다.</li>
+						<li>평일 17:00 이전 문의는 당일 답변이 가능하며, 17:00 이후 및 업무시간 외 문의는 다음
 							업무일에 답변이 처리됩니다.</li>
 					</ul>
 					<p class="must">
@@ -138,7 +138,7 @@
 										for="q_name">작성자</label></th>
 									<td colspan="3" class="join"><input type="text"
 										id="fm_name" name="writer" class="wid02"
-										value=<c:choose>
+										readonly="readonly" value=<c:choose>
 									<c:when test="${identity.identity == 'freelancer' }">
 										${client.f_name }
 									</c:when>
@@ -157,7 +157,7 @@
 										for="fm_phone">연락처</label></th>
 									<td colspan="3" class="join"><input type="text"
 										id="fm_phone" name="fm_phone" class="wid02"
-										value=<c:choose>
+										readonly="readonly" value=<c:choose>
 									<c:when test="${identity.identity == 'freelancer' }">
 										${client.f_hphone }
 									</c:when>
@@ -172,8 +172,9 @@
 								</tr>
 								<tr>
 									<th scope="row"><span class="text_star">*</span> 이메일</th>
-									<td colspan="3"><label for></label> <%-- <input type="text" name="tomail" id="fm_email_1" name="fm_email_1" class="wid04"
-									value=<c:choose>
+									<td colspan="3"><label for></label>
+									<input type="text" name="tomail" id="fm_email_1" name="fm_email_1" class="wid04"
+									readonly="readonly" value=<c:choose>
 									<c:when test="${identity.identity == 'freelancer' }">
 										${client.f_email }
 									</c:when>
@@ -183,8 +184,7 @@
 									<c:otherwise>
 									
 									</c:otherwise>
-								</c:choose>> --%> <input type="text" name="tomail" size="120"
-										style="width: 100%" placeholder="상대의 이메일" class="form-control">
+								</c:choose> > 
 
 									</td>
 								</tr>

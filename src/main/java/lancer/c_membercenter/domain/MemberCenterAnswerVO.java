@@ -7,7 +7,7 @@ public class MemberCenterAnswerVO implements Serializable {
 
 	public String answercontents;
 	public String answertitle;
-	public Date answerdate;
+	public String answerdate;
 	public int ad_num;
 	public String getAnswercontents() {
 		return answercontents;
@@ -21,10 +21,10 @@ public class MemberCenterAnswerVO implements Serializable {
 	public void setAnswertitle(String answertitle) {
 		this.answertitle = answertitle;
 	}
-	public Date getAnswerdate() {
+	public String getAnswerdate() {
 		return answerdate;
 	}
-	public void setAnswerdate(Date answerdate) {
+	public void setAnswerdate(String answerdate) {
 		this.answerdate = answerdate;
 	}
 	public int getAd_num() {
