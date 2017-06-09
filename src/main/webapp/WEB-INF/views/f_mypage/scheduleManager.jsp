@@ -20,27 +20,26 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/f_mypage_css/scheduleManager.css"
 	type="text/css" media="screen" />
+<!-- <script  src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 
 <script
-	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery.js"></script>
+	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery.js"></script> 
 <script
 	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery-ui-custom.js"></script>
+<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script> -->
 <script
 	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/fullcalendar.min.js"></script>
-<script
+ 
+ <script
 	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/ko.js"></script>
 
 <script type="text/javascript">
-function addScheduleSubmit(){
-	document.scheduleAdd.submit();
-}
 
 var newJquery = $.noConflict(true);
 
 
 newJquery(document).ready(function() {
-
-	 
+//$(document).ready(function() {
 	
 	var date = new Date();
 	var d = date.getDate();
@@ -59,8 +58,8 @@ newJquery(document).ready(function() {
 
 	
 	
-	   newJquery('#calendar').fullCalendar({
-		    
+	  newJquery('#calendar').fullCalendar({
+	//$('#calendar').fullCalendar({	    
 		   header: {
 				left: 'prev,next today',
 				center: 'title',
@@ -176,8 +175,12 @@ newJquery(document).ready(function() {
 			] */
 			 
 	    });
+	
 });	
  
+function addScheduleSubmit(){
+	document.scheduleAdd.submit();
+}
 
 </script>
 
