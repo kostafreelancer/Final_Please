@@ -29,7 +29,7 @@ public class E_MypageController {
 	private E_MypageService service;
 	
 	@Inject
-	private C_FileService fileUploadService;
+	private C_FileService fileService;
 
 	@RequestMapping(value = "/e_info", method = RequestMethod.GET)
 	public void e_infoGET(Model model,HttpSession session) throws Exception{
@@ -66,10 +66,15 @@ public class E_MypageController {
 		model.addAttribute("e_address_3", e_address[2]);
 		
 		// 파일 정보 구해서 표시하기
-		HashMap<String, Object> fileMap = fileUploadService.selectFile("e_licensefile", enterprise.getE_num());
-		model.addAttribute("e_licenseFileNum", fileMap.get("file_num"));
-		model.addAttribute("e_licenseFileName", fileMap.get("original_file_name"));
-		model.addAttribute("e_licenseFileSize", fileMap.get("file_size"));
+		HashMap<String, Object> e_ownerfileMap = fileService.selectFile("e_ownerfile", enterprise.getE_num());
+		HashMap<String, Object> e_ownerfileMap2 = fileService.selectFileInfo((int) e_ownerfileMap.get("file_num"));
+		model.addAttribute("e_ownerFileStoredName", e_ownerfileMap2.get("stored_file_name"));
+		
+		
+		HashMap<String, Object> e_licensefileMap = fileService.selectFile("e_licensefile", enterprise.getE_num());
+		model.addAttribute("e_licenseFileNum", e_licensefileMap.get("file_num"));
+		model.addAttribute("e_licenseFileName", e_licensefileMap.get("original_file_name"));
+		model.addAttribute("e_licenseFileSize", e_licensefileMap.get("file_size"));
 		
 	}
 	
@@ -97,8 +102,6 @@ public class E_MypageController {
 		String email2 = command.getE_mail_2();
 		String e_email = email1+"@"+email2;
 		enterprise.setE_mail(e_email);
-
-		enterprise.setE_ownerfile(command.getE_ownerfile());
 		
 		enterprise.setE_name(command.getE_name());
 		
@@ -160,10 +163,13 @@ public class E_MypageController {
 				
 	
 		//파일 업로드
-		System.out.println(command.getFileExist());
-		if(command.getFileExist().equals("true")){
+		if(command.getE_ownerfileExist().equals("true")){
+			MultipartFile E_ownerfile = command.getE_ownerfile();	
+			fileService.uploadImageFile(E_ownerfile, "e_ownerfile", enterprise.getE_num());
+		}
+		if(command.getE_licensefileExist().equals("true")){
 			MultipartFile e_licensefile = command.getE_licensefile();	
-			fileUploadService.uploadFile(e_licensefile, "e_licensefile", enterprise.getE_num());
+			fileService.uploadFile(e_licensefile, "e_licensefile", enterprise.getE_num());
 		}
 		
 		

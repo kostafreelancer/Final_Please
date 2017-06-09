@@ -5,6 +5,7 @@ $('#checkValue').click(function(){
 	    
 	    if(!form.e_pwd_1.value){
 	        alert("비밀번호를 입력하세요.");
+	        alert($('#ada').attr("src"));
 	        EnterpriseWriteFm.e_pwd_1.focus();
 	        return false;
 	    }
@@ -98,8 +99,12 @@ $('#checkValue').click(function(){
 	    	EnterpriseWriteFm.e_sales.focus();
 	    	return false;
 	    }else{
+	    	// 파일이 등록여부 구분
+	    	if($('#e_ownerfile').val()){
+	    		$('#e_ownerfileExist').val("true");
+	    	}
 	    	if($('#e_licensefile').val()){
-	    		$('#fileExist').val("true");
+	    		$('#e_licensefileExist').val("true");
 	    	}
 	    	form.submit();
 	    }

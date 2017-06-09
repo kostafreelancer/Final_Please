@@ -14,13 +14,23 @@ import lancer.total.util.FileUtils;
 public class C_FileService {
 	@Inject
 	private C_FileDAO dao;
-	
-	private FileUtils fileUtils = new FileUtils();
 
 	public void uploadFile(MultipartFile multipartFile, String section, int common_num) throws Exception {
 		
-		HashMap<String, Object> map = fileUtils.parseInsertFileInfo(multipartFile, section, common_num);
+		HashMap<String, Object> map = FileUtils.parseInsertFileInfo(multipartFile, section, common_num);
 	
+		dao.deleteFile(map);
+		dao.insertFile(map);
+	}
+	
+	public void uploadImageFile(MultipartFile multipartFile, String section, int common_num) throws Exception {
+		
+		HashMap<String, Object> map = FileUtils.parseInsertImageFileInfo(multipartFile, section, common_num);
+		
+		if(map == null){
+			return;
+		}
+		
 		dao.deleteFile(map);
 		dao.insertFile(map);
 	}

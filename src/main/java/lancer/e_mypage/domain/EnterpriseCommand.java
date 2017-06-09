@@ -11,7 +11,7 @@ public class EnterpriseCommand {
 	private String e_name;				// 가입자 명
 	private String e_ename;			// 기업 이름
 	private String e_owner;		// 기업 대표자 명
-	private String e_ownerfile;	// 기업 대표자 사진파일 경로
+
 	private String e_regno_1;			// 사업자등록번호 ( 123-42322)
 	private String e_regno_2;			// 사업자등록번호 ( 123-42322)
 	private String e_regno_3;			// 사업자등록번호 ( 123-42322)
@@ -35,20 +35,23 @@ public class EnterpriseCommand {
 	private int e_capital;		// 자본금
 	private int e_sales;		// 연매출
 	private String e_scale;			// 기업규모 (대기업, 중소기업, 개인)
-	private MultipartFile e_licensefile;		// 사업자등록증 사진파일 경로
-	private String fileExist;
+
+	private MultipartFile e_ownerfile;	// 기업 대표자 사진파일 경로
+	private MultipartFile e_licensefile;		// 사업자등록증 파일
+	private String e_ownerfileExist;
+	private String e_licensefileExist;
 	
 	public EnterpriseCommand(){
 		
 	}
 	
 	public EnterpriseCommand(String e_pwd_1, String e_pwd_2, String e_mail_1, String e_mail_2, String e_name,
-			String e_ename, String e_owner, String e_ownerfile, String e_regno_1, String e_regno_2, String e_regno_3,
+			String e_ename, String e_owner, MultipartFile e_ownerfile, String e_regno_1, String e_regno_2, String e_regno_3,
 			String e_phone_1, String e_phone_2, String e_phone_3, String e_bf, String manager_name,
 			String manager_hphone_1, String manager_hphone_2, String manager_hphone_3, String manager_mail_1,
 			String manager_mail_2, String e_address_1, String e_address_2, String e_address_3, String e_homepage,
 			int start_year, int e_enum, String e_listing, int e_capital, int e_sales, String e_scale,
-			MultipartFile e_licensefile, String fileExist) {
+			MultipartFile e_licensefile, String e_ownerfileExist, String e_licensefileExist) {
 		super();
 		this.e_pwd_1 = e_pwd_1;
 		this.e_pwd_2 = e_pwd_2;
@@ -82,7 +85,8 @@ public class EnterpriseCommand {
 		this.e_sales = e_sales;
 		this.e_scale = e_scale;
 		this.e_licensefile = e_licensefile;
-		this.fileExist = fileExist;
+		this.e_ownerfileExist = e_ownerfileExist;
+		this.e_licensefileExist = e_licensefileExist;
 	}
 
 	public String getE_pwd_1() {
@@ -141,11 +145,11 @@ public class EnterpriseCommand {
 		this.e_owner = e_owner;
 	}
 
-	public String getE_ownerfile() {
+	public MultipartFile getE_ownerfile() {
 		return e_ownerfile;
 	}
 
-	public void setE_ownerfile(String e_ownerfile) {
+	public void setE_ownerfile(MultipartFile e_ownerfile) {
 		this.e_ownerfile = e_ownerfile;
 	}
 
@@ -341,15 +345,23 @@ public class EnterpriseCommand {
 		this.e_licensefile = e_licensefile;
 	}
 
-	public String getFileExist() {
-		return fileExist;
+	public String getE_ownerfileExist() {
+		return e_ownerfileExist;
 	}
 
-	public void setFileExist(String fileExist) {
-		this.fileExist = fileExist;
+	public void setE_ownerfileExist(String e_ownerfileExist) {
+		this.e_ownerfileExist = e_ownerfileExist;
 	}
-	
-	
+
+	public String getE_licensefileExist() {
+		return e_licensefileExist;
+	}
+
+	public void setE_licensefileExist(String e_licensefileExist) {
+		this.e_licensefileExist = e_licensefileExist;
+	}
+
+
 }
 
 

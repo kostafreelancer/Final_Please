@@ -160,9 +160,13 @@
 				<td rowspan="5"><img name="IMG1" id="e_ownerimage"
 					src="${client.e_ownerfile }">
 					<div class="filebutton">
-						<span>사진업로드</span>  <!--  <input type="file" name="e_ownerfile" id="e_ownerfile" value="${client.e_ownerfile }"
+					<c:set var="path" value="C:\lancer\upload\0070a069190541f78be7f5218cccb486.jpg" />
+					<img id="ada" src='${path}'>
+					
+						<input type="hidden" id="e_ownerfileExist" name="e_ownerfileExist" value="false">
+						<span>사진업로드</span><input type="file" name="e_ownerfile" id="e_ownerfile" value="${client.e_ownerfile }"
 							class="searchfile" title="파일 찾기"
-							style="width: 820px;"> -->
+							style="width: 820px;">
 					</div></td>
 				<th scope="row">가입자 명</th>
 				<td colspan="4"><input type="text" id="e_name"
@@ -352,7 +356,7 @@
 			</tr>
 			<tr>
 				<th>사업자등록증</th>
-				<input type="hidden" id="fileExist" name="fileExist" value="false">
+				<input type="hidden" id="e_licensefileExist" name="e_licensefileExist" value="false">
 				<td colspan="5"><input type="file" id="e_licensefile" name="e_licensefile" class="wid"></td>
 			</tr>
 		</table>
