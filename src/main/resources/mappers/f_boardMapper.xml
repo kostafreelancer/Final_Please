@@ -39,5 +39,29 @@
 		]]>
 	</select>
 	
+		<select id="listPage" resultType="F_BoardVO">
+		<![CDATA[
+			select 
+				f_board_num, f_board_title, f_board_content, f_board_hits, 
+				f_board_date, f_reply_count, f_num
+			from f_board
+			where f_board_num>0
+			order by f_board_num desc, f_board_date desc
+			limit #{page}, 10                                                                  
+		]]>
+	</select>
+	
+	<select id="listCriteria" resultType="F_BoardVO">
+	<![CDATA[
+			select 
+				f_board_num, f_board_title, f_board_content, f_board_hits, 
+				f_board_date, f_reply_count, f_num
+			from f_board
+			where f_board_num>0
+			order by f_board_num desc, f_board_date desc
+			limit #{pageStart}, #{perPageNum}                                                                  
+		]]>
+	</select>
+	
 	</mapper>
 

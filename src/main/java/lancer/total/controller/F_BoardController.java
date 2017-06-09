@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import lancer.c_projectlist.domain.Criteria;
 import lancer.f_board.domain.F_BoardVO;
+import lancer.f_board.domain.F_Criteria;
 import lancer.total.service.F_BoardService;
 
 @Controller
@@ -42,6 +44,28 @@ public class F_BoardController {
 	@RequestMapping(value="f_modifyPage", method=RequestMethod.GET)
 	public void modifyPage(F_BoardVO board, Model model)throws Exception{
 		
+	}
+	@RequestMapping(value="remove", method=RequestMethod.POST)
+	public String remove(@RequestParam("f_board_num") int f_board_num, RedirectAttributes rttr)throws Exception{
+		service.remove(f_board_num);
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		return "redirect:/f_board/f_list";
+	}
+	@RequestMapping(value="modify", method=RequestMethod.GET)
+	public void modifyGet(int f_board_num, Model model)throws Exception{
+		model.addAttribute(service.read(f_board_num));
+	}
+	@RequestMapping(value="modify", method=RequestMethod.POST)
+	public String modifyPost(F_BoardVO board, RedirectAttributes rttr)throws Exception{
+		service.modify(board);
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		return "redirect:/f_board/f_list";
+	}
+	
+	@RequestMapping(value="listCri", method=RequestMethod.GET)
+	public void listAll(F_Criteria cri, Model model)throws Exception{
+		System.out.println("dfdfd");
+		model.addAttribute("list", service.listCriteria(cri));
 	}
 	
 

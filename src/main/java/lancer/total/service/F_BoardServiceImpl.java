@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import lancer.f_board.domain.F_BoardVO;
+import lancer.f_board.domain.F_Criteria;
 import lancer.total.persistence.F_BoardDAO;
 
 @Service
@@ -37,6 +38,11 @@ public class F_BoardServiceImpl implements F_BoardService{
 	@Override
 	public List<F_BoardVO> listAll() throws Exception {
 		return dao.listAll();
+	}
+
+	@Override
+	public List<F_BoardVO> listCriteria(F_Criteria cri) throws Exception {
+		return dao.listCriteria(cri);
 	}
 
 	

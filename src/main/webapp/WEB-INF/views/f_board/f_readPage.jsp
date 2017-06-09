@@ -18,16 +18,16 @@
 		console.log(formObj);
 		
 		$(".btn_check04").on("click", function(){
-			formObj.attr("action", "/f_board/modify");
+			formObj.attr("action", "modify");
 			formObj.attr("method", "get");
 			formObj.submit();
 		})
 		$(".butt").on("click", function(){
-			formObj.attr("action", "/f_board/remove");
+			formObj.attr("action", "remove");
 			formObj.submit();
 		})
 		$(".btn_check04").on("click", function(){
-			formObj.attr("action", "/f_board/listAll");
+			formObj.attr("action", "listAll");
 		});
 		
 	});
@@ -36,7 +36,7 @@
 </head>
 <body>
  <%@include file="../c_common/header.jsp" %>
-  <form method="post">
+  
   	<input type='hidden' name='bno' value="${F_BoardVO.f_board_num }">
   </form>
 	<div id="conainer">
@@ -67,6 +67,7 @@
 				</div> -->
 
 				<!-- //tb_box : e -->
+				<form method="post" role="form">
 				<div class="tb_box">
 				<h1>&nbsp</h1>
 					<table class="tb_st01">

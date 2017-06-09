@@ -230,21 +230,15 @@
                                 <select class="wid04" name="f_email3" id="f_email3">
 									<option value="">선택해주세요.</option>
 									<option value="etc">직접입력</option>
-									<option value="gmail.com"> gmail.com</option>
-									<option value="naver.com"> naver.com</option>
-									<option value="nate.com"> nate.com</option>
-									<option value="daum.net"> daum.net</option>
-									<option value="dreamwiz.com"> dreamwiz.com</option>
-									<option value="lycos.co.kr"> lycos.co.kr</option>
-									<option value="empal.com"> empal.com</option>
-									<option value="yahoo.co.kr"> yahoo.co.kr</option>
-									<option value="chol.com"> chol.com</option>
-									<option value="korea.com"> korea.com</option>										
-									<option value="paran.com"> paran.com</option>
-									<option value="hanafos.com"> hanafos.com</option>
-									<option value="hanmir.com"> hanmir.com</option>								
-									<option value="hotmail.com"> hotmail.com</option>
-									<option value="hanmail.net"> hanmail.net</option>
+									<option value="gmail.com">gmail.com</option>
+             						<option value="naver.com">naver.com</option>
+	             					<option value="nate.com">nate.com</option>
+					                <option value="daum.net">daum.net</option>
+					                <option value="dreamwiz.com">dreamwiz.com</option>
+					                <option value="yahoo.co.kr">yahoo.co.kr</option>
+					                <option value="chol.com">chol.com</option>
+					                <option value="korea.com">korea.com</option>
+					                <option value="hanmail.net">hanmail.net</option>
                                 </select>
                             </td>
                         </tr>

@@ -2,7 +2,9 @@ package lancer.total.service;
 
 import java.util.List;
 
+
 import lancer.f_board.domain.F_BoardVO;
+import lancer.f_board.domain.F_Criteria;
 
 public interface F_BoardService {
 	
@@ -15,4 +17,6 @@ public interface F_BoardService {
 	public void remove(Integer f_board_num)throws Exception;
 	
 	public List<F_BoardVO> listAll() throws Exception;
+	
+	public List<F_BoardVO> listCriteria(F_Criteria cri)throws Exception;
 }

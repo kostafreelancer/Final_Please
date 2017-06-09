@@ -7,7 +7,9 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+
 import lancer.f_board.domain.F_BoardVO;
+import lancer.f_board.domain.F_Criteria;
 
 @Repository
 public class F_BoardDAOImpl implements F_BoardDAO{
@@ -40,6 +42,20 @@ public class F_BoardDAOImpl implements F_BoardDAO{
 	@Override
 	public List<F_BoardVO> listAll() throws Exception {
 		return session.selectList(namespace+".listAll");
+	}
+
+	@Override
+	public List<F_BoardVO> listPage(int page) throws Exception {
+		if(page<=0){
+			page=1;
+		}
+		page=(page-1)*10;
+		return session.selectList(namespace+".listPage", page);
+	}
+
+	@Override
+	public List<F_BoardVO> listCriteria(F_Criteria cri) throws Exception {
+		return session.selectList(namespace+".listCriteria", cri);
 	}
 	
 	
