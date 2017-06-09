@@ -27,6 +27,28 @@
 		SELECT job_id FROM f_job WHERE f_num = #{f_num}
 	</select>
 	
+	<select id="showSchoolInfo" parameterType="int" resultType="School">
+		select * from school where f_num = #{f_num}
+	</select>
+	
+	<select id="showCareerInfo" parameterType="int" resultType="Career">
+		select * from career where f_num = #{f_num}
+	</select>
+	
+	<select id="showCertiInfo" parameterType="int" resultType="Certificate">
+		select * from certificate where f_num = #{f_num}
+	</select>
+	
+	<select id="getMyFinishProject" parameterType="int" resultType="lancer.e_mypage.domain.Project">
+		select pro.p_name, pro.P_UPPERCOST, pro.P_STARTDATE, pro.P_ENDDATE, pro.e_pr_num from project pro, contract con
+		where con.E_PR_NUM = pro.E_PR_NUM and con.f_num = #{f_num} and con.c_state=3
+	</select>
+	
+	<select id="getProjectP_job" resultType="String">
+		select job.JOB_NAME from project pro, p_job p_job, job job 
+		where pro.E_PR_NUM = p_job.E_PR_NUM and p_job.JOB_ID = job.JOB_ID and pro.E_PR_NUM=#{e_pr_num}
+	</select>
+	
 	<select id="c_freelancerlist_select_school" resultType="c_freelancerlist_schoolVO" parameterType="int">
 		select * from school
 						where f_num = #{f_num}

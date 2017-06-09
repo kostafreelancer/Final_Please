@@ -13,6 +13,11 @@ import lancer.c_freelancerlist.domain.c_freelancerlist_schoolVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.c_projectlist.domain.SearchCriteria;
+import lancer.e_mypage.domain.Project;
+import lancer.f_mypage.domain.Career;
+import lancer.f_mypage.domain.Certificate;
+import lancer.f_mypage.domain.Freelancer;
+import lancer.f_mypage.domain.School;
 import lancer.total.persistence.c_freelancerlistDAO;
 
 @Service
@@ -83,5 +88,29 @@ public class c_freelancerlistServiceImpl implements c_freelancerlistService {
 	public List<Integer> selectF_job(int f_num) throws Exception{
 		return dao.selectF_job(f_num);
 	}
-
+	
+	@Override
+	public List<Career> showCareerInfo(int f_num) throws Exception {
+		return dao.showCareerInfo(f_num);
+	}
+	@Override
+	public List<School> showSchoolInfo(int f_num) throws Exception{
+		return dao.showSchoolInfo(f_num);
+	}
+	@Override
+	public List<Certificate> showCertiInfo(int f_num) throws Exception{
+		return dao.showCertiInfo(f_num);
+	}
+	@Override
+	public List<Project> getMyFinishProject(int f_num) throws Exception{
+		return dao.getMyFinishProject(f_num);
+	}
+	
+	@Override
+	public List<String> getProjectP_job(int e_pr_num) throws Exception{
+		return dao.getProjectP_job(e_pr_num);
+	}
+	
+	
+	
 }

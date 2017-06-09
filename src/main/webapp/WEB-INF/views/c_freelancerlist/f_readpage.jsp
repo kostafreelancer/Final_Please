@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" href="/resources/c_freelancerlist_css/myInfo.css" type="text/css" media="screen" />
 
-<title>내 정보</title>
+<title>프리랜서 정보</title>
 
 <!-- <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script> -->
@@ -49,7 +49,7 @@ $(function(){
 	<section id="firstsection">
 
 	<ul id="tabs">
-		<li><a href="#" title="tab1">내 정보</a></li>
+		<li><a href="#" title="tab1">프리랜서 정보</a></li>
 		<li><a href="#" title="tab2">이력 정보</a></li>
 		<li><a href="#" title="tab3">포트폴리오</a></li>
 		<li><a href="#" title="tab4">히스토리</a></li>
@@ -359,7 +359,6 @@ $(function(){
 			<div class="tb_box">
 				<div class="ct overf">
 					<h4 class="fl myfl">경력사항</h4>
-						<button id="add" class="career_add" onclick="addCareer();">추가하기</button>
 				</div>
 				<table class="tb_st01 tb_st03">
 					<caption></caption>
@@ -379,8 +378,7 @@ $(function(){
 							<th scope="col" class="ac">직위</th>
 							<th scope="col" class="ac">근무기간</th>
 							<th scope="col" class="ac">소재지</th>
-							<th scope="col" class="ac">근속년수</th>
-							<th scope="col" class="last ac">관리</th>
+							<th scope="col" class="last ac">근속년수</th>
 						</tr>
 						
 					</thead>
@@ -404,52 +402,18 @@ $(function(){
 							<td>${mycareer.rank}</td>
 							<td>${mycareer.career_term}</td>
 							<td>${mycareer.career_location}</td>
-							<td>${mycareer.career_year}</td>
-							<td class="last"><input type="button" value="수정" onclick="modifyCareer(${mycareer.career_num});">&nbsp;&nbsp;<input
-								type="button" value="삭제" onclick="deleteCareer(${mycareer.career_num});"></td>
-
+							<td class="last">${mycareer.career_year}</td>
+							
 						</tr>
 						</form>
 					</c:forEach>
 					</tbody>
 				</table>
-				<form name="tempCareerAdd"  action="/f_mypage/careerAdd" method="post">
-					<input type="text" hidden name="f_num" value="${client.f_num}">
-					<input type="text" hidden name="company">
-					<input type="text" hidden name="dept">
-					<input type="text" hidden name="rank">
-					<input type="text" hidden name="career_term">
-					<input type="text" hidden name="career_location">
-					<input type="text" hidden name="career_year">
-				</form>
-				<form name="tempCareerModify"  action="/f_mypage/updateCareer" method="post">
-					<input type="text" hidden name="career_num">
-					<input type="text" hidden name="company">
-					<input type="text" hidden name="dept">
-					<input type="text" hidden name="rank">
-					<input type="text" hidden name="career_term">
-					<input type="text" hidden name="career_location">
-					<input type="text" hidden name="career_year">
-				</form>
-				<form name="tempCareerDelete" action="deleteCareer.f_mypage">
-					<input type="text" hidden name="deleteCareer_num">
-				</form>
-
-				<div id="ResumePANNEL3"
-					style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; background: url(../../images/popup/bg_popup.png) repeat; text-align: center; z-index: 5; display: none;">
-					<form method="post" name="ResumeFrame3" style="display: inline;"
-						onsubmit="return false;">
-						<input type="hidden" name="seluno" value="">
-						<iframe id="ResumeiFrame3" name="ResumeiFrame3" frameborder="0"
-							scrolling="no"
-							style="height: 631px; width: 804px; position: absolute; top: 20%; left: 50%; margin: 0 -420px"></iframe>
-					</form>
-				</div>
 			</div>
+			
 			<div class="tb_box">
 				<div class="ct overf">
 					<h4 class="fl myfl">학력사항</h4>
-					<button id="add" class="school_add" onclick="addSchool();">추가하기</button>
 				</div>
 				<table class="tb_st01 tb_st03">
 					<caption></caption>
@@ -467,8 +431,7 @@ $(function(){
 							<th scope="col" class="ac">전공</th>
 							<th scope="col" class="ac">기간</th>
 							<th scope="col" class="ac">소재지</th>
-							<th scope="col" class="ac">학위</th>
-							<th scope="col" class="last ac">관리</th>
+							<th scope="col" class="last ac">학위</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -488,51 +451,19 @@ $(function(){
 							<td>${myschool.major}</td>
 							<td>${myschool.school_term}</td>
 							<td>${myschool.school_location}</td>
-							<td>${myschool.school_degree}</td>
-							<td class="last">
-							<input type="button" value="수정" onclick="modifySchool(${myschool.school_num});">&nbsp;&nbsp;
-							<input type="button" value="삭제" onclick="deleteSchool(${myschool.school_num});"></td>
+							<td class="last">${myschool.school_degree}</td>
 						</tr>
 						</form>
 					</c:forEach>
 
 					</tbody>
 				</table>
-				<form name="tempSchoolAdd"  action="insertSchool.f_mypage">
-					<input type="text" hidden name="tempf_num" value="${client.f_num}">
-					<input type="text" hidden name="school_name">
-					<input type="text" hidden name="major">
-					<input type="text" hidden name="term">
-					<input type="text" hidden name="location">
-					<input type="text" hidden name="degree">
-				</form>
-				<form name="tempSchoolModify"  action="updateSchool.f_mypage">
-					<input type="text" hidden name="school_num">
-					<input type="text" hidden name="school_name">
-					<input type="text" hidden name="major">
-					<input type="text" hidden name="term">
-					<input type="text" hidden name="location">
-					<input type="text" hidden name="degree">
-				</form>
-				<form name="tempSchoolDelete" action="deleteSchool.f_mypage">
-					<input type="text" hidden name="deleteSchool_num">
-				</form>
-
-				<div id="ResumePANNEL1"
-					style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; background: url(../../images/popup/bg_popup.png) repeat; text-align: center; z-index: 5; display: none;">
-					<form method="post" name="ResumeFrame1" onsubmit="return false;">
-						<input type="hidden" name="seluno" value="">
-						<iframe id="ResumeiFrame1" name="ResumeiFrame1" frameborder="0"
-							scrolling="no"
-							style="height: 498px; width: 804px; position: absolute; top: 20%; left: 50%; margin: 0 -420px"></iframe>
-					</form>
-				</div>
+				
 			</div>
 
 			<div class="tb_box">
 				<div class="ct overf">
 					<h4 class="fl myfl">자격증</h4>
-					<button id="add" class="right_add" onclick="addCerti();">추가하기</button>
 				</div>
 				<table class="tb_st01 tb_st03">
 					<caption></caption>
@@ -546,8 +477,7 @@ $(function(){
 						<tr>
 							<th scope="col" class="ac">자격증명</th>
 							<th scope="col" class="ac">발행처</th>
-							<th scope="col" class="ac">취득일자</th>
-							<th scope="col" class="last ac">관리</th>
+							<th scope="col" class="last ac">취득일자</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -564,43 +494,13 @@ $(function(){
 			
 							<td>${mycerti.certificate_name}</td>
 							<td>${mycerti.organization}</td>
-							<td>${mycerti.accept_date}</td>
-							<td class="last"><input type="button" value="수정" onclick="modifyCerti(${mycerti.certificate_num});">&nbsp;&nbsp;<input
-								type="button" value="삭제" onclick="deleteCerti(${mycerti.certificate_num});"></td>
-
+							<td class="last">${mycerti.accept_date}</td>
 						</tr>
 						</form>
 					</c:forEach>
 
 					</tbody>
 				</table>
-				<form name="tempCertiAdd"  action="insertCerti.f_mypage">
-					<input type="text" hidden name="tempf_num" value="${client.f_num}">
-					<input type="text" hidden name="certi_name">
-					<input type="text" hidden name="organization">
-					<input type="text" hidden name="accept_date">
-				</form>
-				<form name="tempCertiModify"  action="updateCerti.f_mypage">
-					<input type="text" hidden name="certi_num">
-					<input type="text" hidden name="certi_name">
-					<input type="text" hidden name="organization">
-					<input type="text" hidden name="accept_date">
-					
-				</form>
-				<form name="tempCertiDelete" action="deleteCerti.f_mypage">
-					<input type="text" hidden name="deleteCerti_num">
-				</form>
-
-				<div id="ResumePANNEL5"
-					style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; background: url(../../images/popup/bg_popup.png) repeat; text-align: center; z-index: 5; display: none;">
-					<form method="post" name="ResumeFrame5" style="display: inline;"
-						onsubmit="return false;">
-						<input type="hidden" name="seluno" value="">
-						<iframe id="ResumeiFrame5" name="ResumeiFrame5" frameborder="0"
-							scrolling="no"
-							style="height: 602px; width: 804px; position: absolute; top: 20%; left: 50%; margin: 0 -420px"></iframe>
-					</form>
-				</div>
 			</div>
 		</div>
 
@@ -608,10 +508,8 @@ $(function(){
 
 					<div class="ct overf">
 						<h4 class="fl myfl">포트폴리오</h4>
-						<button id="add" class="portFolio_add">추가하기</button>
 					</div>
 					<table class="tb_st01 tb_st03">
-						<caption></caption>
 						<colgroup>
 							<col style="width: 60%">
 							<col style="width: 25%">
@@ -620,17 +518,14 @@ $(function(){
 						<thead>
 							<tr>
 								<th scope="col" class="ac">포트폴리오 내용</th>
-								<th scope="col" class="ac">첨부파일</th>
-								<th scope="col" class="ac">관리</th>
+								<th scope="col" class="last ac">첨부파일</th>
 							</tr>
 						</thead>
 						<tbody>
 
 							<tr>
 								<td>어쩌구저쩌구</td>
-								<td>file.zip</td>
-								<td class="last".><input type="button" value="수정">&nbsp;&nbsp;<input
-									type="button" value="삭제"></td>
+								<td class="last">file.zip</td>
 							</tr>
 
 						</tbody>
@@ -641,9 +536,8 @@ $(function(){
 
 		
 		<div id="tab4">
-			<h4>내가 완료한 프로젝트</h4>
+			<h4>프리랜서가 완료한 프로젝트</h4>
 			<table class="tb_st01 tb_st03">
-				<caption></caption>
 				<!-- 	<colgroup>
 				<col style="width: 20%">
 				<col style="width: 14%">
@@ -657,20 +551,32 @@ $(function(){
 						<th scope="col" class="ac">프로젝트명</th>
 						<th scope="col" class="ac">프로젝트 기간</th>
 						<th scope="col" class="ac">예산</th>
-						<th scope="col" class="ac">관련기술</th>
+						<th scope="col" class="last ac">관련기술</th>
 					</tr>
 				</thead>
 				<tbody>
 
-					<tr>
-						<td class="ac" colspan="6">등록된 히스토리 정보가 없습니다.</td>
-					</tr>
+						<c:if test="${finishprojectcheck == 0}">
+							<tr><td colspan="5">완료한 내역이 없습니다.</td></tr>
+					</c:if>
+					
+					<c:forEach var="myFinishProject" items="${finishproject}">
+						
+						 <tr>							
+							<td>${myFinishProject.proName}</td>
+							<td>${myFinishProject.proTerm}</td>
+							<td>${myFinishProject.cost}</td>
+							<td class="last">${myFinishProject.p_job}</td>
+						</tr>
+						
+					</c:forEach>
 
 				</tbody>
 			</table>
 
 
 		</div>
+
 
 	</div>
 

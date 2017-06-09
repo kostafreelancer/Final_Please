@@ -1,5 +1,6 @@
 package lancer.total.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -18,6 +19,12 @@ import lancer.c_freelancerlist.domain.c_freelancerlist_SearchCriteria;
 import lancer.c_freelancerlist.domain.c_freelancerlist_careerVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
 import lancer.c_projectlist.domain.SearchCriteria;
+import lancer.e_mypage.domain.Project;
+import lancer.f_mypage.domain.ApplyProject;
+import lancer.f_mypage.domain.Career;
+import lancer.f_mypage.domain.Certificate;
+import lancer.f_mypage.domain.FinishProject;
+import lancer.f_mypage.domain.School;
 import lancer.total.service.c_freelancerlistService;
 
 @Controller
@@ -89,6 +96,52 @@ public class c_freelancerlistController {
 		//상세분야 구하기
 		List<Integer> f_job =service.selectF_job(f_num);
 		model.addAttribute("f_job", f_job);
+		
+		List<Career> career = service.showCareerInfo(f_num);
+		List<School> school = service.showSchoolInfo(f_num);
+		List<Certificate> certificate = service.showCertiInfo(f_num);
+		
+		List<Project> project = service.getMyFinishProject(f_num);
+		List<FinishProject> finishProject  = new ArrayList<FinishProject>();
+		for(int i=0; i<project.size(); i++){
+			FinishProject fp = new FinishProject();
+			fp.setProName(project.get(i).getP_name());
+			fp.setProTerm(project.get(i).getP_startdate().substring(0, 10) + " ~ " + project.get(i).getP_enddate().substring(0, 10));
+			fp.setCost(project.get(i).getP_uppercost());
+			List<String> tempList = service.getProjectP_job(project.get(i).getE_pr_num());
+			System.out.println(project.get(i).getE_pr_num());
+			String temp = "";
+			for(int j=0; j<tempList.size(); j++){
+				temp += tempList.get(j) + ", ";
+			}
+			fp.setP_job(temp.substring(0, temp.length()-2));
+			finishProject.add(fp);
+		}
+		
+		
+		if(career.size()==0){
+			model.addAttribute("careercheck", "0");
+		}else{
+			model.addAttribute("career", career);
+		}
+		
+		if(school.size()==0){
+			model.addAttribute("schoolcheck", "0");
+		}else{
+			model.addAttribute("school", school);
+		}
+		
+		if(certificate.size()==0){
+			model.addAttribute("certificatecheck", "0");
+		}else{
+			model.addAttribute("certificate", certificate);
+		}
+		
+		if(finishProject.size() == 0 ){
+			model.addAttribute("finishprojectcheck", "0");
+		}else{
+			model.addAttribute("finishproject", finishProject);
+		}
 	}
 	
 
