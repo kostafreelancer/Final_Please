@@ -1,9 +1,3 @@
-function open_win()
-{
- window.open('/verification/verificationPop.jsp','popup', 
-		 'width=300, height=200, left=0, top=0, toolbar=no, location=no, directories=no, status=no, menubar=no, resizable=no, scrollbars=no, copyhistory=no');
-}  
-
 $(document).ready(function(){
 	  $('#e_mail_select1').change(function(){
 	      var e_mail = $(this).val();

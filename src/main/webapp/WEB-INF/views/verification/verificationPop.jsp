@@ -42,7 +42,7 @@
 					<option value="hanmail.net">hanmail.net</option>
 				</select>
 			<br>
-			<span style="color:red;font-size:12px;">*가입할 때 입력하신 이메일을 입력해주세요.</span>
+			<span style="color:red;font-size:12px;">*가입 시 입력한 이메일을 입력해주세요.</span>
 			<br>
 			<input type="radio" name="sort">프리랜서<input type="radio" name="sort">기업
 			<br>
@@ -73,7 +73,7 @@
 					<option value="hanmail.net">hanmail.net</option>
 				</select>
 			<br>
-			<span style="color:red;font-size:12px;">*가입할 때 입력하신 이메일을 입력해주세요.</span>
+			<span style="color:red;font-size:12px;">*가입 시 입력한 이메일을 입력해주세요.</span>
 			<br>
 			<input type="radio" name="sort">프리랜서<input type="radio" name="sort">기업
 			<br>
