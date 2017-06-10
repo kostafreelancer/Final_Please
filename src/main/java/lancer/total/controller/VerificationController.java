@@ -31,22 +31,22 @@ public class VerificationController {
 			into_map.put("name", name);
 			into_map.put("EmailId", email);
 			
-			Integer freelancer_count = verificationService.checking_freelancer(into_map);
-			Integer enterprise_count = verificationService.checking_enterprise(into_map);
+			Integer f_count = verificationService.checking_freelancer(into_map);
+			Integer e_count = verificationService.checking_enterprise(into_map);
 			
-			System.out.println(freelancer_count+"카운트");
+			System.out.println(f_count+"카운트");
 			String page = "";
 			
 			if(sort.equals("f")){//프리랜서면
-				System.out.println(freelancer_count+"2번");
-				if(freelancer_count==1){
-					System.out.println(freelancer_count+"3번");
+				System.out.println(f_count+"2번");
+				if(f_count==1){
+					System.out.println(f_count+"3번");
 					page = "redirect:/verification/verified";
 				}else{
 					page = "redirect:/verification/verificationPop?fail=true";
 				}
 			}else{//기업이면
-				if(enterprise_count==1){
+				if(e_count==1){
 					page = "redirect:/verification/verified";
 				}else{
 					page = "redirect:/verification/verificationPop?fail=true";
