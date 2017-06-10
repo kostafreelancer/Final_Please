@@ -65,53 +65,27 @@
 
 //이메일인증
 
-/* var event = {
-                type: 'click',
-                stopPropagation: function () {},
-                preventDefault: function () {}
-            };           */
-           
-	/* $("#checkEmail").click(function(event){
-		 event.preventDefault();
-		event.stopPropagation(); 
-		 alert("이메일인증");
-		    var url="/testEmail";
-		    var newWin = window.open(url,"new", "width=400,height=400,");
-		    var f = document.f_userInfo;
-		    f.action="/c_join/testEmail";
-		    f.target="new";
-		    f.method="post";
-		    f.submit();
-	}) */
- var checkEmail = function(event) {
+ var checkEmail = function(index) {
 	
+      if(index == 1){
+    	  
+    	 var url="/testEmail";
+  	    var newWin = window.open(url,"new", "width=400,height=400,");
+  	    var f = document.f_userInfo;
+  	    f.action="/c_join/testEmail";
+  	    f.target="new";
+  	    f.method="post";
+  	    f.submit();  
+      }
+      if(index ==2){
+    	  var f = document.f_userInfo;
+    	  f.action="f_join_step3";
+    	  f.target="";
+    	  f.method="post";
+    	  f.submit();
+      }
       
-       //event.preventDefault();
-	   alert("이메일인증");
-	    var url="/testEmail";
-	    var newWin = window.open(url,"new", "width=400,height=400,");
-	    var f = document.f_userInfo;
-	    f.action="/c_join/testEmail";
-	    f.target="new";
-	    f.method="post";
-	    f.submit();
-	    f.action="f_join_step3";
-	    event.stopPropagation();
-	 
-	} 
 	
-/* function checkEmail(event){
- 	alert("이메일인증");
-    var url="/testEmail";
-    var newWin = window.open(url,"new", "width=400,height=400,");
-    var f = document.f_userInfo;
-    f.action="/c_join/testEmail";
-    f.target="new";
-    f.method="post";
-    f.submit();
-    
-    event.stopPropagation();
-}  */
 
 
   
@@ -153,7 +127,7 @@
                     <p class="star_txt"><span class="color_or">(*)</span>표시는 필수 입력사항입니다</p>
                 </div>
                 <table class="tb_st01">
-				<form name="f_userInfo" method="post" action="f_join_step3">
+				<form name="f_userInfo" method="post">
 					<input type="hidden" name="fm_type" value="이랜서">
 					<input type="hidden" name="fm_format" value="개인">
 					<input type="hidden" name="fm_str" value="Zm1fbmFtZT0mZm1fanVtaW49LTk5OTk5OSZzdHJWbm89">
@@ -303,7 +277,7 @@
 					                <option value="korea.com">korea.com</option>
 					                <option value="hanmail.net">hanmail.net</option>
                                 </select>                                
-                                 <a id="event_bubble" href="javascript:checkEmail(event);">인증하기</a>
+                                 <a id="event_bubble" href="javascript:checkEmail(1);">인증하기</a>
                                <!--  <button id="checkEmail" onclick="checkEmail(event); return false;">인증하기</button> -->
                                 <span id="checkEmailConfirm"></span>
                                 
@@ -539,7 +513,7 @@
 
 					<!-- //tb_box01 : e -->
 					<div class="btn_box">
-						<input type="submit" class="btn_check04" id="f_checkValue" value="회원가입">
+						<input type="submit" class="btn_check04" id="f_checkValue" value="회원가입" onclick="checkEmail(2)">
 						<a href="javascript:MemberWriteFm.reset();" class="btn_check02">초기화</a>
 					</div>
 		</div>
