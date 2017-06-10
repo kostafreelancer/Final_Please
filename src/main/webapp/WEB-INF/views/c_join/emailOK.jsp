@@ -12,7 +12,7 @@
 		console.log("인증페이지")
 		var form = document.authenform;
 		var authNum = ${authNum}
-		var opner = window.opener.document;
+		//var opner = window.opener.document;
 		
 		if (!form.authNum.value) {
 			alert("인증번호를 입력해 주세요.");
@@ -29,12 +29,15 @@
 		}
 		if (form.authNum.value == authNum) {
 			alert("인증되었습니다.");
-			//form.authNum.value = "인증완료";
-			var result = "<h2>인증완료<h2>"
+			var result = "인증완료"
 			var parent = window.opener
 			//alert(result);
-			parent.document.getElementById('answerOk').html(result);
-			//self.close();
+			//var text = parent.document.f_userInfo.confirmEmail.txt
+			var oldtext = opener.document.getElementById("checkEmailConfirm").innerHTML;
+			if(oldtext == ''){
+				opener.document.getElementById("checkEmailConfirm").innerHTML = "인증완료";
+			}
+			self.close();
 		}
 
 	}

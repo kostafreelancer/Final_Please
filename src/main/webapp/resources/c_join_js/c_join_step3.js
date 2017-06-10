@@ -1,6 +1,5 @@
 
 
-
 $(function(){
 	
 
@@ -176,6 +175,11 @@ $(function(){
         	alert("사업자등록증을 등록해주세요.");
         	return false;
         }*/
+        
+        if(!form.checkEmailConfirm.innerHTML){
+        	alert("이메일 인증을 받아주세요.");
+        	return false;
+        }
 	});
 	
 	
@@ -184,7 +188,7 @@ $(function(){
 	
 	 //프리랜서
 	$('#f_checkValue').click(function(){
-		var form1 = document.f_userInfo;  
+	/*	var form1 = document.f_userInfo;  
 		
 		   if(!form1.f_id.value){
 	        	alert("아이디를 입력하세요.");
@@ -194,7 +198,7 @@ $(function(){
 		 if(form1.idDuplication.value != "idCheck"){
 	            alert("아이디 중복체크를 해주세요.");
 	            return false;
-	        }
+	        }*/
 		 
 /* 		 if((form1.f_id.value < "0" || form1.f_id.value > "9") 
 				 && (form1.f_id.value < "A" || form1.f_id.value > "Z") 
@@ -214,7 +218,7 @@ $(function(){
         
        
         
-        if(!form1.f_pwd.value){
+       /* if(!form1.f_pwd.value){
         	alert("비밀번호를 입력하세요.");
         	return false;
         }
@@ -275,6 +279,10 @@ $(function(){
         }
         if($('input:checkbox[name="fm_new_keyword"]:checked').length == 0){
         	alert("기본 분야를 선택하세요.");
+        	return false;
+        }*/
+        if(!$("#checkEmailConfirm").html()){
+        	alert("이메일 인증을 받아주세요.");
         	return false;
         }
    });

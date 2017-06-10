@@ -64,7 +64,7 @@ public class f_mainController {
 		System.out.println("메일테스트");
 	}
 	
-	@RequestMapping(value="testEmail", method = RequestMethod.GET)
+	@RequestMapping(value="/testEmail", method = RequestMethod.POST)
 	public ModelAndView sendEmailAction(HttpServletRequest request, ModelAndView mv) throws Exception {
         // 메일 내용을 작성한다
         SimpleMailMessage msg = new SimpleMailMessage();
@@ -74,7 +74,8 @@ public class f_mainController {
         //인증번호(랜덤)
         String authNum = randomNum();
         //받는사람
-        String email = "vionicterran@naver.com";
+        String email = request.getParameter("email");
+        System.out.println(email + "이메일받");
         // 보내는사람
         
         String From = "skidrow0725@gmail.com";
@@ -113,6 +114,8 @@ public class f_mainController {
       mv.setViewName("/f_main/emailOK");
         return mv;
     }
+	
+	
 	
 	@RequestMapping(value="emailOK", method = RequestMethod.GET)
 	public void emailOK(){

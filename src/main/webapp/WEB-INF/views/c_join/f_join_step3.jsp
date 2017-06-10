@@ -19,13 +19,22 @@
 }
 </style>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+
 <script type="text/javascript" src="../../../resources/c_join_js/c_join_step3.js"></script>
 <script type="text/javascript" src="../../../resources/c_join_js/f_zipAddress.js"></script>
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
  <script type="text/javascript">
- function checkcheck(){
+ 
+ // 이메일인증
 
-	 var pattern = /[A-Za-z0-9_]{3,15}$/;
+
+
+ 
+ 
+ 
+  function checkcheck(){
+
+ var pattern = /[A-Za-z0-9_]{3,15}$/;
 
 		$.ajax({
 			url : "duplicationCheck",
@@ -48,11 +57,64 @@
 			},
 			error : function(error) {
 				alert(error.statusText);
+				
 			}
 		});
 
- }
- 
+ } 
+
+//이메일인증
+
+/* var event = {
+                type: 'click',
+                stopPropagation: function () {},
+                preventDefault: function () {}
+            };           */
+           
+	/* $("#checkEmail").click(function(event){
+		 event.preventDefault();
+		event.stopPropagation(); 
+		 alert("이메일인증");
+		    var url="/testEmail";
+		    var newWin = window.open(url,"new", "width=400,height=400,");
+		    var f = document.f_userInfo;
+		    f.action="/c_join/testEmail";
+		    f.target="new";
+		    f.method="post";
+		    f.submit();
+	}) */
+ var checkEmail = function(event) {
+	
+      
+       //event.preventDefault();
+	   alert("이메일인증");
+	    var url="/testEmail";
+	    var newWin = window.open(url,"new", "width=400,height=400,");
+	    var f = document.f_userInfo;
+	    f.action="/c_join/testEmail";
+	    f.target="new";
+	    f.method="post";
+	    f.submit();
+	    f.action="f_join_step3";
+	    event.stopPropagation();
+	 
+	} 
+	
+/* function checkEmail(event){
+ 	alert("이메일인증");
+    var url="/testEmail";
+    var newWin = window.open(url,"new", "width=400,height=400,");
+    var f = document.f_userInfo;
+    f.action="/c_join/testEmail";
+    f.target="new";
+    f.method="post";
+    f.submit();
+    
+    event.stopPropagation();
+}  */
+
+
+  
 
  </script>
 </head>
@@ -91,7 +153,7 @@
                     <p class="star_txt"><span class="color_or">(*)</span>표시는 필수 입력사항입니다</p>
                 </div>
                 <table class="tb_st01">
-				<form name="f_userInfo" method="post" action="f_join_step3" >
+				<form name="f_userInfo" method="post" action="f_join_step3">
 					<input type="hidden" name="fm_type" value="이랜서">
 					<input type="hidden" name="fm_format" value="개인">
 					<input type="hidden" name="fm_str" value="Zm1fbmFtZT0mZm1fanVtaW49LTk5OTk5OSZzdHJWbm89">
@@ -221,11 +283,12 @@
                         <tr>
                         	<th><span class="txt_or">*</span> 이메일</th>
                             <td colspan="4">
-                                <label for="f_email1"></label>
-                                <input type="text" id="f_email1" name="f_email1" class="wid04">
+                           
+                                <label for="f_email1"></label>                                
+                                <input type="text" id="f_email1" name="f_email1" class="wid04" value="">
                                 <span>@</span>
                                 <label for="f_email2"></label>
-                                <input type="text" id="f_email2" name="f_email2" class="wid04">
+                                <input type="text" id="f_email2" name="f_email2" class="wid04" value="">
                                 <label for="f_email2"></label>
                                 <select class="wid04" name="f_email3" id="f_email3">
 									<option value="">선택해주세요.</option>
@@ -239,7 +302,12 @@
 					                <option value="chol.com">chol.com</option>
 					                <option value="korea.com">korea.com</option>
 					                <option value="hanmail.net">hanmail.net</option>
-                                </select>
+                                </select>                                
+                                 <a id="event_bubble" href="javascript:checkEmail(event);">인증하기</a>
+                               <!--  <button id="checkEmail" onclick="checkEmail(event); return false;">인증하기</button> -->
+                                <span id="checkEmailConfirm"></span>
+                                
+                             
                             </td>
                         </tr>
                         <tr>
