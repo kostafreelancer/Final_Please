@@ -14,7 +14,7 @@ public class VerificationDAOImpl implements VerificationDAO {
 	@Inject
 	private SqlSession session;
 		
-    String namespace = "lancer.mappers.verficationMapper";
+    String namespace = "lancer.mappers.verificationMapper";
     
 	@Override
 	public String verifying_freelancer_id(HashMap<String, String> map) throws Exception {
