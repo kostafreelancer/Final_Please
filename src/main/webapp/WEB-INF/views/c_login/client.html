@@ -1,0 +1,183 @@
+<script src="/socket.io/socket.io.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script> -->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	
+	var socket = io.connect();
+	var myname = prompt("너의 이름?");
+	socket.on('join',function(username, data){
+		$('.chat_content').append('<p class="server"><span>'+data+'</span></p>');
+	});
+	socket.emit('adduser', myname);
+	socket.on('updatechat',function(username , data){
+		if(username != myname){
+			$('.chat_content').append('<p class="server_name">'+username+'</p><p class="server"><span>'+data+'</span></p>');
+		}
+	});
+	$(function(){
+		// 클라이언트에서 SEND 버튼을 클릭할 때
+		$('#datasend').click( function() {
+		var message = $('#data').val();
+		$('#data').val('');
+		// 서버에서 sendchat 함수를 실행하도록 알려주며, 하나의 파라미터를 전달한다
+		socket.emit('sendchat', message);
+		$('.chat_content').append('<p class="client"><span>'+message+'</span></p>');
+		});
+	});
+</script>
+<body>
+	<div class="messengerWrapper">
+		<div class="chat_inner">
+			<div class="chat_top">
+				<a href="" class="chat_menu"><img alt="chat_menu"
+					src="/img/menu-white.png"> 
+					<span class="top_title">드림 랜서</span> 
+				</a> <a href="" class="exit_menu"> <img alt="chat_menu"
+					src="img/menu-white.png"> 
+				</a>
+			</div>
+			<div class="chat_text_area">
+				<span>2017년 4월 26일</span>
+				<div class="chat_content">
+					
+				</div>
+			</div>
+			<div class="chat_text_input">
+				<!-- <textarea class="chat_text_put" placeholder="메시지를 입력하세요.."></textarea> -->
+				<input id="data" style="width:230px;" />
+				
+			</div>
+				<div id="datasend">전송</div>
+				<!-- <input type="button" id="datasend" value="send" /> -->
+			<!-- <div class="chat_send">전송</div> -->
+		</div>
+	</div>
+</body>
+<style>
+<!--
+.server span{
+	border: 1px solid;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 12px;
+    background-color: aliceblue;
+    border-top-left-radius: 0;
+}
+.client span{
+	border: 1px solid;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 12px;
+    background-color: aqua;
+    border-top-right-radius: 0;
+}
+
+.chat_content p{
+	margin-top: 0px;
+}
+.server_name{
+	padding: 0px;
+    margin: 0px;
+    text-align: left;
+    margin-left: 10;
+}
+.messengerWrapper {
+	width: 310px;
+	height: 680px;
+	border: 1px solid;
+	border-radius: 12px;
+	/* background-color: #0080ff; */
+}
+
+.chat_top {
+	height: 54px;
+	border-radius: 12px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius:0px;
+	background-color: #0080ff;
+}
+
+.chat_menu {
+	padding-left: 10px;
+}
+.top_title{
+	color: #ffffff;
+	text-align: center;
+	
+}
+.exit_menu {
+	position: absolute;
+	padding-left: 160px
+}
+
+.chat_text_area {
+	height: 580px;
+	background-color: #ffffff;
+	text-align: center;
+	border-bottom: 1px solid #c0c0c0;
+	overflow:auto;
+}
+
+.chat_text_input {
+	background-color: #ffffff;
+	padding-left: 10px;
+	padding-top: 7px;
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+	float: left;
+}
+
+.chat_text_put {
+	border: none;
+	text-align: center;
+	padding-bottom: 6px;
+	height: 20px;
+	padding-top: 6px;
+}
+#datasend{
+	padding-top: 7px;
+    text-align: right;
+    padding-right: 15px;
+}
+.chat_content {
+/* 	width: 200px;
+	border: 1px solid #c0c0c0;
+	background-color: #c0c0c0;
+	border-radius: 25px;
+	border-top-left-radius: 0px;
+	margin-left: 20px;
+	margin-top: 10px; */
+
+}
+.server{
+	/* border: 1px solid #c0c0c0;
+	background-color: #eef1f4; */
+	border-radius: 25px;
+	border-top-left-radius: 0px;
+	text-align: left;
+	padding-left: 10px;
+	/* position:absolute; */
+}
+.client{
+	/* border: 1px solid;
+    background-color: aqua; */
+    border-radius: 25px;
+    border-top-right-radius: 0px;
+    text-align: right;
+    text-align: right;
+	padding-right: 10px;
+    /* position: absolute; */
+}
+.chat_send {
+	background-color: #ffffff;
+	text-align: center;
+	padding-top: 7px;
+	padding-bottom: 12px;
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+.body{
+	margin: 0;
+}
+-->
+</style>

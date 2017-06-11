@@ -13,13 +13,13 @@
 	href="/resources/c_common_css/chatting_chang.css"
 	type="text/css" media="screen" />
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript"
-	src="/resources/c_common_js/chatting.js"></script>
+<!-- <script type="text/javascript"
+	src="/resources/c_common_js/chatting.js"></script> -->
 <script type="text/javascript">
 $(function(){
 	$('.chatting').click(function(){
 		alert("걸리는거야?");
-	$(this).load('/webapp/WEB-INF/views/c_common/chatting_chang.html');
+	$(this).load('http://localhost:8000/client');
 });
 });
 </script>

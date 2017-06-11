@@ -104,5 +104,8 @@ public class LoginController {
 		session.invalidate();
 		return "redirect:/f_main/f_main";
 	}
-	
+	@RequestMapping(value="/client")
+	public String client(){
+		return "redirect:http://localhost:8000/client";
+	}
 }
