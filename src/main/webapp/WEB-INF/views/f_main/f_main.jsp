@@ -1,13 +1,15 @@
 <%-- <%@page import="lancer.f_main.model.member"%> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="../../../resources/f_main_css/main.css">
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<!-- <script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script> -->
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="../../../resources/f_main_js/f_main.js"></script>
@@ -25,10 +27,10 @@ function drawMultSeries() {
       var data = google.visualization.arrayToDataTable([
         ['주제', '4월', ''],
         ['프리랜서', ${count}, 0],
-        ['프로젝트', ${countP}, 0],
+        ['프로젝트', ${countP}, 0]/* ,
         ['3', 0, 0],
         ['4', 0, 0],
-        ['5', 0, 0]
+        ['5', 0, 0] */
       ]);
  
       var options = {
@@ -70,23 +72,40 @@ function drawMultSeries() {
 	</div>
 
 	<div class="main_news">
-		<h1>활동중인 프리랜서</h1>
+		<c:choose>
+			<c:when test="${identity.identity == 'freelancer' }">
+				<h1>${client.f_name }님을 위한 맞춤 프로젝트</h1>
+			</c:when>
+			<c:otherwise>
+				<h1>드림랜서입니다!</h1>
+			</c:otherwise>
+		</c:choose>
+		
+		<%-- <h1>${recommend }raasdr</h1> --%>
 		<div class="left_news">
+			<%-- <c:when test="${identity.identity == 'freelancer' }"> --%>
+				<ul>
+				 <c:choose>
+		<c:when test="${identity.identity == 'freelancer' }">
+			<c:forEach items="${recommend }" var="recommendProject">
+				
+					<li>---------------------------------<br>
+					
+					${recommendProject.p_name }<br>
+					${recommendProject.p_lowercost }만원 ~ ${recommendProject.p_uppercost }만원 <br>
+					${recommendProject.p_startdate } 부터 시작<br>
+					<a href="/c_projectlist/c_readpage?e_pr_num=${recommendProject.e_pr_num }&e_num=${recommendProject.e_num}">프로젝트 상세 확인하기</a><br>
+					---------------------------------</li>
+				
+			</c:forEach>
+		</c:when>
+		<c:otherwise>
+			<li>드림랜서입니다!</li>
+		</c:otherwise>
+	</c:choose>
 			
-			<ul>
-				<li><a href="#"><h3>${member1 }</h3>
-						<br>프로젝트 다수^^</a></li>
-				<li><a href="http://www.daum.net"><h3>[Daum뉴스] 웹 개발자
-							선풍적인 인기~</h3>
-						<br>ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ<br>
-					<br>
-					<br></a></li>
-				<li><a href="http://www.google.com"><h3>[google뉴스]
-							Ajax를 활용한 비동기식 요청</h3>
-						<br>ajax하세요<br>
-					<br></a></li>
-				<li>d</li>
-			</ul>
+				</ul>
+			
 		</div>
 		<div id="chart_div"></div>
 	</div>
@@ -162,13 +181,7 @@ function drawMultSeries() {
 
 		</div>
 	</div>
-	<<h1> 테스트영역</h1>
-		<form action="f_main" method="post">
-		<input type="text" value="${m }">
-		<input type="submit" value="a" id="test">
-		</form>
-		<input type="text" value="${member1 }">
-		<input type="text" value="${count }">
+	
 	</section>
 	<%@ include file="../c_common/footer.jsp"%>
 

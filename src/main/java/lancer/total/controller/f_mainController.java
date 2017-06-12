@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
@@ -14,9 +15,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import lancer.c_login.domain.c_login_enterpriseVO;
+import lancer.c_login.domain.c_login_freelancerVO;
+import lancer.c_login.domain.checking_identity;
 import lancer.f_main.domain.member;
+import lancer.f_main.domain.recommendProject;
 import lancer.total.service.f_mainService;
 
 @Controller
@@ -29,11 +35,15 @@ public class f_mainController {
 	f_mainService service;
 	
 	@RequestMapping(value="/f_main", method = RequestMethod.GET)
-	public void f_mainGET(Model model, member m) throws Exception{
+	public void f_mainGET(Model model, member m, HttpSession session) throws Exception{
 		
+		recommendProject rp = new recommendProject();
 		service.getF_info(m);
 		service.countFreelancer(); // 활동중인 총 프리랜서 숫자
 		service.countProject(); // 등록된 총 프로젝트 숫자
+		
+		
+		
 		
 		System.out.println(service.countFreelancer() + "프리랜서 숫자");
 		System.out.println(service.countProject() + "등록된 프로젝트 숫자");
@@ -41,6 +51,21 @@ public class f_mainController {
 		model.addAttribute("m", m);
 		model.addAttribute("count", service.countFreelancer());
 		model.addAttribute("countP", service.countProject());
+		//model.addAttribute("recommend", service.recommendProject(f_num));
+		
+		checking_identity identity = (checking_identity) session.getAttribute("identity");
+		int f_num = 0;
+		
+		System.out.println("..?");
+		if(session.getAttribute("client") != null){
+		if(identity.getIdentity().equals("freelancer")){
+			c_login_freelancerVO vo = (c_login_freelancerVO) session.getAttribute("client");
+			f_num = vo.getF_num();
+			System.out.println(f_num+"프리번호");
+			model.addAttribute("recommend", service.recommendProject(f_num));
+			identity.setIdentity("freelancer");
+		}
+		}
 	}
 	
 /*	@RequestMapping(value="/f_main", method = RequestMethod.POST)

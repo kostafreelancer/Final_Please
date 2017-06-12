@@ -124,22 +124,22 @@ $(function(){
 });
 
 function news(){
-	$('.left_news li:first').slideUp(function(){
-		$(this).appendTo($('.left_news')).slideDown()
+	$('.left_news li:first-child').slideUp(function(){
+		$(this).appendTo($('.left_news ul')).slideDown();
 	})
 }
 
 
-function news() { 
+/*function news() { 
 	$('.left_news li:first').slideUp(function() {
-		$(this).appendTo($('.left_news ul')).slideDown();
+		$(this).appendTo($('.left_news li')).slideDown();
 
 	});
-}
+}*/
 
 setInterval(function() {
 	news();
-}, 2000)  
+}, 4000)  
 
 
 

@@ -6,19 +6,33 @@
 
 <mapper namespace="lancer.mappers.f_mainMapper">
 	<cache />
-	
+
 	<select id="getF_info" resultType="member">
-		
-		 select f_name<!-- , f_sex, f_email, f_major, f_recentlogin --> from freelancer 
-		
+
+		select f_name<!-- , f_sex, f_email, f_major, f_recentlogin -->
+		from freelancer
+
 	</select>
-	
+
 	<select id="countFreelancer" resultType="int">
-		select count(*) from freelancer 
+		select count(*) from
+		freelancer
 	</select>
-	
+
 	<select id="countProject" resultType="int">
-		select count(*) from project
+		select count(*) from
+		project
+	</select>
+
+	<select id="recommendProject" resultType="recommendProject">
+		select p.p_name, p.p_lowercost, p.p_uppercost, p.p_startdate, p.e_pr_num, p.e_num from project p,
+		p_job p2, job j, f_job fj, freelancer fr
+		where p.e_pr_num = p2.e_pr_num
+		and p2.job_id = j.job_id
+		and j.job_id = fj.job_id
+		and fj.f_num = fr.f_num
+		and fj.job_id = p2.job_id
+		and fr.f_num = #{f_num}
 	</select>
 </mapper>
 

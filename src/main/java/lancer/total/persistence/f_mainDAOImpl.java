@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import lancer.f_main.domain.member;
+import lancer.f_main.domain.recommendProject;
 
 @Repository
 public class f_mainDAOImpl implements f_mainDAO {
@@ -37,6 +38,10 @@ public class f_mainDAOImpl implements f_mainDAO {
 		return session.selectOne(namespace + ".countProject");
 	}
 	
-	
+	@Override
+	public List<recommendProject> recommendProject(int f_num) throws Exception{
+		
+		return session.selectList(namespace + ".recommendProject", f_num);
+	}
 
 }

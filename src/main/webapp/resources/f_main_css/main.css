@@ -57,7 +57,7 @@
 }
 
 .left_news {
-	border: 1px solid;
+	
 	height: 400px;
 	width: 672.5px;
 	overflow: hidden;
@@ -229,7 +229,7 @@
 	border-radius: 5px;
 	box-shadow: 0px 0px 5px #DDD;
 	margin-left: 50px;
-	margin-bottom: -100px;
+	margin-bottom: 100px;
 	margin-top: 40px;
 }
 

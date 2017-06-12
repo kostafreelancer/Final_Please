@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import lancer.f_main.domain.member;
+import lancer.f_main.domain.recommendProject;
 import lancer.total.persistence.f_mainDAO;
 
 @Service
@@ -32,6 +33,12 @@ public class f_mainServiceImpl implements f_mainService {
 	public int countProject() throws Exception{
 		
 		return dao.countProject();
+	}
+	
+	@Override
+	public List<recommendProject> recommendProject(int f_num) throws Exception{
+		
+		return dao.recommendProject(f_num);
 	}
 	
 }
