@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 <link rel="stylesheet" href="../../../resources/c_join_css/join.css" type="text/css"
 	media="screen" />
 <link rel="stylesheet" href="../../../resources/c_join_css/reset.css" type="text/css"
@@ -18,14 +19,14 @@
 	font-weight: bold;
 }
 </style>
-<script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+
 
 <script type="text/javascript" src="../../../resources/c_join_js/c_join_step3.js"></script>
 <script type="text/javascript" src="../../../resources/c_join_js/f_zipAddress.js"></script>
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
  <script type="text/javascript">
  
- // 이메일인증
+
 
 
 
@@ -85,7 +86,7 @@
     	  f.submit();
       }
       
-	
+}
 
 
   
@@ -513,7 +514,7 @@
 
 					<!-- //tb_box01 : e -->
 					<div class="btn_box">
-						<input type="submit" class="btn_check04" id="f_checkValue" value="회원가입" onclick="checkEmail(2)">
+						<input type="submit" class="btn_check04" id="f_checkValue" value="회원가입" >
 						<a href="javascript:MemberWriteFm.reset();" class="btn_check02">초기화</a>
 					</div>
 		</div>

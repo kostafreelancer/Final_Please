@@ -176,7 +176,7 @@ $(function(){
         	return false;
         }*/
         
-        if(!form.checkEmailConfirm.innerHTML){
+        if(!$("#checkEmailConfirm").html()){
         	alert("이메일 인증을 받아주세요.");
         	return false;
         }
@@ -285,6 +285,8 @@ $(function(){
         	alert("이메일 인증을 받아주세요.");
         	return false;
         }
+        
+        checkEmail(2);
    });
 
         $(".f_major").click(function() { 
