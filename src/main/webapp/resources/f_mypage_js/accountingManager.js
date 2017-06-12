@@ -393,11 +393,15 @@ function addSpend(){
 	window.open('/f_mypage/spendAdd','win','width=350, height=250');
 }
 
-function addCareerSubmit(){
-	document.tempCareerAdd.submit();
+function modifySpendList(num){
+	var wantForm = 'spendListForm' + num;
+	console.log(num);
+	document.tempSpendListAdd.detail_usage.value = document.getElementById(wantForm).detail_usage.value;
+	document.tempSpendListAdd.a_num.value = document.getElementById(wantForm).a_num.value;
+	document.tempSpendListAdd.a_money.value = document.getElementById(wantForm).a_money.value;
+	document.tempSpendListAdd.a_using_date.value = document.getElementById(wantForm).a_using_date.value;
+	document.tempSpendListAdd.project_relation_check.value = document.getElementById(wantForm).project_relation_check.value;
 }
-
-
 
 function modifyCareer(num){
     window.open('about:blank','popup_window','width=350, height=250');

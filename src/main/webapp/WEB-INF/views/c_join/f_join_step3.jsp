@@ -18,6 +18,12 @@
 	font-size: 12px;
 	font-weight: bold;
 }
+
+#checkEmailConfirm{
+	color : red;
+	font-size: 12px;
+	font-weight: bold;
+}
 </style>
 
 

@@ -160,16 +160,16 @@ public class E_MypageController {
 		enterprise.setE_sales(command.getE_sales());		
 				
 		enterprise.setE_scale(command.getE_scale());		
-				
-	
+			
+		
 		//파일 업로드
 		if(command.getE_ownerfileExist().equals("true")){
 			MultipartFile E_ownerfile = command.getE_ownerfile();	
-			fileService.uploadImageFile(E_ownerfile, "e_ownerfile", enterprise.getE_num());
+			fileService.uploadImageFile(E_ownerfile, "e_ownerfile", enterprise.getE_num(), session);
 		}
 		if(command.getE_licensefileExist().equals("true")){
 			MultipartFile e_licensefile = command.getE_licensefile();	
-			fileService.uploadFile(e_licensefile, "e_licensefile", enterprise.getE_num());
+			fileService.uploadFile(e_licensefile, "e_licensefile", enterprise.getE_num(), session);
 		}
 		
 		

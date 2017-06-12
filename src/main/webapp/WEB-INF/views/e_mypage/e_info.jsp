@@ -143,7 +143,7 @@
 		
 	</div>
 
-
+<img id="ada" src="/resources/e_mypage_img/co.jpg">
 
 	<div class="e_info_table2">
 		<h4>기업정보</h4>
@@ -161,7 +161,7 @@
 					src="${client.e_ownerfile }">
 					<div class="filebutton">
 					<c:set var="path" value="C:\lancer\upload\0070a069190541f78be7f5218cccb486.jpg" />
-					<img id="ada" src='${path}'>
+					<img id="ada" src='C:\lancer\upload\0070a069190541f78be7f5218cccb486.jpg'>
 					
 						<input type="hidden" id="e_ownerfileExist" name="e_ownerfileExist" value="false">
 						<span>사진업로드</span><input type="file" name="e_ownerfile" id="e_ownerfile" value="${client.e_ownerfile }"

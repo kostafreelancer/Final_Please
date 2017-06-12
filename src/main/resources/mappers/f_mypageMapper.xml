@@ -151,6 +151,10 @@
   	<insert id="insertSpendAccounting" parameterType="Accounting">
   		insert into accounting values(#{a_num}, #{detail_usage}, #{a_money}, #{a_addfile}, #{a_using_date}, #{f_num}, #{project_relation_check}, #{monet_state})
   	</insert>
+  	
+  	<update id="updateSpendAccounting" parameterType="Accounting">
+  		update accounting set detail_usage = #{detail_usage}, a_money = #{a_money}, a_using_date = #{a_using_date}, monet_state = #{monet_state}, project_relation_check=#{project_relation_check}, a_addfile=#{a_addfile} where a_num=#{a_num}
+  	</update>
   
   	<select id="getIncomeAccounting" resultType="Accounting">
 		select * from accounting where monet_state = '수입' and f_num = #{f_num}

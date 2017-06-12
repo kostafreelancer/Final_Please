@@ -167,7 +167,8 @@ public class C_JoinController {
 
 	@RequestMapping(value="e_join_step3", method=RequestMethod.POST)
 	public String e_joinstep3(E_join e_join, Model model)throws Exception{
-
+		
+		System.out.println("기업가입");
 		//회사이메일
 		String email1 = e_join.getE_mail1();
 		String email2 = e_join.getE_mail2();
@@ -300,6 +301,57 @@ public class C_JoinController {
         return mv;
     }
 	
+	@RequestMapping(value="/e_testEmail", method = RequestMethod.POST)
+	public ModelAndView e_sendEmailAction(HttpServletRequest request, ModelAndView mv)throws Exception{
+		 // 메일 내용을 작성한다
+        SimpleMailMessage msg = new SimpleMailMessage();
+        //String From = "skidrow0725@gmail.com";
+        //System.out.println(From);
+       
+        //인증번호(랜덤)
+        String authNum = randomNum();
+        //받는사람
+        String email1 = request.getParameter("e_mail1");
+        String email2 = request.getParameter("e_mail2");
+        System.out.println(email1+"@"+email2 + "이메일받");
+        // 보내는사람
+        
+        String From = "skidrow0725@gmail.com";
+        System.out.println(From + "보내는사람");
+        
+        //받는사람
+        String setTo = email1+"@"+email2;
+        System.out.println(setTo + "받는사람");
+        //String setTo = request.getParameter("tomail");
+       
+        // 제목
+        String setSubject = "DreamLancer 기업 이메일 인증입니다.";
+        System.out.println(setSubject);
+        
+        //내용
+        String setText1 = "DreamLancer 기업이메일 인증 코드입니다. [";
+        String setText2 = authNum;
+        String setText3 = "] 코드를 정확히 입력해 주세요.";
+        
+        
+        msg.setFrom(From);
+        msg.setTo(new String[] { setTo });
+        msg.setSubject(setSubject);
+        msg.setText(setText1 + setText2 + setText3);
+ 
+      try {
+		mailsender.send(msg);
+		System.out.println("메일보내기 성공");
+		System.out.println(setText1 + setText2 + setText3);
+	} catch (MailException e) {
+		e.printStackTrace();
+	}
+      
+      mv.addObject("authNum", setText2);
+      //mv.addObject("email",email);
+      mv.setViewName("/c_join/emailOK");
+        return mv;
+	}
 	
 	
 	@RequestMapping(value="emailOK", method = RequestMethod.GET)

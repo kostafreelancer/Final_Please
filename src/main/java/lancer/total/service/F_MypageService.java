@@ -155,6 +155,10 @@ public class F_MypageService {
 		dao.insertSpendAccounting(accounting);
 	}
 	
+	public void updateSpendAccounting(Accounting accounting) throws Exception{
+		dao.updateSpendAccounting(accounting);
+	}
+	
 	public List<Accounting> getIncomeAccounting(int f_num) throws Exception{
 		return dao.getIncomeAccounting(f_num);
 	}	
