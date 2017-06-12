@@ -1,6 +1,7 @@
 package lancer.total.persistence;
 
 import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -167,6 +168,14 @@ public class F_MypageDAO {
 		return session.selectList(namespace + ".getIncomeAccounting", f_num);
 	}
 	
+	public List<Accounting> searchSpendList(HashMap<String, String> map) throws Exception{
+		return session.selectList(namespace + ".searchSpendList", map);
+	}
+	
+	public List<Accounting> searchIncomeList(HashMap<String, String> map) throws Exception{
+		return session.selectList(namespace+ ".searchIncomeList", map);
+	}
+	
 	public List<Portfolio> showPortfolioInfo(int f_num) throws Exception{
 		return session.selectList(namespace + ".showPortfolioInfo", f_num);
 	}
@@ -187,6 +196,10 @@ public class F_MypageDAO {
 		session.update(namespace + ".updatePortfolio", portfolio);
 	}
 	
-	
-	
+	public void deletePortfolio(int portfolio_num) throws Exception{
+		session.delete(namespace + ".deletePortfolio", portfolio_num);
+	}
+	public int getPortfolio_iden(int f_num) throws Exception{
+		return session.selectOne(namespace + ".getPortfolio_iden", f_num);
+	}
 }

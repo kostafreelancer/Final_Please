@@ -53,8 +53,15 @@ $(document).ready(function() {
 		$('#manager_mail_2').val(manager_mail);
 	});
 	
+	
+
 });
 
+function checkImageType(fileName){
+	var pattern = /jpg|gif|png|jpeg/i;
+	
+	return fileName.match(pattern);
+}
 
 
 

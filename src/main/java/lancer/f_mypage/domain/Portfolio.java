@@ -5,15 +5,30 @@ public class Portfolio {
 	private int f_num;
 	private String contents;
 	private String portfile;
+	private int portfile_iden;
 	
 	public Portfolio(){}
 
-	public Portfolio(int portfolio_num, int f_num, String contents, String portfile) {
+
+	public Portfolio(int portfolio_num, int f_num, String contents, String portfile, int portfile_iden) {
+		super();
 		this.portfolio_num = portfolio_num;
 		this.f_num = f_num;
 		this.contents = contents;
 		this.portfile = portfile;
+		this.portfile_iden = portfile_iden;
 	}
+
+
+	public int getPortfile_iden() {
+		return portfile_iden;
+	}
+
+
+	public void setPortfile_iden(int portfile_iden) {
+		this.portfile_iden = portfile_iden;
+	}
+
 
 	public int getPortfolio_num() {
 		return portfolio_num;
@@ -46,5 +61,10 @@ public class Portfolio {
 	public void setPortfile(String portfile) {
 		this.portfile = portfile;
 	}
+
+
+
+	
+	
 	
 }

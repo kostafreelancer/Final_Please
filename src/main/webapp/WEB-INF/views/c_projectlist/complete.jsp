@@ -17,7 +17,7 @@
 
 </head>
 <body>
-	<c:choose>
+		<c:choose>
 		<c:when test="${identity.identity == 'freelancer' }">
 			<%@include file="../c_common/header.jsp" %>
 		</c:when>
@@ -34,13 +34,17 @@
 			<div class="nav_txt">
 				<p>
 					<a href="/e_lan/index.php">Home</a> <span class="padd">&gt;</span>
-					<span>프로젝트 등록</span>
+					<span>프로젝트 목록</span>
+					<span class="padd">&gt;</span>
+					<span>프로젝트 상세보기</span>
+					<span class="padd">&gt;</span>
+					<span>프로젝트 신청</span>
 				</p>
 			</div>
 		</div>
 		<div id="content">
 			<div class="tit_box">
-				<h2>프로젝트 등록</h2>
+				<h2>프로젝트 신청</h2>
 				<p class="tit_txt">
 					성공적인 프로젝트를 원하시나요?<span>검증된 IT 인재가 대기중입니다.</span>
 				</p>
@@ -56,21 +60,23 @@
 					<br>
 					<br>
 					<br>
-					<p class="market_txt01">프로젝트 등록이 완료되었습니다!</p>
+					<p class="market_txt01">프로젝트 신청이 완료되었습니다!</p>
 					<br>
-					<p class="market_txt02">마이페이지에서 수정, 확인 가능합니다.</p>
+					<p class="market_txt02">마이페이지에서 확인 가능합니다.</p>
 					<p class="market_txt03">
 						최적화된 인재검색 시스템을 통한 서비스로 귀사에 맞춤형 인재를 추천함으로써<br /> 성공적인 프로젝트를 약속합니다.
 					</p>
 				</div>
 				<!-- //market : e -->
 				<div class="btn_box">
-				<a href="/c_projectlist/c_projectlist" class="btn btn-lg btn-default js-disable-on-click"
+				
+						<a href="/c_projectlist/c_projectlist" class="btn btn-lg btn-default js-disable-on-click"
 						autocomplete="off" data-loading-text="저장 중" name="save_for_later"
 						 type="submit">프로젝트 목록</a>
-				<a href="/e_info" class="btn btn-lg btn-client js-disable-on-click btn-submit"
+				    <a href="/f_mypage/myInfo" class="btn btn-lg btn-client js-disable-on-click btn-submit"
 						autocomplete="off" data-loading-text="제출 중" name="post_a_job"
-						 type="submit">마이페이지</a><br>
+						 type="submit">마이페이지</a>
+						<br>
 					<br>
 					<br>
 					<br>

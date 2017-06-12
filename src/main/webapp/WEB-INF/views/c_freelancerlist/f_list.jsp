@@ -19,7 +19,7 @@
 <script type="text/javascript" src="/resources/c_freelancerlist_js/f_list.js"></script>
 </head>
 <body>
-	<c:choose>
+	<%-- <c:choose>
 		<c:when test="${identity.identity == 'freelancer' }">
 			<%@include file="../c_common/header.jsp" %>
 		</c:when>
@@ -29,7 +29,9 @@
 		<c:otherwise>
 			<%@include file="../c_common/header.jsp" %>
 		</c:otherwise>
-	</c:choose>
+	</c:choose> --%>
+	
+	<%@include file="../c_common/header.jsp" %>
 
     <div  id="conainer">
     	<div id="nav">

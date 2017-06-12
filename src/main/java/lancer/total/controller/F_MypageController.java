@@ -2,7 +2,9 @@ package lancer.total.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -299,7 +301,7 @@ public class F_MypageController {
 	}
 	
 	@RequestMapping(value="/portfolioAdd", method=RequestMethod.POST)
-	public String portfolioAdd(PortfolioCommand portFolioCommand, HttpSession session) throws Exception{
+	public String portfolioAdd(PortfolioCommand portFolioCommand) throws Exception{
 		System.out.println(portFolioCommand.getF_num());
 		if(portFolioCommand.getPortfolio_num() == 0){
 			
@@ -310,6 +312,7 @@ public class F_MypageController {
 			portfolio.setPortfolio_num(service.getPortfolioNum()+1);
 			portfolio.setContents(portFolioCommand.getContents());
 			portfolio.setF_num(portFolioCommand.getF_num());
+			portfolio.setPortfile_iden(service.getPortfolio_iden(portfolio.getF_num())+1);
 			if(portFolioCommand.getPortfile().isEmpty()){
 				portfolio.setPortfile("");
 			}else{
@@ -318,7 +321,8 @@ public class F_MypageController {
 			service.insertPortfolio(portfolio);
 			
 			MultipartFile portfile = portFolioCommand.getPortfile();
-			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num(), session);
+			int identy = fileUploadService.getIdenty("portfile", portfolio.getF_num())+1;
+			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num(), identy);
 		
 		}else{
 			System.out.println(portFolioCommand.getPortfolio_num());
@@ -326,6 +330,7 @@ public class F_MypageController {
 			portfolio.setPortfolio_num(portFolioCommand.getPortfolio_num());
 			portfolio.setF_num(portFolioCommand.getF_num());
 			portfolio.setContents(portFolioCommand.getContents());
+			portfolio.setPortfile_iden(service.getPortfolio_iden(portfolio.getF_num())+1);
 			if(portFolioCommand.getPortfile().isEmpty()){
 				portfolio.setPortfile("");
 			}else{
@@ -333,7 +338,8 @@ public class F_MypageController {
 			}
 			service.updatePortfolio(portfolio);
 			MultipartFile portfile = portFolioCommand.getPortfile();
-			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num(), session);
+			int identy = fileUploadService.getIdenty("portfile", portfolio.getF_num())+1;
+			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num(), identy);
 		}
 		
 		return "redirect:/f_mypage/updateSuccess";
@@ -342,6 +348,8 @@ public class F_MypageController {
 	@RequestMapping(value="/deletePortfolio", method = RequestMethod.GET)
 	public String deletePortfolio(@RequestParam("deletePortfolio_num") int portfolio_num) throws Exception{
 		Portfolio portfolio = service.selectOnePortfolio(portfolio_num);
+		fileUploadService.deleteFile("portfile",  portfolio.getF_num(), portfolio.getPortfile_iden());
+		service.deletePortfolio(portfolio_num);
 		return "redirect:/f_mypage/updateSuccess";
 	}
 
@@ -447,7 +455,7 @@ public class F_MypageController {
 	}
 	
 	@RequestMapping(value="/spendListAdd", method=RequestMethod.POST)
-	public String spendListAdd(AccountingCommand command, HttpSession session) throws Exception{
+	public String spendListAdd(AccountingCommand command) throws Exception{
 		System.out.println("우아아아아아");
 		if(command.getA_num() == 0){
 			
@@ -468,7 +476,7 @@ public class F_MypageController {
 			service.insertSpendAccounting(accounting);
 			
 			MultipartFile a_addfile = command.getA_addfile();
-			fileUploadService.uploadFile(a_addfile, "a_addfile", accounting.getF_num(), session);
+			fileUploadService.uploadFile(a_addfile, "a_addfile", accounting.getF_num(),0);
 		
 		}else{
 			
@@ -490,12 +498,31 @@ public class F_MypageController {
 			//service.insertSpendAccounting(accounting);
 			service.updateSpendAccounting(accounting);
 			MultipartFile a_addfile = command.getA_addfile();
-			fileUploadService.uploadFile(a_addfile, "a_addfile", accounting.getF_num(), session);
+			fileUploadService.uploadFile(a_addfile, "a_addfile", accounting.getF_num(),0);
 		}
 
 		return "redirect:/f_mypage/updateSuccess";
 	}
 	
+	@RequestMapping(value="/accountingManager", method=RequestMethod.POST)
+	public void accountingSearch(Model model, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate) throws Exception{
+		System.out.println(startDate);
+		System.out.println(endDate);
+		HashMap<String, String> searchDateMap = new HashMap<String, String>();
+		searchDateMap.put("startDate", startDate);
+		searchDateMap.put("endDate", endDate);
+		List<Accounting>searchSpendList = service.searchSpendList(searchDateMap);
+		if(searchSpendList.size()==0){
+			model.addAttribute("spendListCheck", 0);
+		}
+		model.addAttribute("spendList", searchSpendList);
+		
+		List<Accounting> searchIncomeList = service.searchIncomeList(searchDateMap);
+		if(searchIncomeList.size()==0){
+			model.addAttribute("incomeListCheck", 0);
+		}
+		model.addAttribute("incomeList", searchIncomeList);
+	}
 	
 	
 }

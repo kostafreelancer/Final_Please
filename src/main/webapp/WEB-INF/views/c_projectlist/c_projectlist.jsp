@@ -58,6 +58,7 @@
 				<form style="padding:0px;padding-top:0" action="/c_projectlist/c_projectlist" method="post" name="esearch">
 					<input type="hidden" name="page" value="1" />
 					<input type="hidden" name="fm_str" value="" />
+				
             	<table class="tb_st02">
                 	<caption>프리랜서 검색 : 개발분야, 디자인/퍼블리싱 분야, 기획/ 컨설턴트 분야, 전문분야/특별경험, 근무희망지역, 등급, 학력, 근무형태, 나이로 구성된 표</caption>
                   

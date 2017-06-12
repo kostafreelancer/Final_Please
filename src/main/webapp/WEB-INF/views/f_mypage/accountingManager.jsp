@@ -55,9 +55,9 @@
 					<button>4월</button>
 					<button>5월</button><br>
 					<br><br>
-					<form id="searchDate" name="searchDate" method="post" action="/f_mypage/accountingSearch">
+					<form id="searchDate" name="searchDate" method="post" action="/f_mypage/accountingManager">
 					<input type="text" id="startDate" name="startDate">
-					~
+					&nbsp;&nbsp;~
 					<input type="text" id="endDate" name="endDate">
 					<input type="submit" value="검색">
 					</form>
@@ -125,15 +125,8 @@
 					첨부파일 : <input type="file"  name="a_addfile">
 					<input type="submit" value="저장">
 				</form>
-				<form name="tempCertiModify"  action="/f_mypage/updateCerti" method="post">
-					<input type="text" hidden name="certificate_num">
-					<input type="text" hidden name="certificate_name">
-					<input type="text" hidden name="organization">
-					<input type="text" hidden name="accept_date">
-					
-				</form>
-				<form name="tempCertiDelete" action="/f_mypage/deleteCerti">
-					<input type="text" hidden name="deleteCerti_num">
+				<form name="tempSpendListDelete" action="/f_mypage/deleteSpendList">
+					<input type="text" hidden name="deleteSpendList">
 				</form>
 			</div>
 			

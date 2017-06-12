@@ -5,10 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="../common/header.css" type="text/css"
-	media="screen" />
-<link rel="stylesheet" href="../common/footer.css" type="text/css"
-	media="screen" />
+
 <link rel="stylesheet"
 	href="/resources/e_insertproject_css/e_insertproject.css"
 	type="text/css" media="screen" />
@@ -35,9 +32,9 @@
 		</div>
 		<div class="left_menu_content">
 			<ul class="left_menu_contents">
-				<li><a href="service.jsp">서비스 소개</a></li>
-				<li><a href="e_service.jsp">기업 이용방법</a></li>
-				<li><a href="f_service.jsp">프리랜서 이용방법</a></li>
+				<li><a href="service">서비스 소개</a></li>
+				<li><a href="e_service">기업 이용방법</a></li>
+				<li><a href="f_service">프리랜서 이용방법</a></li>
 			</ul>
 		</div>
 	</div>
@@ -71,11 +68,11 @@
 				<h5
 					class="p5-serviceIntroduction-title service-Introduction-first-title">
 					<img class="p5-serviceIntroduction-title-img"
-						src="c_using_img/bookmark.png">드림랜서이란?
+						src="/resources/c_using_img/bookmark.png">드림랜서이란?
 				</h5>
 				<div class="p5-serviceIntroduction-breif-info">
 					<div class="p5-serviceIntroduction-breif-img">
-						<img src="c_using_img/intro_service.PNG">
+						<img src="/resources/c_using_img/intro_service.PNG">
 					</div>
 					<div class="p5-serviceIntroduction-breif-text">
 						<p>
@@ -89,13 +86,13 @@
 				<section class="p5-serviceIntroduction-partition">
 				<h5 class="p5-serviceIntroduction-title">
 					<img class="p5-serviceIntroduction-title-img"
-						src="c_using_img/bookmark.png">왜 드림랜서인가?
+						src="/resources/c_using_img/bookmark.png">왜 드림랜서인가?
 				</h5>
 				<div class="p5-serviceIntroduction-list">
 					<div class="p5-serviceIntroduction-list-component">
 						<div class="p5-serviceIntroduction-list-text">
 							<h5 class="p5-serviceIntroduction-list-title">
-								빠르다<img class="p5-slash" src="c_using_img/slash_blue.png">
+								빠르다<img class="p5-slash" src="/resources/c_using_img/slash_blue.png">
 							</h5>
 							<p>
 								크라우딩 방식의 비공개 지원 시스템을 통해 빠른 지원자 모집이 가능합니다.<br>2시간내에 첫 지원자를
@@ -103,13 +100,13 @@
 							</p>
 						</div>
 						<div class="p5-serviceIntroduction-list-img">
-							<img src="c_using_img/intro_good_one.png">
+							<img src="/resources/c_using_img/intro_good_one.png">
 						</div>
 					</div>
 					<div class="p5-serviceIntroduction-list-component">
 						<div class="p5-serviceIntroduction-list-text">
 							<h5 class="p5-serviceIntroduction-list-title">
-								믿을 수 있다<img class="p5-slash" src="c_using_img/slash_blue.png">
+								믿을 수 있다<img class="p5-slash" src="/resources/c_using_img/slash_blue.png">
 							</h5>
 							<p>
 								지원자들의 견적, 프로필과 포트폴리오를 한 눈에 비교할 수 있습니다<br>지원자들이 실제로 진행했던
@@ -117,7 +114,7 @@
 							</p>
 						</div>
 						<div class="p5-serviceIntroduction-list-img">
-							<img src="c_using_img/intro_good_two.png">
+							<img src="/resources/c_using_img/intro_good_two.png">
 						</div>
 					</div>
 					<div class="p5-serviceIntroduction-list-component">
@@ -131,7 +128,7 @@
 							</p>
 						</div>
 						<div class="p5-serviceIntroduction-list-img">
-							<img src="c_using_img/intro_good_three.png">
+							<img src="/resources/c_using_img/intro_good_three.png">
 						</div>
 					</div>
 				</div>
@@ -140,12 +137,12 @@
 				<section class="p5-serviceIntroduction-partition">
 				<h5 class="p5-serviceIntroduction-title">
 					<img class="p5-serviceIntroduction-title-img"
-						src="c_using_img/bookmark.png">드림랜서 이용사례
+						src="/resources/c_using_img/bookmark.png">드림랜서 이용사례
 				</h5>
 				<div class="p5-serviceIntroduction-list">
 					<div class="p5-serviceIntroduction-list-component-right">
 						<div class="p5-serviceIntroduction-list-img">
-							<img src="c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/intro_usecase_one.PNG">
 						</div>
 						<div class="p5-serviceIntroduction-list-text">
 							<div class="p5-serviceIntroduction-list-text-wrapper">
@@ -159,7 +156,7 @@
 					</div>
 					<div class="p5-serviceIntroduction-list-component-right">
 						<div class="p5-serviceIntroduction-list-img">
-							<img src="c_using_img/intro_usecase_two.PNG">
+							<img src="/resources/c_using_img/intro_usecase_two.PNG">
 						</div>
 						<div class="p5-serviceIntroduction-list-text">
 							<div class="p5-serviceIntroduction-list-text-wrapper">
@@ -174,7 +171,7 @@
 					</div>
 					<div class="p5-serviceIntroduction-list-component-right">
 						<div class="p5-serviceIntroduction-list-img">
-							<img src="c_using_img/intro_usecase_three.PNG">
+							<img src="/resources/c_using_img/intro_usecase_three.PNG">
 						</div>
 						<div class="p5-serviceIntroduction-list-text">
 							<div class="p5-serviceIntroduction-list-text-wrapper">

@@ -159,6 +159,14 @@
   	<select id="getIncomeAccounting" resultType="Accounting">
 		select * from accounting where monet_state = '수입' and f_num = #{f_num}
 	</select>
+	
+	<select id="searchSpendList" resultType="Accounting" parameterType="hashmap">
+  		select * from accounting where monet_state = '지출' and a_using_date between #{startDate} and #{endDate} 
+  	</select> 
+  	
+  	<select id="searchIncomeList" resultType="Accounting" parameterType="hashmap">
+  		select * from accounting where monet_state = '수입' and a_using_date between #{startDate} and #{endDate} 
+  	</select>
   
   	<select id="showPortfolioInfo" resultType="Portfolio">
   		select * from portfolio where f_num = #{f_num}
@@ -173,12 +181,20 @@
   	</select>
   
   	<insert id="insertPortfolio" parameterType = "Portfolio">
-  		insert into portfolio values(#{portfolio_num}, #{f_num}, #{contents}, #{portfile})
+  		insert into portfolio values(#{portfolio_num}, #{f_num}, #{contents}, #{portfile}, #{portfile_iden})
   	</insert>
   	
   	<update id="updatePortfolio" parameterType="Portfolio">
   		update portfolio set contents = #{contents}, portfile = #{portfile} where portfolio_num = #{portfolio_num}
   	</update>
+  
+  	<delete id="deletePortfolio" parameterType="int">
+  		delete from portfolio where portfolio_num = #{portfolio_num}
+  	</delete>
+  	
+  	<select id="getPortfolio_iden" parameterType="int" resultType="int">
+  		select nvl(max(portfile_iden), 0) from portfolio where f_num = #{f_num} 
+  	</select>
   
 </mapper>  
 

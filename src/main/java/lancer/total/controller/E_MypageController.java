@@ -2,6 +2,7 @@ package lancer.total.controller;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -76,6 +77,7 @@ public class E_MypageController {
 		model.addAttribute("e_licenseFileName", e_licensefileMap.get("original_file_name"));
 		model.addAttribute("e_licenseFileSize", e_licensefileMap.get("file_size"));
 		
+
 	}
 	
 	@RequestMapping(value = "/e_info", method = RequestMethod.POST)
@@ -165,11 +167,11 @@ public class E_MypageController {
 		//파일 업로드
 		if(command.getE_ownerfileExist().equals("true")){
 			MultipartFile E_ownerfile = command.getE_ownerfile();	
-			fileService.uploadImageFile(E_ownerfile, "e_ownerfile", enterprise.getE_num(), session);
+			fileService.uploadImageFile(E_ownerfile, "e_ownerfile", enterprise.getE_num());
 		}
 		if(command.getE_licensefileExist().equals("true")){
 			MultipartFile e_licensefile = command.getE_licensefile();	
-			fileService.uploadFile(e_licensefile, "e_licensefile", enterprise.getE_num(), session);
+			fileService.uploadFile(e_licensefile, "e_licensefile", enterprise.getE_num());
 		}
 		
 		

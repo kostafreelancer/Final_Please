@@ -38,7 +38,17 @@ $(function(){
 </head>
 
 <body>
-	<%@include file="../c_common/header_enterprise.jsp"%>
+	<c:choose>
+		<c:when test="${identity.identity == 'freelancer' }">
+			<%@include file="../c_common/header.jsp" %>
+		</c:when>
+		<c:when test="${identity.identity == 'enterprise' }">
+			<%@include file="../c_common/header_enterprise.jsp" %>
+		</c:when>
+		<c:otherwise>
+			<%@include file="../c_common/header.jsp" %>
+		</c:otherwise>
+</c:choose>
 
 	
 	<!-- //header_wrap : e -->
@@ -68,6 +78,9 @@ $(function(){
 			<div class="tb_box">
 				<h4>담당자 정보</h4>
 				<table class="tb_st01">
+				<form method="post" action="/c_projectlist/complete" name="ProjectWriteFm">
+				<input type="hidden" name="e_pr_num" value="${e_pr_num }"></input>
+					 
 					<colgroup>
 						<col style="width: 15%" />
 						<col style="width: 35%" />
@@ -346,11 +359,21 @@ $(function(){
 				</table>
 			</div>
 			
-			<div class="btn_box">
-				<a href="/c_projectlist/c_projectlist"  class="btn btn-lg btn-default js-disable-on-click"
-					autocomplete="off" data-loading-text="저장 중" name="save_for_later">프로젝트 목록가기</a>
-			</div>
+			
 			<!-- //tb_box : e -->
+			<div class="btn_box">
+					<input id="checkValue" class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" name="post_a_job"
+						value="프로젝트 신청하기" type="submit"> <br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</div>
+			</div>
+			</div>
+			
+				
+		</form>
 			
 
 		
