@@ -60,7 +60,7 @@ public class C_FileService {
 		resultFileMap.put("file_num", dao.selectFileNum(parameterMap));
 		resultFileMap.put("original_file_name", dao.selectFileName(parameterMap));
 		resultFileMap.put("file_size", dao.selectFileSize(parameterMap));
-	     
+	    
 	    return resultFileMap;
 	}
 	
