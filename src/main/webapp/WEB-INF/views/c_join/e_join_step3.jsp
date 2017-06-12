@@ -22,6 +22,12 @@
 	font-size: 12px;
 	font-weight: bold;
 }
+
+#checkEmailConfirm{
+	color : red;
+	font-size: 12px;
+	font-weight: bold;
+}
 </style>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 <script type="text/javascript" src="../../../resources/c_join_js/c_join_step3.js"></script>
@@ -89,6 +95,27 @@ function chkWorkNumb(e_regno1, e_regno2, e_regno3)
     
 }
 
+var checkEmail2 = function(index) {
+	
+    if(index == 1){
+  	  
+  	 var url="/e_testEmail";
+	    var newWin = window.open(url,"new", "width=400,height=400,");
+	    var f = document.userInfo;
+	    f.action="/c_join/e_testEmail";
+	    f.target="new";
+	    f.method="post";
+	    f.submit();  
+    }
+    if(index == 2){
+  	  var f = document.userInfo;
+  	  f.action="e_join_step3";
+  	  f.target="";
+  	  f.method="post";
+  	  f.submit();
+    }
+    
+}
 
 
 </script>
@@ -129,7 +156,7 @@ function chkWorkNumb(e_regno1, e_regno2, e_regno3)
 					</p>
 				</div>
 				<table class="tb_st01">
-					<form name="userInfo" method="post" action="e_join_step3">
+					<form name="userInfo" method="post">
 						<input type="hidden" name="fm_type" value="바이어"> 
 						<input type="hidden" name="fm_format" value="기업"> 
 						<input type="hidden" name="fm_str"
@@ -223,7 +250,11 @@ function chkWorkNumb(e_regno1, e_regno2, e_regno3)
 					                <option value="chol.com">chol.com</option>
 					                <option value="korea.com">korea.com</option>
 					                <option value="hanmail.net">hanmail.net</option>
-							</select></td>
+							</select>
+							<a href="javascript:checkEmail2(1);">인증하기</a>
+							<span id="checkEmailConfirm"></span>
+							</td>
+							
 						</tr>
 						<tr>
 							<th scope="row"><span class="txt_or">*</span> 사업자 등록번호</th>

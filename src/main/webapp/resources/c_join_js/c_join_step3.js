@@ -167,7 +167,7 @@ $(function(){
         	return false;
         }
         
-        if(!form.address2.value){
+        if(!form.e_address2.value){
         	alert("회사주소를 입력하세요.");
         	return false;
         }
@@ -180,6 +180,8 @@ $(function(){
         	alert("이메일 인증을 받아주세요.");
         	return false;
         }
+        
+        checkEmail2(2);
 	});
 	
 	
