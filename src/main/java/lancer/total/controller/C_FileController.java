@@ -27,13 +27,14 @@ public class C_FileController {
 	private C_FileService service;
 	
 	@RequestMapping(value = "/downloadFile", method = RequestMethod.POST)
-	public void downloadFileGET(@RequestParam("file_num") int file_num, HttpServletResponse response)throws Exception{
+	public void downloadFileGET(@RequestParam("file_num") int file_num, HttpServletResponse response, HttpSession session)throws Exception{
 		
 		HashMap<String,Object> map = service.selectFileInfo(file_num);
 	    String original_file_name = (String)map.get("original_file_name");
 	    String stored_file_name = (String)map.get("stored_file_name");
-		
-	    byte fileByte[] = FileUtils.readFileToByteArray(new File("C:\\lancer\\upload\\"+stored_file_name));
+	    
+	    String filePath = session.getServletContext().getRealPath("/") + "resources\\upload\\";
+	    byte fileByte[] = FileUtils.readFileToByteArray(new File(filePath+stored_file_name));
 	     
 	    response.setContentType("application/octet-stream");
 	    response.setContentLength(fileByte.length);
