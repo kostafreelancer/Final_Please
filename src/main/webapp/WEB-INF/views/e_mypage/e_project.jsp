@@ -77,7 +77,7 @@
 					<c:forEach var="p" items="${readyList }">
 							<tr>
 								<td class="ac">${p.getE_pr_num()}</td>
-								<td><a href="/e_mypage/e_projectInfo?e_pr_num=${p.getE_pr_num()}">${p.getP_name()}</a></td>
+								<td><a href="/e_mypage/e_projectInfo${pageMakerReady.makeSearch(pageMakerReady.cri.page) }&e_pr_num=${p.getE_pr_num()}">${p.getP_name()}</a></td>
 								<td class="ac">${p.getP_requirenum()}</td>
 								<td class="ac">${p.getP_lowerage()} ~ ${p.getP_upperage()}</td>
 								<td class="ac">${p.getP_lowercost()}</td>
@@ -88,9 +88,37 @@
 					</tbody>
 				</table>
 			</div>
+			
+	
+			
+			
+			
 			<div class="num_box">
 				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
-				</span> <span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
+				</span> 
+				
+							<c:if test="${pageMakerReady.prev}">
+								<a
+									href="/e_mypage/e_project${pageMakerReady.makeSearch(pageMakerReady.startPage - 1) }">&laquo;</a>
+							</c:if>
+
+							<c:forEach begin="${pageMakerReady.startPage }"
+								end="${pageMakerReady.endPage }" var="idx">
+								<span
+								<c:out value="${pageMakerReady.cri.page == idx?'class=on':''}"/>>
+									<a href="/e_mypage/e_project${pageMakerReady.makeSearch(idx)}">${idx}</a>
+								</span>
+							</c:forEach>
+
+							<c:if test="${pageMakerReady.next && pageMakerReady.endPage > 0}">
+								<li><a
+									href="/e_mypage/e_project${pageMakerReady.makeSearch(pageMakerReady.endPage +1) }">&raquo;</a></li>
+							</c:if>						
+				
+				
+				
+				
+				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
 				</span>
 			</div>
 		</div>
@@ -123,7 +151,7 @@
 						<c:forEach var="p" items="${doingList }">
 							<tr>
 								<td class="ac">${p.getE_pr_num()}</td>
-								<td><a href="/e_mypage/e_projectInfo?e_pr_num=${p.getE_pr_num()}">${p.getP_name()}</a></td>
+								<td><a href="/e_mypage/e_projectInfo${pageMakerReady.makeSearch(pageMakerReady.cri.page) }&e_pr_num=${p.getE_pr_num()}">${p.getP_name()}</a></td>
 								<td class="ac">${p.getP_requirenum()}</td>
 								<td class="ac">${p.getP_lowerage()} ~ ${p.getP_upperage()}</td>
 								<td class="ac">${p.getP_lowercost()}</td>
@@ -169,7 +197,7 @@
 						<c:forEach var="p" items="${doneList }">
 							<tr>
 								<td class="ac">${p.getE_pr_num()}</td>
-								<td><a href="/e_mypage/e_projectInfo?e_pr_num=${p.getE_pr_num()}">${p.getP_name()}</a></td>
+								<td><a href="/e_mypage/e_projectInfo${pageMakerReady.makeSearch(pageMakerReady.cri.page) }&e_pr_num=${p.getE_pr_num()}">${p.getP_name()}</a></td>
 								<td class="ac">${p.getP_requirenum()}</td>
 								<td class="ac">${p.getP_lowerage()} ~ ${p.getP_upperage()}</td>
 								<td class="ac">${p.getP_lowercost()}</td>

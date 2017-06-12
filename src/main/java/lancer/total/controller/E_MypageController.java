@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import lancer.c_login.domain.c_login_enterpriseVO;
+import lancer.e_mypage.domain.Criteria;
 import lancer.e_mypage.domain.EnterpriseCommand;
+import lancer.e_mypage.domain.PageMaker;
 import lancer.e_mypage.domain.Project;
 import lancer.total.service.C_FileService;
 import lancer.total.service.E_MypageService;
@@ -67,12 +69,16 @@ public class E_MypageController {
 		model.addAttribute("e_address_3", e_address[2]);
 		
 		// 파일 정보 구해서 표시하기
-		HashMap<String, Object> e_ownerfileMap = fileService.selectFile("e_ownerfile", enterprise.getE_num());
-		HashMap<String, Object> e_ownerfileMap2 = fileService.selectFileInfo((int) e_ownerfileMap.get("file_num"));
-		model.addAttribute("e_ownerFileStoredName", e_ownerfileMap2.get("stored_file_name"));
+		HashMap<String, Object> e_ownerfileMap = fileService.selectFile("e_ownerfile", enterprise.getE_num(), 0);
+		
+		if(e_ownerfileMap.get("file_num") != null){
+			HashMap<String, Object> e_ownerfileMap2 = fileService.selectFileInfo((Integer)e_ownerfileMap.get("file_num"));
+			model.addAttribute("e_ownerFileStoredName", e_ownerfileMap2.get("stored_file_name"));
+		}
 		
 		
-		HashMap<String, Object> e_licensefileMap = fileService.selectFile("e_licensefile", enterprise.getE_num());
+		HashMap<String, Object> e_licensefileMap = fileService.selectFile("e_licensefile", enterprise.getE_num(), 0);
+		
 		model.addAttribute("e_licenseFileNum", e_licensefileMap.get("file_num"));
 		model.addAttribute("e_licenseFileName", e_licensefileMap.get("original_file_name"));
 		model.addAttribute("e_licenseFileSize", e_licensefileMap.get("file_size"));
@@ -167,11 +173,11 @@ public class E_MypageController {
 		//파일 업로드
 		if(command.getE_ownerfileExist().equals("true")){
 			MultipartFile E_ownerfile = command.getE_ownerfile();	
-			fileService.uploadImageFile(E_ownerfile, "e_ownerfile", enterprise.getE_num());
+			fileService.uploadImageFile(E_ownerfile, "e_ownerfile", enterprise.getE_num(), 0);
 		}
 		if(command.getE_licensefileExist().equals("true")){
 			MultipartFile e_licensefile = command.getE_licensefile();	
-			fileService.uploadFile(e_licensefile, "e_licensefile", enterprise.getE_num());
+			fileService.uploadFile(e_licensefile, "e_licensefile", enterprise.getE_num(), 0);
 		}
 		
 		
@@ -180,21 +186,38 @@ public class E_MypageController {
 		return "redirect:/e_mypage/e_info";
 	}
 	
-	
 	@RequestMapping(value = "/e_project", method = RequestMethod.GET)
-	public void e_projectGET(Model model, HttpSession session) throws Exception{
+	public String e_projectGET(@ModelAttribute("cri") Criteria cri, Model model, HttpSession session) throws Exception{
 		
 		c_login_enterpriseVO enterprise = (c_login_enterpriseVO)session.getAttribute("client");
 		int e_num = enterprise.getE_num();
 		System.out.println(e_num + "컨트롤러");
-		List<Project> readyList = service.listProjectReady(e_num);
-		List<Project> doingList = service.listProjectDoing(e_num);
-		List<Project> doneList = service.listProjectDone(e_num);
+		List<Project> readyList = service.listProjectReady(e_num, cri);
+		List<Project> doingList = service.listProjectDoing(e_num, cri);
+		List<Project> doneList = service.listProjectDone(e_num, cri);
 		
 		model.addAttribute("readyList", readyList);
 		model.addAttribute("doingList", doingList);
 		model.addAttribute("doneList", doneList);
 		
+
+		PageMaker pageMakerReady =  new PageMaker();
+		pageMakerReady.setCri(cri);
+		pageMakerReady.setTotalCount(service.countProjectReady(e_num));
+		
+		PageMaker pageMakerDoing =  new PageMaker();
+		pageMakerDoing.setCri(cri);
+		pageMakerDoing.setTotalCount(service.countProjectDoing(e_num));
+		
+		PageMaker pageMakerDone =  new PageMaker();
+		pageMakerDone.setCri(cri);
+		pageMakerDone.setTotalCount(service.countProjectDone(e_num));
+		
+		model.addAttribute("pageMakerReady", pageMakerReady);
+		model.addAttribute("pageMakerDoing", pageMakerDoing);
+		model.addAttribute("pageMakerDone", pageMakerDone);
+		
+		return "/e_mypage/e_project";
 	}
 	
 	@RequestMapping(value = "/e_projectInfo", method = RequestMethod.GET)

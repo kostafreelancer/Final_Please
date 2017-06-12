@@ -46,7 +46,19 @@
 	<select id="listProjectDone" resultType="lancer.e_mypage.domain.Project">
 		SELECT * FROM project WHERE e_num = #{e_num} AND p_state = '완료'
 	</select>
-
+	<!--  -->
+	<select id="countProjectReady" resultType="Integer">
+		SELECT count(*) from project WHERE e_num = #{e_num} AND p_state = '모집중'
+	</select>
+	
+	<select id="countProjectDoing" resultType="Integer">
+		SELECT count(*) from project WHERE e_num = #{e_num} AND p_state = '진행중'
+	</select>
+	
+	<select id="countProjectDone" resultType="Integer">
+		SELECT count(*) from project WHERE e_num = #{e_num} AND p_state = '완료'
+	</select>
+<!--  -->
 	<select id="selectProject" parameterType="java.util.HashMap" resultType="lancer.e_mypage.domain.Project">
 		SELECT * FROM project WHERE e_num = #{e_num} AND e_pr_num = #{e_pr_num}
 	</select>
