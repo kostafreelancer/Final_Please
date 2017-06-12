@@ -44,7 +44,7 @@ public class VerificationController {
 			if(sort.equals("f")){//프리랜서면
 				if(f_count==1){//회원이 있는 것으로 판명. 아이디 확인되었습니다.
 					model.addAttribute("f_id", f_id);
-					page = "/verification/done";
+					page = "/verification/verificationPop";
 
 				}else{//그러한 회원이 없습니다.
 					model.addAttribute("fail", "true");
@@ -53,7 +53,7 @@ public class VerificationController {
 			}else{//기업이면
 				if(e_count==1){//회원이 있는 것으로 판명. 아이디 확인되었습니다.
 					model.addAttribute("e_id", e_id);
-					page = "/verification/done";
+					page = "/verification/verificationPop";
 					
 				}else{//그러한 회원이 없습니다.
 					model.addAttribute("fail", "true");
@@ -62,7 +62,6 @@ public class VerificationController {
 			}
 			return page;
 	}
-	
 	
 	@RequestMapping(value = "/verificationPop2", method = RequestMethod.GET)
 	public void verificationpopGET2() throws Exception{}

@@ -45,4 +45,11 @@ $(document).ready(function(){
 	if($('#fail').text() == "true"){
 		alert("해당하는 회원이 존재하지 않습니다.");
 	}
+	if($('#f_id').text() != ""){
+		alert("회원님의 아이디는 "+$('#f_id').text()+"입니다.");
+	}
+	
+	if($('#e_id').text() != ""){
+		alert("회원님의 아이디는 "+$('#e_id').text()+"입니다.");
+	}
 })

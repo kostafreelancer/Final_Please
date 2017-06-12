@@ -20,6 +20,8 @@
 </head>
 <body>
 <span id="fail" style="display: none;">${fail }</span>
+<span id="f_id" style="display: none;">${f_id }</span>
+<span id="e_id" style="display: none;">${e_id }</span>
 
 	<section id="verification">
 	<div class="tab">
