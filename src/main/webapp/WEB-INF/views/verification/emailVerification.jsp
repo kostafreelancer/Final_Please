@@ -8,7 +8,8 @@
 </head>
 <body>
 	<div>
-	<span>회원님의 아이디는 ${f_id }${e_id }입니다.</span>
+	<span>인증번호가 발송되었습니다. 인증번호를 입력해주세요.</span>
+	<input type="text"><div id="Timmer"></div>
 	</div>
 </body>
 </html>

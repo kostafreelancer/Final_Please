@@ -26,7 +26,7 @@ public class VerificationController {
 	@RequestMapping(value = "/verificationPop", method = RequestMethod.POST)
 	public String verificationpopPOST(@RequestParam("name")String name, 
 			@RequestParam("EmailId")String emailId, @RequestParam("EmailDomain")String emailDomain, @RequestParam("sort")String sort, Model model) throws Exception{
-			System.out.println("이름: "+name+" 이메일: "+emailId+"@"+emailDomain+" 분류: "+sort);
+
 			String emailAddr = emailId+"@"+emailDomain;
 			
 			HashMap<String, String> into_map = new HashMap<String, String>();
@@ -36,21 +36,23 @@ public class VerificationController {
 			Integer f_count = verificationService.checking_freelancer(into_map);
 			Integer e_count = verificationService.checking_enterprise(into_map);
 			
-			System.out.println(f_count+"카운트");
+			String f_id = verificationService.verifying_freelancer_id(into_map);
+			String e_id = verificationService.verifying_enterprise_id(into_map);
+
 			String page = "";
 			
 			if(sort.equals("f")){//프리랜서면
-				System.out.println(f_count+"2번");
-				if(f_count==1){
-					System.out.println(f_count+"3번");
+				if(f_count==1){//회원이 있는 것으로 판명. 아이디 확인되었습니다.
+					model.addAttribute("f_id", f_id);
 					page = "/verification/verified";
-					System.out.println(page);
+
 				}else{
 					model.addAttribute("fail", "true");
 					page = "/verification/verificationPop";
 				}
 			}else{//기업이면
-				if(e_count==1){
+				if(e_count==1){//회원이 있는 것으로 판명. 아이디 확인되었습니다.
+					model.addAttribute("e_id", e_id);
 					page = "/verification/verified";
 				}else{
 					model.addAttribute("fail", "true");
@@ -65,7 +67,41 @@ public class VerificationController {
 	public void verificationpopGET2() throws Exception{}
 	
 	@RequestMapping(value = "/verificationPop2", method = RequestMethod.POST)
-	public void verificationpopPOST2() throws Exception{
-		
+	public String verificationpopPOST2(@RequestParam("id")String id, @RequestParam("name")String name, 
+			@RequestParam("EmailId")String emailId, @RequestParam("EmailDomain")String emailDomain, @RequestParam("sort")String sort, Model model) throws Exception{
+			System.out.println("아이디: "+id+"이름: "+name+" 이메일: "+emailId+"@"+emailDomain+" 분류: "+sort);
+			String emailAddr = emailId+"@"+emailDomain;
+			
+			HashMap<String, String> into_map = new HashMap<String, String>();
+			into_map.put("id", id);
+			into_map.put("name", name);
+			into_map.put("EmailAddr", emailAddr);
+			
+			Integer f_count = verificationService.checking_freelancer(into_map);
+			Integer e_count = verificationService.checking_enterprise(into_map);
+			
+			String f_pwd = verificationService.verifying_freelancer_pwd(into_map);
+			String e_pwd = verificationService.verifying_enterprise_pwd(into_map);
+			
+			String page = "";
+			
+			if(sort.equals("f")){//프리랜서면
+				if(f_count==1){//회원이 있는 것으로 판명. 아이디 확인되었습니다.
+					page = "/verification/emailVerification";
+					
+				}else{
+					model.addAttribute("fail", "true");
+					page = "/verification/verificationPop";
+				}
+			}else{//기업이면
+				if(e_count==1){//회원이 있는 것으로 판명. 아이디 확인되었습니다.
+					page = "/verification/emailVerification";
+					
+				}else{
+					model.addAttribute("fail", "true");
+					page = "/verification/verificationPop";
+				}
+			}
+			return page;	
 	}
 }

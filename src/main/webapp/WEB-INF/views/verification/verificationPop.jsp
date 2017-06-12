@@ -50,7 +50,7 @@
 					<option value="hanmail.net">hanmail.net</option>
 				</select>
 			<br>
-			<span id="notice">*가입 시 입력한 이메일을 입력해주세요.</span>
+			<span class="notice">*가입 시 입력한 이메일을 입력해주세요.</span>
 			<br>
 			<input id="f_btn" type="radio" name="sort" value="f">프리랜서
 			<input id="e_btn" type="radio" name="sort" value="e">기업

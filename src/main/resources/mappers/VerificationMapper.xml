@@ -7,18 +7,18 @@
 	
 	<!-- 프리랜서 계정 정보 알려줌 -->
 	<select id="verifying_freelancer_id" parameterType="java.util.HashMap" resultType="String">
-		select f_id from FREELANCER where f_name = #{name} AND f_email = #{EmailId}
+		select f_id from FREELANCER where f_name = #{name} AND f_email = #{EmailAddr}
 	</select>
 	<select id="verifying_freelancer_pwd" parameterType="java.util.HashMap" resultType="String">
-		select f_pwd from FREELANCER where f_id = #{f_id} AND f_name = #{f_name} AND f_email = #{EmailId}
+		select f_pwd from FREELANCER where f_id = #{f_id} AND f_name = #{f_name} AND f_email = #{EmailAddr}
 	</select>
 	
 	<!-- 기업 계정 정보 알려줌-->
 	<select id="verifying_enterprise_id" parameterType="java.util.HashMap" resultType="String">
-		select e_id from enterprise where e_name = #{name} AND e_mail = #{EmailId}
+		select e_id from enterprise where e_name = #{name} AND e_mail = #{EmailAddr}
 	</select>
 	<select id="verifying_enterprise_pwd" parameterType="java.util.HashMap" resultType="String">
-		select e_pwd from enterprise where e_id = #{e_id} AND e_name = #{e_name} AND e_mail = #{EmailId}
+		select e_pwd from enterprise where e_id = #{e_id} AND e_name = #{e_name} AND e_mail = #{EmailAddr}
 	</select>
 	
 	<!-- 해당 계정 여부 파악 -->

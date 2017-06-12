@@ -28,7 +28,7 @@
 
 	<div id="find_pwd" class="tabcontent">
 		<div class="tabmenu">
-			<form name="form" action="/verification/verificationPop" method="POST" onsubmit='return check()'>
+			<form name="form" action="/verification/verificationPop2" method="POST" onsubmit='return check()'>
 			<span class="txt">아이디 :</span> <input class="space" name="id" type="text"><br>
 			<span class="txt">이름 &nbsp; &nbsp;:</span> <input class="space" name="name" type="text"><br> 
 			<span class="txt">이메일 :</span> <input id="e_mail_1" class="space" name="EmailId" type="text">
@@ -48,7 +48,7 @@
 					<option value="hanmail.net">hanmail.net</option>
 				</select>
 			<br>
-			<span id="notice">*가입 시 입력한 이메일을 입력해주세요.</span>
+			<span class="notice">*가입 시 입력한 이메일을 입력해주세요.</span>
 			<br>
 			<input id="f_btn" type="radio" name="sort">프리랜서
 			<input id="e_btn" type="radio" name="sort">기업
