@@ -78,7 +78,7 @@ $(function(){
 			<div class="tb_box">
 				<h4>담당자 정보</h4>
 				<table class="tb_st01">
-				<form method="post" name="ProjectWriteFm">
+				<form method="post" action="/c_projectlist/complete" name="ProjectWriteFm">
 				<input type="hidden" name="e_pr_num" value="${e_pr_num }"></input>
 					 
 					<colgroup>

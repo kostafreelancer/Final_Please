@@ -84,7 +84,7 @@ public class c_projectlistController {
 		model.addAttribute("p_job", p_job);
 	}
 	
-	@RequestMapping(value = "/c_readpage", method = RequestMethod.POST)
+	@RequestMapping(value = "/complete", method = RequestMethod.POST)
 	public String readPagePOST(Contract contract, HttpSession session, Model model,@RequestParam("e_pr_num") int e_pr_num) throws Exception{
 		SubmitVO submitVO = new SubmitVO();
 		
