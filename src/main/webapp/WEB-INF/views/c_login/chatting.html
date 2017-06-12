@@ -18,9 +18,11 @@
 <script src="/socket.io/socket.io.js"></script>
 <script type="text/javascript">
 $(function(){
+	
 	$('.chatting').click(function(){
-		alert("걸리는거야?");
-	$(this).after('<div class="chatting_se"><iframe id ="iframe_id" src="./client" width="300" height="465"></iframe></div>');
+		var username = localStorage.getItem('username');
+		alert(localStorage.getItem('username')+"이거?");
+	$(this).after('<div class="chatting_se"><iframe id ="iframe_id" src="http://localhost:8000/client?username='+username+'" width="300" height="465"></iframe></div>');
 	
 	$(this).hide();
 });

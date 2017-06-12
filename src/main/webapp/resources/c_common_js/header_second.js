@@ -1,8 +1,10 @@
 
 
 $(window).load(function() {
+	/*alert($('.header_welcome_content span').text());*/
 	
 	if($('.header_welcome_content span').text() != ''){
+		localStorage.setItem('username',$('.header_welcome_content span').text());
 		$('.header_welcome_content span').append("<span>님 환영합니다</span>");
 		$('.login_checking a').text("로그 아웃");
 		$('.header_join').hide();

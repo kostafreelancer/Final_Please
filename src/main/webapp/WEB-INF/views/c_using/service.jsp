@@ -120,7 +120,7 @@
 					<div class="p5-serviceIntroduction-list-component">
 						<div class="p5-serviceIntroduction-list-text">
 							<h5 class="p5-serviceIntroduction-list-title">
-								안전하다<img class="p5-slash" src="c_using_img/slash_blue.png">
+								안전하다<img class="p5-slash" src="/resources/c_using_img/slash_blue.png">
 							</h5>
 							<p>
 								에스크로 형태의 대금보호 시스템을 통해 프로젝트 대금을 안전하게<br>보호합니다. 프로젝트 진행 중

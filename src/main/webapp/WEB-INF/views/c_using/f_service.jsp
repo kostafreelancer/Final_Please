@@ -5,10 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="../common/header.css" type="text/css"
-	media="screen" />
-<link rel="stylesheet" href="../common/footer.css" type="text/css"
-	media="screen" />
+
 <link rel="stylesheet"
 	href="/resources/e_insertproject_css/e_insertproject.css"
 	type="text/css" media="screen" />
@@ -16,7 +13,6 @@
 	media="screen" />
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-<script type="text/javascript" src="../common/header.js"></script>
 
 </head>
 <body>
@@ -37,9 +33,9 @@
 		</div>
 		<div class="left_menu_content">
 			<ul class="left_menu_contents">
-				<li><a href="service.jsp">서비스 소개</a></li>
-				<li><a href="e_service.jsp">기업 이용방법</a></li>
-				<li><a href="f_service.jsp">프리랜서 이용방법</a></li>
+				<li><a href="service">서비스 소개</a></li>
+				<li><a href="e_service">기업 이용방법</a></li>
+				<li><a href="f_service">프리랜서 이용방법</a></li>
 			</ul>
 		</div>
 	</div>
@@ -76,22 +72,22 @@
 						<div class="p5-clientUsage-hover-one"></div>
 					</a>
 					<div>
-						<img src="c_using_img/partners_process_one_none.png"> <img
-							src="c_using_img/partners_intro_arrow.png">
+						<img src="/resources/c_using_img/partners_process_one_none.png"> <img
+							src="/resources/c_using_img/partners_intro_arrow.png">
 					</div>
 					<a href="#p5-clientUsage-step-2">
 						<div class="p5-clientUsage-hover-two"></div>
 					</a>
 					<div>
-						<img src="c_using_img/partners_process_two_none.png"> <img
-							src="c_using_img/partners_intro_arrow.png">
+						<img src="/resources/c_using_img/partners_process_two_none.png"> <img
+							src="/resources/c_using_img/partners_intro_arrow.png">
 					</div>
 					<a href="#p5-clientUsage-step-3">
 						<div class="p5-clientUsage-hover-three"></div>
 					</a>
 					<div>
-						<img src="c_using_img/partners_process_three_none.png"> <img
-							src="c_using_img/partners_intro_arrow.png">
+						<img src="/resources/c_using_img/partners_process_three_none.png"> <img
+							src="/resources/c_using_img/partners_intro_arrow.png">
 					</div>
 					
 					<a href="#p5-clientUsage-step-4">
@@ -99,8 +95,8 @@
 					</a>
 					
 					<div>
-						<img src="c_using_img/partners_process_four_none.png"> <img
-							src="c_using_img/partners_intro_arrow.png">
+						<img src="/resources/c_using_img/partners_process_four_none.png"> <img
+							src="/resources/c_using_img/partners_intro_arrow.png">
 					</div>
 				
 					
@@ -108,8 +104,8 @@
 						<div class="p5-clientUsage-hover-five"></div>
 					</a>
 					<div>
-						<img src="c_using_img/partners_process_five_none.png">
-						<img src="c_using_img/partners_intro_arrow.png">
+						<img src="/resources/c_using_img/partners_process_five_none.png">
+						<img src="/resources/c_using_img/partners_intro_arrow.png">
 					</div>
 					
 					
@@ -121,9 +117,9 @@
 				<section class="p5-clientUsage-partition">
 				<div id="p5-clientUsage-step-1" class="p5-clientUsage-step">
 					<h5 class="p5-clientUsage-step-title">
-						<img src="c_using_img/intro_one.png"> <span
+						<img src="/resources/c_using_img/intro_one.png"> <span
 							class="p5-clientUsage-step-title-text" style="margin-left: 23px;">프로필
-							작성</span> <img src="c_using_img/slash_blue.png">
+							작성</span> <img src="/resources/c_using_img/slash_blue.png">
 					</h5>
 
 					<div class="p5-clientUsage-step-content">
@@ -136,7 +132,7 @@
 						</div>
 						<div class="p5-clientUsage-step-img">
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/intro_usecase_one.PNG">
 						</div>
 						<div class="p5-clientUsage-step-info">
 							<div class="p5-clientUsage-step-info-line">- [프로필 정보 관리] >
@@ -153,9 +149,9 @@
 				<section class="p5-clientUsage-partition">
 				<div id="p5-clientUsage-step-2" class="p5-clientUsage-step">
 					<h5 class="p5-clientUsage-step-title">
-						<img src="c_using_img/intro_two.png"> <span
+						<img src="/resources/c_using_img/intro_two.png"> <span
 							class="p5-clientUsage-step-title-text" style="margin-left: 10px;">프로젝트
-							비공개 지원</span> <img src="c_using_img/slash_blue.png">
+							비공개 지원</span> <img src="/resources/c_using_img/slash_blue.png">
 					</h5>
 					<div class="p5-clientUsage-step-content">
 						<div class="p5-clientUsage-step-mainText">간단한 지원서 작성을 통해서,
@@ -166,7 +162,7 @@
 						</div>
 						<div class="p5-clientUsage-step-img">
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/intro_usecase_one.PNG">
 						</div>
 						<div class="p5-clientUsage-step-info">
 							<div class="p5-clientUsage-step-info-line">- 프로젝트의 상세페이지 우측
@@ -183,9 +179,9 @@
 				<section class="p5-clientUsage-partition">
 				<div id="p5-clientUsage-step-3" class="p5-clientUsage-step">
 					<h5 class="p5-clientUsage-step-title">
-						<img src="c_using_img/intro_three.png"> <span
+						<img src="/resources/c_using_img/intro_three.png"> <span
 							class="p5-clientUsage-step-title-text" style="margin-left: 10px;">미팅
-							및 계약</span> <img src="c_using_img/slash_blue.png">
+							및 계약</span> <img src="/resources/c_using_img/slash_blue.png">
 					</h5>
 					<div class="p5-clientUsage-step-content">
 						<div class="p5-clientUsage-step-mainText">
@@ -198,7 +194,7 @@
 						</div>
 						<div class="p5-clientUsage-step-img">
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/intro_usecase_one.PNG">
 						</div>
 						<div class="p5-clientUsage-step-info">
 							<div class="p5-clientUsage-step-info-line">- 미팅은 온라인
@@ -215,9 +211,9 @@
 				<section class="p5-clientUsage-partition">
 				<div id="p5-clientUsage-step-4" class="p5-clientUsage-step">
 					<h5 class="p5-clientUsage-step-title">
-						<img src="c_using_img/intro_four.png"> <span
+						<img src="/resources/c_using_img/intro_four.png"> <span
 							class="p5-clientUsage-step-title-text" style="margin-left: 10px;">프로젝트
-							진행</span> <img src="c_using_img/slash_blue.png">
+							진행</span> <img src="/resources/c_using_img/slash_blue.png">
 					</h5>
 					<div class="p5-clientUsage-step-content">
 						<div class="p5-clientUsage-step-mainText">프로젝트 진행 중에도 위시켓이
@@ -230,7 +226,7 @@
 						</div>
 						<div class="p5-clientUsage-step-img">
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/intro_usecase_one.PNG">
 						</div>
 						<div class="p5-clientUsage-step-info">
 							<div class="p5-clientUsage-step-info-line">- 클라이언트의 선입금이
@@ -249,9 +245,9 @@
 				<section class="p5-clientUsage-partition last-child-ie7">
 				<div id="p5-clientUsage-step-5" class="p5-clientUsage-step">
 					<h5 class="p5-clientUsage-step-title">
-						<img src="c_using_img/intro_five.png"> <span
+						<img src="/resources/c_using_img/intro_five.png"> <span
 							class="p5-clientUsage-step-title-text" style="margin-left: 11px;">프로젝트
-							완료</span> <img src="c_using_img/slash_blue.png">
+							완료</span> <img src="/resources/c_using_img/slash_blue.png">
 					</h5>
 					<div class="p5-clientUsage-step-content">
 						<div class="p5-clientUsage-step-mainText">클라이언트와 파트너의 승인 후에
@@ -262,7 +258,7 @@
 						</div>
 						<div class="p5-clientUsage-step-img">
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/intro_usecase_one.PNG">
 						</div>
 						<div class="p5-clientUsage-step-info">
 							<div class="p5-clientUsage-step-info-line">- 프로젝트 완료 후에,

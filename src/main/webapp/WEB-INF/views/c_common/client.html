@@ -3,7 +3,9 @@
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	
-	var socket = io.connect();
+
+
+	var socket = io.connect('http://localhost:8000');
 	var myname = prompt("너의 이름?");
 	socket.on('join',function(username, data){
 		$('.chat_content').append('<p class="server"><span>'+data+'</span></p>');
