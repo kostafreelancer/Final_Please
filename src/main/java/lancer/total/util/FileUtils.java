@@ -5,23 +5,22 @@ import java.io.File;
 import java.util.HashMap;
 
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpSession;
 
 import org.imgscalr.Scalr;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileUtils {
+	
+	private static String uploadPath = "C:\\lancer\\upload\\";
      
-    public static HashMap<String, Object> parseInsertFileInfo(MultipartFile multipartFile, String section, int common_num, HttpSession session) throws Exception{
+    public static HashMap<String, Object> parseInsertFileInfo(MultipartFile multipartFile, String section, int common_num) throws Exception{
          
         String original_file_name = null;
         String originalFileExtension = null;
         String stored_file_name = null;
         long file_size = 0;
-        String filePath = session.getServletContext().getRealPath("/") + "resources\\upload\\";
         
-        
-        File file = new File(filePath);
+        File file = new File(uploadPath);
         if(file.exists() == false){
             file.mkdirs();
         }
@@ -31,7 +30,7 @@ public class FileUtils {
         stored_file_name = CommonUtils.getRandomString() + originalFileExtension;
         file_size = multipartFile.getSize();
         
-        file = new File(filePath + stored_file_name);
+        file = new File(uploadPath + stored_file_name);
         multipartFile.transferTo(file);
         
         
@@ -46,7 +45,7 @@ public class FileUtils {
         return map;
     }
     
-    public static HashMap<String, Object> parseInsertImageFileInfo(MultipartFile multipartFile, String section, int common_num, HttpSession session) throws Exception{
+    public static HashMap<String, Object> parseInsertImageFileInfo(MultipartFile multipartFile, String section, int common_num) throws Exception{
     	
     	String original_file_name = null;
     	String originalFileExtension = null;
@@ -54,8 +53,7 @@ public class FileUtils {
     	String stored_file_name = null;
     	long file_size = 0;
     	
-    	String filePath = session.getServletContext().getRealPath("/") + "resources\\upload\\";
-    	File file = new File(filePath);
+    	File file = new File(uploadPath);
     	if(file.exists() == false){
     		file.mkdirs();
     	}
@@ -74,16 +72,14 @@ public class FileUtils {
     	}    	
     	
     	
-    	file = new File(filePath + stored_file_name);
+    	file = new File(uploadPath + stored_file_name);
     	multipartFile.transferTo(file);
     	
     	
     	BufferedImage sourceImg = ImageIO.read(file);
     	
-    	BufferedImage destImg = 
-    	        Scalr.resize(sourceImg, 
-    	            Scalr.Method.AUTOMATIC, 
-    	            Scalr.Mode.FIT_TO_HEIGHT,100);
+    	BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.QUALITY, Scalr.Mode.FIT_EXACT, 120, 160);
+    	
     	ImageIO.write(destImg, "jpg", file);
     	
     	HashMap<String, Object> map = new HashMap<String, Object>();

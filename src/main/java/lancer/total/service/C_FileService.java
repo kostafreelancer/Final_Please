@@ -3,7 +3,6 @@ package lancer.total.service;
 import java.util.HashMap;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,17 +15,17 @@ public class C_FileService {
 	@Inject
 	private C_FileDAO dao;
 
-	public void uploadFile(MultipartFile multipartFile, String section, int common_num, HttpSession session) throws Exception {
+	public void uploadFile(MultipartFile multipartFile, String section, int common_num) throws Exception {
 		
-		HashMap<String, Object> map = FileUtils.parseInsertFileInfo(multipartFile, section, common_num, session);
+		HashMap<String, Object> map = FileUtils.parseInsertFileInfo(multipartFile, section, common_num);
 	
 		dao.deleteFile(map);
 		dao.insertFile(map);
 	}
 	
-	public void uploadImageFile(MultipartFile multipartFile, String section, int common_num, HttpSession session) throws Exception {
+	public void uploadImageFile(MultipartFile multipartFile, String section, int common_num) throws Exception {
 		
-		HashMap<String, Object> map = FileUtils.parseInsertImageFileInfo(multipartFile, section, common_num, session);
+		HashMap<String, Object> map = FileUtils.parseInsertImageFileInfo(multipartFile, section, common_num);
 		
 		if(map == null){
 			return;
