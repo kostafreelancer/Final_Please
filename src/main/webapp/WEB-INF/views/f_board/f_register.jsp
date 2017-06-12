@@ -45,7 +45,7 @@
 				</div>
 
 				<!-- //tb_box : e -->
-				<form method="post">
+				<form method="post" role="form"> 
 				<input type="text" hidden name="f_num" value="${client.f_num }">
 				<div class="tb_box">
 				<h1>&nbsp</h1>
@@ -71,8 +71,7 @@
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="p_content">상세내용</label></th>
 								<td colspan="3">
-								<textarea id="f_board_content" name="f_board_content" class="txt_area">
-                                </textarea>
+								<textarea id="f_board_content" name="f_board_content" class="txt_area"></textarea>
                                 </td>
 							</tr>
 							<tr>

@@ -12,6 +12,15 @@ public class F_BoardVO {
 	private Integer f_num;
 	private String f_id;
 	
+	private String[] files;
+	
+	public String[] getFiles() {
+		return files;
+	}
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
+	
 	public F_BoardVO(){}
 	
 	public F_BoardVO(Integer f_board_num, String f_board_title, String f_board_content, Integer f_board_hits,

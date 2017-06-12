@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <link rel="stylesheet" href="../../../resources/f_board_css/join.css" type="text/css"
 	media="screen" />
 <link rel="stylesheet" href="../../../resources/f_board_css/reset.css" type="text/css"
@@ -11,38 +12,39 @@
 <link rel="stylesheet" href="../c_common/header.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="../c_common/footer.css" type="text/css" media="screen" />
 <title>프리랜서 자유게시판</title>
-<script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		var formObj = ${"form[role='form']"}
-		console.log(formObj);
-		
-		$(".btn_check04").on("click", function(){
-			formObj.attr("action", "modify");
-			formObj.attr("method", "get");
-			formObj.submit();
-		})
-		$(".butt").on("click", function(){
-			formObj.attr("action", "remove");
-			formObj.submit();
-		})
-		$(".btn_check04").on("click", function(){
-			formObj.attr("action", "listAll");
-		});
-		
+ <script src="../../../resources/f_board_js/jquery-1.3.2.js"></script> 
+ <script type="text/javascript">
+$(document).ready(function(){
+	var formObj = $("form[role='form']");
+	//console.log(formObj);
+
+	$(".btn_check04").click(function(){
+		formObj.attr("action", "/f_board/f_modifyPage");
+		formObj.attr("method", "get");
+		formObj.submit();
 	});
-	
+	$(".btn_remove").click(function(){
+		formObj.attr("action", "/f_board/f_remove");
+		formObj.attr("method", "post");
+		formObj.submit();
+	});
+	$(".btn_list").click(function(){
+		location.href="/f_board/f_list";
+		/* formObj.attr("method", "get"); */
+/* 		formObj.submit(); */
+	}); 
+});
 </script>
 </head>
 <body>
  <%@include file="../c_common/header.jsp" %>
-  
-  	<input type='hidden' name='bno' value="${F_BoardVO.f_board_num }">
+  <form role="form">
+  	<input type='hidden' name='f_board_num' value="${F_BoardVO.f_board_num }">
   	 <input type='hidden' name='page' value="${cri.page}"> 
   	 <input type='hidden' name='perPageNum' value="${cri.perPageNum}">
-	<input type='hidden' name='searchType' value="${cri.searchType}">
+     <input type='hidden' name='searchType' value="${cri.searchType}">
 	<input type='hidden' name='keyword' value="${cri.keyword}">
-  </form>
+
 	<div id="conainer">
 		<div id="nav">
 			<div class="nav_txt">
@@ -71,7 +73,7 @@
 				</div> -->
 
 				<!-- //tb_box : e -->
-				<form method="post" role="form">
+				
 				<div class="tb_box">
 				<h1>&nbsp</h1>
 					<table class="tb_st01">
@@ -90,8 +92,8 @@
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">글번호</label></th>
 								<td colspan="2">
-								${F_BoardVO.f_board_num}
-								<!-- <input type="text" id="f_board_title" name="f_board_title" class="wid" /> -->
+								<input type="text" hidden name="f_board_num">${F_BoardVO.f_board_num}
+								<!-- <input type="text" id="f_board_title" name="f_board_title" class="wid" />  -->
 								</td>
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">조회수</label></th>
@@ -104,8 +106,7 @@
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">아이디</label></th>
 								<td colspan="2">
-								아이디이이이이이
-								<%-- ${F_BoardVO.f_id} --%>
+								 ${F_BoardVO.f_id} 
 								<!-- <input type="text" id="f_id" name="f_id" class="wid" /> -->
 								</td>
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
@@ -119,8 +120,9 @@
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">제목</label></th>
 								<td colspan="5">
-								<input type="text" id="f_board_title" name="f_board_title" class="wid" 
-										readonly="readonly" value="${F_BoardVO.f_board_title }"/>
+								${F_BoardVO.f_board_title }
+								<%-- <input type="text" id="f_board_title" name="f_board_title" class="wid" 
+										readonly="readonly" value="${F_BoardVO.f_board_title }"/>  --%>
 								</td>
 							</tr>
 
@@ -128,9 +130,8 @@
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="p_content">상세내용</label></th>
 								<td colspan="5">
-								<textarea id="f_board_content" name="f_board_content" class="txt_area"
-											readonly="readonly" value="${F_BoardVO.f_board_content }">
-                                </textarea>
+								
+								<textarea id="f_board_content" name="f_board_content" class="txt_area" readonly="readonly" style="border:0">${F_BoardVO.f_board_content }</textarea>
                                 </td>
 							</tr>
 							<tr>
@@ -147,16 +148,15 @@
 						</tbody>
 					</table>
 				</div>
+				
 				<div class="btn_box">
 					<input type="submit" id="checkValue" class="btn_check04"  value="수정하기">
-					<input type="submit" id="checkValue" class="butt"  value="     삭제하기">
-					<input type="submit" id="checkValue" class="bg_btn_list"  value="목록으로">
+					<input type="submit" id="checkValue1" class="btn_remove"  value="     삭제하기">
+					<input type="button" id="checkValue2" class="btn_list"  value="목록으로">
 				</div>
 			</div>
 		</div>
-</div>
-
-	
+</form>
 <%@include file="../c_common/footer.jsp" %>
 </body>
 </html>

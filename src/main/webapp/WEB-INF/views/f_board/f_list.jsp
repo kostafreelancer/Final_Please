@@ -15,6 +15,11 @@
 <link rel="stylesheet" href="../c_common/footer.css" type="text/css" media="screen" />
 <title>프리랜서 자유게시판</title>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<style type="text/css">
+#checkValue{
+float: right;
+}
+</style>
 <script type="text/javascript">
 	var result='${msg}';
 	if(result=='SUCCESS'){
@@ -65,7 +70,8 @@
                             
                      <c:forEach items="${list}" var="F_BoardVO">
                          <tbody>
-							<tr><td>${F_BoardVO.f_board_num }</td>
+							<tr>
+							<td>${F_BoardVO.f_board_num }</td>
 								<td class="al">&nbsp;&nbsp;&nbsp;
 								<a href='/f_board/f_readPage${pageMaker.makeSearch(pageMaker.cri.page) }&f_board_num=${F_BoardVO.f_board_num}' class="SOLU_green">${F_BoardVO.f_board_title}</a></td>
 								<td>아이디</td>
@@ -75,36 +81,44 @@
                             </tbody>
                             </c:forEach>
                         </table>
+                       
                     </div>
                     
                 <div class="box-footer">
 					<div class="num_box">
 						<ul class="pagination">
-
 							<c:if test="${pageMaker.prev}">
-								<li><a
-									href="f_list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+								<a href="f_list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a>
 							</c:if>
 
 							<c:forEach begin="${pageMaker.startPage }"
 								end="${pageMaker.endPage }" var="idx">
-								<li
-									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="f_list${pageMaker.makeSearch(idx)}">${idx}</a>
-								</li>
+								<a
+									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>></a>
+									<a  href="f_list${pageMaker.makeSearch(idx)}">${idx}</a>
+								
 							</c:forEach>
 
 							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="f_list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+								<a
+									href="f_list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a>
 							</c:if>
 						</ul>
 					</div>
+					 <input type="submit" id="checkValue" class="btn_check04"  value="작성하기">
 				</div>
                     
                     <!-- //tb_box : e -->
                     <div class="num_box">
-				<span class='btn_lef'><a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=Y29kZT0mcGFnZT0xJmluY3JlbWVudD0w" class="first">맨 처음</a></span><a class="on">1</a><a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=cGFnZT0yJmluY3JlbWVudD0w" onclick="javascript:tab('tab_d02',2);">2</a><a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=cGFnZT0zJmluY3JlbWVudD0w" onclick="javascript:tab('tab_d02',2);">3</a><span class='btn_rit'></span><a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=Y29kZT0mcGFnZT0zJmluY3JlbWVudD0w" class="last">맨 마지막</a>                    </div>
+				<span class='btn_lef'>
+				<a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=Y29kZT0mcGFnZT0xJmluY3JlbWVudD0w" class="first">맨 처음
+				</a></span>
+				<a class="on">1</a>
+				<a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=cGFnZT0yJmluY3JlbWVudD0w" onclick="javascript:tab('tab_d02',2);">2</a>
+				<a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=cGFnZT0zJmluY3JlbWVudD0w" onclick="javascript:tab('tab_d02',2);">3</a>
+				<span class='btn_rit'></span>
+				<a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=Y29kZT0mcGFnZT0zJmluY3JlbWVudD0w" class="last">맨 마지막</a>                    
+				</div>
                     <!-- //num_box : e -->
                 </dd>
 			</dl>

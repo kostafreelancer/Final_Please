@@ -4434,7 +4434,7 @@ th.th_bor0 {
 .btn_check06{ background:url(images/bg/btn_modify.jpg) no-repeat;color:#fff;padding-left:50px; }
 .btn_check07{ background:url(images/bg/btn_copy.jpg) no-repeat;color:#666;padding-left:50px; }
 .btn_check08{ background:url(images/bg/btn_card.jpg) no-repeat;color:#fff;width:110px;padding:20px 0 20px 50px;display:inline-block;font-size:20px;text-align:left;line-height:20px}
-.bg_btn_list{ background:url(../f_board_img/bg_btn_list.jpg) no-repeat;color:#fff;width:110px;padding:20px 0 20px 50px;display:inline-block;font-size:20px;text-align:left;line-height:20px}
+.btn_list{ background:url(../f_board_img/bg_btn_list.jpg) no-repeat;color:#fff;width:110px;padding:20px 0 20px 50px;display:inline-block;font-size:20px;text-align:left;line-height:20px}
 .btn_inter{background:url(images/bg/bg_btn_inter.jpg) no-repeat;color:#666;padding-left:50px;width:170px;color:#fff;font-size:20px;line-height:18px}
 td.td_bor_bott{border-bottom:0; padding-bottom:0}
 .btn_zzim{background:url(../../images/common/bg/bg_btn_zzim.jpg) no-repeat;color:#fff;padding-left:55px;margin-left:10px}
@@ -5304,7 +5304,7 @@ th.th_bor0{border-bottom:0}
 	display: inline;
 }
 
-.butt{
+.btn_remove{
 	background:url(../f_board_img/bg_btn_ok2.jpg) no-repeat;
 	color:#fff;
 	padding-left:50px;
