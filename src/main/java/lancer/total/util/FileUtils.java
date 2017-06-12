@@ -13,7 +13,7 @@ public class FileUtils {
 	
 	private static String uploadPath = "C:\\lancer\\upload\\";
      
-    public static HashMap<String, Object> parseInsertFileInfo(MultipartFile multipartFile, String section, int common_num) throws Exception{
+    public static HashMap<String, Object> parseInsertFileInfo(MultipartFile multipartFile, String section, int common_num, int identy) throws Exception{
          
         String original_file_name = null;
         String originalFileExtension = null;
@@ -38,6 +38,7 @@ public class FileUtils {
         
         map.put("section", section);
         map.put("common_num", common_num);
+        map.put("identy", identy);
         map.put("original_file_name", original_file_name);
         map.put("stored_file_name", stored_file_name);
         map.put("file_size", file_size);
@@ -45,7 +46,7 @@ public class FileUtils {
         return map;
     }
     
-    public static HashMap<String, Object> parseInsertImageFileInfo(MultipartFile multipartFile, String section, int common_num) throws Exception{
+    public static HashMap<String, Object> parseInsertImageFileInfo(MultipartFile multipartFile, String section, int common_num, int identy) throws Exception{
     	
     	String original_file_name = null;
     	String originalFileExtension = null;
@@ -86,6 +87,7 @@ public class FileUtils {
     	
     	map.put("section", section);
     	map.put("common_num", common_num);
+    	map.put("identy", identy);
     	map.put("original_file_name", original_file_name);
     	map.put("stored_file_name", stored_file_name);
     	map.put("file_size", file_size);

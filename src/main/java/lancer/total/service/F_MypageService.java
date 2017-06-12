@@ -1,5 +1,6 @@
 package lancer.total.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -148,6 +149,15 @@ public class F_MypageService {
 	public List<Accounting> getSpendAccounting(int f_num) throws Exception{
 		return dao.getSpendAccounting(f_num);
 	}
+	
+	public List<Accounting> searchSpendList(HashMap<String, String> map) throws Exception{
+		return dao.searchSpendList(map);
+	}
+	
+	public List<Accounting> searchIncomeList(HashMap<String, String> map) throws Exception{
+		return dao.searchIncomeList(map);
+	}
+
 	public int getSpendAccountingNum() throws Exception{
 		return dao.getSpendAccountingNum();
 	}
@@ -180,5 +190,13 @@ public class F_MypageService {
 	}
 	public void updatePortfolio(Portfolio portfolio) throws Exception{
 		dao.updatePortfolio(portfolio);
+	}
+	
+	public void deletePortfolio(int portfolio_num) throws Exception{
+		dao.deletePortfolio(portfolio_num);
+	}
+	
+	public int getPortfolio_iden(int f_num) throws Exception{
+		return dao.getPortfolio_iden(f_num);
 	}
 }

@@ -24,6 +24,10 @@ public class C_FileDAO {
 		session.delete(namespace+".deleteFile", map);
 	}
 	
+	public int getIdenty(HashMap<String, Object> map) throws Exception{
+		return session.selectOne(namespace + ".getIdenty", map);
+	}
+	
 	public Integer selectFileNum(HashMap<String, Object> map) throws Exception {
 		return session.selectOne(namespace+".selectFileNum", map);
 	}

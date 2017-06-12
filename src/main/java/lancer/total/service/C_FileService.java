@@ -15,17 +15,17 @@ public class C_FileService {
 	@Inject
 	private C_FileDAO dao;
 
-	public void uploadFile(MultipartFile multipartFile, String section, int common_num) throws Exception {
+	public void uploadFile(MultipartFile multipartFile, String section, int common_num, int identy) throws Exception {
 		
-		HashMap<String, Object> map = FileUtils.parseInsertFileInfo(multipartFile, section, common_num);
+		HashMap<String, Object> map = FileUtils.parseInsertFileInfo(multipartFile, section, common_num, identy);
 	
 		dao.deleteFile(map);
 		dao.insertFile(map);
 	}
 	
-	public void uploadImageFile(MultipartFile multipartFile, String section, int common_num) throws Exception {
+	public void uploadImageFile(MultipartFile multipartFile, String section, int common_num, int identy) throws Exception {
 		
-		HashMap<String, Object> map = FileUtils.parseInsertImageFileInfo(multipartFile, section, common_num);
+		HashMap<String, Object> map = FileUtils.parseInsertImageFileInfo(multipartFile, section, common_num, identy);
 		
 		if(map == null){
 			return;
@@ -35,10 +35,26 @@ public class C_FileService {
 		dao.insertFile(map);
 	}
 	
-	public HashMap<String, Object> selectFile(String section, int common_num) throws Exception {
+	public void deleteFile(String section, int common_num, int identy) throws Exception{
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("section", section);
+	    map.put("common_num", common_num);
+	    map.put("identy", identy);
+	    dao.deleteFile(map);
+	}
+	
+	public int getIdenty(String section, int common_num) throws Exception{
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("section", section);
+	    map.put("common_num", common_num);
+		return dao.getIdenty(map);
+	}
+	
+	public HashMap<String, Object> selectFile(String section, int common_num, int identy) throws Exception {
 		HashMap<String, Object> parameterMap = new HashMap<String, Object>();
 		parameterMap.put("section", section);
 		parameterMap.put("common_num", common_num);
+		parameterMap.put("identy", identy);
 		
 		HashMap<String, Object> resultFileMap = new HashMap<String, Object>();
 		resultFileMap.put("file_num", dao.selectFileNum(parameterMap));

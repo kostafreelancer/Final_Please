@@ -13,7 +13,8 @@
 	            common_num,
 	            original_file_name,
 	            stored_file_name,
-	            file_size
+	            file_size,
+	            identy
 	            )
 	            VALUES(
 	            file_seq.nextval,
@@ -21,13 +22,19 @@
 	            #{common_num},
 	            #{original_file_name},
 	            #{stored_file_name},
-	            #{file_size}
+	            #{file_size},
+	            #{identy}
 	            )
 	</insert>
 	
 	<delete id="deleteFile" parameterType="hashmap">
-		DELETE FROM fileupload WHERE section = #{section} AND common_num = #{common_num}
+		DELETE FROM fileupload WHERE section = #{section} AND common_num = #{common_num} AND identy = #{identy}
 	</delete>
+	
+	<select id="getIdenty" parameterType="hashmap" resultType="int">
+		select nvl(max(identy), 0) from fileupload where section = #{section}
+	            AND common_num = #{common_num}
+	</select>
 	
 	<select id="selectFileNum" parameterType="hashmap" resultType="Integer">
 	        SELECT
@@ -37,6 +44,7 @@
 	        WHERE
 	            section = #{section}
 	            AND common_num = #{common_num}
+	            AND identy = #{identy}
 	</select>
 	
 	<select id="selectFileName" parameterType="hashmap" resultType="String">
@@ -47,6 +55,7 @@
 	        WHERE
 	            section = #{section}
 	            AND common_num = #{common_num}
+	            AND identy = #{identy}
 	</select>
 	
 	<select id="selectFileSize" parameterType="hashmap" resultType="Integer">
@@ -57,6 +66,7 @@
 	        WHERE
 	            section = #{section}
 	            AND common_num = #{common_num}
+	            AND identy = #{identy}
 	</select>
 	
 	

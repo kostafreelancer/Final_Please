@@ -803,7 +803,7 @@ $(function(){
 					첨부파일 : <input type="file"  name="portfile">
 					<input type="submit" value="저장">
 				</form>
-				<form name="tempPortfolioDelete" action="/f_mypage/deletePortfolio">
+				<form name="tempPortfolioDelete" action="/f_mypage/deletePortfolio" method="get">
 					<input type="text" hidden name="deletePortfolio_num">
 				</form>
 		</div>
