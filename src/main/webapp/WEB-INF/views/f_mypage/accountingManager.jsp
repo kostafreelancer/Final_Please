@@ -15,6 +15,7 @@
 <script src="${pageContext.request.contextPath}/resources/f_mypage_js/add.js"></script>
 <script src="${pageContext.request.contextPath}/resources/f_mypage_js/superfish.js"></script>
 <script src="${pageContext.request.contextPath}/resources/f_mypage_js/comment.js"></script> 
+<%-- <script src="${pageContext.request.contextPath}/resources/f_mypage_js/calendar.js"></script>  --%>
 
 
 </head>
@@ -53,6 +54,13 @@
 					<button>3월</button>
 					<button>4월</button>
 					<button>5월</button><br>
+					<br><br>
+					<form id="searchDate" name="searchDate" method="post" action="/f_mypage/accountingSearch">
+					<input type="text" id="startDate" name="startDate">
+					~
+					<input type="text" id="endDate" name="endDate">
+					<input type="submit" value="검색">
+					</form>
 					<h4 class="fl myfl">지출</h4>
 					<button id="add" class="right_add">추가하기</button><br><br><br>
 					
@@ -83,6 +91,7 @@
 					</c:if>
 					<c:forEach var="myspendList" items="${spendList}">
 						<form id="spendListForm${myspendList.a_num}" name="myspendListModify${myspendList.a_num}" method="post" action="/f_mypage/spendListModify" target='popup_window'>
+						<input type="text" hidden name="a_num" value="${myspendList.a_num}">
 						<input type="text" hidden name="detail_usage" value="${myspendList.detail_usage}">
 						<input type="text" hidden name="a_money" value="${myspendList.a_money}">
 						<input type="text" hidden name="a_using_date" value="${myspendList.a_using_date}">

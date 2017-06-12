@@ -159,6 +159,10 @@ public class F_MypageDAO {
 		session.insert(namespace + ".insertSpendAccounting", accounting);
 	}
 	
+	public void updateSpendAccounting(Accounting accounting) throws Exception{
+		session.update(namespace +".updateSpendAccounting", accounting);
+	}
+	
 	public List<Accounting> getIncomeAccounting(int f_num) throws Exception{
 		return session.selectList(namespace + ".getIncomeAccounting", f_num);
 	}

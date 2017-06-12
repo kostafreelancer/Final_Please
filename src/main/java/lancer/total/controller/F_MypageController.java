@@ -299,7 +299,7 @@ public class F_MypageController {
 	}
 	
 	@RequestMapping(value="/portfolioAdd", method=RequestMethod.POST)
-	public String portfolioAdd(PortfolioCommand portFolioCommand) throws Exception{
+	public String portfolioAdd(PortfolioCommand portFolioCommand, HttpSession session) throws Exception{
 		System.out.println(portFolioCommand.getF_num());
 		if(portFolioCommand.getPortfolio_num() == 0){
 			
@@ -318,7 +318,7 @@ public class F_MypageController {
 			service.insertPortfolio(portfolio);
 			
 			MultipartFile portfile = portFolioCommand.getPortfile();
-			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num());
+			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num(), session);
 		
 		}else{
 			System.out.println(portFolioCommand.getPortfolio_num());
@@ -333,7 +333,7 @@ public class F_MypageController {
 			}
 			service.updatePortfolio(portfolio);
 			MultipartFile portfile = portFolioCommand.getPortfile();
-			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num());
+			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num(), session);
 		}
 		
 		return "redirect:/f_mypage/updateSuccess";
@@ -447,9 +447,9 @@ public class F_MypageController {
 	}
 	
 	@RequestMapping(value="/spendListAdd", method=RequestMethod.POST)
-	public String spendListAdd(AccountingCommand command) throws Exception{
+	public String spendListAdd(AccountingCommand command, HttpSession session) throws Exception{
 		System.out.println("우아아아아아");
-		//if(command.getA_num() == 0){
+		if(command.getA_num() == 0){
 			
 			Accounting accounting = new Accounting();
 			accounting.setA_num(service.getSpendAccountingNum()+1);
@@ -468,9 +468,9 @@ public class F_MypageController {
 			service.insertSpendAccounting(accounting);
 			
 			MultipartFile a_addfile = command.getA_addfile();
-			fileUploadService.uploadFile(a_addfile, "a_addfile", accounting.getF_num());
+			fileUploadService.uploadFile(a_addfile, "a_addfile", accounting.getF_num(), session);
 		
-		/*}else{
+		}else{
 			
 			Accounting accounting = new Accounting();
 			
@@ -487,12 +487,13 @@ public class F_MypageController {
 			}else{
 				accounting.setA_addfile(command.getA_addfile().getOriginalFilename());
 			}
-			service.insertSpendAccounting(accounting);
+			//service.insertSpendAccounting(accounting);
+			service.updateSpendAccounting(accounting);
 			MultipartFile a_addfile = command.getA_addfile();
-			fileUploadService.uploadFile(a_addfile, "a_addfile", accounting.getF_num());
-		}*/
+			fileUploadService.uploadFile(a_addfile, "a_addfile", accounting.getF_num(), session);
+		}
 
-		return "redirect:/f_mypage/accountingManager";
+		return "redirect:/f_mypage/updateSuccess";
 	}
 	
 	
