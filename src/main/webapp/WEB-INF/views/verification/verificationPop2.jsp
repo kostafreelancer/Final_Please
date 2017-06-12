@@ -18,6 +18,8 @@
 <title>비밀번호 조회</title>
 </head>
 <body>
+<span id="fail" style="display: none;">${fail }</span>
+
 	<section id="verification2">
 	<div class="tab">
 		<button class="tablinks" onclick = "location.href='/verification/verificationPop'">아이디
@@ -50,8 +52,8 @@
 			<br>
 			<span class="notice">*가입 시 입력한 이메일을 입력해주세요.</span>
 			<br>
-			<input id="f_btn" type="radio" name="sort">프리랜서
-			<input id="e_btn" type="radio" name="sort">기업
+			<input id="f_btn" type="radio" name="sort" value="f">프리랜서
+			<input id="e_btn" type="radio" name="sort" value="e">기업
 			<br>
 			<input class="verify" type="submit" value="조회">
 			<br>

@@ -44,17 +44,18 @@ public class VerificationController {
 			if(sort.equals("f")){//프리랜서면
 				if(f_count==1){//회원이 있는 것으로 판명. 아이디 확인되었습니다.
 					model.addAttribute("f_id", f_id);
-					page = "/verification/verified";
+					page = "/verification/done";
 
-				}else{
+				}else{//그러한 회원이 없습니다.
 					model.addAttribute("fail", "true");
 					page = "/verification/verificationPop";
 				}
 			}else{//기업이면
 				if(e_count==1){//회원이 있는 것으로 판명. 아이디 확인되었습니다.
 					model.addAttribute("e_id", e_id);
-					page = "/verification/verified";
-				}else{
+					page = "/verification/done";
+					
+				}else{//그러한 회원이 없습니다.
 					model.addAttribute("fail", "true");
 					page = "/verification/verificationPop";
 				}
@@ -80,28 +81,26 @@ public class VerificationController {
 			Integer f_count = verificationService.checking_freelancer(into_map);
 			Integer e_count = verificationService.checking_enterprise(into_map);
 			
-			String f_pwd = verificationService.verifying_freelancer_pwd(into_map);
-			String e_pwd = verificationService.verifying_enterprise_pwd(into_map);
-			
 			String page = "";
 			
 			if(sort.equals("f")){//프리랜서면
-				if(f_count==1){//회원이 있는 것으로 판명. 아이디 확인되었습니다.
-					page = "/verification/emailVerification";
+				if(f_count==1){//회원이 있는 것으로 판명. 비밀번호 인증페이지로.
 					
-				}else{
+					page = "/verification/emailVerification";
+
+				}else{//그러한 회원이 없습니다.
 					model.addAttribute("fail", "true");
-					page = "/verification/verificationPop";
+					page = "/verification/verificationPop2";
 				}
 			}else{//기업이면
-				if(e_count==1){//회원이 있는 것으로 판명. 아이디 확인되었습니다.
-					page = "/verification/emailVerification";
+				if(e_count==1){//회원이 있는 것으로 판명. 비밀번호 인증페이지로.
 					
-				}else{
+					page = "/verification/emailVerification";
+				}else{//그러한 회원이 없습니다.
 					model.addAttribute("fail", "true");
-					page = "/verification/verificationPop";
+					page = "/verification/verificationPop2";
 				}
 			}
-			return page;	
+			return page;
 	}
 }

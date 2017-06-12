@@ -21,19 +21,18 @@ public class VerificationDAOImpl implements VerificationDAO {
 	
 		return session.selectOne(namespace+".verifying_freelancer_id", map);
 	}
-
-	@Override
-	public String verifying_freelancer_pwd(HashMap<String, String> map) throws Exception {
-		
-		return session.selectOne(namespace+".verifying_freelancer_pwd", map);
-	}
-
 	@Override
 	public String verifying_enterprise_id(HashMap<String, String> map) throws Exception {
 		
 		return session.selectOne(namespace+".verifying_enterprise_id", map);
 	}
 
+	@Override
+	public String verifying_freelancer_pwd(HashMap<String, String> map) throws Exception {
+		System.out.println("DAO 프리랜서 비번 : "+session.selectOne(namespace+".verifying_freelancer_pwd", map));
+		return session.selectOne(namespace+".verifying_freelancer_pwd", map);
+	}
+	
 	@Override
 	public String verifying_enterprise_pwd(HashMap<String, String> map) throws Exception {
 		

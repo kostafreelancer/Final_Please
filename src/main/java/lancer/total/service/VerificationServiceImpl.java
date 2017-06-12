@@ -21,15 +21,15 @@ public class VerificationServiceImpl implements VerificationService {
 	}
 
 	@Override
-	public String verifying_freelancer_pwd(HashMap<String, String> map) throws Exception {
-		
-		return verificationDao.verifying_freelancer_pwd(map);
-	}
-
-	@Override
 	public String verifying_enterprise_id(HashMap<String, String> map) throws Exception {
 		
 		return verificationDao.verifying_enterprise_id(map);
+	}
+	
+	@Override
+	public String verifying_freelancer_pwd(HashMap<String, String> map) throws Exception {
+		System.out.println("서비스 프리랜서 비번 : "+verificationDao.verifying_freelancer_pwd(map));
+		return verificationDao.verifying_freelancer_pwd(map);
 	}
 
 	@Override
