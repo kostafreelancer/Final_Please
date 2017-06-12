@@ -51,6 +51,19 @@
 		  </if> 
 	</select>
 	
+	<select id="getnum" resultType="int">
+		select nvl(max(c_num),0) from contract
+	</select>
+	
+	<insert id= "insertContract" parameterType="SubmitVO">
+	 insert into contract(
+	 c_num, c_request_date, e_pr_num, f_num, c_state
+	 )
+	 values(
+	 #{c_num}, SYSDATE, #{e_pr_num}, #{f_num}, '신청중'
+	 )
+	</insert>
+	
 
 
 </mapper>

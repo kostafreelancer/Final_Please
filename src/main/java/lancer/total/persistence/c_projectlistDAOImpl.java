@@ -8,8 +8,10 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import lancer.c_projectlist.domain.Contract;
 import lancer.c_projectlist.domain.Criteria;
 import lancer.c_projectlist.domain.SearchCriteria;
+import lancer.c_projectlist.domain.SubmitVO;
 import lancer.e_insertproject.domain.E_Insert;
 import lancer.e_insertproject.domain.Enterprise;
 
@@ -76,5 +78,18 @@ public class c_projectlistDAOImpl implements c_projectlistDAO {
 	public List<Integer> selectP_job(int e_pr_num) throws Exception {
 		return session.selectList(namespace + ".selectP_job", e_pr_num);
 	}
+	
+	@Override
+	public int getnum()throws Exception{
+		return session.selectOne(namespace+".getnum");
+	}
+
+	@Override
+	public void insertContract(SubmitVO submitVO) throws Exception {
+		session.selectOne(namespace+".insertContract",submitVO);
+		
+	}
+	
+	
 
 }

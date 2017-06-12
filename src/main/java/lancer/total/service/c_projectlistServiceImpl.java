@@ -7,8 +7,10 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import lancer.c_projectlist.domain.Contract;
 import lancer.c_projectlist.domain.Criteria;
 import lancer.c_projectlist.domain.SearchCriteria;
+import lancer.c_projectlist.domain.SubmitVO;
 import lancer.e_insertproject.domain.E_Insert;
 import lancer.e_insertproject.domain.Enterprise;
 import lancer.total.persistence.c_projectlistDAO;
@@ -94,6 +96,17 @@ public class c_projectlistServiceImpl implements c_projectlistService {
 	@Override
 	public List<Integer> selectP_job(int e_pr_num) throws Exception {
 		return dao.selectP_job(e_pr_num);
+	}
+	
+	@Override
+	public int getnum() throws Exception{
+		return dao.getnum();
+	}
+
+	@Override
+	public void insertContract(SubmitVO submitVO) throws Exception {
+		dao.insertContract(submitVO);
+		
 	}
 	
 	
