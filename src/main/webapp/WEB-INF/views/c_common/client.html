@@ -23,6 +23,10 @@
 		socket.emit('sendchat', message);
 		$('.chat_content').append('<p class="client"><span>'+message+'</span></p>');
 		});
+		$('.exit_menu').click(function(event){
+			event.preventDefault();
+			
+		});
 	});
 </script>
 <body>
@@ -32,7 +36,7 @@
 				<a href="" class="chat_menu"><!-- <img alt="chat_menu"
 					src="./menu-white.png"> -->
 					<!-- <span class="top_title">드림 랜서</span> -->
-				</a> <a href="" class="exit_menu"><!-- <img alt="chat_menu"
+				</a> <a href="" class="exit_menu">x<!-- <img alt="chat_menu"
 					src="/resources/c_common_img/menu-white.png"> --> 
 				</a>
 			</div>
@@ -82,11 +86,11 @@
     margin-left: 10;
 }
 .messengerWrapper {
-	width: 310px;
-	height: 680px;
+	width: 318px;
+	height: 636px;
 	border: 1px solid;
 	border-radius: 12px;
-	/* background-color: #0080ff; */
+	background-color: white;
 }
 
 .chat_top {
@@ -106,11 +110,11 @@
 }
 .exit_menu {
 	position: absolute;
-	padding-left: 160px
+	right: 25px;
 }
 
 .chat_text_area {
-	height: 580px;
+	height: 545px;
 	background-color: #ffffff;
 	text-align: center;
 	border-bottom: 1px solid #c0c0c0;
@@ -175,8 +179,8 @@
 	border-bottom-right-radius: 25px;
 	border-bottom-left-radius: 25px;
 }
-.body{
+body{
 	margin: 0;
 }
--->
+
 </style>
