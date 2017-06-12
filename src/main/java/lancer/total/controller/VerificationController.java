@@ -5,6 +5,7 @@ import java.util.HashMap;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +25,7 @@ public class VerificationController {
 	
 	@RequestMapping(value = "/verificationPop", method = RequestMethod.POST)
 	public String verificationpopPOST(@RequestParam("name")String name, 
-			@RequestParam("EmailId")String emailId, @RequestParam("EmailDomain")String emailDomain, @RequestParam("sort")String sort) throws Exception{
+			@RequestParam("EmailId")String emailId, @RequestParam("EmailDomain")String emailDomain, @RequestParam("sort")String sort, Model model) throws Exception{
 			System.out.println("이름: "+name+" 이메일: "+emailId+"@"+emailDomain+" 분류: "+sort);
 			String emailAddr = emailId+"@"+emailDomain;
 			
@@ -42,15 +43,18 @@ public class VerificationController {
 				System.out.println(f_count+"2번");
 				if(f_count==1){
 					System.out.println(f_count+"3번");
-					page = "redirect:/verification/verified";
+					page = "/verification/verified";
+					System.out.println(page);
 				}else{
-					page = "redirect:/verification/verificationPop?fail=true";
+					model.addAttribute("fail", "true");
+					page = "/verification/verificationPop";
 				}
 			}else{//기업이면
 				if(e_count==1){
-					page = "redirect:/verification/verified";
+					page = "/verification/verified";
 				}else{
-					page = "redirect:/verification/verificationPop?fail=true";
+					model.addAttribute("fail", "true");
+					page = "/verification/verificationPop";
 				}
 			}
 			return page;

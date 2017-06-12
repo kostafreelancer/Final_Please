@@ -40,3 +40,9 @@ function check() {
 	}
 
 }
+
+$(document).ready(function(){
+	if($('#fail').text() == "true"){
+		alert("해당하는 회원이 존재하지 않습니다.");
+	}
+})
