@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<span>회원님의 아이디는 __ 입니다.</span>
 </body>
 </html>

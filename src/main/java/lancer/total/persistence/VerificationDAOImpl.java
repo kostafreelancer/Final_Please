@@ -42,7 +42,8 @@ public class VerificationDAOImpl implements VerificationDAO {
 
 	@Override
 	public Integer checking_freelancer(HashMap<String, String> map) throws Exception {
-		
+		System.out.println("DAO "+map.get("name"));
+		System.out.println("DAO "+map.get("EmailAddr"));
 		return session.selectOne(namespace+".checking_freelancer", map);
 	}
 

@@ -24,12 +24,13 @@ public class VerificationController {
 	
 	@RequestMapping(value = "/verificationPop", method = RequestMethod.POST)
 	public String verificationpopPOST(@RequestParam("name")String name, 
-			@RequestParam("EmailId")String email, @RequestParam("sort")String sort) throws Exception{
-			System.out.println("이름: "+name+" 이메일: "+email+" 분류: "+sort);
-		
+			@RequestParam("EmailId")String emailId, @RequestParam("EmailDomain")String emailDomain, @RequestParam("sort")String sort) throws Exception{
+			System.out.println("이름: "+name+" 이메일: "+emailId+"@"+emailDomain+" 분류: "+sort);
+			String emailAddr = emailId+"@"+emailDomain;
+			
 			HashMap<String, String> into_map = new HashMap<String, String>();
 			into_map.put("name", name);
-			into_map.put("EmailId", email);
+			into_map.put("EmailAddr", emailAddr);
 			
 			Integer f_count = verificationService.checking_freelancer(into_map);
 			Integer e_count = verificationService.checking_enterprise(into_map);
