@@ -5,7 +5,6 @@ $('#checkValue').click(function(){
 	    
 	    if(!form.e_pwd_1.value){
 	        alert("비밀번호를 입력하세요.");
-	        alert($('#ada').attr("src"));
 	        EnterpriseWriteFm.e_pwd_1.focus();
 	        return false;
 	    }
@@ -115,4 +114,10 @@ $('#checkValue').click(function(){
 		e.preventDefault();
 		document.fileForm.submit();
 	});
+	
+	//파일이 없으면 액박 숨기기
+	var $e_photo = $('#e_photo');
+	if($e_photo.attr("src") == "/c_file/displayFile?fileName="){
+		$e_photo.attr("style", "display:none;")
+	}
 });

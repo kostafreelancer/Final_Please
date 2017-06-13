@@ -154,7 +154,7 @@
 				<col style="width: *">
 			</colgroup>
 			<tr>
-				<td rowspan="5"><img id="ada" src="/c_file/displayFile?fileName=${e_ownerFileStoredName }">
+				<td rowspan="5"><img id="e_photo" src="/c_file/displayFile?fileName=${e_ownerFileStoredName }">
 				
 					<div class="filebutton">
 						<input type="hidden" id="e_ownerfileExist" name="e_ownerfileExist" value="false">

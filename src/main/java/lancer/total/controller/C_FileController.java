@@ -89,6 +89,10 @@ public class C_FileController {
 	@RequestMapping("/displayFile")
 	public ResponseEntity<byte[]> displayFile(String fileName)throws Exception{
 		
+		if(fileName.equals("")){
+			return null;
+		}
+		
 		InputStream in = null;
 		ResponseEntity<byte[]> entity = null;
 		
