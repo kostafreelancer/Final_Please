@@ -89,7 +89,7 @@ public class VerificationController {
 	}
 
 	@RequestMapping(value = "/emailVerification", method = RequestMethod.GET)
-	public @ResponseBody void emailVerificationPOST(RandomCode randomNum, Model model) throws Exception {
+	public void emailVerificationPOST(RandomCode randomNum, Model model) throws Exception {
 		System.out.println("나나나나나");
 
 	}
