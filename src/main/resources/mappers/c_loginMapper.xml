@@ -11,11 +11,25 @@
 
 	<select id = "select_e_login" parameterType="c_loginVO" resultType="c_login_enterpriseVO">
 		select * from enterprise
-						where e_id = #{c_id} and e_pwd = #{pwd}
+						where e_id = #{c_id} and e_pwd = #{pwd} and e_check ='승인'
 	</select> 
 	<select id="select_a_login" parameterType="c_loginVO" resultType="c_login_adminVO">
 		select * from ADMINISTRATOR
 						where ad_id = #{c_id} and ad_pwd = #{pwd}
+	</select>
+	
+	<select id="select_e_login_nocheck" parameterType="c_loginVO" resultType="c_login_enterpriseVO">
+		select * from enterprise
+						where e_id = #{c_id} and e_pwd = #{pwd}
+	</select>
+	
+	<select id="select_e_login_idcheck" parameterType="c_loginVO" resultType="c_login_enterpriseVO">
+		select * from enterprise
+						where e_id = #{c_id}
+	</select>
+	<select id="select_f_login_idcheck" parameterType="c_loginVO" resultType="c_login_freelancerVO">
+		select * from FREELANCER
+						where f_id = #{c_id} 
 	</select>
 </mapper>
 

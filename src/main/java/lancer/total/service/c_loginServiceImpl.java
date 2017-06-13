@@ -33,5 +33,23 @@ public class c_loginServiceImpl implements c_loginService {
 		
 		return dao.select_a_login(vo);
 	}
+
+	@Override
+	public c_login_enterpriseVO select_e_login_nocheck(c_loginVO vo) {
+
+		return dao.select_e_login_nocheck(vo);
+	}
+
+	@Override
+	public c_login_enterpriseVO select_e_login_idcheck(c_loginVO vo) {
+
+		return dao.select_e_login_idcheck(vo);
+	}
+
+	@Override
+	public c_login_freelancerVO select_f_login_idcheck(c_loginVO vo) {
+
+		return dao.select_f_login_idcheck(vo);
+	}
 	
 }
