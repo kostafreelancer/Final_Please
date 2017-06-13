@@ -4,12 +4,20 @@
 $(function(){
 	
 	
-	if($('.checking_login').val() === 'no'){
-		alert("잘못된 회원의 정보를 입력하였습니다.");
+	if($('.checking_login').val() === "nocheck"){
+		alert("승인대기 중입니다.");
 		$('.checking_login').val('');
 		$('#fm_id').focus();
 	
-	};
+	}else if($('.checking_login').val() === 'no'){
+		alert("비밀번호가 틀렸습니다.");
+		$('.checking_login').val('');
+		$('#fm_id').focus();
+	}else if($('.checking_login').val() === 'idcheck'){
+		alert("가입되지 않는 아이디입니다.");
+		$('.checking_login').val('');
+		$('#fm_id').focus();
+	}
 	
 	$('.btn_login').click(function(){
 		if($('#fm_id').val() === ''){

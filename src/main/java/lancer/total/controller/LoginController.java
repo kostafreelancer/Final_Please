@@ -57,9 +57,13 @@ public class LoginController {
 				session.setAttribute("client",identity.getFree());
 				
 			}else{
-			
+				if(service.select_f_login_idcheck(vo)==null){
+					rttr.addFlashAttribute("msg", "idcheck");
+				}else{
+					rttr.addFlashAttribute("msg", "no");
+				}
 				identity.setIdentity("no");
-				rttr.addFlashAttribute("msg", "no");
+				
 				return "redirect:/c_login/login";
 			}
 			session.setAttribute("identity", identity);
@@ -71,8 +75,18 @@ public class LoginController {
 				session.setAttribute("client",identity.getEnter());
 				
 			}else{
-				identity.setIdentity("no");
+				/*identity.setIdentity("no");
 				rttr.addFlashAttribute("msg", "no");
+				return "redirect:/c_login/login";*/
+				if(service.select_e_login_nocheck(vo)!=null){
+					System.out.println("여기 들어 오는거 아냐?");
+					rttr.addFlashAttribute("msg", "nocheck");
+				}else if(service.select_e_login_idcheck(vo)==null){
+					rttr.addFlashAttribute("msg", "idcheck");
+				}else{
+					rttr.addFlashAttribute("msg", "no");
+				}
+				identity.setIdentity("no");
 				return "redirect:/c_login/login";
 			}
 			session.setAttribute("identity", identity);
@@ -95,7 +109,7 @@ public class LoginController {
 	@RequestMapping(value="/logout" ,method= RequestMethod.POST )
 	public void logout(HttpServletRequest request, HttpServletResponse response,HttpSession session,@RequestBody c_login_url url) throws IOException{
 		session.invalidate();
-		/*response.sendRedirect(url.getUrl());*/
+		
 		
 	}
 	@RequestMapping(value="/e_logout", method= RequestMethod.GET)

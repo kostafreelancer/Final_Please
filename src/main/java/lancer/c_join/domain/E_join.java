@@ -2,6 +2,8 @@ package lancer.c_join.domain;
 
 import java.io.Serializable;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class E_join implements Serializable{
 	private int e_num;		// 기업번호
 	private String e_id;		// 기업회원 아이디(접속할때)
@@ -12,7 +14,6 @@ public class E_join implements Serializable{
 	private String e_name;				// 가입자 명
 	private String e_ename;			// 기업 이름
 	private String e_owner;		// 기업 대표자 명
-	private String e_ownerfile;	// 기업 대표자 사진파일 경로
 	private String e_regno;			// 사업자등록번호 ( 123-42322)
 	private String e_regno1;			// 사업자등록번호 ( 123-42322)
 	private String e_regno2;			// 사업자등록번호 ( 123-42322)
@@ -41,9 +42,12 @@ public class E_join implements Serializable{
 	private int e_capital;		// 자본금
 	private int e_sales;		// 연매출
 	private String e_scale;			// 기업규모 (대기업, 중소기업, 개인)
-	private String e_licensefile;		// 사업자등록증 사진파일 경로
-	private String e_check;		// 이메일인증을 통한 가입승인여부   가입승인됬을시 1,  인증 아직 안했으면 0
+	private String e_check;		// 이메일인증을 통한 가입승인여부
 	private double e_score;
+	private MultipartFile e_ownerfile;	// 기업 대표자 사진파일 경로
+	private MultipartFile e_licensefile;		// 사업자등록증 파일
+	private String e_ownerfileExist;
+	private String e_licensefileExist;
 	
 	
 	public E_join(){
@@ -51,13 +55,13 @@ public class E_join implements Serializable{
 
 
 	public E_join(int e_num, String e_id, String e_pwd, String e_mail, String e_mail1, String e_mail2, String e_name,
-			String e_ename, String e_owner, String e_ownerfile, String e_regno, String e_regno1, String e_regno2,
-			String e_regno3, String e_phone, String e_phone1, String e_phone2, String e_phone3, String e_bf,
-			String manager_name, String manager_hphone, String manager_hphone1, String manager_hphone2,
-			String manager_hphone3, String manager_mail, String manager_mail1, String manager_mail2, String e_address,
-			String e_address1, String e_address2, String e_address3, String e_homepage, int start_year, int e_enum,
-			String e_listing, int e_capital, int e_sales, String e_scale, String e_licensefile, String e_check,
-			double e_score) {
+			String e_ename, String e_owner, String e_regno, String e_regno1, String e_regno2, String e_regno3,
+			String e_phone, String e_phone1, String e_phone2, String e_phone3, String e_bf, String manager_name,
+			String manager_hphone, String manager_hphone1, String manager_hphone2, String manager_hphone3,
+			String manager_mail, String manager_mail1, String manager_mail2, String e_address, String e_address1,
+			String e_address2, String e_address3, String e_homepage, int start_year, int e_enum, String e_listing,
+			int e_capital, int e_sales, String e_scale, String e_check, double e_score, MultipartFile e_ownerfile,
+			MultipartFile e_licensefile, String e_ownerfileExist, String e_licensefileExist) {
 		super();
 		this.e_num = e_num;
 		this.e_id = e_id;
@@ -68,7 +72,6 @@ public class E_join implements Serializable{
 		this.e_name = e_name;
 		this.e_ename = e_ename;
 		this.e_owner = e_owner;
-		this.e_ownerfile = e_ownerfile;
 		this.e_regno = e_regno;
 		this.e_regno1 = e_regno1;
 		this.e_regno2 = e_regno2;
@@ -97,9 +100,12 @@ public class E_join implements Serializable{
 		this.e_capital = e_capital;
 		this.e_sales = e_sales;
 		this.e_scale = e_scale;
-		this.e_licensefile = e_licensefile;
 		this.e_check = e_check;
 		this.e_score = e_score;
+		this.e_ownerfile = e_ownerfile;
+		this.e_licensefile = e_licensefile;
+		this.e_ownerfileExist = e_ownerfileExist;
+		this.e_licensefileExist = e_licensefileExist;
 	}
 
 
@@ -190,16 +196,6 @@ public class E_join implements Serializable{
 
 	public void setE_owner(String e_owner) {
 		this.e_owner = e_owner;
-	}
-
-
-	public String getE_ownerfile() {
-		return e_ownerfile;
-	}
-
-
-	public void setE_ownerfile(String e_ownerfile) {
-		this.e_ownerfile = e_ownerfile;
 	}
 
 
@@ -483,16 +479,6 @@ public class E_join implements Serializable{
 	}
 
 
-	public String getE_licensefile() {
-		return e_licensefile;
-	}
-
-
-	public void setE_licensefile(String e_licensefile) {
-		this.e_licensefile = e_licensefile;
-	}
-
-
 	public String getE_check() {
 		return e_check;
 	}
@@ -513,7 +499,45 @@ public class E_join implements Serializable{
 	}
 
 
-	
-	
+	public MultipartFile getE_ownerfile() {
+		return e_ownerfile;
+	}
+
+
+	public void setE_ownerfile(MultipartFile e_ownerfile) {
+		this.e_ownerfile = e_ownerfile;
+	}
+
+
+	public MultipartFile getE_licensefile() {
+		return e_licensefile;
+	}
+
+
+	public void setE_licensefile(MultipartFile e_licensefile) {
+		this.e_licensefile = e_licensefile;
+	}
+
+
+	public String getE_ownerfileExist() {
+		return e_ownerfileExist;
+	}
+
+
+	public void setE_ownerfileExist(String e_ownerfileExist) {
+		this.e_ownerfileExist = e_ownerfileExist;
+	}
+
+
+	public String getE_licensefileExist() {
+		return e_licensefileExist;
+	}
+
+
+	public void setE_licensefileExist(String e_licensefileExist) {
+		this.e_licensefileExist = e_licensefileExist;
+	}
+
+
 	
 }

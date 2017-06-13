@@ -3,8 +3,6 @@
 $(function(){
 	
 
-	//사진이미지 미리보기
-
 	//이메일 주소
 	   $('#manager_mail3').change(function(){
 		      var e_mail = $(this).val();
@@ -171,20 +169,23 @@ $(function(){
         	alert("회사주소를 입력하세요.");
         	return false;
         }
-/*        if(!form.e_licensefile.value){
-        	alert("사업자등록증을 등록해주세요.");
-        	return false;
-        }*/
-        
         if(!$("#checkEmailConfirm").html()){
         	alert("이메일 인증을 받아주세요.");
         	return false;
         }
         
+        // 파일 등록여부 확인
+    	if($('#e_ownerfile').val()){
+    		$('#e_ownerfileExist').val("true");
+    	}
+    	if($('#e_licensefile').val()){
+    		$('#e_licensefileExist').val("true");
+    	}        
+        
+        
         checkEmail2(2);
 	});
-	
-	
+
 	
 	
 	

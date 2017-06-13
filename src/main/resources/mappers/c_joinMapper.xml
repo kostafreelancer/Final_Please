@@ -52,17 +52,16 @@
 	<insert id="insertE_join" parameterType="E_join">
 		insert into enterprise(
 			e_num, e_id , e_pwd, e_mail, e_name, e_ename, e_owner, e_score,
-			e_ownerfile, e_regno, e_phone, e_bf, manager_name, manager_hphone,
+			e_regno, e_phone, e_bf, manager_name, manager_hphone,
 			manager_mail, e_address, e_homepage, start_year, e_enum, 
-			e_listing, e_capital, e_sales, e_scale, e_licensefile, e_check
+			e_listing, e_capital, e_sales, e_scale, e_check
 		 )
 		values(			
 			#{e_num}, #{e_id}, #{e_pwd}, #{e_mail}, #{e_name}, 
-			#{e_ename}, #{e_owner}, #{e_score}, #{e_ownerfile}, #{e_regno}, 
+			#{e_ename}, #{e_owner}, #{e_score}, #{e_regno}, 
 			#{e_phone}, #{e_bf}, #{manager_name}, #{manager_hphone},
 			#{manager_mail}, #{e_address}, #{e_homepage}, #{start_year}, 
-			#{e_enum}, #{e_listing}, #{e_capital}, #{e_sales}, #{e_scale}, 
-			#{e_licensefile}, #{e_check} 
+			#{e_enum}, #{e_listing}, #{e_capital}, #{e_sales}, #{e_scale}, #{e_check} 
 		)
 	</insert>
 

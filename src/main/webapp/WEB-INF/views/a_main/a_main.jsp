@@ -23,7 +23,7 @@
 </head>
 <body>
 
-<%@include file="../c_common/header_enterprise.jsp"%>
+<%@include file="../c_common/header.jsp"%>
 
 	<div id="nav">
 		<div class="nav_txt">

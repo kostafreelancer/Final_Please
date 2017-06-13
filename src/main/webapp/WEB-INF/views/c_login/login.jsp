@@ -67,7 +67,7 @@
                                 </a>  -->
 							<span class="btn_login">로그인</span>
 							<!-- <input class = "login_submit" type="submit" value="로그인">  -->
-							<a href="${pageContext.request.contextPath}"/c_join/c_join_step1"
+							<a href=${pageContext.request.contextPath}"/c_join/c_join_step1"
 								class="btn_join">회원가입</a>
 						</p>
 					</form>

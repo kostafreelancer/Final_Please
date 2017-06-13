@@ -32,7 +32,7 @@
 </head>
 <body>
 
-<%@include file="../c_common/header_enterprise.jsp"%>
+<%@include file="../c_common/header.jsp"%>
 
 	<nav class="left_menu">
 	<div class="left_menu_title">
@@ -70,7 +70,6 @@
 	                <th>첨부파일</th>
 	                <td colspan="5">
 	                        <a href="#" id="e_licenseDown">${e_licenseFileName}</a>
-	                        (${e_licenseFileSize}kb)
 	                </td>
 	            </tr>	
 		</table>
