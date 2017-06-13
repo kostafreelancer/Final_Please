@@ -157,3 +157,16 @@ body {
 	text-shadow: 0 0 5px #00c6ff;
 }
 
+.header_check{
+	position: absolute;
+    background-color: red;
+    width: 18px;
+    left: 20;
+    top: 10;
+    border-radius: 20px;
+    text-align: center;
+}
+.header_check span{
+	color: white;
+    font-weight: bold;
+}

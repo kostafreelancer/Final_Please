@@ -20,6 +20,9 @@
 <body>
 	<div class="header">
 		<div class="header_top_menu">
+			<div class="header_check">
+				<span>1</span>
+			</div>
 			<div class="header_welcome_content">
 				<c:choose>
 					<c:when test="${identity.identity == 'freelancer' }">
