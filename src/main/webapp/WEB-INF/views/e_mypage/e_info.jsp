@@ -358,7 +358,7 @@
 
 	<div class="btn_box mb30 mb02">
 		<button class="btn_check06" id="checkValue">수정하기</button>
-		<button class="btn_check06" id="deleteAccount">회원탈퇴</button>
+		<button class="btn_check06" id="deleteAccount" onclick="toDrop(${client.e_num});">회원탈퇴${client.e_num}</button>
 	</div>
 	</form>
 	

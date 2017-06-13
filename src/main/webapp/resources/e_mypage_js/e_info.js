@@ -57,6 +57,14 @@ $(document).ready(function() {
 
 });
 
+function toDrop(e_num){
+	if(confirm("정말 탈퇴하시겠습니까?")){
+		alert(e_num);
+		alert(typeof(e_num));
+		location='/e_mypage/dropEnterprise?e_num='+e_num;
+	}
+}
+
 function checkImageType(fileName){
 	var pattern = /jpg|gif|png|jpeg/i;
 	

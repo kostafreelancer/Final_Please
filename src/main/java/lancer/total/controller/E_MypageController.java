@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import lancer.c_login.domain.c_login_enterpriseVO;
@@ -20,6 +21,7 @@ import lancer.e_mypage.domain.Criteria;
 import lancer.e_mypage.domain.EnterpriseCommand;
 import lancer.e_mypage.domain.PageMaker;
 import lancer.e_mypage.domain.Project;
+import lancer.total.service.C_DropService;
 import lancer.total.service.C_FileService;
 import lancer.total.service.E_MypageService;
 import lancer.total.util.FileUtils;
@@ -33,6 +35,9 @@ public class E_MypageController {
 	
 	@Inject
 	private C_FileService fileService;
+	
+	@Inject
+	private C_DropService dropService;
 
 	@RequestMapping(value = "/e_info", method = RequestMethod.GET)
 	public void e_infoGET(Model model,HttpSession session) throws Exception{
@@ -185,6 +190,14 @@ public class E_MypageController {
 		session.setAttribute("client", enterprise);		
 		return "redirect:/e_mypage/e_info";
 	}
+	
+	@RequestMapping(value="/dropEnterprise", method=RequestMethod.GET)
+	public String dropEnterprise(@RequestParam("e_num") int e_num, HttpSession session) throws Exception{
+		System.out.println("e_num:" + e_num);
+		dropService.deleteEnterprise(e_num);
+		session.invalidate();
+		return "redirect:/e_main/e_main";
+	}	
 	
 	@RequestMapping(value = "/e_project", method = RequestMethod.GET)
 	public String e_projectGET(@ModelAttribute("cri") Criteria cri, Model model, HttpSession session) throws Exception{
