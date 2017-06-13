@@ -1,17 +1,17 @@
 package lancer.total.service;
 
-import java.util.HashMap;
+import lancer.verification.domain.VerificationVO;
 
 public interface VerificationService {
 	
-	public String verifying_freelancer_id(HashMap<String, String> map)throws Exception;
-	public String verifying_freelancer_pwd(HashMap<String, String> map)throws Exception;
+	public String verifying_freelancer_id(VerificationVO veriVO)throws Exception;
+	public String verifying_freelancer_pwd(VerificationVO veriVO)throws Exception;
 	
-	public String verifying_enterprise_id(HashMap<String, String> map)throws Exception;
-	public String verifying_enterprise_pwd(HashMap<String, String> map)throws Exception;
+	public String verifying_enterprise_id(VerificationVO veriVO)throws Exception;
+	public String verifying_enterprise_pwd(VerificationVO veriVO)throws Exception;
 	
-	public Integer checking_freelancer(HashMap<String, String> map)throws Exception;
-	public Integer checking_enterprise(HashMap<String, String> map)throws Exception;
+	public Integer checking_freelancer(VerificationVO veriVO)throws Exception;
+	public Integer checking_enterprise(VerificationVO veriVO)throws Exception;
 	
 
 }

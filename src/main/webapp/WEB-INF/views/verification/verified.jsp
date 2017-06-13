@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
+	이메일로 임시비밀번호가 발송되었습니다.
 </body>
 </html>

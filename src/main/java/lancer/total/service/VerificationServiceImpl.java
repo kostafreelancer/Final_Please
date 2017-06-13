@@ -1,12 +1,11 @@
 package lancer.total.service;
 
-import java.util.HashMap;
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
 import lancer.total.persistence.VerificationDAO;
+import lancer.verification.domain.VerificationVO;
 
 @Service
 public class VerificationServiceImpl implements VerificationService {
@@ -15,39 +14,39 @@ public class VerificationServiceImpl implements VerificationService {
 	VerificationDAO verificationDao;
 	
 	@Override
-	public String verifying_freelancer_id(HashMap<String, String> map) throws Exception {
+	public String verifying_freelancer_id(VerificationVO veriVO) throws Exception {
 		
-		return verificationDao.verifying_freelancer_id(map);
+		return verificationDao.verifying_freelancer_id(veriVO);
 	}
 
 	@Override
-	public String verifying_enterprise_id(HashMap<String, String> map) throws Exception {
+	public String verifying_enterprise_id(VerificationVO veriVO) throws Exception {
 		
-		return verificationDao.verifying_enterprise_id(map);
+		return verificationDao.verifying_enterprise_id(veriVO);
 	}
 	
 	@Override
-	public String verifying_freelancer_pwd(HashMap<String, String> map) throws Exception {
-		System.out.println("서비스 프리랜서 비번 : "+verificationDao.verifying_freelancer_pwd(map));
-		return verificationDao.verifying_freelancer_pwd(map);
+	public String verifying_freelancer_pwd(VerificationVO veriVO) throws Exception {
+		
+		return verificationDao.verifying_freelancer_pwd(veriVO);
 	}
 
 	@Override
-	public String verifying_enterprise_pwd(HashMap<String, String> map) throws Exception {
+	public String verifying_enterprise_pwd(VerificationVO veriVO) throws Exception {
 		
-		return verificationDao.verifying_enterprise_pwd(map);
+		return verificationDao.verifying_enterprise_pwd(veriVO);
 	}
 
 	@Override
-	public Integer checking_freelancer(HashMap<String, String> map) throws Exception {
+	public Integer checking_freelancer(VerificationVO veriVO) throws Exception {
 		
-		return verificationDao.checking_freelancer(map);
+		return verificationDao.checking_freelancer(veriVO);
 	}
 
 	@Override
-	public Integer checking_enterprise(HashMap<String, String> map) throws Exception {
+	public Integer checking_enterprise(VerificationVO veriVO) throws Exception {
 		
-		return verificationDao.checking_enterprise(map);
+		return verificationDao.checking_enterprise(veriVO);
 	}
 	
 

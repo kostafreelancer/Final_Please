@@ -33,8 +33,8 @@
 			<form name="form" action="/verification/verificationPop2" method="POST" onsubmit='return check()'>
 			<span class="txt">아이디 :</span> <input class="space" name="id" type="text"><br>
 			<span class="txt">이름 &nbsp; &nbsp;:</span> <input class="space" name="name" type="text"><br> 
-			<span class="txt">이메일 :</span> <input id="e_mail_1" class="space" name="EmailId" type="text">
-			@ <input id="e_mail_2" class="space" type="text" name="EmailDomain" style="color:gray" value="선택해주세요." readonly="readonly"> 
+			<span class="txt">이메일 :</span> <input id="e_mail_1" class="space" name="emailId" type="text">
+			@ <input id="e_mail_2" class="space" type="text" name="emailDomain" style="color:gray" value="선택해주세요." readonly="readonly"> 
 				
 				<select id="e_mail_select">
 					<option value="선택해주세요.">선택해주세요.</option>

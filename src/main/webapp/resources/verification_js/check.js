@@ -12,16 +12,16 @@ function check() {
 		
 		return false;
 	}
-	if (document.form.EmailId.value == "") {
+	if (document.form.emailId.value == "") {
 		alert("이메일을 입력하세요.");
-		document.form.EmailId.focus();
+		document.form.emailId.focus();
 		
 		return false;
 	}
 	
-	if (document.form.EmailId.value == "") {
+	if (document.form.emailId.value == "") {
 			alert("이메일을 입력하세요.");
-			document.form.EmailId.focus();
+			document.form.emailId.focus();
 			
 		return false;
 	}
@@ -36,6 +36,13 @@ function check() {
 			alert("회원 분류를 선택해주십시오.");
 			$('#f_btn').focus();
 					
+		return false;
+	}
+
+	if(document.form.num.value == ""){
+		alert("인증번호를 입력하십시오.");
+		document.form.num.focus();
+		
 		return false;
 	}
 
