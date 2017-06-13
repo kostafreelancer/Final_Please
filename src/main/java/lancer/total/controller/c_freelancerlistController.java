@@ -5,20 +5,31 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import lancer.c_freelancerlist.domain.c_freelancerlist_PageMaker;
 import lancer.c_freelancerlist.domain.c_freelancerlist_SearchCriteria;
 import lancer.c_freelancerlist.domain.c_freelancerlist_careerVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
+import lancer.c_login.domain.c_login_enterpriseVO;
+import lancer.c_login.domain.c_login_freelancerVO;
+import lancer.c_projectlist.domain.Contract;
 import lancer.c_projectlist.domain.SearchCriteria;
+import lancer.c_projectlist.domain.SubmitVO;
+import lancer.e_insertproject.domain.E_Insert;
 import lancer.e_mypage.domain.Project;
 import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.Career;
@@ -143,6 +154,31 @@ public class c_freelancerlistController {
 			model.addAttribute("finishproject", finishProject);
 		}
 	}
+	
+	@RequestMapping(value="/f_complete", method= RequestMethod.POST)
+	@ResponseBody
+		public List<E_Insert> readPagePOST(HttpServletResponse response ,HttpSession session, Model model) throws Exception{
+		System.out.println("들어옴?");
+		int e_num = ((c_login_enterpriseVO)(session.getAttribute("client"))).getE_num();
+		List<E_Insert> list = service.getProject(e_num);
+		return list;
+		/*SubmitVO submitVO = new SubmitVO();
+			
+			E_Insert project = (E_Insert)session.getAttribute("project");
+			submitVO.setE_pr_num(project.getE_pr_num());
+			submitVO.setF_num(f_num);
+			
+			model.addAttribute("contract", session.getAttribute("contract"));
+			
+			int c_num = service.getnum()+1;
+			submitVO.setC_num(c_num);
+			
+			contract.setC_num(c_num);
+			
+			service.insertContract(submitVO);*/
+			
+			
+		}
 	
 
 }

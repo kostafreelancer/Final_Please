@@ -283,6 +283,10 @@
 					class="next" alt="다음 페이지"></a><a href="#"
 					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0zMjMmaW5jcmVtZW50PTMy#Member_list');"
 					class="last" alt="마지막으로"></a> </span>
+					<br>
+					<br>
+					<br>
+					
 			</div>
 			
 

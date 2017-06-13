@@ -15,6 +15,8 @@ import lancer.c_freelancerlist.domain.c_freelancerlist_schoolVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.c_projectlist.domain.SearchCriteria;
+import lancer.c_projectlist.domain.SubmitVO;
+import lancer.e_insertproject.domain.E_Insert;
 import lancer.e_mypage.domain.Project;
 import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.Career;
@@ -111,7 +113,21 @@ public class c_freelancerlistDAOImpl implements c_freelancerlistDAO{
 		return session.selectList(namepace + ".getProjectP_job", e_pr_num);
 	}
     
+    @Override
+	public int getnum()throws Exception{
+		return session.selectOne(namepace+".getnum");
+	}
+
+	@Override
+	public void insertContract(SubmitVO submitVO) throws Exception {
+		session.selectOne(namepace+".insertContract",submitVO);
+		
+	}
     
+	@Override
+	public List<E_Insert> getProject(int e_num) throws Exception {
+	 return session.selectList(namepace+".getProject",e_num);
+	}
 
 
 }

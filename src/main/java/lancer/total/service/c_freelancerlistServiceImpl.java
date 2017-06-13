@@ -13,6 +13,7 @@ import lancer.c_freelancerlist.domain.c_freelancerlist_schoolVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.c_projectlist.domain.SearchCriteria;
+import lancer.c_projectlist.domain.SubmitVO;
 import lancer.e_insertproject.domain.E_Insert;
 import lancer.e_mypage.domain.Project;
 import lancer.f_mypage.domain.Career;
@@ -144,6 +145,22 @@ public class c_freelancerlistServiceImpl implements c_freelancerlistService {
 	@Override
 	public List<String> getProjectP_job(int e_pr_num) throws Exception{
 		return dao.getProjectP_job(e_pr_num);
+	}
+	
+	@Override
+	public int getnum() throws Exception{
+		return dao.getnum();
+	}
+
+	@Override
+	public void insertContract(SubmitVO submitVO) throws Exception {
+		dao.insertContract(submitVO);
+		
+	}
+	
+	@Override
+	public List<E_Insert> getProject(int e_num)throws Exception{
+		return dao.getProject(e_num);
 	}
 	
 	

@@ -41,7 +41,7 @@
 	
 	<select id="getMyFinishProject" parameterType="int" resultType="lancer.e_mypage.domain.Project">
 		select pro.p_name, pro.P_UPPERCOST, pro.P_STARTDATE, pro.P_ENDDATE, pro.e_pr_num from project pro, contract con
-		where con.E_PR_NUM = pro.E_PR_NUM and con.f_num = #{f_num} and con.c_state=3
+		where con.E_PR_NUM = pro.E_PR_NUM and con.f_num = #{f_num} and con.c_state='완료'
 	</select>
 	
 	<select id="getProjectP_job" resultType="String">
@@ -83,6 +83,24 @@
 		select school_name from c_freelancerlist_schoolVO 
 								where f_num = #{f_num} 
 														
+	</select>
+	
+	<select id="getnum" resultType="int">
+		select nvl(max(c_num),0) from contract
+	</select>
+	
+	<insert id= "insertContract" parameterType="SubmitVO">
+	 insert into contract(
+	 c_num, c_request_date, e_pr_num, f_num, c_state
+	 )
+	 values(
+	 #{c_num}, SYSDATE, #{e_pr_num}, #{f_num}, '제안중'
+	 )
+	</insert>
+	
+	<select id="getProject" parameterType="int" resultType="E_Insert">
+	select * from project where e_num = #{e_num}
+	
 	</select>
 
 </mapper>

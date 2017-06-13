@@ -24,6 +24,10 @@
 <script src="${pageContext.request.contextPath}/c_common/c_common_js/header.js"></script>
 <script src="${pageContext.request.contextPath}/resources/f_mypage_js/myInfo.js"></script> 
 <script src="${pageContext.request.contextPath}/resources/f_mypage_js/my.js"></script>
+
+<script type="text/javascript" src="/resources/e_mypage_js/e_projectInfo.js"></script>
+<script type="text/javascript" src="/resources/c_freelancerlist_js/freelancerlist.js"></script>
+
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -62,6 +66,9 @@ $(function(){
 		</div>
 		
 	<section id="firstsection">
+	<form method="post" action="/c_freelancerlist/f_complete" name="ProjectWriteFm">
+				 <input type="hidden" name="f_num" value="${f_num }"></input> 
+					 
 
 	<ul id="tabs">
 		<li><a href="#" title="tab1">프리랜서 정보</a></li>
@@ -73,11 +80,7 @@ $(function(){
 	<div id="content">
 		
 		<div id="tab1">
-			<form name="updateForm" method="post" action="myInfo" onsubmit="return check();">
-			<input type="text" hidden name="f_num" value="${client.f_num}">
-		 	<input type="text" hidden id="pwd_error" name="pwd_error" value="${pwd_error}"> 
-
-			 <div class="tb_box">
+		<div class="tb_box">
 				<div class="ct overf">
 					<h4 class="fl">개인정보</h4>
 				</div>
@@ -366,7 +369,6 @@ $(function(){
 				</table>
 			</div> 
 
-			</form>
 		</div>
 
 			
@@ -403,7 +405,6 @@ $(function(){
 					</c:if>
 				
 						<c:forEach var="mycareer" items="${career}">
-						<form id="careerForm${mycareer.career_num}" name="mycareerModify${mycareer.career_num}" method="post" action="/f_mypage/careerModify" target='popup_window'>
 						<input type="text" hidden name="career_num" value="${mycareer.career_num}">
 						<input type="text" hidden name="company" value="${mycareer.company}">
 						<input type="text" hidden name="dept" value="${mycareer.dept}">
@@ -420,7 +421,7 @@ $(function(){
 							<td class="last">${mycareer.career_year}</td>
 							
 						</tr>
-						</form>
+					
 					</c:forEach>
 					</tbody>
 				</table>
@@ -454,7 +455,6 @@ $(function(){
 							<tr><td colspan="5">등록된 학력사항이 없습니다.</td></tr>
 					</c:if>
 						<c:forEach var="myschool" items="${school}">
-						<form id="schoolForm${myschool.school_num}" name="myschoolModify${myschool.school_num}" method="post" action="/Matching_Project/f_mypage/schoolModify.jsp" target='popup_window'>
 						<input type="text" hidden name="myschool_school_num" value="${myschool.school_num}">
 						<input type="text" hidden name="myschool_school_name" value="${myschool.school_name}">
 						<input type="text" hidden name="myschool_major" value="${myschool.major}">
@@ -468,7 +468,7 @@ $(function(){
 							<td>${myschool.school_location}</td>
 							<td class="last">${myschool.school_degree}</td>
 						</tr>
-						</form>
+						
 					</c:forEach>
 
 					</tbody>
@@ -500,7 +500,6 @@ $(function(){
 							<tr><td colspan="5">등록된 자격사항이 없습니다.</td></tr>
 					</c:if>
 					<c:forEach var="mycerti" items="${certificate}">
-						<form id="certiForm${mycerti.certificate_num}" name="mycertiModify${mycerti.certificate_num}" method="post" action="/Matching_Project/f_mypage/certiModify.jsp" target='popup_window'>
 						<input type="text" hidden name="mycerti_certi_num" value="${mycerti.certificate_num}">
 						<input type="text" hidden name="mycerti_certi_name" value="${mycerti.certificate_name}">
 						<input type="text" hidden name="mycerti_organization" value="${mycerti.organization}">
@@ -511,7 +510,7 @@ $(function(){
 							<td>${mycerti.organization}</td>
 							<td class="last">${mycerti.accept_date}</td>
 						</tr>
-						</form>
+						
 					</c:forEach>
 
 					</tbody>
@@ -598,7 +597,20 @@ $(function(){
 
 
 	</div>
-
+		<!-- //tb_box : e -->
+			<div class="btn_box">
+					<input id="checkValue"  class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" name="post_a_job"
+						value="프로젝트 제안하기" type="button"> <br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</div>
+			</div>
+			</div>
+			
+				
+		</form>
 
 	</section>
 

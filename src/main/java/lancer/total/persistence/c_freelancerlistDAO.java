@@ -9,6 +9,8 @@ import lancer.c_freelancerlist.domain.c_freelancerlist_schoolVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.c_projectlist.domain.SearchCriteria;
+import lancer.c_projectlist.domain.SubmitVO;
+import lancer.e_insertproject.domain.E_Insert;
 import lancer.e_mypage.domain.Project;
 import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.Career;
@@ -30,4 +32,7 @@ public interface c_freelancerlistDAO {
 	List<Certificate> showCertiInfo(int f_num) throws Exception;
 	List<Project> getMyFinishProject(int f_num) throws Exception;
 	List<String> getProjectP_job(int e_pr_num) throws Exception;
+	int getnum() throws Exception;
+	void insertContract(SubmitVO submitVO) throws Exception;
+	List<E_Insert> getProject(int e_num) throws Exception;
 }
