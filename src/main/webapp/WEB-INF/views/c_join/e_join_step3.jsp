@@ -423,18 +423,18 @@ var checkEmail2 = function(index) {
 						<td colspan="5"><select class="wid07" name="e_scale"
 								id="e_scale">
 							<option value="">--기업형태--</option>
-							<option value="M040100">일반기업</option>
-							<option value="M040200">대기업</option>
-							<option value="M040300">중소기업</option>
-							<option value="M040400">외국기업</option>
-							<option value="M040500">벤처기업</option>
-							<option value="M040600">정부기관</option>
-							<option value="M040700">공사/공기업</option>
-							<option value="M040800">공공기관</option>
-							<option value="M040900">교육기업</option>
-							<option value="M041000">협회</option>
-							<option value="M041100">개인</option>
-							<option value="M049900">기타</option>
+							<option value="일반기업">일반기업</option>
+							<option value="대기업">대기업</option>
+							<option value="중소기업">중소기업</option>
+							<option value="외국기업">외국기업</option>
+							<option value="벤처기업">벤처기업</option>
+							<option value="정부기관">정부기관</option>
+							<option value="공사/공기업">공사/공기업</option>
+							<option value="공공기관">공공기관</option>
+							<option value="교육기업">교육기업</option>
+							<option value="협회">협회</option>
+							<option value="개인">개인</option>
+							<option value="기타">기타</option>
 						</select></td>
 					</tr>
 					<tr>
