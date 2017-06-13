@@ -786,6 +786,7 @@ $(function(){
 							<input type="text" hidden name="portfolio_num" value="${myport.portfolio_num}">
 							<input type="text" hidden name="contents" value="${myport.contents}">
 							<input type="text" hidden name="portfile" value="${myport.portfile}">
+							<input type="text" hidden name="portfile_iden" value="${myport.portfile_iden}">							
 							<tr>
 								<td>${myport.contents}</td>
 								<td><a href="/c_file/downloadFile?identy=${myport.portfile_iden}&f_num=${client.f_num}&fileType=portfile">${myport.portfile}</a></td>
@@ -799,6 +800,7 @@ $(function(){
 				<form name="tempPortfolioAdd"  action="/f_mypage/portfolioAdd" method="post" enctype="multipart/form-data">
 					<input type="text" hidden name="f_num" value="${client.f_num}">
 					<input type="text" hidden name="portfolio_num" value="0">
+					<input type="text" hidden name="portfile_iden" value="0">
 					포트폴리오 내용 : <input type="text"  name="contents">
 					첨부파일 : <input type="file"  name="portfile">
 					<input type="submit" value="저장">

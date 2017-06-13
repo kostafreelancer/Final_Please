@@ -7,16 +7,20 @@ public class PortfolioCommand {
 	private int f_num;
 	private String contents;
 	private MultipartFile portfile;
+	private int portfile_iden;
 	
 	public PortfolioCommand(){}
-
-	public PortfolioCommand(int portfolio_num, int f_num, String contents, MultipartFile portfile) {
+	
+	
+	public PortfolioCommand(int portfolio_num, int f_num, String contents, MultipartFile portfile, int portfile_iden) {
 		super();
 		this.portfolio_num = portfolio_num;
 		this.f_num = f_num;
 		this.contents = contents;
 		this.portfile = portfile;
+		this.portfile_iden = portfile_iden;
 	}
+
 
 	public int getPortfolio_num() {
 		return portfolio_num;
@@ -49,5 +53,16 @@ public class PortfolioCommand {
 	public void setPortfile(MultipartFile  portfile) {
 		this.portfile = portfile;
 	}
+
+
+	public int getPortfile_iden() {
+		return portfile_iden;
+	}
+
+
+	public void setPortfile_iden(int portfile_iden) {
+		this.portfile_iden = portfile_iden;
+	}
+	
 	
 }

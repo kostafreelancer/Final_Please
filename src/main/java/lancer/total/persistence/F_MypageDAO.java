@@ -180,6 +180,14 @@ public class F_MypageDAO {
 		return session.selectOne(namespace + ".getAccounting_iden", f_num);
 	}
 	
+	public Accounting selectOneAccounting(int a_num) throws Exception{
+		return session.selectOne(namespace + ".selectOneAccounting", a_num);
+	}
+	
+	public void deleteAccounting(int a_num) throws Exception{
+		session.delete(namespace + ".deleteAccounting", a_num);
+	}
+	
 	public List<Portfolio> showPortfolioInfo(int f_num) throws Exception{
 		return session.selectList(namespace + ".showPortfolioInfo", f_num);
 	}

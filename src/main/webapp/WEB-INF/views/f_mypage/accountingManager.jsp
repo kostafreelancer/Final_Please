@@ -114,13 +114,14 @@
 								<input
 									type="text" hidden name="a_addfile"
 									value="${myspendList.a_addfile}">
+								<input type="text" hidden name="accfile_iden" value="${myspendList.accfile_iden}">
 								<tr>
 
 									<td>${myspendList.detail_usage}</td>
 									<td>${myspendList.a_money}</td>
 									<td>${myspendList.a_using_date}</td>
 									<td>${myspendList.project_relation_check}</td>
-									<td>${myspendList.a_addfile}</td>
+									<td><a href="/c_file/downloadFile?identy=${myspendList.accfile_iden}&f_num=${client.f_num}&fileType=accfile">${myspendList.a_addfile}</a></td>
 									<td class="last"><input type="button" value="수정"
 										onclick="modifySpendList(${myspendList.a_num});">&nbsp;&nbsp;<input
 										type="button" value="삭제"
@@ -137,6 +138,7 @@
 					<input type="text" hidden name="f_num" value="${client.f_num}">
 					<input type="text" hidden name="monet_state" value="지출"> 
 					<input type="text" hidden name="a_num" value="0"> 
+					<input type="text" hidden name="accfile_iden" value="0">
 					사용내역 : <input type="text" name="detail_usage"> 
 					사용금액 : <input type="text"	name="a_money"> 
 					사용날짜 : <input type="text"	name="a_using_date"><br> 
@@ -144,12 +146,12 @@
 					첨부파일 : <input type="file" name="a_addfile"> 
 					<input type="submit" value="저장">
 				</form>
-				<form name="tempSpendListDelete" action="/f_mypage/deleteSpendList">
-					<input type="text" hidden name="deleteSpendList">
+				<form name="tempSpendListDelete" action="/f_mypage/deleteSpendList" method="get">
+					<input type="text" hidden name="deleteSpendList_num">
 				</form>
 			</div>
 
-			<%-- <div class="tb_box">
+			<div class="tb_box">
 				<div class="ct overf">
 					<br>
 
@@ -185,27 +187,28 @@
 								<td colspan="5">등록된 내역이 없습니다.</td>
 							</tr>
 						</c:if>
-						<c:forEach var="myspendList" items="${spendList}">
-							<form id="incomeListForm${myspendList.a_num}" 
-							name="myincomeListModify${myspendList.a_num}" method="post"
+						<c:forEach var="myincomeList" items="${incomeList}">
+							<form id="incomeListForm${myincomeList.a_num}" 
+							name="myincomeListModify${myincomeList.a_num}" method="post"
 								action="/f_mypage/spendListModify" target='popup_window'>
-								<input type="text" hidden name="a_num" value="${myspendList.a_num}"> 
-								<input type="text" hidden name="detail_usage" value="${myspendList.detail_usage}">
-								<input type="text" hidden name="a_money" value="${myspendList.a_money}">
-								<input type="text" hidden name="a_using_date" value="${myspendList.a_using_date}">
-								<input type="text" hidden name="project_relation_check" value="${myspendList.project_relation_check}"> 
-								<input type="text" hidden name="a_addfile" value="${myspendList.a_addfile}">
+								<input type="text" hidden name="a_num" value="${myincomeList.a_num}"> 
+								<input type="text" hidden name="detail_usage" value="${myincomeList.detail_usage}">
+								<input type="text" hidden name="a_money" value="${myincomeList.a_money}">
+								<input type="text" hidden name="a_using_date" value="${myincomeList.a_using_date}">
+								<input type="text" hidden name="project_relation_check" value="${myincomeList.project_relation_check}"> 
+								<input type="text" hidden name="a_addfile" value="${myincomeList.a_addfile}">
+								<input type="text" hidden name="accfile_iden" value="${myincomeList.accfile_iden}">
 								<tr>
-									<td>${myspendList.detail_usage}</td>
-									<td>${myspendList.a_money}</td>
-									<td>${myspendList.a_using_date}</td>
-									<td>${myspendList.project_relation_check}</td>
-									<td>${myspendList.a_addfile}</td>
+									<td>${myincomeList.detail_usage}</td>
+									<td>${myincomeList.a_money}</td>
+									<td>${myincomeList.a_using_date}</td>
+									<td>${myincomeList.project_relation_check}</td>
+									<td><a href="/c_file/downloadFile?identy=${myincomeList.accfile_iden}&f_num=${client.f_num}&fileType=accfile">${myincomeList.a_addfile}</a></td>
 									<td class="last">
 									<input type="button" value="수정"
-										onclick="modifySpendList(${myspendList.a_num});">&nbsp;&nbsp;
+										onclick="modifyIncomeList(${myincomeList.a_num});">&nbsp;&nbsp;
 									<input type="button" value="삭제"
-										onclick="deleteSpendList(${myspendList.a_num});"></td>
+										onclick="deleteIncomeList(${myincomeList.a_num});"></td>
 								</tr>
 							</form>
 						</c:forEach>
@@ -215,19 +218,20 @@
 				<form name="tempIncomeListAdd" action="/f_mypage/spendListAdd"
 					method="post" enctype="multipart/form-data">
 					<input type="text" hidden name="f_num" value="${client.f_num}">
-					<input type="text" hidden name="monet_state" value="지출"> <input
-						type="text" hidden name="a_num" value="0"> 사용내역 : <input
-						type="text" name="detail_usage"> 사용금액 : <input type="text"
-						name="a_money"> 사용날짜 : <input type="text"
-						name="a_using_date"><br> 프로젝트 관련여부 : <input
-						type="text" name="project_relation_check"> 첨부파일 : <input
-						type="file" name="a_addfile"> <input type="submit"
-						value="저장">
+					<input type="text" hidden name="monet_state" value="수입"> 
+					<input type="text" hidden name="a_num" value="0">
+					<input type="text" hidden name="accfile_iden" value="0"> 
+					사용내역 : <input type="text" name="detail_usage">
+					사용금액 : <input type="text" name="a_money"> 
+					사용날짜 : <input type="text" name="a_using_date"><br> 
+					프로젝트 관련여부 : <input type="text" name="project_relation_check"> 
+					첨부파일 : <input type="file" name="a_addfile"> 
+					<input type="submit" value="저장">
 				</form>
 				<form name="tempIncomeListDelete" action="/f_mypage/deleteSpendList">
-					<input type="text" hidden name="deleteSpendList">
+					<input type="text" hidden name="deleteSpendList_num">
 				</form>
-			</div> --%>
+			</div> 
 		</div>
 
 		<div id="tab2">

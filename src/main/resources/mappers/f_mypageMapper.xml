@@ -172,6 +172,16 @@
   		select nvl(max(accfile_iden), 0) from accounting where f_num = #{f_num} 
   	</select>
   
+  	<select id="selectOneAccounting" resultType="Accounting">
+  		select * from accounting where a_num = #{a_num}
+  	</select>
+  
+  	<delete id="deleteAccounting" parameterType="int">
+  		delete from accounting where a_num = #{a_num}
+  	</delete>
+  
+  
+  
   	<select id="showPortfolioInfo" resultType="Portfolio">
   		select * from portfolio where f_num = #{f_num}
   	</select>

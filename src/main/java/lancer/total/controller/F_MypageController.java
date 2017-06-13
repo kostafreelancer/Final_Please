@@ -325,12 +325,14 @@ public class F_MypageController {
 			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num(), identy);
 		
 		}else{
+			System.out.println("업데이트로 온 거 맞아요?");
 			System.out.println(portFolioCommand.getPortfolio_num());
+			System.out.println(portFolioCommand.getPortfile_iden());
 			Portfolio portfolio = new Portfolio();
 			portfolio.setPortfolio_num(portFolioCommand.getPortfolio_num());
 			portfolio.setF_num(portFolioCommand.getF_num());
 			portfolio.setContents(portFolioCommand.getContents());
-			portfolio.setPortfile_iden(service.getPortfolio_iden(portfolio.getF_num())+1);
+			portfolio.setPortfile_iden(portFolioCommand.getPortfile_iden());
 			if(portFolioCommand.getPortfile().isEmpty()){
 				portfolio.setPortfile("");
 			}else{
@@ -338,8 +340,9 @@ public class F_MypageController {
 			}
 			service.updatePortfolio(portfolio);
 			MultipartFile portfile = portFolioCommand.getPortfile();
-			int identy = fileUploadService.getIdenty("portfile", portfolio.getF_num())+1;
-			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num(), identy);
+			
+		//	int identy = fileUploadService.getIdenty("portfile", portfolio.getF_num())+1;
+			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num(), portfolio.getPortfile_iden());
 		}
 		
 		return "redirect:/f_mypage/updateSuccess";
@@ -464,7 +467,7 @@ public class F_MypageController {
 			accounting.setDetail_usage(command.getDetail_usage());
 			accounting.setA_money(command.getA_money());
 			accounting.setA_using_date(command.getA_using_date());
-			accounting.setMonet_state(command.getMonet_state());
+			accounting.setMonet_state(command.getMonet_state());	
 			accounting.setProject_relation_check(command.getProject_relation_check());
 			accounting.setF_num(command.getF_num());
 			accounting.setAccfile_iden(service.getAccounting_iden(accounting.getF_num())+1);
@@ -490,7 +493,7 @@ public class F_MypageController {
 			accounting.setMonet_state(command.getMonet_state());
 			accounting.setProject_relation_check(command.getProject_relation_check());
 			accounting.setF_num(command.getF_num());
-			accounting.setAccfile_iden(service.getAccounting_iden(accounting.getF_num())+1);
+			accounting.setAccfile_iden(command.getAccfile_iden());
 			
 			if(command.getA_addfile().isEmpty()){
 				accounting.setA_addfile("");
@@ -500,12 +503,24 @@ public class F_MypageController {
 			//service.insertSpendAccounting(accounting);
 			service.updateSpendAccounting(accounting);
 			MultipartFile a_addfile = command.getA_addfile();
-			int identy = fileUploadService.getIdenty("accfile", accounting.getF_num())+1;
-			fileUploadService.uploadFile(a_addfile, "accfile", accounting.getF_num(),identy);
+			//int identy = fileUploadService.getIdenty("accfile", accounting.getF_num())+1;
+			fileUploadService.uploadFile(a_addfile, "accfile", accounting.getF_num(),accounting.getAccfile_iden());
 		}
 
 		return "redirect:/f_mypage/updateSuccess";
 	}
+	
+	@RequestMapping(value="/deleteSpendList", method = RequestMethod.GET)
+	public String deleteSpendList(@RequestParam("deleteSpendList_num") int a_num) throws Exception{
+		Accounting accouting = service.selectOneAccounting(a_num);
+	
+		fileUploadService.deleteFile("portfile",  accouting.getF_num(), accouting.getAccfile_iden());
+		service.deleteAccounting(a_num);
+		return "redirect:/f_mypage/updateSuccess";
+	}
+
+	
+	
 	
 	@RequestMapping(value="/accountingManager", method=RequestMethod.POST)
 	public void accountingSearch(Model model, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate) throws Exception{

@@ -399,14 +399,31 @@ function addSpend(){
 
 function modifySpendList(num){
 	var wantForm = 'spendListForm' + num;
-	console.log(num);
-	console.log(document.getElementById(wantForm).detail_usage.value);
-	//console.log(document.getElementById(tempSpendListAdd).detail_usage.value);
-	//console.log(document.tempSpendListAdd.detail_usage.value);
 	document.tempSpendListAdd.detail_usage.value = document.getElementById(wantForm).detail_usage.value;
 	document.tempSpendListAdd.a_num.value = document.getElementById(wantForm).a_num.value;
 	document.tempSpendListAdd.a_money.value = document.getElementById(wantForm).a_money.value;
 	document.tempSpendListAdd.a_using_date.value = document.getElementById(wantForm).a_using_date.value;
 	document.tempSpendListAdd.project_relation_check.value = document.getElementById(wantForm).project_relation_check.value;
+	document.tempSpendListAdd.accfile_iden.value = document.getElementById(wantForm).accfile_iden.value;	
 }
 
+function deleteIncomeList(num){
+	var wantForm = 'incomeListForm' + num;
+	document.tempIncomeListAdd.detail_usage.value = document.getElementById(wantForm).detail_usage.value;
+	document.tempIncomeListAdd.a_num.value = document.getElementById(wantForm).a_num.value;
+	document.tempIncomeListAdd.a_money.value = document.getElementById(wantForm).a_money.value;
+	document.tempIncomeListAdd.a_using_date.value = document.getElementById(wantForm).a_using_date.value;
+	document.tempIncomeListAdd.project_relation_check.value = document.getElementById(wantForm).project_relation_check.value;
+	document.tempIncomeListAdd.accfile_iden.value = document.getElementById(wantForm).accfile_iden.value;	
+
+}
+
+function deleteSpendList(num){
+	document.tempSpendListDelete.deleteSpendList_num.value = num;
+	document.tempSpendListDelete.submit();
+}
+
+function deleteIncomeList(num){
+	document.tempIncomeListDelete.deleteSpendList_num.value = num;
+	document.tempIncomeListDelete.submit();
+}

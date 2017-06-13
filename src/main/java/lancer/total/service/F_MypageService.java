@@ -177,6 +177,14 @@ public class F_MypageService {
 		return dao.getAccounting_iden(f_num);
 	}
 	
+	public Accounting selectOneAccounting(int a_num) throws Exception{
+		return dao.selectOneAccounting(a_num);
+	}
+	
+	public void deleteAccounting(int a_num) throws Exception{
+		dao.deleteAccounting(a_num);
+	}
+	
 	public List<Portfolio> showPortfolioInfo(int f_num) throws Exception{
 		return dao.showPortfolioInfo(f_num);
 	}

@@ -191,7 +191,7 @@ function modifyPort(num){
 	var wantForm = 'portForm'+num;
 	document.tempPortfolioAdd.contents.value = document.getElementById(wantForm).contents.value;
 	document.tempPortfolioAdd.portfolio_num.value = document.getElementById(wantForm).portfolio_num.value;
-	
+	document.tempPortfolioAdd.portfile_iden.value = document.getElementById(wantForm).portfile_iden.value;
 }
 
 function modifyCareerSubmit(){
