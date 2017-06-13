@@ -98,7 +98,7 @@
 					<tbody>
 						<c:if test="${spendListCheck == 0}">
 							<tr>
-								<td colspan="5">등록된 내역이 없습니다.</td>
+								<td colspan="6">등록된 내역이 없습니다.</td>
 							</tr>
 						</c:if>
 						<c:forEach var="myspendList" items="${spendList}">
@@ -184,7 +184,7 @@
 					<tbody>
 						<c:if test="${incomeListCheck == 0}">
 							<tr>
-								<td colspan="5">등록된 내역이 없습니다.</td>
+								<td colspan="6">등록된 내역이 없습니다.</td>
 							</tr>
 						</c:if>
 						<c:forEach var="myincomeList" items="${incomeList}">

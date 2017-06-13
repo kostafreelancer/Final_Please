@@ -838,11 +838,12 @@ $(function(){
 					</c:if>
 					
 					<c:forEach var="myApplyProject" items="${applyproject}">
+						<form id="applyForm">
 						 <tr>							
 							<td>${myApplyProject.p_name}</td>
 							<td>${myApplyProject.manager_hphone}</td>
 							<td>${myApplyProject.c_request_date}</td>
-							<td>${myApplyProject.state}</td>
+							<td>${myApplyProject.c_state}</td>
 							<td class="last"><input type="submit" value="지원 취소"></td>
 						</tr>
 						</form>

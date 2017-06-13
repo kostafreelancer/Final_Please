@@ -7,18 +7,26 @@ public class ApplyProject implements Serializable{
 	private String p_name;
 	private String manager_hphone;
 	private String c_request_date;
-	private String state;
+	private String c_state;
+	private int e_pr_num;
+	private int e_num;
 	
 	public ApplyProject(){};
 	
-	public ApplyProject(int c_num, String p_name, String manager_hphone, String c_request_date, String state) {
+
+	public ApplyProject(int c_num, String p_name, String manager_hphone, String c_request_date, String c_state,
+			int e_pr_num, int e_num) {
 		super();
 		this.c_num = c_num;
 		this.p_name = p_name;
 		this.manager_hphone = manager_hphone;
 		this.c_request_date = c_request_date;
-		this.state = state;
+		this.c_state = c_state;
+		this.e_pr_num = e_pr_num;
+		this.e_num = e_num;
 	}
+
+
 
 	public int getC_num() {
 		return c_num;
@@ -52,12 +60,32 @@ public class ApplyProject implements Serializable{
 		this.c_request_date = c_request_date;
 	}
 
-	public String getState() {
-		return state;
+	public String getC_state() {
+		return c_state;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setC_state(String c_state) {
+		this.c_state = c_state;
+	}
+
+
+	public int getE_pr_num() {
+		return e_pr_num;
+	}
+
+
+	public void setE_pr_num(int e_pr_num) {
+		this.e_pr_num = e_pr_num;
+	}
+
+
+	public int getE_num() {
+		return e_num;
+	}
+
+
+	public void setE_num(int e_num) {
+		this.e_num = e_num;
 	}
 	
 	
