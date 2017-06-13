@@ -15,9 +15,16 @@ public class RandomNum {
 	// 영숫영숫영숫영숫
 	public String pattern1(){
 		String pwd = "";
-		for(int i=0; i<4; i++){
-			pwd += alpha();
-			pwd += number();
+		int i=0;
+		while(i < 4){
+			char tmp1 = alpha();
+			String tmp2 = number();
+			
+			if(pwd.indexOf(tmp1) == -1 && pwd.indexOf(tmp2) == -1){
+				pwd += tmp1;
+				pwd += tmp2;
+				i++;
+			}
 		}
 		return pwd;
 	}
@@ -25,11 +32,17 @@ public class RandomNum {
 	// 숫영숫영숫영숫영
 	public String pattern2(){
 		String pwd = "";
-		for(int i=0; i<4; i++){
-			pwd += number();
-			pwd += alpha();
+		int i=0;
+		while(i < 4){
+			String tmp1 = number();
+			char tmp2 = alpha();
+			
+			if(pwd.indexOf(tmp1) == -1 && pwd.indexOf(tmp2) == -1){
+				pwd += tmp1;
+				pwd += tmp2;
+				i++;
+			}
 		}
-		
 		return pwd;
 	}
 	
