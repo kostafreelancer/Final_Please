@@ -39,6 +39,33 @@ public class C_FileController {
 	@Inject
 	private C_FileService service;
 	
+	@RequestMapping(value = "/downloadFile", method = RequestMethod.GET)
+	public void downloadFileGET2(@RequestParam("identy") int identy, @RequestParam("fileType") String fileType, @RequestParam("f_num") int f_num, HttpServletResponse response)throws Exception{
+		HashMap<String, Object> tempMap = new HashMap<String, Object>();
+		System.out.println(identy);
+		System.out.println(fileType);
+		System.out.println(f_num);
+		tempMap.put("section", fileType);
+		tempMap.put("identy", identy);
+		tempMap.put("common_num", f_num);
+		int file_num = service.getFileNum(tempMap);
+		System.out.println(file_num);
+		HashMap<String,Object> map = service.selectFileInfo(file_num);
+	    String original_file_name = (String)map.get("original_file_name");
+	    String stored_file_name = (String)map.get("stored_file_name");
+	    
+	    byte fileByte[] = FileUtils.readFileToByteArray(new File(uploadPath+stored_file_name));
+	     
+	    response.setContentType("application/octet-stream");
+	    response.setContentLength(fileByte.length);
+	    response.setHeader("Content-Disposition", "attachment; fileName=\"" + URLEncoder.encode(original_file_name,"UTF-8")+"\";");
+	    response.setHeader("Content-Transfer-Encoding", "binary");
+	    response.getOutputStream().write(fileByte);
+	     
+	    response.getOutputStream().flush();
+	    response.getOutputStream().close();
+	}
+	
 	@RequestMapping(value = "/downloadFile", method = RequestMethod.POST)
 	public void downloadFileGET(@RequestParam("file_num") int file_num, HttpServletResponse response)throws Exception{
 		

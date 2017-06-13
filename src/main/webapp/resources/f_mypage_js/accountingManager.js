@@ -11,7 +11,13 @@ $(document).ready(function() {
         $(this).parent().attr("id","current"); // Activate this
         $('#' + $(this).attr('title')).fadeIn(); // Show content for current tab
     });
+    
+   
+
 });
+
+
+
 
 // JavaScript Document
  function set_comma(val1){
@@ -387,8 +393,6 @@ function g_select(obj){//율
 $("#g_rate1").html( g_1 );
 $("#g_rate2").html( g_2 );
 
-
-
 function addSpend(){
 	window.open('/f_mypage/spendAdd','win','width=350, height=250');
 }
@@ -396,29 +400,13 @@ function addSpend(){
 function modifySpendList(num){
 	var wantForm = 'spendListForm' + num;
 	console.log(num);
+	console.log(document.getElementById(wantForm).detail_usage.value);
+	//console.log(document.getElementById(tempSpendListAdd).detail_usage.value);
+	//console.log(document.tempSpendListAdd.detail_usage.value);
 	document.tempSpendListAdd.detail_usage.value = document.getElementById(wantForm).detail_usage.value;
 	document.tempSpendListAdd.a_num.value = document.getElementById(wantForm).a_num.value;
 	document.tempSpendListAdd.a_money.value = document.getElementById(wantForm).a_money.value;
 	document.tempSpendListAdd.a_using_date.value = document.getElementById(wantForm).a_using_date.value;
 	document.tempSpendListAdd.project_relation_check.value = document.getElementById(wantForm).project_relation_check.value;
-}
-
-function modifyCareer(num){
-    window.open('about:blank','popup_window','width=350, height=250');
-    var wantForm = 'careerForm'+num;
-    var frm =document.getElementById(wantForm);
-    frm.submit();
-}
-
-
-
-function modifyCareerSubmit(){
-	document.tempCareerModify.submit();
-}
-
-
-function deleteCareer(num){
-	document.tempCareerDelete.deleteCareer_num.value = num;
-	document.tempCareerDelete.submit();
 }
 

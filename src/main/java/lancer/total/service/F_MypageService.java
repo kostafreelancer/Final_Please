@@ -173,6 +173,10 @@ public class F_MypageService {
 		return dao.getIncomeAccounting(f_num);
 	}	
 	
+	public int getAccounting_iden(int f_num) throws Exception{
+		return dao.getAccounting_iden(f_num);
+	}
+	
 	public List<Portfolio> showPortfolioInfo(int f_num) throws Exception{
 		return dao.showPortfolioInfo(f_num);
 	}

@@ -222,3 +222,10 @@ function deletePort(num){
 	document.tempPortfolioDelete.deletePortfolio_num.value = num;
 	document.tempPortfolioDelete.submit();
 }
+
+function toDrop(num){
+	if(confirm("정말 탈퇴하시겠습니까?")){
+		location.href='/f_mypage/dropFreelancer?f_num='+num;
+	}
+	
+}

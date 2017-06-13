@@ -176,6 +176,10 @@ public class F_MypageDAO {
 		return session.selectList(namespace+ ".searchIncomeList", map);
 	}
 	
+	public int getAccounting_iden(int f_num) throws Exception{
+		return session.selectOne(namespace + ".getAccounting_iden", f_num);
+	}
+	
 	public List<Portfolio> showPortfolioInfo(int f_num) throws Exception{
 		return session.selectList(namespace + ".showPortfolioInfo", f_num);
 	}

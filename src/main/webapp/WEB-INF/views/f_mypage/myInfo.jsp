@@ -499,7 +499,7 @@ $(function(){
 				</table>
 			</div> 
 			<div class="btn_box mb30 mb02">
-				<input type="button" class="toDrop" value="회원탈퇴" onclick="location.href='/f_mypage/dropFreelancer?f_num='+${client.f_num}">
+				<input type="button" class="toDrop" value="회원탈퇴" onclick="toDrop(${client.f_num});">
 				<input type="submit" value="수정하기">
 				<input type="reset" value="초기화">
 			</div>
@@ -788,7 +788,7 @@ $(function(){
 							<input type="text" hidden name="portfile" value="${myport.portfile}">
 							<tr>
 								<td>${myport.contents}</td>
-								<td>${myport.portfile}</td>
+								<td><a href="/c_file/downloadFile?identy=${myport.portfile_iden}&f_num=${client.f_num}&fileType=portfile">${myport.portfile}</a></td>
 								<td class="last"><input type="button" value="수정" onclick="modifyPort(${myport.portfolio_num});">&nbsp;&nbsp;<input
 									type="button" value="삭제" onclick="deletePort(${myport.portfolio_num});"></td>
 							</tr>

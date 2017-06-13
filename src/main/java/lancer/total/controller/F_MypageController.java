@@ -467,7 +467,7 @@ public class F_MypageController {
 			accounting.setMonet_state(command.getMonet_state());
 			accounting.setProject_relation_check(command.getProject_relation_check());
 			accounting.setF_num(command.getF_num());
-			
+			accounting.setAccfile_iden(service.getAccounting_iden(accounting.getF_num())+1);
 			if(command.getA_addfile().isEmpty()){
 				accounting.setA_addfile("");
 			}else{
@@ -476,7 +476,8 @@ public class F_MypageController {
 			service.insertSpendAccounting(accounting);
 			
 			MultipartFile a_addfile = command.getA_addfile();
-			fileUploadService.uploadFile(a_addfile, "a_addfile", accounting.getF_num(),0);
+			int identy = fileUploadService.getIdenty("accfile", accounting.getF_num())+1;
+			fileUploadService.uploadFile(a_addfile, "accfile", accounting.getF_num(),identy);
 		
 		}else{
 			
@@ -489,6 +490,7 @@ public class F_MypageController {
 			accounting.setMonet_state(command.getMonet_state());
 			accounting.setProject_relation_check(command.getProject_relation_check());
 			accounting.setF_num(command.getF_num());
+			accounting.setAccfile_iden(service.getAccounting_iden(accounting.getF_num())+1);
 			
 			if(command.getA_addfile().isEmpty()){
 				accounting.setA_addfile("");
@@ -498,7 +500,8 @@ public class F_MypageController {
 			//service.insertSpendAccounting(accounting);
 			service.updateSpendAccounting(accounting);
 			MultipartFile a_addfile = command.getA_addfile();
-			fileUploadService.uploadFile(a_addfile, "a_addfile", accounting.getF_num(),0);
+			int identy = fileUploadService.getIdenty("accfile", accounting.getF_num())+1;
+			fileUploadService.uploadFile(a_addfile, "accfile", accounting.getF_num(),identy);
 		}
 
 		return "redirect:/f_mypage/updateSuccess";

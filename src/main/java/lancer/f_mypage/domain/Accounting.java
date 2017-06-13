@@ -9,11 +9,13 @@ public class Accounting {
 	private int f_num;
 	private String project_relation_check;
 	private String monet_state;
+	private int accfile_iden;
 	
 	public Accounting(){}
 	
+	
 	public Accounting(int a_num, String detail_usage, int a_money, String a_addfile, String a_using_date, int f_num,
-			String project_relation_check, String monet_state) {
+			String project_relation_check, String monet_state, int accfile_iden) {
 		super();
 		this.a_num = a_num;
 		this.detail_usage = detail_usage;
@@ -23,7 +25,10 @@ public class Accounting {
 		this.f_num = f_num;
 		this.project_relation_check = project_relation_check;
 		this.monet_state = monet_state;
+		this.accfile_iden = accfile_iden;
 	}
+
+
 	public int getA_num() {
 		return a_num;
 	}
@@ -71,6 +76,16 @@ public class Accounting {
 	}
 	public void setMonet_state(String monet_state) {
 		this.monet_state = monet_state;
+	}
+
+
+	public int getAccfile_iden() {
+		return accfile_iden;
+	}
+
+
+	public void setAccfile_iden(int accfile_iden) {
+		this.accfile_iden = accfile_iden;
 	}
 	
 	

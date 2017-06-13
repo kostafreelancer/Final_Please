@@ -70,4 +70,8 @@ public class C_FileService {
 		map.put("stored_file_name", dao.selectFileStoredNameByInt(file_num));
 	    return map;
 	}
+	
+	public int getFileNum(HashMap<String, Object> map) throws Exception{
+		return dao.selectFileNum(map);
+	}
 }
