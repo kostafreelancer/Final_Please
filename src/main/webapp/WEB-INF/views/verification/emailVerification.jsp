@@ -1,4 +1,4 @@
-<%@page import="lancer.total.util.RandomNum"%>
+<%@page import="lancer.total.util.RandomCode"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,8 +16,8 @@
 <body>
 	<form name="form" action="/verification/verified" onsubmit="return check()">
 	<span>인증번호가 발송되었습니다. 인증번호를 입력해주세요.</span><br>
-	<% RandomNum num = new RandomNum();%>
-	<%= num.start() %>
+	<% RandomCode code = new RandomCode();%>
+	<%= code.start() %>
 	<input id="num" name="num" type="text"> <span id="Timer"></span><br>
 	<input type="submit" value="확인">
 	</form>
