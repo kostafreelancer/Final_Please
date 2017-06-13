@@ -25,6 +25,16 @@ float: right;
 	if(result=='SUCCESS'){
 		alert("처리가 완료되었습니다.");
 	}
+	
+	$(document).ready(function(){
+
+		$('.btn_check04').click(function(){
+			location.href="/f_board/f_register";
+		})
+
+
+	});
+
 </script>
 </head>
 <body>
@@ -46,6 +56,7 @@ float: right;
                 <p class="tit_txt">프리랜서들만의 공간!<span>궁금한 사항이 있다면 무엇이든 올려주세요.<br/>욕설과 비난은 자제해주세요. 서로를 존중해주는 우리는 드림랜서!</span></p>
             </div>
             <!-- //tit_box : e -->
+            <form role="form">
             <dl  class="tab_d02">
                 <dd>
                 	<div class="tb_box" style="margin-top:15px; margin-left: 1px;">
@@ -73,8 +84,9 @@ float: right;
 							<tr>
 							<td>${F_BoardVO.f_board_num }</td>
 								<td class="al">&nbsp;&nbsp;&nbsp;
-								<a href='/f_board/f_readPage${pageMaker.makeSearch(pageMaker.cri.page) }&f_board_num=${F_BoardVO.f_board_num}' class="SOLU_green">${F_BoardVO.f_board_title}</a></td>
-								<td>아이디</td>
+								<a href='/f_board/f_readPage${pageMaker.makeSearch(pageMaker.cri.page) }&f_board_num=${F_BoardVO.f_board_num}' class="SOLU_green">
+								${F_BoardVO.f_board_title}<strong>[ ${F_Board.f_reply_count} ]</strong></a></td>
+								<td>${F_BoardVO.f_id}</td>
 								<td><fmt:formatDate pattern="yyy-MM-dd HH:mm" value="${F_BoardVO.f_board_date }"/></td>
 								<td>${F_BoardVO.f_board_hits }</td>
 						</tr>
@@ -105,7 +117,8 @@ float: right;
 							</c:if>
 						</ul>
 					</div>
-					 <input type="submit" id="checkValue" class="btn_check04"  value="작성하기">
+					 <input type="button" id="checkValue" class="btn_check04"  value="작성하기">
+					 
 				</div>
                     
                     <!-- //tb_box : e -->
@@ -124,7 +137,7 @@ float: right;
 			</dl>
             </div>  
  
- 
+ </form>
 <%@include file="../c_common/footer.jsp" %>
 </body>
 </html>

@@ -14,6 +14,25 @@
 	media="screen" />
 <title>프리랜서 자유게시판</title>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
+<script type="text/javascript">
+var result='${msg}';
+if(result=='SUCCESS'){
+	alert("처리가 완료되었습니다.");
+}
+
+$(document).ready(function(){
+
+	$('.btn_check04').click(function(){
+		formObj.attr("action", "/f_board/f_register");
+		formObj.attr("method", "post");
+		formObj.submit();
+	})
+	$('.btn_remove').click(function(){
+		location.href="/fboard/f_list";
+	})
+
+}); 
+</script>
 </head>
 <body>
 	<%@include file="../c_common/header.jsp"%>
@@ -89,6 +108,7 @@
 				</div>
 				<div class="btn_box">
 					<input type="submit" id="checkValue" class="btn_check04"  value="등록하기">
+					<input type="submit" id="checkValue1" class="btn_remove"  value="     취소하기">
 				</div>
 			</div>
 		</div>

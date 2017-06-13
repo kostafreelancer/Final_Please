@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="lancer.mapper.f_board_replyMapper">
+
+ 	<select id="list" resultType="F_ReplyVO">
+ 		select * from reply
+ 			where board_num = #{board_num}
+ 			order by board_num desc
+ 	</select>
+ 	
+ 	<insert id="create" parameterType="F_ReplyVO">
+ 		insert into reply (reply_num, board_num, reply_content)<!-- , replyer -->
+ 			values(seq_reply.nextval, #{board_num}, #{reply_content})<!-- , #{replyer} -->
+ 	</insert>
+ 	
+ 	<update id="update" parameterType="F_ReplyVO">
+ 		update reply set reply_content = #{reply_content}
+ 			where reply_num = #{reply_num}
+ 	</update>
+ 	
+ 	<delete id="delete">
+ 		delete from reply where reply_num = #{reply_num}
+ 	</delete>
+ 	
+ 	<select id="listPage" resultType="F_ReplyVO">
+	  <![CDATA[
+		 select 
+		   reply_num, board_num, reply_content, reply_date<!-- , replyer -->
+		 from
+		   (
+		   select /*+INDEX_DESC(reply pk_reply))*/
+		     rownum rn, reply_num, board_num, reply_content, reply_date<!-- , replyer -->
+		   from reply
+		   where board_num = #{board_num}
+		   and reply_num > 0
+		   and rownum <= #{cri.page} * #{cri.perPageNum}
+		   )
+		where rn > ( #{cri.page} -1) * #{cri.perPageNum}
+	  ]]>
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(reply_num) from reply
+		where board_num = #{board_num}
+	</select>
+  
+  <select id="getBno" resultType="int">
+  	select board_num from reply where reply_num = #{reply_num}
+  </select>
+  	
+  
+</mapper>  
+
+
+
+
+
+
+
+
+
+
+

@@ -17,13 +17,9 @@ $(document).ready(function(){
 	var formObj = $("form[role='form']");
 
 	$('.btn_check04').click(function(){
-		formObj.attr("action", "/f_board/f_modifyPage");
-		formObj.attr("method", "post");
+		formObj.attr("action", "/f_board/f_register");
+		formObj.attr("method", "get");
 		formObj.submit();
-	})
-	$('.btn_remove').click(function(){
-		 self.location = "/f_board/f_list?page=${cri.page}&perPageNum=${cri.perPageNum}"+
-		  "&searchType=${cri.searchType}&keyword=${cri.keyword}";
 	})
 })
 </script>

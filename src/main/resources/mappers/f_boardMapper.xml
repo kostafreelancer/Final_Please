@@ -91,7 +91,7 @@
    </update>
    
    <select id="getBno" resultType="int">
-      select f_board_num from reply where reply_num = #{reply_num}
+      select f_board_num from f_board where f_reply_num = #{f_reply_num}
    </select>
    
    <update id="updateViewCnt">
