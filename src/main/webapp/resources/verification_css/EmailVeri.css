@@ -1,0 +1,32 @@
+.tabmenu {
+	border: 1px solid gray;
+	border-collapse: collapse;
+	width: 615px;
+	padding:50px 0;
+}
+
+.verify {
+	border: 1px solid #f1f1f1;
+	background: #2257ad;
+	width: 20%;
+	height: 50px;
+	font-weight: bold;
+	font-size: 18px;
+	color: white;
+	margin-top: 50px;
+	margin-left:250px;
+}
+
+.txt{
+	margin-left: 10%;
+
+}
+
+#num{
+	margin-top: 5%;
+	margin-left: 20%;
+}
+
+#btn{
+	display:none;
+}
