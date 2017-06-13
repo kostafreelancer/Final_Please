@@ -72,6 +72,9 @@ public class C_FileController {
 			
 			HttpHeaders headers = new HttpHeaders();
 			
+			System.out.println(uploadPath);
+			System.out.println(fileName);
+			
 			in = new FileInputStream(uploadPath+fileName);
 			
 			if(mType != null){

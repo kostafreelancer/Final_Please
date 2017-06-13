@@ -35,7 +35,7 @@ $(function(){
 </head>
 
 <body>
-<%@include file="../c_common/header_enterprise.jsp"%>
+<%@include file="../c_common/header.jsp"%>
 
 	<nav class="left_menu">
 	<div class="left_menu_title">

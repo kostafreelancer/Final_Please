@@ -8,8 +8,6 @@
 	media="screen" />
 <link rel="stylesheet" href="../../../resources/c_join_css/reset.css" type="text/css"
 	media="screen" />
-<link rel="stylesheet" href="../c_common/header.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="../c_common/footer.css" type="text/css" media="screen" />
 <title>회원가입</title>
 <style type="text/css">
 #duplicateResult{
@@ -132,6 +130,7 @@ var checkEmail2 = function(index) {
 				</p>
 			</div>
 		</div>
+<form name="userInfo" method="post" enctype="multipart/form-data">
 		<div id="content">
 			<div class="tit_box">
 				<h2>회원가입</h2>
@@ -148,6 +147,7 @@ var checkEmail2 = function(index) {
 				<li class="step03"><span>Step03</span>회원정보입력</li>
 				<li class="step04"><span>Step04</span>가입완료</li>
 			</ul>
+
 			<div class="tb_box">
 				<div class="ct overf">
 					<h4 class="fl">아이디 및 비밀번호</h4>
@@ -156,7 +156,7 @@ var checkEmail2 = function(index) {
 					</p>
 				</div>
 				<table class="tb_st01">
-					<form name="userInfo" method="post">
+
 						<input type="hidden" name="fm_type" value="바이어"> 
 						<input type="hidden" name="fm_format" value="기업"> 
 						<input type="hidden" name="fm_str"
@@ -213,9 +213,13 @@ var checkEmail2 = function(index) {
 					<tbody>
 					   <tr>
 							<td rowspan="5">
-                              	<img src="c_join_img/join_photo.jpg" alt="사진" id="img_box"/>
-								<input type="file" name="e_ownerfile"  id="e_ownerfile" style="width:130px;" onchange="fileInfo(this)"/>
-                            </td>
+						<div class="filebutton">	
+						<input type="hidden" id="e_ownerfileExist" name="e_ownerfileExist" value="false">
+						<span>사진업로드</span><input type="file" name="e_ownerfile" id="e_ownerfile" value="${client.e_ownerfile }"
+							class="searchfile" title="파일 찾기"
+							style="width: 820px;">
+							
+                            </div></td>
 							<th scope="row"><label for="e_name"><span class="txt_or">*</span> 가입자명</label></th>
 							<td colspan="4">
 								<input type="text" id="e_name" name="e_name" class="wid04" />
@@ -437,7 +441,8 @@ var checkEmail2 = function(index) {
 						<th><span class="txt_or">*</span> 사업자등록증</th>
 						<td colspan="5">
 							<div>
-								<input type="file" id="e_licensefile" name="e_licensefile" class="wid06">
+								<input type="hidden" id="e_licensefileExist" name="e_licensefileExist" value="false">
+								<input type="file" id="e_licensefile" name="e_licensefile" class="wid">
 							</div>
 						</td>
 					</tr>

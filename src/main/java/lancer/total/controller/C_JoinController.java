@@ -19,12 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import lancer.c_join.domain.E_join;
 import lancer.c_join.domain.F_join;
 import lancer.f_mypage.domain.F_job;
 import lancer.total.persistence.C_JoinDAO;
+import lancer.total.service.C_FileService;
 import lancer.total.service.C_JoinService;
 
 @Controller
@@ -33,6 +35,8 @@ public class C_JoinController {
 
 	@Inject
 	private C_JoinService service;
+	@Inject
+	private C_FileService fileService;
 	@Autowired
 	JavaMailSender mailsender;
 	
@@ -215,28 +219,41 @@ public class C_JoinController {
 		e_join.setE_address(e_address);
 		System.out.println(e_join.getE_address());
 		
-		e_join.setE_num(service.getE_num()+1);
+		int e_num = service.getE_num()+1;
+		e_join.setE_num(e_num);
 		System.out.println(e_join.getE_num()+1);
 		e_join.setManager_name(e_join.getManager_name());
 		e_join.setE_bf(e_join.getE_bf());
 		e_join.setE_capital(e_join.getE_capital());	
-		//e_join.setE_check(request.getParameter("e_check"));
 		e_join.setE_check("미승인");
 		e_join.setE_ename(e_join.getE_ename());
 		e_join.setE_enum(e_join.getE_enum());
 		e_join.setE_homepage(e_join.getE_homepage());
 		e_join.setE_id(e_join.getE_id());
-		//e_join.setE_licensefile(request.getParameter("e_licensefile"));
-		e_join.setE_licensefile("jj");
 		e_join.setE_score(0);
 		e_join.setE_listing(e_join.getE_listing());
 		e_join.setE_name(e_join.getE_name());
 		e_join.setE_owner(e_join.getE_owner());
-		e_join.setE_ownerfile(e_join.getE_ownerfile());
 		e_join.setE_pwd(e_join.getE_pwd());
 		e_join.setE_sales(e_join.getE_sales());
 		e_join.setE_scale(e_join.getE_scale());
 		e_join.setStart_year(e_join.getStart_year());
+
+		System.out.println("license" + e_join.getE_licensefileExist());
+		System.out.println("owner" + e_join.getE_ownerfileExist());
+		//파일 업로드
+		if(e_join.getE_licensefileExist().equals("true")){
+			MultipartFile E_ownerfile = e_join.getE_ownerfile();	
+			System.out.println("owerFile명");
+			System.out.println(E_ownerfile);
+			fileService.uploadImageFile(E_ownerfile, "e_ownerfile", e_num, 0);
+		}
+		if(e_join.getE_ownerfileExist().equals("true")){
+			MultipartFile e_licensefile = e_join.getE_licensefile();	
+			System.out.println("licenseFile명");
+			System.out.println(e_licensefile);
+			fileService.uploadFile(e_licensefile, "e_licensefile", e_num, 0);
+		}		
 		
 		service.insertE_join(e_join);
 		
