@@ -51,5 +51,11 @@ public class c_loginServiceImpl implements c_loginService {
 
 		return dao.select_f_login_idcheck(vo);
 	}
+
+	@Override
+	public int chang_check(int f_num) {
+		System.out.println(f_num+"이게 f_num");
+		return dao.chang_check(f_num);
+	}
 	
 }

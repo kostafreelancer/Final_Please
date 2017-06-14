@@ -160,10 +160,10 @@ body {
 .header_check{
 	position: absolute;
     background-color: red;
-    width: 18px;
-    left: 20;
-    top: 10;
-    border-radius: 20px;
+    width: 23px;
+    left: 130px;
+    top: 10px;
+    border-radius: 15px;
     text-align: center;
 }
 .header_check span{

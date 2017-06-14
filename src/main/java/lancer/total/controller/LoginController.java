@@ -67,7 +67,8 @@ public class LoginController {
 				return "redirect:/c_login/login";
 			}
 			session.setAttribute("identity", identity);
-			
+			int chang_num = ((c_login_freelancerVO)(session.getAttribute("client"))).getF_num();
+			session.setAttribute("chang_num", service.chang_check(chang_num));
 		}else if(checked.equals("enterprise")){
 			if(service.select_e_login(vo)!=null){
 				identity.setEnter(service.select_e_login(vo));

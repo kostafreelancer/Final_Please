@@ -12,10 +12,13 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.c_login.domain.checking_identity;
+import lancer.total.service.c_loginService;
+import lancer.total.service.c_loginServiceImpl;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter{
 
 	private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
+	c_loginService service = new c_loginServiceImpl();
 	
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
@@ -31,6 +34,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			logger.info("new login success");
 			System.out.println("new login success");
 			Object dest = session.getAttribute("dest");
+			/*if(identity.getIdentity().equals("freelancer")){
+				System.out.println(((c_login_freelancerVO)(session.getAttribute("client"))).getF_num()+"이거이거");
+				int chang_num = service.chang_check(((c_login_freelancerVO)(session.getAttribute("client"))).getF_num());
+				System.out.println("여기서 에러 나는거야?"+chang_num);
+				session.setAttribute("chang_check", chang_num);
+			}*/
+			
 			
 			if(dest != null){
 				response.sendRedirect((String)dest);

@@ -46,6 +46,11 @@ public class c_loginDAOImpl implements c_loginDAO {
 
 		return session.selectOne(namespace+".select_f_login_idcheck",vo);
 	}
+	@Override
+	public int chang_check(int f_num) {
+		System.out.println(f_num+"이게 에프넘여기 안들어 오지? ");
+		return session.selectOne(namespace+".chang_check",f_num);
+	}
 	
 	
 }

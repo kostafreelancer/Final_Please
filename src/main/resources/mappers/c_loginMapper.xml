@@ -31,6 +31,10 @@
 		select * from FREELANCER
 						where f_id = #{c_id} 
 	</select>
+	
+	<select id="chang_check" parameterType="int" resultType="int">
+		select count(*) from ALRAM where f_num = #{f_num} and alram_check='미확인'
+	</select>
 </mapper>
 
 

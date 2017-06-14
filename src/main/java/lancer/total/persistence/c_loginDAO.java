@@ -12,4 +12,5 @@ public interface c_loginDAO {
 	public c_login_enterpriseVO select_e_login_nocheck(c_loginVO vo);
 	public c_login_enterpriseVO select_e_login_idcheck(c_loginVO vo);
 	public c_login_freelancerVO select_f_login_idcheck(c_loginVO vo);
+	public int chang_check(int f_num);
 }
