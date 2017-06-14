@@ -33,7 +33,7 @@ public class VerificationServiceImpl implements VerificationService {
 
 	@Override
 	public String verifying_enterprise_pwd(VerificationVO veriVO) throws Exception {
-		
+		System.out.println("서비스에서 "+verificationDao.verifying_enterprise_pwd(veriVO));
 		return verificationDao.verifying_enterprise_pwd(veriVO);
 	}
 

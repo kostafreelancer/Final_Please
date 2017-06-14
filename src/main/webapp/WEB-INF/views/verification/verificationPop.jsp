@@ -22,6 +22,8 @@
 <span id="fail" style="display: none;">${fail }</span>
 <span id="f_id" style="display: none;">${f_id }</span>
 <span id="e_id" style="display: none;">${e_id }</span>
+<span id="f_pwd" style="display: none;">${f_pwd }</span>
+<span id="e_pwd" style="display: none;">${e_pwd }</span>
 
 	<section id="verification">
 	<div class="tab">

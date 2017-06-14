@@ -15,10 +15,11 @@
 	
 	<!-- 비밀번호 알려줌-->
 	<select id="verifying_freelancer_pwd" parameterType="lancer.verification.domain.VerificationVO" resultType="String">
-		select f_pwd from FREELANCER where f_id = #{id} AND f_name = #{f_name} AND f_email = #{emailAddr}
+		select f_pwd from FREELANCER where f_id = #{id} AND f_name = #{name} AND f_email = #{emailAddr}
 	</select>
 	<select id="verifying_enterprise_pwd" parameterType="lancer.verification.domain.VerificationVO" resultType="String">
-		select e_pwd from enterprise where e_id = #{id} AND e_name = #{name} AND e_mail = #{emailAddr}
+		<!-- select e_pwd from enterprise where e_id = #{id} AND e_name = #{name} AND e_mail = #{emailAddr} -->
+		select e_pwd from enterprise where e_id = 'som' AND e_name = '솜이' AND e_mail = 'som@gmail.com';
 	</select>
 	
 	<!-- 해당 계정 여부 파악 -->

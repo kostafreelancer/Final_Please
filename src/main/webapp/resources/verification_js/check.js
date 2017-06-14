@@ -45,6 +45,13 @@ function check() {
 		
 		return false;
 	}
+	
+	if(document.form.num.value != $('#codeNum')){
+		alert("인증번호가 일치하지 않습니다.");
+		document.form.num.focus();
+		
+		return false;
+	}
 
 }
 
@@ -58,5 +65,13 @@ $(document).ready(function(){
 	
 	if($('#e_id').text() != ""){
 		alert("회원님의 아이디는 "+$('#e_id').text()+"입니다.");
+	}
+	
+	if($('#f_pwd').text() != ""){
+		alert("회원님의 아이디는 "+$('#f_pwd').text()+"입니다.");
+	}
+	
+	if($('#e_pwd').text() != ""){
+		alert("회원님의 아이디는 "+$('#e_pwd').text()+"입니다.");
 	}
 })

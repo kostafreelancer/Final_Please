@@ -6,8 +6,8 @@ public class RandomCode {
 
 	public String start() {
 
-		int num = (int)((Math.random()*2)+1);
-		if(num == 1){
+		int num = (int)((Math.random()*3));
+		if(num > 1){
 			return pattern1();
 		}else{
 			return pattern2();
@@ -47,8 +47,8 @@ public class RandomCode {
 	}
 	
 	public char alpha(){
-		int num = (int)((Math.random()*2)+1);
-		if(num == 1){
+		int num = (int)((Math.random()*3));
+		if(num > 1){
 			return (char) (Math.random() * 26 + 65);
 		}else{
 			return (char) (Math.random() * 26 + 97);

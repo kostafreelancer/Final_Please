@@ -34,7 +34,7 @@ public class VerificationDAOImpl implements VerificationDAO {
 	
 	@Override
 	public String verifying_enterprise_pwd(VerificationVO veriVO) throws Exception {
-		
+		System.out.println("디오에서 "+session.selectOne(namespace+".verifying_enterprise_pwd", veriVO));
 		return session.selectOne(namespace+".verifying_enterprise_pwd", veriVO);
 	}
 
