@@ -173,6 +173,26 @@ function addCertiSubmit(){
 	document.tempCertiAdd.submit();
 }
 
+function addPortfolioSubmit(){
+	 var txtBox = document.getElementById("inputbox");
+	 var lines = txtBox.value.split("\n");
+
+	 // generate HTML version of text
+	 var resultString  = "";
+	 for (var i = 0; i < lines.length; i++) {
+	   resultString += lines[i] + "<br />";
+	 }
+	// resultString += "</p>";
+
+	 // print out to page
+	 //var   blk   = document.getElementById("result");
+
+	 //blk.innerHTML  =  resultString; 
+	document.tempPortfolioAdd.contents.value = resultString;
+	//console.log(resultString);
+	//document.tempPortfolioAdd.contents.innerHTML = resultString;
+	document.tempPortfolioAdd.submit();
+}
 
 function modifyCareer(num){
 	var popupX = (window.screen.width / 2) - (200 / 2);
@@ -202,7 +222,14 @@ function modifyCerti(num){
 function modifyPort(num){
 	
 	var wantForm = 'portForm'+num;
-	document.tempPortfolioAdd.contents.value = document.getElementById(wantForm).contents.value;
+	console.log(document.getElementById(wantForm).contents.value);
+	var resultString =  document.getElementById(wantForm).contents.value;
+	console.log(resultString);
+	document.tempPortfolioAdd.contents.innerHTML = "";
+	var myWord = "<br />";
+	
+	resultString = resultString.replace(/<br \/>/g, "\r\n");
+	document.tempPortfolioAdd.contents.innerHTML = resultString;
 	document.tempPortfolioAdd.portfolio_num.value = document.getElementById(wantForm).portfolio_num.value;
 	document.tempPortfolioAdd.portfile_iden.value = document.getElementById(wantForm).portfile_iden.value;
 }

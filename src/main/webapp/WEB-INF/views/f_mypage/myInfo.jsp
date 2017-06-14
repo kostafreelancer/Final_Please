@@ -760,7 +760,6 @@ $(function(){
 
 					<div class="ct overf">
 						<h4 class="fl myfl">포트폴리오</h4>
-						<button id="add" class="portFolio_add">추가하기</button>
 					</div>
 					<table class="tb_st01 tb_st03">
 						<caption></caption>
@@ -801,9 +800,32 @@ $(function(){
 					<input type="text" hidden name="f_num" value="${client.f_num}">
 					<input type="text" hidden name="portfolio_num" value="0">
 					<input type="text" hidden name="portfile_iden" value="0">
-					포트폴리오 내용 : <input type="text"  name="contents">
-					첨부파일 : <input type="file"  name="portfile">
-					<input type="submit" value="저장">
+					<br>
+					<fieldset>
+					<legend>포트폴리오 입력</legend>
+					<textarea id="inputbox" name="contents" rows="20" cols="140" >
+※양식에 구애받지 않고 자유롭게 기술하세요.
+
+1.프로젝트명
+
+
+2.개발기간
+
+
+3.사용기술
+
+
+4.업무 상세내용
+
+
+					</textarea>
+					<br>
+					첨부파일 : <input type="file"  name="portfile"><br>
+					<center>
+					<input type="button" value="저장" onclick="addPortfolioSubmit();">
+					<input type="reset" value="초기화">
+					</center>
+					</fieldset>
 				</form>
 				<form name="tempPortfolioDelete" action="/f_mypage/deletePortfolio" method="get">
 					<input type="text" hidden name="deletePortfolio_num">

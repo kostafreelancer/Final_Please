@@ -89,6 +89,11 @@ public class F_MypageController {
 		List<Certificate> certificate = service.showCertiInfo(3);
 		List<ApplyProject> applyproject = service.getApplyProject(3);
 		List<Portfolio> portfolio = service.showPortfolioInfo(3);
+		/*for(int i=0; i<portfolio.size(); i++){
+			System.out.println(portfolio.get(i).getContents());
+			portfolio.get(i).setContents(portfolio.get(i).getContents().replaceAll("<br />", "\r\n"));
+			System.out.println(portfolio.get(i).getContents());
+		}*/
 		
 		List<Project> project = service.getMyFinishProject(3);
 		List<FinishProject> finishProject  = new ArrayList<FinishProject>();
