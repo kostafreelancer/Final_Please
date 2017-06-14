@@ -16,6 +16,7 @@
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 <script type="text/javascript" src="/resources/e_mypage_js/tabs.js"></script>
 <script type="text/javascript" src="/resources/e_mypage_js/e_projectInfo.js"></script>
+<script type="text/javascript" src="/resources/c_projectlist_js/projectlist.js"></script>
 
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -78,7 +79,7 @@ $(function(){
 			<div class="tb_box">
 				<h4>담당자 정보</h4>
 				<table class="tb_st01">
-				<form method="post" action="/c_projectlist/complete" name="ProjectWriteFm">
+				<form method="get" action="/c_projectlist/complete" name="ProjectWriteFm">
 				<input type="hidden" name="e_pr_num" value="${e_pr_num }"></input>
 					 
 					<colgroup>
@@ -363,7 +364,7 @@ $(function(){
 			<!-- //tb_box : e -->
 			<div class="btn_box">
 					<input id="checkValue" class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" name="post_a_job"
-						value="프로젝트 신청하기" type="submit"> <br>
+						onclick="button_event(${project.e_pr_num});" value="프로젝트 신청하기" type="button"> <br>
 					<br>
 					<br>
 					<br>

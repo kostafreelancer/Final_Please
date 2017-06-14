@@ -1483,6 +1483,12 @@ a.read_more {
 	overflow: hidden;
 }
 
+div#project{
+	width: 1000px;
+	margin: 50px 50px 0 200px;
+	padding-bottom: 120px;
+}
+
 .content02 {
 	width: 1000px;
 	margin: 0 auto;
@@ -1991,9 +1997,34 @@ a.read_more {
 	border-width: 0 1px 1px 0;
 	font-size: 14px;
 	background-color: #f4f4f4;
-	text-align: left;
+	text-align: center;
 	font-weight: normal;
 	font-size: 14px;
+}
+
+.som{
+	background-image: none;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    background-color: #94a2af;
+    border-color: #8595a4;
+    color: #fff;
+    margin: 0 10px;
+}
+
+input#checkValue {
+    margin-left: 450px;
+    margin-bottom: 20px;
 }
 
 .tb_st01 th.last {
