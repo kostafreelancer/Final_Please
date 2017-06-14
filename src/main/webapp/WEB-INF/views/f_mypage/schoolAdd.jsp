@@ -16,21 +16,26 @@ function check(){
 	self.close();
 }
 </script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/newWindow.css" type="text/css" media="screen" />
+
 </head>
 <body>
-<form name="myform">
+<form name="myform" onsubmit="return check();">
+<fieldset>
+<legend>학력추가</legend>
 	<label>학교명</label>
-	<input type="text" name="school_name"><br>
+	<input type="text" name="school_name" placeholder="ex) 하버드대학교" required><br>
 	<label>전공</label>
-	<input type="text" name="major"><br>
+	<input type="text" name="major" placeholder="ex) 컴퓨터공학" required><br>
 	<label>기간</label>
-	<input type="text" name="term"><br>
+	<input type="text" name="term" placeholder="ex) 10/03/02 ~ 17/02/28" required><br>
 	<label>소재지</label>
-	<input type="text" name="location"><br>
+	<input type="text" name="location" placeholder="ex) 미국" required><br>
 	<label>학위</label>
-	<input type="text" name="degree"><br>
-	<input type="button" value="저장" onclick="check();">
+	<input type="text" name="degree" placeholder="ex) 학사" required><br>
+	<input type="submit" value="저장">
 	<input type="reset" value="초기화">
+	</fieldset>
 </form>
 </body>
 </html>

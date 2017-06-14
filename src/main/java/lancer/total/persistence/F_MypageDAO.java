@@ -101,6 +101,10 @@ public class F_MypageDAO {
 		return session.selectList(namespace + ".getApplyProject", f_num);
 	}
 	
+	public void deleteApplyProject(int c_num) throws Exception{
+		session.delete(namespace + ".deleteApplyProject", c_num);
+	}
+	
 	public String getFreelancerPassword(int f_num) throws Exception{
 		return session.selectOne(namespace + ".getFreelancerPassword", f_num);
 	}

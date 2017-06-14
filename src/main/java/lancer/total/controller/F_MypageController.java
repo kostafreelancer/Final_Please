@@ -104,6 +104,9 @@ public class F_MypageController {
 				temp += tempList.get(j) + ", ";
 			}
 			fp.setP_job(temp.substring(0, temp.length()-2));
+			fp.setE_num(project.get(i).getE_num());
+			fp.setE_pr_num(project.get(i).getE_pr_num());
+		
 			finishProject.add(fp);
 		}
 		
@@ -356,6 +359,11 @@ public class F_MypageController {
 		return "redirect:/f_mypage/updateSuccess";
 	}
 
+	@RequestMapping(value="/applyCancel", method=RequestMethod.POST)
+	public String applyCancel(ApplyProject applyproject) throws Exception{
+		service.deleteApplyProject(applyproject.getC_num());
+		return "redirect:/f_mypage/updateSuccess";
+	}
 	
 	
 	//일정관리

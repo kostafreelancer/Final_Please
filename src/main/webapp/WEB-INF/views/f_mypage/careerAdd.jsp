@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 function check(){
+	
 	window.opener.document.tempCareerAdd.company.value = document.myform.company.value;
 	window.opener.document.tempCareerAdd.dept.value = document.myform.dept.value;
 	window.opener.document.tempCareerAdd.rank.value = document.myform.rank.value;
@@ -18,23 +19,28 @@ function check(){
 	
 }
 </script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/newWindow.css" type="text/css" media="screen" />
+
 </head>
 <body>
-<form name="myform">
+<form name="myform" onsubmit="return check();">
+<fieldset>
+<legend>경력추가</legend>
 	<label>회사명</label>
-	<input type="text" name="company"><br>
-	<label>근무부서</label>
-	<input type="text" name="dept"><br>
+	<input type="text" name="company" placeholder="ex) 코스타주식회사" required><br>
+	<label >근무부서</label>
+	<input type="text" name="dept" placeholder="ex) 사무국" required><br>
 	<label>직위</label>
-	<input type="text" name="rank"><br>
+	<input type="text" name="rank" placeholder="ex) 사원" required><br>
 	<label>근무기간</label>
-	<input type="text" name="term"><br>
+	<input type="text" name="term" placeholder="ex) 14/06/30 ~ 17/06/30" required><br>
 	<label>소재지</label>
-	<input type="text" name="location"><br>
+	<input type="text" name="location" placeholder="ex) 서울" required><br>
 	<label>연차</label>
-	<input type="text" name="year"><br>
-	<input type="button" value="저장" onclick="check();">
-	<input type="reset" value="초기화">
+	<input type="text" name="year" placeholder="ex) 3" required><br><br>
+	<center><input type="submit" value="저장">
+	<input type="reset" value="초기화" ></center>
+	</fieldset>
 </form>
 </body>
 </html>

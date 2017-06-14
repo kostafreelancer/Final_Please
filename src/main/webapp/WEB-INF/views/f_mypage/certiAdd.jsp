@@ -14,18 +14,22 @@ function check(){
 	self.close();
 }
 </script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/newWindow.css" type="text/css" media="screen" />
 </head>
 <body>
-<form name="myform">
+<form name="myform" onsubmit="return check();">
+<fieldset>
+<legend>자격증 추가</legend>
 	<label>자격증명</label>
-	<input type="text" name="certi_name"><br>
+	<input type="text" name="certi_name" placeholder="ex) 정보처리기사" required><br>
 	<label>발행처</label>
-	<input type="text" name="organization"><br>
+	<input type="text" name="organization" placeholder="ex) 한국산업인력공단" required><br>
 	<label>취득일자</label>
-	<input type="text" name="accept_date"><br>
+	<input type="text" name="accept_date" placeholder="ex) 17/06/20" required><br>
 
-	<input type="button" value="저장" onclick="check();">
+	<input type="submit" value="저장">
 	<input type="reset" value="초기화">
+	</fieldset>
 </form>
 </body>
 </html>

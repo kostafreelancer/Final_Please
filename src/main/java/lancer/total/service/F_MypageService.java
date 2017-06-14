@@ -98,6 +98,10 @@ public class F_MypageService {
 		return dao.getApplyProject(f_num);
 	}
 	
+	public void deleteApplyProject(int c_num) throws Exception{
+		dao.deleteApplyProject(c_num);
+	}
+	
 	public String getFreelancerPassword(int f_num) throws Exception{
 		return dao.getFreelancerPassword(f_num);
 	}

@@ -92,7 +92,7 @@
 	</delete>
 	
 	<select id="getMyFinishProject" parameterType="int" resultType="lancer.e_mypage.domain.Project">
-		select pro.p_name, pro.P_UPPERCOST, pro.P_STARTDATE, pro.P_ENDDATE, pro.e_pr_num from project pro, contract con
+		select pro.p_name, pro.P_UPPERCOST, pro.P_STARTDATE, pro.P_ENDDATE, pro.e_pr_num, pro.e_num from project pro, contract con
 		where con.E_PR_NUM = pro.E_PR_NUM and con.f_num = #{f_num} and con.c_state='완료'
 	</select>
 	

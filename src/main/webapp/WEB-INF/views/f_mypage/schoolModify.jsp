@@ -26,22 +26,27 @@ function check(){
 	self.close();
 }
 </script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/newWindow.css" type="text/css" media="screen" />
+
 </head>
 <body>
-<form name="myform">
+<form name="myform" onsubmit="return check();">
+<fieldset>
+<legend>학력 수정</legend>
 	<input type="text" hidden name="school_num" value="${school.school_num}">
 	<label>학교명</label>
-	<input type="text" name="school_name" value="${school.school_name}"><br>
+	<input type="text" name="school_name" value="${school.school_name}" required><br>
 	<label>전공</label>
-	<input type="text" name="major" value="${school.major}"><br>
+	<input type="text" name="major" value="${school.major}" required><br>
 	<label>근무기간</label>
-	<input type="text" name="term" value="${school.school_term}"><br>
+	<input type="text" name="term" value="${school.school_term}" required><br>
 	<label>소재지</label>
-	<input type="text" name="location" value="${school.school_location}"><br>
+	<input type="text" name="location" value="${school.school_location}" required><br>
 	<label>학위</label>
-	<input type="text" name="degree" value="${school.school_degree}"><br>
-	<input type="button" value="저장" onclick="check();">
+	<input type="text" name="degree" value="${school.school_degree}" required><br>
+	<input type="submit" value="저장" >
 	<input type="reset" value="초기화">
+	</fieldset>
 </form>
 </body>
 </html>

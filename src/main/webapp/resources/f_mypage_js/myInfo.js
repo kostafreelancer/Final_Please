@@ -148,13 +148,19 @@ function openDaumZipAddress() {
 
 
 function addCareer(){
-	window.open('/f_mypage/careerAdd','win','width=350, height=250');
+	var popupX = (window.screen.width / 2) - (200 / 2);
+	var popupY= (window.screen.height /2) - (300 / 2);
+	window.open('/f_mypage/careerAdd','win','width=350, height=250, left='+popupX+', top='+popupY);
 }
 function addSchool(){
-	window.open('/f_mypage/schoolAdd','win','width=350, height=250');
+	var popupX = (window.screen.width / 2) - (200 / 2);
+	var popupY= (window.screen.height /2) - (300 / 2);
+	window.open('/f_mypage/schoolAdd','win','width=350, height=250, left='+popupX+', top='+popupY);
 }
 function addCerti(){
-	window.open('/f_mypage/certiAdd','win','width=350, height=250');
+	var popupX = (window.screen.width / 2) - (200 / 2);
+	var popupY= (window.screen.height /2) - (300 / 2);
+	window.open('/f_mypage/certiAdd','win','width=350, height=250, left='+popupX+', top='+popupY);
 }
 
 function addCareerSubmit(){
@@ -169,25 +175,32 @@ function addCertiSubmit(){
 
 
 function modifyCareer(num){
-    window.open('about:blank','popup_window','width=350, height=250');
+	var popupX = (window.screen.width / 2) - (200 / 2);
+	var popupY= (window.screen.height /2) - (300 / 2);
+    window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
     var wantForm = 'careerForm'+num;
     var frm =document.getElementById(wantForm);
     frm.submit();
 }
 function modifySchool(num){
-    window.open('about:blank','popup_window','width=350, height=250');
+	var popupX = (window.screen.width / 2) - (200 / 2);
+	var popupY= (window.screen.height /2) - (300 / 2);
+    window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
     var wantForm = 'schoolForm'+num;
     var frm =document.getElementById(wantForm);
     frm.submit();
 }
 function modifyCerti(num){
-    window.open('about:blank','popup_window','width=350, height=250');
+	var popupX = (window.screen.width / 2) - (200 / 2);
+	var popupY= (window.screen.height /2) - (300 / 2);
+    window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
     var wantForm = 'certiForm'+num;
     var frm =document.getElementById(wantForm);
     frm.submit();
 }
 
 function modifyPort(num){
+	
 	var wantForm = 'portForm'+num;
 	document.tempPortfolioAdd.contents.value = document.getElementById(wantForm).contents.value;
 	document.tempPortfolioAdd.portfolio_num.value = document.getElementById(wantForm).portfolio_num.value;

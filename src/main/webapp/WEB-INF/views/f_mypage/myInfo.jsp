@@ -538,7 +538,7 @@ $(function(){
 					</thead>
 					<tbody>
 					<c:if test="${careercheck == 0}">
-							<tr><td colspan="5">등록된 경력사항이 없습니다.</td></tr>
+							<tr><td colspan="7">등록된 경력사항이 없습니다.</td></tr>
 					</c:if>
 				
 						<c:forEach var="mycareer" items="${career}">
@@ -625,7 +625,7 @@ $(function(){
 					</thead>
 					<tbody>
 					<c:if test="${schoolcheck == 0}">
-							<tr><td colspan="5">등록된 학력사항이 없습니다.</td></tr>
+							<tr><td colspan="6">등록된 학력사항이 없습니다.</td></tr>
 					</c:if>
 						<c:forEach var="myschool" items="${school}">
 						<form id="schoolForm${myschool.school_num}" name="myschoolModify${myschool.school_num}" method="post" action="/f_mypage/schoolModify" target='popup_window'>
@@ -838,13 +838,20 @@ $(function(){
 					</c:if>
 					
 					<c:forEach var="myApplyProject" items="${applyproject}">
-						<form id="applyForm">
+						<form id="applyForm" action="applyCancel" method="post">
+							<input type="text" hidden name="c_num" value="${myApplyProject.c_num}">
+							<input type="text" hidden name="p_name" value="${myApplyProject.p_name}">
+							<input type="text" hidden name="manager_hphone" value="${myApplyProject.manager_hphone}">
+							<input type="text" hidden name="c_request_date" value="${myApplyProject.c_request_date}">	
+							<input type="text" hidden name="c_state" value="${myApplyProject.c_state}">	
+							<input type="text" hidden name="e_pr_num" value="${myApplyProject.e_pr_num}">	
+							<input type="text" hidden name="e_num" value="${myApplyProject.e_num}">	
 						 <tr>							
-							<td>${myApplyProject.p_name}</td>
+							<td>${myApplyProject.p_name}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${myApplyProject.e_pr_num}&e_num=${myApplyProject.e_num}'"></td>
 							<td>${myApplyProject.manager_hphone}</td>
 							<td>${myApplyProject.c_request_date}</td>
 							<td>${myApplyProject.c_state}</td>
-							<td class="last"><input type="submit" value="지원 취소"></td>
+							<td class="last"><input type="submit" value="지원 취소" onclick="return confirm('진짜 취소?');"></td>
 						</tr>
 						</form>
 					</c:forEach>
@@ -880,9 +887,8 @@ $(function(){
 					</c:if>
 					
 					<c:forEach var="myFinishProject" items="${finishproject}">
-						
 						 <tr>							
-							<td>${myFinishProject.proName}</td>
+							<td>${myFinishProject.proName}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${myFinishProject.e_pr_num}&e_num=${myFinishProject.e_num}'"> </td>
 							<td>${myFinishProject.proTerm}</td>
 							<td>${myFinishProject.cost}</td>
 							<td>${myFinishProject.p_job}</td>
@@ -893,7 +899,6 @@ $(function(){
 				</tbody>
 			</table>
 
-으아
 		</div>
 
 	</div>

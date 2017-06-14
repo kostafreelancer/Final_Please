@@ -29,24 +29,29 @@ function check(){
 	self.close();
 }
 </script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/newWindow.css" type="text/css" media="screen" />
 </head>
 <body>
-	<form name="myform">
+	<form name="myform" onsubmit="return check();">
+	<fieldset>
+	<legend>경력수정</legend>
 	<input type="text" hidden name="career_num" value="${career.career_num}">
+	
 	<label>회사명</label>
-	<input type="text" name="company" value="${career.company}"><br>
+	<input type="text" name="company" value="${career.company}" required><br>
 	<label>근무부서</label>
-	<input type="text" name="dept" value="${career.dept}"><br>
+	<input type="text" name="dept" value="${career.dept}" required><br>
 	<label>직위</label>
-	<input type="text" name="rank" value="${career.rank}"><br>
+	<input type="text" name="rank" value="${career.rank}" required><br>
 	<label>근무기간</label>
-	<input type="text" name="term" value="${career.career_term }"><br>
+	<input type="text" name="term" value="${career.career_term }" required><br>
 	<label>소재지</label>
-	<input type="text" name="location" value="${career.career_location}"><br>
+	<input type="text" name="location" value="${career.career_location}" required><br>
 	<label>근속년수</label>
-	<input type="text" name="year" value="${career.career_year}"><br>
-	<input type="button" value="저장" onclick="check();">
+	<input type="text" name="year" value="${career.career_year}" required><br>
+	<input type="submit" value="저장">
 	<input type="reset" value="초기화">
+	</fieldset>
 </form>
 </body>
 </html>

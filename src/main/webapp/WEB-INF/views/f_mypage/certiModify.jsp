@@ -22,20 +22,24 @@ function check(){
 	self.close();
 }
 </script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/newWindow.css" type="text/css" media="screen" />
 </head>
 <body>
 
-<form name="myform">
+<form name="myform" onsubmit="return check();">
+<fieldset>
+<legend>자격증 수정</legend>
 	<input type="text" hidden name="certi_num" value="${certi.certificate_num }">
 	<label>자격증명</label>
-	<input type="text" name="certi_name" value="${certi.certificate_name}"><br>
+	<input type="text" name="certi_name" value="${certi.certificate_name}" required><br>
 	<label>발행처</label>
-	<input type="text" name="organization" value="${certi.organization }"><br>
+	<input type="text" name="organization" value="${certi.organization }" required><br>
 	<label>취득일자</label>
-	<input type="text" name="accept_date" value="${certi.accept_date }"><br>
+	<input type="text" name="accept_date" value="${certi.accept_date }" required><br>
 
-	<input type="button" value="저장" onclick="check();">
+	<input type="submit" value="저장">
 	<input type="reset" value="초기화">
+	</fieldset>
 </form>
 </body>
 </html>
