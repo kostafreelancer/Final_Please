@@ -20,8 +20,8 @@
 	</select>
 
 	<select id="countProject" resultType="int">
-		select count(*) from
-		project
+		select count(*) from project
+		where p_state = '모집중'
 	</select>
 
 	<select id="recommendProject" resultType="recommendProject">
@@ -32,8 +32,24 @@
 		and j.job_id = fj.job_id
 		and fj.f_num = fr.f_num
 		and fj.job_id = p2.job_id
+		and p.p_state = '모집중'
 		and fr.f_num = #{f_num}
 	</select>
+	
+	<select id="f_create" resultType="int">
+		select count(f_major) from freelancer
+		where f_major = '개발'
+	</select>
+	<select id="f_design" resultType="int">
+		select count(f_major) from freelancer
+		where f_major = '디자인'
+	</select>
+	<select id="f_planner" resultType="int">
+		select count(f_major) from freelancer
+		where f_major = '기획'
+	</select>
+	
+
 </mapper>
 
 

@@ -74,7 +74,7 @@ function drawMultSeries() {
 	<div class="main_news">
 		<c:choose>
 			<c:when test="${identity.identity == 'freelancer' }">
-				<h1>${client.f_name }님을 위한 맞춤 프로젝트</h1>
+				<h1>${client.f_name }님을 위한 추천 프로젝트</h1>
 			</c:when>
 			<c:otherwise>
 				<h1>드림랜서입니다!</h1>
@@ -84,17 +84,17 @@ function drawMultSeries() {
 		<%-- <h1>${recommend }raasdr</h1> --%>
 		<div class="left_news">
 			<%-- <c:when test="${identity.identity == 'freelancer' }"> --%>
-				<ul>
+				<ul class="recommend" >
 				 <c:choose>
 		<c:when test="${identity.identity == 'freelancer' }">
 			<c:forEach items="${recommend }" var="recommendProject">
 				
 					<li>---------------------------------<br>
 					
-					${recommendProject.p_name }<br>
+					<a style = "text-decoration: none" href="/c_projectlist/c_readpage?e_pr_num=${recommendProject.e_pr_num }&e_num=${recommendProject.e_num}">${recommendProject.p_name }</a><br><br>
 					${recommendProject.p_lowercost }만원 ~ ${recommendProject.p_uppercost }만원 <br>
 					${recommendProject.p_startdate } 부터 시작<br>
-					<a href="/c_projectlist/c_readpage?e_pr_num=${recommendProject.e_pr_num }&e_num=${recommendProject.e_num}">프로젝트 상세 확인하기</a><br>
+					
 					---------------------------------</li>
 				
 			</c:forEach>
@@ -123,11 +123,20 @@ function drawMultSeries() {
 				<h3>현재 활동중인 프리랜서는 ${count }명 입니다.</h3>
 				<img alt="" src="../../../resources/f_main_img/icon01_off.png"> <img alt=""
 					src="../../../resources/f_main_img/icon02_off.png"> <img alt=""
-					src="../../../resources/f_main_img/icon03_off.png"> <img alt=""
-					src="../../../resources/f_main_img/icon04_off.png">
+					src="../../../resources/f_main_img/icon03_off.png"> 
 				<form action="" method="post">
 					<table class="active_p">
 						<tr>
+							
+							<td>개발 : </td>							
+							<th>${f_create } 명</th>
+							<td>디자인 : </td>
+							<th>${f_design } 명</th>
+							<td>기획</td>
+							<th>${f_planner } 명</th>
+							
+						</tr>
+						<%-- <tr>
 						
 						<!-- 추후 삭제영역 -->
 							<h1>--분야별 프리랜서 활동 명수, 현재는 프리랜서 회원 목록 출력--</h1><br>
@@ -141,19 +150,21 @@ function drawMultSeries() {
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<td>${member3 }</td>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						</tr>
+						</tr> --%>
+						
 					</table>
 				</form>
 			</div>
 			<div id="tab2">
 				<h2>프로젝트 정보</h2>
-				<h3>현재 등록된 프로젝트 수</h3>
-				<h3>현재 등록된 프로젝트 수는 ${countP }개 입니다.</h3>
-				<img alt="" src="../../../resources/f_main_img/icon01_off.png"> <img alt=""
+				<h3>현재 모집중인 프로젝트 수</h3>
+				<h3>현재 모집중인 프로젝트 수는 ${countP }개 입니다.</h3>
+				<img alt="" src="../../../resources/f_main_img/icon01_off.png"><img alt=""
 					src="../../../resources/f_main_img/icon02_off.png"> <img alt=""
 					src="../../../resources/f_main_img/icon03_off.png"> <img alt=""
 					src="../../../resources/f_main_img/icon04_off.png">
 				<h3>--분야별 프로젝트 수 구현예정--</h3>
+				<table>
 				<tr>
 					<td>1 프로젝트DB</td>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -163,6 +174,7 @@ function drawMultSeries() {
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<td>4 프로젝트DB</td>
 				</tr>
+				</table>
 			</div>
 
 		</div>

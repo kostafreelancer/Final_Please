@@ -29,6 +29,29 @@
 	<select id="getE_mail" resultType="lancer.a_main.domain.Enterprise">
 		select e_mail from enterprise where e_num = #{e_num}
 	</select>
+	
+	<select id="askList" resultType="lancer.a_main.domain.askList">
+		select * from ask
+		where ask_state = '답변중'
+		order by askdate desc
+	</select>
+	
+	<select id="answerOK" resultType="lancer.a_main.domain.askList">
+		select * from ask
+		where ask_state = '답변완료'
+		order by answerdate desc
+	</select>
+	
+	<select id="askcontents" resultType="lancer.a_main.domain.askList">
+		select * from ask
+		where asknum = #{asknum}
+	</select>
+	
+	<update id="doAsk" parameterType="lancer.a_main.domain.askList">
+		update ask set answertitle = #{answertitle}, answercontents = #{answercontents}, ad_num = #{ad_num},
+		ask_state = '답변완료', answerdate = sysdate where asknum = #{asknum} 
+	</update>
+	
 </mapper>
 
 

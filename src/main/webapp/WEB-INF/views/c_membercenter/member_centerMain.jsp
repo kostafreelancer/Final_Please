@@ -94,6 +94,9 @@
 									<tr>
 										<td id="asknum">${MembercenterASKVO.asknum}</td>
 										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button></td> 
+										<td class="myAnswer">
+						
+										</td>
 										<td>${MembercenterASKVO.askdate }</td>
 										<td>${MembercenterASKVO.writer }
 										
@@ -106,9 +109,7 @@
 						
 					</table>
 				
-					<p class="myAnswer">
-						
-					</p>
+					
 					
 				</div>
 				<div id="tab2">

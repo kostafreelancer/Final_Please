@@ -1,7 +1,6 @@
 
-
 $(document).ready(function() {
-	
+
 
 	
 	$('.mailSend').click(function(){
@@ -56,4 +55,7 @@ $(document).ready(function() {
 			return;
 		}
 	});
+	
+	
 });
+

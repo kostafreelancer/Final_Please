@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import lancer.a_main.domain.Enterprise;
 import lancer.a_main.domain.Freelancer;
+import lancer.a_main.domain.askList;
 
 @Repository
 public class A_MainDAO {
@@ -50,5 +51,22 @@ public class A_MainDAO {
 	//메일발송 관련 기업메일주소 불러오기
 	public Enterprise getE_mail(int e_num) throws Exception{
 		return session.selectOne(namespace + ".getE_mail", e_num);
+	}
+	
+	//질문리스트
+	public List<askList> askList() throws Exception{
+		return session.selectList(namespace + ".askList");
+	}
+	
+	public askList askcontents(int asknum) throws Exception{
+		return session.selectOne(namespace + ".askcontents", asknum);
+	}
+	
+	public void doAsk(askList al) throws Exception{
+		session.selectOne(namespace + ".doAsk", al);
+	}
+	
+	public List<askList> answerOK() throws Exception{
+		return session.selectList(namespace + ".answerOK");
 	}
 }

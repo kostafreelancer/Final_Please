@@ -11,4 +11,7 @@ public interface f_mainService {
 	public int countFreelancer() throws Exception;
 	public int countProject() throws Exception;
 	public List<recommendProject> recommendProject(int f_num) throws Exception;
+	public int f_create() throws Exception;
+	public int f_design() throws Exception;
+	public int f_planner() throws Exception;
 }

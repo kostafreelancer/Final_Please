@@ -43,5 +43,20 @@ public class f_mainDAOImpl implements f_mainDAO {
 		
 		return session.selectList(namespace + ".recommendProject", f_num);
 	}
+	
+	@Override
+	public int f_create() throws Exception{
+		return session.selectOne(namespace + ".f_create");
+	}
+	
+	@Override
+	public int f_design() throws Exception{
+		return session.selectOne(namespace + ".f_design");
+	}
+	
+	@Override
+	public int f_planner() throws Exception{
+		return session.selectOne(namespace + ".f_planner");
+	}
 
 }

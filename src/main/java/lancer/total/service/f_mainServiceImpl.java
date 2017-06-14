@@ -41,4 +41,18 @@ public class f_mainServiceImpl implements f_mainService {
 		return dao.recommendProject(f_num);
 	}
 	
+	@Override
+	public int f_create() throws Exception{
+		return dao.f_create();
+	}
+	
+	@Override
+	public int f_design() throws Exception{
+		return dao.f_design();
+	}
+	
+	@Override
+	public int f_planner() throws Exception{
+		return dao.f_planner();
+	}
 }

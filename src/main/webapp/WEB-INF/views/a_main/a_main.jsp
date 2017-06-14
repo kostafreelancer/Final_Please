@@ -7,18 +7,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-
-
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="/resources/a_main_js/a_main.js"></script>
+<script type="text/javascript" src="/resources/a_main_js/tabs.js"></script>
 	
 
 
 <link rel="stylesheet" href="/resources/a_main_css/a_project.css" type="text/css"
 	media="screen" />
 	
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<script type="text/javascript" src="/resources/a_main_js/a_main.js"></script>
-<script type="text/javascript" src="/resources/a_main_js/tabs.js"></script>
 
 </head>
 <body>
@@ -39,6 +37,8 @@
 		<li><a href="#" title="tab1">프리랜서</a></li>
 		<li><a href="#" title="tab2">기업</a></li>
 		<li><a href="#" title="tab3">기업가입승인</a></li>
+		<li><a href="#" title="tab4">문의답변하기</a>
+		<li><a href="#" title="tab5">완료된답변</a>
 	</ul>
 	
 	<div id="tcontent">
@@ -216,8 +216,70 @@
 				</span> <span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
 				</span>
 			</div>
-		</div>
-	</div>
+		</div>		
+		      <div id="tab4">
+         <div class="tb_box">
+         	<form action="doAnswer">
+            <table class="tb_st01 tb_st03">
+               <tr>
+                  <th width="5%">글쓴이</th>
+                  <th width="30%">글제목</th>
+                  <th width="10%">등록일자</th>
+               </tr>
+                  
+                     <c:forEach var="askList" items="${askList }">
+                        <tr>                        
+                        <td>${askList.writer }</td>                     
+                        <td><a href="/a_main/a_read?asknum=${askList.asknum }" onClick="window.open(this.href, '', 'width=1000, height=1000'); return false;">${askList.asktitle}</a>
+                        	
+                        </td>                        
+                        <td>${askList.askdate }</td>
+                        
+                     </tr>
+                     </c:forEach>
+                  
+            </table>
+            </form>
+         </div>
+         <div class="num_box">
+            <span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
+            </span> <span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
+            </span>
+         </div>
+      </div>
+      
+      <div id="tab5">
+       <div class="tb_box">
+         	<form action="doAnswer">
+            <table class="tb_st01 tb_st03">
+               <tr>
+                  <th width="5%">글쓴이</th>
+                  <th width="30%">글제목</th>
+                  <th width="10%">등록일자</th>
+               </tr>
+                  
+                     <c:forEach var="askList" items="${answerOK }">
+                        <tr>                        
+                        <td>${askList.writer }</td>                     
+                        <td>${askList.asktitle}
+                        	
+                        </td>                        
+                        <td>${askList.askdate }</td>
+                        
+                     </tr>
+                     </c:forEach>
+                  
+            </table>
+            </form>
+         </div>
+         <div class="num_box">
+            <span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
+            </span> <span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
+            </span>
+         </div>
+      </div>
+      </div>
+		
 	
 	<form action="/a_main/a_deleteF" method="post" name="deleteFormF">
 		<input type="hidden" name="deleteF_num">

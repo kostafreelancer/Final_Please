@@ -11,8 +11,8 @@
 		select max(asknum) +1 from ask
 	</select>
 	<insert id="insertAsk">
-		insert into ask (writer, asknum, askcontents, askdate, f_num, e_num, asktitle)
-		values(#{writer}, ask_seq.nextval, #{askcontents}, sysdate, #{f_num}, #{e_num}, #{asktitle})
+		insert into ask (writer, asknum, askcontents, askdate, f_num, e_num, asktitle, ask_state)
+		values(#{writer}, ask_seq.nextval, #{askcontents}, sysdate, #{f_num}, #{e_num}, #{asktitle}, '답변중')
 	</insert>
 	
 	<select id="myAskList" resultType="lancer.c_membercenter.domain.MembercenterASKVO">

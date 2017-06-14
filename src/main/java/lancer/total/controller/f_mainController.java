@@ -41,7 +41,7 @@ public class f_mainController {
 		service.getF_info(m);
 		service.countFreelancer(); // 활동중인 총 프리랜서 숫자
 		service.countProject(); // 등록된 총 프로젝트 숫자
-		
+		service.f_create();
 		
 		
 		
@@ -51,6 +51,9 @@ public class f_mainController {
 		model.addAttribute("m", m);
 		model.addAttribute("count", service.countFreelancer());
 		model.addAttribute("countP", service.countProject());
+		model.addAttribute("f_create", service.f_create());
+		model.addAttribute("f_design", service.f_design());
+		model.addAttribute("f_planner", service.f_planner());
 		//model.addAttribute("recommend", service.recommendProject(f_num));
 		
 		checking_identity identity = (checking_identity) session.getAttribute("identity");

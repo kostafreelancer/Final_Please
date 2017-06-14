@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import lancer.a_main.domain.askList;
 import lancer.total.service.A_MainService;
 import lancer.total.service.C_DropService;
 
@@ -102,6 +103,8 @@ public class A_MainController {
 		model.addAttribute("listFreelancer", service.listFreelancer());
 		model.addAttribute("listEnterprise", service.listEnterprise());
 		model.addAttribute("listEnterprisePermit", service.listEnterprisePermit());
+		model.addAttribute("askList",service.askList());
+		model.addAttribute("answerOK",service.answerOK());
 		
 	}
 	
@@ -124,6 +127,23 @@ public class A_MainController {
 		service.permitAccount(permitE_num);
 		
 		return "redirect:/a_main/a_main";
+	}
+	
+	@RequestMapping(value="/a_read", method = RequestMethod.GET)
+	public void a_read(@RequestParam("asknum") int asknum, Model model)throws Exception{
+		model.addAttribute("askcontents", service.askcontents(asknum));
+		System.out.println("asd");
+	}
+	
+	@RequestMapping(value="/updateAnswer", method = RequestMethod.POST)
+	public String updateAnswer(askList al, Model model)throws Exception{
+		service.doAsk(al);
+		return "redirect:/a_main/askSuccess";
+	}
+	
+	@RequestMapping(value="askSuccess")
+	public void askSuccess() throws Exception{
+		System.out.println("답변했당");
 	}
 	
 	

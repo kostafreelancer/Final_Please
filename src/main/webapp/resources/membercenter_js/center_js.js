@@ -4,7 +4,7 @@ $(document).ready(function() {
 	$(".viewAnswer button").on("click",function(){
 		var asknum = $(this).parent().parent().find("td:eq(0)").text();
 			
-			$.getJSON("/answer/all/" + asknum, function(data){
+			$.getJSON("/answer/all/" + 1, function(data){
 				var str = "";
 				
 				
