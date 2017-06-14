@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="../../../resources/membercenter_css/center_css.css">
 <script type="text/javascript">
 	var update = function(){
 		var f = document.updateAnswer
@@ -17,7 +19,15 @@
 <body>
 
 <form action="/a_main/updateAnswer" method="post" name="updateAnswer">
-<table class="Answer_table">
+<div class="tit_box" style="border-bottom: 1px solid">
+			<h2>답변하기</h2>
+			<p class="tit_txt">
+				해당 회원 질문에 답변을 할 수 있습니다. <span>내용을 작성 후 전송 버튼을 누르세요.
+				</span>
+			</p>
+		</div>
+<table class="email_table">
+
 	<tr>
 		<th>글제목</th>
 		<td>${askcontents.asktitle }</td>
@@ -31,19 +41,22 @@
 		<td>${askcontents.writer }</td>
 		</tr>
 		<tr>
-		<th>답변제목<th><input type="text" name="answertitle">
+		<th>답변제목<th><input type="text" name="answertitle" class="wid">
 		</tr>
 		<tr>
 		<th>답변하기</th>
-		<th><textarea name="answercontents"></textarea></th>
+		<th><textarea name="answercontents" class="text_area text_area2"></textarea></th>
 		</tr>
+		
+		
+		
 
 </table>
-	<!-- <input type="hidden" id="asknum" name="asknum"> -->
-<input type="text" id="ad_num" name ="ad_num" value="1">
-<input type="text" id="asknum" name="asknum" value="${askcontents.asknum }">	
 
-<input type="submit" value="전송">
+<input type="hidden" id="ad_num" name ="ad_num" value="1">
+<input type="hidden" id="asknum" name="asknum" value="${askcontents.asknum }">	
+
+<input type="submit" value="전송" id="doAsk">
 </form>
 </body>
 </html>

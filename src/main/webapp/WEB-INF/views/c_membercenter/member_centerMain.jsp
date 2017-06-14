@@ -22,17 +22,10 @@
 
 </head>
 <body>
- <c:choose>
-		<c:when test="${identity.identity == 'freelancer' }">
-			<%@include file="../c_common/header.jsp"%>
-		</c:when>
-		<c:when test="${identity.identity == 'enterprise' }">
-			<%@include file="../c_common/header_enterprise.jsp"%>
-		</c:when>
-		<c:otherwise>
-			<%@include file="../c_common/header.jsp"%>
-		</c:otherwise>
-	</c:choose>
+
+
+	<%@include file="../c_common/header.jsp"%>
+
 	<%@include file="../c_common/chatting.jsp"%>
 
 	<section>
@@ -75,28 +68,29 @@
 							<th>문의날짜</th>
 							<th>작성자</th>
 						</tr>
+					
 						<c:choose>
 							<c:when test="${identity.identity == 'freelancer' }">
+							
 								<c:forEach items="${list }" var="MembercenterASKVO">
-									
 									<tr>
+								
 										<td id="asknum">${MembercenterASKVO.asknum}</td>
-										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button><!-- </form> --></td> 
+										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button><!-- </form> -->
+										</td> 							
 										<td>${MembercenterASKVO.askdate }</td>
-										<td>${MembercenterASKVO.writer }
-										
-										
+										<td>${MembercenterASKVO.writer }</td>
 									</tr>
-								</c:forEach>
+									</c:forEach>										
 							</c:when>
 							<c:when test="${identity.identity == 'enterprise' }">
 								<c:forEach items="${list }" var="MembercenterASKVO">
 									<tr>
 										<td id="asknum">${MembercenterASKVO.asknum}</td>
-										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button></td> 
-										<td class="myAnswer">
-						
-										</td>
+										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button>
+										
+										</td> 
+										<td></td>
 										<td>${MembercenterASKVO.askdate }</td>
 										<td>${MembercenterASKVO.writer }
 										
@@ -108,7 +102,7 @@
 						
 						
 					</table>
-				
+					<p class="myAnswer"></p>
 					
 					
 				</div>
@@ -124,7 +118,7 @@
 					<p class="must">
 						<span class="color_or">(*)</span> 표시는 필수 입력 사항입니다.
 					</p>
-					<form action="/c_membercenter/member_centerMain" method="POST">
+					<form action="/c_membercenter/member_centerMain" name = "wantAsk" method="POST">
 						<table class="email_table">
 							<colgroup>
 								<col style="width: 15%">
@@ -196,7 +190,7 @@
 								</tr>
 								<tr>
 									<th scope="row"><span class="text_star">*</span> 내용</th>
-									<td colspan="3" class="join"><textarea id="fm_content"
+									<td colspan="3" class="join"><textarea id="askcontents"
 											name="askcontents" class="text_area text_area2">
       					</textarea> <input type="hidden" name="f_num"
 										value=<c:choose>
@@ -239,13 +233,10 @@
 							<li>회원님은 동의를 거부하실 수 있으며, 거부 시 서비스 문의에 대한 응대지원이 원활하지 않을 수
 								있습니다.</li>
 						</ol>
-						<p class="ok_q">
-							<input type="checkbox" name="chk_agree" id="chk_agree"> <label
-								for="chk_agree">위의 ‘개인정보 수집 및 이용’ 에 동의합니다.</label>
-						</p>
+						
 						<p class="email_send">
-							<!-- <a href="#" class="email_btn">작성완료</a> -->
-							<input type="submit" value="작성완료" class="btn">
+							<!-- <a href="#" class="email_btn">작성완료</a> --><br><br>
+							<input type="submit" value="작성완료" id="doAsk">
 
 						</p>
 					</form>

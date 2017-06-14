@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet"
+	href="../../../resources/membercenter_css/center_css.css">
 <title>Insert title here</title>
 </head>
 <script type="text/javascript">
@@ -43,6 +45,13 @@
 	}
 </script>
 <body>
+<div class="tit_box" style="border-bottom: 1px solid">
+			<h2>이메일인증</h2>
+			<p class="tit_txt">
+				입력하신 이메일 주소로 인증코드가 발송되었습니다. <span>인증 코드 7자리를 정확히 입력해 주세요.
+				</span>
+			</p>
+		</div>
 	<div class="container">
 		<form method="get" name="authenform">
 			<input type="text" name="authNum" id="authNum" value=""> 

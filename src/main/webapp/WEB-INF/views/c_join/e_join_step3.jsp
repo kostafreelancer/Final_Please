@@ -98,7 +98,7 @@ var checkEmail2 = function(index) {
     if(index == 1){
   	  
   	 var url="/e_testEmail";
-	    var newWin = window.open(url,"new", "width=400,height=400,");
+	    var newWin = window.open(url,"new", "width=1000,height=1000,");
 	    var f = document.userInfo;
 	    f.action="/c_join/e_testEmail";
 	    f.target="new";
@@ -255,7 +255,7 @@ var checkEmail2 = function(index) {
 					                <option value="korea.com">korea.com</option>
 					                <option value="hanmail.net">hanmail.net</option>
 							</select>
-							<a href="javascript:checkEmail2(1);">인증하기</a>
+							<a href="javascript:checkEmail2(1);" id="doCheck">인증하기</a>
 							<span id="checkEmailConfirm"></span>
 							</td>
 							

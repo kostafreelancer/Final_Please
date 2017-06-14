@@ -379,3 +379,24 @@ h1 {
 	display: none;
 	color : red;
 } */
+
+#closeWindow{
+	border-radius: 3px;
+	font-size: 18px;
+	line-height: 1.33;
+	padding: 10px 16px;
+	margin-left : 50%;
+	background-color : #446eab;
+	color : white;
+}
+
+#doAsk{
+	border-radius: 3px;
+	font-size: 18px;
+	line-height: 1.33;
+	padding: 10px 16px;
+	margin-left : 50%;
+	background-color : #446eab;
+	color : white;
+}
+
