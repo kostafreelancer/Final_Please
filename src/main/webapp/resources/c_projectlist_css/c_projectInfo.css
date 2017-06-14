@@ -5169,3 +5169,9 @@ button, input, select, textarea {
 	margin: 0;
 	vertical-align: middle;
 }
+
+.td_bor_bott1{
+    padding: 15px 13px;
+    border-bottom: 1px solid #d6d6d6;
+    font-size: 12px;
+}

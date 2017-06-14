@@ -158,14 +158,18 @@ public class c_freelancerlistController {
 	@RequestMapping(value="/f_complete", method= RequestMethod.POST)
 	@ResponseBody
 		public List<E_Insert> readPagePOST(HttpServletResponse response ,HttpSession session, Model model) throws Exception{
-		System.out.println("들어옴?");
+		
 		int e_num = ((c_login_enterpriseVO)(session.getAttribute("client"))).getE_num();
 		List<E_Insert> list = service.getProject(e_num);
+		
 		return list;
-		/*SubmitVO submitVO = new SubmitVO();
+	
+		}
+		@RequestMapping(value="/f_complete", method= RequestMethod.GET)
+		public void complete(Contract contract,HttpSession session,@RequestParam("e_pr_num") int e_pr_num,@RequestParam("f_num") int f_num, Model model)throws Exception{
+			SubmitVO submitVO = new SubmitVO();
 			
-			E_Insert project = (E_Insert)session.getAttribute("project");
-			submitVO.setE_pr_num(project.getE_pr_num());
+			submitVO.setE_pr_num(e_pr_num);
 			submitVO.setF_num(f_num);
 			
 			model.addAttribute("contract", session.getAttribute("contract"));
@@ -175,10 +179,14 @@ public class c_freelancerlistController {
 			
 			contract.setC_num(c_num);
 			
-			service.insertContract(submitVO);*/
+			service.insertContract(submitVO);
+
+			
 			
 			
 		}
+		
+		
 	
 
 }

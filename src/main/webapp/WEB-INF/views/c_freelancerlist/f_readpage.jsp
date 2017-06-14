@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="/resources/c_freelancerlist_css/myInfo.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/resources/c_freelancerlist_css/join.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/resources/c_freelancerlist_css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/resources/c_projectlist_css/c_projectInfo.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/resources/c_freelancerlist_css/complete.css" type="text/css" media="screen" />
 
 <title>프리랜서 정보</title>
 
@@ -66,8 +68,8 @@ $(function(){
 		</div>
 		
 	<section id="firstsection">
-	<form method="post" action="/c_freelancerlist/f_complete" name="ProjectWriteFm">
-				 <input type="hidden" name="f_num" value="${f_num }"></input> 
+	<form method="get" action="/c_freelancerlist/f_complete" name="ProjectWriteFm">
+				 <input type="hidden" class="sub_f_num" name="f_num" value="${freelancer.f_num }"></input> 
 					 
 
 	<ul id="tabs">
@@ -601,6 +603,8 @@ $(function(){
 			<div class="btn_box">
 					<input id="checkValue"  class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" name="post_a_job"
 						value="프로젝트 제안하기" type="button"> <br>
+						
+						
 					<br>
 					<br>
 					<br>

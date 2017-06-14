@@ -66,7 +66,7 @@ public class c_projectlistController {
 		Enterprise enterprise = service.selectEnterprise(e_num);
 		model.addAttribute("enterprise", enterprise);
 		model.addAttribute("e_pr_num", e_pr_num);
-		String[] manager_hphone = enterprise.getManager_hphone().split("-");
+		String[] manager_hphone = enterprise .getManager_hphone().split("-");
 		model.addAttribute("manager_hphone_1", manager_hphone[0]);
 		model.addAttribute("manager_hphone_2", manager_hphone[1]);
 		model.addAttribute("manager_hphone_3", manager_hphone[2]);
