@@ -3,17 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
+  <!-- seq_reply.nextval -->
 <mapper namespace="lancer.mapper.f_board_replyMapper">
 
  	<select id="list" resultType="F_ReplyVO">
  		select * from reply
  			where board_num = #{board_num}
- 			order by board_num desc
+ 			order by reply_num desc
  	</select>
  	
  	<insert id="create" parameterType="F_ReplyVO">
- 		insert into reply (reply_num, board_num, reply_content)<!-- , replyer -->
- 			values(seq_reply.nextval, #{board_num}, #{reply_content})<!-- , #{replyer} -->
+ 		insert into reply (reply_num, board_num, reply_content)
+ 			values(#{reply_num}, #{board_num}, #{reply_content})
  	</insert>
  	
  	<update id="update" parameterType="F_ReplyVO">
@@ -28,11 +29,11 @@
  	<select id="listPage" resultType="F_ReplyVO">
 	  <![CDATA[
 		 select 
-		   reply_num, board_num, reply_content, reply_date<!-- , replyer -->
+		   reply_num, board_num, reply_content, reply_date
 		 from
 		   (
 		   select /*+INDEX_DESC(reply pk_reply))*/
-		     rownum rn, reply_num, board_num, reply_content, reply_date<!-- , replyer -->
+		     rownum rn, reply_num, board_num, reply_content, reply_date
 		   from reply
 		   where board_num = #{board_num}
 		   and reply_num > 0

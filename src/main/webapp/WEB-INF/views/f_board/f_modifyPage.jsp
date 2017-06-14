@@ -17,8 +17,8 @@ $(document).ready(function(){
 	var formObj = $("form[role='form']");
 
 	$('.btn_check04').click(function(){
-		formObj.attr("action", "/f_board/f_register");
-		formObj.attr("method", "get");
+		formObj.attr("action", "/f_board/f_modifyPage");
+		formObj.attr("method", "post");
 		formObj.submit();
 	})
 })

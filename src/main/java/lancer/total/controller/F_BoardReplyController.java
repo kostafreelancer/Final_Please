@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +27,9 @@ public class F_BoardReplyController {
 	@Inject
 	private F_BoardReplyService service;
 	
-	@RequestMapping(value="", method=RequestMethod.POST)
+	@RequestMapping(value="/test", method=RequestMethod.POST)
 	public ResponseEntity<String> register(@RequestBody F_ReplyVO vo){
+		System.out.println("잘가..광명아...ㅜ");
 		ResponseEntity<String> entity = null;
 		try {
 			service.addReply(vo);
@@ -40,7 +42,8 @@ public class F_BoardReplyController {
 	}
 	
 	@RequestMapping(value="/all/{board_num}", method=RequestMethod.GET)
-	public ResponseEntity<List<F_ReplyVO>> list(@PathVariable("board_num") Integer board_num){
+	public ResponseEntity<List<F_ReplyVO>> list(@PathVariable("board_num") Integer board_num, Model model) throws Exception{
+		model.addAttribute("test_list", service.listReply(board_num));
 		ResponseEntity<List<F_ReplyVO>> entity = null;
 		try {
 			entity = new ResponseEntity<>(service.listReply(board_num), HttpStatus.OK);
