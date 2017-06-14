@@ -67,6 +67,7 @@
 							<th>문의제목</th>
 							<th>문의날짜</th>
 							<th>작성자</th>
+							<th>답변현황</th>
 						</tr>
 					
 						<c:choose>
@@ -80,6 +81,7 @@
 										</td> 							
 										<td>${MembercenterASKVO.askdate }</td>
 										<td>${MembercenterASKVO.writer }</td>
+										<td>${MembercenterASKVO.ask_state }</td>
 									</tr>
 									</c:forEach>										
 							</c:when>
@@ -90,9 +92,9 @@
 										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button>
 										
 										</td> 
-										<td></td>
 										<td>${MembercenterASKVO.askdate }</td>
 										<td>${MembercenterASKVO.writer }
+										<td>${MembercenterASKVO.ask_state }</td>
 										
 										
 									</tr>

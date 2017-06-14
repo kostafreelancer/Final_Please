@@ -17,14 +17,14 @@
 	
 	<select id="myAskList" resultType="lancer.c_membercenter.domain.MembercenterASKVO">
 		
-		select writer, asktitle, askdate, answercontents, answerdate, asknum, ad_num from ask
-		where f_num = #{f_num} order by askdate desc
+		select writer, asktitle, askdate, answercontents, answerdate, asknum, ad_num, ask_state from ask
+		where f_num = #{f_num} order by ask_state desc
 		
 	</select>
 	
 	<select id="e_myAskList" resultType="lancer.c_membercenter.domain.MembercenterASKVO">
-		select writer, asktitle, askdate , answercontents, answerdate, asknum, ad_num from ask
-		where e_num = #{e_num} order by askdate desc
+		select writer, asktitle, askdate , answercontents, answerdate, asknum, ad_num, ask_state from ask
+		where e_num = #{e_num} order by ask_state desc
 	</select>
 	
 	<select id="myAnswer" resultType="lancer.c_membercenter.domain.MemberCenterAnswerVO">
