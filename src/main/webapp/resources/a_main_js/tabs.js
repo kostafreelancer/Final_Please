@@ -5,9 +5,18 @@ $(document).ready(function() {
 	$("#tcontent div#tab3").hide(); // Initially hide all content
 	$("#tcontent div#tab4").hide(); // Initially hide all content
 	$("#tcontent div#tab5").hide();
+	$("#tcontent div#tab6").hide();
 
-	$("#tabs li:first").attr("id","current"); // Activate first tab
-	$("#tcontent div:first").fadeIn(); // Show first tab content
+	var tabnum = $('#tabnum').text();
+	if(tabnum == ""){
+		$("#tabs li:first").attr("id","current"); // Activate first tab
+	}else{
+		tabnum = tabnum - 1;
+		$('#tabs li').eq(tabnum).attr("id", "current");
+	}
+	$('#tcontent div.tab').eq(tabnum).fadeIn(); // Show first tab content
+	
+    
     
     $('#tabs a').click(function(e) {
         e.preventDefault();        
@@ -16,6 +25,7 @@ $(document).ready(function() {
         $("#tcontent div#tab3").hide(); //Hide all content
         $("#tcontent div#tab4").hide(); //Hide all content
         $("#tcontent div#tab5").hide();
+        $("#tcontent div#tab6").hide();
 
         $("#tabs li").attr("id",""); //Reset id's
         $(this).parent().attr("id","current"); // Activate this

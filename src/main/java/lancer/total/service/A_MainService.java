@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import lancer.a_main.domain.Criteria;
 import lancer.a_main.domain.Enterprise;
 import lancer.a_main.domain.Freelancer;
 import lancer.a_main.domain.askList;
@@ -16,16 +17,28 @@ public class A_MainService {
 	@Inject
 	private A_MainDAO dao;
 	
-	public List<Freelancer> listFreelancer() throws Exception {
-		return dao.listFreelancer();
+	public List<Freelancer> listFreelancer(Criteria cri) throws Exception {
+		return dao.listFreelancer(cri);
 	}
 	
-	public List<Enterprise> listEnterprise() throws Exception {
-		return dao.listEnterprise();
+	public List<Enterprise> listEnterprise(Criteria cri) throws Exception {
+		return dao.listEnterprise(cri);
 	}
 	
-	public List<Enterprise> listEnterprisePermit() throws Exception {
-		return dao.listEnterprisePermit();
+	public List<Enterprise> listEnterprisePermit(Criteria cri) throws Exception {
+		return dao.listEnterprisePermit(cri);
+	}
+	
+	public Integer countFreelancer() throws Exception{
+		return dao.countFreelancer();
+	}
+	
+	public Integer countEnterprise() throws Exception{
+		return dao.countEnterprise();
+	}
+	
+	public Integer countEnterprisePermit() throws Exception{
+		return dao.countEnterprisePermit();
 	}
 	
 	public void deleteAccountF(int deleteF_num) throws Exception {

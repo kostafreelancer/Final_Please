@@ -18,6 +18,18 @@
 		SELECT * FROM enterprise WHERE e_check = '미승인'
 	</select>
 	
+	<select id="countFreelancer" resultType="Integer">
+		SELECT count(*) FROM freelancer
+	</select>
+	
+	<select id="countEnterprise" resultType="Integer">
+		SELECT count(*) FROM enterprise
+	</select>
+	
+	<select id="countEnterprisePermit" resultType="Integer">
+		SELECT count(*) FROM enterprise WHERE e_check = '미승인'
+	</select>
+	
 	<update id="permitAccount" >
 		UPDATE enterprise SET e_check = '승인' WHERE e_num = #{permitE_num}
 	</update>

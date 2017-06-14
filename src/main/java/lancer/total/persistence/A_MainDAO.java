@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import lancer.a_main.domain.Criteria;
 import lancer.a_main.domain.Enterprise;
 import lancer.a_main.domain.Freelancer;
 import lancer.a_main.domain.askList;
@@ -19,16 +21,28 @@ public class A_MainDAO {
 	
 	private static String namespace = "lancer.mappers.a_mainMapper";
 	
-	public List<Freelancer> listFreelancer() throws Exception {
-		return session.selectList(namespace+".listFreelancer");
+	public List<Freelancer> listFreelancer(Criteria cri) throws Exception {
+		return session.selectList(namespace+".listFreelancer", cri, new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
 	}
 	
-	public List<Enterprise> listEnterprise() throws Exception {
-		return session.selectList(namespace+".listEnterprise");
+	public List<Enterprise> listEnterprise(Criteria cri) throws Exception {
+		return session.selectList(namespace+".listEnterprise", cri, new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
 	}
 	
-	public List<Enterprise> listEnterprisePermit() throws Exception {
-		return session.selectList(namespace+".listEnterprisePermit");
+	public List<Enterprise> listEnterprisePermit(Criteria cri) throws Exception {
+		return session.selectList(namespace+".listEnterprisePermit", cri, new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
+	}
+	
+	public Integer countFreelancer() throws Exception {
+		return session.selectOne(namespace+".countFreelancer");
+	}
+	
+	public Integer countEnterprise() throws Exception {
+		return session.selectOne(namespace+".countEnterprise");
+	}
+	
+	public Integer countEnterprisePermit() throws Exception {
+		return session.selectOne(namespace+".countEnterprisePermit");
 	}
 	
 	public void deleteAccountF(int deleteF_num) throws Exception {

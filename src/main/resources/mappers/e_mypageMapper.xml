@@ -15,7 +15,6 @@
 		UPDATE enterprise SET
 		e_pwd=#{e_pwd},
 		e_mail=#{e_mail},
-		<!-- e_ownerfile=#{e_ownerfile}, -->
 		e_name=#{e_name},
 		e_ename=#{e_ename},
 		e_owner=#{e_owner},

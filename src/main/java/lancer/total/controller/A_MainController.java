@@ -12,10 +12,13 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import lancer.a_main.domain.Criteria;
+import lancer.a_main.domain.PageMaker;
 import lancer.a_main.domain.askList;
 import lancer.total.service.A_MainService;
 import lancer.total.service.C_DropService;
@@ -98,13 +101,30 @@ public class A_MainController {
 	
 	
 	@RequestMapping(value = "/a_main", method = RequestMethod.GET)
-	public void a_mainGET(Model model,HttpSession session)throws Exception{
+	public void a_mainGET(@ModelAttribute("cri") Criteria cri,Integer tabnum, Model model,HttpSession session)throws Exception{
+		model.addAttribute("tabnum", tabnum);
 		
-		model.addAttribute("listFreelancer", service.listFreelancer());
-		model.addAttribute("listEnterprise", service.listEnterprise());
-		model.addAttribute("listEnterprisePermit", service.listEnterprisePermit());
+		model.addAttribute("listFreelancer", service.listFreelancer(cri));
+		model.addAttribute("listEnterprise", service.listEnterprise(cri));
+		model.addAttribute("listEnterprisePermit", service.listEnterprisePermit(cri));
 		model.addAttribute("askList",service.askList());
 		model.addAttribute("answerOK",service.answerOK());
+		
+		PageMaker pageMakerFreelancer =  new PageMaker();
+		pageMakerFreelancer.setCri(cri);
+		pageMakerFreelancer.setTotalCount(service.countFreelancer());
+		
+		PageMaker pageMakerEnterprise =  new PageMaker();
+		pageMakerEnterprise.setCri(cri);
+		pageMakerEnterprise.setTotalCount(service.countEnterprise());
+		
+		PageMaker pageMakerEnterprisePermit =  new PageMaker();
+		pageMakerEnterprisePermit.setCri(cri);
+		pageMakerEnterprisePermit.setTotalCount(service.countEnterprisePermit());
+		
+		model.addAttribute("pageMakerFreelancer", pageMakerFreelancer);
+		model.addAttribute("pageMakerEnterprise", pageMakerEnterprise);
+		model.addAttribute("pageMakerEnterprisePermit", pageMakerEnterprisePermit);
 		
 	}
 	
