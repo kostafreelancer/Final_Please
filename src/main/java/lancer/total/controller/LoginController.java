@@ -123,4 +123,8 @@ public class LoginController {
 	public String client(){
 		return "redirect:http://localhost:8000/client";
 	}
+	@RequestMapping(value="iframe_remove")
+	public void iframe_remove(){
+		System.out.println("여기 들어와??");
+	}
 }

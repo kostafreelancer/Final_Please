@@ -1,8 +1,11 @@
 
 
 $(window).load(function() {
-	/*alert($('.header_welcome_content span').text());*/
 	
+	$('.exam').click(function(event){
+		event.preventDefault();
+		$('.iframe_id').remove();
+	});
 	if($('.header_welcome_content span').text() != ''){
 		localStorage.setItem('username',$('.header_welcome_content span').text());
 		$('.header_welcome_content span').append("<span>님 환영합니다</span>");
@@ -64,6 +67,7 @@ $(window).load(function() {
 			$('.c_f_menus_four').submit();
 		}
 	});
+	
 	if($('#admin').length!=0){
 		$('.menus_five').hide();
 	}
