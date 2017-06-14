@@ -3,6 +3,7 @@ package lancer.total.controller;
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,7 +52,8 @@ public class VerificationController {
 
 			}
 		}
-		return "redirect:/verification/verificationPop";
+		return "/verification/verificationPop";
+		
 	}
 
 	@RequestMapping(value = "/verificationPop2", method = RequestMethod.GET)
@@ -69,7 +71,7 @@ public class VerificationController {
 
 		if (veriVO.getSort().equals("f")) {// 프리랜서면
 			if (f_count == 1) {// 회원이 있는 것으로 판명. 비밀번호 인증페이지로.
-
+				model.addAttribute("emailAddr", veriVO.getEmailAddr());
 				page = "redirect:/verification/emailVerification";
 
 			} else {// 그러한 회원이 없습니다.
@@ -78,7 +80,7 @@ public class VerificationController {
 			}
 		} else {// 기업이면
 			if (e_count == 1) {// 회원이 있는 것으로 판명. 비밀번호 인증페이지로.
-
+				model.addAttribute("emailAddr", veriVO.getEmailAddr());
 				page = "redirect:/verification/emailVerification";
 			} else {// 그러한 회원이 없습니다.
 				model.addAttribute("fail", "true");
@@ -89,8 +91,10 @@ public class VerificationController {
 	}
 
 	@RequestMapping(value = "/emailVerification", method = RequestMethod.GET)
-	public void emailVerificationPOST(RandomCode randomNum, Model model) throws Exception {
-		System.out.println("나나나나나");
-
+	public void emailVerificationPOST(VerificationVO veriVO, RandomCode randomNum, Model model) throws Exception {
+		
+		SimpleMailMessage msg = new SimpleMailMessage();
+		
+		System.out.println("인증번호 보낼 메일:");
 	}
 }

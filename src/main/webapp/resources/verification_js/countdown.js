@@ -15,4 +15,6 @@ function timer(){
 
 window.onload = function timerStart() {
    tid = setInterval('timer()', 1000);
+ 
 };
+
