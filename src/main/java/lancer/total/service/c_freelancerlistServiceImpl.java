@@ -19,6 +19,7 @@ import lancer.e_mypage.domain.Project;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.Freelancer;
+import lancer.f_mypage.domain.Portfolio;
 import lancer.f_mypage.domain.School;
 import lancer.total.persistence.c_freelancerlistDAO;
 
@@ -161,6 +162,18 @@ public class c_freelancerlistServiceImpl implements c_freelancerlistService {
 	@Override
 	public List<E_Insert> getProject(int e_num)throws Exception{
 		return dao.getProject(e_num);
+	}
+	@Override
+	public List<Portfolio> showPortfolioInfo(int f_num) throws Exception{
+		return dao.showPortfolioInfo(f_num);
+	}
+	@Override
+	public Portfolio selectOnePortfolio(int portfolio_num) throws Exception{
+		return dao.selectOnePortfolio(portfolio_num);
+	}
+	@Override
+	public int getPortfolioNum() throws Exception{
+		return dao.getPortfolioNum();
 	}
 	
 	

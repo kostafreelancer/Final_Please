@@ -35,6 +35,7 @@ import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.FinishProject;
+import lancer.f_mypage.domain.Portfolio;
 import lancer.f_mypage.domain.School;
 import lancer.total.service.c_freelancerlistService;
 
@@ -111,7 +112,7 @@ public class c_freelancerlistController {
 		List<Career> career = service.showCareerInfo(f_num);
 		List<School> school = service.showSchoolInfo(f_num);
 		List<Certificate> certificate = service.showCertiInfo(f_num);
-		
+		List<Portfolio> portfolio = service.showPortfolioInfo(f_num);
 		List<Project> project = service.getMyFinishProject(f_num);
 		List<FinishProject> finishProject  = new ArrayList<FinishProject>();
 		for(int i=0; i<project.size(); i++){
@@ -147,6 +148,14 @@ public class c_freelancerlistController {
 		}else{
 			model.addAttribute("certificate", certificate);
 		}
+		
+		if(portfolio.size()==0){
+			model.addAttribute("portfoliocheck", "0");
+		}else{
+
+			model.addAttribute("portfolio", portfolio);
+		}
+		
 		
 		if(finishProject.size() == 0 ){
 			model.addAttribute("finishprojectcheck", "0");

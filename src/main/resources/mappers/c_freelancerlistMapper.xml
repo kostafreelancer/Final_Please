@@ -49,6 +49,18 @@
 		where pro.E_PR_NUM = p_job.E_PR_NUM and p_job.JOB_ID = job.JOB_ID and pro.E_PR_NUM=#{e_pr_num}
 	</select>
 	
+	<select id="showPortfolioInfo" resultType="Portfolio">
+  		select * from portfolio where f_num = #{f_num}
+  	</select>
+  	
+  	<select id="selectOnePortfolio" resultType="Portfolio">
+  		select * from portfolio where portfolio_num = #{portfolio_num}
+  	</select>
+  	
+  	<select id="getPortfolioNum" resultType="int">
+  		select nvl(max(portfolio_num), 0) from portfolio
+  	</select>
+	
 	<select id="c_freelancerlist_select_school" resultType="c_freelancerlist_schoolVO" parameterType="int">
 		select * from school
 						where f_num = #{f_num}
