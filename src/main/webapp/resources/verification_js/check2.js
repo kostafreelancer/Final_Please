@@ -7,7 +7,7 @@ function check2() {
 		return false;
 	}
 	
-	if($('num') != $('#codeNum')){
+	if($('#num') == $('#codeNum').val()){
 		alert("인증번호가 일치하지 않습니다.");
 		document.form.num.focus();
 		
