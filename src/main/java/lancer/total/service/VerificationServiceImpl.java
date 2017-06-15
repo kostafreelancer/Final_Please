@@ -39,7 +39,7 @@ public class VerificationServiceImpl implements VerificationService {
 
 	@Override
 	public Integer checking_freelancer(VerificationVO veriVO) throws Exception {
-		
+		System.out.println(verificationDao.checking_freelancer(veriVO));
 		return verificationDao.checking_freelancer(veriVO);
 	}
 

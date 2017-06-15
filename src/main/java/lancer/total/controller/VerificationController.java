@@ -34,6 +34,7 @@ public class VerificationController {
 		veriVO.setEmailAddr(veriVO.getEmailId() + "@" + veriVO.getEmailDomain());
 
 		Integer f_count = verificationService.checking_freelancer(veriVO);
+		System.out.println("체킹프리"+f_count);
 		Integer e_count = verificationService.checking_enterprise(veriVO);
 
 		String f_id = verificationService.verifying_freelancer_id(veriVO);
@@ -78,7 +79,7 @@ public class VerificationController {
 				model.addAttribute("id", veriVO.getId());
 				model.addAttribute("name", veriVO.getName());
 				model.addAttribute("emailAddr", veriVO.getEmailAddr());
-				page = "/verification/emailVerification";
+				page = "redirect:/verification/emailVerification";
 
 			} else {// 그러한 회원이 없습니다.
 				model.addAttribute("fail", "true");
