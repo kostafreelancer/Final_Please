@@ -2326,6 +2326,9 @@ th.bg_ye {
 th.bg_gy {
 	background-color: #666
 }
+th.p_state {
+    background-color: #229c3b;
+}
 
 .tb_tip {
 	font-size: 14px;

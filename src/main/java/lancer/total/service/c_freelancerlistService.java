@@ -12,6 +12,7 @@ import lancer.e_mypage.domain.Project;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.Freelancer;
+import lancer.f_mypage.domain.Portfolio;
 import lancer.f_mypage.domain.School;
 
 public interface c_freelancerlistService {
@@ -27,4 +28,7 @@ public interface c_freelancerlistService {
 	int getnum() throws Exception;
 	void insertContract(SubmitVO submitVO) throws Exception;
 	List<E_Insert> getProject(int e_num) throws Exception;
+	List<Portfolio> showPortfolioInfo(int f_num) throws Exception;
+	Portfolio selectOnePortfolio(int portfolio_num) throws Exception;
+	int getPortfolioNum() throws Exception;
 }

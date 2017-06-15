@@ -538,12 +538,22 @@ $(function(){
 							</tr>
 						</thead>
 						<tbody>
-
+							<c:if test="${portfoliocheck == 0}">
+								<tr><td colspan="5">등록된 포트폴리오가 없습니다.</td></tr>
+							</c:if>
+							
+							<c:forEach var="myport" items="${portfolio}">
+							<form id="portForm${myport.portfolio_num}" name="myportModify${myport.portfolio_num}">
+							<input type="text" hidden name="portfolio_num" value="${myport.portfolio_num}">
+							<input type="text" hidden name="contents" value="${myport.contents}">
+							<input type="text" hidden name="portfile" value="${myport.portfile}">
+							<input type="text" hidden name="portfile_iden" value="${myport.portfile_iden}">							
 							<tr>
-								<td>어쩌구저쩌구</td>
-								<td class="last">file.zip</td>
+								<td>${myport.contents}</td>
+								<td><a href="/c_file/downloadFile?identy=${myport.portfile_iden}&f_num=${freelancer.f_num }&fileType=portfile">${myport.portfile}</a></td>
 							</tr>
-
+							</form>
+							</c:forEach>
 						</tbody>
 					</table>
 					</div>

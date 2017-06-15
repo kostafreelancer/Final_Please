@@ -4,29 +4,52 @@ import java.util.Date;
 
 public class F_ReplyVO {
 
-	private Integer reply_num;
-	private Integer board_num;
+	private int reply_num;
+	private int board_num;
 	private String reply_content;
 /*	private String replyer;*/
 
 	private Date reply_date;
-	private Integer f_num;
+	private int f_num;
+
+	public F_ReplyVO(){}
+	
+	
+	
+	public F_ReplyVO(int reply_num, int board_num, String reply_content, Date reply_date, int f_num) {
+		super();
+		this.reply_num = reply_num;
+		this.board_num = board_num;
+		this.reply_content = reply_content;
+		this.reply_date = reply_date;
+		this.f_num = f_num;
+	}
+
+
 
 	public Integer getReply_num() {
 		return reply_num;
 	}
 
-	public void setReply_num(Integer reply_num) {
-		this.reply_num = reply_num;
-	}
+	
 
-	public Integer getBoard_num() {
+	public int getBoard_num() {
 		return board_num;
 	}
 
-	public void setBoard_num(Integer board_num) {
+
+
+	public void setBoard_num(int board_num) {
 		this.board_num = board_num;
 	}
+
+
+
+	public void setReply_num(int reply_num) {
+		this.reply_num = reply_num;
+	}
+
+
 
 	public String getReply_content() {
 		return reply_content;
@@ -52,13 +75,18 @@ public class F_ReplyVO {
 		this.reply_date = reply_date;
 	}
 
-	public Integer getF_num() {
+
+	public int getF_num() {
 		return f_num;
 	}
 
-	public void setF_num(Integer f_num) {
+
+
+	public void setF_num(int f_num) {
 		this.f_num = f_num;
 	}
+
+
 
 	@Override
 	public String toString() {

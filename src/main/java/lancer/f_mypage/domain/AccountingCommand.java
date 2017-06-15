@@ -1,8 +1,10 @@
 package lancer.f_mypage.domain;
 
+import java.io.Serializable;
+
 import org.springframework.web.multipart.MultipartFile;
 
-public class AccountingCommand {
+public class AccountingCommand  implements Serializable{
 	private int a_num;
 	private String detail_usage;
 	private int a_money;

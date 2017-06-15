@@ -183,11 +183,14 @@
                     </colgroup>
                     <tbody>
                         <tr>
-                            <td rowspan="5">
-                              	<img src="c_join_img/join_photo.jpg" alt="사진" />
-								<input type="file" name="f_fname" onchange="PreView(this.value, 'IMG1', '132', '176');" style="width:130px;" />
-                                <span class="pho_txt">최적 해상도:132x176 pixel</span>
-                            </td>
+                            	<td rowspan="5">
+						<div class="filebutton">	
+						<input type="hidden" id="f_fnameExist" name="f_fnameExist" value="false">
+						<span>사진업로드</span><input type="file" name="f_fname" id="f_fname" value="${client.f_fname }"
+							class="searchfile" title="파일 찾기"
+							style="width: 820px;">
+							
+                            </div></td>
                             <th scope="row"><label for="f_name"><span class="txt_or">*</span> 성명</label></th>
                             <td colspan="4">
                             	<input type="text" id="f_name" name="f_name"  class="wid04" value=""/>

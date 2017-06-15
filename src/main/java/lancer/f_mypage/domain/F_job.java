@@ -1,6 +1,8 @@
 package lancer.f_mypage.domain;
 
-public class F_job {
+import java.io.Serializable;
+
+public class F_job  implements Serializable{
 	private int f_num;
 	private int job_id;
 	
