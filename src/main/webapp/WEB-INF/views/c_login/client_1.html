@@ -3,12 +3,20 @@
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	
-	var socket = io.connect();
-	var myname = prompt("너의 이름?");
+
+
+	var socket = io.connect('http://localhost:8000');
+	/* var myname = prompt("너의 이름?"); */
+	var myname;
+	socket.on('sendusername',function(username){
+		alert("여기 드오지?"+username);
+		myname = username;
+		socket.emit('adduser', myname);
+	});
 	socket.on('join',function(username, data){
 		$('.chat_content').append('<p class="server"><span>'+data+'</span></p>');
 	});
-	socket.emit('adduser', myname);
+
 	socket.on('updatechat',function(username , data){
 		if(username != myname){
 			$('.chat_content').append('<p class="server_name">'+username+'</p><p class="server"><span>'+data+'</span></p>');
@@ -18,33 +26,51 @@
 		// 클라이언트에서 SEND 버튼을 클릭할 때
 		$('#datasend').click( function() {
 		var message = $('#data').val();
+		if(message === ''){
+			return;
+		}
 		$('#data').val('');
 		// 서버에서 sendchat 함수를 실행하도록 알려주며, 하나의 파라미터를 전달한다
 		socket.emit('sendchat', message);
 		$('.chat_content').append('<p class="client"><span>'+message+'</span></p>');
 		});
+		$('.exit_menu').click(function(event){
+			event.preventDefault();
+			alert("여기 들어와?");
+			$('#iframe_id').remove();
+		});
+		
+		
 	});
 </script>
 <body>
 	<div class="messengerWrapper">
 		<div class="chat_inner">
 			<div class="chat_top">
-				<a href="" class="chat_menu"><!-- <img alt="chat_menu"
-					src="/img/menu-white.png"> --> 
-					<!-- <span class="top_title">드림 랜서</span>  -->
-				</a> <a href="" class="exit_menu">  <!-- <img alt="chat_menu"
-					src="/resources/c_common_img/menu-white.png">  -->
-			</a>
+				<div class="chat_menus">
+					<a href="#" class="chat_menu"> <img alt="chat_menu"
+					src="https://cdn.channel.io/plugin/images/menu-white.png"> 
+				</a>
+				</div>
+				
+					<span class="top_title">드림 랜서</span>
+				
+				<div>
+					<a href="#" class="exit_menu"> <img alt="chat_menu"
+						src="https://cdn.channel.io/plugin/images/exit-white.png">  
+					</a>
+				</div>
+				 
 			</div>
 			<div class="chat_text_area">
-				<span>2017년 4월 26일</span>
+				<span>오늘</span>
 				<div class="chat_content">
 					
 				</div>
 			</div>
 			<div class="chat_text_input">
 				<!-- <textarea class="chat_text_put" placeholder="메시지를 입력하세요.."></textarea> -->
-				<input id="data" style="width:220px;" />
+				<input id="data" style="width:230px;" />
 				
 			</div>
 				<div id="datasend">전송</div>
@@ -95,19 +121,26 @@
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius:0px;
 	background-color: #0080ff;
+	position: relative;
 }
-
+.chat_menus{
+	float: left;
+}
 .chat_menu {
 	padding-left: 10px;
 }
 .top_title{
 	color: #ffffff;
 	text-align: center;
-	
+	float: left;
+	bottom: 17px;
+	position: absolute;
+	right: 130px;
+	font-weight: bold;
 }
 .exit_menu {
 	position: absolute;
-	padding-left: 160px
+	right: 9px;
 }
 
 .chat_text_area {
@@ -179,5 +212,5 @@
 body{
 	margin: 0;
 }
--->
+
 </style>

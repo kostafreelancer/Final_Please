@@ -32,4 +32,12 @@ io.sockets.on('connection', function (socket) {
 		socket.username = username;
 		socket.emit('join','SERVER', username+'님 환영합니다.');
 	});
+	socket.on('alllist',function(){
+		var list = [];
+		for(var i=0;i<io.sockets.length;i++){
+			console.log(i+"으아");
+			console.log(io.sockets.get(i).username+"모가 나오긴 하냐?");
+		}
+	});
+	
 });

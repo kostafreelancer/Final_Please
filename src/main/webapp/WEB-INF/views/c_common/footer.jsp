@@ -14,6 +14,7 @@
 <script type="text/javascript" src="/resources/c_common_js/footer.js"></script>
 </head>
 <body>
+	<%@include file="../c_chatting/chatting.html"%>
 	<div class="footer_wrap">
 		<div class="footer_box">
 			<div class="footer_menu">

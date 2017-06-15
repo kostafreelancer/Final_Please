@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/resources/c_login_css/reset.css" type="text/css" media="screen" />
 
 <%@include file="../c_common/header.jsp"%>
-<%@include file="../c_login/chatting.html"%>
+<%-- <%@include file="../c_chatting/chatting.html"%> --%>
 
 <div id="conainer">
 	<div id="nav">

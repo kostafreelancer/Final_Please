@@ -36,10 +36,16 @@
 		});
 		$('.exit_menu').click(function(event){
 			event.preventDefault();
-			self.location="/";
+			
+			self.location="http://localhost:8081/c_common/iframe_remove";
+			
 		});
 		
-		
+		$('.chat_menu').click(function(event){
+			event.preventDefault();
+			alert("드오냐?");
+			socket.emit('alllist');
+		}
 	});
 </script>
 <body>
@@ -108,7 +114,7 @@
 }
 .messengerWrapper {
 	width: 318px;
-	height: 593px;
+	height: 636px;
 	border: 1px solid;
 	border-radius: 12px;
 	background-color: white;
@@ -143,7 +149,7 @@
 }
 
 .chat_text_area {
-	height: 495px;
+	height: 540px;
 	background-color: #ffffff;
 	text-align: center;
 	border-bottom: 1px solid #c0c0c0;

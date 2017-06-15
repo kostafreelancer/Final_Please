@@ -24,7 +24,7 @@ $(function(){
 		alert(localStorage.getItem('username')+"이거?");
 	$(this).after('<div class="chatting_se"><iframe id ="iframe_id" src="http://localhost:8000/client?username='+username+'" width="300" height="465"></iframe></div>');
 	
-	$(this).hide();
+	/*  $(this).hide(); */ 
 });
 });
 </script> 
@@ -72,7 +72,7 @@ $(function(){
 
 .chatting p {
 	color: #ffffff;
-	margin-top: 8px;
+	margin-top: 13px;
 	margin-bottom: 8px;
 }
 
@@ -100,19 +100,21 @@ body{
 	border: 1px solid rgb(77, 136, 229);
 	border-radius: 24px;
 	background-color: rgb(86, 152, 255);
+	height: 40px;
 }
-
+.display_none{
+	display: none;
+}
 </style>
 </head>
 <body>
 	<div class="chatting">
 		<div class="chatting_Detail">
 			<img class="chatting_img" alt="catting_open"
-				src="//cdn.channel.io/plugin/images/plugin-bubble-icon-white.png">
+				src="//cdn.channel.io/plugin/images/plugin-bubble-icon-white.png" height="40px">
 			<p>채팅 문의</p>
 		</div>
 		<div class="windowWrapper"></div>
 	</div>
-	
 </body>
 </html>
