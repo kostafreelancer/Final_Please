@@ -3,6 +3,7 @@ package lancer.total.service;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,37 @@ import lancer.total.persistence.F_BoardReplyDAO;
 public class F_BoardReplyServiceImpl implements F_BoardReplyService{
 
 	@Inject
+	F_BoardReplyDAO replydao;
+	
+	@Override
+	public List<F_ReplyVO> list(Integer board_num) throws Exception {
+		return replydao.list(board_num);
+	}
+
+	@Override
+	public void create(F_ReplyVO vo) throws Exception {
+		replydao.create(vo);
+	}
+
+	@Override
+	public void update(F_ReplyVO vo) throws Exception {
+		
+	}
+
+	@Override
+	public void delete(Integer reply_num) throws Exception {
+		
+	}
+	
+	@Override
+	public int count(int board_num) throws Exception {
+		return replydao.count(board_num);
+	}
+
+	
+	
+	
+/*	@Inject
 	private F_BoardReplyDAO replyDao;
 	
 	@Inject
@@ -55,7 +87,7 @@ public class F_BoardReplyServiceImpl implements F_BoardReplyService{
 	@Override
 	public int count(Integer board_num) throws Exception {
 		return replyDao.count(board_num);
-	}
+	}*/
 
 	
 

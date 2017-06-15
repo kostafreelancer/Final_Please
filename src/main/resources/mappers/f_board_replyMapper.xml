@@ -6,7 +6,24 @@
   <!-- seq_reply.nextval -->
 <mapper namespace="lancer.mapper.f_board_replyMapper">
 
- 	<select id="list" resultType="F_ReplyVO">
+	<select id="countReply" resultType="int">
+        SELECT COUNT(*) FROM reply WHERE board_num=#{board_num}
+    </select>
+	
+	<insert id="create">
+		insert into reply(reply_num, board_num, reply_content, reply_date, f_num)
+		values(51, #{board_num}, #{reply_content}, sysdate, 7)
+	</insert>
+	
+	<select id="list" resultType="F_ReplyVO">
+		SELECT reply_num, board_num, reply_content, reply_date, f_num
+        FROM reply
+        WHERE  board_num=#{board_num}
+        ORDER BY reply_num
+	</select>
+
+
+ <!-- 	<select id="list" resultType="F_ReplyVO">
  		select * from reply
  			where board_num = #{board_num}
  			order by reply_num desc
@@ -51,7 +68,7 @@
   <select id="getBno" resultType="int">
   	select board_num from reply where reply_num = #{reply_num}
   </select>
-  	
+  	 -->
   
 </mapper>  
 

@@ -39,13 +39,110 @@ $(document).ready(function(){
 /* 		formObj.submit(); */
 	}); 
 	
-	$(".reply_test").click(function(){
-		console.log("광명아ㅜㅜㅜㅜ");
-		formObj2.attr("action", "/replies/test");
-		formObj2.attr("method", "post");
-		formObj2.submit();
-	});
-});
+	
+	 //listReply("1"); // **댓글 목록 불러오기
+     listReply2(); // ** json 리턴방식
+     
+     // ** 댓글 쓰기 버튼 클릭 이벤트 (ajax로 처리)
+     $("#btnReply").click(function(){
+         //reply(); // 폼데이터로 입력
+         replyJson(); // json으로 입력
+     });
+     
+ });
+ 
+ // ** 댓글 쓰기 (json방식)
+ function replyJson(){
+     var board_content=$("#board_content").val();
+     var board_num="${F_BoardVO.f_board_num}"
+     // ** 비밀댓글 체크여부
+     var secretReply = "n";
+     // 태그.is(":속성") 체크여부 true/false
+     if( $("#secretReply").is(":checked") ){
+         secretReply = "y";
+     }
+     $.ajax({                
+         type: "post",
+         url: "/reply/insertRest.do",
+         headers: {
+             "Content-Type" : "application/json"
+         },
+         dateType: "text",
+         // param형식보다 편하다.
+         data: JSON.stringify({
+             board_num : board_num,
+             reply_content : reply_content,
+             secretReply : secretReply
+         }),
+         success: function(){
+             alert("댓글이 등록되었습니다.");
+             listReply2();
+            // listReply("1");
+         }
+     });
+ }
+     
+ // 댓글 쓰기(폼데이터 방식)
+ function reply(){
+     var reply_content=$("#reply_content").val();
+     var board_num="${F_BoardVO.f_board_num}"
+/*      // 비밀댓글 체크여부
+     var secretReply = "n";
+     // 태그.is(":속성") 체크여부 true/false
+     if( $("#secretReply").is(":checked") ){
+         secretReply = "y";
+     }
+     //alert(secretReply); */
+     // 비밀댓글 파라미터 추가
+     var param="reply_content="+reply_content+"&board_num="+board_num+"&";
+     $.ajax({                
+         type: "post",
+         url: "/reply/insert.do",
+         data: param,
+         success: function(){
+             alert("댓글이 등록되었습니다.");
+             listReply2();
+             //listReply("1");
+         }
+     });
+ }
+     
+
+ // RestController방식 (Json)
+ // 댓글 목록2 (json)
+ function listReply2(){
+     $.ajax({
+         type: "get",
+         //contentType: "application/json", ==> 생략가능(RestController이기때문에 가능)
+         url: "/reply/listJson.do?bno=${F_BoardVO.f_board_num}",
+         success: function(result){
+             console.log(result);
+             var output = "<table>";
+             for(var i in result){
+                 output += "<tr>";
+                 /* output += "<td>"+result[i].f_num; */
+                 output += "("+changeDate(result[i].reply_date)+")<br>";
+                 output += result[i].reply_content+"</td>";
+                 output += "<tr>";
+             }
+             output += "</table>";
+             $("#listReply").html(output);
+         }
+     });
+ }
+ // **날짜 변환 함수 작성
+ function changeDate(date){
+     date = new Date(parseInt(date));
+     year = date.getFullYear();
+     month = date.getMonth();
+     day = date.getDate();
+     hour = date.getHours();
+     minute = date.getMinutes();
+     second = date.getSeconds();
+     strDate = year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
+     return strDate;
+ }
+
 </script>
 </head>
 <body>
@@ -185,34 +282,22 @@ $(document).ready(function(){
 				</div>
 				
 				
-				
-				
-				
-
-					<b>댓글</b>
-					<table border="1" cellpadding="0" cellspacing="0">
-						<tr><td><b>작성자</b></td><td><b>내용</b></td></tr>
-						<c:forEach var="F_ReplyVO" items="${test_list}">
-						<tr>
-							<td>${F_ReplyVO.reply_num}</td>
-							<td>${F_ReplyVO.board_num}</td>
-							<td>${F_ReplyVO.reply_date}</td>
-							<td>${F_ReplyVO.reply_content}</td>
-							<td>${F_ReplyVO.f_num}</td>
-						</tr>
-						</c:forEach>
-					</table>
-
-					
-			<form role="form_test">
-						<h3>댓글달기</h3>
-						글번호 : <input type = "text" name="reply_num" value="${F_ReplyVO.reply_num}"><br>
-						게시판번호 : <input type = "text" name="board_num" value="${F_ReplyVO.board_num}"><br>
-						게시판날짜 : <input type = "text" name="reply_date" value="${F_ReplyVO.reply_date}"><br>
-						프리랜서번호 : <input type = "text" name="f_num" value="${F_ReplyVO.f_num}"><br>
-						글내용 : <textarea rows="10" cols="60" name="reply_content" value="${F_ReplyVO.reply_content}"></textarea><br>
-						<input type="submit" class="reply_test" value="저장">
-			</form>
+    <div style="width:650px; text-align: center;">
+        <br>
+        <!-- 로그인 한 회원에게만 댓글 작성폼이 보이게 처리 -->
+       <%--  <c:if test="${sessionScope.userId != null}">     --%>
+        <textarea rows="5" cols="80" id="reply_content" placeholder="댓글을 작성해주세요"></textarea>
+        <br>
+        <!-- **비밀댓글 체크박스 -->
+        <!-- <input type="checkbox" id="secretReply">비밀 댓글 -->
+        <button type="button" id="btnReply">댓글 작성</button>
+    <%--     </c:if> --%>
+    <hr>
+    </div>
+    <!-- **댓글 목록 출력할 위치 -->
+    <div id="listReply">
+    adssd
+    </div>
 					
 
 				

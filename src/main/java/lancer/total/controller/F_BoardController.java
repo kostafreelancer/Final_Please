@@ -18,7 +18,9 @@ import lancer.c_projectlist.domain.Criteria;
 import lancer.f_board.domain.F_BoardVO;
 import lancer.f_board.domain.F_Criteria;
 import lancer.f_board.domain.F_PageMaker;
+import lancer.f_board.domain.F_ReplyVO;
 import lancer.f_board.domain.F_SearchCriteria;
+import lancer.total.service.F_BoardReplyService;
 import lancer.total.service.F_BoardService;
 
 @Controller
@@ -27,6 +29,9 @@ public class F_BoardController {
 	
 	@Inject
 	private F_BoardService service;
+	
+	@Inject
+	private F_BoardReplyService r_service;
 	
 	@RequestMapping(value="/f_register", method=RequestMethod.GET)
 	public void registerGet(F_BoardVO board, Model model)throws Exception{
@@ -64,6 +69,11 @@ public class F_BoardController {
 	@RequestMapping(value="/f_readPage", method = RequestMethod.GET)
 	public void f_readPage(@RequestParam("f_board_num") int f_board_num, @ModelAttribute("cri") F_SearchCriteria cri, Model model) throws Exception{
 		model.addAttribute("F_BoardVO", service.read(f_board_num));
+		List<F_ReplyVO> mylist = r_service.list(f_board_num);
+		model.addAttribute("F_ReplyVO", r_service.list(f_board_num));
+		for(int i=0; i<mylist.size(); i++){
+			System.out.println(mylist.get(i).getBoard_num());
+		}
 		
 	}
 

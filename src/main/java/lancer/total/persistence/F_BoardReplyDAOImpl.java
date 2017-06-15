@@ -19,8 +19,34 @@ public class F_BoardReplyDAOImpl implements F_BoardReplyDAO{
 	private SqlSession session;
 	
 	private static String namespace = "lancer.mapper.f_board_replyMapper";
-	
+
 	@Override
+	public List<F_ReplyVO> list(Integer board_num) throws Exception {
+		System.out.println("여기 들어오셧어요?");
+		return session.selectList(namespace+".list", board_num);
+	}
+
+	@Override
+	public void create(F_ReplyVO vo) throws Exception {
+		session.insert(namespace+".create", vo);
+	}
+
+	@Override
+	public void update(F_ReplyVO vo) throws Exception {
+
+	}
+
+	@Override
+	public void delete(Integer reply_num) throws Exception {
+		
+	}
+
+	@Override
+	public int count(int board_num) throws Exception {
+		return session.selectOne(namespace+".count", board_num);
+	}
+	
+/*	@Override
 	public List<F_ReplyVO> list(Integer board_num) throws Exception {
 		return session.selectList(namespace + ".list", board_num);
 	}
@@ -57,7 +83,7 @@ public class F_BoardReplyDAOImpl implements F_BoardReplyDAO{
 	@Override
 	public int getBno(Integer reply_num) throws Exception {
 		return session.selectOne(namespace + ".getBno", reply_num);
-	}
+	}*/
 	
 	
 }
