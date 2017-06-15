@@ -6,12 +6,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
-import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,7 +27,6 @@ public class A_MainController {
 
 	@Inject
 	private A_MainService service;
-	
 	@Inject
 	private C_DropService dropService;
 	@Autowired
@@ -101,14 +98,14 @@ public class A_MainController {
 	
 	
 	@RequestMapping(value = "/a_main", method = RequestMethod.GET)
-	public void a_mainGET(@ModelAttribute("cri") Criteria cri,Integer tabnum, Model model,HttpSession session)throws Exception{
+	public void a_mainGET(@ModelAttribute("cri") Criteria cri, Integer tabnum, Model model,HttpSession session)throws Exception{
 		model.addAttribute("tabnum", tabnum);
 		
 		model.addAttribute("listFreelancer", service.listFreelancer(cri));
 		model.addAttribute("listEnterprise", service.listEnterprise(cri));
 		model.addAttribute("listEnterprisePermit", service.listEnterprisePermit(cri));
-		model.addAttribute("askList",service.askList());
-		model.addAttribute("answerOK",service.answerOK());
+		model.addAttribute("askList",service.askList(cri));
+		model.addAttribute("answerOK",service.answerOK(cri));
 		
 		PageMaker pageMakerFreelancer =  new PageMaker();
 		pageMakerFreelancer.setCri(cri);
@@ -122,9 +119,19 @@ public class A_MainController {
 		pageMakerEnterprisePermit.setCri(cri);
 		pageMakerEnterprisePermit.setTotalCount(service.countEnterprisePermit());
 		
+		PageMaker pageMakerAskList =  new PageMaker();
+		pageMakerAskList.setCri(cri);
+		pageMakerAskList.setTotalCount(service.countAskList());
+		
+		PageMaker pageMakerAnswerOK =  new PageMaker();
+		pageMakerAnswerOK.setCri(cri);
+		pageMakerAnswerOK.setTotalCount(service.countAnswerOK());
+		
 		model.addAttribute("pageMakerFreelancer", pageMakerFreelancer);
 		model.addAttribute("pageMakerEnterprise", pageMakerEnterprise);
 		model.addAttribute("pageMakerEnterprisePermit", pageMakerEnterprisePermit);
+		model.addAttribute("pageMakerAskList", pageMakerAskList);
+		model.addAttribute("pageMakerAnswerOK", pageMakerAnswerOK);
 		
 	}
 	

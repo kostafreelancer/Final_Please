@@ -68,8 +68,12 @@ public class A_MainDAO {
 	}
 	
 	//질문리스트
-	public List<askList> askList() throws Exception{
-		return session.selectList(namespace + ".askList");
+	public List<askList> askList(Criteria cri) throws Exception{
+		return session.selectList(namespace + ".askList", cri, new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
+	}
+	
+	public Integer countAskList() throws Exception{
+		return session.selectOne(namespace + ".countAskList");
 	}
 	
 	public askList askcontents(int asknum) throws Exception{
@@ -80,7 +84,11 @@ public class A_MainDAO {
 		session.selectOne(namespace + ".doAsk", al);
 	}
 	
-	public List<askList> answerOK() throws Exception{
-		return session.selectList(namespace + ".answerOK");
+	public List<askList> answerOK(Criteria cri) throws Exception{
+		return session.selectList(namespace + ".answerOK", cri, new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
+	}
+	
+	public Integer countAnswerOK() throws Exception{
+		return session.selectOne(namespace+".countAnswerOK");
 	}
 }

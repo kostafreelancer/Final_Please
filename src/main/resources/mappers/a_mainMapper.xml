@@ -48,8 +48,20 @@
 		order by askdate desc
 	</select>
 	
+	<select id="countAskList" resultType="Integer">
+		select count(*) from ask
+		where ask_state = '답변중'
+		order by askdate desc
+	</select>
+	
 	<select id="answerOK" resultType="lancer.a_main.domain.askList">
 		select * from ask
+		where ask_state = '답변완료'
+		order by answerdate desc
+	</select>
+	
+	<select id="countAnswerOK" resultType="Integer">
+		select count(*) from ask
 		where ask_state = '답변완료'
 		order by answerdate desc
 	</select>

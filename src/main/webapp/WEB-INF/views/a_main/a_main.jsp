@@ -108,7 +108,7 @@
 								end="${pageMakerFreelancer.endPage }" var="idx">
 								<span
 								<c:out value="${pageMakerFreelancer.cri.page == idx?'class=on':''}"/>>
-									<a href="/a_main/a_main${pageMakerFreelancer.makeSearch(idx)}&tabnum=${tabnum}">${idx}</a>
+									<a href="/a_main/a_main${pageMakerFreelancer.makeSearch(idx)}&tabnum=1">${idx}</a>
 								</span>
 							</c:forEach>
 
@@ -182,7 +182,7 @@
 								end="${pageMakerEnterprise.endPage }" var="idx">
 								<span
 								<c:out value="${pageMakerEnterprise.cri.page == idx?'class=on':''}"/>>
-									<a href="/a_main/a_main${pageMakerEnterprise.makeSearch(idx)}&tabnum=${tabnum}">${idx}</a>
+									<a href="/a_main/a_main${pageMakerEnterprise.makeSearch(idx)}&tabnum=2">${idx}</a>
 								</span>
 							</c:forEach>
 
@@ -256,7 +256,7 @@
 								end="${pageMakerEnterprisePermit.endPage }" var="idx">
 								<span
 								<c:out value="${pageMakerEnterprisePermit.cri.page == idx?'class=on':''}"/>>
-									<a href="/a_main/a_main${pageMakerEnterprisePermit.makeSearch(idx)}&tabnum=${tabnum}">${idx}</a>
+									<a href="/a_main/a_main${pageMakerEnterprisePermit.makeSearch(idx)}&tabnum=3">${idx}</a>
 								</span>
 							</c:forEach>
 
@@ -351,9 +351,25 @@
             </form>
          </div>
          <div class="num_box">
-            <span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
-            </span> <span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
-            </span>
+				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a></span> 
+							<c:if test="${pageMakerAskList.prev}">
+								<a
+									href="/a_main/a_main${pageMakerAskList.makeSearch(pageMakerAskList.startPage - 1) }">&laquo;</a>
+							</c:if>
+
+							<c:forEach begin="${pageMakerAskList.startPage }"
+								end="${pageMakerAskList.endPage }" var="idx">
+								<span
+								<c:out value="${pageMakerAskList.cri.page == idx?'class=on':''}"/>>
+									<a href="/a_main/a_main${pageMakerAskList.makeSearch(idx)}&tabnum=5">${idx}</a>
+								</span>
+							</c:forEach>
+
+							<c:if test="${pageMakerAskList.next && pageMakerAskList.endPage > 0}">
+								<li><a
+									href="/a_main/a_main${pageMakerAskList.makeSearch(pageMakerAskList.endPage +1) }">&raquo;</a></li>
+							</c:if>						
+				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a></span>
          </div>
       </div>
       
@@ -382,9 +398,25 @@
             </form>
          </div>
          <div class="num_box">
-            <span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
-            </span> <span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
-            </span>
+				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a></span> 
+							<c:if test="${pageMakerAnswerOK.prev}">
+								<a
+									href="/a_main/a_main${pageMakerAnswerOK.makeSearch(pageMakerAnswerOK.startPage - 1) }">&laquo;</a>
+							</c:if>
+
+							<c:forEach begin="${pageMakerAnswerOK.startPage }"
+								end="${pageMakerAnswerOK.endPage }" var="idx">
+								<span
+								<c:out value="${pageMakerAnswerOK.cri.page == idx?'class=on':''}"/>>
+									<a href="/a_main/a_main${pageMakerAnswerOK.makeSearch(idx)}&tabnum=6">${idx}</a>
+								</span>
+							</c:forEach>
+
+							<c:if test="${pageMakerAnswerOK.next && pageMakerAnswerOK.endPage > 0}">
+								<li><a
+									href="/a_main/a_main${pageMakerAnswerOK.makeSearch(pageMakerAnswerOK.endPage +1) }">&raquo;</a></li>
+							</c:if>						
+				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a></span>
          </div>
       </div>
  </div>

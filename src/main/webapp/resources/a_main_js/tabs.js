@@ -7,14 +7,15 @@ $(document).ready(function() {
 	$("#tcontent div#tab5").hide();
 	$("#tcontent div#tab6").hide();
 
-	var tabnum = $('#tabnum').text();
-	if(tabnum == ""){
+	var $tabnum = $('#tabnum');
+	var tabnumValue = 0;
+	if($tabnum.text() == ""){
 		$("#tabs li:first").attr("id","current"); // Activate first tab
 	}else{
-		tabnum = tabnum - 1;
-		$('#tabs li').eq(tabnum).attr("id", "current");
+		tabnumValue = $tabnum.text() - 1;
+		$('#tabs li').eq(tabnumValue).attr("id", "current");
 	}
-	$('#tcontent div.tab').eq(tabnum).fadeIn(); // Show first tab content
+	$('#tcontent div.tab').eq(tabnumValue).fadeIn(); // Show first tab content
 	
     
     
@@ -30,5 +31,10 @@ $(document).ready(function() {
         $("#tabs li").attr("id",""); //Reset id's
         $(this).parent().attr("id","current"); // Activate this
         $('#' + $(this).attr('title')).fadeIn(); // Show content for current tab
+
    });
 });
+
+function getTabnum(){
+	return $('#tabnum').text();
+}

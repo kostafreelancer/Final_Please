@@ -63,8 +63,12 @@ public class A_MainService {
 		return dao.getE_mail(e_num);
 	}
 	
-	public List<askList> askList() throws Exception{
-		return dao.askList();
+	public List<askList> askList(Criteria cri) throws Exception{
+		return dao.askList(cri);
+	}
+	
+	public Integer countAskList() throws Exception{
+		return dao.countAskList();
 	}
 	
 	public askList askcontents(int asknum) throws Exception{
@@ -75,7 +79,11 @@ public class A_MainService {
 		 dao.doAsk(al);
 	}
 	
-	public List<askList> answerOK() throws Exception{
-		return dao.answerOK();
+	public List<askList> answerOK(Criteria cri) throws Exception{
+		return dao.answerOK(cri);
+	}
+	
+	public Integer countAnswerOK() throws Exception{
+		return dao.countAnswerOK();
 	}
 }
