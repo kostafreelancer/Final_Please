@@ -9,7 +9,7 @@
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script type="text/javascript"
-	src="../../../resources/verification_js/check.js"></script>
+	src="../../../resources/verification_js/check2.js"></script>
 <script type="text/javascript"
 	src="../../../resources/verification_js/countdown.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,14 +17,16 @@
 </head>
 <body>
 	<div class="tabmenu">
-	<form name="form" action="/verification/verified" method="GET" onsubmit="return check()">
+	<form name="form" action="/verification/emailVerification" method="POST" onsubmit="return check2()">
 	<span class="txt">이메일로 인증번호가 발송되었습니다. 인증번호를 입력해주세요.</span><br>
 	<input id="num" name="num" type="text"> <span id="Timer"></span>
 	<input id="refresh" name="email_agian" type="button" onclick="window.location.reload(true);" value="재전송"><br>
+	<input type="hidden" name="id" value="${id }">
+	<input type="hidden" name="name" value="${name }">
+	<input type="hidden" name="emailAddr" value="${emailAddr }">
+	<input id="codeNum" type="hidden" name="codeNum" value="${codeNum }">${codeNum }
 	<input class="verify" type="submit" value="확인">
-	<% RandomCode code = new RandomCode();%>
-	<%= code.start() %>
-	<span id="codeNum" style="display:none;">${codeNum }</span>
+	
 	</form>
 	</div>
 </body>

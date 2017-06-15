@@ -1,6 +1,7 @@
 package lancer.total.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,7 +101,7 @@ public class VerificationController {
 	}
 
 	@RequestMapping(value = "/emailVerification", method = RequestMethod.GET)
-	public String emailVerificationGET(VerificationVO veriVO, Model model) throws Exception {
+	public void emailVerificationGET(VerificationVO veriVO, Model model) throws Exception {
 		System.out.println("이메일 인증번호 주는 페이지에서 이메일 넘어오나?: "+veriVO.getEmailAddr());
 		RandomCode randomNum = new RandomCode(); 
 		String codeNum = randomNum.start();
@@ -127,7 +128,7 @@ public class VerificationController {
 		msg.setFrom(From);
 		msg.setTo(new String[] { To });
 		msg.setSubject(setSubject);
-		msg.setText(setText);
+		msg.setText(Content);
 
 		try {
 			mailsender.send(msg);
@@ -137,14 +138,15 @@ public class VerificationController {
 			e.printStackTrace();
 		}
         
-		model.addAttribute(setText);
+		model.addAttribute(Content);
 		model.addAttribute("codeNum", codeNum);
 		
-		return "/verification/emailVerification";
+		
 	}
 	
-	@RequestMapping(value = "/verified", method = RequestMethod.GET)
-	public String emailVerificationPOST(VerificationVO veriVO, Model model) throws Exception {
+	@RequestMapping(value = "/emailVerification", method = RequestMethod.POST)
+	public String emailVerificationPOST(HttpServletRequest request,VerificationVO veriVO, Model model) throws Exception {
+		
 		
 		String f_pwd = verificationService.verifying_freelancer_pwd(veriVO);
 		System.out.println("프리 비번: "+f_pwd);

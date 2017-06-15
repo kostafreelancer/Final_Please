@@ -54,6 +54,7 @@
 			<br>
 			<input id="f_btn" type="radio" name="sort" value="f">프리랜서
 			<input id="e_btn" type="radio" name="sort" value="e">기업
+			<input type="hidden" id="random" name="random" value="">
 			<br>
 			<input class="verify" type="submit" value="조회">
 			<br>
