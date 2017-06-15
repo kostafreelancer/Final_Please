@@ -29,7 +29,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="../c_common/header_enterprise.jsp"></jsp:include>
+	<jsp:include page="../c_common/header.jsp"></jsp:include>
 
 	<section id="slide">
 	<div class="sp-slideshow">
