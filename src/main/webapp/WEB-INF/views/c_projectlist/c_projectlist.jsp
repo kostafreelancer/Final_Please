@@ -53,6 +53,22 @@
                 	<caption>프리랜서 검색 : 개발분야, 디자인/퍼블리싱 분야, 기획/ 컨설턴트 분야, 전문분야/특별경험, 근무희망지역, 등급, 학력, 근무형태, 나이로 구성된 표</caption>
                   
                     <tbody>
+                    <tr>
+                        	<th scope="row" class="p_state"></span><label for="">프로젝트 모집상태</label></th>
+                        </tr>
+                        <tr>
+                            <td class="ct ">
+                            <div  class="che_top_pa">
+                                <ul class="che_list03">
+						                                        <li><input type="checkbox" name="fr_new_keyword" value="모집중" >모집중</li>
+						                                        <li><input type="checkbox" name="ft_new_keyword" value="완료" >완료</li>
+						                                        
+						                                </ul>
+                            </div>
+
+                            </td>
+                            </tr>
+                    
                     	<tr>
                         	<th scope="row"></span><label for="">개발분야</label></th>
                         </tr>

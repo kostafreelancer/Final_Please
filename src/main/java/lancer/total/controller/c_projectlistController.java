@@ -32,11 +32,17 @@ public class c_projectlistController {
 	public void projectlistGET(@ModelAttribute("cri") SearchCriteria cri,Model model,HttpSession session,HttpServletRequest request) throws Exception{
 		
 		String[] job = request.getParameterValues("fm_new_keyword[]");
-		
+		String fr = request.getParameter("fr_new_keyword");
+		String ft = request.getParameter("ft_new_keyword");
 		if(cri.getJobs()==null){
 			cri.setJobs(job);
 		}
-		
+		if(fr != null){
+			cri.setFr(fr);
+		}
+		if(ft != null){
+			cri.setFt(ft);
+		}
 		List<E_Insert> list = service.listSearch(cri);
 		if(cri.getJobs()!=null){
 			String str[] =cri.getJobs();

@@ -46,7 +46,8 @@ public class c_projectlistDAOImpl implements c_projectlistDAO {
 				System.out.println(str[i]);
 			}
 		}
-		
+	
+		System.out.println(	(session.selectList(namespace+".listSearch", cri ,new RowBounds(cri.getPageStart(),cri.getPerPageNum()))).size()+"이거 싸이즈");
 		return session.selectList(namespace+".listSearch", cri ,new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
 	}
 

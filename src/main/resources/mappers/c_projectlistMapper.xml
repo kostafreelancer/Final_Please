@@ -31,10 +31,29 @@
 		   <if test="jobs != null">
 			<where>
 			  <foreach collection="jobs" item="item" separator="AND" open="(" close=")">
-			     e_pr_num in (select e_pr_num from p_job where job_id = #{item})
+			    e_pr_num in (select e_pr_num from p_job where job_id = #{item})
+			   
 			  </foreach>
+			  <if test="fr !=null">
+			   	  and p_state='모집중'
+			 </if>
+			 <if test="ft != null">
+			 	and p_state='완료'
+			 </if>
 			</where>
 		  </if> 
+		  <if test="jobs==null">
+		  	<if test="fr !=null or ft !=null">
+		  			where 
+		  	</if>
+		  
+		  	  <if test="fr !=null">
+			   	   p_state='모집중'
+			 </if>
+			 <if test="ft != null">
+			 	 p_state='완료'
+			 </if>
+		  </if>
 		order by e_pr_num desc
 	</select>
 	
@@ -42,13 +61,40 @@
 	
 			select count(e_pr_num)
 				from project
-			   <if test="jobs != null">
+			<!--    <if test="jobs != null">
 			<where>
 			  <foreach collection="jobs" item="item" separator="AND" open="(" close=")">
 			     e_pr_num in (select e_pr_num from p_job where job_id = #{item})
 			  </foreach>
 			</where>
+		  </if>  -->
+		   <if test="jobs != null">
+			<where>
+			  <foreach collection="jobs" item="item" separator="AND" open="(" close=")">
+			    e_pr_num in (select e_pr_num from p_job where job_id = #{item})
+			   
+			  </foreach>
+			  <if test="fr !=null">
+			   	  and p_state='모집중'
+			 </if>
+			 <if test="ft != null">
+			 	and p_state='완료'
+			 </if>
+			</where>
 		  </if> 
+		  <if test="jobs==null">
+		  	<if test="fr !=null or ft !=null">
+		  			where 
+		  	</if>
+		  
+		  	  <if test="fr !=null">
+			   	   p_state='모집중'
+			 </if>
+			 <if test="ft != null">
+			 	 p_state='완료'
+			 </if>
+		  </if>
+		  
 	</select>
 	
 	<select id="getnum" resultType="int">
