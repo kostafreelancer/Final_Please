@@ -1,7 +1,6 @@
 package lancer.total.controller;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -112,8 +111,7 @@ public class VerificationController {
         System.out.println(From + "보내는사람");
         
         //받는사람
-        //String To = veriVO.getEmailAddr();
-        String To = "cheolsukim001@gmail.com";
+        String To = veriVO.getEmailAddr();
         System.out.println(To + "받는사람");
         
         // 제목
@@ -137,6 +135,9 @@ public class VerificationController {
 		} catch (MailException e) {
 			e.printStackTrace();
 		}
+        model.addAttribute("id", veriVO.getId());
+        model.addAttribute("name", veriVO.getName());
+        model.addAttribute("emailAddr", veriVO.getEmailAddr());
         
 		model.addAttribute(Content);
 		model.addAttribute("codeNum", codeNum);
@@ -145,9 +146,9 @@ public class VerificationController {
 	}
 	
 	@RequestMapping(value = "/emailVerification", method = RequestMethod.POST)
-	public String emailVerificationPOST(HttpServletRequest request,VerificationVO veriVO, Model model) throws Exception {
+	public String emailVerificationPOST(VerificationVO veriVO, Model model) throws Exception {
 		
-		
+		System.out.println("자료 넘어오나: "+veriVO.getId()+veriVO.getName()+veriVO.getEmailAddr());
 		String f_pwd = verificationService.verifying_freelancer_pwd(veriVO);
 		System.out.println("프리 비번: "+f_pwd);
 		String e_pwd = verificationService.verifying_enterprise_pwd(veriVO);

@@ -54,10 +54,11 @@ $(document).ready(function(){
 	}
 	
 	if($('#f_pwd').text() != ""){
-		alert("회원님의 아이디는 "+$('#f_pwd').text()+"입니다.");
+		alert("회원님의 비밀번호는 "+$('#f_pwd').text()+"입니다.");
 	}
 	
 	if($('#e_pwd').text() != ""){
-		alert("회원님의 아이디는 "+$('#e_pwd').text()+"입니다.");
+		alert("회원님의 비밀번호는 "+$('#e_pwd').text()+"입니다.");
 	}
+
 })
