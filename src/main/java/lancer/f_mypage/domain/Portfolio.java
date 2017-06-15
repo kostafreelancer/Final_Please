@@ -1,8 +1,11 @@
 package lancer.f_mypage.domain;
 
-public class Portfolio {
+import java.io.Serializable;
+
+public class Portfolio  implements Serializable{
 	private int portfolio_num;
 	private int f_num;
+	private String portfolio_title;
 	private String contents;
 	private String portfile;
 	private int portfile_iden;
@@ -10,10 +13,12 @@ public class Portfolio {
 	public Portfolio(){}
 
 
-	public Portfolio(int portfolio_num, int f_num, String contents, String portfile, int portfile_iden) {
+	public Portfolio(int portfolio_num, int f_num, String portfolio_title, String contents, String portfile,
+			int portfile_iden) {
 		super();
 		this.portfolio_num = portfolio_num;
 		this.f_num = f_num;
+		this.portfolio_title = portfolio_title;
 		this.contents = contents;
 		this.portfile = portfile;
 		this.portfile_iden = portfile_iden;
@@ -60,6 +65,16 @@ public class Portfolio {
 
 	public void setPortfile(String portfile) {
 		this.portfile = portfile;
+	}
+
+
+	public String getPortfolio_title() {
+		return portfolio_title;
+	}
+
+
+	public void setPortfolio_title(String portfolio_title) {
+		this.portfolio_title = portfolio_title;
 	}
 
 

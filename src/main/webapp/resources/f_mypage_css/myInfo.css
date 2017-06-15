@@ -1,5 +1,23 @@
 @CHARSET "UTF-8";
 
+.filebutton {
+	position: relative;
+	width: 120px;
+	height: 25px;
+	margin: 0 7px 0 0;
+	overflow: hidden;
+}
+
+.filebutton span {
+	display: inline-block;
+	width: 120px;
+	height: 23px;
+	background-color: #2257ad;
+	color: #fff;
+	padding: 8px 0 9px;
+	text-align: center;
+	line-height: 9px;
+}
 #tabs {
 	overflow: hidden;
 	width: 1000px;

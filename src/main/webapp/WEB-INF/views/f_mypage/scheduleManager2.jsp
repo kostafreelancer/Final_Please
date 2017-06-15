@@ -20,27 +20,28 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/f_mypage_css/scheduleManager.css"
 	type="text/css" media="screen" />
-<!-- <script  src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 
-<script
-	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery.js"></script> 
+<%-- <script
+	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery.js"></script> --%>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
 <script
 	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/jquery-ui-custom.js"></script>
-<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script> -->
-<%-- <script
+<script
 	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/fullcalendar.min.js"></script>
-  --%>
- <script src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/fullcalendar.min.js"></script>
- <script
+<script
 	src="${pageContext.request.contextPath}/resources/f_mypage_js/fullcalendar/ko.js"></script>
 
 <script type="text/javascript">
+/* function addScheduleSubmit(){
+	document.scheduleAdd.submit();
+}
+ */
+var newJquery = $.noConflict(true);
 
-var newJquery = jQuery.noConflict(true);
-//망했네망했어
 
 newJquery(document).ready(function() {
-//$(document).ready(function() {
+
+	 
 	
 	var date = new Date();
 	var d = date.getDate();
@@ -59,8 +60,8 @@ newJquery(document).ready(function() {
 
 	
 	
-	  newJquery('#calendar').fullCalendar({
-	//$('#calendar').fullCalendar({	    
+	   newJquery('#calendar').fullCalendar({
+		    
 		   header: {
 				left: 'prev,next today',
 				center: 'title',
@@ -111,20 +112,19 @@ newJquery(document).ready(function() {
 		    },  
 		    
 		    eventClick: function(event) {
-		    	
-		    		$.ajax({
-						url : "scheduleDelete",
-						type : "get",
-						data : "title="+event.title+ "&f_num=" +${client.f_num},
-						//dataType : 'json',
-						success : function(){
-							  newJquery('#calendar').fullCalendar('removeEvents' , function(ev){  
-								    return (ev._id == event._id);
-							  });
-						}
-					});
-		   
+		    	$.ajax({
+					url : "scheduleDelete",
+					type : "get",
+					data : "title="+event.title+ "&f_num=" +${client.f_num},
+					//dataType : 'json',
+					success : function(){
+						  newJquery('#calendar').fullCalendar('removeEvents' , function(ev){  
+							    return (ev._id == event._id);
+						  });
+					}
+				});
 		    },
+
 		    dayClick: function() {
 		    	window.open('/f_mypage/scheduleAdd','win','width=350, height=250');
 		    }
@@ -176,22 +176,18 @@ newJquery(document).ready(function() {
 			] */
 			 
 	    });
-	
 });	
  
-function addScheduleSubmit(){
-	document.scheduleAdd.submit();
-}
 
 </script>
 
 <style type='text/css'>
-/* body {
+body {
 	margin-top: 40px;
 	text-align: center;
 	font-size: 14px;
 	font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
-} */
+}
 
 #calendar {
 	width: 900px;

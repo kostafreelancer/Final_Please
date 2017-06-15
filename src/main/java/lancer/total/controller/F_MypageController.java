@@ -53,7 +53,7 @@ public class F_MypageController {
 	private C_DropService dropService;
 	
 	@Inject
-	private C_FileService fileUploadService;
+	private C_FileService fileService;
 	
 	@RequestMapping(value="/myInfo", method = RequestMethod.GET)
 	public void myInfo(Model model, HttpSession session) throws Exception{
@@ -79,7 +79,14 @@ public class F_MypageController {
 		for(int i=0; i<address.length; i++){
 			model.addAttribute("address" + (i+1), address[i]);
 		}
-	
+		
+		HashMap<String, Object> f_fnameMap = fileService.selectFile("f_fname", freelancer.getF_num(), 0);
+		
+	/*	if(f_fnameMap.get("file_num") != null){
+			HashMap<String, Object> e_ownerfileMap2 = fileService.selectFileInfo((Integer)e_ownerfileMap.get("file_num"));
+			model.addAttribute("e_ownerFileStoredName", e_ownerfileMap2.get("stored_file_name"));
+		}*/
+		
 		
 		List<Integer> joblist = service.showFreelancerJobInfo(3);
 		model.addAttribute("joblist", joblist);
@@ -318,19 +325,21 @@ public class F_MypageController {
 			
 			Portfolio portfolio = new Portfolio();
 			portfolio.setPortfolio_num(service.getPortfolioNum()+1);
+			portfolio.setPortfolio_title(portFolioCommand.getPortfolio_title());
 			portfolio.setContents(portFolioCommand.getContents());
 			portfolio.setF_num(portFolioCommand.getF_num());
-			portfolio.setPortfile_iden(service.getPortfolio_iden(portfolio.getF_num())+1);
+			
 			if(portFolioCommand.getPortfile().isEmpty()){
 				portfolio.setPortfile("");
+				portfolio.setPortfile_iden(0);
 			}else{
 				portfolio.setPortfile(portFolioCommand.getPortfile().getOriginalFilename());
+				portfolio.setPortfile_iden(service.getPortfolio_iden(portfolio.getF_num())+1);
+				MultipartFile portfile = portFolioCommand.getPortfile();
+				int identy = fileService.getIdenty("portfile", portfolio.getF_num())+1;
+				fileService.uploadFile(portfile, "portfile", portfolio.getF_num(), identy);
 			}
 			service.insertPortfolio(portfolio);
-			
-			MultipartFile portfile = portFolioCommand.getPortfile();
-			int identy = fileUploadService.getIdenty("portfile", portfolio.getF_num())+1;
-			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num(), identy);
 		
 		}else{
 			System.out.println("업데이트로 온 거 맞아요?");
@@ -338,19 +347,22 @@ public class F_MypageController {
 			System.out.println(portFolioCommand.getPortfile_iden());
 			Portfolio portfolio = new Portfolio();
 			portfolio.setPortfolio_num(portFolioCommand.getPortfolio_num());
+			portfolio.setPortfolio_title(portFolioCommand.getPortfolio_title());
 			portfolio.setF_num(portFolioCommand.getF_num());
 			portfolio.setContents(portFolioCommand.getContents());
-			portfolio.setPortfile_iden(portFolioCommand.getPortfile_iden());
 			if(portFolioCommand.getPortfile().isEmpty()){
 				portfolio.setPortfile("");
+				portfolio.setPortfile_iden(0);
 			}else{
 				portfolio.setPortfile(portFolioCommand.getPortfile().getOriginalFilename());
+				portfolio.setPortfile_iden(portFolioCommand.getPortfile_iden());
+				MultipartFile portfile = portFolioCommand.getPortfile();
+				//	int identy = fileUploadService.getIdenty("portfile", portfolio.getF_num())+1;
+				fileService.uploadFile(portfile, "portfile", portfolio.getF_num(), portfolio.getPortfile_iden());
 			}
 			service.updatePortfolio(portfolio);
-			MultipartFile portfile = portFolioCommand.getPortfile();
 			
-		//	int identy = fileUploadService.getIdenty("portfile", portfolio.getF_num())+1;
-			fileUploadService.uploadFile(portfile, "portfile", portfolio.getF_num(), portfolio.getPortfile_iden());
+			
 		}
 		
 		return "redirect:/f_mypage/updateSuccess";
@@ -359,7 +371,7 @@ public class F_MypageController {
 	@RequestMapping(value="/deletePortfolio", method = RequestMethod.GET)
 	public String deletePortfolio(@RequestParam("deletePortfolio_num") int portfolio_num) throws Exception{
 		Portfolio portfolio = service.selectOnePortfolio(portfolio_num);
-		fileUploadService.deleteFile("portfile",  portfolio.getF_num(), portfolio.getPortfile_iden());
+		fileService.deleteFile("portfile",  portfolio.getF_num(), portfolio.getPortfile_iden());
 		service.deletePortfolio(portfolio_num);
 		return "redirect:/f_mypage/updateSuccess";
 	}
@@ -372,7 +384,7 @@ public class F_MypageController {
 	
 	
 	//일정관리
-	@RequestMapping(value = "/scheduleManager", method = RequestMethod.GET)
+	@RequestMapping(value = "/scheduleManager2", method = RequestMethod.GET)
 	public void scheduleManager(Model model, HttpSession session) throws Exception{
 		c_login_freelancerVO freelancer = (c_login_freelancerVO) session.getAttribute("client");
 		int f_num = freelancer.getF_num();
@@ -410,7 +422,7 @@ public class F_MypageController {
 		//calen.setF_num(f_num);
 		calen.setCalendar_num(service.getScheduleNum()+1);
 		service.insertMySchedule(calen);
-		return "/f_mypage/scheduleManager";
+		return "/f_mypage/scheduleManager2";
 	}
 	
 	@RequestMapping(value="/scheduleModify", method=RequestMethod.GET)
@@ -446,7 +458,7 @@ public class F_MypageController {
 		cal.setContents(title);
 		cal.setF_num(f_num);
 		service.deleteMySchedule(cal);
-		return "/f_mypage/scheduleManager";
+		return "/f_mypage/scheduleManager2";
 	}
 	
 	
@@ -492,8 +504,8 @@ public class F_MypageController {
 			service.insertSpendAccounting(accounting);
 			
 			MultipartFile a_addfile = command.getA_addfile();
-			int identy = fileUploadService.getIdenty("accfile", accounting.getF_num())+1;
-			fileUploadService.uploadFile(a_addfile, "accfile", accounting.getF_num(),identy);
+			int identy = fileService.getIdenty("accfile", accounting.getF_num())+1;
+			fileService.uploadFile(a_addfile, "accfile", accounting.getF_num(),identy);
 		
 		}else{
 			
@@ -517,7 +529,7 @@ public class F_MypageController {
 			service.updateSpendAccounting(accounting);
 			MultipartFile a_addfile = command.getA_addfile();
 			//int identy = fileUploadService.getIdenty("accfile", accounting.getF_num())+1;
-			fileUploadService.uploadFile(a_addfile, "accfile", accounting.getF_num(),accounting.getAccfile_iden());
+			fileService.uploadFile(a_addfile, "accfile", accounting.getF_num(),accounting.getAccfile_iden());
 		}
 
 		return "redirect:/f_mypage/updateSuccess";
@@ -527,7 +539,7 @@ public class F_MypageController {
 	public String deleteSpendList(@RequestParam("deleteSpendList_num") int a_num) throws Exception{
 		Accounting accouting = service.selectOneAccounting(a_num);
 	
-		fileUploadService.deleteFile("portfile",  accouting.getF_num(), accouting.getAccfile_iden());
+		fileService.deleteFile("portfile",  accouting.getF_num(), accouting.getAccfile_iden());
 		service.deleteAccounting(a_num);
 		return "redirect:/f_mypage/updateSuccess";
 	}

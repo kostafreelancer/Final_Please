@@ -229,6 +229,7 @@ function modifyPort(num){
 	var myWord = "<br />";
 	
 	resultString = resultString.replace(/<br \/>/g, "\r\n");
+	document.tempPortfolioAdd.portfolio_title.value = document.getElementById(wantForm).portfolio_title.value;
 	document.tempPortfolioAdd.contents.innerHTML = resultString;
 	document.tempPortfolioAdd.portfolio_num.value = document.getElementById(wantForm).portfolio_num.value;
 	document.tempPortfolioAdd.portfile_iden.value = document.getElementById(wantForm).portfile_iden.value;

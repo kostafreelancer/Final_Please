@@ -1,6 +1,8 @@
 package lancer.f_mypage.domain;
 
-public class CalEvent {
+import java.io.Serializable;
+
+public class CalEvent  implements Serializable{
 	private String title;
 	private String start;
 	private String end;

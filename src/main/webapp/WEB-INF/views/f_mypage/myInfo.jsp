@@ -134,16 +134,13 @@ $(function(){
 					<tbody>
 						<tr>
 							<td rowspan="4">
-							
-								<img name="IMG1" id="IMG1" >
-								<!-- <p>
-								<input type="file" name="f_fname"> -->
-									<!-- <div class="filebox"></div>
-									<div class="filebutton"><span>사진업로드</span><input type="file" name="fm_file1" onchange="PreView(this.value, 'IMG1', '132', '176');" class="searchfile" title="파일 찾기" style="width:820px;"></div>
-									<div class="filebutton"><span>사진업로드</span><input type="file" name="fm_file1" onchange="readURL(this);" class="searchfile" title="파일 찾기" style="width:820px;"></div>
-								 -->
-                                <!-- <span class="pho_txt">최적 해상도:132x176 pixel</span> --> 
-								<!-- 사진업로드</p> -->
+							<img id="e_photo" src=<%-- "/c_file/displayFile?fileName=${e_ownerFileStoredName }" --%>>
+						<div class="filebutton">
+							<input type="hidden" id="e_ownerfileExist" name="e_ownerfileExist" value="false">
+							<span>사진업로드</span>
+							<input type="file" name="f_fname" id="f_fname" value="${client.f_fname }"
+								class="searchfile" title="파일 찾기">
+						</div>
 							</td>
 							<th scope="row"><label for="fm_korname"><span
 									class="txt_or">*</span> 성명</label></th>
@@ -764,13 +761,13 @@ $(function(){
 					<table class="tb_st01 tb_st03">
 						<caption></caption>
 						<colgroup>
-							<col style="width: 60%">
+							<col style="width: 40%">
+							<col style="width: 35%">
 							<col style="width: 25%">
-							<col style="width: 15%">
 						</colgroup>
 						<thead>
 							<tr>
-								<th scope="col" class="ac">포트폴리오 내용</th>
+								<th scope="col" class="ac">포트폴리오 제목</th>
 								<th scope="col" class="ac">첨부파일</th>
 								<th scope="col" class="ac">관리</th>
 							</tr>
@@ -783,13 +780,14 @@ $(function(){
 							<c:forEach var="myport" items="${portfolio}">
 							<form id="portForm${myport.portfolio_num}" name="myportModify${myport.portfolio_num}">
 							<input type="text" hidden name="portfolio_num" value="${myport.portfolio_num}">
+							<input type="text" hidden name="portfolio_title" value="${myport.portfolio_title}">
 							<input type="text" hidden name="contents" value="${myport.contents}">
 							<input type="text" hidden name="portfile" value="${myport.portfile}">
 							<input type="text" hidden name="portfile_iden" value="${myport.portfile_iden}">							
 							<tr>
-								<td>${myport.contents}</td>
+								<td>${myport.portfolio_title}</td>
 								<td><a href="/c_file/downloadFile?identy=${myport.portfile_iden}&f_num=${client.f_num}&fileType=portfile">${myport.portfile}</a></td>
-								<td class="last"><input type="button" value="수정" onclick="modifyPort(${myport.portfolio_num});">&nbsp;&nbsp;<input
+								<td class="last"><input type="button" value="읽기 및 수정" onclick="modifyPort(${myport.portfolio_num});">&nbsp;&nbsp;<input
 									type="button" value="삭제" onclick="deletePort(${myport.portfolio_num});"></td>
 							</tr>
 							</form>
@@ -803,8 +801,11 @@ $(function(){
 					<br>
 					<fieldset>
 					<legend>포트폴리오 입력</legend>
+					<br>
+					제목 : &nbsp;&nbsp;<input type="text" name="portfolio_title" size="40"><br><br>
+					
 					<textarea id="inputbox" name="contents" rows="20" cols="140" >
-※양식에 구애받지 않고 자유롭게 기술하세요.
+※양식에 상관없이 자유롭게 기술하세요.
 
 1.프로젝트명
 

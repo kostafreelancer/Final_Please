@@ -1,6 +1,8 @@
 package lancer.f_mypage.domain;
 
-public class Accounting {
+import java.io.Serializable;
+
+public class Accounting  implements Serializable{
 	private int a_num;
 	private String detail_usage;
 	private int a_money;

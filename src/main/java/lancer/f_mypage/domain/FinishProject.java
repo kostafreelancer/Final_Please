@@ -1,6 +1,8 @@
 package lancer.f_mypage.domain;
 
-public class FinishProject {
+import java.io.Serializable;
+
+public class FinishProject  implements Serializable{
 	private String proName;
 	private String proTerm;
 	private int cost;
