@@ -6,7 +6,7 @@
 
 <mapper namespace="lancer.mappers.a_mainMapper">
 
-	<select id="listFreelancer" resultType="lancer.a_main.domain.Freelancer">
+	<select id="listFreelancer" resultType="lancer.a_main.domain.Freelancer"> 
 		SELECT * FROM freelancer
 	</select>
 	
