@@ -81,7 +81,7 @@ public class c_freelancerlistServiceImpl implements c_freelancerlistService {
 				for(int j=0;j<careerlist.size();j++){
 					total_career += careerlist.get(j).getCareer_year();
 				}
-				list.get(i).setF_highest_career(total_career+" 년 ");
+				list.get(i).setF_highest_career("경력: "+total_career+" 년 ");
 			}
 			schoollist = dao.c_freelancerlist_select_school(list.get(i).getF_num());
 			if(schoollist.size()>0){

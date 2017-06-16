@@ -109,13 +109,13 @@
 				<li class="menus_five"><a href=${pageContext.request.contextPath}"/c_using/service">이용 방법</a></li>
 
 			</ul>
-			S
+			
 			<form class="c_f_main" action="/f_main/f_main" method="get">
 			</form>
 			<form class="c_e_main" action="/e_main/e_main" method="get"></form>
 			<form class="c_a_main" action="/a_main/a_main" method="get"></form>
 			<form class="c_f_menus_one" action="/e_insertproject/e_insertproject" method="get"></form>
-			<form class="c_f_menus_one2" action="#" method="get"></form> <!--여기 자유게시판 url -->
+			<form class="c_f_menus_one2" action="/f_board/f_list" method="get"></form> <!--여기 자유게시판 url -->
 			<form class="c_f_menus_two" action="/c_projectlist/c_projectlist" method="get"></form>
 			<form class="c_f_menus_two2" action="#" method="get"></form>  <!--여기 메일함 주소-->
 			<form class="c_f_menus_three" action="/c_freelancerlist/f_list" method="get"></form>
