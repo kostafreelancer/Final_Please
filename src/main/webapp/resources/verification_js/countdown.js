@@ -9,7 +9,7 @@ function timer(){
    if(second < 0){
       clearInterval(tid);
       alert("인증요청 시간이 초과되었습니다.");
-      //window.close();
+      window.close();
    };
 };
 

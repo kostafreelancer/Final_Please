@@ -24,7 +24,7 @@
 	<input type="hidden" name="id" value="${id }">
 	<input type="hidden" name="name" value="${name }">
 	<input type="hidden" name="emailAddr" value="${emailAddr }">
-	<input id="codeNum" type="hidden" name="codeNum" value="${codeNum }">${codeNum }
+	<input id="codeNum" type="hidden" name="codeNum" value="${codeNum }">
 	<input class="verify" type="submit" value="확인">
 	
 	</form>
