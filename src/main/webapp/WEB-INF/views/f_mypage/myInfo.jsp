@@ -802,9 +802,9 @@ $(function(){
 					<fieldset>
 					<legend>포트폴리오 입력</legend>
 					<br>
-					제목 : &nbsp;&nbsp;<input type="text" name="portfolio_title" size="40"><br><br>
+					제목 : &nbsp;&nbsp;<input type="text" name="portfolio_title" size="70"><br><br>
 					
-					<textarea id="inputbox" name="contents" rows="20" cols="140" >
+					<textarea id="inputbox" name="tempcontents" rows="20" cols="140" >
 ※양식에 상관없이 자유롭게 기술하세요.
 
 1.프로젝트명
@@ -819,6 +819,11 @@ $(function(){
 4.업무 상세내용
 
 
+					</textarea>
+					<textarea rows="20" cols="140" hidden name="contents">
+					
+					
+					
 					</textarea>
 					<br>
 					첨부파일 : <input type="file"  name="portfile"><br>

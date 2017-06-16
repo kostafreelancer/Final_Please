@@ -225,12 +225,12 @@ function modifyPort(num){
 	console.log(document.getElementById(wantForm).contents.value);
 	var resultString =  document.getElementById(wantForm).contents.value;
 	console.log(resultString);
-	document.tempPortfolioAdd.contents.innerHTML = "";
+	document.tempPortfolioAdd.tempcontents.innerHTML = "";
 	var myWord = "<br />";
 	
 	resultString = resultString.replace(/<br \/>/g, "\r\n");
 	document.tempPortfolioAdd.portfolio_title.value = document.getElementById(wantForm).portfolio_title.value;
-	document.tempPortfolioAdd.contents.innerHTML = resultString;
+	document.tempPortfolioAdd.tempcontents.innerHTML = resultString;
 	document.tempPortfolioAdd.portfolio_num.value = document.getElementById(wantForm).portfolio_num.value;
 	document.tempPortfolioAdd.portfile_iden.value = document.getElementById(wantForm).portfile_iden.value;
 }

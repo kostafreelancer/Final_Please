@@ -139,12 +139,15 @@
 					<input type="text" hidden name="monet_state" value="지출"> 
 					<input type="text" hidden name="a_num" value="0"> 
 					<input type="text" hidden name="accfile_iden" value="0">
-					사용내역 : <input type="text" name="detail_usage"> 
-					사용금액 : <input type="text"	name="a_money"> 
+					<fieldset>
+					<legend>지출내역 입력</legend>
+					사용내역 : <input type="text" name="detail_usage"><br> 
+					사용금액 : <input type="text"	name="a_money"> <br>
 					사용날짜 : <input type="text"	name="a_using_date"><br> 
-					프로젝트 관련여부 : <input type="text" name="project_relation_check">
-					첨부파일 : <input type="file" name="a_addfile"> 
-					<input type="submit" value="저장">
+					프로젝트 관련여부 : <input type="text" name="project_relation_check"><br>
+					첨부파일 : <input type="file" name="a_addfile"> <br>
+					<center><input type="submit" value="저장"></center>
+					</fieldset>
 				</form>
 				<form name="tempSpendListDelete" action="/f_mypage/deleteSpendList" method="get">
 					<input type="text" hidden name="deleteSpendList_num">
@@ -220,13 +223,16 @@
 					<input type="text" hidden name="f_num" value="${client.f_num}">
 					<input type="text" hidden name="monet_state" value="수입"> 
 					<input type="text" hidden name="a_num" value="0">
-					<input type="text" hidden name="accfile_iden" value="0"> 
-					사용내역 : <input type="text" name="detail_usage">
-					사용금액 : <input type="text" name="a_money"> 
+					<input type="text" hidden name="accfile_iden" value="0">
+					<fieldset>
+					<legend>수입내역 입력</legend> 
+					사용내역 : <input type="text" name="detail_usage"><br>
+					사용금액 : <input type="text" name="a_money"><br>
 					사용날짜 : <input type="text" name="a_using_date"><br> 
-					프로젝트 관련여부 : <input type="text" name="project_relation_check"> 
-					첨부파일 : <input type="file" name="a_addfile"> 
-					<input type="submit" value="저장">
+					프로젝트 관련여부 : <input type="text" name="project_relation_check"><br> 
+					첨부파일 : <input type="file" name="a_addfile"> <br>
+					<center><input type="submit" value="저장"></center>
+					</fieldset>
 				</form>
 				<form name="tempIncomeListDelete" action="/f_mypage/deleteSpendList">
 					<input type="text" hidden name="deleteSpendList_num">
