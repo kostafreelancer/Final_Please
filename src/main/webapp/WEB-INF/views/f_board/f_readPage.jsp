@@ -53,14 +53,14 @@ $(document).ready(function(){
  
  // ** 댓글 쓰기 (json방식)
  function replyJson(){
-     var board_content=$("#board_content").val();
+     var reply_content=$("#reply_content").val();
      var board_num="${F_BoardVO.f_board_num}"
-     // ** 비밀댓글 체크여부
+/*      // ** 비밀댓글 체크여부
      var secretReply = "n";
      // 태그.is(":속성") 체크여부 true/false
      if( $("#secretReply").is(":checked") ){
          secretReply = "y";
-     }
+     } */
      $.ajax({                
          type: "post",
          url: "/reply/insertRest.do",
@@ -72,7 +72,7 @@ $(document).ready(function(){
          data: JSON.stringify({
              board_num : board_num,
              reply_content : reply_content,
-             secretReply : secretReply
+         //    secretReply : secretReply
          }),
          success: function(){
              alert("댓글이 등록되었습니다.");
@@ -81,31 +81,7 @@ $(document).ready(function(){
          }
      });
  }
-     
- // 댓글 쓰기(폼데이터 방식)
- function reply(){
-     var reply_content=$("#reply_content").val();
-     var board_num="${F_BoardVO.f_board_num}"
-/*      // 비밀댓글 체크여부
-     var secretReply = "n";
-     // 태그.is(":속성") 체크여부 true/false
-     if( $("#secretReply").is(":checked") ){
-         secretReply = "y";
-     }
-     //alert(secretReply); */
-     // 비밀댓글 파라미터 추가
-     var param="reply_content="+reply_content+"&board_num="+board_num+"&";
-     $.ajax({                
-         type: "post",
-         url: "/reply/insert.do",
-         data: param,
-         success: function(){
-             alert("댓글이 등록되었습니다.");
-             listReply2();
-             //listReply("1");
-         }
-     });
- }
+
      
 
  // RestController방식 (Json)
@@ -121,18 +97,28 @@ $(document).ready(function(){
              for(var i in result){
                  output += "<tr>";
                  /* output += "<td>"+result[i].f_num; */
-                 output += "("+changeDate(result[i].reply_date)+")<br>";
-                 output += result[i].reply_content+"</td>";
+                 output += "<td>"+result[i].f_id;
+                 output += changeDate(result[i].reply_date);
+                 output += result[i].reply_content;
+   
+        	   console.log($('#f_id').text());
+        	   console.log(result[i].f_id);
+        	   
+                	output += '<button type="button" id="btnUpdete">수정</button>';
+                	output += '<button type="button" id="btnDelete">삭제</button>';
+              
+                 output += result[i].reply_content;
+                 output += "</td>";
                  output += "<tr>";
-             }
+
              output += "</table>";
              $("#listReply").html(output);
          }
      });
  }
  // **날짜 변환 함수 작성
- function changeDate(date){
-     date = new Date(parseInt(date));
+  function changeDate(reply_date){
+     date = new Date(parseInt(reply_date));
      year = date.getFullYear();
      month = date.getMonth();
      day = date.getDate();
@@ -142,11 +128,13 @@ $(document).ready(function(){
      strDate = year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
      return strDate;
  }
-
+ 
 </script>
 </head>
 <body>
  <%@include file="../c_common/header.jsp" %>
+ <span id="f_id" style="display:none;">${client.f_id}</span>
+ 
   <form role="form">
   	<input type='hidden' name='f_board_num' value="${F_BoardVO.f_board_num }">
   	 <input type='hidden' name='page' value="${cri.page}"> 
@@ -296,7 +284,7 @@ $(document).ready(function(){
     </div>
     <!-- **댓글 목록 출력할 위치 -->
     <div id="listReply">
-    adssd
+  
     </div>
 					
 

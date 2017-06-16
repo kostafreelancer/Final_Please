@@ -6,22 +6,34 @@
   <!-- seq_reply.nextval -->
 <mapper namespace="lancer.mapper.f_board_replyMapper">
 
-	<select id="countReply" resultType="int">
-        SELECT COUNT(*) FROM reply WHERE board_num=#{board_num}
+	<select id="count" resultType="int">
+        SELECT nvl(max(reply_num),0) from reply
     </select>
 	
 	<insert id="create">
 		insert into reply(reply_num, board_num, reply_content, reply_date, f_num)
-		values(51, #{board_num}, #{reply_content}, sysdate, 7)
+		values(#{reply_num}, #{board_num}, #{reply_content}, sysdate, 7)
 	</insert>
 	
 	<select id="list" resultType="F_ReplyVO">
-		SELECT reply_num, board_num, reply_content, reply_date, f_num
-        FROM reply
-        WHERE  board_num=#{board_num}
+		SELECT reply_num, board_num, reply_content, reply_date, f.f_num, f_id
+        FROM reply r, freelancer f
+        WHERE  r.f_num = f.f_num AND board_num=#{board_num}
         ORDER BY reply_num
 	</select>
 
+    <!-- 4. 댓글 수정 -->
+    <select id="update">
+        UPDATE reply 
+        SET reply_content = #{reply_content}
+        WHERE reply_num = #{reply_num}
+    </select>
+    
+    <!-- 5. 댓글 삭제 -->
+    <delete id="delete">
+        DELETE FROM reply
+        WHERE reply_num = #{reply_num}
+    </delete>
 
  <!-- 	<select id="list" resultType="F_ReplyVO">
  		select * from reply
