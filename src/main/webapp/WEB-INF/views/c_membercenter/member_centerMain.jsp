@@ -12,8 +12,8 @@
 
 <link rel="stylesheet"
 	href="../../../resources/membercenter_css/center_css.css">
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- <link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 <!-- <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script> -->
 
@@ -26,7 +26,7 @@
 
 	<%@include file="../c_common/header.jsp"%>
 
-	<%@include file="../c_common/chatting.jsp"%>
+
 
 	<section>
 

@@ -18,18 +18,10 @@
 
 </head>
 <body>
-	<c:choose>
-		<c:when test="${identity.identity == 'freelancer' }">
+
 			<%@include file="../c_common/header.jsp"%>
-		</c:when>
-		<c:when test="${identity.identity == 'enterprise' }">
-			<%@include file="../c_common/header_enterprise.jsp"%>
-		</c:when>
-		<c:otherwise>
-			<%@include file="../c_common/header.jsp"%>
-		</c:otherwise>
-	</c:choose>
-	<%@include file="../c_common/chatting.jsp" %>
+		
+
 
 	<section>
 

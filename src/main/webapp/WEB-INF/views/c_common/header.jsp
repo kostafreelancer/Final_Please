@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="/resources/c_common_css/header.css"
 	type="text/css" media="screen" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<!-- <script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
 
 <script type="text/javascript" src="/resources/c_common_js/header.js"></script>
 <script type="text/javascript"

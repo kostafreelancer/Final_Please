@@ -42,7 +42,7 @@ public class A_MainController {
 	}
 	//메일발송 클릭시 새창에서 이메일값 가져오기 (프리랜서)
 	@RequestMapping(value="/a_mailsender", method=RequestMethod.GET)
-	public void mailsender(@RequestParam("f.f_num") int f_num, Model model) throws Exception{
+	public void mailsender(int f_num, Model model) throws Exception{
 		
 		
 		System.out.println(f_num + "프리랜서번호");
@@ -51,7 +51,7 @@ public class A_MainController {
 	}
 	//메일발송 클릭시 새창에서 이메일값 가져오기(기업)
 	@RequestMapping(value="/a_mailsender_e", method=RequestMethod.GET)
-	public void mailsender_e(@RequestParam("e.e_num") int e_num, Model model) throws Exception{
+	public void mailsender_e(int e_num, Model model) throws Exception{
 		System.out.println(e_num + "기업번호");
 		model.addAttribute("enterprise", service.getE_mail(e_num));
 	}
