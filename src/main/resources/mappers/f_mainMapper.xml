@@ -34,6 +34,7 @@
 		and fj.job_id = p2.job_id
 		and p.p_state = '모집중'
 		and fr.f_num = #{f_num}
+		and p.p_startdate > sysdate
 	</select>
 	
 	<select id="f_create" resultType="int">

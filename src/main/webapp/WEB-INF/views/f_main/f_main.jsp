@@ -25,7 +25,7 @@ google.charts.setOnLoadCallback(drawMultSeries);
  
 function drawMultSeries() {
       var data = google.visualization.arrayToDataTable([
-        ['주제', '4월', ''],
+        ['주제', '4월', '6월'],
         ['프리랜서', ${count}, 0],
         ['프로젝트', ${countP}, 0]/* ,
         ['3', 0, 0],
@@ -34,7 +34,7 @@ function drawMultSeries() {
       ]);
  
       var options = {
-        title: '차트주제',
+        title: '5월,6월 신규 프리랜서 회원 및 프로젝트 현황',
         chartArea: {width: '50%'},
         hAxis: {
           title: '5월 프리랜서, 프로젝트 등록 수',
