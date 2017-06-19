@@ -10,8 +10,15 @@ public class recommendProject implements Serializable{
 	public String p_startdate;
 	public int e_pr_num;
 	public int e_num;
+	public String e_name;
 	
 	
+	public String getE_name() {
+		return e_name;
+	}
+	public void setE_name(String e_name) {
+		this.e_name = e_name;
+	}
 	public int getE_num() {
 		return e_num;
 	}

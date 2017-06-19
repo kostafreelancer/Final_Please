@@ -25,9 +25,9 @@ google.charts.setOnLoadCallback(drawMultSeries);
  
 function drawMultSeries() {
       var data = google.visualization.arrayToDataTable([
-        ['주제', '4월', '6월'],
-        ['프리랜서', ${count}, 0],
-        ['프로젝트', ${countP}, 0]/* ,
+        ['주제', '5월', '6월'],
+        ['프리랜서', ${count}, 50],
+        ['프로젝트', ${countP}, 78]/* ,
         ['3', 0, 0],
         ['4', 0, 0],
         ['5', 0, 0] */
@@ -90,7 +90,7 @@ function drawMultSeries() {
 			<c:forEach items="${recommend }" var="recommendProject">
 				
 					<li>---------------------------------<br>
-					
+					${recommendProject.e_name }<br>
 					<a style = "text-decoration: none" href="/c_projectlist/c_readpage?e_pr_num=${recommendProject.e_pr_num }&e_num=${recommendProject.e_num}">${recommendProject.p_name }</a><br><br>
 					${recommendProject.p_lowercost }만원 ~ ${recommendProject.p_uppercost }만원 <br>
 					${recommendProject.p_startdate } 부터 시작<br>

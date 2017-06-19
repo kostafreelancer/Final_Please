@@ -25,15 +25,16 @@
 	</select>
 
 	<select id="recommendProject" resultType="recommendProject">
-		select p.p_name, p.p_lowercost, p.p_uppercost, p.p_startdate, p.e_pr_num, p.e_num from project p,
-		p_job p2, job j, f_job fj, freelancer fr
+		select p.p_name, p.p_lowercost, p.p_uppercost, p.p_startdate, p.e_pr_num, p.e_num, e.e_name from project p,
+		p_job p2, job j, f_job fj, freelancer fr, enterprise e
 		where p.e_pr_num = p2.e_pr_num
+    	and e.e_num = p.e_num
 		and p2.job_id = j.job_id
 		and j.job_id = fj.job_id
 		and fj.f_num = fr.f_num
 		and fj.job_id = p2.job_id
 		and p.p_state = '모집중'
-		and fr.f_num = #{f_num}
+		and fr.f_num = 4
 		and p.p_startdate > sysdate
 	</select>
 	

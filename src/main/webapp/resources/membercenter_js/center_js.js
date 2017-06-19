@@ -15,7 +15,7 @@ $(document).ready(function() {
 				
 					$(".myAnswer").html(str);
 			
-					
+					$(".myAnswer").toggle();
 				
 				
 			})
