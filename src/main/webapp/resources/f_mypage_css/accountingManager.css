@@ -949,22 +949,22 @@ a.more-link {
 
 /* #Form Buttons
 ================================================== */
-button, input[type="submit"], input[type="reset"], input[type="button"]
+ button, input[type="submit"], input[type="reset"], input[type="button"]
 	{
-	background: #eee; /* Old browsers */
+	background: #eee; Old browsers
 	background: -moz-linear-gradient(top, rgba(255, 255, 255, .2) 0%,
-		rgba(0, 0, 0, .2) 100%); /* FF3.6+ */
+		rgba(0, 0, 0, .2) 100%); FF3.6+
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,
 		255, 255, .2)), color-stop(100%, rgba(0, 0, 0, .2)));
-	/* Chrome,Safari4+ */
+	Chrome,Safari4+
 	background: -webkit-linear-gradient(top, rgba(255, 255, 255, .2) 0%,
-		rgba(0, 0, 0, .2) 100%); /* Chrome10+,Safari5.1+ */
+		rgba(0, 0, 0, .2) 100%); Chrome10+,Safari5.1+
 	background: -o-linear-gradient(top, rgba(255, 255, 255, .2) 0%,
-		rgba(0, 0, 0, .2) 100%); /* Opera11.10+ */
+		rgba(0, 0, 0, .2) 100%); Opera11.10+
 	background: -ms-linear-gradient(top, rgba(255, 255, 255, .2) 0%,
-		rgba(0, 0, 0, .2) 100%); /* IE10+ */
+		rgba(0, 0, 0, .2) 100%); IE10+
 	background: linear-gradient(top, rgba(255, 255, 255, .2) 0%,
-		rgba(0, 0, 0, .2) 100%); /* W3C */
+		rgba(0, 0, 0, .2) 100%); W3C
 	border: 1px solid #aaa;
 	border-top: 1px solid #ccc;
 	border-left: 1px solid #ccc;
@@ -977,13 +977,13 @@ button, input[type="submit"], input[type="reset"], input[type="button"]
 	font-size: 11px;
 	font-weight: bold;
 	text-decoration: none;
-	text-shadow: 1px 1px 0px #fff;
+	text-shadow: 1px 1px 0px #fff;	
 	cursor: pointer;
-	margin-bottom: 20px;
+	/* margin-bottom: 20px; */
 	line-height: 21px;
 	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
 		sans-serif;
-}
+} 
 
 button:hover, input[type="submit"]:hover, input[type="reset"]:hover,
 	input[type="button"]:hover {

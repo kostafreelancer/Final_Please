@@ -94,8 +94,10 @@ function check(){
 		alert("주소를 입력해주세요.");
 		updateForm.fm_address_etc.focus();
 		return false;
-	}
-	else{
+	}else if($('#f_fname').val()){
+    	// 파일이 등록여부 구분
+    		$('#f_photoExist').val("true");
+	}else{
 		return true;
 	}
 }
@@ -267,6 +269,12 @@ function deletePort(num){
 function toDrop(num){
 	if(confirm("정말 탈퇴하시겠습니까?")){
 		location.href='/f_mypage/dropFreelancer?f_num='+num;
-	}
+	}	
+}
+
+
+function checkImageType(fileName){
+	var pattern = /jpg|gif|png|jpeg/i;
 	
+	return fileName.match(pattern);
 }

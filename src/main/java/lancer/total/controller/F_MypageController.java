@@ -80,12 +80,12 @@ public class F_MypageController {
 			model.addAttribute("address" + (i+1), address[i]);
 		}
 		
-		HashMap<String, Object> f_fnameMap = fileService.selectFile("f_fname", freelancer.getF_num(), 0);
-		
-	/*	if(f_fnameMap.get("file_num") != null){
-			HashMap<String, Object> e_ownerfileMap2 = fileService.selectFileInfo((Integer)e_ownerfileMap.get("file_num"));
-			model.addAttribute("e_ownerFileStoredName", e_ownerfileMap2.get("stored_file_name"));
-		}*/
+		HashMap<String, Object> f_fnameMap = fileService.selectFile("f_photo", freelancer.getF_num(), 0);
+		System.out.println(f_fnameMap.get("file_num")+"우엑");
+		if(f_fnameMap.get("file_num") != null){
+			HashMap<String, Object> f_fnameMap2 = fileService.selectFileInfo((Integer)f_fnameMap.get("file_num"));
+			model.addAttribute("f_photo", f_fnameMap2.get("stored_file_name"));
+		}
 		
 		
 		List<Integer> joblist = service.showFreelancerJobInfo(3);
@@ -178,6 +178,7 @@ public class F_MypageController {
 		c_login_freelancerVO original =  (c_login_freelancerVO) session.getAttribute("client");
 		String my_pwd = original.getF_pwd();
 		System.out.println(my_pwd);
+		System.out.println("와버렸네여기까지");
 		if(!freelancer.getF_pwd().equals(my_pwd)){
 			rttr.addFlashAttribute("pwd_error", "error");
 			return "redirect:/f_mypage/myInfo";
@@ -197,9 +198,14 @@ public class F_MypageController {
 			String f_address = freelancer.getFm_zip() + "&" + freelancer.getFm_address() + "&" + freelancer.getFm_address_etc();
 			original.setF_address(f_address);
 			
+			if(freelancer.getF_photoExist().equals("true")){
+				MultipartFile f_fname = freelancer.getF_fname();	
+				fileService.uploadImageFile(f_fname, "f_photo", original.getF_num(), 0);
+			}
+			
 			original.setF_name(freelancer.getF_name());
 			original.setF_birth(freelancer.getF_birth());
-			original.setF_fname(freelancer.getF_fname());
+			//original.setF_fname(freelancer.getF_fname());
 			service.updateFreelancerInfo(original);
 			session.setAttribute("client", original);
 			

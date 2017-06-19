@@ -82,7 +82,7 @@ $(function(){
 	<div id="content">
 		
 		<div id="tab1">
-			<form name="updateForm" method="post" action="myInfo" onsubmit="return check();">
+			<form name="updateForm" method="post" action="myInfo" onsubmit="return check();" enctype="multipart/form-data">
 			<input type="text" hidden name="f_num" value="${client.f_num}">
 		 	<input type="text" hidden id="pwd_error" name="pwd_error" value="${pwd_error}"> 
 		<div class="tb_box">
@@ -134,12 +134,11 @@ $(function(){
 					<tbody>
 						<tr>
 							<td rowspan="4">
-							<img id="e_photo" src=<%-- "/c_file/displayFile?fileName=${e_ownerFileStoredName }" --%>>
+							<img id="f_photo" src= "/c_file/displayFile?fileName=${f_photo}">
 						<div class="filebutton">
-							<input type="hidden" id="e_ownerfileExist" name="e_ownerfileExist" value="false">
-							<span>사진업로드</span>
-							<input type="file" name="f_fname" id="f_fname" value="${client.f_fname }"
-								class="searchfile" title="파일 찾기">
+							<input type="hidden" id="f_photoExist" name="f_photoExist" value="false">
+							<span>사진업로드</span><input type="file" name="f_fname" id="f_fname"<%--  value="${client.f_fname }" --%>
+								class="searchfile" title="파일 찾기" style="width:820px">
 						</div>
 							</td>
 							<th scope="row"><label for="fm_korname"><span
@@ -926,7 +925,7 @@ $(function(){
 							<td>${mySuggestproject.manager_hphone}</td>
 							<td>${mySuggestproject.c_request_date}</td>
 							<td>${mySuggestproject.c_state}</td>
-							<td class="last"><input type="submit" value="제안 거절" onclick="return confirm('진짜 취소?');"></td>
+							<td class="last"><input type="submit" value="제안 거절" onclick="return confirm('진짜 거절?');"></td>
 						</tr>
 						</form>
 					</c:forEach>

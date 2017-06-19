@@ -3,6 +3,8 @@ package lancer.f_mypage.domain;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Freelancer implements Serializable{
 	private int f_num;
 	private String f_id;
@@ -29,12 +31,20 @@ public class Freelancer implements Serializable{
 	private String f_nowstate;
 	private Timestamp f_recentlogin;
 	private double f_score;
-	private String f_fname;
+	private MultipartFile f_fname;
+	private String f_photoExist;
 	
-	public String getF_fname() {
+	public String getF_photoExist() {
+		return f_photoExist;
+	}
+	public void setF_photoExist(String f_photoExist) {
+		this.f_photoExist = f_photoExist;
+	}
+	
+	public MultipartFile getF_fname() {
 		return f_fname;
 	}
-	public void setF_fname(String f_fname) {
+	public void setF_fname(MultipartFile f_fname) {
 		this.f_fname = f_fname;
 	}
 	public double getF_score() {

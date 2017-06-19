@@ -93,7 +93,7 @@ newJquery(document).ready(function() {
 				var smonth = start.getMonth()+1;
 				var end = event.end;
 				var emonth = end.getMonth()+1;
-
+				console.log(start);
 		            $.ajax({
 						url : "scheduleModify",
 						type : "get",
