@@ -3,12 +3,12 @@ var express = require('express')
   , http = require('http')
   , server = http.createServer(app)
   , io = require('socket.io').listen(server)
- /* ,  url = require('url')*/
 server.listen(8000);
 var username;
+var numUsers = 0;
+var usernames = [];
 app.get('/', function (req, res) {
 	  
-	 
 	  res.sendfile(__dirname + '/chatting.html');
 });
 app.get('/client',function(req, res){
@@ -17,6 +17,7 @@ app.get('/client',function(req, res){
 	res.sendfile(__dirname + '/client.html');
 	
 });
+app.use('/script',express.static(__dirname));
 
 io.sockets.on('connection', function (socket) {
 	
@@ -30,14 +31,14 @@ io.sockets.on('connection', function (socket) {
 	
 	socket.on('adduser',function(username){
 		socket.username = username;
+		usernames[numUsers] = username;
+		console.log(usernames[numUsers]+"이거 걸리지?");
+		++numUsers;
 		socket.emit('join','SERVER', username+'님 환영합니다.');
 	});
+	
 	socket.on('alllist',function(){
-		var list = [];
-		for(var i=0;i<io.sockets.length;i++){
-			console.log(i+"으아");
-			console.log(io.sockets.get(i).username+"모가 나오긴 하냐?");
-		}
+		socket.emit('userlist',usernames);
 	});
 	
 });

@@ -1,10 +1,8 @@
 <script src="/socket.io/socket.io.js"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script> -->
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src = "/script/functionmodule.js"></script>
 <script>
-	
-
-
 	var socket = io.connect('http://localhost:8000');
 	/* var myname = prompt("너의 이름?"); */
 	var myname;
@@ -22,32 +20,42 @@
 			$('.chat_content').append('<p class="server_name">'+username+'</p><p class="server"><span>'+data+'</span></p>');
 		}
 	});
-	$(function(){
+	sokcet.on('userList',function(data){
+		alder(data+"이거 나와?");
+	});
+	/* sokcet.on('userlist',function(list){
+		alder("유져리스트 드와?");
+	
+		$('.chat_menu').append('<ul>'+for(var i=0;i<list.length;i++){
+			+'<li>'+list.[i]+'</li>'+
+		}+'</ul>');
+	}); */
+</script>
+	
+ 	<!-- $(function(){
 		// 클라이언트에서 SEND 버튼을 클릭할 때
+		alert("우왕");
 		$('#datasend').click( function() {
-		var message = $('#data').val();
-		if(message === ''){
-			return;
-		}
-		$('#data').val('');
-		// 서버에서 sendchat 함수를 실행하도록 알려주며, 하나의 파라미터를 전달한다
-		socket.emit('sendchat', message);
-		$('.chat_content').append('<p class="client"><span>'+message+'</span></p>');
-		});
-		$('.exit_menu').click(function(event){
-			event.preventDefault();
+			var message = $('#data').val();
+			if(message === ''){
+				return;
+			}
 			
-			self.location="http://localhost:8081/c_common/iframe_remove";
-			
+			$('#data').val('');
+			// 서버에서 sendchat 함수를 실행하도록 알려주며, 하나의 파라미터를 전달한다
+			socket.emit('sendchat', message);
+			$('.chat_content').append('<p class="client"><span>'+message+'</span></p>');
 		});
 		
-		$('.chat_menu').click(function(event){
+		 $('.chat_menu').click(function(event){
 			event.preventDefault();
-			alert("드오냐?");
+			alert("여기 들어와?");
 			socket.emit('alllist');
-		}
-	});
-</script>
+		});
+		 
+	});  -->
+	
+
 <body>
 	<div class="messengerWrapper">
 		<div class="chat_inner">
@@ -114,7 +122,7 @@
 }
 .messengerWrapper {
 	width: 318px;
-	height: 636px;
+	height: 593px;
 	border: 1px solid;
 	border-radius: 12px;
 	background-color: white;
@@ -149,7 +157,7 @@
 }
 
 .chat_text_area {
-	height: 540px;
+	height: 495px;
 	background-color: #ffffff;
 	text-align: center;
 	border-bottom: 1px solid #c0c0c0;
