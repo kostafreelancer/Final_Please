@@ -59,8 +59,10 @@
 					<h3>1:1문의</h3>
 					<ul class="ask_text">
 						<li>문의하신 내용의 답변을 확인할 수 있습니다.</li>
+						<li>답변이 완료된 항목만 표시됩니다.</li>
 						<li>제목을 클릭하면 답변 내용을 확인할 수 있습니다.</li>
 					</ul>
+					<br><br>
 					<table class="email_table">
 						<tr>
 							<th>문의번호</th>

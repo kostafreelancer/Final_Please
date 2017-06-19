@@ -13,11 +13,8 @@ $(document).ready(function() {
 				str += "<table class='email_table'><tbody><tr><th>관리자번호</th><td>"+this.ad_num+"</td><tr><th>답변내용</th><td>"+this.answercontents+"</td></tr><tr><th>답변날짜</th><td>"+this.answerdate+"</tr>"
 				}) //end each
 				
-					$(".myAnswer").html(str);
-			
-					$(".myAnswer").toggle();
-				
-				
+				$(".myAnswer").html(str);			
+				$(".myAnswer").toggle();				
 			})
 		})    
 	

@@ -136,22 +136,7 @@ function drawMultSeries() {
 							<th>${f_planner } 명</th>
 							
 						</tr>
-						<%-- <tr>
-						
-						<!-- 추후 삭제영역 -->
-							<h1>--분야별 프리랜서 활동 명수, 현재는 프리랜서 회원 목록 출력--</h1><br>
-							<!-- 삭제영역 끝 -->
-							<th>							
-							<td>&nbsp;&nbsp;${m }</td>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<td>${member1 }</td>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<td>${member2 }</td>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<td>${member3 }</td>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						</tr> --%>
-						
+					
 					</table>
 				</form>
 			</div>
