@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="../c_common/header.jsp" flush="true"/> 
 
+<%-- <jsp:include page="../c_common/footer.jsp" flush="false"/> --%>
+<%-- <jsp:include page="../c_common/footer.jsp" flush="true"/>  --%>
+<%-- <jsp:include page="../c_common/footer.jsp"> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -201,7 +205,7 @@ function addScheduleSubmit(){
 </head>
 <body>
 
-	<%@include file="../c_common/header.jsp"%>
+
 
 	<div class="left_menu">
 		<div class="left_menu_title">
@@ -251,8 +255,7 @@ function addScheduleSubmit(){
 
 
 	</section>
-
-	<%@include file="../c_common/footer.jsp"%>
+	<%@include file="myfooter.jsp"%>
 </body>
 <script type="text/javascript">
 

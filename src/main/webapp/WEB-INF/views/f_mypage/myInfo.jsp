@@ -75,7 +75,7 @@ $(function(){
 		<li><a href="#" title="tab1">내 정보</a></li>
 		<li><a href="#" title="tab2">이력 정보</a></li>
 		<li><a href="#" title="tab3">포트폴리오</a></li>
-		<li><a href="#" title="tab4">지원내역</a></li>
+		<li><a href="#" title="tab4">신청 및 제안내역</a></li>
 		<li><a href="#" title="tab5">히스토리</a></li>
 	</ul>
 
@@ -840,7 +840,7 @@ $(function(){
 
 
 		<div id="tab4">
-			<h4>내가 지원한 프로젝트</h4>
+			<h4>내가 신청한 프로젝트</h4>
 			<table class="tb_st01 tb_st03">
 				<caption></caption>
 				<colgroup>
@@ -862,7 +862,7 @@ $(function(){
 
 				<tbody>
 					<c:if test="${applyprojectcheck == 0}">
-							<tr><td colspan="5">지원한 내역이 없습니다.</td></tr>
+							<tr><td colspan="5">신청한 내역이 없습니다.</td></tr>
 					</c:if>
 					
 					<c:forEach var="myApplyProject" items="${applyproject}">
@@ -886,6 +886,54 @@ $(function(){
 
 				</tbody>
 			</table>
+			
+			<h4>내게 제안 온 프로젝트</h4>
+			<table class="tb_st01 tb_st03">
+				<caption></caption>
+				<colgroup>
+					<col style="width: 40%">
+					<col style="width: 15%">
+					<col style="width: 15%">
+					<col style="width: 15%">
+					<col style="width: 15%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col" class="ac">프로젝트 이름</th>
+						<th scope="col" class="ac">담당자 연락처</th>
+						<th scope="col" class="ac">신청일자</th>
+						<th scope="col" class="ac">기업 수락여부</th>
+						<th scope="col" class="ac">관리</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<c:if test="${suggestprojectcheck == 0}">
+							<tr><td colspan="5">제안 온 내역이 없습니다.</td></tr>
+					</c:if>
+					
+					<c:forEach var="mySuggestproject" items="${suggestproject}">
+						<form id="suggestForm" action="suggestCancel" method="post">
+							<input type="text" hidden name="c_num" value="${mySuggestproject.c_num}">
+							<input type="text" hidden name="p_name" value="${mySuggestproject.p_name}">
+							<input type="text" hidden name="manager_hphone" value="${mySuggestproject.manager_hphone}">
+							<input type="text" hidden name="c_request_date" value="${mySuggestproject.c_request_date}">	
+							<input type="text" hidden name="c_state" value="${mySuggestproject.c_state}">	
+							<input type="text" hidden name="e_pr_num" value="${mySuggestproject.e_pr_num}">	
+							<input type="text" hidden name="e_num" value="${mySuggestproject.e_num}">	
+						 <tr>							
+							<td>${mySuggestproject.p_name}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${mySuggestproject.e_pr_num}&e_num=${mySuggestproject.e_num}'"></td>
+							<td>${mySuggestproject.manager_hphone}</td>
+							<td>${mySuggestproject.c_request_date}</td>
+							<td>${mySuggestproject.c_state}</td>
+							<td class="last"><input type="submit" value="제안 거절" onclick="return confirm('진짜 취소?');"></td>
+						</tr>
+						</form>
+					</c:forEach>
+
+				</tbody>
+			</table>
+			
 		</div>
 
 		<div id="tab5">

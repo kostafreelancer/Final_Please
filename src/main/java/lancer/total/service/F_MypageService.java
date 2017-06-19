@@ -102,6 +102,14 @@ public class F_MypageService {
 		dao.deleteApplyProject(c_num);
 	}
 	
+	public List<ApplyProject> getSuggestProject(int f_num) throws Exception{
+		return dao.getSuggestProject(f_num);
+	}
+	
+	public void rejectSuggestProject(int c_num) throws Exception{
+		dao.rejectSuggestProject(c_num);
+	}
+	
 	public String getFreelancerPassword(int f_num) throws Exception{
 		return dao.getFreelancerPassword(f_num);
 	}

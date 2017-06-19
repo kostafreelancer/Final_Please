@@ -95,6 +95,7 @@ public class F_MypageController {
 		List<School> school = service.showSchoolInfo(3);
 		List<Certificate> certificate = service.showCertiInfo(3);
 		List<ApplyProject> applyproject = service.getApplyProject(3);
+		List<ApplyProject> suggestproject = service.getSuggestProject(3);
 		List<Portfolio> portfolio = service.showPortfolioInfo(3);
 		/*for(int i=0; i<portfolio.size(); i++){
 			System.out.println(portfolio.get(i).getContents());
@@ -126,6 +127,11 @@ public class F_MypageController {
 			model.addAttribute("applyprojectcheck", "0");
 		}else{
 			model.addAttribute("applyproject", applyproject);
+		}
+		if(suggestproject.size()==0){
+			model.addAttribute("suggestprojectcheck", "0");
+		}else{
+			model.addAttribute("suggestproject", suggestproject);
 		}
 		if(career.size()==0){
 			model.addAttribute("careercheck", "0");
@@ -382,9 +388,15 @@ public class F_MypageController {
 		return "redirect:/f_mypage/updateSuccess";
 	}
 	
+	@RequestMapping(value="/suggestCancel", method=RequestMethod.POST)
+	public String suggestCancel(ApplyProject suggestproject) throws Exception{
+		service.rejectSuggestProject(suggestproject.getC_num());
+		return "redirect:/f_mypage/updateSuccess";
+	}
+	
 	
 	//일정관리
-	@RequestMapping(value = "/scheduleManager2", method = RequestMethod.GET)
+	@RequestMapping(value = "/scheduleManager", method = RequestMethod.GET)
 	public void scheduleManager(Model model, HttpSession session) throws Exception{
 		c_login_freelancerVO freelancer = (c_login_freelancerVO) session.getAttribute("client");
 		int f_num = freelancer.getF_num();
@@ -422,7 +434,7 @@ public class F_MypageController {
 		//calen.setF_num(f_num);
 		calen.setCalendar_num(service.getScheduleNum()+1);
 		service.insertMySchedule(calen);
-		return "/f_mypage/scheduleManager2";
+		return "/f_mypage/scheduleManager";
 	}
 	
 	@RequestMapping(value="/scheduleModify", method=RequestMethod.GET)
@@ -458,7 +470,7 @@ public class F_MypageController {
 		cal.setContents(title);
 		cal.setF_num(f_num);
 		service.deleteMySchedule(cal);
-		return "/f_mypage/scheduleManager2";
+		return "/f_mypage/scheduleManager";
 	}
 	
 	

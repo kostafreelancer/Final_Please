@@ -130,10 +130,21 @@
 		select con.c_num, pro.p_name, e.manager_hphone, con.c_request_date, con.c_state, pro.e_pr_num, e.e_num from project pro, contract con, enterprise e 
 		where pro.e_pr_num = con.e_pr_num and pro.e_num = e.e_num and con.c_state='신청중' and con.f_num = #{f_num} order by con.c_num
 	</select>
+
 	
 	<delete id="deleteApplyProject" parameterType="int">
 		delete from contract where c_num = #{c_num}
 	</delete>
+	
+		
+	<select id="getSuggestProject" parameterType="int" resultType="ApplyProject">
+		select con.c_num, pro.p_name, e.manager_hphone, con.c_request_date, con.c_state, pro.e_pr_num, e.e_num from project pro, contract con, enterprise e 
+		where pro.e_pr_num = con.e_pr_num and pro.e_num = e.e_num and con.c_state='제안중' and con.f_num = #{f_num} order by con.c_num
+	</select>
+	
+	<update id="rejectSuggestProject" parameterType="int">
+		update contract set c_state='제안거절' where c_num = #{c_num}
+	</update>
 
 	<select id="getTemp" resultType="Date">
 		select p_startdate from e_request_project where e_pr_num = 1 
