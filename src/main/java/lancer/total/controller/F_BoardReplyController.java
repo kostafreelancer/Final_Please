@@ -87,11 +87,23 @@ public class F_BoardReplyController {
         return list;
     }
     
+    @RequestMapping(value="detail/{reply_num}", method=RequestMethod.GET)
+    public ModelAndView replyDetail(@PathVariable("reply_num") Integer reply_num, ModelAndView mav) throws Exception{
+        F_ReplyVO vo = service.detail(reply_num);
+        // 뷰이름 지정
+        mav.setViewName("f_board/replyDetail");
+        // 뷰에 전달할 데이터 지정
+        mav.addObject("vo", vo);
+        // replyDetail.jsp로 포워딩
+        return mav;
+    }
+    
     // 4. 댓글 수정 처리 - PUT:전체 수정, PATCH:일부수정
     // RequestMethod를 여러 방식으로 설정할 경우 {}안에 작성
-    @RequestMapping(value="/update/{reply_num}", method={RequestMethod.PUT, RequestMethod.PATCH})
+    @RequestMapping(value="update/{reply_num}", method={RequestMethod.PUT, RequestMethod.PATCH})
     public ResponseEntity<String> replyUpdate(@PathVariable("reply_num") Integer reply_num, @RequestBody F_ReplyVO vo){
         ResponseEntity<String> entity = null;
+        System.out.println("여기는?!!?!??");
         try {
             vo.setReply_num(reply_num);
             service.update(vo);
@@ -107,9 +119,10 @@ public class F_BoardReplyController {
     }
     
     // 5. 댓글 삭제처리
-    @RequestMapping(value="/delete/{reply_num}")
+    @RequestMapping(value="delete/{reply_num}")
     public ResponseEntity<String> replyDelete(@PathVariable("reply_num") Integer reply_num){
         ResponseEntity<String> entity = null;
+        System.out.println(reply_num);
         try {
             service.delete(reply_num);
             // 댓글 삭제가 성공하면 성공 상태메시지 저장

@@ -6,8 +6,8 @@
 <mapper namespace="lancer.mapper.f_boardMapper">
 	
 	<insert id="create" parameterType="F_BoardVO">
-		insert into f_board (f_board_num, f_board_title, f_board_content, f_board_date)
-		values (f_board_seq.nextval, #{f_board_title}, #{f_board_content}, sysdate)
+		insert into f_board (f_board_num, f_board_title, f_board_content, f_board_date, f_board_hits, f_reply_count, f_num)
+		values (f_board_seq.nextval, #{f_board_title}, #{f_board_content}, sysdate, 0, 0, #{f_num})
 	</insert>
 	
 	<select id="listAll" resultType="F_BoardVO">

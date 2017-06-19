@@ -8,28 +8,22 @@
 	type="text/css" media="screen" />
 <link rel="stylesheet" href="../../../resources/f_board_css/reset.css"
 	type="text/css" media="screen" />
-<link rel="stylesheet" href="../c_common/header.css" type="text/css"
-	media="screen" />
-<link rel="stylesheet" href="../c_common/footer.css" type="text/css"
-	media="screen" />
 <title>프리랜서 자유게시판</title>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 <script type="text/javascript">
-var result='${msg}';
-if(result=='SUCCESS'){
-	alert("처리가 완료되었습니다.");
-}
 
 $(document).ready(function(){
+	var formObj = $("form[role='form']");
 
-	$('.btn_check04').click(function(){
+	$(".btn_check04").click(function(){
 		formObj.attr("action", "/f_board/f_register");
 		formObj.attr("method", "post");
 		formObj.submit();
 	})
-	$('.btn_remove').click(function(){
-		location.href="/fboard/f_list";
-	})
+	
+	$(".btn_remove").click(function(){
+		location.href="/f_board/f_list";
+	}); 
 
 }); 
 </script>
@@ -64,8 +58,9 @@ $(document).ready(function(){
 				</div>
 
 				<!-- //tb_box : e -->
-				<form method="post" role="form"> 
+				<form role="form"> 
 				<input type="text" hidden name="f_num" value="${client.f_num }">
+				<input type='hidden' name='f_board_num' value="${F_BoardVO.f_board_num }">
 				<div class="tb_box">
 				<h1>&nbsp</h1>
 					<table class="tb_st01">

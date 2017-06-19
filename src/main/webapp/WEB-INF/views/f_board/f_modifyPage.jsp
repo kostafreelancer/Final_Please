@@ -21,6 +21,11 @@ $(document).ready(function(){
 		formObj.attr("method", "post");
 		formObj.submit();
 	})
+	
+	$(".btn_remove").click(function(){
+		location.href="/f_board/f_list";
+	}); 
+	
 })
 </script>
 </head>

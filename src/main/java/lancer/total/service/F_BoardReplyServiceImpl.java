@@ -31,17 +31,22 @@ public class F_BoardReplyServiceImpl implements F_BoardReplyService{
 
 	@Override
 	public void update(F_ReplyVO vo) throws Exception {
-		
+		replydao.update(vo);
 	}
 
 	@Override
 	public void delete(Integer reply_num) throws Exception {
-		
+		replydao.delete(reply_num);
 	}
 	
 	@Override
 	public int count(int board_num) throws Exception {
 		return replydao.count(board_num);
+	}
+
+	@Override
+	public F_ReplyVO detail(Integer reply_num) throws Exception {
+		return replydao.detail(reply_num);
 	}
 
 	

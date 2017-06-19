@@ -11,6 +11,7 @@ import lancer.f_board.domain.F_ReplyVO;
 public interface F_BoardReplyService {
 	public List<F_ReplyVO> list(Integer board_num)throws Exception;
 	public void create(F_ReplyVO vo)throws Exception;
+	public F_ReplyVO detail(Integer reply_num)throws Exception;
 	public void update(F_ReplyVO vo)throws Exception ;
 	public void delete(Integer reply_num)throws Exception;
 	public int count(int board_num) throws Exception;

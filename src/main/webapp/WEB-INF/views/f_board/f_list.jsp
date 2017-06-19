@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page session="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,8 +10,6 @@
 	media="screen" />
 <link rel="stylesheet" href="../../../resources/f_board_css/reset.css" type="text/css"
 	media="screen" />
-<link rel="stylesheet" href="../c_common/header.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="../c_common/footer.css" type="text/css" media="screen" />
 <title>프리랜서 자유게시판</title>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 <style type="text/css">

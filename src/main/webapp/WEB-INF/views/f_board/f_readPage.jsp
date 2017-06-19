@@ -49,12 +49,19 @@ $(document).ready(function(){
          replyJson(); // json으로 입력
      });
      
- });
- 
+
+});
+
+
  // ** 댓글 쓰기 (json방식)
  function replyJson(){
      var reply_content=$("#reply_content").val();
-     var board_num="${F_BoardVO.f_board_num}"
+     var board_num="${F_BoardVO.f_board_num}";
+     var f_num=$("#f_num").text();
+
+     console.log("오잉이이이ㅣ이이이이");
+     console.log($("#f_num").text());
+     
 /*      // ** 비밀댓글 체크여부
      var secretReply = "n";
      // 태그.is(":속성") 체크여부 true/false
@@ -70,6 +77,7 @@ $(document).ready(function(){
          dateType: "text",
          // param형식보다 편하다.
          data: JSON.stringify({
+        	 f_num : f_num,
              board_num : board_num,
              reply_content : reply_content,
          //    secretReply : secretReply
@@ -96,29 +104,81 @@ $(document).ready(function(){
              var output = "<table>";
              for(var i in result){
                  output += "<tr>";
-                 /* output += "<td>"+result[i].f_num; */
                  output += "<td>"+result[i].f_id;
+                 output += result[i].reply_num;
                  output += changeDate(result[i].reply_date);
                  output += result[i].reply_content;
-   
-        	   console.log($('#f_id').text());
-        	   console.log(result[i].f_id);
-        	   
-                	output += '<button type="button" id="btnUpdete">수정</button>';
-                	output += '<button type="button" id="btnDelete">삭제</button>';
-              
-                 output += result[i].reply_content;
-                 output += "</td>";
-                 output += "<tr>";
-
-             output += "</table>";
-             $("#listReply").html(output);
+   					if($('#f_id').text() == result[i].f_id){
+   						output += '<input type="button" id="btnModify" value="수정" onclick="showReplyModify('+result[i].reply_num+');">';
+   	                	output += '<input type="button" id="btnReplyDelete" value="삭제" onclick="ReplyDelete('+result[i].reply_num+');">';
+   	 /*                	output += "  */
+   	                	output += "</td>";
+   	                 output += "</tr>";
+   					}else{
+   						output += "</td>";
+   	                	output += "</tr>";
+   					}
+   					/* output += ""; */
+             }
+        	     output += "</table>";
+          	   $("#listReply").html(output);
+         
+         }
+     })
+ };
+ 
+ 
+ function showReplyModify(num){
+     $("#mynum").val(num);
+	  $("#modifyReply").css("visibility", "visible");
+ };
+ 
+ function ReplyModify(num){
+     var detailReplytext = $("#detailReplytext").val();
+     console.log(num);
+     $.ajax({
+         type: "put",
+         url: "/reply/update/"+num,
+         // 기본값 text/html을 json으로 변경
+         headers: {
+             "Content-Type":"application/json"
+         },
+         // 데이터를 json형태로 변환
+         data: JSON.stringify({
+             reply_content : detailReplytext
+         }),
+         dataType: "text",
+         success: function(result){
+             if(result == "success"){
+                 $("#modifyReply").css("visibility", "hidden");
+                 alert("수정되었습니다.");
+                 // 댓글 목록 갱신
+                 listReply2();
+             }
          }
      });
  }
+  
+function ReplyDelete(num){
+	 if(confirm("삭제하시겠습니까?")){
+	$.ajax({
+        type: "delete",
+        url: "/reply/delete/"+num,
+        success: function(result){
+            if(result == "success"){
+                alert("삭제되었습니다.");
+                $("#modifyReply").css("visibility", "hidden");
+                listReply2();
+            }
+        }
+    });
+	 }
+}
  // **날짜 변환 함수 작성
   function changeDate(reply_date){
+	 console.log(reply_date);
      date = new Date(parseInt(reply_date));
+     console.log(date);
      year = date.getFullYear();
      month = date.getMonth();
      day = date.getDate();
@@ -127,13 +187,27 @@ $(document).ready(function(){
      second = date.getSeconds();
      strDate = year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
      return strDate;
+  
  }
+
+
  
 </script>
+<style>
+    #modifyReply {
+        width: 600px;
+        height: 130px;
+        background-color: gray;
+        padding: 10px;
+        z-index: 10;
+        visibility: hidden;
+    }
+</style>
 </head>
 <body>
  <%@include file="../c_common/header.jsp" %>
  <span id="f_id" style="display:none;">${client.f_id}</span>
+ <span id="f_num" style="display:none;">${client.f_num}</span>
  
   <form role="form">
   	<input type='hidden' name='f_board_num' value="${F_BoardVO.f_board_num }">
@@ -208,7 +282,8 @@ $(document).ready(function(){
 								</td>
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">등록일</label></th>
-								<td colspan="2">
+								<td colspan="2"><%-- 
+								<c:out value="changeDate(${F_BoardVO.f_board_date });"></c:out> --%>
 								${F_BoardVO.f_board_date }
 								<!-- <input type="text" id="f_board_title" name="f_board_title" class="wid" /> -->
 								</td> 
@@ -273,25 +348,36 @@ $(document).ready(function(){
     <div style="width:650px; text-align: center;">
         <br>
         <!-- 로그인 한 회원에게만 댓글 작성폼이 보이게 처리 -->
-       <%--  <c:if test="${sessionScope.userId != null}">     --%>
+       <c:if test="${client.f_id != null}">
         <textarea rows="5" cols="80" id="reply_content" placeholder="댓글을 작성해주세요"></textarea>
         <br>
         <!-- **비밀댓글 체크박스 -->
         <!-- <input type="checkbox" id="secretReply">비밀 댓글 -->
         <button type="button" id="btnReply">댓글 작성</button>
-    <%--     </c:if> --%>
+     </c:if>
     <hr>
     </div>
     <!-- **댓글 목록 출력할 위치 -->
     <div id="listReply">
-  
-    </div>
-					
 
-				
-				
-				
-				
+    </div>
+					<!-- 수정 댓글 목록 -->
+ 					<div id="modifyReply">
+	<%-- 				댓글 번호 : ${F_ReplyVO.reply_num}<br>  --%>
+					<form >
+					<input type="hidden" id="mynum" name="reply_num">
+				    <textarea id="detailReplytext" rows="5" cols="82"></textarea>
+				    <div style="text-align: center;">
+				        <!-- 본인 댓글만 수정, 삭제가 가능하도록 처리 -->
+				      
+				         <button type="button" id="btnReplyUpdate" onclick="ReplyModify($('#mynum').val())">수정
+				            
+				  </form>
+				        <button type="button" id="btnReplyClose" >닫기</button>
+				    </div>
+					</div> 
+					
+					
 					</div>
 				
 				<div class="btn_box">

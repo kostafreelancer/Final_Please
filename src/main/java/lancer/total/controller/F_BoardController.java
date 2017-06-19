@@ -71,6 +71,7 @@ public class F_BoardController {
 		model.addAttribute("F_BoardVO", service.read(f_board_num));
 		List<F_ReplyVO> mylist = r_service.list(f_board_num);
 		model.addAttribute("F_ReplyVO", r_service.list(f_board_num));
+		//System.out.println(r_service.list(f_board_num).get(0).get);
 		for(int i=0; i<mylist.size(); i++){
 			System.out.println(mylist.get(i).getBoard_num());
 		}

@@ -11,8 +11,8 @@
     </select>
 	
 	<insert id="create">
-		insert into reply(reply_num, board_num, reply_content, reply_date, f_num)
-		values(#{reply_num}, #{board_num}, #{reply_content}, sysdate, 7)
+		insert into reply(reply_num, board_num, reply_content, reply_date, f_num )
+		values(#{reply_num}, #{board_num}, #{reply_content}, sysdate, #{f_num})
 	</insert>
 	
 	<select id="list" resultType="F_ReplyVO">
@@ -21,7 +21,16 @@
         WHERE  r.f_num = f.f_num AND board_num=#{board_num}
         ORDER BY reply_num
 	</select>
-
+	
+	<!-- 3. 댓글 상세보기 -->
+    <select id="detail" resultType="F_ReplyVO">
+        SELECT reply_num, board_num, reply_content, f_id, reply_date, f.f_num  
+        FROM reply r, freelancer f
+        WHERE r.f_num = f.f_num AND board_num=#{board_num}
+        ORDER BY reply_num
+    </select>
+	
+	
     <!-- 4. 댓글 수정 -->
     <select id="update">
         UPDATE reply 

@@ -33,17 +33,22 @@ public class F_BoardReplyDAOImpl implements F_BoardReplyDAO{
 
 	@Override
 	public void update(F_ReplyVO vo) throws Exception {
-
+		session.update(namespace+".update", vo);
 	}
 
 	@Override
 	public void delete(Integer reply_num) throws Exception {
-		
+		session.delete(namespace + ".delete", reply_num);
 	}
 
 	@Override
 	public int count(int board_num) throws Exception {
 		return session.selectOne(namespace+".count", board_num);
+	}
+
+	@Override
+	public F_ReplyVO detail(Integer reply_num) throws Exception {
+		return session.selectOne(namespace+".detail", reply_num);
 	}
 	
 /*	@Override
