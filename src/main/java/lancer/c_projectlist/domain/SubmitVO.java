@@ -4,6 +4,7 @@ public class SubmitVO {
 	private int f_num;
 	private int e_pr_num;
 	private int c_num;
+	private int e_num;
 	public int getF_num() {
 		return f_num;
 	}
@@ -21,6 +22,12 @@ public class SubmitVO {
 	}
 	public void setC_num(int c_num) {
 		this.c_num = c_num;
+	}
+	public int getE_num() {
+		return e_num;
+	}
+	public void setE_num(int e_num) {
+		this.e_num = e_num;
 	}
 	
 	

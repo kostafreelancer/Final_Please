@@ -1,6 +1,7 @@
-function button_event(num){
+function button_event(num,e_num,from){
 	if(confirm("프로젝트 신청하시겠습니까?")){
-		location.href='/c_projectlist/complete?e_pr_num='+num;
+		
+		location.href='/c_projectlist/complete?e_pr_num='+num+'&e_num='+e_num+'&from='+from;
 	}
 }
 
@@ -15,3 +16,9 @@ function button_reject(e_pr_num, fromF_num){
 		location.href='/f_mypage/suggestReject?e_pr_num=' + e_pr_num + '&f_num='+fromF_num;
 	}
 }
+
+$(function(){
+	if($('.checking_con').val()=="conCheck"){
+		alert("이미 신청한 프로젝트입니다.");
+	};
+});

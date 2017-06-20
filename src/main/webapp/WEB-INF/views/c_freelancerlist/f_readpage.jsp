@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="/resources/c_freelancerlist_css/myInfo.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/resources/c_freelancerlist_css/join.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/resources/c_freelancerlist_css/reset.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="/resources/c_projectlist_css/c_projectInfo.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/resources/c_freelancerlist_css/c_projectInfo.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/resources/c_freelancerlist_css/complete.css" type="text/css" media="screen" />
 <title>프리랜서 정보</title>
 
@@ -613,25 +613,15 @@ document.location.href = url; */
 
 
 	</div>
-	
+	<c:choose>
+	<c:when test="${identity.identity eq 'enterprise'}">
 	<div id="project">
-		<input id="checkValue"  class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" name="post_a_job"
+		<input id="checkValue"  class="btn btn-lg btn-client js-disable-on-click btn-submit" name="post_a_job"
 					 value="제안할 프로젝트 선택 ▼" type="button">
 		</div>
 		<!-- //tb_box : e -->
-			<div class="btn_box">
-					 <br>
-						
-						
-					<br>
-					<br>
-					<br>
-					<br>
-				</div>
-			</div>
-			</div>
-			
-				
+		</c:when>
+				</c:choose>
 		</form>
 
 	</section>

@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import lancer.c_freelancerlist.domain.c_freelancerlist_searchVO;
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.c_projectlist.domain.Contract;
 import lancer.c_projectlist.domain.PageMaker;
@@ -89,15 +91,17 @@ public class c_projectlistController {
 		List<Integer> p_job = service.selectP_job(e_pr_num);
 		model.addAttribute("p_job", p_job);
 		
-		if(from.equals("list")){
-			model.addAttribute("from", "list");
-		}else{
-			model.addAttribute("from", "mypage");
-		}
+			if(from.equals("list")){
+				model.addAttribute("from", "list");
+			}else{
+				model.addAttribute("from", "mypage");
+			}
+		
+		
 	}
 	
 	@RequestMapping(value = "/complete", method = RequestMethod.GET)
-	public String readPagePOST(Contract contract, HttpSession session, Model model,@RequestParam("e_pr_num") int e_pr_num) throws Exception{
+	public String readPagePOST(Contract contract, HttpSession session, Model model,@RequestParam("e_pr_num") int e_pr_num, RedirectAttributes rttr,@RequestParam("e_num") int e_num, String from) throws Exception{
 	
 		SubmitVO submitVO = new SubmitVO();
 		
@@ -107,9 +111,28 @@ public class c_projectlistController {
         submitVO.setF_num(freelancer.getF_num());
         submitVO.setE_pr_num(e_pr_num);
 		
-        
+        c_freelancerlist_searchVO vo = new c_freelancerlist_searchVO();
+		vo.setF_num(freelancer.getF_num());
+		vo.setE_pr_num(e_pr_num);
         	
-        	int c_num = service.getnum()+1;
+		int con = service.selectCon(vo);
+		
+		if(con!=0){
+			rttr.addFlashAttribute("msg","conCheck");
+			System.out.println("안와??!!!");
+			return "redirect:/c_projectlist/c_readpage?e_pr_num="+e_pr_num+"&e_num="+e_num+"&from=list";
+		}else{
+			int c_num = service.getnum()+1;
+			submitVO.setC_num(c_num);
+			
+			contract.setC_num(c_num);
+			
+			service.insertContract(submitVO);
+		
+		}
+		return "/c_projectlist/complete";
+		
+        	/*int c_num = service.getnum()+1;
     		submitVO.setC_num(c_num);
     		
     		contract.setC_num(c_num);
@@ -117,7 +140,7 @@ public class c_projectlistController {
     		
     		service.insertContract(submitVO);
 
-    		return "/c_projectlist/complete";
+    		return "/c_projectlist/complete";*/
        
 	}
 
