@@ -73,8 +73,8 @@ document.location.href = url; */
 		
 	<section id="firstsection">
 	<form method="get" action="/c_freelancerlist/f_complete" name="ProjectWriteFm">
-				 <input type="hidden" class="sub_f_num" name="f_num" value="${freelancer.f_num }"></input> 
-					 
+				 <input type="hidden" class="sub_f_num" name="f_num" value="${freelancer.f_num }"></input>
+				 <input type="hidden" class="checking_con" value="${msg}"></input>
 
 	<ul id="tabs">
 		<li><a href="#" title="tab1">프리랜서 정보</a></li>

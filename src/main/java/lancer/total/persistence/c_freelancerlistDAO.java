@@ -6,6 +6,7 @@ import lancer.c_freelancerlist.domain.c_freelancerlist_SearchCriteria;
 import lancer.c_freelancerlist.domain.c_freelancerlist_careerVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_portfolioVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_schoolVO;
+import lancer.c_freelancerlist.domain.c_freelancerlist_searchVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.c_projectlist.domain.Contract;
@@ -40,5 +41,5 @@ public interface c_freelancerlistDAO {
 	List<Portfolio> showPortfolioInfo(int f_num) throws Exception;
 	Portfolio selectOnePortfolio(int portfolio_num) throws Exception;
 	int getPortfolioNum() throws Exception;
-	List<Contract> selectCon(int f_num) throws Exception;
+	int selectCon(c_freelancerlist_searchVO vo) throws Exception;
 }

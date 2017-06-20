@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lancer.c_freelancerlist.domain.c_freelancerlist_PageMaker;
 import lancer.c_freelancerlist.domain.c_freelancerlist_SearchCriteria;
 import lancer.c_freelancerlist.domain.c_freelancerlist_careerVO;
+import lancer.c_freelancerlist.domain.c_freelancerlist_searchVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
 import lancer.c_login.domain.c_login_enterpriseVO;
 import lancer.c_login.domain.c_login_freelancerVO;
@@ -175,18 +177,22 @@ public class c_freelancerlistController {
 	
 		}
 		@RequestMapping(value="/f_complete", method= RequestMethod.GET)
-		public void complete(Contract contract,HttpSession session,@RequestParam("e_pr_num") int e_pr_num,@RequestParam("f_num") int f_num, Model model)throws Exception{
+		public String complete(Contract contract,HttpSession session,@RequestParam("e_pr_num") int e_pr_num,@RequestParam("f_num") int f_num, Model model,RedirectAttributes rttr)throws Exception{
 			SubmitVO submitVO = new SubmitVO();
 			
 			submitVO.setE_pr_num(e_pr_num);
 			submitVO.setF_num(f_num);
 			
+			c_freelancerlist_searchVO vo = new c_freelancerlist_searchVO();
+			vo.setF_num(f_num);
+			vo.setE_pr_num(e_pr_num);
 			
-			List<Contract> con = service.selectCon(f_num);
+			int con = service.selectCon(vo);
 			
-			/*for(int i=0;i<con.size();i++){
-				if(con.get(i).getE_pr_num() == e_pr_num){
-					System.out.println("제안해쫑");
+	
+				if(con!=0){
+					rttr.addFlashAttribute("msg","conCheck");
+					return "redirect:/c_freelancerlist/f_readpage?f_num="+f_num;
 				}else{
 					model.addAttribute("contract", session.getAttribute("contract"));
 					
@@ -196,18 +202,12 @@ public class c_freelancerlistController {
 					contract.setC_num(c_num);
 					
 					service.insertContract(submitVO);
+					
+				
 				}
+				return "/c_freelancerlist/f_complete";
 			}
-				*/
-				model.addAttribute("contract", session.getAttribute("contract"));
-					
-					int c_num = service.getnum()+1;
-					submitVO.setC_num(c_num);
-					
-					contract.setC_num(c_num);
-					
-					service.insertContract(submitVO);
-			
+				
 			
 			
 		}
@@ -215,4 +215,4 @@ public class c_freelancerlistController {
 		
 	
 
-}
+
