@@ -349,10 +349,11 @@ $(function(){
 					</tbody>
 				</table>
 			</div>
-	
 			<!-- //tb_box : e -->
 			<c:choose>
-			<c:when test="${from eq 'list'}">
+	
+			
+			<c:when test="${from eq 'list' && identity.identity eq 'freelancer'}">
 			
 			<div class="btn_box">
 					<input id="checkValue" class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" name="post_a_job"
@@ -363,7 +364,8 @@ $(function(){
 					<br>
 				</div>
 			</c:when>
-			<c:otherwise>
+			
+			<c:when test="${from eq 'mypage' && identity.identity eq 'freelancer'}">
 			
 			<div class="btn_box">
 					<input id="checkValue" class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" name="post_a_job"
@@ -376,7 +378,7 @@ $(function(){
 						<br>
 						<br>
 				</div>
-			</c:otherwise>
+			</c:when>
 		
 			</c:choose>
 			</div>
