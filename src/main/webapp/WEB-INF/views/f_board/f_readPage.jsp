@@ -19,8 +19,6 @@
 $(document).ready(function(){
 	var formObj = $("form[role='form']");
 	var formObj2 = $("form[role='form_test']");
-	
-	//console.log(formObj);
 
 	$(".btn_check04").click(function(){
 		formObj.attr("action", "/f_board/f_modifyPage");
@@ -34,9 +32,7 @@ $(document).ready(function(){
 	});
 	$(".btn_list").click(function(){
 		location.href="/f_board/f_list";
-		
-		/* formObj.attr("method", "get"); */
-/* 		formObj.submit(); */
+
 	}); 
 	
 	
@@ -101,32 +97,36 @@ $(document).ready(function(){
          url: "/reply/listJson.do?bno=${F_BoardVO.f_board_num}",
          success: function(result){
              console.log(result);
-             var output = "<table>";
-             for(var i in result){
-                 output += "<tr>";
-                 output += "<td>"+result[i].f_id;
-                 output += result[i].reply_num;
-                 output += changeDate(result[i].reply_date);
-                 output += result[i].reply_content;
-   					if($('#f_id').text() == result[i].f_id){
-   						output += '<input type="button" id="btnModify" value="수정" onclick="showReplyModify('+result[i].reply_num+');">';
-   	                	output += '<input type="button" id="btnReplyDelete" value="삭제" onclick="ReplyDelete('+result[i].reply_num+');">';
-   	 /*                	output += "  */
-   	                	output += "</td>";
-   	                 output += "</tr>";
-   					}else{
-   						output += "</td>";
-   	                	output += "</tr>";
-   					}
-   					/* output += ""; */
-             }
-        	     output += "</table>";
+   	          
+                 var output = "<table class='opinion_list'>";
+                 for(var i in result){
+                	 output += "<tbody class='replybody'>";
+                     output += "<tr class='replyheader'>";
+                     output += "<td class='replypic'></td>"
+                     output += "<td class='replyname'><strong>"+result[i].f_id+"</strong></td>";
+                     output += "<td class='replytime'>"+changeDate(result[i].reply_date)+"</td>";
+                     output += "</tr>"
+                     output += "<tr class='replycontent'>"
+                     output += "<td class='replytext'>"+result[i].reply_content;+"</td>"
+       					if($('#f_id').text() == result[i].f_id){
+       						output += "<td class='replybuttons'>"
+       						output += '<input type="button" id="btnModify" value="수정" onclick="showReplyModify('+result[i].reply_num+');">';
+       	                	output += '<input type="button" id="btnReplyDelete" value="삭제" onclick="ReplyDelete('+result[i].reply_num+');">'; 
+        	                output += "</td>";
+        	            	output += "</tr>";
+       					}else{
+          	                 output += "</tr>";
+       					} 
+       					/* output += ""; */
+                     output += "</tbody>";
+                  }
+             	     output += "</table>";
           	   $("#listReply").html(output);
          
          }
      })
  };
- 
+
  
  function showReplyModify(num){
      $("#mynum").val(num);
@@ -174,6 +174,9 @@ function ReplyDelete(num){
     });
 	 }
 }
+
+
+
  // **날짜 변환 함수 작성
   function changeDate(reply_date){
 	 console.log(reply_date);
@@ -184,12 +187,10 @@ function ReplyDelete(num){
      day = date.getDate();
      hour = date.getHours();
      minute = date.getMinutes();
-     second = date.getSeconds();
-     strDate = year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
+     strDate = year+"-"+month+"-"+day+" "+hour+":"+minute;
      return strDate;
   
  }
-
 
  
 </script>
@@ -263,13 +264,13 @@ function ReplyDelete(num){
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">글번호</label></th>
 								<td colspan="2">
-								<input type="text" hidden name="f_board_num">${F_BoardVO.f_board_num}
+								<input type="text" hidden name="f_board_num">&nbsp&nbsp${F_BoardVO.f_board_num}
 								<!-- <input type="text" id="f_board_title" name="f_board_title" class="wid" />  -->
 								</td>
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">조회수</label></th>
 								<td colspan="2">
-								${F_BoardVO.f_board_hits}
+								&nbsp&nbsp${F_BoardVO.f_board_hits}
 								<!-- <input type="text" id="f_board_title" name="f_board_title" class="wid" /> -->
 								</td>
 							</tr>
@@ -277,14 +278,14 @@ function ReplyDelete(num){
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">아이디</label></th>
 								<td colspan="2">
-								 ${F_BoardVO.f_id} 
+								 &nbsp&nbsp${F_BoardVO.f_id} 
 								<!-- <input type="text" id="f_id" name="f_id" class="wid" /> -->
 								</td>
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">등록일</label></th>
 								<td colspan="2"><%-- 
 								<c:out value="changeDate(${F_BoardVO.f_board_date });"></c:out> --%>
-								${F_BoardVO.f_board_date }
+								&nbsp&nbsp${F_BoardVO.f_board_date }
 								<!-- <input type="text" id="f_board_title" name="f_board_title" class="wid" /> -->
 								</td> 
 							</tr>
@@ -292,7 +293,7 @@ function ReplyDelete(num){
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="fm_name">제목</label></th>
 								<td colspan="5">
-								${F_BoardVO.f_board_title }
+								&nbsp&nbsp${F_BoardVO.f_board_title }
 								<%-- <input type="text" id="f_board_title" name="f_board_title" class="wid" 
 										readonly="readonly" value="${F_BoardVO.f_board_title }"/>  --%>
 								</td>
@@ -310,7 +311,7 @@ function ReplyDelete(num){
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="p_file">첨부파일</label></th>
 								<td colspan="5">
-								사진~
+								&nbsp사진~
 									<!-- <div>
 										<input type="file" id="f_file" name="f_file" class="wid">
 									</div> -->
@@ -322,14 +323,18 @@ function ReplyDelete(num){
 				
 				<div class="tit_box">
 					<fieldset class="opinion_reg">
-						<ul class="condition">    </ul>
+					 <ul class="condition">    </ul>
+						<c:if test="${client.f_id != null}">
 						<div class="myphoto">
 							<img height="33" width="33" src="../../../resources/f_board_img/imggg.png">
 						</div>
-						<textarea class="dim ta taComment" id="commentText" rows="5" cols="50" style="ime-mode:active;"></textarea>
-						<input type="image" class="input_btn registerComment btnArea" src="../../../resources/f_board_img/btn_reg_reply.gif">
+						<textarea class="dim ta taComment" id="reply_content" rows="5" cols="50" style="ime-mode:active;"></textarea>
+						<input type="image" id="btnReply" class="input_btn registerComment btnArea" src="../../../resources/f_board_img/btn_reg_reply.gif">
+						</c:if>
+						
 					</fieldset>
-					<ul class="opinion_list">
+					<div id="listReply"></div>
+<%-- 					<ul class="opinion_list">
 						<li>
 							<div class="thumb">
 								<img height="33" width="33" src="../../../resources/f_board_img/imggg.png">
@@ -337,30 +342,13 @@ function ReplyDelete(num){
 							<div class="cont">
 								<p class="id">
 									<strong class="answer">${F_BoardVO.f_id} </strong>
-										<p class="desc">내용</p>
+										<div class="desc" id="listReply">내용</div>
 								</p>
 							</div>
 							</li>
-					</ul>
+					</ul> --%>
 				</div>
-				
-				
-    <div style="width:650px; text-align: center;">
-        <br>
-        <!-- 로그인 한 회원에게만 댓글 작성폼이 보이게 처리 -->
-       <c:if test="${client.f_id != null}">
-        <textarea rows="5" cols="80" id="reply_content" placeholder="댓글을 작성해주세요"></textarea>
-        <br>
-        <!-- **비밀댓글 체크박스 -->
-        <!-- <input type="checkbox" id="secretReply">비밀 댓글 -->
-        <button type="button" id="btnReply">댓글 작성</button>
-     </c:if>
-    <hr>
-    </div>
-    <!-- **댓글 목록 출력할 위치 -->
-    <div id="listReply">
 
-    </div>
 					<!-- 수정 댓글 목록 -->
  					<div id="modifyReply">
 	<%-- 				댓글 번호 : ${F_ReplyVO.reply_num}<br>  --%>
@@ -369,21 +357,28 @@ function ReplyDelete(num){
 				    <textarea id="detailReplytext" rows="5" cols="82"></textarea>
 				    <div style="text-align: center;">
 				        <!-- 본인 댓글만 수정, 삭제가 가능하도록 처리 -->
-				      
 				         <button type="button" id="btnReplyUpdate" onclick="ReplyModify($('#mynum').val())">수정
-				            
 				  </form>
 				        <button type="button" id="btnReplyClose" >닫기</button>
 				    </div>
 					</div> 
-					
-					
 					</div>
 				
 				<div class="btn_box">
+				<c:if test="${client.f_id == F_BoardVO.f_id}">	
 					<input type="submit" id="checkValue" class="btn_check04"  value="수정하기">
 					<input type="submit" id="checkValue1" class="btn_remove"  value="     삭제하기">
-					<input type="button" id="checkValue2" class="btn_list"  value="목록으로">
+				</c:if>
+				<input type="button" id="checkValue2" class="btn_list"  value="목록으로">
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
 				</div>
 			</div>
 		</div>

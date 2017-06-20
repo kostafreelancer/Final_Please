@@ -13,7 +13,7 @@ public class F_PageMaker {
   private boolean prev;
   private boolean next;
 
-  private int displayPageNum = 3;
+  private int displayPageNum = 10;
 
   private F_Criteria cri;
 

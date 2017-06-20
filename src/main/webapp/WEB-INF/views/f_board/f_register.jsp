@@ -19,11 +19,11 @@ $(document).ready(function(){
 		formObj.attr("action", "/f_board/f_register");
 		formObj.attr("method", "post");
 		formObj.submit();
-	})
-	
+	});
 	$(".btn_remove").click(function(){
 		location.href="/f_board/f_list";
-	}); 
+	});
+
 
 }); 
 </script>
@@ -103,7 +103,7 @@ $(document).ready(function(){
 				</div>
 				<div class="btn_box">
 					<input type="submit" id="checkValue" class="btn_check04"  value="등록하기">
-					<input type="submit" id="checkValue1" class="btn_remove"  value="     취소하기">
+					<input type="button" id="checkValue1" class="btn_remove"  value="     취소하기">
 				</div>
 			</div>
 		</div>

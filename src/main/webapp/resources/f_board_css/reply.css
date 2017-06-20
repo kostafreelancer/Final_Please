@@ -1,35 +1,380 @@
+.opinion_reg {
+	padding-bottom: 20px;
+	padding-left:10px;
+	position: relative;
+	clear: both;
+	width: 1000px;
+	min-height: 126px;
+	_height: 131px;
+	margin: 0 auto;
+	z-index: 10;
+	border: 1px solid #e3e3e3;
+	background: #fafafa;
+	zoom: 1
+}
 
-.opinion_reg{position:relative;clear:both;width:1000px;min-height:126px;_height:131px;margin:0 auto;z-index:10;border:1px solid #e3e3e3;background:#fafafa;zoom:1}
-.opinion_reg .condition{padding:12px 0 11px 54px}.opinion_reg .condition li{display:inline}.opinion_reg .condition li input{width:13px;height:13px;vertical-align:middle}
-.opinion_reg .condition li label{padding:0 13px 0 5px;vertical-align:middle}.opinion_reg .myphoto{float:left;padding:0 10px 0 11px}
-.opinion_reg textarea{float:left;width:800px;height:50px;margin-right:5px;padding:4px 6px;border-width:1px;border-style:solid;border-color:#d1d1d1 #e9e9e9 #e9e9e9 #d1d1d1;color:#666;font-size:12px;line-height:20px}
-.opinion_reg textarea.dim{color:#bfbfbf;font-size:11px;letter-spacing:-1px;line-height:16px}.opinion_reg .input_btn{float:left}
-.opinion_reg .info{clear:both;padding:9px 90px 0 0;text-align:right;color:#aaa;font-size:11px;letter-spacing:-1px}
-.opinion_reg .info a{color:#aaa;text-decoration:underline}.opinion_reg .ly_app_inst,.opinion_reg .ly_app_set{border:1px solid #888;position:absolute;top:27px;left:0;z-index:10;background:#fff;text-align:center;padding:15px 26px 13px;zoom:1}
-.opinion_reg .ly_app_inst .inst_tx{line-height:16px;font-size:11px;letter-spacing:-1px;color:#4a4a4a;margin-bottom:13px}
-.opinion_reg .ly_app_inst .inst_tx strong{font-weight:normal;color:#2cae0c}.opinion_reg .ly_app_inst .inst_btn,.ly_app_inst .ly_clse,.ly_app_inst .arrow_top,.opinion_reg .ly_app_set .ly_clse,.opinion_reg .ly_app_set .btn_send,.opinion_reg .ly_app_set .btn_ok{background:url(http://static.naver.net/kin/09renewal/sp_instapp.png) no-repeat transparent;display:inline-block;zoom:1}
-.opinion_reg .ly_app_inst .inst_btn{width:184px;height:31px}.opinion_reg .ly_app_inst .ly_clse,.opinion_reg .ly_app_set .ly_clse{position:absolute;right:8px;top:8px;width:10px;height:9px;background-position:-30px -39px}
-.opinion_reg .ly_app_inst .arrow_top{position:absolute;left:45px;top:-6px;width:9px;height:6px;background-position:-50px -39px}
-.opinion_reg .ly_app_set{padding:13px 14px 13px}.opinion_reg .ly_app_set .set_tt{font-size:12px;font-weight:bold;color:#333;line-height:16px;margin-bottom:6px;padding:0 7px}
-.opinion_reg .ly_app_set .set_tt strong{color:#2cae0c}.opinion_reg .ly_app_set .set_tx{font-size:11px;color:#909090;letter-spacing:-1px;margin-bottom:11px}
-.opinion_reg .ly_app_set .ly_app_btn{border-top:1px solid #eeeeec;padding-top:10px}.opinion_reg .ly_app_set .btn_send{width:67px;height:23px;background-position:-78px -33px;vertical-align:top}
-.opinion_reg .ly_app_set .btn_ok{width:35px;height:23px;background-position:-149px -33px;vertical-align:top}
-.opinion_editor_mn{position:relative;width:623px;height:25px;margin:0 auto -12px auto;padding-top:12px;border-bottom:1px solid #f3f3f3}
-.opinion_editor_mn input{width:13px;height:13px;margin-right:7px;vertical-align:middle}.opinion_editor_mn label{vertical-align:middle;color:#363636}
-.opinion_editor_mn .del_select{position:absolute;top:12px;right:0}.opinion_list{width:700px}
-.opinion_list li{clear:both;position:relative;width:850px;padding:11px 0;border-bottom:1px solid #f3f3f3;z-index:0}
-.opinion_list li:after{content:"";display:block;clear:both}.opinion_list li .check_del{float:left;width:13px;height:13px;margin-right:8px}
-.opinion_list li .thumb{position:relative;float:left;width:33px;height:33px;margin-right:12px;z-index:10}
-.opinion_list li .thumb .profile{position:absolute;top:24px;left:24px}.opinion_list li .thumb .profile img{width:9px;height:9px;background:url(http://static.naver.net/kin/09renewal/bg_sprite_ico_170106.png) no-repeat 0 -200px}
-.opinion_list li .cont{position:relative;float:left;width:557px;z-index:0}.opinion_list li .cont .id{padding-top:2px;padding-bottom:2px}
-.opinion_list li .cont .id strong a{color:#343434}.opinion_list li .cont .id strong a span{margin-left:0;font-weight:normal;font-size:12px;color:#343434}
-.opinion_list li .cont .id span{position:relative;top:0;margin-left:7px;color:#aaa;font-family:Tahoma,sans-serif;font-size:10px}
-.opinion_list li .cont .id .answer{color:#246fe0}.opinion_list li .cont .appoint{margin-left:7px;color:#999}
-.opinion_list li .cont .desc{color:#707070;line-height:20px;word-break:break-all;word-wrap:break-word}
-.opinion_list li .cont .desc .cate{color:#26b049}.opinion_list li .cont .desc .stck{display:inline-block;padding:2px 0 5px;zoom:1}
-.opinion_list li .link{position:relative;float:right;width:50px;height:13px;margin:-2px 0 0 -50px;text-align:right;z-index:5}
-.opinion_list li .link a{margin-right:3px;color:#aaa;font-size:11px;letter-spacing:-1px}.opinion_list li .link a.report{margin:0}
-.opinion_list .layer_namecard .b4 li{clear:none;padding:0;width:auto !important;border-bottom:0}.opinion_list .layer_namecard .b4 li .c2c1 ul li{padding-top:0;padding-bottom:0}
-.opinion_list li.layer_open{z-index:10}.comment .opinion_list{margin-bottom:44px}.go_kin_app{float:none;width:100%;padding:13px 0 12px;clear:both}
-.app_alarm{padding-left:54px;font-size:11px;color:#727272;letter-spacing:-1px}.app_alarm .ic{margin-right:4px}
-.app_alarm .go{padding-right:4px;background:url(http://static.naver.net/kin/09renewal/bu_arw01.gif) no-repeat 100% 3px;color:#00a752}
+.opinion_reg .condition {
+	padding: 12px 0 11px 54px
+}
+
+.opinion_reg .condition li {
+	display: inline
+}
+
+.opinion_reg .condition li input {
+	width: 13px;
+	height: 13px;
+	vertical-align: middle
+}
+
+.opinion_reg .condition li label {
+	padding: 0 13px 0 5px;
+	vertical-align: middle
+}
+
+.opinion_reg .myphoto {
+	float: left;
+	padding: 0 10px 0 11px
+}
+
+.opinion_reg textarea {
+	float: left;
+	width: 800px;
+	height: 50px;
+	margin-right: 5px;
+	padding: 4px 6px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #d1d1d1 #e9e9e9 #e9e9e9 #d1d1d1;
+	color: #666;
+	font-size: 12px;
+	line-height: 20px
+}
+
+.opinion_reg textarea.dim {
+	color: #bfbfbf;
+	font-size: 11px;
+	letter-spacing: -1px;
+	line-height: 16px
+}
+
+.opinion_reg .input_btn {
+	margin-top: -5px;
+	margin-left: 25px;
+}
+
+.opinion_reg .info {
+	clear: both;
+	padding: 9px 90px 0 0;
+	text-align: right;
+	color: #aaa;
+	font-size: 11px;
+	letter-spacing: -1px
+}
+
+.opinion_reg .info a {
+	color: #aaa;
+	text-decoration: underline
+}
+
+.opinion_reg .ly_app_inst, .opinion_reg .ly_app_set {
+	border: 1px solid #888;
+	position: absolute;
+	top: 27px;
+	left: 0;
+	z-index: 10;
+	background: #fff;
+	text-align: center;
+	padding: 15px 26px 13px;
+	zoom: 1
+}
+
+.opinion_reg .ly_app_inst .inst_tx {
+	line-height: 16px;
+	font-size: 11px;
+	letter-spacing: -1px;
+	color: #4a4a4a;
+	margin-bottom: 13px
+}
+
+.opinion_reg .ly_app_inst .inst_tx strong {
+	font-weight: normal;
+	color: #2cae0c
+}
+
+.opinion_reg .ly_app_inst .inst_btn, .ly_app_inst .ly_clse, .ly_app_inst .arrow_top,
+	.opinion_reg .ly_app_set .ly_clse, .opinion_reg .ly_app_set .btn_send,
+	.opinion_reg .ly_app_set .btn_ok {
+	background: url(http://static.naver.net/kin/09renewal/sp_instapp.png)
+		no-repeat transparent;
+	display: inline-block;
+	zoom: 1
+}
+
+.opinion_reg .ly_app_inst .inst_btn {
+	width: 184px;
+	height: 31px
+}
+
+.opinion_reg .ly_app_inst .ly_clse, .opinion_reg .ly_app_set .ly_clse {
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	width: 10px;
+	height: 9px;
+	background-position: -30px -39px
+}
+
+.opinion_reg .ly_app_inst .arrow_top {
+	position: absolute;
+	left: 45px;
+	top: -6px;
+	width: 9px;
+	height: 6px;
+	background-position: -50px -39px
+}
+
+.opinion_reg .ly_app_set {
+	padding: 13px 14px 13px
+}
+
+.opinion_reg .ly_app_set .set_tt {
+	font-size: 12px;
+	font-weight: bold;
+	color: #333;
+	line-height: 16px;
+	margin-bottom: 6px;
+	padding: 0 7px
+}
+
+.opinion_reg .ly_app_set .set_tt strong {
+	color: #2cae0c
+}
+
+.opinion_reg .ly_app_set .set_tx {
+	font-size: 11px;
+	color: #909090;
+	letter-spacing: -1px;
+	margin-bottom: 11px
+}
+
+.opinion_reg .ly_app_set .ly_app_btn {
+	border-top: 1px solid #eeeeec;
+	padding-top: 10px
+}
+
+.opinion_reg .ly_app_set .btn_send {
+	width: 67px;
+	height: 23px;
+	background-position: -78px -33px;
+	vertical-align: top
+}
+
+.opinion_reg .ly_app_set .btn_ok {
+	width: 35px;
+	height: 23px;
+	background-position: -149px -33px;
+	vertical-align: top
+}
+
+.opinion_editor_mn {
+	position: relative;
+	width: 623px;
+	height: 25px;
+	margin: 0 auto -12px auto;
+	padding-top: 12px;
+	border-bottom: 1px solid #f3f3f3
+}
+
+.opinion_editor_mn input {
+	width: 13px;
+	height: 13px;
+	margin-right: 7px;
+	vertical-align: middle
+}
+
+.opinion_editor_mn label {
+	vertical-align: middle;
+	color: #363636
+}
+
+.opinion_editor_mn .del_select {
+	position: absolute;
+	top: 12px;
+	right: 0
+}
+
+.opinion_list {
+	width: 800px;
+}
+
+
+
+.opinion_list li {
+	clear: both;
+	position: relative;
+	width: 850px;
+	padding: 11px 0;
+	border-bottom: 1px solid #f3f3f3;
+	z-index: 0
+}
+
+.opinion_list li:after {
+	content: "";
+	display: block;
+	clear: both
+}
+
+.opinion_list li .check_del {
+	float: left;
+	width: 13px;
+	height: 13px;
+	margin-right: 8px
+}
+
+.opinion_list li .thumb {
+	position: relative;
+	float: left;
+	width: 33px;
+	height: 33px;
+	margin-right: 12px;
+	z-index: 10
+}
+
+.opinion_list li .thumb .profile {
+	position: absolute;
+	top: 24px;
+	left: 24px
+}
+
+.opinion_list li .thumb .profile img {
+	width: 9px;
+	height: 9px;
+	background:
+		url(http://static.naver.net/kin/09renewal/bg_sprite_ico_170106.png)
+		no-repeat 0 -200px
+}
+
+.opinion_list li .cont {
+	position: relative;
+	float: left;
+	width: 557px;
+	z-index: 0
+}
+
+.opinion_list li .cont .id {
+	padding-top: 2px;
+	padding-bottom: 2px
+}
+
+.opinion_list li .cont .id strong a {
+	color: #343434
+}
+
+.opinion_list li .cont .id strong a span {
+	margin-left: 0;
+	font-weight: normal;
+	font-size: 12px;
+	color: #343434
+}
+
+.opinion_list li .cont .id span {
+	position: relative;
+	top: 0;
+	margin-left: 7px;
+	color: #aaa;
+	font-family: Tahoma, sans-serif;
+	font-size: 10px
+}
+
+.opinion_list li .cont .id .answer {
+	color: #246fe0
+}
+
+.opinion_list li .cont .appoint {
+	margin-left: 7px;
+	color: #999
+}
+
+.opinion_list li .cont .desc {
+	color: #707070;
+	line-height: 20px;
+	word-break: break-all;
+	word-wrap: break-word
+}
+
+.opinion_list li .cont .desc .cate {
+	color: #26b049
+}
+
+.opinion_list li .cont .desc .stck {
+	display: inline-block;
+	padding: 2px 0 5px;
+	zoom: 1
+}
+
+.opinion_list li .link {
+	position: relative;
+	float: right;
+	width: 50px;
+	height: 13px;
+	margin: -2px 0 0 -50px;
+	text-align: right;
+	z-index: 5
+}
+
+.opinion_list li .link a {
+	margin-right: 3px;
+	color: #aaa;
+	font-size: 11px;
+	letter-spacing: -1px
+}
+
+.opinion_list li .link a.report {
+	margin: 0
+}
+
+.opinion_list .layer_namecard .b4 li {
+	clear: none;
+	padding: 0;
+	width: auto !important;
+	border-bottom: 0
+}
+
+.opinion_list .layer_namecard .b4 li .c2c1 ul li {
+	padding-top: 0;
+	padding-bottom: 0
+}
+
+.opinion_list li.layer_open {
+	z-index: 10
+}
+
+.comment .opinion_list {
+	margin-bottom: 44px
+}
+
+.go_kin_app {
+	float: none;
+	width: 100%;
+	padding: 13px 0 12px;
+	clear: both
+}
+
+.app_alarm {
+	padding-left: 54px;
+	font-size: 11px;
+	color: #727272;
+	letter-spacing: -1px
+}
+
+.app_alarm .ic {
+	margin-right: 4px
+}
+
+.app_alarm .go {
+	padding-right: 4px;
+	background: url(http://static.naver.net/kin/09renewal/bu_arw01.gif)
+		no-repeat 100% 3px;
+	color: #00a752
+}
