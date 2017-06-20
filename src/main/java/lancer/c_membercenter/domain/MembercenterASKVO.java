@@ -16,9 +16,15 @@ public class MembercenterASKVO implements Serializable {
 	private String answerdate;
 	private int ad_num;
 	private String ask_state;
+	private String read;
 	
 	
-	
+	public String getRead() {
+		return read;
+	}
+	public void setRead(String read) {
+		this.read = read;
+	}
 	public String getAsk_state() {
 		return ask_state;
 	}

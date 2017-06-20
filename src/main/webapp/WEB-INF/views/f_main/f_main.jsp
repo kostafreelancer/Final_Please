@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -59,7 +60,33 @@ function drawMultSeries() {
 	%> --%>
 	<%@ include file="../c_common/header.jsp"%>
 	<section id="slides">
-	<div class="main_slide">
+	<div class="read" style="position: relative; z-index: 9999">
+				<c:choose>
+					<c:when test="${identity.identity == 'freelancer' }">
+					<div class="readCount">${f_read }</div>개의 답변이 완료되었습니다.
+					</c:when>
+					<c:otherwise>
+					
+					</c:otherwise>
+				</c:choose>
+				
+				<div class="read_2" style="position : relative; z-index: 2;">
+				<c:choose>
+					<c:when test="${identity.identity == 'freelancer' }">
+					<ul>
+					<c:forEach items="${alram }" var="alram">
+				
+					
+						<li><a href="/c_membercenter/member_centerMain" style="text-decoration: none; color: #2257ad;">${alram.asktitle }</a> 문의에 대한 답변글이 달렸습니다.</li>
+			
+				
+					</c:forEach>
+					</ul>
+					</c:when>
+				</c:choose>
+				</div>
+			</div>
+	<div class="main_slide" style="position: relative; z-index: 1;">
 		<div class="slideshow_images">
 		
 			<a href="#" class="slide"><img src="../../../resources/f_main_img/bg_visual01.jpg"
@@ -105,11 +132,11 @@ function drawMultSeries() {
 	</c:choose>
 			
 				</ul>
-			
+		
 		</div>
 		<div id="chart_div"></div>
 	</div>
-
+	
 	<div id="active_inf">
 		<ul id="tabs">
 			<li><a href="#" title="tab1">프리랜서</a></li>

@@ -19,7 +19,16 @@ $(document).ready(function() {
         $(this).parent().attr("id","current"); // Activate this
         $('#' + $(this).attr('title')).fadeIn(); // Show content for current tab
     });
-   
+    $(".read").click(function(){
+    	$(".read_2").toggle(function(){
+    		$(this).css("z-index","99999")
+    	}, function(){
+    		$(this).css("z-index","-99999")
+    	});
+    	
+
+    })
+
 });
 
 $(function(){
