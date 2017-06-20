@@ -291,7 +291,7 @@
 								<th>등록번호</th>
 								<td>${pp.e_pr_num }</td>
 								<th>프로젝트명</th>
-								<td><a href="/c_projectlist/c_readpage?e_pr_num=${pp.e_pr_num }&e_num=${pp.e_num }">${pp.p_name}</a></td>
+								<td><a href="/c_projectlist/c_readpage?e_pr_num=${pp.e_pr_num }&e_num=${pp.e_num }&from=list&f_num=0">${pp.p_name}</a></td>
 								<th>회사명</th>
 								<td>${pp.e_ename}</td>
 								<th>매니저 연락처</th>
