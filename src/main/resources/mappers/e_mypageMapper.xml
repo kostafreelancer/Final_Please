@@ -18,6 +18,7 @@
 		e_name=#{e_name},
 		e_ename=#{e_ename},
 		e_owner=#{e_owner},
+		e_ownerfilenum=#{e_ownerfilenum},
 		e_regno=#{e_regno},
 		e_phone=#{e_phone},
 		e_bf=#{e_bf},
@@ -31,7 +32,8 @@
 		e_listing=#{e_listing},
 		e_capital=#{e_capital},
 		e_sales=#{e_sales},
-		e_scale=#{e_scale} WHERE e_num=#{e_num}
+		e_scale=#{e_scale},
+		e_licensefilenum=#{e_licensefilenum} WHERE e_num=#{e_num}
 	</update>
 	
 	<select id="listProjectReady" resultType="lancer.e_mypage.domain.Project">

@@ -15,24 +15,28 @@ public class C_FileService {
 	@Inject
 	private C_FileDAO dao;
 
-	public void uploadFile(MultipartFile multipartFile, String section, int common_num, int identy) throws Exception {
+	public Integer uploadFile(MultipartFile multipartFile, String section, int common_num, int identy) throws Exception {
 		
 		HashMap<String, Object> map = FileUtils.parseInsertFileInfo(multipartFile, section, common_num, identy);
 	
 		dao.deleteFile(map);
 		dao.insertFile(map);
+		
+		return dao.getRecentlyFileNum();
 	}
 	
-	public void uploadImageFile(MultipartFile multipartFile, String section, int common_num, int identy) throws Exception {
+	public Integer uploadImageFile(MultipartFile multipartFile, String section, int common_num, int identy) throws Exception {
 		
 		HashMap<String, Object> map = FileUtils.parseInsertImageFileInfo(multipartFile, section, common_num, identy);
 		
 		if(map == null){
-			return;
+			return null;
 		}
 		
 		dao.deleteFile(map);
 		dao.insertFile(map);
+		
+		return dao.getRecentlyFileNum();
 	}
 	
 	public void deleteFile(String section, int common_num, int identy) throws Exception{

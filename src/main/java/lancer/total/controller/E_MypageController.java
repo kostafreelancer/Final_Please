@@ -178,11 +178,13 @@ public class E_MypageController {
 		//파일 업로드
 		if(command.getE_ownerfileExist().equals("true")){
 			MultipartFile E_ownerfile = command.getE_ownerfile();	
-			fileService.uploadImageFile(E_ownerfile, "e_ownerfile", enterprise.getE_num(), 0);
+			Integer e_ownerfileNum = fileService.uploadImageFile(E_ownerfile, "e_ownerfile", enterprise.getE_num(), 0);
+			enterprise.setE_ownerfilenum(e_ownerfileNum);
 		}
 		if(command.getE_licensefileExist().equals("true")){
 			MultipartFile e_licensefile = command.getE_licensefile();	
-			fileService.uploadFile(e_licensefile, "e_licensefile", enterprise.getE_num(), 0);
+			Integer e_licensefileNum = fileService.uploadFile(e_licensefile, "e_licensefile", enterprise.getE_num(), 0);
+			enterprise.setE_licensefilenum(e_licensefileNum);
 		}
 		
 		

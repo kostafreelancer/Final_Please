@@ -48,10 +48,15 @@ public class E_join implements Serializable{
 	private MultipartFile e_licensefile;		// 사업자등록증 파일
 	private String e_ownerfileExist;
 	private String e_licensefileExist;
+	private Integer e_ownerfileNum;
+	private Integer e_licensefileNum;
 	
 	
 	public E_join(){
 	}
+
+
+
 
 
 	public E_join(int e_num, String e_id, String e_pwd, String e_mail, String e_mail1, String e_mail2, String e_name,
@@ -61,7 +66,8 @@ public class E_join implements Serializable{
 			String manager_mail, String manager_mail1, String manager_mail2, String e_address, String e_address1,
 			String e_address2, String e_address3, String e_homepage, int start_year, int e_enum, String e_listing,
 			int e_capital, int e_sales, String e_scale, String e_check, double e_score, MultipartFile e_ownerfile,
-			MultipartFile e_licensefile, String e_ownerfileExist, String e_licensefileExist) {
+			MultipartFile e_licensefile, String e_ownerfileExist, String e_licensefileExist, Integer e_ownerfileNum,
+			Integer e_licensefileNum) {
 		super();
 		this.e_num = e_num;
 		this.e_id = e_id;
@@ -106,7 +112,12 @@ public class E_join implements Serializable{
 		this.e_licensefile = e_licensefile;
 		this.e_ownerfileExist = e_ownerfileExist;
 		this.e_licensefileExist = e_licensefileExist;
+		this.e_ownerfileNum = e_ownerfileNum;
+		this.e_licensefileNum = e_licensefileNum;
 	}
+
+
+
 
 
 	public int getE_num() {
@@ -536,6 +547,38 @@ public class E_join implements Serializable{
 
 	public void setE_licensefileExist(String e_licensefileExist) {
 		this.e_licensefileExist = e_licensefileExist;
+	}
+
+
+
+
+
+	public Integer getE_ownerfileNum() {
+		return e_ownerfileNum;
+	}
+
+
+
+
+
+	public void setE_ownerfileNum(Integer e_ownerfileNum) {
+		this.e_ownerfileNum = e_ownerfileNum;
+	}
+
+
+
+
+
+	public Integer getE_licensefileNum() {
+		return e_licensefileNum;
+	}
+
+
+
+
+
+	public void setE_licensefileNum(Integer e_licensefileNum) {
+		this.e_licensefileNum = e_licensefileNum;
 	}
 
 

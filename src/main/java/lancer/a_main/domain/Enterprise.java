@@ -12,13 +12,13 @@ public class Enterprise implements Serializable{
 	private String e_phone;		// 기업 전화번호
 	private String e_address;			// 기업 주소
 	private String e_scale;			// 기업규모 (대기업, 중소기업, 개인)
-	private String e_licensefile;		// 사업자등록증 사진파일 경로
+	private Integer e_licensefilenum;		// 사업자등록증 사진파일 경로
 	private String e_check;		// 이메일인증을 통한 가입승인여부   가입승인됬을시 1,  인증 아직 안했으면 0
 	
 	public Enterprise(){}
 
 	public Enterprise(int e_num, String e_id, String e_mail, String e_name, String e_ename, String e_regno,
-			String e_phone, String e_address, String e_scale, String e_licensefile, String e_check) {
+			String e_phone, String e_address, String e_scale, Integer e_licensefilenum, String e_check) {
 		super();
 		this.e_num = e_num;
 		this.e_id = e_id;
@@ -29,7 +29,7 @@ public class Enterprise implements Serializable{
 		this.e_phone = e_phone;
 		this.e_address = e_address;
 		this.e_scale = e_scale;
-		this.e_licensefile = e_licensefile;
+		this.e_licensefilenum = e_licensefilenum;
 		this.e_check = e_check;
 	}
 
@@ -105,12 +105,12 @@ public class Enterprise implements Serializable{
 		this.e_scale = e_scale;
 	}
 
-	public String getE_licensefile() {
-		return e_licensefile;
+	public Integer getE_licensefilenum() {
+		return e_licensefilenum;
 	}
 
-	public void setE_licensefile(String e_licensefile) {
-		this.e_licensefile = e_licensefile;
+	public void setE_licensefilenum(Integer e_licensefilenum) {
+		this.e_licensefilenum = e_licensefilenum;
 	}
 
 	public String getE_check() {

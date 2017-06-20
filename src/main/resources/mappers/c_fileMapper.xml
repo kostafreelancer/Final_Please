@@ -90,6 +90,10 @@
 	            file_num = #{file_num}
 	</select>
 	
+	<select id="getRecentlyFileNum" resultType="Integer">
+		SELECT max(file_num) FROM fileupload
+	</select>
+	
 </mapper>
 
 

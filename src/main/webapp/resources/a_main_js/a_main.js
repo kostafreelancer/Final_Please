@@ -56,6 +56,18 @@ $(document).ready(function() {
 		}
 	});
 	
+	$('.license').click(function(e){
+		e.preventDefault();
+		var filenum = $(this).attr("href");
+		if(filenum == ""){
+			alert("파일이 없습니다");
+			return false;
+		}
+		$('#file_num').val(parseInt(filenum));
+		
+		document.fileForm.submit();
+	});
 	
+
 });
 

@@ -9,7 +9,7 @@ public class c_login_enterpriseVO {
 	private String e_name;
 	private String e_ename;
 	private String e_owner;
-	private String e_ownerfile;
+	private Integer e_ownerfilenum;
 	private String e_regno;
 	private String e_phone;
 	private String manager_name;
@@ -23,15 +23,15 @@ public class c_login_enterpriseVO {
 	private int e_capital;
 	private int e_sales;
 	private String e_scale;
-	private String e_licensefile;
+	private Integer e_licensefilenum;
 	private String e_check;
 	private String e_bf;
 	
 	public c_login_enterpriseVO(){}
 	public c_login_enterpriseVO(int e_num, String e_id, String e_pwd, String e_mail, double e_score, String e_name,
-			String e_ename, String e_owner, String e_ownerfile, String e_regno, String e_phone, String manager_name,
+			String e_ename, String e_owner, Integer e_ownerfilenum, String e_regno, String e_phone, String manager_name,
 			String manager_hphone, String manager_mail, String e_address, String e_homepage, int start_year, int e_enum,
-			String e_listing, int e_capital, int e_sales, String e_scale, String e_licensefile, String e_check,
+			String e_listing, int e_capital, int e_sales, String e_scale, Integer e_licensefilenum, String e_check,
 			String e_bf) {
 		super();
 		this.e_num = e_num;
@@ -42,7 +42,7 @@ public class c_login_enterpriseVO {
 		this.e_name = e_name;
 		this.e_ename = e_ename;
 		this.e_owner = e_owner;
-		this.e_ownerfile = e_ownerfile;
+		this.e_ownerfilenum = e_ownerfilenum;
 		this.e_regno = e_regno;
 		this.e_phone = e_phone;
 		this.manager_name = manager_name;
@@ -56,7 +56,7 @@ public class c_login_enterpriseVO {
 		this.e_capital = e_capital;
 		this.e_sales = e_sales;
 		this.e_scale = e_scale;
-		this.e_licensefile = e_licensefile;
+		this.e_licensefilenum = e_licensefilenum;
 		this.e_check = e_check;
 		this.e_bf = e_bf;
 	}
@@ -108,11 +108,11 @@ public class c_login_enterpriseVO {
 	public void setE_owner(String e_owner) {
 		this.e_owner = e_owner;
 	}
-	public String getE_ownerfile() {
-		return e_ownerfile;
+	public Integer getE_ownerfilenum() {
+		return e_ownerfilenum;
 	}
-	public void setE_ownerfile(String e_ownerfile) {
-		this.e_ownerfile = e_ownerfile;
+	public void setE_ownerfilenum(Integer e_ownerfilenum) {
+		this.e_ownerfilenum = e_ownerfilenum;
 	}
 	public String getE_regno() {
 		return e_regno;
@@ -192,11 +192,11 @@ public class c_login_enterpriseVO {
 	public void setE_scale(String e_scale) {
 		this.e_scale = e_scale;
 	}
-	public String getE_licensefile() {
-		return e_licensefile;
+	public Integer getE_licensefilenum() {
+		return e_licensefilenum;
 	}
-	public void setE_licensefile(String e_licensefile) {
-		this.e_licensefile = e_licensefile;
+	public void setE_licensefilenum(Integer e_licensefilenum) {
+		this.e_licensefilenum = e_licensefilenum;
 	}
 	public String getE_check() {
 		return e_check;

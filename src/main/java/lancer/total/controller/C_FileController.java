@@ -68,7 +68,7 @@ public class C_FileController {
 	
 	@RequestMapping(value = "/downloadFile", method = RequestMethod.POST)
 	public void downloadFileGET(@RequestParam("file_num") int file_num, HttpServletResponse response)throws Exception{
-		
+		System.out.println("따운");
 		HashMap<String,Object> map = service.selectFileInfo(file_num);
 	    String original_file_name = (String)map.get("original_file_name");
 	    String stored_file_name = (String)map.get("stored_file_name");

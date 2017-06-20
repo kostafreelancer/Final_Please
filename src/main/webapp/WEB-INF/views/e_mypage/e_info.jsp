@@ -158,7 +158,7 @@
 				
 					<div class="filebutton">
 						<input type="hidden" id="e_ownerfileExist" name="e_ownerfileExist" value="false">
-						<span>사진업로드</span><input type="file" name="e_ownerfile" id="e_ownerfile" value="${client.e_ownerfile }"
+						<span>사진업로드</span><input type="file" name="e_ownerfile" id="e_ownerfile"
 							class="searchfile" title="파일 찾기"
 							style="width: 820px;">
 					</div></td>
@@ -358,7 +358,7 @@
 
 	<div class="btn_box mb30 mb02">
 		<button class="btn_check06" id="checkValue">수정하기</button>
-		<button class="btn_check06" id="deleteAccount" onclick="toDrop(${client.e_num});">회원탈퇴${client.e_num}</button>
+		<button class="btn_check06" id="deleteAccount" onclick="toDrop(${client.e_num});">회원탈퇴</button>
 	</div>
 	</form>
 	

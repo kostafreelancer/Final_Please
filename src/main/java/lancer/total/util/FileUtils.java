@@ -60,6 +60,7 @@ public class FileUtils {
     	}
     	
     	original_file_name = multipartFile.getOriginalFilename();
+    	System.out.println("라이센스 파일명: " + original_file_name);
     	originalFileExtension = original_file_name.substring(original_file_name.lastIndexOf("."));
     	//확장자
     	formatName = original_file_name.substring(original_file_name.lastIndexOf(".")+1);

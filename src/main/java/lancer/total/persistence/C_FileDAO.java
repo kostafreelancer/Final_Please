@@ -48,4 +48,7 @@ public class C_FileDAO {
 		return session.selectOne(namespace+".selectFileStoredNameByInt", file_num);
 	}
 	
+	public Integer getRecentlyFileNum() throws Exception {
+		return session.selectOne(namespace+".getRecentlyFileNum");
+	}
 }
