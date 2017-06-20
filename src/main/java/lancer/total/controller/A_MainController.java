@@ -42,8 +42,7 @@ public class A_MainController {
 	}
 	//메일발송 클릭시 새창에서 이메일값 가져오기 (프리랜서)
 	@RequestMapping(value="/a_mailsender", method=RequestMethod.GET)
-	public void mailsender(int f_num, Model model) throws Exception{
-		
+	public void mailsender(@RequestParam("f_num") int f_num, Model model) throws Exception{
 		
 		System.out.println(f_num + "프리랜서번호");
 		model.addAttribute("freelancer", service.getF_mail(f_num));

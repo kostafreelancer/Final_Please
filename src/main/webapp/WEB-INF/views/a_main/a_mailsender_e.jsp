@@ -71,7 +71,7 @@
 								<td colspan="3" class="join"><textarea id="content"
 										name="content" class="text_area text_area2">
       					</textarea>
-      					<input type="hidden" name="f_num" value=<c:choose>
+      				<%-- 	<input type="hidden" name="f_num" value=<c:choose>
 									<c:when test="${identity.identity == 'freelancer' }">
 										${client.f_num }
 									</c:when>
@@ -80,7 +80,7 @@
 									</c:when>
 									
 								</c:choose>>
-      					<input type="hidden" name="e_num" value="">
+      					<input type="hidden" name="e_num" value=""> --%>
       					<!-- <input type="hidden" name="asknum" value="1">
       					<input type="hidden" name="askdate" value="sysdate"> -->
       					
