@@ -226,4 +226,12 @@ public class F_MypageDAO {
 	public int getPortfolio_iden(int f_num) throws Exception{
 		return session.selectOne(namespace + ".getPortfolio_iden", f_num);
 	}
+	
+	public void suggestApply(HashMap<String, Integer> map) throws Exception{
+		session.update(namespace + ".suggestApply", map);
+	}
+	public void suggestReject(HashMap<String, Integer> map) throws Exception{
+		session.update(namespace + ".suggestReject", map);
+	}
+
 }

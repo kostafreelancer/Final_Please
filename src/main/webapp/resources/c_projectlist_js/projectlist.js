@@ -9,3 +9,9 @@ function button_Accept(e_pr_num, fromF_num){
 		location.href='/f_mypage/suggestFinish?e_pr_num=' + e_pr_num + '&f_num='+fromF_num;
 	}
 }
+
+function button_reject(e_pr_num, fromF_num){
+	if(confirm("제안을 거절하시겠습니까?")){
+		location.href='/f_mypage/suggestReject?e_pr_num=' + e_pr_num + '&f_num='+fromF_num;
+	}
+}

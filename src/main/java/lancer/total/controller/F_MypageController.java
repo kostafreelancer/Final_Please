@@ -587,14 +587,21 @@ public class F_MypageController {
 	
 	
 	@RequestMapping(value = "/suggestFinish", method=RequestMethod.GET)
-	public String suggestFinish(@RequestParam("e_pr_num") int e_pr_num, @RequestParam("f_num") int f_num){
-		
+	public String suggestFinish(@RequestParam("e_pr_num") int e_pr_num, @RequestParam("f_num") int f_num) throws Exception{
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("e_pr_num", e_pr_num);
+		map.put("f_num", f_num);
+		service.suggestApply(map);
 		return "redirect:/f_mypage/matching";
+	}
+	
+	@RequestMapping(value="/suggestReject", method=RequestMethod.GET)
+	public String suggestReject(@RequestParam("e_pr_num") int e_pr_num, @RequestParam("f_num") int f_num) throws Exception{
+		return "redirect:/f_mypage/matchFail";
 	}
 	
 	@RequestMapping(value="/matching", method=RequestMethod.GET)
 	public void matching() throws Exception{
-		
 	}
 	
 	

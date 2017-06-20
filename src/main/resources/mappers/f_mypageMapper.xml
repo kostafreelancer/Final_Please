@@ -220,6 +220,13 @@
   		select nvl(max(portfile_iden), 0) from portfolio where f_num = #{f_num} 
   	</select>
   
+  	<update id="suggestApply" parameterType="hashmap">
+  		update contract set c_state='매칭중' where f_num=#{f_num} and e_pr_num=#{e_pr_num}
+  	</update>
+  	
+  	<update id="suggestReject" parameterType="hashmap">
+  		update contract set c_state='제안거절' where f_num=#{f_num} and e_pr_num=#{e_pr_num}
+  	</update>
 </mapper>  
 
 

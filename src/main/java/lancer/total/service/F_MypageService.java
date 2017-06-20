@@ -223,4 +223,12 @@ public class F_MypageService {
 	public int getPortfolio_iden(int f_num) throws Exception{
 		return dao.getPortfolio_iden(f_num);
 	}
+	
+	public void suggestApply(HashMap<String, Integer> map) throws Exception{
+		dao.suggestApply(map);
+	}
+	
+	public void suggestReject(HashMap<String, Integer> map) throws Exception{
+		dao.suggestReject(map);
+	}
 }
