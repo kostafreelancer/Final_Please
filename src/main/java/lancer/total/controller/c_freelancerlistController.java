@@ -181,15 +181,32 @@ public class c_freelancerlistController {
 			submitVO.setE_pr_num(e_pr_num);
 			submitVO.setF_num(f_num);
 			
-			model.addAttribute("contract", session.getAttribute("contract"));
 			
-			int c_num = service.getnum()+1;
-			submitVO.setC_num(c_num);
+			List<Contract> con = service.selectCon(f_num);
 			
-			contract.setC_num(c_num);
-			
-			service.insertContract(submitVO);
-
+			/*for(int i=0;i<con.size();i++){
+				if(con.get(i).getE_pr_num() == e_pr_num){
+					System.out.println("제안해쫑");
+				}else{
+					model.addAttribute("contract", session.getAttribute("contract"));
+					
+					int c_num = service.getnum()+1;
+					submitVO.setC_num(c_num);
+					
+					contract.setC_num(c_num);
+					
+					service.insertContract(submitVO);
+				}
+			}
+				*/
+				model.addAttribute("contract", session.getAttribute("contract"));
+					
+					int c_num = service.getnum()+1;
+					submitVO.setC_num(c_num);
+					
+					contract.setC_num(c_num);
+					
+					service.insertContract(submitVO);
 			
 			
 			

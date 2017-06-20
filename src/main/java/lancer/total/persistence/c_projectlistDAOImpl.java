@@ -90,7 +90,21 @@ public class c_projectlistDAOImpl implements c_projectlistDAO {
 		session.selectOne(namespace+".insertContract",submitVO);
 		
 	}
+/*	@Override
+	public List<Integer> selectEprnum() throws Exception {
+		return session.selectList(namespace + ".selectEprnum");
+	}
+	@Override
+	public List<Integer> selectFnum() throws Exception {
+		return session.selectList(namespace + ". selectFnum");
+	}*/
 	
+	@Override
+	public int selectContract() throws Exception {
+		return session.selectOne(namespace+".selectContract");
+	}
+
+
 	
 
 }

@@ -45,6 +45,11 @@ $(function(){
 	}
 	
 });
+/* 
+var message = '${msg}';
+var returnUrl = '${url}';
+alert("이미 제안한 프로젝트입니다.");
+document.location.href = url; */
 
 
 </script>

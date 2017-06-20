@@ -22,7 +22,7 @@
 	 
 	<select id="countPaging" resultType="int">
 	<![CDATA[
-		select count(e_pr_num) from project where e_pr_num > 0			
+		select count(e_pr_num) from project where project_check_state='승인' and e_pr_num > 0	
 	]]>
 	</select>
 	
@@ -40,21 +40,21 @@
 			 <if test="ft != null">
 			 	and p_state='완료'
 			 </if>
+			 and project_check_state='승인'
 			</where>
 		  </if> 
 		  <if test="jobs==null">
-		  	<if test="fr !=null or ft !=null">
-		  			where 
-		  	</if>
+		     where  project_check_state='승인'
+		  
 		  
 		  	  <if test="fr !=null">
-			   	   p_state='모집중'
+			   	   and p_state='모집중'
 			 </if>
 			 <if test="ft != null">
-			 	 p_state='완료'
+			 	 and p_state='완료'
 			 </if>
 		  </if>
-		order by e_pr_num desc
+		 order by e_pr_num desc
 	</select>
 	
 	<select id="listSearchCount" resultType="int" parameterType="SearchCriteria">
@@ -75,26 +75,25 @@
 			   
 			  </foreach>
 			  <if test="fr !=null">
-			   	  and p_state='모집중'
+			   	  and p_state='모집중' and project_check_state='승인'
 			 </if>
 			 <if test="ft != null">
-			 	and p_state='완료'
+			 	and p_state='완료' and project_check_state='승인'
 			 </if>
+			 and project_check_state='승인'
 			</where>
 		  </if> 
 		  <if test="jobs==null">
-		  	<if test="fr !=null or ft !=null">
-		  			where 
-		  	</if>
+		  			where project_check_state='승인'
+		
 		  
 		  	  <if test="fr !=null">
-			   	   p_state='모집중'
+			   	  and p_state='모집중' 
 			 </if>
 			 <if test="ft != null">
-			 	 p_state='완료'
+			 	 and p_state='완료' 
 			 </if>
 		  </if>
-		  
 	</select>
 	
 	<select id="getnum" resultType="int">

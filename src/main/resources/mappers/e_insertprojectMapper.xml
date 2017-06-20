@@ -14,7 +14,7 @@
 		e_pr_num,e_num,p_name, p_content,p_lowerAge, p_upperAge,p_academic,p_requireNum,p_regDate,p_exDate,p_lowerCost,p_upperCost,p_startDate,p_endDate,p_location,p_experience,project_check_state,p_state
 		)
 		values(
-		#{e_pr_num}, #{e_num}, #{p_name}, #{p_content}, #{p_lowerAge}, #{p_upperAge},#{p_academic},#{p_requireNum}, SYSDATE, #{p_exDate},#{p_lowerCost},#{p_upperCost},#{p_startDate},#{p_endDate},#{p_location},#{p_experience}, 0,'모집중'<!-- #변수명# 으로 사용. -->
+		#{e_pr_num}, #{e_num}, #{p_name}, #{p_content}, #{p_lowerAge}, #{p_upperAge},#{p_academic},#{p_requireNum}, SYSDATE, #{p_exDate},#{p_lowerCost},#{p_upperCost},#{p_startDate},#{p_endDate},#{p_location},#{p_experience}, '미승인','모집중'<!-- #변수명# 으로 사용. -->
 		)
 	</insert>
 	

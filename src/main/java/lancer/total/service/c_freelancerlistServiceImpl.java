@@ -12,6 +12,7 @@ import lancer.c_freelancerlist.domain.c_freelancerlist_careerVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_schoolVO;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
 import lancer.c_login.domain.c_login_freelancerVO;
+import lancer.c_projectlist.domain.Contract;
 import lancer.c_projectlist.domain.SearchCriteria;
 import lancer.c_projectlist.domain.SubmitVO;
 import lancer.e_insertproject.domain.E_Insert;
@@ -174,6 +175,10 @@ public class c_freelancerlistServiceImpl implements c_freelancerlistService {
 	@Override
 	public int getPortfolioNum() throws Exception{
 		return dao.getPortfolioNum();
+	}
+	@Override
+	public List<Contract> selectCon(int f_num) throws Exception{
+		return dao.selectCon(f_num);
 	}
 	
 	

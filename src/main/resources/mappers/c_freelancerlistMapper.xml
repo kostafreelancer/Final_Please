@@ -114,5 +114,10 @@
 	select * from project where e_num = #{e_num}
 	
 	</select>
+	
+	<select id="selectCon" resultType="Contract" parameterType="int">
+	select e_pr_num from contract where c_state = '제안중'
+	and f_num = #{f_num}
+	</select>
 
 </mapper>

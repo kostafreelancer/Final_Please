@@ -31,4 +31,11 @@ public interface c_projectlistDAO {
 	
 	public void insertContract(SubmitVO submitVO) throws Exception;
 
+	int selectContract() throws Exception;
+
+/*	List<Integer> selectEprnum() throws Exception;
+
+	List<Integer> selectFnum() throws Exception;
+*/
+
 }

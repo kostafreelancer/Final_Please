@@ -108,6 +108,16 @@ public class c_projectlistServiceImpl implements c_projectlistService {
 		dao.insertContract(submitVO);
 		
 	}
-	
-	
+/*	@Override
+	public List<Integer> selectEprnum() throws Exception {
+		return dao.selectEprnum();
+	}
+	@Override
+	public List<Integer> selectFnum() throws Exception {
+		return dao.selectFnum();
+	}*/
+	@Override
+	public int selectContract() throws Exception{
+		return dao.selectContract();
+	}
 }

@@ -31,4 +31,12 @@ public interface c_projectlistService {
 
 	public void insertContract(SubmitVO submitVO) throws Exception;
 
+	int selectContract() throws Exception;
+
+/*	List<Integer> selectEprnum() throws Exception;
+
+	List<Integer> selectFnum() throws Exception;*/
+
+
+
 }

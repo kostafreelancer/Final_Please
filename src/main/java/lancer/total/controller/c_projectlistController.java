@@ -92,24 +92,30 @@ public class c_projectlistController {
 	
 	@RequestMapping(value = "/complete", method = RequestMethod.GET)
 	public String readPagePOST(Contract contract, HttpSession session, Model model,@RequestParam("e_pr_num") int e_pr_num) throws Exception{
+	
 		SubmitVO submitVO = new SubmitVO();
 		
 		c_login_freelancerVO freelancer = (c_login_freelancerVO)session.getAttribute("client");
-		submitVO.setF_num(freelancer.getF_num());
-		submitVO.setE_pr_num(e_pr_num);
-	    
+        model.addAttribute("contract", session.getAttribute("contract"));
+        
+        submitVO.setF_num(freelancer.getF_num());
+        submitVO.setE_pr_num(e_pr_num);
 		
-		model.addAttribute("contract", session.getAttribute("contract"));
-		
-		int c_num = service.getnum()+1;
-		submitVO.setC_num(c_num);
-		
-		contract.setC_num(c_num);
-		
-		service.insertContract(submitVO);
+        
+        	
+        	int c_num = service.getnum()+1;
+    		submitVO.setC_num(c_num);
+    		
+    		contract.setC_num(c_num);
+    		
+    		
+    		service.insertContract(submitVO);
 
-		return "/c_projectlist/complete";
+    		return "/c_projectlist/complete";
+       
 	}
+
+
 
 	
 

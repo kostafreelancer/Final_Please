@@ -9,7 +9,7 @@ $(window).load(function() {
 					success:function(result){
 						$.each(result,function(index,list){
 						var tag = 
-							"<table class='tb_st01'><caption></caption><colgroup>" +
+							"<table class='tb_st01 exit'><caption></caption><colgroup>" +
 								"<col style='width: 16%'>" +
 								"<col style='width: 17%'>" +
 								"<col style='width: 20%'>" +
@@ -20,8 +20,12 @@ $(window).load(function() {
 										 list.p_name +"<button class='som' value="+list.e_pr_num+">제안하기</button>" +
 										 		"</td></tr></tbody></table>" 
 							
-							
-							$('#project').append(tag);
+							if($('.exit').length < result.length){
+								$('#project').append(tag);
+							}else{
+								
+							}
+						
 							
 						});
 						$('.som').click(function(event){

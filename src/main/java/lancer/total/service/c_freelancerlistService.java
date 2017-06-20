@@ -5,6 +5,7 @@ import java.util.List;
 import lancer.c_freelancerlist.domain.c_freelancerlist_SearchCriteria;
 import lancer.c_freelancerlist.domain.c_freelancerlist_totalVO;
 import lancer.c_login.domain.c_login_freelancerVO;
+import lancer.c_projectlist.domain.Contract;
 import lancer.c_projectlist.domain.SearchCriteria;
 import lancer.c_projectlist.domain.SubmitVO;
 import lancer.e_insertproject.domain.E_Insert;
@@ -31,4 +32,5 @@ public interface c_freelancerlistService {
 	List<Portfolio> showPortfolioInfo(int f_num) throws Exception;
 	Portfolio selectOnePortfolio(int portfolio_num) throws Exception;
 	int getPortfolioNum() throws Exception;
+	List<Contract> selectCon(int f_num) throws Exception;
 }
