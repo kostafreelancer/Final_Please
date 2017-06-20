@@ -586,4 +586,16 @@ public class F_MypageController {
 	}
 	
 	
+	@RequestMapping(value = "/suggestFinish", method=RequestMethod.GET)
+	public String suggestFinish(@RequestParam("e_pr_num") int e_pr_num, @RequestParam("f_num") int f_num){
+		
+		return "redirect:/f_mypage/matching";
+	}
+	
+	@RequestMapping(value="/matching", method=RequestMethod.GET)
+	public void matching() throws Exception{
+		
+	}
+	
+	
 }

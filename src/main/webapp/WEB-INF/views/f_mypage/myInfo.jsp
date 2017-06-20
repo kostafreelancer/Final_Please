@@ -921,7 +921,7 @@ $(function(){
 							<input type="text" hidden name="e_pr_num" value="${mySuggestproject.e_pr_num}">	
 							<input type="text" hidden name="e_num" value="${mySuggestproject.e_num}">	
 						 <tr>							
-							<td>${mySuggestproject.p_name}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${mySuggestproject.e_pr_num}&e_num=${mySuggestproject.e_num}&from=mypage&f_num=${client.f_num}'"></td>
+							<td>${mySuggestproject.p_name}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${mySuggestproject.e_pr_num}&e_num=${mySuggestproject.e_num}&from=mypage'"></td>
 							<td>${mySuggestproject.manager_hphone}</td>
 							<td>${mySuggestproject.c_request_date}</td>
 							<td>${mySuggestproject.c_state}</td>
