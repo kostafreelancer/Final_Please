@@ -54,7 +54,7 @@
 			<br>
 				
 			<form id="searchDate" name="searchDate" method="post"
-				action="/f_mypage/accountingManager" >
+				action="/f_mypage/accountingManager">
 			<input type="button" onclick="monthSearch(1);" value="1월">
 			<input type="button" onclick="monthSearch(2);" value="2월">
 			<input type="button" onclick="monthSearch(3);" value="3월">
