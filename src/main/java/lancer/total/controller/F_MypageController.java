@@ -597,6 +597,10 @@ public class F_MypageController {
 	
 	@RequestMapping(value="/suggestReject", method=RequestMethod.GET)
 	public String suggestReject(@RequestParam("e_pr_num") int e_pr_num, @RequestParam("f_num") int f_num) throws Exception{
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("e_pr_num", e_pr_num);
+		map.put("f_num", f_num);
+		service.suggestReject(map);
 		return "redirect:/f_mypage/matchFail";
 	}
 	
@@ -604,5 +608,7 @@ public class F_MypageController {
 	public void matching() throws Exception{
 	}
 	
-	
+	@RequestMapping(value="/matchFail", method=RequestMethod.GET)
+	public void matchFail() throws Exception{
+	}
 }

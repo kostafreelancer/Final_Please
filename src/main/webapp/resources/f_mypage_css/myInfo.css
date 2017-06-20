@@ -1,4 +1,7 @@
 @CHARSET "UTF-8";
+.reject{
+	background-color: #b3b3b3;
+}
 
 .filebutton {
 	position: relative;

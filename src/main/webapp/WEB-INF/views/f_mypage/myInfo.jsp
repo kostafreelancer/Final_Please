@@ -865,6 +865,7 @@ $(function(){
 					</c:if>
 					
 					<c:forEach var="myApplyProject" items="${applyproject}">
+						<c:if test="${myApplyProject.c_state eq '신청중'}">				
 						<form id="applyForm" action="applyCancel" method="post">
 							<input type="text" hidden name="c_num" value="${myApplyProject.c_num}">
 							<input type="text" hidden name="p_name" value="${myApplyProject.p_name}">
@@ -873,14 +874,27 @@ $(function(){
 							<input type="text" hidden name="c_state" value="${myApplyProject.c_state}">	
 							<input type="text" hidden name="e_pr_num" value="${myApplyProject.e_pr_num}">	
 							<input type="text" hidden name="e_num" value="${myApplyProject.e_num}">	
-						 <tr>							
-							<td>${myApplyProject.p_name}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${myApplyProject.e_pr_num}&e_num=${myApplyProject.e_num}'"></td>
+						 <tr>
+							<td>${myApplyProject.p_name}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${myApplyProject.e_pr_num}&e_num=${myApplyProject.e_num}&from=mypage'"></td>
 							<td>${myApplyProject.manager_hphone}</td>
 							<td>${myApplyProject.c_request_date}</td>
 							<td>${myApplyProject.c_state}</td>
 							<td class="last"><input type="submit" value="지원 취소" onclick="return confirm('진짜 취소?');"></td>
 						</tr>
 						</form>
+						 </c:if>
+						 
+						 <c:if test="${myApplyProject.c_state eq '신청거절'}">				
+						<form id="applyForm"  action="applyCancel" method="post">	
+						 <tr bgcolor="#b3b3b3">
+							<td >${myApplyProject.p_name}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${myApplyProject.e_pr_num}&e_num=${myApplyProject.e_num}&from=mypage'"></td>
+							<td>${myApplyProject.manager_hphone}</td>
+							<td>${myApplyProject.c_request_date}</td>
+							<td>${myApplyProject.c_state}</td>
+							<td class="last"></td>
+						</tr>
+						</form>
+						 </c:if>
 					</c:forEach>
 
 				</tbody>

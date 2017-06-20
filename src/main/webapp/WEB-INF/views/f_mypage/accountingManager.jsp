@@ -51,27 +51,33 @@
 
 	<div id="content">
 		<div id="tab1">
-
-			<button>1월</button>
-			<button>2월</button>
-			<button>3월</button>
-			<button>4월</button>
-			<button>5월</button>
-			<br> <br>
 			<br>
+				
 			<form id="searchDate" name="searchDate" method="post"
-				action="/f_mypage/accountingManager">
+				action="/f_mypage/accountingManager" >
+			<input type="button" onclick="monthSearch(1);" value="1월">
+			<input type="button" onclick="monthSearch(2);" value="2월">
+			<input type="button" onclick="monthSearch(3);" value="3월">
+			<input type="button" onclick="monthSearch(4);" value="4월">
+			<input type="button" onclick="monthSearch(5);" value="5월">
+			<input type="button" onclick="monthSearch(6);" value="6월">
+			<input type="button" onclick="monthSearch(7);" value="7월">
+			<input type="button" onclick="monthSearch(8);" value="8월">
+			<input type="button" onclick="monthSearch(9);" value="9월">
+			<input type="button" onclick="monthSearch(10);" value="10월">
+			<input type="button" onclick="monthSearch(11);" value="11월">
+			<input type="button" onclick="monthSearch(12);" value="12월">
+		
 				<input type="text" id="startDate" name="startDate">
 				&nbsp;&nbsp;~ <input type="text" id="endDate" name="endDate">
 				<input type="submit" value="검색">
 			</form>
+	
 			<div class="tb_box">
 				<div class="ct overf">
 					<br>
 
 					<h4 class="fl myfl">지출</h4>
-					<br>
-					<br>
 					<br>
 
 				</div>
@@ -134,34 +140,12 @@
 
 					</tbody>
 				</table>
-				<form name="tempSpendListAdd" action="/f_mypage/spendListAdd" method="post" enctype="multipart/form-data">
-					<input type="text" hidden name="f_num" value="${client.f_num}">
-					<input type="text" hidden name="monet_state" value="지출"> 
-					<input type="text" hidden name="a_num" value="0"> 
-					<input type="text" hidden name="accfile_iden" value="0">
-					<fieldset>
-					<legend>지출내역 입력</legend>
-					사용내역 : <input type="text" name="detail_usage"><br> 
-					사용금액 : <input type="text"	name="a_money"> <br>
-					사용날짜 : <input type="text"	name="a_using_date"><br> 
-					프로젝트 관련여부 : <input type="text" name="project_relation_check"><br>
-					첨부파일 : <input type="file" name="a_addfile"> <br>
-					<center><input type="submit" value="저장"></center>
-					</fieldset>
-				</form>
-				<form name="tempSpendListDelete" action="/f_mypage/deleteSpendList" method="get">
-					<input type="text" hidden name="deleteSpendList_num">
-				</form>
-			</div>
-
-			<div class="tb_box">
-				<div class="ct overf">
+						<div class="ct overf">
 					<br>
 
 					<h4 class="fl myfl">수입</h4>
 					<br>
-					<br>
-					<br>
+
 
 				</div>
 				<table class="tb_st01 tb_st03 spend">
@@ -218,13 +202,34 @@
 
 					</tbody>
 				</table>
+				
+				<form name="tempSpendListAdd" action="/f_mypage/spendListAdd" method="post" enctype="multipart/form-data" style ="float: left; padding: 7px;">
+					<input type="text" hidden name="f_num" value="${client.f_num}">
+					<input type="text" hidden name="monet_state" value="지출"> 
+					<input type="text" hidden name="a_num" value="0"> 
+					<input type="text" hidden name="accfile_iden" value="0">
+					<fieldset style = "width:450px">
+					<legend>지출내역 입력</legend>
+					사용내역 : <input type="text" name="detail_usage"><br> 
+					사용금액 : <input type="text"	name="a_money"> <br>
+					사용날짜 : <input type="text"	name="a_using_date"><br> 
+					프로젝트 관련여부 : <input type="text" name="project_relation_check"><br>
+					첨부파일 : <input type="file" name="a_addfile"> <br>
+					<center><input type="submit" value="저장"></center>
+					</fieldset>
+				</form>
+				<form name="tempSpendListDelete" action="/f_mypage/deleteSpendList" method="get">
+					<input type="text" hidden name="deleteSpendList_num">
+				</form>
+				
+			
 				<form name="tempIncomeListAdd" action="/f_mypage/spendListAdd"
-					method="post" enctype="multipart/form-data">
+					method="post" enctype="multipart/form-data" style ="float: left; padding: 7px;">
 					<input type="text" hidden name="f_num" value="${client.f_num}">
 					<input type="text" hidden name="monet_state" value="수입"> 
 					<input type="text" hidden name="a_num" value="0">
 					<input type="text" hidden name="accfile_iden" value="0">
-					<fieldset>
+					<fieldset style = "width:450px">
 					<legend>수입내역 입력</legend> 
 					사용내역 : <input type="text" name="detail_usage"><br>
 					사용금액 : <input type="text" name="a_money"><br>
@@ -237,7 +242,11 @@
 				<form name="tempIncomeListDelete" action="/f_mypage/deleteSpendList">
 					<input type="text" hidden name="deleteSpendList_num">
 				</form>
-			</div> 
+			</div>
+
+			
+			
+			
 		</div>
 
 		<div id="tab2">
