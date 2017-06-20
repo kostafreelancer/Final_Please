@@ -3,6 +3,14 @@ header, footer, section, article, aside, nav, hgroup, details, menu,
 	display: block;
 }
 
+.rejected{
+	background-color: #b3b3b3;
+}
+
+.hidden{
+	display: none;
+}
+
 body {
 	-moz-text-size-adjust: none;
 	color: #333;

@@ -368,8 +368,9 @@ $(function(){
 			<!-- 프리랜서 목록 -->
 			<section>
 			<ul id="tabs">
-				<li><a href="#" title="tab1">목록</a></li>
-				<li><a href="#" title="tab2">참가신청 관리</a></li>
+				<li><a href="#" title="tab1">멤버 목록</a></li>
+				<li><a href="#" title="tab2">신청자 목록</a></li>
+				<li><a href="#" title="tab3">참여 제안 목록</a></li>
 			</ul>
 
 			<div id="tcontent">
@@ -379,30 +380,36 @@ $(function(){
 							<colgroup>
 								<col style="width: 15%">
 								<col style="width: 10%">
+								<col style="width: 10%">
+								<col style="width: 15%">
 								<col style="width: 15%">
 								<col style="width: 10%">
-								<col style="width: 25%">
 								<col style="width: 25%">
 							</colgroup>
 							<thead>
 								<tr>
 									<th scope="col">아이디</th>
 									<th scope="col">이름</th>
+									<th scope="col">성별</th>
 									<th scope="col">분야</th>
-									<th scope="col">경력</th>
-									<th scope="col">참가일</th>
+									<th scope="col">연락처</th>
+									<th scope="col">평점</th>
 									<th scope="col">멤버 관리</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td class="ac">wldnjf2000</td>
-									<td class="ac">강지원</td>
-									<td class="ac">개발</td>
-									<td class="ac">2년</td>
-									<td class="ac">2017-4-26</td>
-									<td class="ac"><a href="#" class="accept">계약해지</a></td>
-								</tr>
+								<c:forEach var="m" items="${memberList }">
+										<tr>
+											<td class="hidden">${m.f_num }</td>
+											<td class="ac">${m.f_id}</td>
+											<td class="ac">${m.f_name }</td>
+											<td class="ac">${m.f_sex }</td>
+											<td class="ac">${m.f_major }</td>
+											<td class="ac">${m.f_hphone }</td>
+											<td class="ac">${m.f_score }</td>
+											<td class="ac"><a href="#" class="accept">계약해지</a></td>
+										</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
@@ -410,9 +417,27 @@ $(function(){
 						<a href="" class="additional">추가모집</a>
 					</div>
 					<div class="num_box">
-						<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
-						</span> <span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
-						</span>
+				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
+				</span> 
+							<c:if test="${pageMakerMember.prev}">
+								<a
+									href="/e_mypage/e_projectInfo${pageMakerMember.makeSearch(pageMakerMember.startPage - 1) }&e_pr_num=${project.e_pr_num}">&laquo;</a>
+							</c:if>
+
+							<c:forEach begin="${pageMakerMember.startPage }"
+								end="${pageMakerMember.endPage }" var="idx">
+								<span
+								<c:out value="${pageMakerMember.cri.page == idx?'class=on':''}"/>>
+									<a href="/e_mypage/e_projectInfo${pageMakerMember.makeSearch(idx)}&e_pr_num=${project.e_pr_num}">${idx}</a>
+								</span>
+							</c:forEach>
+
+							<c:if test="${pageMakerMember.next && pageMakerMember.endPage > 0}">
+								<li><a
+									href="/e_mypage/e_projectInfo${pageMakerMember.makeSearch(pageMakerMember.endPage +1) }&e_pr_num=${project.e_pr_num}">&raquo;</a></li>
+							</c:if>		
+				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
+				</span>
 					</div>
 				</div>
 
@@ -424,41 +449,179 @@ $(function(){
 							<colgroup>
 								<col style="width: 15%">
 								<col style="width: 10%">
+								<col style="width: 10%">
+								<col style="width: 15%">
 								<col style="width: 15%">
 								<col style="width: 10%">
 								<col style="width: 25%">
-								<col style="width: 25%">
 							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">아이디</th>
+									<th scope="col">이름</th>
+									<th scope="col">성별</th>
+									<th scope="col">분야</th>
+									<th scope="col">연락처</th>
+									<th scope="col">평점</th>
+									<th scope="col">멤버 관리</th>
+								</tr>
+							</thead>
 							<tbody>
-								<tr>
-									<td class="ac"><a href="#">wldnjf2000</a></td>
-									<td class="ac">강지원</td>
-									<td class="ac">개발</td>
-									<td class="ac">2년</td>
-									<td class="ac">2017-4-26</td>
-									<td class="ac"><a href="#" class="accept">수락</a> <a
-										href="#" class="deny">거절</a></td>
-								</tr>
-								<tr>
-									<td class="ac"><a href="#">GangSa</a></td>
-									<td class="ac">김강사</td>
-									<td class="ac">디자인</td>
-									<td class="ac">6년</td>
-									<td class="ac">2017-4-25</td>
-									<td class="ac"><a href="#" class="accept">수락</a> <a
-										href="#" class="deny">거절</a></td>
-								</tr>
+								<c:forEach var="a" items="${applicantList }">
+								<c:choose>
+									<c:when test="${a.c_state eq '신청거절' }">
+										<tr class="rejected">
+									</c:when>
+									<c:otherwise>
+										<tr>
+									</c:otherwise>
+								</c:choose>
+											<td class="hidden">${a.f_num }</td>
+											<td class="ac">${a.f_id}</td>
+											<td class="ac">${a.f_name }</td>
+											<td class="ac">${a.f_sex }</td>
+											<td class="ac">${a.f_major }</td>
+											<td class="ac">${a.f_hphone }</td>
+											<td class="ac">${a.f_score }</td>
+											<td class="ac">
+								<c:choose>
+									<c:when test="${a.c_state eq '신청거절' }">
+										거절됨
+									</c:when>
+									<c:otherwise>
+										<a href="#" class="accept">수락</a><a href="#" class="reject">거절</a>
+									</c:otherwise>
+								</c:choose>											
+											
+											</td>
+										</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
+
 					<div class="num_box">
-						<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
-						</span> <span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
-						</span>
+				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
+				</span> 
+							<c:if test="${pageMakerApplicant.prev}">
+								<a
+									href="/e_mypage/e_projectInfo${pageMakerApplicant.makeSearch(pageMakerApplicant.startPage - 1) }&e_pr_num=${project.e_pr_num}">&laquo;</a>
+							</c:if>
+
+							<c:forEach begin="${pageMakerApplicant.startPage }"
+								end="${pageMakerApplicant.endPage }" var="idx">
+								<span
+								<c:out value="${pageMakerApplicant.cri.page == idx?'class=on':''}"/>>
+									<a href="/e_mypage/e_projectInfo${pageMakerApplicant.makeSearch(idx)}&e_pr_num=${project.e_pr_num}">${idx}</a>
+								</span>
+							</c:forEach>
+
+							<c:if test="${pageMakerApplicant.next && pageMakerApplicant.endPage > 0}">
+								<li><a
+									href="/e_mypage/e_projectInfo${pageMakerApplicant.makeSearch(pageMakerApplicant.endPage +1) }&e_pr_num=${project.e_pr_num}">&raquo;</a></li>
+							</c:if>		
+				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
+				</span>
 					</div>
 				</div>
 
+
+				<div id="tab3">
+					<div class="tb_box">
+						<table class="tb_st01 tb_st03">
+							<colgroup>
+								<col style="width: 15%">
+								<col style="width: 10%">
+								<col style="width: 10%">
+								<col style="width: 15%">
+								<col style="width: 15%">
+								<col style="width: 10%">
+								<col style="width: 25%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">아이디</th>
+									<th scope="col">이름</th>
+									<th scope="col">성별</th>
+									<th scope="col">분야</th>
+									<th scope="col">연락처</th>
+									<th scope="col">평점</th>
+									<th scope="col">멤버 관리</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="s" items="${scoutList }">
+								<c:choose>
+									<c:when test="${s.c_state eq '제안거절' }">
+										<tr class="rejected">
+									</c:when>
+									<c:otherwise>
+										<tr>
+									</c:otherwise>
+								</c:choose>
+											<td class="hidden">${s.f_num }</td>
+											<td class="ac">${s.f_id}</td>
+											<td class="ac">${s.f_name }</td>
+											<td class="ac">${s.f_sex }</td>
+											<td class="ac">${s.f_major }</td>
+											<td class="ac">${s.f_hphone }</td>
+											<td class="ac">${s.f_score }</td>
+											<td class="ac">
+								<c:choose>
+									<c:when test="${s.c_state eq '제안거절' }">
+										거절함
+									</c:when>
+									<c:otherwise>
+										<a href="#" class="cancel">취소</a>
+									</c:otherwise>
+								</c:choose>											
+											
+											</td>
+										</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="num_box">
+				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
+				</span> 
+							<c:if test="${pageMakerScout.prev}">
+								<a
+									href="/e_mypage/e_projectInfo${pageMakerScout.makeSearch(pageMakerScout.startPage - 1) }&e_pr_num=${project.e_pr_num}">&laquo;</a>
+							</c:if>
+
+							<c:forEach begin="${pageMakerScout.startPage }"
+								end="${pageMakerScout.endPage }" var="idx">
+								<span
+								<c:out value="${pageMakerScout.cri.page == idx?'class=on':''}"/>>
+									<a href="/e_mypage/e_projectInfo${pageMakerScout.makeSearch(idx)}&e_pr_num=${project.e_pr_num}">${idx}</a>
+								</span>
+							</c:forEach>
+
+							<c:if test="${pageMakerScout.next && pageMakerScout.endPage > 0}">
+								<li><a
+									href="/e_mypage/e_projectInfo${pageMakerScout.makeSearch(pageMakerScout.endPage +1) }&e_pr_num=${project.e_pr_num}">&raquo;</a></li>
+							</c:if>		
+				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
+				</span>
+					</div>
+				</div>
 			</div>
+
+			<form action="/e_mypage/e_acceptApplicant" name="acceptApplicant" method="post">
+				<input type="hidden" name="f_numAccept" value="">
+				<input type="hidden" name="e_pr_numAccept" value="${project.e_pr_num }">
+			</form>
+			<form action="/e_mypage/e_rejectApplicant" name="rejectApplicant" method="post">
+				<input type="hidden" name="f_numReject" value="">
+				<input type="hidden" name="e_pr_numReject" value="${project.e_pr_num }">
+			</form>
+			<form action="/e_mypage/e_cancelScout" name="cancelScout" method="post">
+				<input type="hidden" name="f_numCancel" value="">
+				<input type="hidden" name="e_pr_numCancel" value="${project.e_pr_num }">
+			</form>
+
 
 			</section>
 			<!-- 프리랜서 목록 끝 -->
