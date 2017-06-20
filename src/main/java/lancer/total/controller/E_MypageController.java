@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import lancer.c_login.domain.c_login_enterpriseVO;
 import lancer.e_mypage.domain.Criteria;
 import lancer.e_mypage.domain.EnterpriseCommand;
+import lancer.e_mypage.domain.Member;
 import lancer.e_mypage.domain.PageMaker;
 import lancer.e_mypage.domain.Project;
 import lancer.total.service.C_DropService;
@@ -236,7 +237,7 @@ public class E_MypageController {
 	}
 	
 	@RequestMapping(value = "/e_projectInfo", method = RequestMethod.GET)
-	public void e_projectInfoGET(@ModelAttribute("e_pr_num") int e_pr_num, Model model, HttpSession session) throws Exception {
+	public void e_projectInfoGET(int e_pr_num, @ModelAttribute("cri") Criteria cri, Model model, HttpSession session) throws Exception {
 
 		c_login_enterpriseVO enterprise = (c_login_enterpriseVO)session.getAttribute("client");
 		
@@ -266,9 +267,55 @@ public class E_MypageController {
 		//상세분야 구하기
 		List<Integer> p_job = service.selectP_job(e_pr_num);
 		model.addAttribute("p_job", p_job);
+		
+		
+		// 멤버, 신청, 제안 리스트 구하기
+		
+		List<Member> memberList = service.selectMember(e_pr_num, cri);
+		List<Member> applicantList = service.selectApplicant(e_pr_num, cri);
+		List<Member> scoutList = service.selectScout(e_pr_num, cri);
+		
+		model.addAttribute("memberList", memberList);
+		model.addAttribute("applicantList", applicantList);
+		model.addAttribute("scoutList", scoutList);
+		
+
+		PageMaker pageMakerMember =  new PageMaker();
+		pageMakerMember.setCri(cri);
+		pageMakerMember.setTotalCount(service.countMember(e_pr_num));
+		
+		PageMaker pageMakerApplicant =  new PageMaker();
+		pageMakerApplicant.setCri(cri);
+		pageMakerApplicant.setTotalCount(service.countApplicant(e_pr_num));
+		
+		PageMaker pageMakerScout =  new PageMaker();
+		pageMakerScout.setCri(cri);
+		pageMakerScout.setTotalCount(service.countScout(e_pr_num));
+		
+		model.addAttribute("pageMakerMember", pageMakerMember);
+		model.addAttribute("pageMakerApplicant", pageMakerApplicant);
+		model.addAttribute("pageMakerScout", pageMakerScout);
 	}
 	
 	
+	@RequestMapping(value = "/e_acceptApplicant", method = RequestMethod.POST)
+	public String e_acceptApplicantPOST(int f_numAccept, int e_pr_numAccept) throws Exception {
+		service.acceptApplicant(f_numAccept, e_pr_numAccept);
 
+		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numAccept;
+	}
 	
+	@RequestMapping(value = "/e_rejectApplicant", method = RequestMethod.POST)
+	public String e_rejectApplicantPOST(int f_numReject, int e_pr_numReject) throws Exception {
+		service.rejectApplicant(f_numReject, e_pr_numReject);
+		
+		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numReject;
+	}
+	
+	@RequestMapping(value = "/e_cancelScout", method = RequestMethod.POST)
+	public String e_cancelScoutPOST(int f_numCancel, int e_pr_numCancel) throws Exception {
+		service.cancelScout(f_numCancel, e_pr_numCancel);
+		
+		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numCancel;
+	}
 }

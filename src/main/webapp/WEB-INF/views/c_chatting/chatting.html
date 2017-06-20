@@ -22,7 +22,7 @@ $(function(){
 	$('.chatting').click(function(){
 		var username = localStorage.getItem('username');
 		alert(localStorage.getItem('username')+"이거?");
-	$(this).after('<div class="chatting_se"><iframe id ="iframe_id" src="http://localhost:8000/client?username='+username+'" width="300" height="465"></iframe></div>');
+	$(this).after('<div class="chatting_se"><iframe id ="iframe_id" name="iframe_name" src="http://localhost:8000/client?username='+username+'" width="300" height="465"></iframe></div>');
 	
 	/*  $(this).hide(); */ 
 });

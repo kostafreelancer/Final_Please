@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import lancer.c_login.domain.c_login_enterpriseVO;
 import lancer.e_mypage.domain.Criteria;
+import lancer.e_mypage.domain.Member;
 import lancer.e_mypage.domain.Project;
 import lancer.total.persistence.E_MypageDao;
 
@@ -58,6 +59,54 @@ public class E_MypageService{
 	public void updateEnterprise(c_login_enterpriseVO enterprise) throws Exception {
 		dao.updateEnterprise(enterprise);
 	}
+	
+	public List<Member> selectMember(int e_pr_num, Criteria cri) throws Exception {
+		return dao.selectMember(e_pr_num, cri);
+	}
+	
+	public List<Member> selectApplicant(int e_pr_num, Criteria cri) throws Exception {
+		return dao.selectApplicant(e_pr_num, cri);
+	}
+	
+	public List<Member> selectScout(int e_pr_num, Criteria cri) throws Exception {
+		return dao.selectScout(e_pr_num, cri);
+	}
+	
+	public Integer countMember(int e_pr_num) throws Exception {
+		return dao.countMember(e_pr_num);
+	}
+	
+	public Integer countApplicant(int e_pr_num) throws Exception {
+		return dao.countApplicant(e_pr_num);
+	}
+	
+	public Integer countScout(int e_pr_num) throws Exception {
+		return dao.countScout(e_pr_num);
+	}
 
+	
+	public void acceptApplicant(int f_num, int e_pr_num) throws Exception {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("f_num", f_num);
+		map.put("e_pr_num", e_pr_num);
+		
+		dao.acceptApplicant(map);
+	}
+	
+	public void rejectApplicant(int f_num, int e_pr_num) throws Exception {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("f_num", f_num);
+		map.put("e_pr_num", e_pr_num);
+		
+		dao.rejectApplicant(map);
+	}
+	
+	public void cancelScout(int f_num, int e_pr_num) throws Exception {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("f_num", f_num);
+		map.put("e_pr_num", e_pr_num);
+		
+		dao.cancelScout(map);
+	}
 
 }

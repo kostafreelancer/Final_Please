@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import lancer.f_main.domain.alram;
 import lancer.f_main.domain.member;
 import lancer.f_main.domain.recommendProject;
 import lancer.total.persistence.f_mainDAO;
@@ -54,5 +55,15 @@ public class f_mainServiceImpl implements f_mainService {
 	@Override
 	public int f_planner() throws Exception{
 		return dao.f_planner();
+	}
+	
+	@Override
+	public int f_read(int f_num) throws Exception{
+		return dao.f_read(f_num);
+	}
+	
+	@Override
+	public List<alram> alram(int f_num) throws Exception{
+		return dao.alram(f_num);
 	}
 }

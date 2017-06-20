@@ -115,9 +115,10 @@
 	
 	</select>
 	
-	<select id="selectCon" resultType="Contract" parameterType="int">
-	select e_pr_num from contract where c_state = '제안중'
-	and f_num = #{f_num}
+	<select id="selectCon" resultType="int" parameterType="c_freelancerlist_searchVO">
+	select count(*) from contract where c_state = '제안중'
+	and f_num = #{f_num} and e_pr_num = #{e_pr_num}
 	</select>
+	
 
 </mapper>

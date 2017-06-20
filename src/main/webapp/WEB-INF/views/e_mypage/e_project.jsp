@@ -101,7 +101,6 @@
 			<div class="num_box">
 				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
 				</span> 
-				
 							<c:if test="${pageMakerReady.prev}">
 								<a
 									href="/e_mypage/e_project${pageMakerReady.makeSearch(pageMakerReady.startPage - 1) }">&laquo;</a>
@@ -118,11 +117,7 @@
 							<c:if test="${pageMakerReady.next && pageMakerReady.endPage > 0}">
 								<li><a
 									href="/e_mypage/e_project${pageMakerReady.makeSearch(pageMakerReady.endPage +1) }">&raquo;</a></li>
-							</c:if>						
-				
-				
-				
-				
+							</c:if>		
 				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
 				</span>
 			</div>
@@ -169,7 +164,25 @@
 			</div>
 			<div class="num_box">
 				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
-				</span> <span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
+				</span> 
+							<c:if test="${pageMakerDoing.prev}">
+								<a
+									href="/e_mypage/e_project${pageMakerDoing.makeSearch(pageMakerDoing.startPage - 1) }">&laquo;</a>
+							</c:if>
+
+							<c:forEach begin="${pageMakerDoing.startPage }"
+								end="${pageMakerDoing.endPage }" var="idx">
+								<span
+								<c:out value="${pageMakerDoing.cri.page == idx?'class=on':''}"/>>
+									<a href="/e_mypage/e_project${pageMakerDoing.makeSearch(idx)}">${idx}</a>
+								</span>
+							</c:forEach>
+
+							<c:if test="${pageMakerDoing.next && pageMakerDoing.endPage > 0}">
+								<li><a
+									href="/e_mypage/e_project${pageMakerDoing.makeSearch(pageMakerDoing.endPage +1) }">&raquo;</a></li>
+							</c:if>		
+				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
 				</span>
 			</div>
 		</div>
@@ -215,7 +228,25 @@
 			</div>
 			<div class="num_box">
 				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
-				</span> <span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
+				</span> 
+							<c:if test="${pageMakerDone.prev}">
+								<a
+									href="/e_mypage/e_project${pageMakerDone.makeSearch(pageMakerDone.startPage - 1) }">&laquo;</a>
+							</c:if>
+
+							<c:forEach begin="${pageMakerDone.startPage }"
+								end="${pageMakerDone.endPage }" var="idx">
+								<span
+								<c:out value="${pageMakerDone.cri.page == idx?'class=on':''}"/>>
+									<a href="/e_mypage/e_project${pageMakerDone.makeSearch(idx)}">${idx}</a>
+								</span>
+							</c:forEach>
+
+							<c:if test="${pageMakerDone.next && pageMakerDone.endPage > 0}">
+								<li><a
+									href="/e_mypage/e_project${pageMakerDone.makeSearch(pageMakerDone.endPage +1) }">&raquo;</a></li>
+							</c:if>		
+				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
 				</span>
 			</div>
 		</div>

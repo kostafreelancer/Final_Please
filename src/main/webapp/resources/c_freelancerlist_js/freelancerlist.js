@@ -1,5 +1,9 @@
 $(window).load(function() {
 	var list=[];
+	if($('.checking_con').val()=="conCheck"){
+		alert("해당 프리랜서에게 이미 제안한 프로젝트입니다.");
+	};
+	
 	$('#checkValue').click(function(){
 		var url = location.pathname;
 			 $.ajax({
@@ -39,6 +43,9 @@ $(window).load(function() {
 		
 	});
 	
+	
 });
+
+
 
 

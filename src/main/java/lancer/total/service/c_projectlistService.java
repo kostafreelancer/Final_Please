@@ -2,6 +2,7 @@ package lancer.total.service;
 
 import java.util.List;
 
+import lancer.c_freelancerlist.domain.c_freelancerlist_searchVO;
 import lancer.c_projectlist.domain.Contract;
 import lancer.c_projectlist.domain.Criteria;
 import lancer.c_projectlist.domain.SearchCriteria;
@@ -31,11 +32,8 @@ public interface c_projectlistService {
 
 	public void insertContract(SubmitVO submitVO) throws Exception;
 
-	int selectContract() throws Exception;
+	int selectCon(c_freelancerlist_searchVO vo) throws Exception;
 
-/*	List<Integer> selectEprnum() throws Exception;
-
-	List<Integer> selectFnum() throws Exception;*/
 
 
 

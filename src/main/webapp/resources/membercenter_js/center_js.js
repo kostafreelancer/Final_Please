@@ -2,6 +2,8 @@
 
 $(document).ready(function() {
 	$(".viewAnswer button").on("click",function(){
+		
+		
 		var asknum = $(this).parent().parent().find("td:eq(0)").text();
 			
 			$.getJSON("/answer/all/" + asknum, function(data){
@@ -14,7 +16,9 @@ $(document).ready(function() {
 				}) //end each
 				
 				$(".myAnswer").html(str);			
-				$(".myAnswer").toggle();				
+				$(".myAnswer").toggle();
+				
+				
 			})
 		})    
 	

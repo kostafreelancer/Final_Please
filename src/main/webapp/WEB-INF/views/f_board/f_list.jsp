@@ -82,7 +82,7 @@ float: right;
 							<td>${F_BoardVO.f_board_num }</td>
 								<td class="al">&nbsp;&nbsp;&nbsp;
 								<a href='/f_board/f_readPage${pageMaker.makeSearch(pageMaker.cri.page) }&f_board_num=${F_BoardVO.f_board_num}' class="SOLU_green">
-								${F_BoardVO.f_board_title}<strong>[ ${F_Board.f_reply_count} ]</strong></a></td>
+								${F_BoardVO.f_board_title}<strong>&nbsp&nbsp[ ${F_BoardVO.f_reply_count} ]</strong></a></td>
 								<td>${F_BoardVO.f_id}</td>
 								<td><fmt:formatDate pattern="yyy-MM-dd HH:mm" value="${F_BoardVO.f_board_date }"/></td>
 								<td>${F_BoardVO.f_board_hits }</td>
@@ -93,43 +93,48 @@ float: right;
                        
                     </div>
                     
-                <div class="box-footer">
-					<div class="num_box">
-						<ul class="pagination">
-							<c:if test="${pageMaker.prev}">
-								<a href="f_list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a>
-							</c:if>
 
-							<c:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<a
-									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>></a>
-									<a  href="f_list${pageMaker.makeSearch(idx)}">${idx}</a>
+                  	
+                  	<div class="box-footer">
+                  	<div class="num_box">
+						<span class="btn_lef"> <a href="#"
+								onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0xJmluY3JlbWVudD0w#Member_list');"
+								class="first" alt="처음으로"></a></span>
 								
-							</c:forEach>
+										<c:if test="${pageMaker.prev}">
+											<a
+												href="f_list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a>
+										</c:if>
+			
+										<c:forEach begin="${pageMaker.startPage }"
+											end="${pageMaker.endPage }" var="idx">
+											<span
+											<c:out value="${pageMaker.cri.page == idx?'class=on':''}"/>>
+												<a href="f_list${pageMaker.makeSearch(idx)}">${idx}</a>
+											</span>
+										</c:forEach>
+			
+										<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+											<li><a
+												href="f_list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+										</c:if>
+										
+										<span class='btn_rit'><a href="#"
+								onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0xMSZpbmNyZW1lbnQ9MQ==#Member_list');"
+								class="next" alt="다음 페이지"></a><a href="#"
+								onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0zMjMmaW5jcmVtZW50PTMy#Member_list');"
+								class="last" alt="마지막으로"></a> </span>
+								<br>
+								<br>
+								<br>
+								
+									</div>
+								<c:if test="${client.f_id != null}">	
+								<input type="button" id="checkValue" class="btn_check04"  value="작성하기">
+								</c:if>
+		</div>
 
-							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<a
-									href="f_list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a>
-							</c:if>
-						</ul>
-					</div>
-					 <input type="button" id="checkValue" class="btn_check04"  value="작성하기">
-					 
-				</div>
-                    
-                    <!-- //tb_box : e -->
-                    <div class="num_box">
-				<span class='btn_lef'>
-				<a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=Y29kZT0mcGFnZT0xJmluY3JlbWVudD0w" class="first">맨 처음
-				</a></span>
-				<a class="on">1</a>
-				<a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=cGFnZT0yJmluY3JlbWVudD0w" onclick="javascript:tab('tab_d02',2);">2</a>
-				<a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=cGFnZT0zJmluY3JlbWVudD0w" onclick="javascript:tab('tab_d02',2);">3</a>
-				<span class='btn_rit'></span>
-				<a href="/09_HPDK/page/customer-center/board_list03.php?fm_str=Y29kZT0mcGFnZT0zJmluY3JlbWVudD0w" class="last">맨 마지막</a>                    
-				</div>
-                    <!-- //num_box : e -->
+
                 </dd>
 			</dl>
             </div>  

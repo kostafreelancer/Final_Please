@@ -51,7 +51,19 @@
 		where f_major = '기획'
 	</select>
 	
+	<select id="f_read" resultType="int">
+		select count(*) from ask
+		where f_num = #{f_num}
+		and ask_state = '답변완료'
+		and read = '안읽음'
+	</select>
 
+	<select id="alram" resultType="alram">
+		select asktitle from ask
+		where f_num = 4
+		and ask_state = '답변완료'
+		and read = '안읽음'
+	</select>
 </mapper>
 
 

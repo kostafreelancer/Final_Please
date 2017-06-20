@@ -74,6 +74,7 @@
 	/* 	margin-left: 500px; */
 	margin-bottom: 500px;
 	margin-top : -100px;
+	margin-left : 500px;
 }
 
 #news {
@@ -278,4 +279,18 @@
 .main_news h1{
 	color : #5B445F;
 	margin-left: 50px;
+}
+
+.readCount{
+	color : red;
+	float : left;
+}
+.read{
+	background-image : url(../f_main_img/bg_list_bu.jpg);
+	padding-left : 50px;
+	padding-right: -500px;
+}
+.read_2{
+	display : none;
+	background-color red;
 }

@@ -3,14 +3,6 @@ header, footer, section, article, aside, nav, hgroup, details, menu,
 	display: block;
 }
 
-.rejected{
-	background-color: #b3b3b3;
-}
-
-.hidden{
-	display: none;
-}
-
 body {
 	-moz-text-size-adjust: none;
 	color: #333;
@@ -460,9 +452,9 @@ p.text03 {
 	color: #999
 }
 
-/*--------------------------  ê³µí†µ ë¶€ë¶„ : e  --------------------------------*/
+/*--------------------------  梨쀬�夷됱콬占쎌죾占� 梨섏쮮占쎄텢梨섏쮮占쏙옙 : e  --------------------------------*/
 
-/* ë©”ì¸ */
+/* 梨섏ℓ占쎌뵵占쏀샄夷� */
 #container {
 	position: relative;
 }
@@ -580,7 +572,7 @@ li.icon05 {
 	width: 1000px;
 	margin: 0 auto;
 }
-/* íŽ˜ì´ë“œì¸ ìŠ¬ë¼ì´ë“œ */
+/* 梨좏깘占쎌뫂占쏀샄夷덉콠占쎌뫆踰�占쏀샄夷� 梨숉엹吏�梨섑샄姨뚯콡�샄夷덉콠占쎌뫆占� */
 #popupzon, #popupzon02 {
 	width: 340px;
 	float: left
@@ -661,7 +653,7 @@ li.icon05 {
 	background-color: #fcb010;
 	height: 290px
 }
-/* ë©”ì¸ ìŠ¬ë¼ì´ë“œ */
+/* 梨섏ℓ占쎌뵵占쏀샄夷� 梨숉엹吏�梨섑샄姨뚯콡�샄夷덉콠占쎌뫆占� */
 .slides_d {
 	display: block;
 	position: relative;
@@ -893,7 +885,7 @@ li.icon05 {
 	overflow: hidden
 }
 
-/* í”„ë¡œì íŠ¸ ë¦¬ìŠ¤íŠ¸ */
+/* 梨좑옙�빁占쎌솙�긾�댋踰�占쏀샍�샄梨좏엹夷� 梨섏쭩吏�梨숉엹吏싳콬�엹夷� */
 .list_box {
 	border-bottom: 1px solid #d6d6d6;
 	padding: 25px 0;
@@ -1033,7 +1025,7 @@ li.icon05 {
 	margin-right: 10px;
 	vertical-align: middle
 }
-/* í”„ë¦¬ëžœì„œ ë¦¬ìŠ¤íŠ¸ */
+/* 梨좑옙�빁占쎌솙�긾�뵎占쎌콠�깙�씥梨숋옙�솛占� 梨섏쭩吏�梨숉엹吏싳콬�엹夷� */
 .f_list {
 	clear: both;
 	overflow: hidden;
@@ -1486,9 +1478,15 @@ a.read_more {
 /*  ---------------------------   sub  ---------------------------------*/
 #content {
 	width: 1000px;
-	margin: 50px 50px 0 300px;
+	margin: 50px 50px 0 200px;
 	padding-bottom: 120px;
 	overflow: hidden;
+}
+
+div#project{
+	width: 1000px;
+	margin: 50px 50px 0 200px;
+	padding-bottom: 120px;
 }
 
 .content02 {
@@ -1944,7 +1942,7 @@ a.read_more {
 	font-size: 12px
 }
 
-/* í”„ë¡œì íŠ¸ ìž…ë ¥ í¼ */
+/* 梨좑옙�빁占쎌솙�긾�댋踰�占쏀샍�샄梨좏엹夷� 梨숉깙占썩뵚�긾議뽳옙 梨좏삨姨� */
 .table_tit {
 	border-bottom: 1px solid #ccc;
 	border-top: 1px solid #ccc;
@@ -1999,9 +1997,34 @@ a.read_more {
 	border-width: 0 1px 1px 0;
 	font-size: 14px;
 	background-color: #f4f4f4;
-	text-align: left;
+	text-align: center;
 	font-weight: normal;
 	font-size: 14px;
+}
+
+.som{
+	background-image: none;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    background-color: #94a2af;
+    border-color: #8595a4;
+    color: #fff;
+    margin: 0 10px;
+}
+
+input#checkValue {
+    margin-left: 450px;
+    margin-bottom: 20px;
 }
 
 .tb_st01 th.last {
@@ -2257,7 +2280,7 @@ td.td_bor_bott {
 	padding-left: 55px;
 	margin-left: 10px
 }
-/* í—¤ë“œí—ŒíŒ… êµ¬ì¸ì˜ë¢° */
+/* 梨좑옙遺뗣뀚�깴占쎌뫆踰�占쏙옙遺롫�쇽옙�씤占쏙옙 梨쀬쮬吏�梨숉샄夷띿콡�샄占쎌뫂�긾�뿀占� */
 .lef_mama {
 	margin-left: 20px
 }
@@ -2279,8 +2302,8 @@ th.tb_lef_bor, td.tb_lef_bor {
 	border-left: 1px solid #d6d6d6
 }
 
-/* í”„ë¦¬ëžœì„œ ê²€ìƒ‰ */
-/* í”„ë¦¬ëžœì„œ ê²€ìƒ‰ í† ê¸€*/
+/* 梨좑옙�빁占쎌솙�긾�뵎占쎌콠�깙�씥梨숋옙�솛占� 梨쀬㏈占쎄텢梨숋옙誘좑옙占� */
+/* 梨좑옙�빁占쎌솙�긾�뵎占쎌콠�깙�씥梨숋옙�솛占� 梨쀬㏈占쎄텢梨숋옙誘좑옙占� 梨좑옙議뽰죿�걿硫ㅺ텢*/
 .faq_list {
 	width: 650px;
 	border-top: 1px solid #c8c9c8;
@@ -2438,11 +2461,11 @@ th.bg_gy {
 	margin-bottom: 10px
 }
 
-/*ì— ë¸”ëŸ¼ ì´ë¯¸ì§€ êµì²´ í›„ íŒ¨ë”© ì£¼ì„ í•´ì œ ----------------------------- */
+/*梨숋옙遺뗭죿�긾硫ㅿ옙�뵵�깄留욑옙 梨숉샄夷덉콠吏깆쮰梨숈쭬占쎄텢 梨쀬쮬�삩梨숈㏈夷� 梨좑옙酉쒙옙占� 梨좏씤吏�梨섓옙�뵴占� 梨숈쭥姨뚯콡占쎌솘占� 梨좑옙�뿀�뒛占쏀샍�씥 ----------------------------- */
 .name { /*padding-top:15px;*/
 	line-height: 20px
 }
-/*ì— ë¸”ëŸ¼ ì´ë¯¸ì§€ êµì²´ í›„ íŒ¨ë”© ì£¼ì„ í•´ì œ ----------------------------- */
+/*梨숋옙遺뗭죿�긾硫ㅿ옙�뵵�깄留욑옙 梨숉샄夷덉콠吏깆쮰梨숈쭬占쎄텢 梨쀬쮬�삩梨숈㏈夷� 梨좑옙酉쒙옙占� 梨좏씤吏�梨섓옙�뵴占� 梨숈쭥姨뚯콡占쎌솘占� 梨좑옙�뿀�뒛占쏀샍�씥 ----------------------------- */
 .name03 {
 	line-height: 20px;
 	padding-top: 7px;
@@ -2518,7 +2541,7 @@ th.bg_gy {
 	margin-right: -3px
 }
 
-/* í”„ë¦¬ëžœì„œ ìƒì„¸ë³´ê¸° */
+/* 梨좑옙�빁占쎌솙�긾�뵎占쎌콠�깙�씥梨숋옙�솛占� 梨숋옙裕산껭�占쎌솘留▲긾�깉�뒛�걿留욑옙 */
 .id_name img {
 	margin-right: 10px;
 	margin-top: 10px;
@@ -2727,7 +2750,7 @@ th.bg_gy {
 	border-right: 0
 }
 
-/*  ìƒì£¼ í”„ë¡œì íŠ¸ */
+/*  梨숋옙裕산껭占쎌쭥姨� 梨좑옙�빁占쎌솙�긾�댋踰�占쏀샍�샄梨좏엹夷� */
 .top_list {
 	margin-bottom: 40px
 }
@@ -3009,7 +3032,7 @@ p.ell_hidd a {
 .tb_box_font td {
 	font-size: 14px !important
 }
-/*  ìƒì£¼ í”„ë¡œì íŠ¸ ìƒì„¸ë³´ê¸° íŽ˜ì´ì§€*/
+/*  梨숋옙裕산껭占쎌쭥姨� 梨좑옙�빁占쎌솙�긾�댋踰�占쏀샍�샄梨좏엹夷� 梨숋옙裕산껭�占쎌솘留▲긾�깉�뒛�걿留욑옙 梨좏깘占쎌뫂占쏀샄夷덉콡吏좑옙沅�*/
 .pro_view_tit {
 	text-align: center;
 	font-size: 20px;
@@ -3227,7 +3250,7 @@ h4.pro_tit_vw {
 .line_h {
 	line-height: 20px
 }
-/* ìƒì£¼í”„ë¡œì íŠ¸ íŒì—… */
+/* 梨숋옙裕산껭占쎌쭥姨뚯콬占쎌빁占쎌솙�긾�댋踰�占쏀샍�샄梨좏엹夷� 梨좏씤�샄梨숋옙遺댐옙占� */
 .join img {
 	vertical-align: middle;
 	margin-right: 10px
@@ -3256,8 +3279,8 @@ th.th_bor0 {
 .desc {
 	display: none
 }
-/* ê³ ê°ì„¼í„° */
-/* íƒ­ë¶€ë¶„ */
+/* 梨쀬��샍梨쀬㎏�샄梨숋옙�솘�뀒占쏙옙�솘占� */
+/* 梨좑옙裕삼옙梨섏쮮占쎄텢梨섏쮮占쏙옙 */
 .tab_st04 {
 	position: relative;
 	width: 1000px;
@@ -3379,7 +3402,7 @@ th.th_bor0 {
 	zoom: 1
 }
 
-/* ì´ë©”ì¼ ë¬¸ì˜ */
+/* 梨숉샄夷덉콠吏ㅿ옙�뵵占쏀샄姨� 梨섏㎛夷띿콡�샄占쏙옙 */
 .e_mail_top {
 	padding: 30px 0 10px 0;
 	clear: both;
@@ -3433,7 +3456,7 @@ th.th_bor0 {
 	font-size: 14px
 }
 
-/* ê³µì§€ì‚¬í•­ í…Œì´ë¸” */
+/* 梨쀬�夷됱콡吏좑옙沅쀬콡占쎌듌占쎌콬占썩뿀占� 梨좑옙�뵔裕쇽옙�샄夷덉콠夷랃옙占� */
 .tb_st05 {
 	width: 100%;
 	margin-top: 10px
@@ -3505,7 +3528,7 @@ th.th_bor0 {
 	color: #666
 }
 
-/* ê³µì§€ì‚¬í•­ ë³´ê¸°*/
+/* 梨쀬�夷됱콡吏좑옙沅쀬콡占쎌듌占쎌콬占썩뿀占� 梨섏�夷덉콟夷띿㎏*/
 .notice_view {
 	margin-top: 30px
 }
@@ -3550,7 +3573,7 @@ th.th_bor0 {
 .btn_box {
 	clear: both;
 	margin-top: 15px;
-	margin-bottom: 100px;
+	/* margin-bottom: 100px; */
 }
 
 .btn_box p a {
@@ -3561,7 +3584,7 @@ th.th_bor0 {
 	margin-right: -3px
 }
 
-/* ë§ˆì´íŽ˜ì´ì§€ */
+/* 梨섏쭬占쎈뀓占쏀샄夷덉콬�깘占쎌뫂占쏀샄夷덉콡吏좑옙沅� */
 .my_top, .my_top02 {
 	clear: both;
 	overflow: hidden;
@@ -3815,7 +3838,7 @@ th.th_bor0 {
 .btn_modf {
 	margin-right: 5px;
 }
-/* 20151028 ì¶”ê°€ */
+/* 20151028 梨숈쮮占쎌뵵�걿寃멸텢 */
 .pro_name {
 	margin-left: 30px;
 	float: left;
@@ -3824,7 +3847,7 @@ th.th_bor0 {
 .pro_name strong {
 	color: #f25b1f
 }
-/* 20151029 ì¶”ê°€ */
+/* 20151029 梨숈쮮占쎌뵵�걿寃멸텢 */
 .line_hold td, .line_hold td a, .line_hold td p {
 	color: #999 !important
 }
@@ -3878,7 +3901,7 @@ th.th_bor0 {
 	margin-top: -7px;
 }
 
-/*1102 ì¶”ê°€*/
+/*1102 梨숈쮮占쎌뵵�걿寃멸텢*/
 .card_faq {
 	text-align: center;
 	font-size: 22px;
@@ -3923,7 +3946,7 @@ th.th_bor0 {
 .list03 {
 	background: url(../../images/sub/etc/bg_card_list03.jpg) no-repeat;
 }
-/* íšŒì›ê°€ìž… */
+/* 梨좏걚�씤梨숋옙遊붾쮧�걿寃멸텢梨숉깙占쏙옙 */
 .step_cont01 {
 	background: url(../../images/sub/etc/bg_step01.jpg) no-repeat;
 	padding: 10px 0 20px;
@@ -4244,7 +4267,7 @@ th.th_bor0 {
 	margin-bottom: 30px
 }
 
-/* ìš°íŽ¸ë²ˆí˜¸ ê²€ìƒ‰ íŒì—… */
+/* 梨숉걚吏몄콬�깘夷띿콠吏쇽옙�뀓占쏙옙�몿占� 梨쀬㏈占쎄텢梨숋옙誘좑옙占� 梨좏씤�샄梨숋옙遺댐옙占� */
 /* laypopup */
 .dbkpop {
 	position: fixed;
@@ -4326,7 +4349,7 @@ th.th_bor0 {
 	display: inline-block
 }
 
-/* ì•„ì´ë”” ì¤‘ë³µ íŒì—… 1103 */
+/* 梨숋옙�꽓占쎌솙占쏀샄夷덉콠占쎌빁占쏙옙 梨숈쭦占쎌깣�긾�깉占� 梨좏씤�샄梨숋옙遺댐옙占� 1103 */
 .id_txt01 {
 	font-size: 18px;
 	text-align: center;
@@ -4344,7 +4367,7 @@ th.th_bor0 {
 	color: #f05922
 }
 
-/* í¬íŠ¸í´ë¦¬ì˜¤ */
+/* 梨좏삨吏�梨좏엹夷띿콬�삨夷덉콠吏앹㎛梨숋옙�몿占� */
 #popup_wrap {
 	width: 995px;
 	margin: 0 auto;
@@ -4654,7 +4677,7 @@ th.th_bor0 {
 	margin-left: 2px
 }
 
-/* ë²„íŠ¼ cssì¶”ê°€ -------------------------------*/
+/* 梨섏㏈占쎌솙占쏀엹姨� css梨숈쮮占쎌뵵�걿寃멸텢 -------------------------------*/
 .btn_modf {
 	color: #fff;
 	background-color: #727272;
@@ -4683,7 +4706,7 @@ th.th_bor0 {
 	font-weight: bold;
 }
 
-/* 1109 ìƒì£¼ë·°íŽ˜ì´ì§€ ë²„íŠ¼*/
+/* 1109 梨숋옙裕산껭占쎌쭥姨뚯콠夷뚯㎏梨좏깘占쎌뫂占쏀샄夷덉콡吏좑옙沅� 梨섏㏈占쎌솙占쏀엹姨�*/
 .btn_check09 {
 	padding-left: 28px;
 	background: url(../../images/common/bg/bg_lef_ok.jpg) left 0 no-repeat;
@@ -4705,7 +4728,7 @@ th.th_bor0 {
 	padding: 20px 0;
 	color: #fff
 }
-/* íšŒì›ê°€ì´ë“œ */
+/* 梨좏걚�씤梨숋옙遊붾쮧�걿寃멸텢梨숉샄夷덉콠占쎌뫆占� */
 .join_box {
 	margin-bottom: 20px;
 	overflow: hidden;
@@ -4728,7 +4751,7 @@ th.th_bor0 {
 	margin-top: 85px;
 }
 
-/* ì•„ì´ë”” ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° íŒì—… */
+/* 梨숋옙�꽓占쎌솙占쏀샄夷덉콠占쎌빁占쏙옙 梨섏쮷占쎌솙�긾寃멸텢梨섏㏈占쎈뀓占쏙옙�몿占� 梨숈㎏姨먯콟夷띿㎏ 梨좏씤�샄梨숋옙遺댐옙占� */
 .id_pw {
 	clear: both;
 	overflow: hidden
@@ -4762,7 +4785,7 @@ th.th_bor0 {
 	width: 430px
 }
 
-/* ì—ìŠ¤í¬ë¡œ */
+/* 梨숋옙遺뗫쮧占쏀엹吏싳콬�삏吏�梨섏쭠�씥 */
 .top_list li {
 	position: relative
 }
@@ -4786,7 +4809,7 @@ th.th_bor0 {
 	vertical-align: middle
 }
 
-/* ìž¬íƒí”„ë¡œì íŠ¸ ë“±ë¡ ì—ìŠ¤í¬ë¡œ ë™ì˜ */
+/* 梨숉깙吏�梨좑옙裕살뵵占쏙옙�빁占쎌솙�긾�댋踰�占쏀샍�샄梨좏엹夷� 梨섓옙�몿沅곥긾�돞占� 梨숋옙遺뗫쮧占쏀엹吏싳콬�삏吏�梨섏쭠�씥 梨섑삨占쎄퐪梨숉샄占쏙옙 */
 .esc_box {
 	margin-bottom: 50px;
 	border: 1px solid #ccc;
@@ -4831,7 +4854,7 @@ th.th_bor0 {
 	margin: 0 5px 0 10px
 }
 
-/*ì¸í„°ë·° í•˜ê¸°  */
+/*梨숉샄夷띿콬占쎌솘嫄섅긾�젰占� 梨좑옙�뼣�뫂�걿留욑옙  */
 .top10_tit {
 	position: relative
 }
@@ -4931,13 +4954,13 @@ th.th_bor0 {
 	font-size: 12px
 }
 
-/* 20160303 gnb ì¶”ê°€ */
+/* 20160303 gnb 梨숈쮮占쎌뵵�걿寃멸텢 */
 #gnb ul li.last img {
 	vertical-align: middle;
 	margin: -1px 5px 0 0
 }
 
-/* 20170314 ì°œíŒì—… */
+/* 20170314 梨숈㎏�씥梨좏씤�샄梨숋옙遺댐옙占� */
 .zzim_txt {
 	font-size: 14px;
 	font-weight: bold;
@@ -4970,7 +4993,7 @@ th.th_bor0 {
 	line-height: 18px
 }
 
-/* ë§ˆì´íŽ˜ì´ì§€  ìž…ì°°ë‚™ì°° ì •ë³´ */
+/* 梨섏쭬占쎈뀓占쏀샄夷덉콬�깘占쎌뫂占쏀샄夷덉콡吏좑옙沅�  梨숉깙占썩뵚占쎌㎏吏몄콠占쎌떌苑볦콡吏몄㎏ 梨숉샍占썩뼠�긾�깉占� */
 .tab_st_second {
 	margin-bottom: 30px;
 	overflow: hidden;
@@ -5033,7 +5056,7 @@ th.th_bor0 {
 	width: 50%
 }
 
-/* 20170317  ì•„ì´ë””ì°¾ê¸° */
+/* 20170317  梨숋옙�꽓占쎌솙占쏀샄夷덉콠占쎌빁占쎌뵵占쎌㎏姨먯콟夷띿㎏ */
 .id_guide_txt {
 	line-height: 20px;
 	font-size: 14px
@@ -5176,4 +5199,10 @@ button, input, select, textarea {
 	font-size: 100%;
 	margin: 0;
 	vertical-align: middle;
+}
+
+.td_bor_bott1{
+    padding: 15px 13px;
+    border-bottom: 1px solid #d6d6d6;
+    font-size: 12px;
 }

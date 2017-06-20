@@ -14,9 +14,10 @@
 		<![CDATA[
 			select 
 				f_board_num, f_board_title, f_board_content, f_board_hits, 
-				f_board_date, f_reply_count, f_num
-			from f_board
-			where f_board_num>0
+				f_board_date,  f.f_num, f.f_id,
+       			(select count(*) from reply where board_num=b.f_board_num) AS f_reply_count
+			from f_board b, freelancer f
+			where f.f_num=b.f_num AND f_board_num>0
 		]]>
 	
 		<include refid="search"></include>

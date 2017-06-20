@@ -63,6 +63,8 @@
 						<li>제목을 클릭하면 답변 내용을 확인할 수 있습니다.</li>
 					</ul>
 					<br><br>
+					
+
 					<table class="email_table">
 						<tr>
 							<th>문의번호</th>
@@ -70,6 +72,7 @@
 							<th>문의날짜</th>
 							<th>작성자</th>
 							<th>답변현황</th>
+							<th>확인여부</th>
 						</tr>
 					
 						<c:choose>
@@ -84,6 +87,7 @@
 										<td>${MembercenterASKVO.askdate }</td>
 										<td>${MembercenterASKVO.writer }</td>
 										<td>${MembercenterASKVO.ask_state }</td>
+										<td>${MembercenterASKVO.read }
 									</tr>
 									</c:forEach>										
 							</c:when>
@@ -97,7 +101,7 @@
 										<td>${MembercenterASKVO.askdate }</td>
 										<td>${MembercenterASKVO.writer }
 										<td>${MembercenterASKVO.ask_state }</td>
-										
+										<td>${MembercenterASKVO.read }</td>
 										
 									</tr>
 								</c:forEach>
@@ -106,6 +110,8 @@
 						
 						
 					</table>
+										
+					
 					<p class="myAnswer"></p>
 					
 					

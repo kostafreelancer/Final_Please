@@ -2083,8 +2083,17 @@ a.read_more {
 }
 
 .btn_check01, .btn_check02, .btn_check03, .btn_check04, .btn_check05,
-	.btn_check06, .btn_check07, .btn_zzim {
+	.btn_check06, .btn_check07, .btn_zzim{
 	width: 95px;
+	padding: 17px 0 20px 0;
+	display: inline-block;
+	font-size: 20px;
+	text-align: left;
+	line-height: 20px
+}
+
+.btn_list{
+	width: 150px;
 	padding: 17px 0 20px 0;
 	display: inline-block;
 	font-size: 20px;
@@ -2410,7 +2419,7 @@ th.bg_gy {
 }
 
 .first {
-	background: #fff url(../images/bg/bg_first.jpg) center 10px no-repeat;
+	background: #fff url(/resources/f_board_img/bg_first.jpg) center 10px no-repeat;
 	text-indent: -9999px;
 	overflow: hidden;
 	border: 1px solid #999;
@@ -2418,7 +2427,7 @@ th.bg_gy {
 }
 
 .prev {
-	background: #fff url(../../images/common/bg/bg_prev.jpg) center 10px
+	background: #fff url(/resources/f_board_img/bg_prev.jpg) center 10px
 		no-repeat;
 	text-indent: -9999px;
 	overflow: hidden;
@@ -2427,7 +2436,7 @@ th.bg_gy {
 }
 
 .next {
-	background: #fff url(../images/bg/bg_next.jpg) center 10px no-repeat;
+	background: #fff url(/resources/f_board_img/bg_next.jpg) center 10px no-repeat;
 	text-indent: -9999px;
 	overflow: hidden;
 	border: 1px solid #999;
@@ -2436,7 +2445,7 @@ th.bg_gy {
 }
 
 .num_box .last {
-	background: #fff url(../images/bg/bg_last.jpg) center 10px no-repeat;
+	background: #fff url(/resources/f_board_img/bg_last.jpg) center 10px no-repeat;
 	text-indent: -9999px;
 	overflow: hidden;
 	border: 1px solid #999;
@@ -4425,7 +4434,8 @@ th.th_bor0 {
 .ri_ma{margin-right:20px}
 .ri_ma10{margin-right:10px}
 .btn_box{text-align:center;/*margin-right:15px;*/}
-.btn_check01,.btn_check02,.btn_check03,.btn_check04,.btn_check05,.btn_check06,.btn_check07,.btn_zzim{width:150px;padding:17px 0 20px 0;display:inline-block;font-size:20px;text-align:left; line-height:20px}
+.btn_check01,.btn_check02,.btn_check03,.btn_check04,.btn_check05,.btn_check06,.btn_check07,.btn_zzim{width:150px;padding:17px 0 20px 0;display:inline-block;font-size:20px;text-align:left; line-height:20px;}
+.btn_list{width:150px;padding:17px 0 20px 0;display:inline-block;font-size:20px;text-align:left; line-height:20px;}
 .btn_check01{ background:url(images/bg/bg_check01.jpg) no-repeat;color:#fff;padding-left:50px; }
 .btn_check02{ background:url(../c_join_img/bg_btn_ck02.jpg) no-repeat;color:#666;padding-left:55px; }
 .btn_check03{ background:url(../../c_projectlist/c_projectlist_img/bg_btn_search.jpg) no-repeat;color:#fff;padding-left:55px; }
@@ -4434,7 +4444,7 @@ th.th_bor0 {
 .btn_check06{ background:url(images/bg/btn_modify.jpg) no-repeat;color:#fff;padding-left:50px; }
 .btn_check07{ background:url(images/bg/btn_copy.jpg) no-repeat;color:#666;padding-left:50px; }
 .btn_check08{ background:url(images/bg/btn_card.jpg) no-repeat;color:#fff;width:110px;padding:20px 0 20px 50px;display:inline-block;font-size:20px;text-align:left;line-height:20px}
-.btn_list{ background:url(../f_board_img/bg_btn_list.jpg) no-repeat;color:#fff;width:110px;padding:20px 0 20px 50px;display:inline-block;font-size:20px;text-align:left;line-height:20px}
+.btn_list{ background:url(../f_board_img/bg_btn_list.jpg) no-repeat;color:#fff;width:150px;padding:20px 0 20px 50px;display:inline-block;font-size:20px;text-align:left;line-height:20px}
 .btn_inter{background:url(images/bg/bg_btn_inter.jpg) no-repeat;color:#666;padding-left:50px;width:170px;color:#fff;font-size:20px;line-height:18px}
 td.td_bor_bott{border-bottom:0; padding-bottom:0}
 .btn_zzim{background:url(../../images/common/bg/bg_btn_zzim.jpg) no-repeat;color:#fff;padding-left:55px;margin-left:10px}
@@ -4471,10 +4481,10 @@ th.tb_lef_bor,td.tb_lef_bor{ border-left:1px solid #d6d6d6}
 .btn_lef{margin-right:20px}
 .btn_rit{margin-left:20px}
 .btn_lef a,.btn_rit a{height:25px}
-.first{ background:#fff url(../../c_projectlist/c_projectlist_img/bg_first.jpg) center 10px no-repeat; text-indent:-9999px; overflow:hidden; border:1px solid #999; margin-right:-3px;}
+.first{ background:#fff url(/resources/f_board_img/bg_first.jpg) center 10px no-repeat; text-indent:-9999px; overflow:hidden; border:1px solid #999; margin-right:-3px;}
 .prev{ background:#fff url(../../images/common/bg/bg_prev.jpg) center 10px no-repeat; text-indent:-9999px; overflow:hidden;border:1px solid #999; border-width:1px 1px 1px 0}
-.next{ background:#fff url(../../c_projectlist/c_projectlist_img/bg_next.jpg) center 10px no-repeat; text-indent:-9999px; overflow:hidden; border:1px solid #999; border-width:1px 0 1px 1px;margin-right:-4px}
-.num_box .last{ background:#fff url(../../c_projectlist/c_projectlist_img/bg_last.jpg) center 10px no-repeat; text-indent:-9999px; overflow:hidden; border:1px solid #999; margin-right:-3px}
+.next{ background:#fff url(/resources/f_board_img/bg_next.jpg) center 10px no-repeat; text-indent:-9999px; overflow:hidden; border:1px solid #999; border-width:1px 0 1px 1px;margin-right:-4px}
+.num_box .last{ background:#fff url(/resources/f_board_img/bg_last.jpg) center 10px no-repeat; text-indent:-9999px; overflow:hidden; border:1px solid #999; margin-right:-3px}
 >>>>>>> 9cffe6be1feca6357727c1c4afa162d2250a0032:WebContent/c_join/c_join_css/join.css
 
 .top_port img {
@@ -5315,6 +5325,102 @@ th.th_bor0{border-bottom:0}
 	text-align: center;
 	line-height: 20px
 }
+
+
+/* 댓글 */
+#listReply{
+	padding-left: 70px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+ 
+.replyheader {
+	 float:left;
+} 
+
+
+.replypic{
+	 left: 15px;
+    position: absolute;
+    top: 15px;
+    width: 48px !important;
+    height: 48px !important;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: -1px -1px 1px #fff, 1px 1px 1px #fff;
+}
+
+.replyname{
+	padding: 10px;
+	width:50px; 
+	font-size: 15px;
+}
+
+.replytime{
+	padding: 10px;
+}
+
+ .replycontent{
+	border-bottom: 1px solid;
+	border-bottom-color: #e3e3e3;
+	width: 100px;
+} 
+
+.replytext{
+	padding: 10px;
+}
+
+.speech {
+    font-size: .9em;
+    line-height: 1.6;
+    letter-spacing: -.5px;
+}
+
+#btnModify{
+	background: #2257ad;
+	color: white;
+	font-style: bold;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	margin-right: 5px;
+}
+
+.replybuttons{
+	float: right;
+}
+
+#btnReplyDelete{
+	background: #fc6e1b;
+	color: white;
+	font-style: bold;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	margin-right: 5px;
+}
+
+.replybody {
+	width: 850px;
+	border-bottom: 1px solid #2257ad;
+/* 	z-index: 0;
+	clear: both;
+	position: relative;
+	padding: 11px 0; */
+}
+
+.cng-header {margin-left: 100px;}
+
+
+
+
+.cng-content {margin-top: 15px}
+
+
+
+/* 댓글 내 css */
+
+
+
+
 
 <<<<<<< HEAD
  #wrap {

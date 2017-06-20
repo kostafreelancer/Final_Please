@@ -11,13 +11,13 @@
 		select max(asknum) +1 from ask
 	</select>
 	<insert id="insertAsk">
-		insert into ask (writer, asknum, askcontents, askdate, f_num, e_num, asktitle, ask_state)
-		values(#{writer}, ask_seq.nextval, #{askcontents}, sysdate, #{f_num}, #{e_num}, #{asktitle}, '답변중')
+		insert into ask (writer, asknum, askcontents, askdate, f_num, e_num, asktitle, ask_state, read)
+		values(#{writer}, ask_seq.nextval, #{askcontents}, sysdate, #{f_num}, #{e_num}, #{asktitle}, '답변중', '안읽음')
 	</insert>
 	
 	<select id="myAskList" resultType="lancer.c_membercenter.domain.MembercenterASKVO">
 		
-		select writer, asktitle, askdate, answercontents, answerdate, asknum, ad_num, ask_state from ask
+		select writer, asktitle, askdate, answercontents, answerdate, asknum, ad_num, ask_state , read from ask
 		where f_num = #{f_num}
     	and ask_state = '답변완료'
     	order by ask_state desc

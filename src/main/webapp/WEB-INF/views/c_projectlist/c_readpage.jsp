@@ -71,6 +71,8 @@ $(function(){
 				<table class="tb_st01">
 				<form method="get" action="/c_projectlist/complete" name="ProjectWriteFm">
 				<input type="hidden" name="e_pr_num" value="${e_pr_num }"></input>
+				<input type="hidden" class="e_num" value=" ${enterprise.e_num } "></input>
+				<input type="hidden" class="checking_con" value="${msg }"></input>
 					 
 					<colgroup>
 						<col style="width: 15%" />
@@ -356,8 +358,8 @@ $(function(){
 			<c:when test="${from eq 'list' && identity.identity eq 'freelancer'}">
 			
 			<div class="btn_box">
-					<input id="checkValue" class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" name="post_a_job"
-						onclick="button_event(${project.e_pr_num});" value="프로젝트 신청하기" type="button"> <br>
+					<input id="checkValue" class="btn btn-lg btn-client js-disable-on-click btn-submit"  name="post_a_job"
+						onclick="button_event(${project.e_pr_num},${enterprise.e_num },${from });" value="프로젝트 신청하기" type="button"> <br>
 					<br>
 					<br>
 					<br>

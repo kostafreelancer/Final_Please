@@ -109,6 +109,11 @@
 	 )
 	</insert>
 	
+	<select id="selectCon" resultType="int" parameterType="c_freelancerlist_searchVO">
+	select count(*) from contract where c_state = '신청중'
+	and f_num = #{f_num} and e_pr_num = #{e_pr_num}
+	</select>
+	
 
 
 </mapper>

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import lancer.f_main.domain.alram;
 import lancer.f_main.domain.member;
 import lancer.f_main.domain.recommendProject;
 
@@ -59,4 +60,13 @@ public class f_mainDAOImpl implements f_mainDAO {
 		return session.selectOne(namespace + ".f_planner");
 	}
 
+	@Override
+	public int f_read(int f_num) throws Exception{
+		return session.selectOne(namespace + ".f_read" , f_num);
+	}
+	
+	@Override
+	public List<alram> alram(int f_num) throws Exception{
+		return session.selectList(namespace + ".alram" , f_num);
+	}
 }

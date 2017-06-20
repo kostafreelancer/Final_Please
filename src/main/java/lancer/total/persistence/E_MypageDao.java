@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import lancer.c_login.domain.c_login_enterpriseVO;
 import lancer.e_mypage.domain.Criteria;
 import lancer.e_mypage.domain.Enterprise;
+import lancer.e_mypage.domain.Member;
 import lancer.e_mypage.domain.Project;
 
 
@@ -66,6 +67,43 @@ public class E_MypageDao{
 	
 	public List<Integer> selectP_job(int e_pr_num) throws Exception {
 		return session.selectList(namespace + ".selectP_job", e_pr_num);
+	}
+	
+	public List<Member> selectMember(int e_pr_num, Criteria cri) throws Exception {
+		return session.selectList(namespace + ".selectMember", e_pr_num, new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
+	}
+	
+	public List<Member> selectApplicant(int e_pr_num, Criteria cri) throws Exception {
+		return session.selectList(namespace + ".selectApplicant", e_pr_num, new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
+	}
+	
+	public List<Member> selectScout(int e_pr_num, Criteria cri) throws Exception {
+		return session.selectList(namespace + ".selectScout", e_pr_num, new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
+	}
+	
+	public Integer countMember(int e_pr_num) throws Exception {
+		return session.selectOne(namespace + ".countMember", e_pr_num);
+	}
+	
+	public Integer countApplicant(int e_pr_num) throws Exception {
+		return session.selectOne(namespace + ".countApplicant", e_pr_num);
+	}
+	
+	public Integer countScout(int e_pr_num) throws Exception {
+		return session.selectOne(namespace + ".countScout", e_pr_num);
+	}
+	
+	
+	public void acceptApplicant(HashMap<String, Integer> map) throws Exception {
+		session.update(namespace + ".acceptApplicant", map);
+	}
+	
+	public void rejectApplicant(HashMap<String, Integer> map) throws Exception {
+		session.update(namespace + ".rejectApplicant", map);
+	}
+	
+	public void cancelScout(HashMap<String, Integer> map) throws Exception {
+		session.delete(namespace + ".cancelScout", map);
 	}
 
 }

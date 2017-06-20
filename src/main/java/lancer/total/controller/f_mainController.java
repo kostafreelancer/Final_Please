@@ -65,7 +65,13 @@ public class f_mainController {
 			c_login_freelancerVO vo = (c_login_freelancerVO) session.getAttribute("client");
 			f_num = vo.getF_num();
 			System.out.println(f_num+"프리번호");
+			model.addAttribute("alram", service.alram(f_num));
 			model.addAttribute("recommend", service.recommendProject(f_num));
+			
+			System.out.println(service.recommendProject(f_num).toString());
+			model.addAttribute("f_read", service.f_read(f_num));
+			
+		
 			identity.setIdentity("freelancer");
 		}
 		}

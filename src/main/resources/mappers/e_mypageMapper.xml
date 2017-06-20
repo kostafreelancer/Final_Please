@@ -67,6 +67,44 @@
 	<select id="selectP_job" resultType="Integer">
 		SELECT job_id FROM p_job WHERE e_pr_num = #{e_pr_num}
 	</select>
+	
+	
+	<select id="selectMember" resultType="lancer.e_mypage.domain.Member">
+		SELECT * FROM contract c, freelancer f WHERE c.f_num = f.f_num AND c.e_pr_num = #{e_pr_num} AND c_state IN('매칭중', '매칭완료', '진행중', '완료')
+	</select>
+	
+	<select id="selectApplicant" resultType="lancer.e_mypage.domain.Member">
+		SELECT * FROM contract c, freelancer f WHERE c.f_num = f.f_num AND c.e_pr_num = #{e_pr_num} AND c_state IN('신청중', '신청거절')
+	</select>
+	
+	<select id="selectScout" resultType="lancer.e_mypage.domain.Member">
+		SELECT * FROM contract c, freelancer f WHERE c.f_num = f.f_num AND c.e_pr_num = #{e_pr_num} AND c_state IN ('제안중', '제안거절')
+	</select>
+	
+	<select id="countMember" resultType="Integer">
+		SELECT count(*) FROM contract c, freelancer f WHERE c.f_num = f.f_num AND c.e_pr_num = #{e_pr_num} AND c_state IN('매칭중', '매칭완료', '진행중', '완료')
+	</select>
+	
+	<select id="countApplicant" resultType="Integer">
+		SELECT count(*) FROM contract c, freelancer f WHERE c.f_num = f.f_num AND c.e_pr_num = #{e_pr_num} AND c_state IN('신청중', '신청거절')
+	</select>
+	
+	<select id="countScout" resultType="Integer">
+		SELECT count(*) FROM contract c, freelancer f WHERE c.f_num = f.f_num AND c.e_pr_num = #{e_pr_num} AND c_state IN ('제안중', '제안거절')
+	</select>
+	
+	<update id="acceptApplicant">
+		UPDATE contract SET c_state = '매칭중' WHERE f_num = #{f_num} AND e_pr_num = #{e_pr_num}
+	</update>
+	
+	<update id="rejectApplicant">
+		UPDATE contract SET c_state = '신청거절' WHERE f_num = #{f_num} AND e_pr_num = #{e_pr_num}
+	</update>
+	
+	<delete id="cancelScout">
+		DELETE FROM contract WHERE f_num = #{f_num} AND e_pr_num = #{e_pr_num}
+	</delete>
+
 
 </mapper>
 
