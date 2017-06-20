@@ -3573,7 +3573,7 @@ th.th_bor0 {
 .btn_box {
 	clear: both;
 	margin-top: 15px;
-	margin-bottom: 100px;
+	/* margin-bottom: 100px; */
 }
 
 .btn_box p a {

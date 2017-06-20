@@ -64,8 +64,8 @@ public class c_projectlistController {
 	}
 	
 	@RequestMapping(value="/c_readpage", method= RequestMethod.GET)
-	public void readPage(@ModelAttribute("cri") SearchCriteria cri,HttpSession session,@RequestParam("e_pr_num") int e_pr_num,@RequestParam("e_num") int e_num, Model model) throws Exception{
-
+	public void readPage(@ModelAttribute("cri") SearchCriteria cri,HttpSession session,@RequestParam("e_pr_num") int e_pr_num,@RequestParam("e_num") int e_num, @RequestParam("from") String from, @RequestParam("f_num") int fromF_num, Model model) throws Exception{
+		
 		
 		
 		//담당자정보 구하기
@@ -88,6 +88,14 @@ public class c_projectlistController {
 		//상세분야 구하기
 		List<Integer> p_job = service.selectP_job(e_pr_num);
 		model.addAttribute("p_job", p_job);
+		
+		if(from.equals("list")){
+			model.addAttribute("from", "list");
+			model.addAttribute("fromF_num",0); 
+		}else{
+			model.addAttribute("from", "mypage");
+			model.addAttribute("fromF_num",fromF_num);
+		}
 	}
 	
 	@RequestMapping(value = "/complete", method = RequestMethod.GET)

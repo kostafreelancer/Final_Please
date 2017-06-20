@@ -225,14 +225,14 @@
 								<p class="infor_txt"
 									style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
 									<a
-									href='/c_projectlist/c_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&e_pr_num=${E_Insert.e_pr_num}&e_num=${E_Insert.e_num}'>
+									href='/c_projectlist/c_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&e_pr_num=${E_Insert.e_pr_num}&e_num=${E_Insert.e_num}&from=list&f_num=0'>
 									[${E_Insert.p_state }/${E_Insert.p_location }/${E_Insert.p_academic }] <br> ${E_Insert.p_name }
 									</a>
 								</p>
 
 								<p class="ell_hidd">
 									<a
-									href='/c_projectlist/c_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&e_pr_num=${E_Insert.e_pr_num}&e_num=${E_Insert.e_num}'>
+									href='/c_projectlist/c_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&e_pr_num=${E_Insert.e_pr_num}&e_num=${E_Insert.e_num}&from=list&f_num=0'>
 										${E_Insert.p_content }</a>
 								</p>
 							</td>
