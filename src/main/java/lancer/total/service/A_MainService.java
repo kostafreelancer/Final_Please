@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import lancer.a_main.domain.Criteria;
 import lancer.a_main.domain.Enterprise;
 import lancer.a_main.domain.Freelancer;
+import lancer.a_main.domain.ProjectPermit;
 import lancer.a_main.domain.askList;
 import lancer.total.persistence.A_MainDAO;
 
@@ -29,6 +30,10 @@ public class A_MainService {
 		return dao.listEnterprisePermit(cri);
 	}
 	
+	public List<ProjectPermit> listProjectPermit(Criteria cri) throws Exception {
+		return dao.listProjectPermit(cri);
+	}
+	
 	public Integer countFreelancer() throws Exception{
 		return dao.countFreelancer();
 	}
@@ -41,6 +46,10 @@ public class A_MainService {
 		return dao.countEnterprisePermit();
 	}
 	
+	public Integer countProjectPermit() throws Exception{
+		return dao.countProjectPermit();
+	}
+	
 	public void deleteAccountF(int deleteF_num) throws Exception {
 		dao.deleteAccountF(deleteF_num);
 	}
@@ -51,6 +60,10 @@ public class A_MainService {
 	
 	public void permitAccount(int permitE_num) throws Exception {
 		dao.permitAccount(permitE_num);
+	}
+	
+	public void permitProject(int permitE_pr_num) throws Exception {
+		dao.permitProject(permitE_pr_num);
 	}
 	
 	//프리랜서 이메일 얻어오기

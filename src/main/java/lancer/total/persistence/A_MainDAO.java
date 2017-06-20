@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import lancer.a_main.domain.Criteria;
 import lancer.a_main.domain.Enterprise;
 import lancer.a_main.domain.Freelancer;
+import lancer.a_main.domain.ProjectPermit;
 import lancer.a_main.domain.askList;
 
 @Repository
@@ -33,6 +34,10 @@ public class A_MainDAO {
 		return session.selectList(namespace+".listEnterprisePermit", cri, new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
 	}
 	
+	public List<ProjectPermit> listProjectPermit(Criteria cri) throws Exception {
+		return session.selectList(namespace+".listProjectPermit", cri, new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
+	}
+	
 	public Integer countFreelancer() throws Exception {
 		return session.selectOne(namespace+".countFreelancer");
 	}
@@ -45,6 +50,10 @@ public class A_MainDAO {
 		return session.selectOne(namespace+".countEnterprisePermit");
 	}
 	
+	public Integer countProjectPermit() throws Exception {
+		return session.selectOne(namespace+".countProjectPermit");
+	}
+	
 	public void deleteAccountF(int deleteF_num) throws Exception {
 		session.delete(namespace+".deleteAccountF", deleteF_num);
 	}
@@ -55,6 +64,10 @@ public class A_MainDAO {
 	
 	public void permitAccount(int permitE_num) throws Exception {
 		session.update(namespace+".permitAccount", permitE_num);
+	}
+	
+	public void permitProject(int permitE_pr_num) throws Exception {
+		session.update(namespace+".permitProject", permitE_pr_num);
 	}
 	
 	//메일발송 관련 회원메일주소 불러오기

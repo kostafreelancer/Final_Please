@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -61,6 +62,7 @@
 						<col style="width: 11%">
 						<col style="width: 10%">
 						<col style="width: 10%">
+						<col style="width: 10%">
 					</colgroup>
 					<thead>
 						<tr>
@@ -71,6 +73,7 @@
 							<th scope="col">평균예산</th>
 							<th scope="col">등록일</th>
 							<th scope="col">마감일</th>
+							<th scope="col">승인여부</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -80,9 +83,11 @@
 								<td><a href="/e_mypage/e_projectInfo${pageMakerReady.makeSearch(pageMakerReady.cri.page) }&e_pr_num=${p.getE_pr_num()}">${p.getP_name()}</a></td>
 								<td class="ac">${p.getP_requirenum()}</td>
 								<td class="ac">${p.getP_lowerage()} ~ ${p.getP_upperage()}</td>
-								<td class="ac">${p.getP_lowercost()}</td>
+								<fmt:parseNumber var = "cost"  integerOnly = "true" value = "${(p.p_lowercost + p.p_uppercost) / 2}"/>
+								<td>${cost }만원</td>
 								<td class="ac">${p.getP_regdate()}</td>
 								<td class="ac">${p.getP_exdate()}</td>
+								<td class="ac">${p.getProject_check_state() }</td>
 							</tr>
 					</c:forEach>
 					</tbody>

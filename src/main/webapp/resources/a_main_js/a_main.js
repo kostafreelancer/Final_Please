@@ -56,6 +56,17 @@ $(document).ready(function() {
 		}
 	});
 	
+	$('.permitRegedit').click(function(){
+		if(confirm("해당 프로젝트의 등록을 승인 하시겠습니까?") == true){
+			// 해당 프로젝트의 프로젝트 번호를 구함
+			var num = $(this).parent().parent().prev().find('td:eq(0)').text();
+			$('input[type="hidden"][name="permitE_pr_num"]').val(num);
+			document.permitProjectForm.submit();
+		}else{
+			return;
+		}
+	});
+	
 	$('.license').click(function(e){
 		e.preventDefault();
 		var filenum = $(this).attr("href");

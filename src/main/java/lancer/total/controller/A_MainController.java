@@ -103,6 +103,7 @@ public class A_MainController {
 		model.addAttribute("listFreelancer", service.listFreelancer(cri));
 		model.addAttribute("listEnterprise", service.listEnterprise(cri));
 		model.addAttribute("listEnterprisePermit", service.listEnterprisePermit(cri));
+		model.addAttribute("listProjectPermit", service.listProjectPermit(cri));
 		model.addAttribute("askList",service.askList(cri));
 		model.addAttribute("answerOK",service.answerOK(cri));
 		
@@ -118,6 +119,10 @@ public class A_MainController {
 		pageMakerEnterprisePermit.setCri(cri);
 		pageMakerEnterprisePermit.setTotalCount(service.countEnterprisePermit());
 		
+		PageMaker pageMakerProjectPermit =  new PageMaker();
+		pageMakerProjectPermit.setCri(cri);
+		pageMakerProjectPermit.setTotalCount(service.countProjectPermit());
+		
 		PageMaker pageMakerAskList =  new PageMaker();
 		pageMakerAskList.setCri(cri);
 		pageMakerAskList.setTotalCount(service.countAskList());
@@ -129,6 +134,7 @@ public class A_MainController {
 		model.addAttribute("pageMakerFreelancer", pageMakerFreelancer);
 		model.addAttribute("pageMakerEnterprise", pageMakerEnterprise);
 		model.addAttribute("pageMakerEnterprisePermit", pageMakerEnterprisePermit);
+		model.addAttribute("pageMakerProjectPermit", pageMakerProjectPermit);
 		model.addAttribute("pageMakerAskList", pageMakerAskList);
 		model.addAttribute("pageMakerAnswerOK", pageMakerAnswerOK);
 		
@@ -151,6 +157,13 @@ public class A_MainController {
 	@RequestMapping(value = "/a_permit", method = RequestMethod.POST)
 	public String a_permitPOST(@RequestParam("permitE_num") int permitE_num)throws Exception{
 		service.permitAccount(permitE_num);
+		
+		return "redirect:/a_main/a_main";
+	}
+	
+	@RequestMapping(value = "/a_permitProject", method = RequestMethod.POST)
+	public String a_permitProjectPOST(@RequestParam("permitE_pr_num") int permitE_pr_num)throws Exception{
+		service.permitProject(permitE_pr_num);
 		
 		return "redirect:/a_main/a_main";
 	}

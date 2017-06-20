@@ -18,6 +18,10 @@
 		SELECT * FROM enterprise WHERE e_check = '미승인'
 	</select>
 	
+	<select id="listProjectPermit" resultType="lancer.a_main.domain.ProjectPermit">
+		SELECT * FROM project p, enterprise e WHERE p.e_num = e.e_num AND project_check_state = '미승인'
+	</select>
+	
 	<select id="countFreelancer" resultType="Integer">
 		SELECT count(*) FROM freelancer
 	</select>
@@ -30,8 +34,16 @@
 		SELECT count(*) FROM enterprise WHERE e_check = '미승인'
 	</select>
 	
+	<select id="countProjectPermit" resultType="Integer">
+		SELECT count(*) FROM project WHERE project_check_state = '미승인'
+	</select>
+	
 	<update id="permitAccount" >
 		UPDATE enterprise SET e_check = '승인' WHERE e_num = #{permitE_num}
+	</update>
+	
+	<update id="permitProject" >
+		UPDATE project SET project_check_state = '승인' WHERE e_pr_num = #{permitE_pr_num}
 	</update>
 
 	<select id="getF_mail" resultType="lancer.a_main.domain.Freelancer">

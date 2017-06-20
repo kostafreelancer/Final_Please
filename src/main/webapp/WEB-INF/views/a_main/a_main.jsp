@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -255,7 +256,6 @@
 								<a
 									href="/a_main/a_main${pageMakerEnterprisePermit.makeSearch(pageMakerEnterprisePermit.startPage - 1) }">&laquo;</a>
 							</c:if>
-
 							<c:forEach begin="${pageMakerEnterprisePermit.startPage }"
 								end="${pageMakerEnterprisePermit.endPage }" var="idx">
 								<span
@@ -286,34 +286,26 @@
 						<col style="width: 13%">
 					</colgroup>
 					<tbody>
-						<c:forEach var="ep" items="${listEnterprisePermit }">
+						<c:forEach var="pp" items="${listProjectPermit }">
 							<tr>
-								<td class="hidden">${ep.e_num }</td>
-								<th>아이디</th>
-								<td>${ep.e_id}</td>
-								<th>가입자명</th>
-								<td>${ep.e_name}</td>
-								<th>기업명</th>
-								<td>${ep.e_ename}</td>
-								<th>전화번호</th>
-								<td>${ep.e_phone}</td>
+								<th>등록번호</th>
+								<td>${pp.e_pr_num }</td>
+								<th>프로젝트명</th>
+								<td><a href="#">${pp.p_name}</a></td>
+								<th>회사명</th>
+								<td>${pp.e_ename}</td>
+								<th>매니저 연락처</th>
+								<td>${pp.manager_hphone}</td>
 							</tr>
 							<tr>
-								<th>이메일</th>
-								<td>${ep.e_mail}</td>
-								<th>주소</th>
-								<td colspan="3">${ep.e_address}</td>
-								<th>규모</th>
-								<td>${ep.e_scale}</td>
-							</tr>
-							<tr>
-								<th>사업자등록번호</th>
-								<td>${ep.e_regno}</td>
-								<th>사업자등록증</th>
-								<td>${ep.e_licensefilenum}</td>
-								<th>승인여부</th>
-								<td>${ep.e_check}</td>
-								<th  colspan="2"><button id="mailSend">메일 발송</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="permitJoin">가입 승인</button></th>
+								<th>평균예산</th>
+								<fmt:parseNumber var = "cost"  integerOnly = "true" value = "${(pp.p_lowercost + pp.p_uppercost) / 2}"/>
+								<td>${cost }만원</td>
+								<th>등록일</th>
+								<td>${pp.p_regdate }</td>
+								<th>마감일</th>
+								<td>${pp.p_exdate }</td>
+								<th  colspan="2"><button class="permitRegedit">등록 승인</button></th>
 							</tr>
 							<tr>
 								<td colspan="8"></td>
@@ -434,6 +426,9 @@
 	</form>
 	<form action="/a_main/a_permit" method="post" name="permitForm">
 		<input type="hidden" name="permitE_num">
+	</form>
+	<form action="/a_main/a_permitProject" method="post" name="permitProjectForm">
+		<input type="hidden" name="permitE_pr_num">
 	</form>
 	
 	</section>
