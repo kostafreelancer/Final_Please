@@ -1,12 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/updateSuccess.css" type="text/css" media="screen" />
+
 </head>
 <body>
-��Ī�� ������
+<%@include file="../c_common/header.jsp"%>
+
+	<div class="left_menu">
+		<div class="left_menu_title">
+			<h2>마이 페이지</h2>
+		</div>
+		<div class="left_menu_content">
+			<ul class="left_menu_contents">
+				<li><a href="/f_mypage/scheduleManager">일정 관리</a></li>
+				<li><a href="/f_mypage/accountingManager">회계 관리</a></li>
+				<li><a href="/f_mypage/myInfo">내 정보</a></li>
+			</ul>
+		</div>
+	</div>
+	<section id="firstsection">
+	<br><br><br><br><br>
+		<h3>매칭 실패.</h3>
+		<input type="button" id="button" value="내 정보로 이동" onclick="location.href='myInfo'";>
+	<br><br><br><br><br>
+	</section>
+	<%@include file="../c_common/footer.jsp"%>
 </body>
 </html>

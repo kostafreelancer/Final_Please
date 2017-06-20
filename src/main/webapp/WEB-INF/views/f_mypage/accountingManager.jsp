@@ -51,10 +51,14 @@
 
 	<div id="content">
 		<div id="tab1">
-			<br>
-				
+		<div>
+			<h4 class="fl myfl">검색하기</h4>
+		</div>
+			<br><br><br>
+
 			<form id="searchDate" name="searchDate" method="post"
 				action="/f_mypage/accountingManager">
+			
 			<input type="button" onclick="monthSearch(1);" value="1월">
 			<input type="button" onclick="monthSearch(2);" value="2월">
 			<input type="button" onclick="monthSearch(3);" value="3월">
@@ -213,7 +217,8 @@
 					사용내역 : <input type="text" name="detail_usage"><br> 
 					사용금액 : <input type="text"	name="a_money"> <br>
 					사용날짜 : <input type="text"	name="a_using_date"><br> 
-					프로젝트 관련여부 : <input type="text" name="project_relation_check"><br>
+					프로젝트 관련여부 : <input type="radio" name="project_relation_check" value="y">유
+					<input type="radio" name="project_relation_check" value="n">무<br>
 					첨부파일 : <input type="file" name="a_addfile"> <br>
 					<center><input type="submit" value="저장"></center>
 					</fieldset>
@@ -234,7 +239,8 @@
 					사용내역 : <input type="text" name="detail_usage"><br>
 					사용금액 : <input type="text" name="a_money"><br>
 					사용날짜 : <input type="text" name="a_using_date"><br> 
-					프로젝트 관련여부 : <input type="text" name="project_relation_check"><br> 
+					프로젝트 관련여부 : <input type="radio" name="project_relation_check" id="checkYes" value="y">유
+					<input type="radio" name="project_relation_check" id="checkNo" value="n">무<br> 
 					첨부파일 : <input type="file" name="a_addfile"> <br>
 					<center><input type="submit" value="저장"></center>
 					</fieldset>

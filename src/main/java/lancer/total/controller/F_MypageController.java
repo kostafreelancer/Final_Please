@@ -510,8 +510,12 @@ public class F_MypageController {
 			accounting.setDetail_usage(command.getDetail_usage());
 			accounting.setA_money(command.getA_money());
 			accounting.setA_using_date(command.getA_using_date());
-			accounting.setMonet_state(command.getMonet_state());	
-			accounting.setProject_relation_check(command.getProject_relation_check());
+			accounting.setMonet_state(command.getMonet_state());
+			if(command.getProject_relation_check().equals("y")){
+				accounting.setProject_relation_check("유");	
+			}else{
+				accounting.setProject_relation_check("무");			
+			}
 			accounting.setF_num(command.getF_num());
 			accounting.setAccfile_iden(service.getAccounting_iden(accounting.getF_num())+1);
 			if(command.getA_addfile().isEmpty()){
@@ -534,7 +538,11 @@ public class F_MypageController {
 			accounting.setA_money(command.getA_money());
 			accounting.setA_using_date(command.getA_using_date());
 			accounting.setMonet_state(command.getMonet_state());
-			accounting.setProject_relation_check(command.getProject_relation_check());
+			if(command.getProject_relation_check().equals("y")){
+				accounting.setProject_relation_check("유");	
+			}else{
+				accounting.setProject_relation_check("무");			
+			}
 			accounting.setF_num(command.getF_num());
 			accounting.setAccfile_iden(command.getAccfile_iden());
 			
