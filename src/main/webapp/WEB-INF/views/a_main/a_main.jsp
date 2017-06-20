@@ -33,6 +33,10 @@
 	</div>
 
 	<section>
+		<form action="/c_file/downloadFile" id="fileForm" name="fileForm" method="post">
+			<input id="file_num" type="hidden" name="file_num" value="59">
+		</form>
+		
 	<span id="tabnum" style="display:none;">${tabnum }</span>
 	<ul id="tabs">
 		<li><a href="#" title="tab1">프리랜서</a></li>
@@ -159,7 +163,7 @@
 								<th>사업자등록번호</th>
 								<td>${e.e_regno}</td>
 								<th>사업자등록증</th>
-								<td>${e.e_licensefile}</td>
+								<td><a href="${e.e_licensefilenum}" class="license">다운로드</a></td>
 								<th>승인여부</th>
 								<td>${e.e_check}</td>
 								<th  colspan="2"><a href="/a_main/a_mailsender_e?e_num=${e.e_num }" onClick="window.open(this.href, '', 'width=1000, height=1000'); return false;">메일 발송</a>&nbsp;&nbsp;&nbsp;&nbsp;<button class="deleteAccountE">계정 삭제</button></th>
@@ -233,7 +237,7 @@
 								<th>사업자등록번호</th>
 								<td>${ep.e_regno}</td>
 								<th>사업자등록증</th>
-								<td>${ep.e_licensefile}</td>
+								<td><a href="${ep.e_licensefilenum}" class="license">다운로드</a></td>
 								<th>승인여부</th>
 								<td>${ep.e_check}</td>
 								<th  colspan="2"><button id="mailSend">메일 발송</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="permitJoin">가입 승인</button></th>
@@ -306,7 +310,7 @@
 								<th>사업자등록번호</th>
 								<td>${ep.e_regno}</td>
 								<th>사업자등록증</th>
-								<td>${ep.e_licensefile}</td>
+								<td>${ep.e_licensefilenum}</td>
 								<th>승인여부</th>
 								<td>${ep.e_check}</td>
 								<th  colspan="2"><button id="mailSend">메일 발송</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="permitJoin">가입 승인</button></th>
