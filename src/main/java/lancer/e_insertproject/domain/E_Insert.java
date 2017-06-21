@@ -20,12 +20,14 @@ public class E_Insert implements Serializable{
 	private Date p_endDate;
 	private String p_location;
 	private int p_experience;
+	private String project_check_state;
 	private String p_state;
 	private String p_field;
 	public E_Insert(){}
 	public E_Insert(int e_pr_num, int e_num, String p_name, String p_content, int p_lowerAge, int p_upperAge,
 			String p_academic, int p_requireNum, Date p_regDate, Date p_exDate, int p_lowerCost, int p_upperCost,
-			Date p_startDate, Date p_endDate, String p_location, int p_experience, String p_state, String p_field) {
+			Date p_startDate, Date p_endDate, String p_location, int p_experience, String project_check_state,
+			String p_state, String p_field) {
 		super();
 		this.e_pr_num = e_pr_num;
 		this.e_num = e_num;
@@ -43,6 +45,7 @@ public class E_Insert implements Serializable{
 		this.p_endDate = p_endDate;
 		this.p_location = p_location;
 		this.p_experience = p_experience;
+		this.project_check_state = project_check_state;
 		this.p_state = p_state;
 		this.p_field = p_field;
 	}
@@ -142,6 +145,12 @@ public class E_Insert implements Serializable{
 	public void setP_experience(int p_experience) {
 		this.p_experience = p_experience;
 	}
+	public String getProject_check_state() {
+		return project_check_state;
+	}
+	public void setProject_check_state(String project_check_state) {
+		this.project_check_state = project_check_state;
+	}
 	public String getP_state() {
 		return p_state;
 	}
@@ -154,6 +163,9 @@ public class E_Insert implements Serializable{
 	public void setP_field(String p_field) {
 		this.p_field = p_field;
 	}
+	
+	
+
 	
 
 	
