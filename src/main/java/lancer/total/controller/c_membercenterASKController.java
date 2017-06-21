@@ -67,11 +67,13 @@ public class c_membercenterASKController {
 			num = vo.getF_num();
 			System.out.println(num+"프리번호");
 			model.addAttribute("list", service.myAskList(num));
+			model.addAttribute("OKlist", service.myAskListOK(num));
 		}else if(identity.getIdentity().equals("enterprise")){
 			c_login_enterpriseVO vo = (c_login_enterpriseVO) session.getAttribute("client");
 			num = vo.getE_num();
 			System.out.println(num+"기업번호");
 			model.addAttribute("list",service.e_myAskList(num));
+			model.addAttribute("Oklist", service.e_myAskListOK(num));
 		}else{
 			model.addAttribute("list",service.e_myAskList(num));
 		}

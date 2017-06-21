@@ -51,6 +51,7 @@
 			<ul id="tabs">
 				<li><a href="#" title="tab1">문의내용</a></li>
 				<li><a href="#" title="tab2">1:1문의</a></li>
+				<li><a href="#" title="tab3">완료내역</a></li>
 
 			</ul>
 
@@ -250,6 +251,69 @@
 
 						</p>
 					</form>
+				</div>
+				<div id="tab3">
+
+				<h3>확인완료내역</h3>
+					<ul class="ask_text">
+						<li>문의하신 내용의 답변을 확인할 수 있습니다.</li>
+						<li>확인이 완료된 내역만 표시됩니다.</li>
+						<li>제목을 클릭하면 답변 내용을 확인할 수 있습니다.</li>
+					</ul>
+					<br><br>
+					
+
+					<table class="email_table">
+						<tr>
+							<th>문의번호</th>
+							<th>문의제목</th>
+							<th>문의날짜</th>
+							<th>작성자</th>
+							<th>답변현황</th>
+							<th>확인여부</th>
+						</tr>
+					
+						<c:choose>
+							<c:when test="${identity.identity == 'freelancer' }">
+							
+								<c:forEach items="${OKlist }" var="MembercenterASKVO">
+									<tr>
+								
+										<td id="asknum">${MembercenterASKVO.asknum}</td>
+										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button><!-- </form> -->
+										</td> 							
+										<td>${MembercenterASKVO.askdate }</td>
+										<td>${MembercenterASKVO.writer }</td>
+										<td>${MembercenterASKVO.ask_state }</td>
+										<td>${MembercenterASKVO.read }
+									</tr>
+									</c:forEach>										
+							</c:when>
+							<c:when test="${identity.identity == 'enterprise' }">
+								<c:forEach items="${Oklist }" var="MembercenterASKVO">
+									<tr>
+										<td id="asknum">${MembercenterASKVO.asknum}</td>
+										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button>
+										
+										</td> 
+										<td>${MembercenterASKVO.askdate }</td>
+										<td>${MembercenterASKVO.writer }
+										<td>${MembercenterASKVO.ask_state }</td>
+										<td>${MembercenterASKVO.read }</td>
+										
+									</tr>
+								</c:forEach>
+							</c:when>
+						</c:choose>
+						
+						
+					</table>
+										
+					
+					<p class="myAnswer"></p>
+					
+					
+				</div>
 				</div>
 
 

@@ -49,4 +49,14 @@ public class c_membercenterASKDAOImpl implements c_membercenterASKDAO {
 	public void readUpdate(int asknum) throws Exception{
 		session.selectOne(namespace + ".readUpdate" , asknum);
 	}
+	
+	@Override
+	public List<MembercenterASKVO> myAskListOK(int num) throws Exception{
+		return session.selectList(namespace + ".myAskListOK", num);
+	}
+	
+	@Override
+	public List<MembercenterASKVO> e_myAskListOK(int num) throws Exception{
+		return session.selectList(namespace + ".e_myAskListOK", num);
+	}
 }

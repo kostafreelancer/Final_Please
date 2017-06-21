@@ -42,4 +42,14 @@ public class c_membercenterASKServiceImpl implements c_membercenterASKService {
 	public void readUpdate(int asknum) throws Exception{
 		dao.readUpdate(asknum);
 	}
+	
+	@Override
+	public List<MembercenterASKVO> myAskListOK(int num) throws Exception{
+		return dao.myAskListOK(num);
+	}
+	
+	@Override
+	public List<MembercenterASKVO> e_myAskListOK(int num) throws Exception{
+		return dao.e_myAskListOK(num);
+	}
 }

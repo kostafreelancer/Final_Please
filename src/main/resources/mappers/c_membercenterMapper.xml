@@ -20,15 +20,32 @@
 		select writer, asktitle, askdate, answercontents, answerdate, asknum, ad_num, ask_state , read from ask
 		where f_num = #{f_num}
     	and ask_state = '답변완료'
+    	and read = '안읽음'
     	order by ask_state desc
 		
 	</select>
 	
+	<select id="myAskListOK" resultType="lancer.c_membercenter.domain.MembercenterASKVO">
+		select writer, asktitle, askdate, answercontents, answerdate, asknum, ad_num, ask_state, read from ask
+		where f_num = #{f_num}
+		and ask_state = '답변완료'
+		and read = '읽음'
+		order by ask_state desc
+	</select>
 	<select id="e_myAskList" resultType="lancer.c_membercenter.domain.MembercenterASKVO">
-		select writer, asktitle, askdate , answercontents, answerdate, asknum, ad_num, ask_state from ask
+		select writer, asktitle, askdate , answercontents, answerdate, asknum, ad_num, ask_state, read from ask
 		where e_num = #{e_num}
 		and ask_state = '답변완료'
+		and read = '안읽음'
 		 order by ask_state desc
+	</select>
+	
+	<select id="e_myAskListOK" resultType="lancer.c_membercenter.domain.MembercenterASKVO">
+		select writer, asktitle, askdate, answercontents, answerdate, asknum, ad_num, ask_state, read from ask
+		where e_num = #{e_num}
+		and ask_state = '답변완료'
+		and read = '읽음'
+		order by ask_state desc
 	</select>
 	
 	<select id="myAnswer" resultType="lancer.c_membercenter.domain.MemberCenterAnswerVO">
@@ -48,6 +65,7 @@
 		update ask set read = '읽음'
 		where asknum = #{asknum}
 	</update>
+	
 </mapper>
 
 
