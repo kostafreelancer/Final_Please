@@ -26,7 +26,6 @@ $(document).ready(function(){
 	}); 
 
     $("#btnReply").click(function(){
-        //reply(); // 폼데이터로 입력
         replyJson(); // json으로 입력
     });
     
@@ -38,6 +37,7 @@ $(document).ready(function(){
 
 
 });
+
 
 
 

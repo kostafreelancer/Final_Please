@@ -259,7 +259,6 @@ function ReplyDelete(num){
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="p_content">상세내용</label></th>
 								<td colspan="5">
-								
 								<textarea id="f_board_content" name="f_board_content" class="txt_area" readonly="readonly" style="border:0">${F_BoardVO.f_board_content }</textarea>
                                 </td>
 							</tr>
