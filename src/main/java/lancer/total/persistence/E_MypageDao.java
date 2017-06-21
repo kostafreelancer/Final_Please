@@ -105,5 +105,35 @@ public class E_MypageDao{
 	public void cancelScout(HashMap<String, Integer> map) throws Exception {
 		session.delete(namespace + ".cancelScout", map);
 	}
+	
+
+	public Integer countSheet(int e_pr_num) throws Exception {
+		return session.selectOne(namespace + ".countSheet", e_pr_num);
+	}
+	
+	public void startProject(int e_pr_num) throws Exception {
+		session.update(namespace + ".startProject", e_pr_num);
+	}
+	
+	public void changeMemberDoing(int e_pr_num) throws Exception {
+		session.update(namespace + ".changeMemberDoing", e_pr_num);
+	}
+	
+	public void additionalRecruit(int e_pr_num) throws Exception {
+		System.out.println("이피알넘 " + e_pr_num);
+		session.update(namespace + ".additionalRecruit", e_pr_num);
+	}
+	
+	public void endProject(int e_pr_num) throws Exception {
+		session.update(namespace + ".endProject", e_pr_num);
+	}
+	
+	public void changeMemberDone(int e_pr_num) throws Exception {
+		session.update(namespace + ".changeMemberDone", e_pr_num);
+	}
+	
+	public Integer selectC_num(HashMap<String, Integer> map) throws Exception {
+		return session.selectOne(namespace + ".selectC_num", map);
+	}
 
 }

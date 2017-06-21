@@ -351,7 +351,9 @@ $(function(){
 					</tbody>
 				</table>
 			</div>
-			
+<c:choose>
+	<c:when test="${project.project_check_state eq '승인' }">
+	
 
 			<div class="btn_box">
 				<span>
@@ -361,17 +363,22 @@ $(function(){
 											autocomplete="off" value="프로젝트 시작">
 										<input type="button" id="deleteProject" class="btn btn-lg btn-default js-disable-on-click"
 											autocomplete="off" value="프로젝트 삭제">
+										<input class="btn btn-lg btn-default js-disable-on-click"
+											autocomplete="off" data-loading-text="저장 중" name="save_for_later"
+											value="수정하기" type="submit">
+										</span>											
 									</c:when>
 									
-									<c:when test="${project.p_state eq '진행중' }">
+									<c:when test="${project.p_state eq '진행중'}">
 										<input type="button" id="endProject" class="btn btn-lg btn-default2 js-disable-on-click"
 											autocomplete="off" value="프로젝트 종료">
-									</c:when>
+										<input class="btn btn-lg btn-default js-disable-on-click"
+											autocomplete="off" data-loading-text="저장 중" name="save_for_later"
+											value="수정하기" type="submit">
+										</span>									
+									</c:when>									
 								</c:choose>	
-				<input class="btn btn-lg btn-default js-disable-on-click"
-					autocomplete="off" data-loading-text="저장 중" name="save_for_later"
-					value="수정하기" type="submit">
-				</span>
+
 				
 				<form name="startProject" action="/e_mypage/e_startProject" method="post">
 					<input type="hidden" name="e_pr_numStart" value="${project.e_pr_num }">
@@ -382,6 +389,10 @@ $(function(){
 				<form name="deleteProject" action="/e_mypage/e_deleteProject" method="post">
 					<input type="hidden" name="e_pr_numDelete" value="${project.e_pr_num }">
 				</form>
+				<form name="additionalRecruit" action="/e_mypage/e_additionalRecruit" method="post">
+					<input type="hidden" name="e_pr_numAddition" value="${project.e_pr_num }">
+					<input type="submit" value="으아">
+				</form>	
 			</div>
 
 
@@ -404,13 +415,15 @@ $(function(){
 					<div class="tb_box">
 						<table class="tb_st01 tb_st03">
 							<colgroup>
-								<col style="width: 15%">
+								<col style="width: 10%">
+								<col style="width: 10%">
 								<col style="width: 10%">
 								<col style="width: 10%">
 								<col style="width: 15%">
-								<col style="width: 15%">
 								<col style="width: 10%">
-								<col style="width: 25%">
+								<col style="width: 10%">
+								<col style="width: 10%">
+								<col style="width: 15%">
 							</colgroup>
 							<thead>
 								<tr>
@@ -420,6 +433,7 @@ $(function(){
 									<th scope="col">분야</th>
 									<th scope="col">연락처</th>
 									<th scope="col">평점</th>
+									<th scope="col" colspan="2">계약서</th>
 									<th scope="col">멤버 관리</th>
 								</tr>
 							</thead>
@@ -433,15 +447,33 @@ $(function(){
 											<td class="ac">${m.f_major }</td>
 											<td class="ac">${m.f_hphone }</td>
 											<td class="ac">${m.f_score }</td>
+											<td class="ac"><a href="#">-</a></td>
+											<td class="ac">
+												<form action="/e_mypage/e_projectInfo?e_pr_num=${project.e_pr_num }" method="post" name="contract${m.f_num }" enctype="multipart/form-data">
+													<div class="filebutton">
+														<span>파일찾기</span>
+														<input type="file" name="contractFile" style="width: 820px;">
+														<input type="hidden" name="f_num" value="${m.f_num }">
+													</div>
+													<div>
+														<input type="submit" value="업로드">
+													</div>
+												</form>
+											</td>
 											<td class="ac"><a href="#" class="accept btn btn-lg btn-default2 js-disable-on-click">계약해지</a></td>
 										</tr>
 								</c:forEach>
 							</tbody>
 						</table>
 					</div>
-					<div>
-						<a href="" class="additional">추가모집</a>
-					</div>
+								<c:choose>
+									<c:when test="${project.p_state eq '진행중' }">
+										<div>
+											<a href="" class="additional btn btn-lg btn-default2 js-disable-on-click">추가모집</a>
+
+										</div>
+									</c:when>
+								</c:choose>
 					<div class="num_box">
 				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
 				</span> 
@@ -515,7 +547,11 @@ $(function(){
 										거절됨
 									</c:when>
 									<c:otherwise>
-										<a href="#" class="accept">수락</a><a href="#" class="reject">거절</a>
+								<c:choose>
+									<c:when test="${project.p_state eq '모집중' || project.p_state eq '추가모집'}">								
+										<a href="#" class="accept btn btn-lg btn-default2 js-disable-on-click">수락</a><a href="#" class="reject btn btn-lg btn-default2 js-disable-on-click">거절</a>
+									</c:when>
+								</c:choose>
 									</c:otherwise>
 								</c:choose>											
 											
@@ -598,7 +634,11 @@ $(function(){
 										거절함
 									</c:when>
 									<c:otherwise>
-										<a href="#" class="cancel">취소</a>
+								<c:choose>
+									<c:when test="${project.p_state eq '모집중' || project.p_state eq '추가모집'}">									
+										<a href="#" class="cancel btn btn-lg btn-default2 js-disable-on-click">취소</a>
+									</c:when>
+								</c:choose>		
 									</c:otherwise>
 								</c:choose>											
 											
@@ -647,6 +687,21 @@ $(function(){
 				<input type="hidden" name="f_numCancel" value="">
 				<input type="hidden" name="e_pr_numCancel" value="${project.e_pr_num }">
 			</form>
+
+	</c:when>
+	
+	<c:otherwise>
+			<div class="btn_box">
+				<span>
+					<input type="button" id="deleteProject" class="btn btn-lg btn-default js-disable-on-click"
+											autocomplete="off" value="프로젝트 삭제">
+				</span>
+				<form name="deleteProject" action="/e_mypage/e_deleteProject" method="post">
+					<input type="hidden" name="e_pr_numDelete" value="${project.e_pr_num }">
+				</form>
+			</div>		
+	</c:otherwise>
+</c:choose>
 
 
 			</section>

@@ -1,7 +1,40 @@
 a {
 	color: #333;
 }
+.btn-lg, .btn-group-lg>.btn {
+	border-radius: 3px;
+	font-size: 18px;
+	line-height: 1.33;
+	padding: 10px 16px;
+}
+.btn-default {
+	background-color: #94a2af;
+	border-color: #8595a4;
+	color: #fff;
+}
 
+.btn-default2 {
+	background-color: #2257ad;
+	border-color: #8595a4;
+	color: #fff;
+}
+
+.btn {
+	-moz-user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857;
+	margin-bottom: 0;
+	padding: 6px 12px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+}
 .e_info_top {
 	padding: 30px 0 10px 0;
 	font-size: 14px;

@@ -9,6 +9,15 @@ $(document).ready(function() {
 		}		
 	});
 	
+	$('.additional').click(function(e){
+		if(confirm("추가 모집을 하시겠습니까?") == true){
+			e.preventDefault();
+			document.additionalRecruit.submit();
+		}else{
+			return;
+		}		
+	});
+	
 	$('#endProject').click(function(){
 		if(confirm("프로젝트를 종료합니까?") == true){
 			document.endProject.submit();
@@ -61,6 +70,9 @@ $(document).ready(function() {
 			return;
 		}
 	});
+	
+	
+	
 	
 	
 	

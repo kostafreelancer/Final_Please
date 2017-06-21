@@ -108,5 +108,32 @@ public class E_MypageService{
 		
 		dao.cancelScout(map);
 	}
+	
+	
+	public Integer countSheet(int e_pr_num) throws Exception {
+		return dao.countSheet(e_pr_num);
+	}
+	
+	public void startProject(int e_pr_num) throws Exception {
+		dao.startProject(e_pr_num);
+		dao.changeMemberDoing(e_pr_num);
+	}
+	
+	public void additionalRecruit(int e_pr_num) throws Exception {
+		dao.additionalRecruit(e_pr_num);
+	}
+	
+	public void endProject(int e_pr_num) throws Exception {
+		dao.endProject(e_pr_num);
+		dao.changeMemberDone(e_pr_num);
+	}
+	
+	public Integer selectC_num(int f_num, int e_pr_num) throws Exception {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("f_num", f_num);
+		map.put("e_pr_num", e_pr_num);
+		
+		return dao.selectC_num(map);
+	}
 
 }

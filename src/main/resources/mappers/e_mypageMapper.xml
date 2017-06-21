@@ -37,7 +37,7 @@
 	</update>
 	
 	<select id="listProjectReady" resultType="lancer.e_mypage.domain.Project">
-		SELECT * FROM project WHERE e_num = #{e_num} AND p_state = '모집중'
+		SELECT * FROM project WHERE e_num = #{e_num} AND p_state IN('모집중', '추가모집')
 	</select>
 
 	<select id="listProjectDoing" resultType="lancer.e_mypage.domain.Project">
@@ -104,6 +104,35 @@
 	<delete id="cancelScout">
 		DELETE FROM contract WHERE f_num = #{f_num} AND e_pr_num = #{e_pr_num}
 	</delete>
+	
+	<select id="countSheet" resultType="Integer">
+		SELECT count(*) FROM fileupload WHERE section = 'contractfile' AND common_num = #{e_pr_num}
+	</select>
+	
+	<update id="startProject">
+		UPDATE project SET p_state = '진행중' WHERE e_pr_num = #{e_pr_num}
+	</update>
+	
+	<update id="changeMemberDoing">
+		UPDATE contract SET c_state = '진행중' WHERE e_pr_num = #{e_pr_num} AND c_state = '매칭중'
+	</update>
+	
+	<update id="additionalRecruit">
+		UPDATE project SET p_state = '추가모집' WHERE e_pr_num = #{e_pr_num}
+	</update>
+	
+	<update id="endProject">
+		UPDATE project SET p_state = '완료' WHERE e_pr_num = #{e_pr_num}
+	</update>
+	
+	<update id="changeMemberDone">
+		UPDATE contract SET c_state = '완료' WHERE e_pr_num = #{e_pr_num} AND c_state = '진행중'
+	</update>	
+	
+	<select id="selectC_num" resultType="Integer">
+		select c_num FROM contract WHERE f_num = #{f_num} AND e_pr_num = #{e_pr_num}
+	</select>
+	
 
 
 </mapper>

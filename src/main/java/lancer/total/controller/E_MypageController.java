@@ -103,7 +103,6 @@ public class E_MypageController {
 		
 		if(pwd1.equals(pwd2)){
 			// 비밀번호와 비밀번호 확인이 일치할 경우 변경
-			System.out.println(pwd1);
 			enterprise.setE_pwd(pwd1);
 		}else{
 			// 일치하지 않을 경우 실패
@@ -175,6 +174,8 @@ public class E_MypageController {
 				
 		enterprise.setE_scale(command.getE_scale());		
 			
+		enterprise.setE_ownerfilenum(0);
+		enterprise.setE_licensefilenum(0);
 		
 		//파일 업로드
 		if(command.getE_ownerfileExist().equals("true")){
@@ -188,7 +189,7 @@ public class E_MypageController {
 			enterprise.setE_licensefilenum(e_licensefileNum);
 		}
 		
-		
+		System.out.println(enterprise.getE_ownerfilenum());
 		service.updateEnterprise(enterprise);
 		session.setAttribute("client", enterprise);		
 		return "redirect:/e_mypage/e_info";
@@ -297,26 +298,44 @@ public class E_MypageController {
 		model.addAttribute("pageMakerScout", pageMakerScout);
 	}
 	
-	
-	
+	@RequestMapping(value = "/e_projectInfo", method = RequestMethod.POST)
+	public String e_projectInfoPOST(int e_pr_num, MultipartFile contractFile, int f_num) throws Exception {
+		if(contractFile == null){
+			return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_num;
+		}
+		
+		int c_num = service.selectC_num(f_num, e_pr_num);
+		System.out.println(c_num);
+		fileService.uploadFile(contractFile, "contractfile", c_num, 0);
+		
+		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_num;
+	}
 	
 	@RequestMapping(value = "/e_startProject", method = RequestMethod.POST)
 	public String e_startProjectPOST(int e_pr_numStart) throws Exception {
-		
+		service.startProject(e_pr_numStart);
 		
 		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numStart;
 	}
 	
+	@RequestMapping(value = "/e_additionalRecruit", method = RequestMethod.POST)
+	public String e_additionalRecruitPOST(int e_pr_numAddition) throws Exception {
+		System.out.println("으아아아");
+		service.additionalRecruit(e_pr_numAddition);
+		
+		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numAddition;
+	}
+	
 	@RequestMapping(value = "/e_endProject", method = RequestMethod.POST)
 	public String e_endProjectPOST(int e_pr_numEnd) throws Exception {
-		
+		service.endProject(e_pr_numEnd);
 		
 		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numEnd;
 	}
 	
 	@RequestMapping(value = "/e_deleteProject", method = RequestMethod.POST)
 	public String e_deleteProjectPOST(int e_pr_numDelete) throws Exception {
-		
+		dropService.deleteProject(e_pr_numDelete);
 		
 		return "redirect:/e_mypage/e_project";
 	}

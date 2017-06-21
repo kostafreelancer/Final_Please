@@ -315,9 +315,24 @@
 				</table>
 			</div>
 			<div class="num_box">
-				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
-				</span> <span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
-				</span>
+				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a></span> 
+							<c:if test="${pageMakerProjectPermit.prev}">
+								<a
+									href="/a_main/a_main${pageMakerProjectPermit.makeSearch(pageMakerProjectPermit.startPage - 1) }">&laquo;</a>
+							</c:if>
+							<c:forEach begin="${pageMakerProjectPermit.startPage }"
+								end="${pageMakerProjectPermit.endPage }" var="idx">
+								<span
+								<c:out value="${pageMakerProjectPermit.cri.page == idx?'class=on':''}"/>>
+									<a href="/a_main/a_main${pageMakerProjectPermit.makeSearch(idx)}&tabnum=4">${idx}</a>
+								</span>
+							</c:forEach>
+
+							<c:if test="${pageMakerProjectPermit.next && pageMakerProjectPermit.endPage > 0}">
+								<li><a
+									href="/a_main/a_main${pageMakerProjectPermit.makeSearch(pageMakerProjectPermit.endPage +1) }">&raquo;</a></li>
+							</c:if>						
+				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a></span>
 			</div>
 		</div>		
 		
