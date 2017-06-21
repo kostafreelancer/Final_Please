@@ -5,8 +5,8 @@ $(document).ready(function() {
 		
 		
 		var asknum = $(this).parent().parent().find("td:eq(0)").text();
-			
-			$.getJSON("/answer/all/" + asknum, function(data){
+		var f_num = $(this).parent().parent().find("input:eq(0)").val();	
+			$.getJSON("/answer/all/" + asknum + "/" + f_num, function(data){
 				var str = "";
 				
 				

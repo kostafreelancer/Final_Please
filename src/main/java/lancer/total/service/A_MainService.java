@@ -12,11 +12,15 @@ import lancer.a_main.domain.Freelancer;
 import lancer.a_main.domain.ProjectPermit;
 import lancer.a_main.domain.askList;
 import lancer.total.persistence.A_MainDAO;
+import lancer.total.persistence.c_membercenterASKDAO;
+import lancer.total.persistence.c_membercenterASKDAOImpl;
+import lancer.total.persistence.f_mainDAO;
 
 @Service
 public class A_MainService {
 	@Inject
 	private A_MainDAO dao;
+
 	
 	public List<Freelancer> listFreelancer(Criteria cri) throws Exception {
 		return dao.listFreelancer(cri);
@@ -90,6 +94,7 @@ public class A_MainService {
 	
 	public void doAsk(askList al) throws Exception{
 		 dao.doAsk(al);
+		
 	}
 	
 	public List<askList> answerOK(Criteria cri) throws Exception{

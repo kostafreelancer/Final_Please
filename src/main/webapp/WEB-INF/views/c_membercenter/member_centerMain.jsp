@@ -81,7 +81,7 @@
 							
 								<c:forEach items="${list }" var="MembercenterASKVO">
 									<tr>
-								
+										<input type="hidden" value=${MembercenterASKVO.f_num }>
 										<td id="asknum">${MembercenterASKVO.asknum}</td>
 										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button><!-- </form> -->
 										</td> 							

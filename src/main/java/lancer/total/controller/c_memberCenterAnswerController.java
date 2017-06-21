@@ -30,7 +30,7 @@ public class c_memberCenterAnswerController {
 		
 		try {
 			service.myAnswer(asknum);
-			service.readUpdate(asknum);
+			//service.readUpdate(asknum);
 		} catch (Exception e) {
 			e.printStackTrace();
 			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -38,14 +38,14 @@ public class c_memberCenterAnswerController {
 		return entity;
 	}
 	
-	@RequestMapping(value="/all/{asknum}", method = RequestMethod.GET)
-	public ResponseEntity<List<MemberCenterAnswerVO>> myanswerGET(@PathVariable("asknum") int asknum){
+	@RequestMapping(value="/all/{asknum}/{f_num}", method = RequestMethod.GET)
+	public ResponseEntity<List<MemberCenterAnswerVO>> myanswerGET(@PathVariable("asknum") int asknum , @PathVariable("f_num") int f_num){
 		System.out.println("GET");
 		
 		ResponseEntity<List<MemberCenterAnswerVO>> entity = null;
 		try {
 			entity = new ResponseEntity<>(service.myAnswer(asknum), HttpStatus.OK);
-			service.readUpdate(asknum);
+			service.readUpdate(asknum, f_num);
 			System.out.println("ajax");
 		} catch (Exception e) {
 			e.printStackTrace();

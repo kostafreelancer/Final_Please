@@ -60,7 +60,7 @@
 
 	<select id="alram" resultType="alram">
 		select asktitle from ask
-		where f_num = 4
+		where f_num = #{f_num}
 		and ask_state = '답변완료'
 		and read = '안읽음'
 	</select>

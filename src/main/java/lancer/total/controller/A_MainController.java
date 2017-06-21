@@ -176,6 +176,7 @@ public class A_MainController {
 	
 	@RequestMapping(value="/updateAnswer", method = RequestMethod.POST)
 	public String updateAnswer(askList al, Model model)throws Exception{
+		
 		service.doAsk(al);
 		return "redirect:/a_main/askSuccess";
 	}
