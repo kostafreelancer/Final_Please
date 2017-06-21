@@ -926,6 +926,7 @@ $(function(){
 					</c:if>
 					
 					<c:forEach var="mySuggestproject" items="${suggestproject}">
+					<c:if test="${mySuggestproject.c_state eq '제안중'}">
 						<form id="suggestForm" action="suggestCancel" method="post">
 							<input type="text" hidden name="c_num" value="${mySuggestproject.c_num}">
 							<input type="text" hidden name="p_name" value="${mySuggestproject.p_name}">
@@ -942,6 +943,18 @@ $(function(){
 							<td class="last"><input type="submit" value="제안 거절" onclick="return confirm('진짜 거절?');"></td>
 						</tr>
 						</form>
+						</c:if>
+						<c:if test="${mySuggestproject.c_state eq '제안거절'}">
+						<form id="suggestForm"  action="suggestCancel" method="post">	
+						 <tr bgcolor="#b3b3b3">
+							<td >${mySuggestproject.p_name}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${mySuggestproject.e_pr_num}&e_num=${mySuggestproject.e_num}&from=mypage'"></td>
+							<td>${mySuggestproject.manager_hphone}</td>
+							<td>${mySuggestproject.c_request_date}</td>
+							<td>${mySuggestproject.c_state}</td>
+							<td class="last"></td>
+						</tr>
+						</form>
+						</c:if>
 					</c:forEach>
 
 				</tbody>

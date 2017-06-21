@@ -1,5 +1,6 @@
 package lancer.total.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import lancer.c_freelancerlist.domain.c_freelancerlist_searchVO;
@@ -34,7 +35,7 @@ public interface c_projectlistService {
 
 	int selectCon(c_freelancerlist_searchVO vo) throws Exception;
 
-
+	public int getRelation(HashMap<String, Integer> map) throws Exception;
 
 
 }

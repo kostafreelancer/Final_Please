@@ -1,5 +1,6 @@
 package lancer.total.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -95,6 +96,11 @@ public class c_projectlistDAOImpl implements c_projectlistDAO {
 	@Override
 	public int selectCon(c_freelancerlist_searchVO vo) throws Exception{
 		return session.selectOne(namespace+".selectCon", vo);
+	}
+
+	@Override
+	public int getRelation(HashMap<String, Integer> map) throws Exception {
+		return session.selectOne(namespace + ".getRelation", map);
 	}
 
 	

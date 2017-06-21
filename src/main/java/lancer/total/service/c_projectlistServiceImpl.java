@@ -1,6 +1,7 @@
 package lancer.total.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -113,5 +114,10 @@ public class c_projectlistServiceImpl implements c_projectlistService {
 	@Override
 	public int selectCon(c_freelancerlist_searchVO vo) throws Exception{
 		return dao.selectCon(vo);
+	}
+
+	@Override
+	public int getRelation(HashMap<String, Integer> map) throws Exception {
+		return dao.getRelation(map);
 	}
 }
