@@ -3,8 +3,8 @@
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- <script src = "/script/functionmodule.js"></script> -->
 <script>
+	var user='';
 	var socket = io.connect('http://localhost:8000');
-	/* var myname = prompt("너의 이름?"); */
 	var myname;
 	var usernames = [];
 	socket.on('sendusername',function(username){
@@ -26,31 +26,50 @@
 		usernames = [];
 		$.each(list,function(index,item){
 			
-			usernames += '<li>'+item+'</li>';
+			usernames += '<li class="users">'+item+'</li>';
 		});
 		
 	}); 
-
+	socket.on('hiden',function(username,data){
+		user=username;
+		if(username != myname){
+			$('.chat_content').append('<p class="server_name">'+username+'</p><p class="server"><span>'+data+'</span></p>');
+		};
+	});
+	socket.on('disconneted_alram',function(username){
+			$('.chat_content').append('<p class="server_name">'+username+' 님이 접속을 종료 하셨습니다.</p>');
+			user='';
+	});
 	
 	
 	
-</script>
-<script>
+<!-- </script>
+<script> -->
 $(document).ready(function() {
 	// 클라이언트에서 SEND 버튼을 클릭할 때
-
+	/* var user; */
 	$('#datasend').click( function() {
 		var message = $('#data').val();
 		if(message === ''){
 			return;
 		}
-		
+		if(user===''){
+			alert("대화할 대상을 지정하세요.");
+			$('#data').val('');
+			return;
+		}
 		$('#data').val('');
 		// 서버에서 sendchat 함수를 실행하도록 알려주며, 하나의 파라미터를 전달한다
-		socket.emit('sendchat', message);
+		socket.emit('sendchat', message,user);
 		$('.chat_content').append('<p class="client"><span>'+message+'</span></p>');
 	});
 	
+	$('.toggle').on('click','.users',function(){
+		
+		user= $(this).text();
+		$('.toggle').css("display","none");
+		$('.chat_text_area').css("display", "block");
+	});
 	 $('.chat_menu').click(function(event){
 		event.preventDefault();
 		$('.toggle').empty();
@@ -63,7 +82,7 @@ $(document).ready(function() {
 		 event.preventDefault();
 		alert($('.messengerWrapper').parent().parent().parent().text());
 		$('.messengerWrapper').parent().parent().parent().empty();  
-		
+		socket.emit('disconnected',myname,user);
 	 });
 	
 	

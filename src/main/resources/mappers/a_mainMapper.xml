@@ -9,7 +9,7 @@
 	<select id="listFreelancer" resultType="lancer.a_main.domain.Freelancer"> 
 		SELECT * FROM freelancer
 	</select>
-	
+	 
 	<select id="listEnterprise" resultType="lancer.a_main.domain.Enterprise">
 		SELECT * FROM enterprise
 	</select>

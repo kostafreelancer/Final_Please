@@ -5,12 +5,12 @@ var express = require('express')
   , io = require('socket.io').listen(server)
 server.listen(8000);
 var username;
-var numUsers = 0;
 var usernames = [];
 var socket_id = [];
 app.get('/', function (req, res) {
 	  
 	  res.sendfile(__dirname + '/chatting.html');
+	  
 });
 app.get('/client',function(req, res){
 	
@@ -21,52 +21,37 @@ app.get('/client',function(req, res){
 app.use('/script',express.static(__dirname));
 
 io.sockets.on('connection', function (socket) {
-	
+	console.log(io.sockets+"이게 나오나?");
 	console.log("emit되는거지?"+username);
 	socket.emit('sendusername',username);
 	
-	socket.on('sendchat',function(data){
-		io.sockets.emit('updatechat',socket.username,data);
+	socket.on('sendchat',function(data,user){
+		/*io.sockets.emit('updatechat',socket.username,data);*/
+		io.sockets.to(socket_id[user]).emit('hiden',socket.username,data);
 		console.log(data+': '+socket.username);
 	});
 	
 	socket.on('adduser',function(username){
 		socket.username = username;
-		usernames[numUsers] = username;
+		usernames.push(username);
 		socket_id[username] = socket.id;
-		
-		var list = findClientsSocket();
-		console.log(list.pop+"이거 걸리지?");
-		
-		for(var i=0;i<list.length;i++){
-			console.log(list+"이거야?");
-		}
-		++numUsers;
 		socket.emit('join','SERVER', username+'님 환영합니다.');
 	});
 	
 	socket.on('alllist',function(){
-		console.log("여기 들어 오는거지?");
 		socket.emit('userlist',usernames);
 	});
-	
-	function findClientsSocket(roomId, namespace) {
-	    var res = []
-	    // the default namespace is "/"
-	    , ns = io.of(namespace ||"/");
+	socket.on('disconnected',function(username,user){
+		
+		
+		for(var i in usernames){
+			if(usernames[i]==username){
+				delete usernames[i];
+				usernames.splice(i,1); 
+			}
+		}
+		io.sockets.to(socket_id[user]).emit('disconneted_alram',username);
+		
+	});
 
-	    if (ns) {
-	        for (var id in ns.connected) {
-	            if(roomId) {
-	                var index = ns.connected[id].rooms.indexOf(roomId);
-	                if(index !== -1) {
-	                    res.push(ns.connected[id]);
-	                }
-	            } else {
-	                res.push(ns.connected[id]);
-	            }
-	        }
-	    }
-	    return res;
-	}
 });
