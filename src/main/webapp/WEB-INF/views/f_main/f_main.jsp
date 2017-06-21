@@ -63,8 +63,10 @@ function drawMultSeries() {
 	<div class="read" style="position: relative; z-index: 9999">
 				<c:choose>
 					<c:when test="${identity.identity == 'freelancer' }">
-					<div class="readCount">${f_read }</div>개의 답변이 완료되었습니다.
+					
+					<div class="readCount">${f_read }</div>개의 새로운 알림이 있습니다.				
 					</c:when>
+					
 					<c:otherwise>
 					
 					</c:otherwise>

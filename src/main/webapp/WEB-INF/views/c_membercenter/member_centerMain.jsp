@@ -95,6 +95,7 @@
 							<c:when test="${identity.identity == 'enterprise' }">
 								<c:forEach items="${list }" var="MembercenterASKVO">
 									<tr>
+										<input type="hidden" value=${MembercenterASKVO.e_num }>
 										<td id="asknum">${MembercenterASKVO.asknum}</td>
 										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button>
 										
@@ -281,7 +282,8 @@
 								
 										<td id="asknum">${MembercenterASKVO.asknum}</td>
 										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button><!-- </form> -->
-										</td> 							
+										</td> 
+										<input type="hidden" value=${MembercenterASKVO.f_num }>							
 										<td>${MembercenterASKVO.askdate }</td>
 										<td>${MembercenterASKVO.writer }</td>
 										<td>${MembercenterASKVO.ask_state }</td>
@@ -292,10 +294,12 @@
 							<c:when test="${identity.identity == 'enterprise' }">
 								<c:forEach items="${Oklist }" var="MembercenterASKVO">
 									<tr>
+										<input type="hidden" value=${MembercenterASKVO.e_num }>
 										<td id="asknum">${MembercenterASKVO.asknum}</td>
 										<td class="viewAnswer"><button type="submit" style="background: transparent; border: none;" >${MembercenterASKVO.asktitle }</button>
 										
 										</td> 
+										
 										<td>${MembercenterASKVO.askdate }</td>
 										<td>${MembercenterASKVO.writer }
 										<td>${MembercenterASKVO.ask_state }</td>
