@@ -298,6 +298,31 @@ public class E_MypageController {
 	}
 	
 	
+	
+	
+	@RequestMapping(value = "/e_startProject", method = RequestMethod.POST)
+	public String e_startProjectPOST(int e_pr_numStart) throws Exception {
+		
+		
+		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numStart;
+	}
+	
+	@RequestMapping(value = "/e_endProject", method = RequestMethod.POST)
+	public String e_endProjectPOST(int e_pr_numEnd) throws Exception {
+		
+		
+		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numEnd;
+	}
+	
+	@RequestMapping(value = "/e_deleteProject", method = RequestMethod.POST)
+	public String e_deleteProjectPOST(int e_pr_numDelete) throws Exception {
+		
+		
+		return "redirect:/e_mypage/e_project";
+	}
+	
+	
+	
 	@RequestMapping(value = "/e_acceptApplicant", method = RequestMethod.POST)
 	public String e_acceptApplicantPOST(int f_numAccept, int e_pr_numAccept) throws Exception {
 		service.acceptApplicant(f_numAccept, e_pr_numAccept);

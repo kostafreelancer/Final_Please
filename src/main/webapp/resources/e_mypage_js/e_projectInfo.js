@@ -1,6 +1,31 @@
 $(document).ready(function() {
 	$('input:checkbox').attr('disabled', true);
 	
+	$('#startProject').click(function(){
+		if(confirm("프로젝트를 시작합니까?") == true){
+			document.startProject.submit();
+		}else{
+			return;
+		}		
+	});
+	
+	$('#endProject').click(function(){
+		if(confirm("프로젝트를 종료합니까?") == true){
+			document.endProject.submit();
+		}else{
+			return;
+		}		
+	});
+	
+	$('#deleteProject').click(function(){
+		if(confirm("프로젝트를 삭제합니까?") == true){
+			document.deleteProject.submit();
+		}else{
+			return;
+		}		
+	});
+	
+	
 	$('.accept').click(function(e){
 		e.preventDefault();
 		if(confirm("가입을 수락합니까?") == true){

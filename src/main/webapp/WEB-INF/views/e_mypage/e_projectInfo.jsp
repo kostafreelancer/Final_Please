@@ -354,12 +354,38 @@ $(function(){
 			
 
 			<div class="btn_box">
+				<span>
+								<c:choose>
+									<c:when test="${project.p_state eq '모집중' }">
+										<input type="button" id="startProject" class="btn btn-lg btn-default2 js-disable-on-click"
+											autocomplete="off" value="프로젝트 시작">
+										<input type="button" id="deleteProject" class="btn btn-lg btn-default js-disable-on-click"
+											autocomplete="off" value="프로젝트 삭제">
+									</c:when>
+									
+									<c:when test="${project.p_state eq '진행중' }">
+										<input type="button" id="endProject" class="btn btn-lg btn-default2 js-disable-on-click"
+											autocomplete="off" value="프로젝트 종료">
+									</c:when>
+								</c:choose>	
 				<input class="btn btn-lg btn-default js-disable-on-click"
 					autocomplete="off" data-loading-text="저장 중" name="save_for_later"
 					value="수정하기" type="submit">
+				</span>
+				
+				<form name="startProject" action="/e_mypage/e_startProject" method="post">
+					<input type="hidden" name="e_pr_numStart" value="${project.e_pr_num }">
+				</form>	
+				<form name="endProject" action="/e_mypage/e_endProject" method="post">
+					<input type="hidden" name="e_pr_numEnd" value="${project.e_pr_num }">
+				</form>
+				<form name="deleteProject" action="/e_mypage/e_deleteProject" method="post">
+					<input type="hidden" name="e_pr_numDelete" value="${project.e_pr_num }">
+				</form>
 			</div>
 
 
+<!-- ------------------------------------------------------------------------------------------------------ -->
 
 			<div class="table_tit">
 				<h3>프리랜서 목록</h3>
@@ -407,7 +433,7 @@ $(function(){
 											<td class="ac">${m.f_major }</td>
 											<td class="ac">${m.f_hphone }</td>
 											<td class="ac">${m.f_score }</td>
-											<td class="ac"><a href="#" class="accept">계약해지</a></td>
+											<td class="ac"><a href="#" class="accept btn btn-lg btn-default2 js-disable-on-click">계약해지</a></td>
 										</tr>
 								</c:forEach>
 							</tbody>

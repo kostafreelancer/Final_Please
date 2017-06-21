@@ -5069,6 +5069,12 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]
 	color: #fff;
 }
 
+.btn-default2 {
+	background-color: #2257ad;
+	border-color: #8595a4;
+	color: #fff;
+}
+
 .btn {
 	-moz-user-select: none;
 	background-image: none;
