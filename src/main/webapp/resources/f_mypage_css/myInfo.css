@@ -325,7 +325,7 @@ p.text03 {
 
 .btn_check01, .btn_check02, .btn_check03, .btn_check04, .btn_check05,
 	.btn_check06, .btn_check07, .btn_zzim {
-	width: 95px;
+	width: 150px;
 	padding: 17px 0 20px 0;
 	display: inline-block;
 	font-size: 20px;
@@ -333,7 +333,8 @@ p.text03 {
 	line-height: 20px
 }
 
-
+.btn_check02{ background:url(../f_mypage_img/bg_btn_ck02.jpg) no-repeat;color:#666;padding-left:55px; }
+.btn_check04{ background:url(../f_mypage_img/bg_btn_ok.jpg) no-repeat;color:#fff;padding-left:50px; }
 
 td.td_bor_bott {
 	border-bottom: 0;

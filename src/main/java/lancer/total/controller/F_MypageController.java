@@ -163,11 +163,78 @@ public class F_MypageController {
 			model.addAttribute("portfolio", portfolio);
 		}
 		
+		if(nowProject == null){
+			model.addAttribute("nowProject", "0");
+		}else{
+			model.addAttribute("nowProject", nowProject);
+		}
+		
+		if(finishProject.size() == 0 ){
+			model.addAttribute("finishprojectcheck", "0");
+		}else{
+			model.addAttribute("finishproject", finishProject);
+		}
+
+	}
+	
+	@RequestMapping(value="/myInfo2", method = RequestMethod.GET)
+	public void myInfo2(Model model, HttpSession session) throws Exception{
+		System.out.println(session);
+		System.out.println(session.getAttribute("client"));
+		c_login_freelancerVO freelancer = (c_login_freelancerVO) session.getAttribute("client");
+		
+		model.addAttribute("freelancer", freelancer);
+		
+		List<Integer> joblist = service.showFreelancerJobInfo(3);
+		model.addAttribute("joblist", joblist);
+		
+		List<Career> career = service.showCareerInfo(3);
+		List<School> school = service.showSchoolInfo(3);
+		List<Certificate> certificate = service.showCertiInfo(3);
+		List<ApplyProject> applyproject = service.getApplyProject(3);
+		List<ApplyProject> suggestproject = service.getSuggestProject(3);
+		List<Portfolio> portfolio = service.showPortfolioInfo(3);
+		/*for(int i=0; i<portfolio.size(); i++){
+			System.out.println(portfolio.get(i).getContents());
+			portfolio.get(i).setContents(portfolio.get(i).getContents().replaceAll("<br />", "\r\n"));
+			System.out.println(portfolio.get(i).getContents());
+		}*/
+		NowProject nowProject = service.getMyNowProject(3);
+
+
+		nowProject.setTerm(nowProject.getP_startdate().substring(0, 10) + " ~ " + nowProject.getP_enddate().substring(0, 10));
+		
+		List<Project> project = service.getMyFinishProject(3);
+		List<FinishProject> finishProject  = new ArrayList<FinishProject>();
+		for(int i=0; i<project.size(); i++){
+			FinishProject fp = new FinishProject();
+			fp.setProName(project.get(i).getP_name());
+			fp.setProTerm(project.get(i).getP_startdate().substring(0, 10) + " ~ " + project.get(i).getP_enddate().substring(0, 10));
+			fp.setCost(project.get(i).getP_uppercost());
+			List<String> tempList = service.getProjectP_job(project.get(i).getE_pr_num());
+			System.out.println(project.get(i).getE_pr_num());
+			String temp = "";
+			for(int j=0; j<tempList.size(); j++){
+				temp += tempList.get(j) + ", ";
+			}
+			fp.setP_job(temp.substring(0, temp.length()-2));
+			fp.setE_num(project.get(i).getE_num());
+			fp.setE_pr_num(project.get(i).getE_pr_num());
+		
+			finishProject.add(fp);
+		}
+		
 		if(applyproject.size()==0){
 			model.addAttribute("applyprojectcheck", "0");
 		}else{
 			model.addAttribute("applyproject", applyproject);
 		}
+		if(suggestproject.size()==0){
+			model.addAttribute("suggestprojectcheck", "0");
+		}else{
+			model.addAttribute("suggestproject", suggestproject);
+		}
+		
 		
 		if(nowProject == null){
 			model.addAttribute("nowProject", "0");
@@ -182,6 +249,7 @@ public class F_MypageController {
 		}
 
 	}
+	
 	
 	@RequestMapping(value="/myInfo", method=RequestMethod.POST)
 	public String updateFreelancerInfo(Freelancer freelancer,RedirectAttributes rttr, Model model, HttpSession session, HttpServletRequest request) throws Exception{

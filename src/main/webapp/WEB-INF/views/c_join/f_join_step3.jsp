@@ -134,7 +134,7 @@
                     <p class="star_txt"><span class="color_or">(*)</span>표시는 필수 입력사항입니다</p>
                 </div>
                 <table class="tb_st01">
-				<form name="f_userInfo" method="post">
+				<form name="f_userInfo" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="fm_type" value="이랜서">
 					<input type="hidden" name="fm_format" value="개인">
 					<input type="hidden" name="fm_str" value="Zm1fbmFtZT0mZm1fanVtaW49LTk5OTk5OSZzdHJWbm89">
@@ -185,7 +185,7 @@
                         <tr>
                             	<td rowspan="5">
 						<div class="filebutton">	
-						<input type="hidden" id="f_fnameExist" name="f_fnameExist" value="false">
+						<input type="hidden" id="f_photoExist" name="f_photoExist" value="false">
 						<span>사진업로드</span><input type="file" name="f_fname" id="f_fname" value="${client.f_fname }"
 							class="searchfile" title="파일 찾기"
 							style="width: 820px;">
@@ -287,7 +287,7 @@
 					                <option value="korea.com">korea.com</option>
 					                <option value="hanmail.net">hanmail.net</option>
                                 </select>                                
-                                 <a id="event_bubble" href="javascript:checkEmail(1);">인증하기</a>
+                                 <a id="event_bubble" href="javascript:checkEmail(1);" class="btn_add">인증하기</a>
                                <!--  <button id="checkEmail" onclick="checkEmail(event); return false;">인증하기</button> -->
                                 <span id="checkEmailConfirm"></span>
                                 

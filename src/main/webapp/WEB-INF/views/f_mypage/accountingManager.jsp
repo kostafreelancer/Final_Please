@@ -38,6 +38,7 @@
 				<li><a href="/f_mypage/scheduleManager">일정 관리</a></li>
 				<li><a href="/f_mypage/accountingManager">회계 관리</a></li>
 				<li><a href="/f_mypage/myInfo">내 정보</a></li>
+				<li><a href="/f_mypage/myInfo2">프로젝트</a></li>
 			</ul>
 		</div>
 	</div>

@@ -2,11 +2,13 @@ package lancer.c_join.domain;
 
 import java.io.Serializable;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class F_join implements Serializable{
 	private int f_num;
 	private String f_id;
 	private String f_pwd;
-	private String f_fname;
+	private String f_photoExist;
 	private String f_name;
 	private String f_birth;
 	private String f_sex;
@@ -30,21 +32,21 @@ public class F_join implements Serializable{
 	private String f_recentlogin;
 	private double  f_score;
 	private String[] fm_new_keyword;
+	private MultipartFile f_fname;
 		
 	
 	public F_join(){}
 
-
-	public F_join(int f_num, String f_id, String f_pwd, String f_fname, String f_name, String f_birth, String f_sex,
-			String f_hphone, String f_hphone1, String f_hphone2, String f_hphone3, String f_phone, String f_phone1,
-			String f_phone2, String f_phone3, String f_email, String f_email1, String f_email2, String f_address,
-			String f_address1, String f_address2, String f_address3, String f_major, String f_nowstate,
-			String f_recentlogin, double f_score, String[] fm_new_keyword) {
+	public F_join(int f_num, String f_id, String f_pwd, String f_photoExist, String f_name, String f_birth,
+			String f_sex, String f_hphone, String f_hphone1, String f_hphone2, String f_hphone3, String f_phone,
+			String f_phone1, String f_phone2, String f_phone3, String f_email, String f_email1, String f_email2,
+			String f_address, String f_address1, String f_address2, String f_address3, String f_major,
+			String f_nowstate, String f_recentlogin, double f_score, String[] fm_new_keyword, MultipartFile f_fname) {
 		super();
 		this.f_num = f_num;
 		this.f_id = f_id;
 		this.f_pwd = f_pwd;
-		this.f_fname = f_fname;
+		this.f_photoExist = f_photoExist;
 		this.f_name = f_name;
 		this.f_birth = f_birth;
 		this.f_sex = f_sex;
@@ -68,7 +70,10 @@ public class F_join implements Serializable{
 		this.f_recentlogin = f_recentlogin;
 		this.f_score = f_score;
 		this.fm_new_keyword = fm_new_keyword;
+		this.f_fname = f_fname;
 	}
+
+
 
 
 	public int getF_num() {
@@ -101,14 +106,34 @@ public class F_join implements Serializable{
 	}
 
 
-	public String getF_fname() {
+	
+
+	public String getF_photoExist() {
+		return f_photoExist;
+	}
+
+
+
+
+	public void setF_photoExist(String f_photoExist) {
+		this.f_photoExist = f_photoExist;
+	}
+
+
+
+
+	public MultipartFile getF_fname() {
 		return f_fname;
 	}
 
 
-	public void setF_fname(String f_fname) {
+
+
+	public void setF_fname(MultipartFile f_fname) {
 		this.f_fname = f_fname;
 	}
+
+
 
 
 	public String getF_name() {

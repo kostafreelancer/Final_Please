@@ -12,12 +12,12 @@
 	
 	<insert id="insertF_join" parameterType="F_join">
 		insert into freelancer(
-			f_num, f_id, f_pwd, f_fname, f_name, f_birth, f_sex, 
+			f_num, f_id, f_pwd, <!-- f_fname, --> f_name, f_birth, f_sex, 
 			f_hphone, f_phone, f_email, f_address, f_major, f_nowstate,
 			f_recentlogin, f_score
 		 )
 		values(
-			#{f_num}, #{f_id}, #{f_pwd}, #{f_fname}, #{f_name}, #{f_birth}, 
+			#{f_num}, #{f_id}, #{f_pwd}, <!-- #{f_fname}, --> #{f_name}, #{f_birth}, 
 			#{f_sex}, #{f_hphone}, #{f_phone}, #{f_email}, #{f_address}, 
 			#{f_major}, #{f_nowstate}, #{f_recentlogin}, #{f_score}
 		)

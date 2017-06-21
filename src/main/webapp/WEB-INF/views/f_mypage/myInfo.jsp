@@ -65,6 +65,7 @@ $(function(){
 				<li><a href="/f_mypage/scheduleManager">일정 관리</a></li>
 				<li><a href="/f_mypage/accountingManager">회계 관리</a></li>
 				<li><a href="/f_mypage/myInfo">내 정보</a></li>
+				<li><a href="/f_mypage/myInfo2">프로젝트</a></li>
 			</ul>
 		</div>
 	</div>
@@ -138,7 +139,7 @@ $(function(){
 							<img id="f_photo" src= "/c_file/displayFile?fileName=${f_photo}">
 						<div class="filebutton">
 							<input type="hidden" id="f_photoExist" name="f_photoExist" value="false">
-							<span>사진업로드</span><input type="file" name="f_fname" id="f_fname"<%--  value="${client.f_fname }" --%>
+							<span>사진업로드</span><input type="file" name="f_fname" id="f_fname"
 								class="searchfile" title="파일 찾기" style="width:820px">
 						</div>
 							</td>
@@ -497,8 +498,8 @@ $(function(){
 			</div> 
 			<div class="btn_box mb30 mb02">
 				<input type="button" class="toDrop" value="회원탈퇴" onclick="toDrop(${client.f_num});">
-				<input type="submit" value="수정하기">
-				<input type="reset" value="초기화">
+				<input type="submit" class="btn_check04" value="수정하기">
+				<input type="reset" class="btn_check02" value="초기화">
 			</div>
 			</form>
 		</div>

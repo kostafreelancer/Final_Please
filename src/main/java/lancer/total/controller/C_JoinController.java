@@ -135,7 +135,7 @@ public class C_JoinController {
 		System.out.println(f_join.getF_address());
 		
 		//f_join.setF_birth(f_join.getF_birth());
-		f_join.setF_fname("/사진");
+		//f_join.setF_fname("/사진");
 		//f_join.setF_id(f_join.getF_id());
 		//f_join.setF_major(request.getParameter("f_major"));
 /*		f_join.setF_name(f_join.getF_name());*/
@@ -163,7 +163,11 @@ public class C_JoinController {
 			System.out.println(checkBasic[i]);
 		}
 		
-		
+		if(f_join.getF_photoExist().equals("true")){
+			MultipartFile f_fname = f_join.getF_fname();
+			System.out.println("사진있네!");
+			fileService.uploadImageFile(f_fname, "f_photo", f_join.getF_num(), 0);
+		}
 		
 		return "redirect:/c_join/c_join_step4";
 	}

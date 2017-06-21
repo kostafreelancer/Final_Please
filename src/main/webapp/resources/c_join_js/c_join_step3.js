@@ -182,7 +182,8 @@ $(function(){
     		$('#e_licensefileExist').val("true");
     	}        
         
-        
+
+    	
         checkEmail2(2);
 	});
 
@@ -288,13 +289,16 @@ $(function(){
         	alert("이메일 인증을 받아주세요.");
         	return false;
         }
-        
+        if($('#f_fname').val()){
+        	$('#f_photoExist').val("true");
+        }
+    	
         checkEmail(2);
    });
 
         $(".f_major").click(function() { 
-        	$(".f_major").attr("checked", false); 
-        	$(this).attr("checked", true);
+        	$(".f_major").prop("checked", false); 
+        	$(this).prop("checked", true);
 });
 
 });
