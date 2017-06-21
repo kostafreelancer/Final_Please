@@ -76,9 +76,6 @@ $(function(){
 		<li><a href="#" title="tab1">내 정보</a></li>
 		<li><a href="#" title="tab2">이력 정보</a></li>
 		<li><a href="#" title="tab3">포트폴리오</a></li>
-		<li><a href="#" title="tab4">신청 및 제안내역</a></li>
-		<li><a href="#" title="tab5">진행중인 프로젝트</a></li>
-		<li><a href="#" title="tab6">히스토리</a></li>
 	</ul>
 
 	<div id="content">
@@ -840,7 +837,7 @@ $(function(){
 		</div>
 
 
-		<div id="tab4">
+		<%-- <div id="tab4">
 			<h4>내가 신청한 프로젝트</h4>
 			<table class="tb_st01 tb_st03">
 				<caption></caption>
@@ -1046,7 +1043,7 @@ $(function(){
 				</tbody>
 			</table>
 
-		</div>
+		</div> --%>
 
 	</div>
 
