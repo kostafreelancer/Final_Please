@@ -4470,6 +4470,12 @@ th.tb_lef_bor,td.tb_lef_bor{ border-left:1px solid #d6d6d6}
 .prev{ background:#fff url(../../images/common/bg/bg_prev.jpg) center 10px no-repeat; text-indent:-9999px; overflow:hidden;border:1px solid #999; border-width:1px 1px 1px 0}
 .next{ background:#fff url(/resources/c_projectlist_img/bg_next.jpg) center 10px no-repeat; text-indent:-9999px; overflow:hidden; border:1px solid #999; border-width:1px 0 1px 1px;margin-right:-4px}
 .num_box .last{ background:#fff url(/resources/c_projectlist_img/bg_last.jpg) center 10px no-repeat; text-indent:-9999px; overflow:hidden; border:1px solid #999; margin-right:-3px}
+a.last {
+    height: 30px;
+}
+a.first {
+    height: 30px;
+}
 >>>>>>> 9cffe6be1feca6357727c1c4afa162d2250a0032:WebContent/c_join/c_join_css/join.css
 
 .top_port img {

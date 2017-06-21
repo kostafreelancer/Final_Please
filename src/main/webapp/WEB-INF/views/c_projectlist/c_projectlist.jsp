@@ -262,14 +262,11 @@
 			</div>
 			
 			<div class="num_box">
-			<span class="btn_lef"> <a href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0xJmluY3JlbWVudD0w#Member_list');"
-					class="first" alt="처음으로"></a></span>
 					
-							<c:if test="${pageMaker.prev}">
+							
 								<a
-									href="c_projectlist${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a>
-							</c:if>
+									href="c_projectlist${pageMaker.makeSearch(pageMaker.startPage - 1) }" class="first"></a>
+						
 
 							<c:forEach begin="${pageMaker.startPage }"
 								end="${pageMaker.endPage }" var="idx">
@@ -279,16 +276,12 @@
 								</span>
 							</c:forEach>
 
-							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="c_projectlist${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
-							</c:if>
 							
-							<span class='btn_rit'><a href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0xMSZpbmNyZW1lbnQ9MQ==#Member_list');"
-					class="next" alt="다음 페이지"></a><a href="#"
-					onclick="javascript:page_submit('/19_ESERCH/page/list.php?fm_str=cGFnZT0zMjMmaW5jcmVtZW50PTMy#Member_list');"
-					class="last" alt="마지막으로"></a> </span>
+								<a
+									href="c_projectlist${pageMaker.makeSearch(pageMaker.endPage +1) }" class="last"></a>
+							
+							
+		
 					<br>
 					<br>
 					<br>
@@ -296,7 +289,7 @@
 			</div>
 			
 
-
+</div>
 
 
 <%@include file="../c_common/footer.jsp" %>
