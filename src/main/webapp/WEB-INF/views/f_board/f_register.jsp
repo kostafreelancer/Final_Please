@@ -14,12 +14,22 @@
 
 $(document).ready(function(){
 	var formObj = $("form[role='form']");
-
+	var form=document.form;
+	
 	$(".btn_check04").click(function(){
+	if(!form.f_board_title.value){
+		alert("제목을 입력하세요.");
+		return false;
+	}else if(!form.f_board_content.value){
+		alert("내용을 입력하세요.");
+		return false;
+	}else{
 		formObj.attr("action", "/f_board/f_register");
 		formObj.attr("method", "post");
 		formObj.submit();
+	}
 	});
+
 	$(".btn_remove").click(function(){
 		location.href="/f_board/f_list";
 	});
@@ -58,7 +68,7 @@ $(document).ready(function(){
 				</div>
 
 				<!-- //tb_box : e -->
-				<form role="form"> 
+				<form role="form" name="form"> 
 				<input type="text" hidden name="f_num" value="${client.f_num }">
 				<input type='hidden' name='f_board_num' value="${F_BoardVO.f_board_num }">
 				<div class="tb_box">

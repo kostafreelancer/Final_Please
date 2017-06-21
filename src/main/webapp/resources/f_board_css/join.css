@@ -1401,7 +1401,7 @@ a.read_more {
 #content {
 	width: 1015px;
 	margin: 0 auto;
-	padding-bottom: 120px;
+	padding-bottom: 20px;
 	overflow: hidden;
 }
 
@@ -1587,17 +1587,36 @@ a.read_more {
 	clear: both;
 	overflow: hidden;
 	border-bottom: 1px solid #2257ad;
-	margin-bottom: 10px
+	margin-bottom: 10px;
 }
 
+.tit_box2 {
+	clear: both;
+	overflow: hidden;
+	border-bottom: 1px solid #2257ad;
+	border-top: 1px solid #2257ad;
+	margin-bottom: 10px;
+}
+
+.tit_box_extra{
+	margin-top: 70px;
+}
+
+.tit_box_extra h2{
+	font-size: 30px;
+	color: #2257ad;
+	float: left;
+	line-height: 36px;
+	margin:  25px 25px 25px;
+}
 
 .tit_box h2 {
-	font-size: 36px;
+	font-size: 30px;
 	color: #2257ad;
 	float: left;
 	line-height: 36px;
 	margin-right: 25px;
-	
+	margin-left: 30px;
 }
 
 .tit_txt {
@@ -4330,7 +4349,7 @@ th.th_bor0 {
 	margin: 20px
 }
 =======
-#content{width:1015px; margin:0 auto; padding-bottom:120px; overflow:hidden;}
+#content{width:1015px; margin:0 auto; padding-bottom:20px; overflow:hidden;}
 .content02{width:1000px; margin:0 auto; padding-bottom:0px; overflow:hidden;}
 /* sub nav 梨쀬�夷됱콬占쎌죾占� */
 #nav{height:40px;background-color:#f7f4f0;}
@@ -5352,8 +5371,8 @@ th.th_bor0{border-bottom:0}
 
 .replyname{
 	padding: 10px;
-	width:50px; 
-	font-size: 15px;
+	width:70px; 
+	font-size: 18px;
 }
 
 .replytime{
@@ -5367,7 +5386,8 @@ th.th_bor0{border-bottom:0}
 } 
 
 .replytext{
-	padding: 10px;
+	padding: 0px 0px 10px 20px;
+	font-size: 14px;
 }
 
 .speech {
@@ -5377,9 +5397,10 @@ th.th_bor0{border-bottom:0}
 }
 
 #btnModify{
-	background: #2257ad;
+	
+	background: #639dff;
+	/* background: #2257ad; */
 	color: white;
-	font-style: bold;
 	padding: 5px 10px;
 	margin-bottom: 10px;
 	margin-right: 5px;
@@ -5390,9 +5411,8 @@ th.th_bor0{border-bottom:0}
 }
 
 #btnReplyDelete{
-	background: #fc6e1b;
+	background: #f3a433;
 	color: white;
-	font-style: bold;
 	padding: 5px 10px;
 	margin-bottom: 10px;
 	margin-right: 5px;
@@ -5400,13 +5420,23 @@ th.th_bor0{border-bottom:0}
 
 .replybody {
 	width: 850px;
-	border-bottom: 1px solid #2257ad;
-/* 	z-index: 0;
-	clear: both;
-	position: relative;
-	padding: 11px 0; */
+
 }
 
+#btnReplyUpdate{
+	margin-top:10px;
+	background: #639dff;
+	color : white;
+	padding: 5px 10px;
+	margin-right: 3px;
+}
+
+#btnReplyClose{
+	margin-top:10px;
+	background: #e3e3e3;
+/* 	color : white; */
+	padding: 5px 10px;
+}
 .cng-header {margin-left: 100px;}
 
 
@@ -5417,7 +5447,6 @@ th.th_bor0{border-bottom:0}
 
 
 /* 댓글 내 css */
-
 
 
 

@@ -10,7 +10,8 @@
 	z-index: 10;
 	border: 1px solid #e3e3e3;
 	background: #fafafa;
-	zoom: 1
+	zoom: 1;
+	margin-top: 50px;
 }
 
 .opinion_reg .condition {
@@ -52,8 +53,7 @@
 }
 
 .opinion_reg textarea.dim {
-	color: #bfbfbf;
-	font-size: 11px;
+	font-size: 14px;
 	letter-spacing: -1px;
 	line-height: 16px
 }

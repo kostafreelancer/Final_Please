@@ -15,193 +15,158 @@
 <link rel="stylesheet" href="../c_common/footer.css" type="text/css" media="screen" />
 <title>프리랜서 자유게시판</title>
  <script src="../../../resources/f_board_js/jquery-1.3.2.js"></script> 
- <script type="text/javascript">
-$(document).ready(function(){
-	var formObj = $("form[role='form']");
-	var formObj2 = $("form[role='form_test']");
+ <script src="../../../resources/f_board_js/f_readpage.js"></script> 
+<script type="text/javascript">
 
-	$(".btn_check04").click(function(){
-		formObj.attr("action", "/f_board/f_modifyPage");
-		formObj.attr("method", "get");
-		formObj.submit();
-	});
-	$(".btn_remove").click(function(){
-		formObj.attr("action", "/f_board/f_remove");
-		formObj.attr("method", "post");
-		formObj.submit();
-	});
-	$(".btn_list").click(function(){
-		location.href="/f_board/f_list";
 
-	}); 
+
+// ** 댓글 쓰기 (json방식)
+function replyJson(){
+    var reply_content=$("#reply_content").val();
+    var board_num="${F_BoardVO.f_board_num}";
+    var f_num=$("#f_num").text();
+
+    $.ajax({                
+        type: "post",
+        url: "/reply/insertRest.do",
+        headers: {
+            "Content-Type" : "application/json"
+        },
+        dateType: "text",
+        // param형식보다 편하다.
+        data: JSON.stringify({
+       	 f_num : f_num,
+            board_num : board_num,
+            reply_content : reply_content,
+        }),
+        success: function(){
+            alert("댓글이 등록되었습니다.");
+            listReply2();
+        }
+    })
 	
+};
+
+    
+
+// 댓글 목록2 (json)
+function listReply2(){
+    $.ajax({
+        type: "get",
+        url: "/reply/listJson.do?bno=${F_BoardVO.f_board_num}",
+        success: function(result){
+            console.log(result);
+  	          
+                var output = "<table class='opinion_list'>";
+                for(var i in result){
+               	 output += "<tbody class='replybody'>";
+                    output += "<tr class='replyheader'>";
+                    output += "<td class='replypic'></td>"
+                    output += "<td class='replyname'><strong>"+result[i].f_id+"</strong></td>";
+                    output += "<td class='replytime'>"+changeDate(result[i].reply_date)+"</td>";
+                    output += "</tr>"
+                    output += "<tr class='replycontent'>"
+                    output += "<td class='replytext'>"+result[i].reply_content;+"</td>"
+      					if($('#f_id').text() == result[i].f_id){
+      						output += "<td class='replybuttons'>"
+      						output += '<input type="button" id="btnModify" value="수정" onclick="showReplyModify('+result[i].reply_num+');">';
+      	                	output += '<input type="button" id="btnReplyDelete" value="삭제" onclick="ReplyDelete('+result[i].reply_num+');">'; 
+       	                output += "</td>";
+       	            	output += "</tr>";
+      					}else{
+         	                 output += "<td></td>";
+         	                 output += "</tr>";
+      					} 
+                    output += "</tbody>";
+                 }
+            	     output += "</table>";
+         	   $("#listReply").html(output);
+        
+        }
+    })
+};
+
+
+function showReplyModify(num){
+    $("#mynum").val(num);
+    $("#modifyReply").css("display", "");
+    $("#modifyReply").css("visibility", "visible");
+};
+
+
+function ReplyModify(num){
 	
-	 //listReply("1"); // **댓글 목록 불러오기
-     listReply2(); // ** json 리턴방식
-     
-     // ** 댓글 쓰기 버튼 클릭 이벤트 (ajax로 처리)
-     $("#btnReply").click(function(){
-         //reply(); // 폼데이터로 입력
-         replyJson(); // json으로 입력
-     });
-     
-
-});
-
-
- // ** 댓글 쓰기 (json방식)
- function replyJson(){
-     var reply_content=$("#reply_content").val();
-     var board_num="${F_BoardVO.f_board_num}";
-     var f_num=$("#f_num").text();
-
-     console.log("오잉이이이ㅣ이이이이");
-     console.log($("#f_num").text());
-     
-/*      // ** 비밀댓글 체크여부
-     var secretReply = "n";
-     // 태그.is(":속성") 체크여부 true/false
-     if( $("#secretReply").is(":checked") ){
-         secretReply = "y";
-     } */
-     $.ajax({                
-         type: "post",
-         url: "/reply/insertRest.do",
-         headers: {
-             "Content-Type" : "application/json"
-         },
-         dateType: "text",
-         // param형식보다 편하다.
-         data: JSON.stringify({
-        	 f_num : f_num,
-             board_num : board_num,
-             reply_content : reply_content,
-         //    secretReply : secretReply
-         }),
-         success: function(){
-             alert("댓글이 등록되었습니다.");
-             listReply2();
-            // listReply("1");
-         }
-     });
- }
+	var detailReplytext = $("#detailReplytext").val();
+	$.ajax({
+	    type: "put",
+	    url: "/reply/update/"+num,
+	    // 기본값 text/html을 json으로 변경
+	    headers: {
+	        "Content-Type":"application/json"
+	    },
+	    // 데이터를 json형태로 변환
+	    data: JSON.stringify({
+	        reply_content : detailReplytext
+	    }),
+	    dataType: "text",
+	    success: function(result){
+	        if(result == "success"){
+	            $("#modifyReply").css("visibility", "hidden");
+	            alert("수정되었습니다.");
+	            // 댓글 목록 갱신
+	            listReply2();
+	            $("#detailReplytext").val(" ");
+	            $("#modifyReply").css("display", "none");
+	        }
+	        
+	    }
+	});
+}
 
      
-
- // RestController방식 (Json)
- // 댓글 목록2 (json)
- function listReply2(){
-     $.ajax({
-         type: "get",
-         //contentType: "application/json", ==> 생략가능(RestController이기때문에 가능)
-         url: "/reply/listJson.do?bno=${F_BoardVO.f_board_num}",
-         success: function(result){
-             console.log(result);
-   	          
-                 var output = "<table class='opinion_list'>";
-                 for(var i in result){
-                	 output += "<tbody class='replybody'>";
-                     output += "<tr class='replyheader'>";
-                     output += "<td class='replypic'></td>"
-                     output += "<td class='replyname'><strong>"+result[i].f_id+"</strong></td>";
-                     output += "<td class='replytime'>"+changeDate(result[i].reply_date)+"</td>";
-                     output += "</tr>"
-                     output += "<tr class='replycontent'>"
-                     output += "<td class='replytext'>"+result[i].reply_content;+"</td>"
-       					if($('#f_id').text() == result[i].f_id){
-       						output += "<td class='replybuttons'>"
-       						output += '<input type="button" id="btnModify" value="수정" onclick="showReplyModify('+result[i].reply_num+');">';
-       	                	output += '<input type="button" id="btnReplyDelete" value="삭제" onclick="ReplyDelete('+result[i].reply_num+');">'; 
-        	                output += "</td>";
-        	            	output += "</tr>";
-       					}else{
-          	                 output += "</tr>";
-       					} 
-       					/* output += ""; */
-                     output += "</tbody>";
-                  }
-             	     output += "</table>";
-          	   $("#listReply").html(output);
-         
-         }
-     })
- };
-
  
- function showReplyModify(num){
-     $("#mynum").val(num);
-	  $("#modifyReply").css("visibility", "visible");
- };
- 
- function ReplyModify(num){
-     var detailReplytext = $("#detailReplytext").val();
-     console.log(num);
-     $.ajax({
-         type: "put",
-         url: "/reply/update/"+num,
-         // 기본값 text/html을 json으로 변경
-         headers: {
-             "Content-Type":"application/json"
-         },
-         // 데이터를 json형태로 변환
-         data: JSON.stringify({
-             reply_content : detailReplytext
-         }),
-         dataType: "text",
-         success: function(result){
-             if(result == "success"){
-                 $("#modifyReply").css("visibility", "hidden");
-                 alert("수정되었습니다.");
-                 // 댓글 목록 갱신
-                 listReply2();
-             }
-         }
-     });
- }
-  
 function ReplyDelete(num){
 	 if(confirm("삭제하시겠습니까?")){
 	$.ajax({
-        type: "delete",
-        url: "/reply/delete/"+num,
-        success: function(result){
-            if(result == "success"){
-                alert("삭제되었습니다.");
-                $("#modifyReply").css("visibility", "hidden");
-                listReply2();
-            }
-        }
-    });
+       type: "delete",
+       url: "/reply/delete/"+num,
+       success: function(result){
+           if(result == "success"){
+               alert("삭제되었습니다.");
+               $("#modifyReply").css("visibility", "hidden");
+               listReply2();
+           }
+       }
+   });
 	 }
-}
+};
 
 
-
- // **날짜 변환 함수 작성
-  function changeDate(reply_date){
+// **날짜 변환 함수 작성
+ function changeDate(reply_date){
 	 console.log(reply_date);
-     date = new Date(parseInt(reply_date));
-     console.log(date);
-     year = date.getFullYear();
-     month = date.getMonth();
-     day = date.getDate();
-     hour = date.getHours();
-     minute = date.getMinutes();
-     strDate = year+"-"+month+"-"+day+" "+hour+":"+minute;
-     return strDate;
-  
- }
-
- 
+    date = new Date(parseInt(reply_date));
+    console.log(date);
+    year = date.getFullYear();
+    month = date.getMonth();
+    day = date.getDate();
+    hour = date.getHours();
+    minute = date.getMinutes();
+    strDate = year+"-"+month+"-"+day+" "+hour+":"+minute;
+    return strDate;
+}
 </script>
 <style>
     #modifyReply {
         width: 600px;
         height: 130px;
-        background-color: gray;
-        padding: 10px;
+        background-color: #e3e3e3;
+        padding: 30px 0px 0px 30px;
         z-index: 10;
         visibility: hidden;
+        margin-left: 200px;
+        margin-top: 30px;
+       	margin-bottom: 20px;
     }
 </style>
 </head>
@@ -234,15 +199,6 @@ function ReplyDelete(num){
 				</p>
 </div>
 
-<!-- 				//market : e
-				<div class="table_tit">
-
-					<div class="fr">
-						<p>
-							<span class="txt_or">&nbsp</span>
-						</p>
-					</div>
-				</div> -->
 
 				<!-- //tb_box : e -->
 				
@@ -321,48 +277,41 @@ function ReplyDelete(num){
 					</table>
 				</div>
 				
-				<div class="tit_box">
+				
+				
+				<div class="tit_box_extra">
+				<h2>댓글</h2>
+				</div>
+				<div class="tit_box2">
+				<c:if test="${client.f_id != null}">
 					<fieldset class="opinion_reg">
 					 <ul class="condition">    </ul>
-						<c:if test="${client.f_id != null}">
+						
 						<div class="myphoto">
 							<img height="33" width="33" src="../../../resources/f_board_img/imggg.png">
 						</div>
-						<textarea class="dim ta taComment" id="reply_content" rows="5" cols="50" style="ime-mode:active;"></textarea>
-						<input type="image" id="btnReply" class="input_btn registerComment btnArea" src="../../../resources/f_board_img/btn_reg_reply.gif">
+						<textarea class="dim ta taComment" id="reply_content" name="reply_content" rows="5" cols="50" style="ime-mode:active;"></textarea>
+						<input type="image" id="btnReply" class="input_btn registerComment btnArea" name="btnReply" src="../../../resources/f_board_img/btn_reg_reply.gif">
 						</c:if>
-						
 					</fieldset>
+					<!-- 목록 출력 -->
 					<div id="listReply"></div>
-<%-- 					<ul class="opinion_list">
-						<li>
-							<div class="thumb">
-								<img height="33" width="33" src="../../../resources/f_board_img/imggg.png">
-							</div>
-							<div class="cont">
-								<p class="id">
-									<strong class="answer">${F_BoardVO.f_id} </strong>
-										<div class="desc" id="listReply">내용</div>
-								</p>
-							</div>
-							</li>
-					</ul> --%>
-				</div>
-
 					<!-- 수정 댓글 목록 -->
- 					<div id="modifyReply">
-	<%-- 				댓글 번호 : ${F_ReplyVO.reply_num}<br>  --%>
-					<form >
+					
+ 					<div id="modifyReply" style="display:none;" >
 					<input type="hidden" id="mynum" name="reply_num">
-				    <textarea id="detailReplytext" rows="5" cols="82"></textarea>
+				    <textarea id="detailReplytext" name="detailReplytext" rows="5" cols="82"></textarea>
 				    <div style="text-align: center;">
 				        <!-- 본인 댓글만 수정, 삭제가 가능하도록 처리 -->
-				         <button type="button" id="btnReplyUpdate" onclick="ReplyModify($('#mynum').val())">수정
-				  </form>
+				        <buttion type="button" id="btnReplyUpdate" name="btnReplyUpdate" onclick="ReplyModify($('#mynum').val())">수정</buttion>
 				        <button type="button" id="btnReplyClose" >닫기</button>
 				    </div>
-					</div> 
 					</div>
+					
+					
+				</div>
+					</div>
+
 				
 				<div class="btn_box">
 				<c:if test="${client.f_id == F_BoardVO.f_id}">	

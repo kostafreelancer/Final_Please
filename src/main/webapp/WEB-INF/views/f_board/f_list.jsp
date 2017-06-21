@@ -132,6 +132,9 @@ float: right;
 								<c:if test="${client.f_id != null}">	
 								<input type="button" id="checkValue" class="btn_check04"  value="작성하기">
 								</c:if>
+								<br><br><br><br><br><br>
+								<br>
+								<br>
 		</div>
 
 

@@ -15,11 +15,20 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	var formObj = $("form[role='form']");
-
+	var form=document.form;
+	
 	$('.btn_check04').click(function(){
+		if(!form.f_board_title.value){
+			alert("제목을 입력하세요.");
+			return false;
+		}else if(!form.f_board_content.value){
+			alert("내용을 입력하세요.");
+			return false;
+		}else{
 		formObj.attr("action", "/f_board/f_modifyPage");
 		formObj.attr("method", "post");
 		formObj.submit();
+		}
 	})
 	
 	$(".btn_remove").click(function(){
@@ -59,7 +68,7 @@ $(document).ready(function(){
 				</div>
 
 				<!-- //tb_box : e -->
-				<form role="form" >
+				<form role="form" name="form">
 					<input type='hidden' name='f_board_num' value="${F_BoardVO.f_board_num }">
 					<input type='hidden' name='page' value="${cri.page}"> 
 					<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
@@ -112,15 +121,14 @@ $(document).ready(function(){
 								<label for="fm_name">제목</label></th>
 								<td colspan="5">
 								<input type="text" id="f_board_title" name="f_board_title" value="${F_BoardVO.f_board_title}"  class="wid" />
-								</td>
+							1	</td>
 							</tr>
 
 							<tr>
 								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
 								<label for="p_content">상세내용</label></th>
 								<td colspan="5">
-								<textarea id="f_board_content" name="f_board_content" value="${F_BoardVO.f_board_content}" class="txt_area">
-                                </textarea>
+								<textarea id="f_board_content" name="f_board_content" value="${F_BoardVO.f_board_content}" class="txt_area"></textarea>
                                 </td>
 							</tr>
 							<tr>
