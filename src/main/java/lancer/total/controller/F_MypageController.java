@@ -34,6 +34,7 @@ import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.F_job;
 import lancer.f_mypage.domain.FinishProject;
 import lancer.f_mypage.domain.Freelancer;
+import lancer.f_mypage.domain.NowProject;
 import lancer.f_mypage.domain.Portfolio;
 import lancer.f_mypage.domain.PortfolioCommand;
 import lancer.f_mypage.domain.School;
@@ -102,6 +103,10 @@ public class F_MypageController {
 			portfolio.get(i).setContents(portfolio.get(i).getContents().replaceAll("<br />", "\r\n"));
 			System.out.println(portfolio.get(i).getContents());
 		}*/
+		NowProject nowProject = service.getMyNowProject(3);
+
+
+		nowProject.setTerm(nowProject.getP_startdate().substring(0, 10) + " ~ " + nowProject.getP_enddate().substring(0, 10));
 		
 		List<Project> project = service.getMyFinishProject(3);
 		List<FinishProject> finishProject  = new ArrayList<FinishProject>();
@@ -162,6 +167,12 @@ public class F_MypageController {
 			model.addAttribute("applyprojectcheck", "0");
 		}else{
 			model.addAttribute("applyproject", applyproject);
+		}
+		
+		if(nowProject == null){
+			model.addAttribute("nowProject", "0");
+		}else{
+			model.addAttribute("nowProject", nowProject);
 		}
 		
 		if(finishProject.size() == 0 ){

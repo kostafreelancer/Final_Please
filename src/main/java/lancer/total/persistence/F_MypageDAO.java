@@ -18,6 +18,7 @@ import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.F_job;
 import lancer.f_mypage.domain.Freelancer;
+import lancer.f_mypage.domain.NowProject;
 import lancer.f_mypage.domain.Portfolio;
 import lancer.f_mypage.domain.School;
 
@@ -127,6 +128,10 @@ public class F_MypageDAO {
 	
 	public void insertFreelancerJobInfo(F_job f_job) throws Exception{
 		session.insert(namespace + ".insertFreelancerJobInfo", f_job);
+	}
+	
+	public NowProject getMyNowProject(int f_num) throws Exception{
+		return session.selectOne(namespace + ".getMyNowProject", f_num);
 	}
 	
 	public List<Project> getMyFinishProject(int f_num) throws Exception{
