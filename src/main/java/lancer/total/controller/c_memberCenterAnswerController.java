@@ -30,6 +30,7 @@ public class c_memberCenterAnswerController {
 		
 		try {
 			service.myAnswer(asknum);
+			service.readUpdate(asknum);
 		} catch (Exception e) {
 			e.printStackTrace();
 			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -44,6 +45,7 @@ public class c_memberCenterAnswerController {
 		ResponseEntity<List<MemberCenterAnswerVO>> entity = null;
 		try {
 			entity = new ResponseEntity<>(service.myAnswer(asknum), HttpStatus.OK);
+			service.readUpdate(asknum);
 			System.out.println("ajax");
 		} catch (Exception e) {
 			e.printStackTrace();

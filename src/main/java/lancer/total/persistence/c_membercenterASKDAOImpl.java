@@ -45,4 +45,8 @@ public class c_membercenterASKDAOImpl implements c_membercenterASKDAO {
 		return session.selectList(namespace + ".myAnswer", asknum);
 	}
 
+	@Override
+	public void readUpdate(int asknum) throws Exception{
+		session.selectOne(namespace + ".readUpdate" , asknum);
+	}
 }

@@ -43,6 +43,11 @@
 	<select id="countProject" resultType="int">
 		select count(*) from project
 	</select>
+	
+	<update id="readUpdate">
+		update ask set read = '읽음'
+		where asknum = #{asknum}
+	</update>
 </mapper>
 
 

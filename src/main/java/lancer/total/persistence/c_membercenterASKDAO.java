@@ -11,5 +11,5 @@ public interface c_membercenterASKDAO {
 	public List<MembercenterASKVO> myAskList(int num)throws Exception;
 	public List<MembercenterASKVO> e_myAskList(int num)throws Exception;
 	public List<MemberCenterAnswerVO> myAnswer(int asknum)throws Exception;
-	
+	public void readUpdate(int asknum) throws Exception;
 }

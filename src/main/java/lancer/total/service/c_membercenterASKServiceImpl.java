@@ -38,4 +38,8 @@ public class c_membercenterASKServiceImpl implements c_membercenterASKService {
 		return dao.myAnswer(asknum);
 	}
 
+	@Override
+	public void readUpdate(int asknum) throws Exception{
+		dao.readUpdate(asknum);
+	}
 }
