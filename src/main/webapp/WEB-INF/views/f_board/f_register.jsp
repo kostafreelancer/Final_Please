@@ -98,19 +98,10 @@ $(document).ready(function(){
 								<textarea id="f_board_content" name="f_board_content" class="txt_area"></textarea>
                                 </td>
 							</tr>
-							<tr>
-								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
-								<label for="p_file">첨부파일</label></th>
-								<td colspan="3">
-									<div>
-										<input type="file" id="f_file" name="f_file" class="wid">
-									</div>
-								</td>
-							</tr>
-
 						</tbody>
 					</table>
 				</div>
+				<br><br><br>
 				<div class="btn_box">
 					<input type="submit" id="checkValue" class="btn_check04"  value="등록하기">
 					<input type="button" id="checkValue1" class="btn_remove"  value="     취소하기">

@@ -3,13 +3,14 @@ package lancer.total.service;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import lancer.f_board.domain.F_Criteria;
 import lancer.f_board.domain.F_ReplyVO;
 
 
 public interface F_BoardReplyService {
-	public List<F_ReplyVO> list(Integer board_num)throws Exception;
+	public List<F_ReplyVO> list(Integer board_num, String nowId, String oriId)throws Exception;
 	public void create(F_ReplyVO vo)throws Exception;
 	public F_ReplyVO detail(Integer reply_num)throws Exception;
 	public void update(F_ReplyVO vo)throws Exception ;

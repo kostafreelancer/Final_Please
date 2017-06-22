@@ -121,7 +121,7 @@ $(document).ready(function(){
 								<label for="fm_name">제목</label></th>
 								<td colspan="5">
 								<input type="text" id="f_board_title" name="f_board_title" value="${F_BoardVO.f_board_title}"  class="wid" />
-							1	</td>
+								</td>
 							</tr>
 
 							<tr>
@@ -131,17 +131,6 @@ $(document).ready(function(){
 								<textarea id="f_board_content" name="f_board_content" value="${F_BoardVO.f_board_content}" class="txt_area"></textarea>
                                 </td>
 							</tr>
-							<tr>
-								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
-								<label for="p_file">첨부파일</label></th>
-								<td colspan="5">
-								수정~
-									<!-- <div>
-										<input type="file" id="f_file" name="f_file" class="wid">
-									</div> -->
-								</td>
-							</tr>
-
 						</tbody>
 					</table>
 				</div>

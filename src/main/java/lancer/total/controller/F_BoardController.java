@@ -3,6 +3,7 @@ package lancer.total.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.c_projectlist.domain.Criteria;
 import lancer.f_board.domain.F_BoardVO;
 import lancer.f_board.domain.F_Criteria;
@@ -67,14 +69,15 @@ public class F_BoardController {
 	}*/
 	
 	@RequestMapping(value="/f_readPage", method = RequestMethod.GET)
-	public void f_readPage(@RequestParam("f_board_num") int f_board_num, @ModelAttribute("cri") F_SearchCriteria cri, Model model) throws Exception{
+	public void f_readPage(@RequestParam("f_board_num") int f_board_num, @ModelAttribute("cri") F_SearchCriteria cri, Model model, HttpSession sessions) throws Exception{
 		model.addAttribute("F_BoardVO", service.read(f_board_num));
-		List<F_ReplyVO> mylist = r_service.list(f_board_num);
-		model.addAttribute("F_ReplyVO", r_service.list(f_board_num));
+		//c_login_freelancerVO freelancer = (c_login_freelancerVO) sessions.getAttribute("client");
+		//List<F_ReplyVO> mylist = r_service.list(f_board_num, freelancer.getF_id(), service.read(f_board_num).getF_id());
+		//model.addAttribute("F_ReplyVO", r_service.list(f_board_num, freelancer.getF_id(), service.read(f_board_num).getF_id()));
 		//System.out.println(r_service.list(f_board_num).get(0).get);
-		for(int i=0; i<mylist.size(); i++){
-			System.out.println(mylist.get(i).getBoard_num());
-		}
+		//for(int i=0; i<mylist.size(); i++){
+		//	System.out.println(mylist.get(i).getBoard_num());
+		//}
 		
 	}
 

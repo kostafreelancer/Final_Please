@@ -18,14 +18,17 @@
  <script src="../../../resources/f_board_js/f_readpage.js"></script> 
 <script type="text/javascript">
 
-
-
 // ** 댓글 쓰기 (json방식)
 function replyJson(){
     var reply_content=$("#reply_content").val();
     var board_num="${F_BoardVO.f_board_num}";
     var f_num=$("#f_num").text();
+    var secretreply = "n";
 
+    if( $("#secretreply").is(":checked") ){
+        secretreply = "y";
+    }
+    
     $.ajax({                
         type: "post",
         url: "/reply/insertRest.do",
@@ -35,9 +38,10 @@ function replyJson(){
         dateType: "text",
         // param형식보다 편하다.
         data: JSON.stringify({
-       	 f_num : f_num,
+        	secretreply : secretreply,
+       		f_num : f_num,
             board_num : board_num,
-            reply_content : reply_content,
+            reply_content : reply_content
         }),
         success: function(){
             alert("댓글이 등록되었습니다.");
@@ -262,16 +266,7 @@ function ReplyDelete(num){
 								<textarea id="f_board_content" name="f_board_content" class="txt_area" readonly="readonly" style="border:0">${F_BoardVO.f_board_content }</textarea>
                                 </td>
 							</tr>
-							<tr>
-								<th scope="row" colspan="1" class="ac"><span class="txt_or"></span>
-								<label for="p_file">첨부파일</label></th>
-								<td colspan="5">
-								&nbsp사진~
-									<!-- <div>
-										<input type="file" id="f_file" name="f_file" class="wid">
-									</div> -->
-								</td>
-							</tr>
+
 						</tbody>
 					</table>
 				</div>
@@ -282,6 +277,10 @@ function ReplyDelete(num){
 				<h2>댓글</h2>
 				</div>
 				<div class="tit_box2">
+				<c:if test="${client.f_id == null}">
+				<br><br>
+				<h2>&nbsp&nbsp&nbsp&nbsp로그인 후 이용해주세요</h2>
+				</c:if>
 				<c:if test="${client.f_id != null}">
 					<fieldset class="opinion_reg">
 					 <ul class="condition">    </ul>
@@ -290,7 +289,8 @@ function ReplyDelete(num){
 							<img height="33" width="33" src="../../../resources/f_board_img/imggg.png">
 						</div>
 						<textarea class="dim ta taComment" id="reply_content" name="reply_content" rows="5" cols="50" style="ime-mode:active;"></textarea>
-						<input type="image" id="btnReply" class="input_btn registerComment btnArea" name="btnReply" src="../../../resources/f_board_img/btn_reg_reply.gif">
+						<input type="image" id="btnReply" class="input_btn registerComment btnArea" name="btnReply" src="../../../resources/f_board_img/btn_reg_reply.gif"><br>
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" id="secretreply">&nbsp&nbsp비밀 댓글
 						</c:if>
 					</fieldset>
 					<!-- 목록 출력 -->

@@ -20,10 +20,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.f_board.domain.F_Criteria;
 import lancer.f_board.domain.F_PageMaker;
 import lancer.f_board.domain.F_ReplyVO;
 import lancer.total.service.F_BoardReplyService;
+import lancer.total.service.F_BoardService;
 
 @RestController
 @RequestMapping("/reply/")
@@ -32,22 +34,20 @@ public class F_BoardReplyController {
 	@Inject
 	private F_BoardReplyService service;
 	
-
-	@RequestMapping(value="insert.do", method=RequestMethod.POST)
-    public void insert(@ModelAttribute F_ReplyVO vo, HttpSession session) throws Exception{
-       /* Integer userId = (Integer) session.getAttribute("f_num");
-        vo.setF_num(userId);*/
-        service.create(vo);
-    }
+	@Inject
+	private F_BoardService bs;
     
     @RequestMapping(value="insertRest.do", method=RequestMethod.POST)
-    public ResponseEntity<String> insertRest(@RequestBody F_ReplyVO vo, HttpSession session)throws Exception{
+    public ResponseEntity<String> insertRest(@RequestBody F_ReplyVO vo, HttpSession sessions)throws Exception{
         ResponseEntity<String> entity = null;
         int count = service.count(vo.getBoard_num())+1; 
         System.out.println("참도~햇겟다~");
         try {
-           // String userId = (String) session.getAttribute("userId");
-            //vo.setReplyer(userId);
+        	//세션의 회원아이디 가져오기
+        	c_login_freelancerVO freelancer = (c_login_freelancerVO) sessions.getAttribute("client");
+            vo.setF_id(freelancer.getF_id());
+            System.out.println(freelancer.getF_id());
+            //댓글카운트
         	vo.setReply_num(count);
             service.create(vo);
             // 댓글입력이 성공하면 성공메시지 저장
@@ -61,15 +61,12 @@ public class F_BoardReplyController {
         return entity;
     }
 	
-    // 댓글 목록(@Controller방식 : veiw(화면)를 리턴)
+/*    // 댓글 목록(@Controller방식 : veiw(화면)를 리턴)
     @RequestMapping("list.do")
     public ModelAndView list(@RequestParam int board_num,
                             ModelAndView mav,
-                            HttpSession session) throws Exception{
-        // **페이징 처리 
-       // 댓글 갯수
-
-        List<F_ReplyVO> list = service.list(board_num);
+                            HttpSession sessions) throws Exception{
+        List<F_ReplyVO> list = service.list(board_num, sessions);
         // 뷰이름 지정
         mav.setViewName("f_board/replyList");
         // 뷰에 전달할 데이터 지정
@@ -77,26 +74,22 @@ public class F_BoardReplyController {
         // replyList.jsp로 포워딩
         return mav;
     }
+    */
     
     // 댓글 목록(@RestController Json방식으로 처리 : 데이터를 리턴)
     @RequestMapping("listJson.do")
     @ResponseBody // 리턴데이터를 json으로 변환(생략가능)
-    public List<F_ReplyVO> listJson(@RequestParam("bno") int board_num)throws Exception{
+    public List<F_ReplyVO> listJson(@RequestParam("bno") int board_num, HttpSession sessions)throws Exception{
     	System.out.println("ㄴ리바보");
-        List<F_ReplyVO> list = service.list(board_num);
+    	c_login_freelancerVO freelancer = (c_login_freelancerVO) sessions.getAttribute("client");
+    	System.out.println(freelancer.getF_id()+"으알ㄴㅇㄹㅇ");
+    	System.out.println(board_num+"이것은 보드넘");
+    	System.out.println(bs.read(board_num));
+    	System.out.println(bs.read(board_num).getF_id());
+        List<F_ReplyVO> list = service.list(board_num, freelancer.getF_id(), bs.read(board_num).getF_id());
         return list;
     }
-    
-    @RequestMapping(value="detail/{reply_num}", method=RequestMethod.GET)
-    public ModelAndView replyDetail(@PathVariable("reply_num") Integer reply_num, ModelAndView mav) throws Exception{
-        F_ReplyVO vo = service.detail(reply_num);
-        // 뷰이름 지정
-        mav.setViewName("f_board/replyDetail");
-        // 뷰에 전달할 데이터 지정
-        mav.addObject("vo", vo);
-        // replyDetail.jsp로 포워딩
-        return mav;
-    }
+
     
     // 4. 댓글 수정 처리 - PUT:전체 수정, PATCH:일부수정
     // RequestMethod를 여러 방식으로 설정할 경우 {}안에 작성
@@ -137,86 +130,5 @@ public class F_BoardReplyController {
     }
 }
     
-    
-	/*@RequestMapping(value="/test", method=RequestMethod.POST)
-	public ResponseEntity<String> register(@RequestBody F_ReplyVO vo){
-		System.out.println("잘가..광명아...ㅜ");
-		ResponseEntity<String> entity = null;
-		try {
-			service.addReply(vo);
-			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
-	
-	@RequestMapping(value="/all/{board_num}", method=RequestMethod.GET)
-	public ResponseEntity<List<F_ReplyVO>> list(@PathVariable("board_num") Integer board_num, Model model) throws Exception{
-		model.addAttribute("test_list", service.listReply(board_num));
-		ResponseEntity<List<F_ReplyVO>> entity = null;
-		try {
-			entity = new ResponseEntity<>(service.listReply(board_num), HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
-	
-	@RequestMapping(value="/{reply_num}", method={RequestMethod.PUT, RequestMethod.PATCH})
-	public ResponseEntity<String> update(@PathVariable("reply_num") Integer reply_num, @RequestBody F_ReplyVO vo){
-		ResponseEntity<String> entity = null;
-		try {
-			vo.setReply_num(reply_num);
-			service.modifyReply(vo);
-			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
-	
-	@RequestMapping(value="/{reply_num}", method=RequestMethod.DELETE)
-	public ResponseEntity<String> remove(@PathVariable("reply_num") Integer reply_num){
-		ResponseEntity<String> entity = null;
-		try {
-			service.removeReply(reply_num);
-			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}
-	@RequestMapping(value="/{board_num}/{page}", method=RequestMethod.GET)
-	public ResponseEntity<Map<String, Object>> listPage(@PathVariable("board_num") Integer board_num, @PathVariable("page") Integer page){
-		ResponseEntity<Map<String, Object>> entity = null;
-		
-		try {
-			F_Criteria cri = new F_Criteria();
-			cri.setPage(page);
-			
-			F_PageMaker pageMaker = new F_PageMaker();
-			pageMaker.setCri(cri);
-			
-			Map<String, Object> map = new HashMap<String, Object>();
-			List<F_ReplyVO> list = service.listReplyPage(board_num, cri);
-			map.put("list", list);
-		
-			int replyCount = service.count(board_num);
-			pageMaker.setTotalCount(replyCount);
-			map.put("pageMaker", pageMaker);
-			
-			entity = new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
 
-		
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<Map<String,Object>>(HttpStatus.BAD_REQUEST);
-		}
-		return entity;
-	}*/
 

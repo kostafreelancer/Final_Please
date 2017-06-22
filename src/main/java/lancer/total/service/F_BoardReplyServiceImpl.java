@@ -5,9 +5,11 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.ognl.IteratorElementsAccessor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import lancer.f_board.domain.F_BoardVO;
 import lancer.f_board.domain.F_Criteria;
 import lancer.f_board.domain.F_ReplyVO;
 import lancer.total.persistence.F_BoardDAO;
@@ -18,10 +20,30 @@ public class F_BoardReplyServiceImpl implements F_BoardReplyService{
 
 	@Inject
 	F_BoardReplyDAO replydao;
+
 	
 	@Override
-	public List<F_ReplyVO> list(Integer board_num) throws Exception {
-		return replydao.list(board_num);
+	public List<F_ReplyVO> list(Integer board_num, String nowId, String oriId) throws Exception {
+		F_BoardVO f_vo = new F_BoardVO();
+		List<F_ReplyVO> items = replydao.list(board_num);
+		System.out.println("쇽쇽쇽!!!!!!!");
+		//비댓 확인
+		for(int i=0; i<items.size(); i++){
+			if(items.get(i).getSecretreply().equals("y")){
+				if(nowId == null){
+					items.get(i).setReply_content("비밀 댓글입니다.");
+					System.out.println("비댓?");
+			}else{
+					String writer =oriId;
+					String replyer = items.get(i).getF_id();
+					if(!nowId.equals(writer) && !nowId.equals(replyer)){
+						items.get(i).setReply_content("비밀 댓글입니다.");
+						System.out.println("비댓?");
+					}
+		    	}
+	    	}
+		}
+		return items;
 	}
 
 	@Override

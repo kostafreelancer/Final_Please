@@ -2,6 +2,7 @@ package lancer.total.persistence;
 
 import java.util.List;
 
+
 import lancer.f_board.domain.F_Criteria;
 import lancer.f_board.domain.F_ReplyVO;
 

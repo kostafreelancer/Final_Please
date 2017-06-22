@@ -12,38 +12,15 @@ public class F_ReplyVO {
 	private Date reply_date;
 	private int f_num;
 	private String f_id;
+	private String secretreply;
 
 	public F_ReplyVO(){}
+
 	
 	
-	
-
-
-
-
-	public F_ReplyVO(int reply_num, int board_num, String reply_content, Date reply_date, int f_num, String f_id) {
-		super();
-		this.reply_num = reply_num;
-		this.board_num = board_num;
-		this.reply_content = reply_content;
-		this.reply_date = reply_date;
-		this.f_num = f_num;
-		this.f_id = f_id;
-	}
-
-
-
-
-
-
-
 	public int getReply_num() {
 		return reply_num;
 	}
-
-
-
-
 
 
 
@@ -53,17 +30,9 @@ public class F_ReplyVO {
 
 
 
-
-
-
-
 	public int getBoard_num() {
 		return board_num;
 	}
-
-
-
-
 
 
 
@@ -73,17 +42,9 @@ public class F_ReplyVO {
 
 
 
-
-
-
-
 	public String getReply_content() {
 		return reply_content;
 	}
-
-
-
-
 
 
 
@@ -93,17 +54,9 @@ public class F_ReplyVO {
 
 
 
-
-
-
-
 	public Date getReply_date() {
 		return reply_date;
 	}
-
-
-
-
 
 
 
@@ -113,17 +66,9 @@ public class F_ReplyVO {
 
 
 
-
-
-
-
 	public int getF_num() {
 		return f_num;
 	}
-
-
-
-
 
 
 
@@ -133,17 +78,9 @@ public class F_ReplyVO {
 
 
 
-
-
-
-
 	public String getF_id() {
 		return f_id;
 	}
-
-
-
-
 
 
 
@@ -153,21 +90,25 @@ public class F_ReplyVO {
 
 
 
+	public String getSecretreply() {
+		return secretreply;
+	}
 
+
+
+	public void setSecretreply(String secretreply) {
+		this.secretreply = secretreply;
+	}
 
 
 
 	@Override
 	public String toString() {
 		return "F_ReplyVO [reply_num=" + reply_num + ", board_num=" + board_num + ", reply_content=" + reply_content
-				+ ", reply_date=" + reply_date + ", f_num=" + f_num + ", f_id=" + f_id + "]";
+				+ ", reply_date=" + reply_date + ", f_num=" + f_num + ", f_id=" + f_id + ", secretreply=" + secretreply
+				+ "]";
 	}
-
-
-
-
-
-
-
+	
+	
 
 }
