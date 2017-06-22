@@ -46,7 +46,7 @@
 					<br>
 					<br>
 					<br>
-					<p class="market_txt01">프로젝트 등록이 완료되었습니다!</p>
+					<p class="market_txt01">프로젝트 수정이 완료되었습니다!</p>
 					<br>
 					<p class="market_txt02">마이페이지에서 수정, 확인 가능합니다.</p>
 					<p class="market_txt03">

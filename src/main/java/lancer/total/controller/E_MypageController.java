@@ -298,7 +298,6 @@ public class E_MypageController {
 		}
 		
 		int c_num = service.selectC_num(f_num, e_pr_num);
-		System.out.println(c_num);
 		fileService.uploadFile(contractFile, "contractfile", c_num, 0);
 		
 		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_num;

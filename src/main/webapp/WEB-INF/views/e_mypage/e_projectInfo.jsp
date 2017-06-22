@@ -356,27 +356,30 @@ $(function(){
 	
 
 			<div class="btn_box">
-				<span>
+							
 								<c:choose>
-									<c:when test="${project.p_state eq '모집중' || project.p_state eq '추가모집'}">
-										<input type="button" id="startProject" class="btn btn-lg btn-default2 js-disable-on-click"
-											autocomplete="off" value="프로젝트 시작">
-										<input type="button" id="deleteProject" class="btn btn-lg btn-default js-disable-on-click"
-											autocomplete="off" value="프로젝트 삭제">
-										<input class="btn btn-lg btn-default js-disable-on-click"
-											autocomplete="off" data-loading-text="저장 중" name="save_for_later"
-											value="수정하기" type="submit">
-										</span>											
-									</c:when>
+										<c:when test="${project.p_state eq '모집중' || project.p_state eq '추가모집'}">
+											<span>
+												<span id="contractAllExist" style="display:none;"></span>
+												<input type="button" id="startProject" class="btn btn-lg btn-default2 js-disable-on-click"
+													autocomplete="off" value="프로젝트 시작">
+												<input type="button" id="deleteProject" class="btn btn-lg btn-default js-disable-on-click"
+													autocomplete="off" value="프로젝트 삭제">
+												<input class="btn btn-lg btn-default js-disable-on-click"
+													autocomplete="off"  name="save_for_later"
+													value="수정하기" type="submit">
+											 </span>											
+										</c:when>
 									
-									<c:when test="${project.p_state eq '진행중'}">
-										<input type="button" id="endProject" class="btn btn-lg btn-default2 js-disable-on-click"
-											autocomplete="off" value="프로젝트 종료">
-										<input class="btn btn-lg btn-default js-disable-on-click"
-											autocomplete="off" data-loading-text="저장 중" name="save_for_later"
-											value="수정하기" type="submit">
-										</span>									
-									</c:when>									
+										<c:when test="${project.p_state eq '진행중'}">
+											<span>
+												<input type="button" id="endProject" class="btn btn-lg btn-default2 js-disable-on-click"
+													autocomplete="off" value="프로젝트 종료">
+												<input class="btn btn-lg btn-default js-disable-on-click"
+													autocomplete="off" name="save_for_later"
+													value="수정하기" type="submit">
+											 </span>									
+										</c:when>								
 								</c:choose>	
 
 				
@@ -477,7 +480,7 @@ $(function(){
 									</c:when>
 								</c:choose>
 					<div class="num_box">
-				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
+				<span class="btn_lef"> <a href="" class="first"></a>
 				</span> 
 							<c:if test="${pageMakerMember.prev}">
 								<a
@@ -496,7 +499,7 @@ $(function(){
 								<li><a
 									href="/e_mypage/e_projectInfo${pageMakerMember.makeSearch(pageMakerMember.endPage +1) }&e_pr_num=${project.e_pr_num}">&raquo;</a></li>
 							</c:if>		
-				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
+				<span class="btn_rit"> <a href="" class="last"></a>
 				</span>
 					</div>
 				</div>
@@ -565,7 +568,7 @@ $(function(){
 					</div>
 
 					<div class="num_box">
-				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
+				<span class="btn_lef"> <a href="" class="first"></a>
 				</span> 
 							<c:if test="${pageMakerApplicant.prev}">
 								<a
@@ -584,7 +587,7 @@ $(function(){
 								<li><a
 									href="/e_mypage/e_projectInfo${pageMakerApplicant.makeSearch(pageMakerApplicant.endPage +1) }&e_pr_num=${project.e_pr_num}">&raquo;</a></li>
 							</c:if>		
-				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
+				<span class="btn_rit"> <a href="" class="last"></a>
 				</span>
 					</div>
 				</div>
@@ -636,11 +639,11 @@ $(function(){
 										거절함
 									</c:when>
 									<c:otherwise>
-								<c:choose>
-									<c:when test="${project.p_state eq '모집중' || project.p_state eq '추가모집'}">									
-										<a href="#" class="cancel btn btn-lg btn-default2 js-disable-on-click">취소</a>
-									</c:when>
-								</c:choose>		
+										<c:choose>
+											<c:when test="${project.p_state eq '모집중' || project.p_state eq '추가모집'}">									
+												<a href="#" class="cancel btn btn-lg btn-default2 js-disable-on-click">취소</a>
+											</c:when>
+										</c:choose>		
 									</c:otherwise>
 								</c:choose>											
 											
@@ -652,7 +655,7 @@ $(function(){
 					</div>
 
 					<div class="num_box">
-				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a>
+				<span class="btn_lef"> <a href="" class="first"></a>
 				</span> 
 							<c:if test="${pageMakerScout.prev}">
 								<a
@@ -671,7 +674,7 @@ $(function(){
 								<li><a
 									href="/e_mypage/e_projectInfo${pageMakerScout.makeSearch(pageMakerScout.endPage +1) }&e_pr_num=${project.e_pr_num}">&raquo;</a></li>
 							</c:if>		
-				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a>
+				<span class="btn_rit"> <a href="" class="last"></a>
 				</span>
 					</div>
 				</div>
@@ -698,7 +701,7 @@ $(function(){
 			<div class="btn_box">
 				<span>
 					<input type="button" id="deleteProject" class="btn btn-lg btn-default js-disable-on-click"
-											autocomplete="off" value="프로젝트 삭제">
+											value="프로젝트 삭제">
 				</span>
 				<form name="deleteProject" action="/e_mypage/e_deleteProject" method="post">
 					<input type="hidden" name="e_pr_numDelete" value="${project.e_pr_num }">

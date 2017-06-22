@@ -84,7 +84,7 @@
 								<td class="ac">${p.getP_requirenum()}</td>
 								<td class="ac">${p.getP_lowerage()} ~ ${p.getP_upperage()}</td>
 								<fmt:parseNumber var = "cost"  integerOnly = "true" value = "${(p.p_lowercost + p.p_uppercost) / 2}"/>
-								<td>${cost }만원</td>
+								<td class="ac">${cost }만원</td>
 								<td class="ac">${p.getP_regdate()}</td>
 								<td class="ac">${p.getP_exdate()}</td>
 								<td class="ac">${p.getProject_check_state() }</td>

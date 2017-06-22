@@ -120,7 +120,6 @@ public class E_MypageDao{
 	}
 	
 	public void additionalRecruit(int e_pr_num) throws Exception {
-		System.out.println("이피알넘 " + e_pr_num);
 		session.update(namespace + ".additionalRecruit", e_pr_num);
 	}
 	

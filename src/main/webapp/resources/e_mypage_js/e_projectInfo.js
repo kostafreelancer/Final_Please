@@ -3,6 +3,10 @@ $(document).ready(function() {
 	
 	$('#startProject').click(function(){
 		if(confirm("프로젝트를 시작합니까?") == true){
+			if($('#contractAllExist').text() == 'no'){
+				alert('계약서가 모두 등록되지 않았습니다.');
+				return;
+			}
 			document.startProject.submit();
 		}else{
 			return;
@@ -79,8 +83,12 @@ $(document).ready(function() {
 	});
 	
 	
-	
-	
-	
+	// 계약서 모두 작성되지 않았을 때 프로젝트 시작을 막을 변수를 설정
+	$contractExist = $('.contractFileDown');
+	$contractExist.each(function(){
+		if($(this).text() == ""){
+			$('#contractAllExist').text('no');
+		}
+	});
 	
 });
