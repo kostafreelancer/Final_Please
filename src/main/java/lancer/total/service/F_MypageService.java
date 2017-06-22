@@ -240,4 +240,8 @@ public class F_MypageService {
 	public void suggestReject(HashMap<String, Integer> map) throws Exception{
 		dao.suggestReject(map);
 	}
+	
+	public int evaluateCheck(HashMap<String, Integer> map) throws Exception{
+		return dao.evaluateCheck(map);
+	}
 }

@@ -10,12 +10,13 @@ public class FinishProject  implements Serializable{
 	private int e_pr_num;
 	private int e_num;
 	private int c_num;
+	private int evaluate;
 	
 	public FinishProject(){}
 
 
 	public FinishProject(String proName, String proTerm, String cost, String p_job, int e_pr_num, int e_num,
-			int c_num) {
+			int c_num, int evaluate) {
 		super();
 		this.proName = proName;
 		this.proTerm = proTerm;
@@ -24,6 +25,17 @@ public class FinishProject  implements Serializable{
 		this.e_pr_num = e_pr_num;
 		this.e_num = e_num;
 		this.c_num = c_num;
+		this.evaluate = evaluate;
+	}
+
+
+	public int getEvaluate() {
+		return evaluate;
+	}
+
+
+	public void setEvaluate(int evaluate) {
+		this.evaluate = evaluate;
 	}
 
 

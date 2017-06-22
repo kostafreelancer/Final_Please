@@ -31,6 +31,7 @@ import lancer.f_mypage.domain.CalEvent;
 import lancer.f_mypage.domain.Calendar;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
+import lancer.f_mypage.domain.E_grade;
 import lancer.f_mypage.domain.F_job;
 import lancer.f_mypage.domain.FinishProject;
 import lancer.f_mypage.domain.Freelancer;
@@ -224,7 +225,12 @@ public class F_MypageController {
 			fp.setP_job(temp.substring(0, temp.length()-2));
 			fp.setE_num(project.get(i).getE_num());
 			fp.setE_pr_num(project.get(i).getE_pr_num());
+			HashMap<String, Integer> map = new HashMap<String, Integer>();
+			map.put("e_pr_num", project.get(i).getE_pr_num());
+			map.put("f_num", freelancer.getF_num());
 		
+			fp.setEvaluate(service.evaluateCheck(map));
+			
 			finishProject.add(fp);
 		}
 		
@@ -258,6 +264,7 @@ public class F_MypageController {
 		}else{
 			model.addAttribute("finishproject", finishProject);
 		}
+		model.addAttribute("evaluate", "0");
 
 	}
 	
@@ -709,5 +716,13 @@ public class F_MypageController {
 	
 	@RequestMapping(value="/matchFail", method=RequestMethod.GET)
 	public void matchFail() throws Exception{
+	}
+	
+	@RequestMapping(value="/gotoEval", method=RequestMethod.POST)
+	public void gotoEval(E_grade e_grade, Model model) throws Exception{
+		System.out.println(e_grade.getE_num());
+		System.out.println(e_grade.getE_pr_num());
+		System.out.println(e_grade.getE_grade_star());
+		System.out.println(e_grade.getF_num());
 	}
 }

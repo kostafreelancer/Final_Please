@@ -243,4 +243,7 @@ public class F_MypageDAO {
 		session.update(namespace + ".suggestReject", map);
 	}
 
+	public int evaluateCheck(HashMap<String, Integer> map) throws Exception{
+		return session.selectOne(namespace + ".evaluateCheck", map); 
+	}
 }

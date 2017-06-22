@@ -237,6 +237,10 @@
   	<update id="suggestReject" parameterType="hashmap">
   		update contract set c_state='제안거절' where f_num=#{f_num} and e_pr_num=#{e_pr_num}
   	</update>
+  	
+  	<select id="evaluateCheck" resultType="int" parameterType="hashmap" >
+  		select count(*) from e_grade where f_num= #{f_num} and e_pr_num = #{e_pr_num}
+  	</select>
 </mapper>  
 
 

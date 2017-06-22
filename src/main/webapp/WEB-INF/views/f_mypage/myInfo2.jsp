@@ -323,7 +323,14 @@
 					
 					<c:forEach var="myFinishProject" items="${finishproject}">
 						 <tr>							
-							<td>${myFinishProject.proName}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${myFinishProject.e_pr_num}&e_num=${myFinishProject.e_num}&from=mypage'"> </td>
+							<td>${myFinishProject.proName}&nbsp;&nbsp;
+							<c:if test="${myFinishProject.evaluate == 1}">
+							<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${myFinishProject.e_pr_num}&e_num=${myFinishProject.e_num}&from=mypage'"> 
+							</c:if>
+							<c:if test="${myFinishProject.evaluate == 0}">
+							<input type="button" name="gotoList" value="평가하기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${myFinishProject.e_pr_num}&e_num=${myFinishProject.e_num}&from=evaluate'"> 
+							</c:if>
+							</td>
 							<td>${myFinishProject.proTerm}</td>
 							<td>${myFinishProject.cost}</td>
 							<td>${myFinishProject.p_job}</td>
