@@ -530,7 +530,7 @@ public class F_MypageController {
 		//calen.setF_num(f_num);
 		calen.setCalendar_num(service.getScheduleNum()+1);
 		service.insertMySchedule(calen);
-		return "/f_mypage/scheduleManager";
+		return "redirect:/f_mypage/scheduleManager";
 	}
 	
 	@RequestMapping(value="/scheduleModify", method=RequestMethod.GET)

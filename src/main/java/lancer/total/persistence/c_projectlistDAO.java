@@ -36,5 +36,7 @@ public interface c_projectlistDAO {
 	int selectCon(c_freelancerlist_searchVO vo) throws Exception;
 
 	public int getRelation(HashMap<String, Integer> map) throws Exception;
+	
+	public int getRelation2(int e_pr_num) throws Exception;
 
 }

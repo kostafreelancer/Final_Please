@@ -27,73 +27,82 @@
 	</select>
 	
 	<select id="listSearch" resultType="E_Insert" parameterType="SearchCriteria">
-		select * from project
+		select * from project where project_check_state='승인'
 		   <if test="jobs != null">
-			<where>
+			<!-- <where> -->
 			  <foreach collection="jobs" item="item" separator="AND" open="(" close=")">
-			    e_pr_num in (select e_pr_num from p_job where job_id = #{item})
+			    and e_pr_num in (select e_pr_num from p_job where job_id = #{item})
 			   
 			  </foreach>
 			  <if test="fr !=null">
-			   	  and p_state='모집중'
+			   	  and p_state='모집중' or p_state='추가모집'
 			 </if>
 			 <if test="ft != null">
 			 	and p_state='완료'
 			 </if>
-			 and project_check_state='승인'
-			</where>
+		<!-- 	 and project_check_state='승인' -->
+			<!-- </where> -->
 		  </if> 
 		  <if test="jobs==null">
-		     where  project_check_state='승인'
-		  
-		  
-		  	  <if test="fr !=null">
-			   	   and p_state='모집중'
+		  <!-- <where> -->
+		  	<!--   project_check_state='승인' -->
+		  	 <if test="fr !=null">
+			   	   and p_state='모집중' or p_state='추가모집'
 			 </if>
 			 <if test="ft != null">
 			 	 and p_state='완료'
 			 </if>
+		  <!-- </where> -->
+		   
+		  
+		  
+		  	 
 		  </if>
+		  
 		 order by e_pr_num desc
 	</select>
 	
 	<select id="listSearchCount" resultType="int" parameterType="SearchCriteria">
 	
-			select count(e_pr_num)
-				from project
-			<!--    <if test="jobs != null">
-			<where>
-			  <foreach collection="jobs" item="item" separator="AND" open="(" close=")">
-			     e_pr_num in (select e_pr_num from p_job where job_id = #{item})
-			  </foreach>
-			</where>
-		  </if>  -->
+		  select count(*) from project where project_check_state='승인'
 		   <if test="jobs != null">
-			<where>
+			<!-- <where> -->
 			  <foreach collection="jobs" item="item" separator="AND" open="(" close=")">
-			    e_pr_num in (select e_pr_num from p_job where job_id = #{item})
+			    and e_pr_num in (select e_pr_num from p_job where job_id = #{item})
 			   
 			  </foreach>
 			  <if test="fr !=null">
-			   	  and p_state='모집중' and project_check_state='승인'
+			   	  and p_state='모집중' or p_state='추가모집'
 			 </if>
 			 <if test="ft != null">
-			 	and p_state='완료' and project_check_state='승인'
+			 	and p_state='완료'
 			 </if>
-			 and project_check_state='승인'
-			</where>
+		<!-- 	 and project_check_state='승인' -->
+			<!-- </where> -->
 		  </if> 
 		  <if test="jobs==null">
-		  			where project_check_state='승인'
-		
-		  
-		  	  <if test="fr !=null">
-			   	  and p_state='모집중' 
+		  <!-- <where> -->
+		  	<!--   project_check_state='승인' -->
+		  	 <if test="fr !=null">
+			   	   and p_state='모집중' or p_state='추가모집'
 			 </if>
 			 <if test="ft != null">
-			 	 and p_state='완료' 
+			 	 and p_state='완료'
 			 </if>
+		  <!-- </where> -->
+		   
+		  
+		  
+		  	 
 		  </if>
+		  
+	
+		  
+		  
+		  
+		  
+		  
+		  
 	</select>
 	
 	<select id="getnum" resultType="int">
@@ -118,6 +127,9 @@
 		select count(*) from contract where f_num=#{f_num} and e_pr_num = #{e_pr_num} and c_state in ('신청거절', '매칭중', '매칭완료', '진행중', '완료')
 	</select>
 
+	<select id="getRelation2" parameterType="int" resultType="int">
+		select count(*) from project where e_pr_num = #{e_pr_num} and p_state = '완료'
+	</select>
 </mapper>
 
 
