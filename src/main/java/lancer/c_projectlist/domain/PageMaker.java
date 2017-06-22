@@ -89,6 +89,8 @@ public class PageMaker {
               .queryParam("page", page)
               .queryParam("perPageNum", cri.getPerPageNum())
               .queryParam("jobs", ((SearchCriteria)cri).getJobs())
+              .queryParam("fr", ((SearchCriteria)cri).getFr())
+              .queryParam("ft", ((SearchCriteria)cri).getFt())
               .build();             
     
     return uriComponents.toUriString();
