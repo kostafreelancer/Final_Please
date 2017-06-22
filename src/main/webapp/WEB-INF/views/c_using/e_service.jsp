@@ -15,17 +15,7 @@
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 </head>
 <body>
-	<c:choose>
-		<c:when test="${identity.identity == 'freelancer' }">
-			<%@include file="../c_common/header.jsp" %>
-		</c:when>
-		<c:when test="${identity.identity == 'enterprise' }">
-			<%@include file="../c_common/header_enterprise.jsp" %>
-		</c:when>
-		<c:otherwise>
-			<%@include file="../c_common/header.jsp" %>
-		</c:otherwise>
-	</c:choose>
+	<%@include file="../c_common/header.jsp" %>
 	<div class="left_menu">
 		<div class="left_menu_title">
 			<h2>이용방법</h2>
@@ -98,7 +88,6 @@
 					</a>
 					<div>
 						<img src="/resources/c_using_img/partners_process_five_none.png">
-						<img src="/resources/c_using_img/partners_intro_arrow.png">
 					</div>
 				
 				
@@ -124,7 +113,8 @@
 						<div class="p5-clientUsage-step-img">
 
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="/resources/c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/insert.PNG">
+							<img src="/resources/c_using_img/insert2.PNG">
 
 						</div>
 						<div class="p5-clientUsage-step-info">
@@ -143,7 +133,7 @@
 								<div>- 담당매니저가 친절하게 상담해드립니다.</div>
 							</div>
 							<div class="p5-clientUsage-step-info-support-cs">
-								<p class="cs-title">위시켓 고객센터</p>
+								<p class="cs-title">드림랜서 고객센터</p>
 								<br>
 								<br>
 								<div class="cs-detail">
@@ -151,13 +141,13 @@
 										<i class="fa fa-phone"></i>전화번호 : (02) 6925-4849
 									</p>
 									<p>
-										<i class="fa fa-envelope"></i>E-mail : help@wishket.com
+										<i class="fa fa-envelope"></i>E-mail : dreamlancer@gmail.com
 									</p>
 								</div>
 							</div>
 						</div>
 						<div class="text-center p5-clientUsage-step-btn">
-							<a class="btn btn-client btn-lg" href="/Matching_Project/e_insertproject/e_insertproject.jsp">무료로
+							<a class="btn btn-client btn-lg" href="/e_insertproject/e_insertproject">무료로
 								프로젝트 등록하기</a>
 						</div>
 					</div>
@@ -179,7 +169,10 @@
 						</div>
 						<div class="p5-clientUsage-step-img">
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="/resources/c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/freelancer.PNG">
+							<br>
+							<br>
+							<br>
 						</div>
 						<div class="p5-clientUsage-step-info">
 							<div class="p5-clientUsage-step-info-line">- 각종 필터와 숨기기 기능을
@@ -187,7 +180,7 @@
 							<div class="p5-clientUsage-step-info-line">- 미팅 신청은 최대 2명까지
 								가능합니다.</div>
 							<div class="p5-clientUsage-step-info-line">- 마음에 드는 지원자를
-								선택하면, 위시켓 팀에서 미팅을 주선해드립니다.</div>
+								선택하면, 드림랜서 팀에서 미팅을 주선해드립니다.</div>
 							<div class="p5-clientUsage-step-info-line">- 프로젝트의 지원자는
 								[지원자 모집 중] 탭에서 확인할 수 있습니다.</div>
 						</div>
@@ -199,28 +192,26 @@
 				<div id="p5-clientUsage-step-3" class="p5-clientUsage-step">
 					<h5 class="p5-clientUsage-step-title">
 						<img src="/resources/c_using_img/intro_three.png"> <span
-							class="p5-clientUsage-step-title-text" style="margin-left: 10px;">미팅
-							및 계약</span> <img src="/resources/c_using_img/slash_blue.png">
+							class="p5-clientUsage-step-title-text" style="margin-left: 10px;">프로젝트 제안</span> <img src="/resources/c_using_img/slash_blue.png">
 					</h5>
 					<div class="p5-clientUsage-step-content">
 						<div class="p5-clientUsage-step-mainText">
-							온/오프라인 미팅을 통해 마음에 드는 지원자를 선택할 수 있습니다.<br>위시켓 팀에서 미팅 주선에서
+							비교 후 조건에 맞는 프리랜서에게 프로젝트를 제안할 수 있습니다.<br>드림랜서 팀에서 미팅 주선에서
 							계약까지 전 과정을 도와드립니다.
 						</div>
 						<div class="p5-clientUsage-step-subText">
-							· 미팅을 통한 확실한 지원자 검증 <br> · 에스크로 형태의 대금 보호 시스템을 통한 안전한 계약
+							· 미팅을 통한 확실한 지원자 검증 <br> · 원하는 프리랜서에게 프로젝트 제안을 통한 만족도 상승
 						</div>
 						<div class="p5-clientUsage-step-img">
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="/resources/c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/suggest.PNG">
 						</div>
 						<div class="p5-clientUsage-step-info">
 							<div class="p5-clientUsage-step-info-line">- 미팅은 온라인
-								미팅(skype, 카카오톡 등) / 오프라인 대면 미팅이 가능합니다.</div>
+								채팅 / 오프라인 대면 미팅이 가능합니다.</div>
 							<div class="p5-clientUsage-step-info-line">- 계약서 작성, 비용처리 등
-								부가적인 작업은 위시켓 팀에서 진행합니다.</div>
-							<div class="p5-clientUsage-step-info-line">- 에스크로 형태로 계약하게
-								되며, 단위에 따라 대금 분할 입금도 가능합니다.</div>
+								부가적인 작업은 드림랜서 팀에서 진행합니다.</div>
+							
 						</div>
 					</div>
 				</div>
@@ -234,10 +225,10 @@
 							진행</span> <img src="/resources/c_using_img/slash_blue.png">
 					</h5>
 					<div class="p5-clientUsage-step-content">
-						<div class="p5-clientUsage-step-mainText">프로젝트 진행 중에도 위시켓이
+						<div class="p5-clientUsage-step-mainText">프로젝트 진행 중에도 드림랜서이
 							함께합니다.</div>
 						<div class="p5-clientUsage-step-subText">
-							· 프로젝트 진행 중에도 위시켓 팀이 커뮤니케이션을 함께 합니다. <br> · 분쟁 발생 시, 1억 원 이하
+							· 프로젝트 진행 중에도 드림랜서 팀이 커뮤니케이션을 함께 합니다. <br> · 분쟁 발생 시, 1억 원 이하
 							내용에 대하여 중재비용을 전액 지원합니다.
 						</div>
 						<div class="p5-clientUsage-step-img">
@@ -250,7 +241,7 @@
 							<div class="p5-clientUsage-step-info-line">- 선입금한 프로젝트 대금은
 								프로젝트의 완료 시점에 클라이언트의 승인 후에 파트너에게 지급됩니다.</div>
 							<div class="p5-clientUsage-step-info-line">
-								- 위시켓 팀이 프로젝트 진행상에서 발생하는 어려움들을 도와드리며, 분쟁 발생 시, 대한상사중재원을 <br>
+								- 드림랜서 팀이 프로젝트 진행상에서 발생하는 어려움들을 도와드리며, 분쟁 발생 시, 대한상사중재원을 <br>
 								<span style="margin-left: 9px;"></span> 통해 분쟁을 해결해드립니다.
 							</div>
 						</div>
