@@ -103,14 +103,14 @@ public class F_MypageController {
 			portfolio.get(i).setContents(portfolio.get(i).getContents().replaceAll("<br />", "\r\n"));
 			System.out.println(portfolio.get(i).getContents());
 		}*/
-		NowProject nowProject = service.getMyNowProject(3);
+		//NowProject nowProject = service.getMyNowProject(3);
 
 
-		nowProject.setTerm(nowProject.getP_startdate().substring(0, 10) + " ~ " + nowProject.getP_enddate().substring(0, 10));
+		//nowProject.setTerm(nowProject.getP_startdate().substring(0, 10) + " ~ " + nowProject.getP_enddate().substring(0, 10));
 		
-		List<Project> project = service.getMyFinishProject(3);
-		List<FinishProject> finishProject  = new ArrayList<FinishProject>();
-		for(int i=0; i<project.size(); i++){
+		//List<Project> project = service.getMyFinishProject(3);
+		//List<FinishProject> finishProject  = new ArrayList<FinishProject>();
+		/*for(int i=0; i<project.size(); i++){
 			FinishProject fp = new FinishProject();
 			fp.setProName(project.get(i).getP_name());
 			fp.setProTerm(project.get(i).getP_startdate().substring(0, 10) + " ~ " + project.get(i).getP_enddate().substring(0, 10));
@@ -127,7 +127,7 @@ public class F_MypageController {
 		
 			finishProject.add(fp);
 		}
-		
+		*/
 		if(applyproject.size()==0){
 			model.addAttribute("applyprojectcheck", "0");
 		}else{
@@ -162,7 +162,7 @@ public class F_MypageController {
 
 			model.addAttribute("portfolio", portfolio);
 		}
-		
+	/*	
 		if(nowProject == null){
 			model.addAttribute("nowProject", "0");
 		}else{
@@ -173,7 +173,7 @@ public class F_MypageController {
 			model.addAttribute("finishprojectcheck", "0");
 		}else{
 			model.addAttribute("finishproject", finishProject);
-		}
+		}*/
 
 	}
 	
