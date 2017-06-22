@@ -71,7 +71,12 @@ $(document).ready(function() {
 		}
 	});
 	
-	
+	$('.contractFileDown').click(function(e){
+		e.preventDefault();
+		var file_num = $(this).prev().text();
+		$('input[type="hidden"][name="file_num"]').val(file_num);
+		document.fileDownForm.submit();
+	});
 	
 	
 	

@@ -358,7 +358,7 @@ $(function(){
 			<div class="btn_box">
 				<span>
 								<c:choose>
-									<c:when test="${project.p_state eq '모집중' }">
+									<c:when test="${project.p_state eq '모집중' || project.p_state eq '추가모집'}">
 										<input type="button" id="startProject" class="btn btn-lg btn-default2 js-disable-on-click"
 											autocomplete="off" value="프로젝트 시작">
 										<input type="button" id="deleteProject" class="btn btn-lg btn-default js-disable-on-click"
@@ -391,7 +391,6 @@ $(function(){
 				</form>
 				<form name="additionalRecruit" action="/e_mypage/e_additionalRecruit" method="post">
 					<input type="hidden" name="e_pr_numAddition" value="${project.e_pr_num }">
-					<input type="submit" value="으아">
 				</form>	
 			</div>
 
@@ -415,9 +414,9 @@ $(function(){
 					<div class="tb_box">
 						<table class="tb_st01 tb_st03">
 							<colgroup>
+								<col style="width: 12%">
 								<col style="width: 10%">
-								<col style="width: 10%">
-								<col style="width: 10%">
+								<col style="width: 8%">
 								<col style="width: 10%">
 								<col style="width: 15%">
 								<col style="width: 10%">
@@ -447,7 +446,10 @@ $(function(){
 											<td class="ac">${m.f_major }</td>
 											<td class="ac">${m.f_hphone }</td>
 											<td class="ac">${m.f_score }</td>
-											<td class="ac"><a href="#">-</a></td>
+											<td class="ac">
+												<span style="display:none;">${m.file_num }</span>
+												<a href="#" class="contractFileDown">${m.original_file_name}</a>
+											</td>
 											<td class="ac">
 												<form action="/e_mypage/e_projectInfo?e_pr_num=${project.e_pr_num }" method="post" name="contract${m.f_num }" enctype="multipart/form-data">
 													<div class="filebutton">
@@ -549,7 +551,7 @@ $(function(){
 									<c:otherwise>
 								<c:choose>
 									<c:when test="${project.p_state eq '모집중' || project.p_state eq '추가모집'}">								
-										<a href="#" class="accept btn btn-lg btn-default2 js-disable-on-click">수락</a><a href="#" class="reject btn btn-lg btn-default2 js-disable-on-click">거절</a>
+										<a href="#" class="accept btn btn-lg btn-default2 js-disable-on-click">수락</a>&nbsp;&nbsp;<a href="#" class="reject btn btn-lg btn-default2 js-disable-on-click">거절</a>
 									</c:when>
 								</c:choose>
 									</c:otherwise>
@@ -687,7 +689,9 @@ $(function(){
 				<input type="hidden" name="f_numCancel" value="">
 				<input type="hidden" name="e_pr_numCancel" value="${project.e_pr_num }">
 			</form>
-
+			<form action="/c_file/downloadFile" name="fileDownForm" method="post">
+				<input type="hidden" name="file_num" value="">
+			</form>
 	</c:when>
 	
 	<c:otherwise>

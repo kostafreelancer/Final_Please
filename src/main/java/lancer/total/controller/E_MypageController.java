@@ -2,9 +2,6 @@ package lancer.total.controller;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
-
-import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -25,7 +22,6 @@ import lancer.e_mypage.domain.Project;
 import lancer.total.service.C_DropService;
 import lancer.total.service.C_FileService;
 import lancer.total.service.E_MypageService;
-import lancer.total.util.FileUtils;
 
 @Controller
 @RequestMapping("/e_mypage/*")
@@ -189,7 +185,6 @@ public class E_MypageController {
 			enterprise.setE_licensefilenum(e_licensefileNum);
 		}
 		
-		System.out.println(enterprise.getE_ownerfilenum());
 		service.updateEnterprise(enterprise);
 		session.setAttribute("client", enterprise);		
 		return "redirect:/e_mypage/e_info";
@@ -197,7 +192,6 @@ public class E_MypageController {
 	
 	@RequestMapping(value="/dropEnterprise", method=RequestMethod.GET)
 	public String dropEnterprise(@RequestParam("e_num") int e_num, HttpSession session) throws Exception{
-		System.out.println("e_num:" + e_num);
 		dropService.deleteEnterprise(e_num);
 		session.invalidate();
 		return "redirect:/e_main/e_main";
@@ -208,7 +202,6 @@ public class E_MypageController {
 		
 		c_login_enterpriseVO enterprise = (c_login_enterpriseVO)session.getAttribute("client");
 		int e_num = enterprise.getE_num();
-		System.out.println(e_num + "컨트롤러");
 		List<Project> readyList = service.listProjectReady(e_num, cri);
 		List<Project> doingList = service.listProjectDoing(e_num, cri);
 		List<Project> doneList = service.listProjectDone(e_num, cri);
@@ -320,7 +313,6 @@ public class E_MypageController {
 	
 	@RequestMapping(value = "/e_additionalRecruit", method = RequestMethod.POST)
 	public String e_additionalRecruitPOST(int e_pr_numAddition) throws Exception {
-		System.out.println("으아아아");
 		service.additionalRecruit(e_pr_numAddition);
 		
 		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numAddition;
