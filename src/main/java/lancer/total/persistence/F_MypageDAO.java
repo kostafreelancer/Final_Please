@@ -134,6 +134,10 @@ public class F_MypageDAO {
 		return session.selectOne(namespace + ".getMyNowProject", f_num);
 	}
 	
+	public NowProject getMyMatchingProject(int f_num) throws Exception{
+		return session.selectOne(namespace + ".getMyMatchingProject", f_num);
+	}
+	
 	public List<NowProject> getMyFinishProject(int f_num) throws Exception{
 		System.out.println(f_num);
 		return session.selectList(namespace + ".getMyFinishProject", f_num);

@@ -74,8 +74,9 @@
 
 	<ul id="tabs">
 		<li><a href="#" title="tab1">진행중인 프로젝트</a></li>
-		<li><a href="#" title="tab2">신청 및 제안내역</a></li>
-		<li><a href="#" title="tab3">히스토리</a></li>
+		<li><a href="#" title="tab2">매칭중인 프로젝트</a></li>
+		<li><a href="#" title="tab3">신청 및 제안내역</a></li>
+		<li><a href="#" title="tab4">히스토리</a></li>
 	</ul>
 
 	<div id="content">
@@ -101,11 +102,11 @@
 					</tr>
 				</thead>
 				<tbody>
-
-						<c:if test="${nowProject}==0">
+						<c:choose>
+						<c:when test="${nowProjectcheck == 0}">
 							<tr><td colspan="5">진행중인 프로젝트가 없습니다.</td></tr>
-						</c:if>
-					
+						</c:when>
+						<c:otherwise>
 					
 						 <tr>							
 							<td>${nowProject.p_name}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${nowProject.e_pr_num}&e_num=${nowProject.e_num}&from=mypage'"> </td>
@@ -114,7 +115,8 @@
 							<td>${nowProject.p_uppercost}</td>
 							<td><a href="/c_file/downloadFile?identy=0&f_num=${nowProject.c_num}&fileType=contractfile">계약서</a></td>
 						</tr>
-						
+						</c:otherwise>
+						</c:choose>
 					
 
 				</tbody>
@@ -122,7 +124,51 @@
 
 		</div>
 	
+	
 		<div id="tab2">
+			<h4>매칭중인 프로젝트</h4>
+			<table class="tb_st01 tb_st03">
+				<caption></caption>
+				 	<colgroup>
+				<col style="width: 40%">
+				<col style="width: 15%">
+				<col style="width: 20%">
+				<col style="width: 10%">
+				<col style="width: 15%">
+			</colgroup> 
+				<thead>
+					<tr>
+						<th scope="col" class="ac">프로젝트명</th>
+						<th scope="col" class="ac">담당자 연락처</th>
+						<th scope="col" class="ac">프로젝트 기간</th>
+						<th scope="col" class="ac">예산</th>
+						<th scope="col" class="ac">계약서</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+						<c:choose>
+						<c:when test="${matchingProjectcheck == 0}">
+							<tr><td colspan="5">매칭중인 프로젝트가 없습니다.</td></tr>
+						</c:when>
+						<c:otherwise>
+						 <tr>							
+							<td>${matchingProject.p_name}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${matchingProject.e_pr_num}&e_num=${matchingProject.e_num}&from=mypage'"> </td>
+							<td>${matchingProject.manager_hphone}</td>
+							<td>${matchingProject.term}</td>
+							<td>${matchingProject.p_uppercost}</td>
+							<td><a href="/c_file/downloadFile?identy=0&f_num=${matchingProject.c_num}&fileType=contractfile">계약서</a></td>
+						</tr>
+						</c:otherwise>
+					</c:choose>
+
+				</tbody>
+			</table>
+
+		</div>
+	
+	
+		<div id="tab3">
 			<h4>내가 신청한 프로젝트</h4>
 			<table class="tb_st01 tb_st03">
 				<caption></caption>
@@ -248,7 +294,7 @@
 
 	
 
-		<div id="tab3">
+		<div id="tab4">
 			<h4>내가 완료한 프로젝트</h4>
 			<table class="tb_st01 tb_st03">
 				<caption></caption>

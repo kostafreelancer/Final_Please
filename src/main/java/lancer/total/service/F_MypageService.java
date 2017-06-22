@@ -131,6 +131,10 @@ public class F_MypageService {
 		return dao.getMyNowProject(f_num);
 	}
 	
+	public NowProject getMyMatchingProject(int f_num) throws Exception{
+		return dao.getMyMatchingProject(f_num);
+	}
+	
 	public List<NowProject> getMyFinishProject(int f_num) throws Exception{
 		return dao.getMyFinishProject(f_num);
 	}

@@ -200,10 +200,13 @@ public class F_MypageController {
 			System.out.println(portfolio.get(i).getContents());
 		}*/
 		NowProject nowProject = service.getMyNowProject(freelancer.getF_num());
-
-
-		nowProject.setTerm(nowProject.getP_startdate().substring(0, 10) + " ~ " + nowProject.getP_enddate().substring(0, 10));
-		
+		NowProject matchingProject = service.getMyMatchingProject(freelancer.getF_num());
+		if(nowProject != null){
+			nowProject.setTerm(nowProject.getP_startdate().substring(0, 10) + " ~ " + nowProject.getP_enddate().substring(0, 10));
+		}
+		if(matchingProject != null){
+		matchingProject.setTerm(matchingProject.getP_startdate().substring(0, 10) + " ~ " + matchingProject.getP_enddate().substring(0, 10));
+		}
 		List<NowProject> project = service.getMyFinishProject(freelancer.getF_num());
 		List<FinishProject> finishProject  = new ArrayList<FinishProject>();
 		for(int i=0; i<project.size(); i++){
@@ -238,10 +241,17 @@ public class F_MypageController {
 		
 		
 		if(nowProject == null){
-			model.addAttribute("nowProject", "0");
+			model.addAttribute("nowProjectcheck", "0");
 		}else{
 			model.addAttribute("nowProject", nowProject);
 		}
+
+		if(matchingProject == null){
+			model.addAttribute("matchingProjectcheck", "0");
+		}else{
+			model.addAttribute("matchingProject", matchingProject);
+		}
+		//System.out.println(matchingProject.getP_name()+"아아으아링");
 		
 		if(finishProject.size() == 0 ){
 			model.addAttribute("finishprojectcheck", "0");
