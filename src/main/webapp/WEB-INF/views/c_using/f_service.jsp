@@ -16,17 +16,7 @@
 
 </head>
 <body>
-	<c:choose>
-		<c:when test="${identity.identity == 'freelancer' }">
-			<%@include file="../c_common/header.jsp" %>
-		</c:when>
-		<c:when test="${identity.identity == 'enterprise' }">
-			<%@include file="../c_common/header_enterprise.jsp" %>
-		</c:when>
-		<c:otherwise>
-			<%@include file="../c_common/header.jsp" %>
-		</c:otherwise>
-	</c:choose>
+	<%@include file="../c_common/header.jsp" %>
 	<div class="left_menu">
 		<div class="left_menu_title">
 			<h2>이용방법</h2>
@@ -105,7 +95,6 @@
 					</a>
 					<div>
 						<img src="/resources/c_using_img/partners_process_five_none.png">
-						<img src="/resources/c_using_img/partners_intro_arrow.png">
 					</div>
 					
 					
@@ -185,7 +174,7 @@
 					</h5>
 					<div class="p5-clientUsage-step-content">
 						<div class="p5-clientUsage-step-mainText">
-							클라이언트가 미팅을 신청한 지원자에게는, 위시켓 팀이 개별적으로 연락을 드립니다. <br> 위시켓 팀에서
+							클라이언트가 미팅을 신청한 지원자에게는, 드림랜서 팀이 개별적으로 연락을 드립니다. <br> 드림랜서 팀에서
 							미팅 주선에서 계약까지 전 과정을 도와드립니다.
 						</div>
 						<div class="p5-clientUsage-step-subText">
@@ -200,7 +189,7 @@
 							<div class="p5-clientUsage-step-info-line">- 미팅은 온라인
 								미팅(skype, 카카오톡 등) / 오프라인 대면 미팅이 가능합니다.</div>
 							<div class="p5-clientUsage-step-info-line">- 계약서 작성, 비용처리 등
-								부가적인 작업은 위시켓 팀에서 진행합니다.</div>
+								부가적인 작업은 드림랜서 팀에서 진행합니다.</div>
 							<div class="p5-clientUsage-step-info-line">- 에스크로 형태로 계약하게
 								되며, 단위에 따라 대금 분할 지급도 가능합니다.</div>
 						</div>
@@ -216,12 +205,12 @@
 							진행</span> <img src="/resources/c_using_img/slash_blue.png">
 					</h5>
 					<div class="p5-clientUsage-step-content">
-						<div class="p5-clientUsage-step-mainText">프로젝트 진행 중에도 위시켓이
+						<div class="p5-clientUsage-step-mainText">프로젝트 진행 중에도 드림랜서이
 							함께 합니다.</div>
 						<div class="p5-clientUsage-step-subText">
 							·
 							<대금 보호 시스템>을 통해서 프로젝트 기간 동안 프로젝트 대금이 안전하게 보호됩니다. <br>
-							· 프로젝트 진행 중에도 위시켓 팀이 커뮤니케이션을 함께합니다. <br>
+							· 프로젝트 진행 중에도 드림랜서 팀이 커뮤니케이션을 함께합니다. <br>
 							· 분쟁 발생 시, 1억 원 이하 내용에 대하여 중재비용을 전액 지원합니다. 
 						</div>
 						<div class="p5-clientUsage-step-img">
@@ -234,7 +223,7 @@
 							<div class="p5-clientUsage-step-info-line">- 보호 중인 프로젝트 대금은
 								프로젝트의 완료 시점에 클라이언트의 승인 후에 파트너에게 지급됩니다.</div>
 							<div class="p5-clientUsage-step-info-line">
-								- 위시켓 팀이 프로젝트 진행상에서 발생하는 어려움들을 도와드리며, 분쟁 발생 시, 대한상사중재원을 <br>
+								- 드림랜서 팀이 프로젝트 진행상에서 발생하는 어려움들을 도와드리며, 분쟁 발생 시, 대한상사중재원을 <br>
 								<span style="margin-left: 9px;"></span> 통해 분쟁을 해결해드립니다.
 							</div>
 						</div>
@@ -262,7 +251,7 @@
 						</div>
 						<div class="p5-clientUsage-step-info">
 							<div class="p5-clientUsage-step-info-line">- 프로젝트 완료 후에,
-								위시켓 이용요금을 제외한 프로젝트 대금을 지급받습니다.</div>
+								드림랜서 이용요금을 제외한 프로젝트 대금을 지급받습니다.</div>
 							<div class="p5-clientUsage-step-info-line">- 계좌 등록은 [계정 설정]
 								> [계좌 관리]에서 가능합니다.</div>
 							<div class="p5-clientUsage-step-info-line">

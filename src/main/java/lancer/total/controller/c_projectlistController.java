@@ -42,12 +42,23 @@ public class c_projectlistController {
 		if(cri.getJobs()==null){
 			cri.setJobs(job);
 		}
-		if(fr != null){
+	/*	if(fr != null){
 			cri.setFr(fr);
 		}
 		if(ft != null){
 			cri.setFt(ft);
+		}*/
+		System.out.println(cri.getFr()+"이거이거");
+		System.out.println(fr+"이건 fr");
+		if(cri.getFr()==null){
+			cri.setFr(fr);
 		}
+		
+		if(cri.getFt()==null){
+			cri.setFt(ft);
+			
+		}
+		System.out.println(cri.getFr()+"야이거 나와");
 		List<E_Insert> list = service.listSearch(cri);
 		if(cri.getJobs()!=null){
 			String str[] =cri.getJobs();
@@ -58,7 +69,7 @@ public class c_projectlistController {
 		}else{
 			cri.setJobs(job);
 		}
-		
+		System.out.println(service.listSearchCount(cri) + "갯수");
 		model.addAttribute("list", list);
 		PageMaker pageMaker =  new PageMaker();
 		pageMaker.setCri(cri);

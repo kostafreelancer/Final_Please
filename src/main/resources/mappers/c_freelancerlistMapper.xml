@@ -111,7 +111,7 @@
 	</insert>
 	
 	<select id="getProject" parameterType="int" resultType="E_Insert">
-	select * from project where e_num = #{e_num} and p_state='모집중' and project_check_state='승인'
+	select * from project where (p_state='모집중' or p_state='추가모집') and e_num = #{e_num} and project_check_state='승인'
 	
 	</select>
 	

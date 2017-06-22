@@ -4,7 +4,7 @@
 <!-- <script src = "/script/functionmodule.js"></script> -->
 <script>
 	var user='';
-	var socket = io.connect('http://localhost:8000');
+	var socket = io.connect('http://localhost:8000'); 
 	var myname;
 	var usernames = [];
 	socket.on('sendusername',function(username){
@@ -80,9 +80,14 @@ $(document).ready(function() {
 	});
 	 $('.exit_menu').click(function(event){
 		 event.preventDefault();
+		window.top.exam();
 		alert($('.messengerWrapper').parent().parent().parent().text());
 		$('.messengerWrapper').parent().parent().parent().empty();  
 		socket.emit('disconnected',myname,user);
+		/* location.href="//localhost:8000/"; */
+		/* $(parent.document).exma(); */
+		
+		
 	 });
 	
 	
@@ -102,11 +107,11 @@ $(document).ready(function() {
 				
 					<span class="top_title">드림 랜서</span>
 				
-				<div>
+				<!-- <div>
 					<a href="#" class="exit_menu"> <img alt="chat_menu"
 						src="https://cdn.channel.io/plugin/images/exit-white.png">  
 					</a>
-				</div>
+				</div> -->
 				 
 			</div>
 			<div class="chat_text_area">
@@ -133,9 +138,19 @@ $(document).ready(function() {
 <style>
 <!--
 
-.toggle{
-	
-}
+
+.messengerWrapper{
+	background-color: transparent;
+    bottom: 24px;
+    css-float: none;
+    float: none;
+    overflow: initial;
+    position: fixed;
+    right: 24px;
+    width: 270px;
+    z-index: 10000000;
+} 
+
 .server span{
 	border: 1px solid;
     padding-left: 10px;
