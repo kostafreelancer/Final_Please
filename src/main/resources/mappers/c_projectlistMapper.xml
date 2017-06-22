@@ -35,7 +35,7 @@
 			   
 			  </foreach>
 			  <if test="fr !=null">
-			   	  and p_state='모집중'
+			   	  and p_state='모집중' or p_state='추가모집'
 			 </if>
 			 <if test="ft != null">
 			 	and p_state='완료'
@@ -48,7 +48,7 @@
 		  
 		  
 		  	  <if test="fr !=null">
-			   	   and p_state='모집중'
+			   	   and p_state='모집중' or p_state='추가모집'
 			 </if>
 			 <if test="ft != null">
 			 	 and p_state='완료'
@@ -75,10 +75,10 @@
 			   
 			  </foreach>
 			  <if test="fr !=null">
-			   	  and p_state='모집중' and project_check_state='승인'
+			   	  and p_state='모집중' or p_state='추가모집'
 			 </if>
 			 <if test="ft != null">
-			 	and p_state='완료' and project_check_state='승인'
+			 	and p_state='완료'
 			 </if>
 			 and project_check_state='승인'
 			</where>
@@ -88,7 +88,7 @@
 		
 		  
 		  	  <if test="fr !=null">
-			   	  and p_state='모집중' 
+			   	  and p_state='모집중' or p_state='추가모집' 
 			 </if>
 			 <if test="ft != null">
 			 	 and p_state='완료' 
