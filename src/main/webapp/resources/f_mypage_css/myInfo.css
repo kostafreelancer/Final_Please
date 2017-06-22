@@ -61,13 +61,7 @@
 #tabs a {
 	position: relative;
 	background: #ddd;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff),
-		to(#ddd));
-	background-image: -webkit-linear-gradient(top, #fff, #ddd);
-	background-image: -moz-linear-gradient(top, #fff, #ddd);
-	background-image: -ms-linear-gradient(top, #fff, #ddd);
-	background-image: -o-linear-gradient(top, #fff, #ddd);
-	background-image: linear-gradient(to bottom, #fff, #FF9900);
+	background-image: linear-gradient(to bottom, #fff, #d2e0f7);
 	padding: .7em 3.5em;
 	float: left;
 	text-decoration: none;
@@ -83,7 +77,7 @@
 
 #tabs a:hover, #tabs a:hover::after, #tabs a:focus, #tabs a:focus::after
 	{
-	background: #fff;
+	background: #f5f9fe;
 }
 
 #tabs a:focus {
@@ -99,13 +93,7 @@
 	bottom: 0;
 	width: 1em;
 	background: #ddd;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff),
-		to(#ddd));
-	background-image: -webkit-linear-gradient(top, #fff, #ddd);
-	background-image: -moz-linear-gradient(top, #fff, #ddd);
-	background-image: -ms-linear-gradient(top, #fff, #ddd);
-	background-image: -o-linear-gradient(top, #fff, #ddd);
-	background-image: linear-gradient(to bottom, #fff, #FF9900);
+	background-image: linear-gradient(to bottom, #fff, #d2e0f7);
 	-moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
 	-webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
 	box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
@@ -121,7 +109,7 @@
 }
 
 #tabs #current a, #tabs #current a::after {
-	background: #fff;
+	background: #f5f9fe;
 	z-index: 3;
 }
 /* 
@@ -1450,14 +1438,16 @@ th.th_bor0 {
 .star_rating {
    font-size: 25px;
    color: #2257ad;
+   margin-bottom: -10px;
+   margin-top: -15px;
 }
 
 .star_rating a {
-   padding: 5px;
+   padding: 0px;
    font-size: 30px;
    letter-spacing: 0;
    display: inline-block;
-   margin-left: 5px;
+   margin-left: 0px;
    color: #e6e6e6;
    text-decoration: none;
 }

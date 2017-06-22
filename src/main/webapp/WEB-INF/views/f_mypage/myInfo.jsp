@@ -277,8 +277,8 @@ $(function(){
 								</div>
 							</td>
 						</tr>
-						<%-- <tr>
-							<th><span class="txt_or">*</span> 내가 받은 평가</th>
+						<tr>
+							<th>내가 받은 평가</th>
 							<td colspan="4">
 								<p class="star_rating">
 									<input type="hidden" id="hiddenscore" value="${freelancer.f_score}">
@@ -289,7 +289,7 @@ $(function(){
 									<a id="fifth">★</a>
 								</p>
 							</td>
-						</tr> --%>
+						</tr>
 					</tbody>
 				</table>
 			</div> 

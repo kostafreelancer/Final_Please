@@ -24,6 +24,7 @@ import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.Freelancer;
+import lancer.f_mypage.domain.NowProject;
 import lancer.f_mypage.domain.Portfolio;
 import lancer.f_mypage.domain.School;
 
@@ -106,7 +107,7 @@ public class c_freelancerlistDAOImpl implements c_freelancerlistDAO{
 	}
     
     @Override
-    public List<Project> getMyFinishProject(int f_num) throws Exception{
+    public List<NowProject> getMyFinishProject(int f_num) throws Exception{
 		System.out.println(f_num);
 		return session.selectList(namepace + ".getMyFinishProject", f_num);
 	}

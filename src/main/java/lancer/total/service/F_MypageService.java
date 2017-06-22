@@ -131,7 +131,7 @@ public class F_MypageService {
 		return dao.getMyNowProject(f_num);
 	}
 	
-	public List<Project> getMyFinishProject(int f_num) throws Exception{
+	public List<NowProject> getMyFinishProject(int f_num) throws Exception{
 		return dao.getMyFinishProject(f_num);
 	}
 	
@@ -167,12 +167,12 @@ public class F_MypageService {
 		return dao.getSpendAccounting(f_num);
 	}
 	
-	public List<Accounting> searchSpendList(HashMap<String, String> map) throws Exception{
-		return dao.searchSpendList(map);
+	public List<Accounting> searchSpendList(HashMap<String, Object> searchDateMap) throws Exception{
+		return dao.searchSpendList(searchDateMap);
 	}
 	
-	public List<Accounting> searchIncomeList(HashMap<String, String> map) throws Exception{
-		return dao.searchIncomeList(map);
+	public List<Accounting> searchIncomeList(HashMap<String, Object> searchDateMap) throws Exception{
+		return dao.searchIncomeList(searchDateMap);
 	}
 
 	public int getSpendAccountingNum() throws Exception{

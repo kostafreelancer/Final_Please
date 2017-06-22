@@ -134,7 +134,7 @@ public class F_MypageDAO {
 		return session.selectOne(namespace + ".getMyNowProject", f_num);
 	}
 	
-	public List<Project> getMyFinishProject(int f_num) throws Exception{
+	public List<NowProject> getMyFinishProject(int f_num) throws Exception{
 		System.out.println(f_num);
 		return session.selectList(namespace + ".getMyFinishProject", f_num);
 	}
@@ -185,12 +185,12 @@ public class F_MypageDAO {
 		return session.selectList(namespace + ".getIncomeAccounting", f_num);
 	}
 	
-	public List<Accounting> searchSpendList(HashMap<String, String> map) throws Exception{
-		return session.selectList(namespace + ".searchSpendList", map);
+	public List<Accounting> searchSpendList(HashMap<String, Object> searchDateMap) throws Exception{
+		return session.selectList(namespace + ".searchSpendList", searchDateMap);
 	}
 	
-	public List<Accounting> searchIncomeList(HashMap<String, String> map) throws Exception{
-		return session.selectList(namespace+ ".searchIncomeList", map);
+	public List<Accounting> searchIncomeList(HashMap<String, Object> searchDateMap) throws Exception{
+		return session.selectList(namespace+ ".searchIncomeList", searchDateMap);
 	}
 	
 	public int getAccounting_iden(int f_num) throws Exception{

@@ -37,6 +37,7 @@ import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.FinishProject;
+import lancer.f_mypage.domain.NowProject;
 import lancer.f_mypage.domain.Portfolio;
 import lancer.f_mypage.domain.School;
 import lancer.total.service.c_freelancerlistService;
@@ -115,7 +116,7 @@ public class c_freelancerlistController {
 		List<School> school = service.showSchoolInfo(f_num);
 		List<Certificate> certificate = service.showCertiInfo(f_num);
 		List<Portfolio> portfolio = service.showPortfolioInfo(f_num);
-		List<Project> project = service.getMyFinishProject(f_num);
+		List<NowProject> project = service.getMyFinishProject(f_num);
 		List<FinishProject> finishProject  = new ArrayList<FinishProject>();
 		for(int i=0; i<project.size(); i++){
 			FinishProject fp = new FinishProject();

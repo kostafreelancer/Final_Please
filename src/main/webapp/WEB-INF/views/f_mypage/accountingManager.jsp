@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="../c_common/header.jsp" flush="true"/>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,7 +13,7 @@
 	href="${pageContext.request.contextPath}/resources/f_mypage_css/accountingManager.css"
 	type="text/css" media="screen" />
 <script
-	src="${pageContext.request.contextPath}/resources/f_mypage_js/jquery-1.3.2.js"></script>
+	src="${pageContext.request.contextPath}/resources/f_mypage_js/jquery-1.3.2.js"></script> 
 <script
 	src="${pageContext.request.contextPath}/resources/f_mypage_js/accountingManager.js"></script>
 <!-- <script src="js/comma.js"></script> -->
@@ -21,13 +23,14 @@
 	src="${pageContext.request.contextPath}/resources/f_mypage_js/superfish.js"></script>
 <script
 	src="${pageContext.request.contextPath}/resources/f_mypage_js/comment.js"></script>
-<%-- <script src="${pageContext.request.contextPath}/resources/f_mypage_js/calendar.js"></script>  --%>
+<script src="${pageContext.request.contextPath}/resources/f_mypage_js/calendar.js"></script>
+
 
 </head>
 <body>
 
 
-	<%@include file="../c_common/header.jsp"%>
+<%-- 	<%@include file="../c_common/header.jsp"%> --%>
 
 	<div class="left_menu">
 		<div class="left_menu_title">
@@ -59,6 +62,7 @@
 
 			<form id="searchDate" name="searchDate" method="post"
 				action="/f_mypage/accountingManager">
+				<input type="hidden" name="f_num" value="${client.f_num }">
 			
 			<input type="button" onclick="monthSearch(1);" value="1월">
 			<input type="button" onclick="monthSearch(2);" value="2월">
@@ -73,8 +77,8 @@
 			<input type="button" onclick="monthSearch(11);" value="11월">
 			<input type="button" onclick="monthSearch(12);" value="12월">
 		
-				<input type="text" id="startDate" name="startDate">
-				&nbsp;&nbsp;~ <input type="text" id="endDate" name="endDate">
+				<input type="text" id="txtDate" name="startDate" onClick="fnPopUpCalendar(txtDate,txtDate,'yyyy/mm/dd')"  class="day_inp" />
+				&nbsp;&nbsp;~ <input type="text" id="txtDate2" name="endDate" onClick="fnPopUpCalendar(txtDate2,txtDate2,'yyyy/mm/dd')"  class="day_inp" />
 				<input type="submit" value="검색">
 			</form>
 	
@@ -90,9 +94,9 @@
 					<caption></caption>
 					<colgroup>
 						<col style="width: 25%">
-						<col style="width: 15%">
-						<col style="width: 15%">
 						<col style="width: 10%">
+						<col style="width: 15%">
+						<col style="width: 15%">
 						<col style="width: 20%">
 						<col style="width: 15%">
 					</colgroup>
@@ -145,6 +149,7 @@
 
 					</tbody>
 				</table>
+				
 						<div class="ct overf">
 					<br>
 
@@ -524,11 +529,7 @@
 	</div>
 	</section>
 
-	<%@include file="../c_common/footer.jsp"%>
+	<%-- <%@include file="../c_common/footer.jsp"%> --%>
 
 </body>
-<script type="text/javascript">
-
-
-</script>
 </html>

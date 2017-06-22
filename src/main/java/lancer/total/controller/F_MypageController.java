@@ -89,15 +89,15 @@ public class F_MypageController {
 		}
 		
 		
-		List<Integer> joblist = service.showFreelancerJobInfo(3);
+		List<Integer> joblist = service.showFreelancerJobInfo(freelancer.getF_num());
 		model.addAttribute("joblist", joblist);
 		
-		List<Career> career = service.showCareerInfo(3);
-		List<School> school = service.showSchoolInfo(3);
-		List<Certificate> certificate = service.showCertiInfo(3);
-		List<ApplyProject> applyproject = service.getApplyProject(3);
-		List<ApplyProject> suggestproject = service.getSuggestProject(3);
-		List<Portfolio> portfolio = service.showPortfolioInfo(3);
+		List<Career> career = service.showCareerInfo(freelancer.getF_num());
+		List<School> school = service.showSchoolInfo(freelancer.getF_num());
+		List<Certificate> certificate = service.showCertiInfo(freelancer.getF_num());
+		List<ApplyProject> applyproject = service.getApplyProject(freelancer.getF_num());
+		List<ApplyProject> suggestproject = service.getSuggestProject(freelancer.getF_num());
+		List<Portfolio> portfolio = service.showPortfolioInfo(freelancer.getF_num());
 		/*for(int i=0; i<portfolio.size(); i++){
 			System.out.println(portfolio.get(i).getContents());
 			portfolio.get(i).setContents(portfolio.get(i).getContents().replaceAll("<br />", "\r\n"));
@@ -185,29 +185,30 @@ public class F_MypageController {
 		
 		model.addAttribute("freelancer", freelancer);
 		
-		List<Integer> joblist = service.showFreelancerJobInfo(3);
+		List<Integer> joblist = service.showFreelancerJobInfo(freelancer.getF_num());
 		model.addAttribute("joblist", joblist);
 		
-		List<Career> career = service.showCareerInfo(3);
-		List<School> school = service.showSchoolInfo(3);
-		List<Certificate> certificate = service.showCertiInfo(3);
-		List<ApplyProject> applyproject = service.getApplyProject(3);
-		List<ApplyProject> suggestproject = service.getSuggestProject(3);
-		List<Portfolio> portfolio = service.showPortfolioInfo(3);
+		List<Career> career = service.showCareerInfo(freelancer.getF_num());
+		List<School> school = service.showSchoolInfo(freelancer.getF_num());
+		List<Certificate> certificate = service.showCertiInfo(freelancer.getF_num());
+		List<ApplyProject> applyproject = service.getApplyProject(freelancer.getF_num());
+		List<ApplyProject> suggestproject = service.getSuggestProject(freelancer.getF_num());
+		List<Portfolio> portfolio = service.showPortfolioInfo(freelancer.getF_num());
 		/*for(int i=0; i<portfolio.size(); i++){
 			System.out.println(portfolio.get(i).getContents());
 			portfolio.get(i).setContents(portfolio.get(i).getContents().replaceAll("<br />", "\r\n"));
 			System.out.println(portfolio.get(i).getContents());
 		}*/
-		NowProject nowProject = service.getMyNowProject(3);
+		NowProject nowProject = service.getMyNowProject(freelancer.getF_num());
 
 
-	//	nowProject.setTerm(/*nowProject.getP_startdate().substring(0, 10) + " ~ " + nowProject.getP_enddate().substring(0, 10)*/);
+		nowProject.setTerm(nowProject.getP_startdate().substring(0, 10) + " ~ " + nowProject.getP_enddate().substring(0, 10));
 		
-		List<Project> project = service.getMyFinishProject(3);
+		List<NowProject> project = service.getMyFinishProject(freelancer.getF_num());
 		List<FinishProject> finishProject  = new ArrayList<FinishProject>();
 		for(int i=0; i<project.size(); i++){
 			FinishProject fp = new FinishProject();
+			fp.setC_num(project.get(i).getC_num());
 			fp.setProName(project.get(i).getP_name());
 			fp.setProTerm(project.get(i).getP_startdate().substring(0, 10) + " ~ " + project.get(i).getP_enddate().substring(0, 10));
 			fp.setCost(project.get(i).getP_uppercost());
@@ -653,12 +654,13 @@ public class F_MypageController {
 	
 	
 	@RequestMapping(value="/accountingManager", method=RequestMethod.POST)
-	public void accountingSearch(Model model, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate) throws Exception{
+	public void accountingSearch(Model model, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, @RequestParam("f_num") int f_num) throws Exception{
 		System.out.println(startDate);
 		System.out.println(endDate);
-		HashMap<String, String> searchDateMap = new HashMap<String, String>();
-		searchDateMap.put("startDate", startDate);
-		searchDateMap.put("endDate", endDate);
+		HashMap<String, Object> searchDateMap = new HashMap<String, Object>();
+		searchDateMap.put("startDate", startDate.substring(2));
+		searchDateMap.put("endDate", endDate.substring(2));
+		searchDateMap.put("f_num", f_num);
 		List<Accounting>searchSpendList = service.searchSpendList(searchDateMap);
 		if(searchSpendList.size()==0){
 			model.addAttribute("spendListCheck", 0);

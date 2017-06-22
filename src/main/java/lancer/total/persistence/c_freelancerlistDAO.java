@@ -18,6 +18,7 @@ import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
 import lancer.f_mypage.domain.Freelancer;
+import lancer.f_mypage.domain.NowProject;
 import lancer.f_mypage.domain.Portfolio;
 import lancer.f_mypage.domain.School;
 
@@ -33,7 +34,7 @@ public interface c_freelancerlistDAO {
 	List<Career> showCareerInfo(int f_num) throws Exception;
 	List<School> showSchoolInfo(int f_num) throws Exception;
 	List<Certificate> showCertiInfo(int f_num) throws Exception;
-	List<Project> getMyFinishProject(int f_num) throws Exception;
+	List<NowProject> getMyFinishProject(int f_num) throws Exception;
 	List<String> getProjectP_job(int e_pr_num) throws Exception;
 	int getnum() throws Exception;
 	void insertContract(SubmitVO submitVO) throws Exception;

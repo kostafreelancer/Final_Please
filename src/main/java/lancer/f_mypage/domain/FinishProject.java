@@ -5,15 +5,17 @@ import java.io.Serializable;
 public class FinishProject  implements Serializable{
 	private String proName;
 	private String proTerm;
-	private int cost;
+	private String cost;
 	private String p_job;
 	private int e_pr_num;
 	private int e_num;
+	private int c_num;
 	
 	public FinishProject(){}
 
 
-	public FinishProject(String proName, String proTerm, int cost, String p_job, int e_pr_num, int e_num) {
+	public FinishProject(String proName, String proTerm, String cost, String p_job, int e_pr_num, int e_num,
+			int c_num) {
 		super();
 		this.proName = proName;
 		this.proTerm = proTerm;
@@ -21,6 +23,17 @@ public class FinishProject  implements Serializable{
 		this.p_job = p_job;
 		this.e_pr_num = e_pr_num;
 		this.e_num = e_num;
+		this.c_num = c_num;
+	}
+
+
+	public int getC_num() {
+		return c_num;
+	}
+
+
+	public void setC_num(int c_num) {
+		this.c_num = c_num;
 	}
 
 
@@ -40,11 +53,11 @@ public class FinishProject  implements Serializable{
 		this.proTerm = proTerm;
 	}
 
-	public int getCost() {
+	public String getCost() {
 		return cost;
 	}
 
-	public void setCost(int cost) {
+	public void setCost(String cost) {
 		this.cost = cost;
 	}
 
