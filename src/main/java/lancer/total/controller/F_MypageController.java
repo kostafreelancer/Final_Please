@@ -202,7 +202,7 @@ public class F_MypageController {
 		NowProject nowProject = service.getMyNowProject(3);
 
 
-		nowProject.setTerm(nowProject.getP_startdate().substring(0, 10) + " ~ " + nowProject.getP_enddate().substring(0, 10));
+	//	nowProject.setTerm(/*nowProject.getP_startdate().substring(0, 10) + " ~ " + nowProject.getP_enddate().substring(0, 10)*/);
 		
 		List<Project> project = service.getMyFinishProject(3);
 		List<FinishProject> finishProject  = new ArrayList<FinishProject>();
