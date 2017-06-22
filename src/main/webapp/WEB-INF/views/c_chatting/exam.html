@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<script>
+
+function setIFrameHeight(obj){
+    if(obj.contentDocument){
+        obj.height = obj.contentDocument.body.offsetHeight + 40;
+    } else {
+        obj.height = obj.contentWindow.document.body.scrollHeight;
+    }
+}
+function exam(){
+	alert("드와?아이프레임이서?asd");
+}
+
+/* $(function(){
+	
+	alert("드와?");
+	$('#iframe_id').click(function(){
+		alert("여기?");
+	}
+	$('.check').click(function(){
+		alert("토클 드와?");
+		$('#iframe_id').toggle();
+		$('#iframe_id2').toggle();
+	});
+	
+} */
+$(function(){
+	$('.chatting').click(function(){
+		alert('이게 걸리긴 하냐?');
+		$(this).toggle();
+		$('.iframe_view').toggle();
+	});
+	$('.iframe_close').click(function(){
+		$('.iframe_view').toggle();
+		$('.chatting').toggle();
+	});
+
+});
+	
+</script>
+<style type="text/css">
+.iframe_view{
+	height: 700px;
+}	
+#iframe_id{
+	background-color: transparent;
+    bottom: 90px;
+    css-float: none;
+    float: none;
+    overflow: initial;
+    position: fixed;
+    right: 24px;
+    width: 270px;
+    z-index: 10000000;
+}
+
+.iframe_view{
+	display: none;
+}
+#iframe_id{
+	border: none;
+    height: 100% !important;
+    position: static;
+    width: 100% !important;
+}
+#iframe_id body{
+	margin: 0;
+}
+.chatting {
+	width: 140px;
+	bottom: 24px;
+	/*     overflow: initial; */
+	position: fixed;
+	right: 150px;
+	/* border: 1px solid rgb(77, 136, 229);
+	border-radius: 24px;
+	background-color: rgb(86, 152, 255); */
+	z-index: 999;
+}
+/* .chatting_se{
+	animation: h1uv5ytd 0.25s ease-out;
+	background-color: transparent;
+    border-radius: 12px;
+    bottom: 25px;
+    box-shadow: 0 6px 60px 0 rgba(81,99,120,.3);
+    height: 80%;
+    max-height: 720px;
+    min-height: 480px;
+    overflow: hidden;
+    position: fixed;
+    right: 25px;
+    width: 320px;
+    z-index: 10000000;
+} */
+.chatting_img {
+	padding-left: 15px;
+	float: left;
+}
+
+.chatting p {
+	color: #ffffff;
+	margin-top: 13px;
+	margin-bottom: 8px;
+}
+
+/* .body {
+	height: 1000px;
+	width: 100%;
+	background: #c0c0c0;
+} */
+
+.windowWrapper{
+	background-color: transparent;
+    bottom: 90px;
+    css-float: none;
+    float: none;
+    overflow: initial;
+    position: fixed;
+    right: 24px;
+    width: 270px;
+    z-index: 10000000;
+}
+.chatting_Detail{
+	border: 1px solid rgb(77, 136, 229);
+	border-radius: 24px;
+	background-color: rgb(86, 152, 255);
+	height: 40px;
+}
+.iframe_view{
+    width: 344px;
+    bottom: 24px;
+    position: fixed;
+    right: 150px;
+    z-index: 999;
+    height: 619px;
+}
+.iframe_close{
+	position: absolute;
+    right: 30px;
+    top: 2px;
+}
+</style>
+
+</head>
+<body>
+
+		
+	<div class="chatting">
+			<div class="chatting_Detail">
+				<img class="chatting_img" alt="catting_open"
+					src="//cdn.channel.io/plugin/images/plugin-bubble-icon-white.png" height="40px">
+				<p>채팅 문의</p>
+			</div>
+	</div>
+	
+	<div class="iframe_view">
+		<a href="#" class="iframe_close"> <img alt="chat_menu"
+						src="https://cdn.channel.io/plugin/images/exit-white.png">  
+					</a>
+		<iframe id ="iframe_id" name="iframe_name" src='http://localhost:8000/client?username=' width="300" height="465"></iframe>
+	</div>
+	
+</body>
+</html>

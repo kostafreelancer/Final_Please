@@ -14,17 +14,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:choose>
-		<c:when test="${identity.identity == 'freelancer' }">
+
 			<%@include file="../c_common/header.jsp" %>
-		</c:when>
-		<c:when test="${identity.identity == 'enterprise' }">
-			<%@include file="../c_common/header_enterprise.jsp" %>
-		</c:when>
-		<c:otherwise>
-			<%@include file="../c_common/header.jsp" %>
-		</c:otherwise>
-	</c:choose>
+	
 
 	<div class="left_menu">
 		<div class="left_menu_title">
