@@ -15,8 +15,10 @@
 <script type="text/javascript" src="/resources/c_common_js/footer.js"></script>
 </head>
 <body>
-	
+	<c:if test="${identity.identity ne null}">
 		<%@include file="../c_chatting/chatting.html"%>
+	</c:if>
+		
 	
 	<div class="footer_wrap">
 		<div class="footer_box">

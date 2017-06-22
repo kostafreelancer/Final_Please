@@ -19,21 +19,22 @@
 <script type="text/javascript">
 
 $(function(){
-	
-	$('.chatting').click(function(){
+	var username = localStorage.getItem('username');
+	$('.chatting_se').append('<iframe id ="iframe_id" name="iframe_name" src="http://localhost:8000/client?username='+username+'" width="300" height="465"></iframe>');
+	$('.chatting_Detail').click(function(){
 		var username = localStorage.getItem('username');
 		alert(localStorage.getItem('username')+"이거?");
 		$(this).toggle();
-		$('.iframe_view').toggle();
-	/* $(this).after('<div class="chatting_se"><iframe id ="iframe_id" name="iframe_name" src="http://localhost:8000/client?username='+username+'" width="300" height="465"></iframe></div>'); */
+		$('.windowWrapper').toggle();
+	/*  $(this).after('<div class="chatting_se"><iframe id ="iframe_id" name="iframe_name" src="http://localhost:8000/client?username='+username+'" width="300" height="465"></iframe></div>');  */
 	/* self.location("http://localhost:8000/client?username="+username); */
 	/* location.href="/client?username="+username; */
 	/*  $(this).hide(); */ 
 	});
 	
 	$('.iframe_close').click(function(){
-		$('.iframe_view').toggle();
-		$('.chatting').toggle();
+		$('.windowWrapper').toggle();
+		$('.chatting_Detail').toggle();
 	});
 });
 </script> 
@@ -104,6 +105,7 @@ body{
     right: 24px;
     width: 270px;
     z-index: 10000000;
+    display: none;
 }
 .chatting_Detail{
 	border: 1px solid rgb(77, 136, 229);
@@ -120,15 +122,16 @@ body{
     css-float: none;
     float: none;
     overflow: initial;
-    position: fixed;
+    /* position: fixed; */
     right: 24px;
     width: 270px;
     z-index: 10000000;
+
 }
 .iframe_view{
 	width: 344px;
     bottom: 100px;
-    position: fixed;
+   /*  position: fixed; */
     right: 24px;
     z-index: 999;
     height: 619px;
@@ -136,23 +139,30 @@ body{
 }
 .iframe_close{
 	position: absolute;
-    right: 30px;
+    right: 10px;
     top: 2px;
     z-index: 10000001;
 }
 </style>
 </head>
 <body>
-	<!-- <div class="chatting">
+	<div class="chatting">
 		<div class="chatting_Detail">
 			<img class="chatting_img" alt="catting_open"
 				src="//cdn.channel.io/plugin/images/plugin-bubble-icon-white.png" height="40px">
 			<p>채팅 문의</p>
 		</div>
-		<div class="windowWrapper"></div>
-	</div> -->
+		<div class="windowWrapper">
+			<div class="chatting_se">
+				<a href="#" class="iframe_close"> 
+					<img alt="chat_menu" src="https://cdn.channel.io/plugin/images/exit-white.png">  
+				</a>
+				<!-- <iframe id ="iframe_id" name="iframe_name" src="http://localhost:8000/client?username=${zxc}" width="300" height="465"></iframe> -->
+			</div>
+		</div>
+	</div>
 	
-	<div class="chatting">
+	<!-- <div class="chatting">
 			<div class="chatting_Detail">
 				<img class="chatting_img" alt="catting_open"
 					src="//cdn.channel.io/plugin/images/plugin-bubble-icon-white.png" height="40px">
@@ -165,7 +175,7 @@ body{
 						src="https://cdn.channel.io/plugin/images/exit-white.png">  
 					</a>
 		<iframe id ="iframe_id" name="iframe_name" src='http://localhost:8000/client?username=' width="300" height="465"></iframe>
-	</div>
+	</div> -->
 	
 </body>
 </html>

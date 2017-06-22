@@ -1,12 +1,13 @@
 <script src="/socket.io/socket.io.js"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script> -->
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<!-- <script src = "/script/functionmodule.js"></script> -->
 <script>
-	var user='';
-	var socket = io.connect('http://localhost:8000'); 
+	
+
+
+	var socket = io.connect('http://localhost:8000');
+	/* var myname = prompt("너의 이름?"); */
 	var myname;
-	var usernames = [];
 	socket.on('sendusername',function(username){
 		alert("여기 드오지?"+username);
 		myname = username;
@@ -19,82 +20,30 @@
 	socket.on('updatechat',function(username , data){
 		if(username != myname){
 			$('.chat_content').append('<p class="server_name">'+username+'</p><p class="server"><span>'+data+'</span></p>');
-		};
+		}
 	});
-	socket.on('userlist',function(list){
-		var num = 0;
-		usernames = [];
-		$.each(list,function(index,item){
-			
-			usernames += '<li class="users">'+item+'</li>';
-		});
-		
-	}); 
-	socket.on('hiden',function(username,data){
-		user=username;
-		if(username != myname){
-			$('.chat_content').append('<p class="server_name">'+username+'</p><p class="server"><span>'+data+'</span></p>');
-		};
-	});
-	socket.on('disconneted_alram',function(username){
-			$('.chat_content').append('<p class="server_name">'+username+' 님이 접속을 종료 하셨습니다.</p>');
-			user='';
-	});
-	
-	
-	
-<!-- </script>
-<script> -->
-$(document).ready(function() {
-	// 클라이언트에서 SEND 버튼을 클릭할 때
-	/* var user; */
-	$('#datasend').click( function() {
+	$(function(){
+		// 클라이언트에서 SEND 버튼을 클릭할 때
+		$('#datasend').click( function() {
 		var message = $('#data').val();
 		if(message === ''){
 			return;
 		}
-		if(user===''){
-			alert("대화할 대상을 지정하세요.");
-			$('#data').val('');
-			return;
-		}
 		$('#data').val('');
 		// 서버에서 sendchat 함수를 실행하도록 알려주며, 하나의 파라미터를 전달한다
-		socket.emit('sendchat', message,user);
+		socket.emit('sendchat', message);
 		$('.chat_content').append('<p class="client"><span>'+message+'</span></p>');
-	});
-	
-	$('.toggle').on('click','.users',function(){
-		
-		user= $(this).text();
-		$('.toggle').css("display","none");
-		$('.chat_text_area').css("display", "block");
-	});
-	 $('.chat_menu').click(function(event){
-		event.preventDefault();
-		$('.toggle').empty();
-		socket.emit('alllist');
-		$('.toggle').append(usernames); 
-		$('.chat_text_area').toggle();
-		$('.toggle').toggle();
-	});
-	 $('.exit_menu').click(function(event){
-		 event.preventDefault();
-		window.top.exam();
-		alert($('.messengerWrapper').parent().parent().parent().text());
-		$('.messengerWrapper').parent().parent().parent().empty();  
-		socket.emit('disconnected',myname,user);
-		/* location.href="//localhost:8000/"; */
-		/* $(parent.document).exma(); */
+		});
+		$('.exit_menu').click(function(event){
+			event.preventDefault();
+			alert("여기 들어와?");
+			$('#iframe_id').remove();
+		});
 		
 		
-	 });
-	
-	
-});
-
+	});
 </script>
-<!-- <body> -->
+<body>
 	<div class="messengerWrapper">
 		<div class="chat_inner">
 			<div class="chat_top">
@@ -102,27 +51,22 @@ $(document).ready(function() {
 					<a href="#" class="chat_menu"> <img alt="chat_menu"
 					src="https://cdn.channel.io/plugin/images/menu-white.png"> 
 				</a>
-			
 				</div>
 				
 					<span class="top_title">드림 랜서</span>
 				
-				<!-- <div>
+				<div>
 					<a href="#" class="exit_menu"> <img alt="chat_menu"
 						src="https://cdn.channel.io/plugin/images/exit-white.png">  
 					</a>
-				</div> -->
+				</div>
 				 
 			</div>
 			<div class="chat_text_area">
 				<span>오늘</span>
-				
 				<div class="chat_content">
 					
 				</div>
-			</div>
-			<div class="toggle" style="display: none;">
-					<h1>으아</h1>
 			</div>
 			<div class="chat_text_input">
 				<!-- <textarea class="chat_text_put" placeholder="메시지를 입력하세요.."></textarea> -->
@@ -134,23 +78,9 @@ $(document).ready(function() {
 			<!-- <div class="chat_send">전송</div> -->
 		</div>
 	</div>
-<!-- </body> -->
+</body>
 <style>
 <!--
-
-
-.messengerWrapper{
-	/* background-color: transparent;
-    bottom: 24px;
-    css-float: none;
-    float: none;
-    overflow: initial;
-    position: fixed;
-    right: 24px;
-    width: 270px;
-    z-index: 10000000; */
-} 
-
 .server span{
 	border: 1px solid;
     padding-left: 10px;
@@ -215,13 +145,6 @@ $(document).ready(function() {
 
 .chat_text_area {
 	height: 495px;
-	background-color: #ffffff;
-	text-align: center;
-	border-bottom: 1px solid #c0c0c0;
-	overflow:auto;
-}
-.userlist{
-	height: 465px;
 	background-color: #ffffff;
 	text-align: center;
 	border-bottom: 1px solid #c0c0c0;
