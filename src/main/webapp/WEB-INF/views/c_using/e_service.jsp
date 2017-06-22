@@ -175,14 +175,12 @@
 							<br>
 						</div>
 						<div class="p5-clientUsage-step-info">
-							<div class="p5-clientUsage-step-info-line">- 각종 필터와 숨기기 기능을
+							<div class="p5-clientUsage-step-info-line">- 각종 검색 기능을
 								통해 지원자를 효율적으로 비교할 수 있습니다.</div>
-							<div class="p5-clientUsage-step-info-line">- 미팅 신청은 최대 2명까지
-								가능합니다.</div>
 							<div class="p5-clientUsage-step-info-line">- 마음에 드는 지원자를
 								선택하면, 드림랜서 팀에서 미팅을 주선해드립니다.</div>
 							<div class="p5-clientUsage-step-info-line">- 프로젝트의 지원자는
-								[지원자 모집 중] 탭에서 확인할 수 있습니다.</div>
+								마이페이지에서 확인할 수 있습니다.</div>
 						</div>
 					</div>
 				</div>
@@ -261,19 +259,20 @@
 							프로젝트가 완료되며, 상호간의 만족도 평가를 합니다.</div>
 						<div class="p5-clientUsage-step-img">
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="/resources/c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/com.PNG">
+							<img src="/resources/c_using_img/score.PNG">
+							<br><br>
 						</div>
 						<div class="p5-clientUsage-step-info">
 							<div class="p5-clientUsage-step-info-line">- 프로젝트 완료 후에,
 								프로젝트 대금이 파트너에게 전달됩니다.</div>
 							<div class="p5-clientUsage-step-info-line">
-								- 프로젝트를 진행했던 파트너를 5가지 항목(전문성, 결과물 만족도, 의사소통, 일정 준수, 적극성)으로 <br>
+								- 프로젝트를 진행했던 파트너를 평점으로 <br>
 								<span style="margin-left: 9px;"></span> 평가할 수 있습니다.
 							</div>
 							<div class="p5-clientUsage-step-info-line">- 평가는 다른 클라이언트들이
 								파트너를 선택하는데 큰 도움이 됩니다.</div>
-							<div class="p5-clientUsage-step-info-line">- 평가는 [종료된 프로젝트]
-								탭에서 입력할 수 있습니다.</div>
+							
 						</div>
 					</div>
 				</div>

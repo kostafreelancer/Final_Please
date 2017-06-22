@@ -121,11 +121,13 @@
 						</div>
 						<div class="p5-clientUsage-step-img">
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="/resources/c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/hahaha.PNG">
+							<img src="/resources/c_using_img/hahahaha.PNG">
+							<br>
 						</div>
 						<div class="p5-clientUsage-step-info">
-							<div class="p5-clientUsage-step-info-line">- [프로필 정보 관리] >
-								[파트너스 정보] 메뉴에서 프로필 관련 정보를 입력할 수 있습니다.</div>
+							<div class="p5-clientUsage-step-info-line">- [프리랜서] >
+								[마이페이지] 메뉴에서 프로필 관련 정보를 입력할 수 있습니다.</div>
 							<div class="p5-clientUsage-step-info-line">- 대표 포트폴리오와 대표
 								보유 기술을 활용하여 장점을 부각시킬 수 있습니다.</div>
 							<div class="p5-clientUsage-step-info-line">- 연락처나 이메일 등을
@@ -140,10 +142,10 @@
 					<h5 class="p5-clientUsage-step-title">
 						<img src="/resources/c_using_img/intro_two.png"> <span
 							class="p5-clientUsage-step-title-text" style="margin-left: 10px;">프로젝트
-							비공개 지원</span> <img src="/resources/c_using_img/slash_blue.png">
+							비교, 선택</span> <img src="/resources/c_using_img/slash_blue.png">
 					</h5>
 					<div class="p5-clientUsage-step-content">
-						<div class="p5-clientUsage-step-mainText">간단한 지원서 작성을 통해서,
+						<div class="p5-clientUsage-step-mainText">프로젝트를 비교하고, 조건에 맞는
 							원하는 프로젝트에 지원할 수 있습니다.</div>
 						<div class="p5-clientUsage-step-subText">
 							· 합리적인 비용과 기간을 산정하여 지원해주세요. <br> · 모든 지원 정보는 관련 클라이언트 외에는 볼
@@ -151,11 +153,14 @@
 						</div>
 						<div class="p5-clientUsage-step-img">
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="/resources/c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/propro.PNG">
+							<br>
+							<br>
+							<br>
 						</div>
 						<div class="p5-clientUsage-step-info">
-							<div class="p5-clientUsage-step-info-line">- 프로젝트의 상세페이지 우측
-								상단의 [프로젝트 지원하기] 버튼을 통해, 프로젝트에 지원할 수 있습니다.</div>
+							<div class="p5-clientUsage-step-info-line">- 프로젝트의 상세페이지 하단에
+							 [프로젝트 신청하기] 버튼을 통해, 프로젝트에 지원할 수 있습니다.</div>
 							<div class="p5-clientUsage-step-info-line">- 프로젝트 견적은 미팅 시에
 								변경될 수 있습니다.</div>
 							<div class="p5-clientUsage-step-info-line">- 관련 프로젝트 경험을
@@ -169,8 +174,8 @@
 				<div id="p5-clientUsage-step-3" class="p5-clientUsage-step">
 					<h5 class="p5-clientUsage-step-title">
 						<img src="/resources/c_using_img/intro_three.png"> <span
-							class="p5-clientUsage-step-title-text" style="margin-left: 10px;">미팅
-							및 계약</span> <img src="/resources/c_using_img/slash_blue.png">
+							class="p5-clientUsage-step-title-text" style="margin-left: 10px;">프로젝트 신청
+							</span> <img src="/resources/c_using_img/slash_blue.png">
 					</h5>
 					<div class="p5-clientUsage-step-content">
 						<div class="p5-clientUsage-step-mainText">
@@ -178,20 +183,19 @@
 							미팅 주선에서 계약까지 전 과정을 도와드립니다.
 						</div>
 						<div class="p5-clientUsage-step-subText">
-							· 미팅을 통해 프로젝트 내용을 파악하고, 본인의 장점을 어필할 수 있습니다. <br> · 에스크로 형태의
-							대금 보호 시스템을 통한 안전한 계약
+							· 미팅을 통해 프로젝트 내용을 파악하고, 본인의 장점을 어필할 수 있습니다. <br>
 						</div>
 						<div class="p5-clientUsage-step-img">
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="/resources/c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/propro1.PNG">
+							<br>
 						</div>
 						<div class="p5-clientUsage-step-info">
 							<div class="p5-clientUsage-step-info-line">- 미팅은 온라인
-								미팅(skype, 카카오톡 등) / 오프라인 대면 미팅이 가능합니다.</div>
+								채팅 / 오프라인 대면 미팅이 가능합니다.</div>
 							<div class="p5-clientUsage-step-info-line">- 계약서 작성, 비용처리 등
 								부가적인 작업은 드림랜서 팀에서 진행합니다.</div>
-							<div class="p5-clientUsage-step-info-line">- 에스크로 형태로 계약하게
-								되며, 단위에 따라 대금 분할 지급도 가능합니다.</div>
+							
 						</div>
 					</div>
 				</div>
@@ -235,8 +239,8 @@
 				<div id="p5-clientUsage-step-5" class="p5-clientUsage-step">
 					<h5 class="p5-clientUsage-step-title">
 						<img src="/resources/c_using_img/intro_five.png"> <span
-							class="p5-clientUsage-step-title-text" style="margin-left: 11px;">프로젝트
-							완료</span> <img src="/resources/c_using_img/slash_blue.png">
+							class="p5-clientUsage-step-title-text" style="margin-left: 11px;">프로젝트 완료
+							</span> <img src="/resources/c_using_img/slash_blue.png">
 					</h5>
 					<div class="p5-clientUsage-step-content">
 						<div class="p5-clientUsage-step-mainText">클라이언트와 파트너의 승인 후에
@@ -247,18 +251,14 @@
 						</div>
 						<div class="p5-clientUsage-step-img">
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="/resources/c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/ha.PNG">
+							<br><br>
 						</div>
 						<div class="p5-clientUsage-step-info">
 							<div class="p5-clientUsage-step-info-line">- 프로젝트 완료 후에,
 								드림랜서 이용요금을 제외한 프로젝트 대금을 지급받습니다.</div>
-							<div class="p5-clientUsage-step-info-line">- 계좌 등록은 [계정 설정]
-								> [계좌 관리]에서 가능합니다.</div>
-							<div class="p5-clientUsage-step-info-line">
-								- 진행했던 프로젝트에 대해 5가지 항목으로 상호 평가를 진행할 수 있습니다. <br> <span
-									style="margin-left: 9px;"></span> 평가는 <strong>[프로필 정보
-									관리] > [프로젝트 히스토리]</strong> 에서 확인할 수 있습니다.
-							</div>
+							<div class="p5-clientUsage-step-info-line">- 완료된 프로젝트는 [마이페이지]의 히스토리에 기록됩니다.</div>
+							
 						</div>
 					</div>
 				</div>
