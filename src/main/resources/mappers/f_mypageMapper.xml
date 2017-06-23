@@ -241,6 +241,23 @@
   	<select id="evaluateCheck" resultType="int" parameterType="hashmap" >
   		select count(*) from e_grade where f_num= #{f_num} and e_pr_num = #{e_pr_num}
   	</select>
+  	
+  	<select id="countAllE_grade" resultType="int">
+  		select nvl(max(e_grade_num), 0) from e_grade
+  	</select>
+  	
+  	<insert id="insertE_grade" parameterType="E_grade">
+  		insert into e_grade values(#{e_grade_num}, #{e_grade_star}, #{e_num}, #{f_num}, #{e_pr_num})
+  	</insert>
+  	
+  	<select id="getAvgE_grade" resultType="double" parameterType="int">
+  		select nvl(avg(e_grade_star), 0) from e_grade where e_num = #{e_num}
+  	</select>
+  
+   	
+   	<update id="updateE_grade" parameterType="hashmap">
+   		update enterprise set e_score = #{e_score} where e_num=#{e_num}
+   	</update>
 </mapper>  
 
 

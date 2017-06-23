@@ -351,6 +351,7 @@ $(function(){
 					</tbody>
 				</table>
 			</div>
+			</form>
 			<!-- //tb_box : e -->
 			<c:choose>
 	
@@ -382,25 +383,35 @@ $(function(){
 				</div>
 			</c:when>
 		
+			<c:when test="${from eq 'mypage' && identity.identity eq 'freelancer' && myRelation eq 2}">
+							
+				<table>
+					<tr>
+						<td>내가 준 평가</td>
+						<td>${myEval}</td>
+					</tr>
+				</table>
+			</c:when>
+		
 			<c:when test="${from eq 'evaluate' && identity.identity eq 'freelancer'}">
 				<div class="btn_box">
+				
+				<form name="eval" id="eval" action="/f_mypage/gotoEval" method="post">
+				<input type="hidden" name="e_num" value="${project.e_num}">
+				<input type="hidden" name="f_num" value="${client.f_num}">
+				<input type="hidden" name="e_pr_num" value="${project.e_pr_num}">
 				<table>
-				<form method="post" action="/f_mypage/gotoEval">
-					<input type="hidden" name="e_num" value="${project.e_num}">
-					<input type="hidden" name="e_pr_num" value="${project.e_pr_num}">
-					<input type="hidden" name="f_num" value="${client.f_num}">
 					<tr>
 					<td>평가</td>
 					<td>
 					<input type="text" name="e_grade_star" id="evalScore">
 					</td>
-					<td>	<input id="checkValue" class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" 
-					value="평가하기" type="submit">
+					<td>	<input type="submit" class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" 
+					value="평가하기">
 					</td>
 					</tr>
-					</form>
 				</table>
-
+					</form>
 				</div>
 				<div class="btn_box">
 					
@@ -408,11 +419,11 @@ $(function(){
 			</c:when>
 		
 			</c:choose>
+		
 			</div>
 			</div>
 			
-				
-		</form>
+		
 			
 
 		
@@ -420,4 +431,5 @@ $(function(){
 
 	<%@include file="../c_common/footer.jsp"%>
 </body>
+
 </html>

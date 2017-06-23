@@ -83,7 +83,6 @@ public class c_projectlistController {
 	public void readPage(@ModelAttribute("cri") SearchCriteria cri,HttpSession session,@RequestParam("e_pr_num") int e_pr_num,@RequestParam("e_num") int e_num, String from, Model model) throws Exception{
 		int myRelation = 0;
 		
-		
 		if(session.getAttribute("client") instanceof c_login_freelancerVO){
 			c_login_freelancerVO freelancer = (c_login_freelancerVO) session.getAttribute("client");
 			HashMap<String, Integer> map = new HashMap<String, Integer>();
@@ -92,9 +91,17 @@ public class c_projectlistController {
 			System.out.println(e_pr_num);
 			System.out.println(freelancer.getF_num());
 			myRelation = service.getRelation(map);
+			
+			if(myRelation==2){
+				double myEval = service.myEval(map);
+				model.addAttribute("myEval", myEval);
+			}
 		}
 		System.out.println(myRelation);
 		model.addAttribute("myRelation", myRelation);
+
+		
+	
 		
 		//담당자정보 구하기
 		Enterprise enterprise = service.selectEnterprise(e_num);

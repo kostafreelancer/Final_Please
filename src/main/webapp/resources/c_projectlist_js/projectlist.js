@@ -17,8 +17,20 @@ function button_Reject(e_pr_num, fromF_num){
 	}
 }
 
+
+/*$('#evalButton').click(function(){
+	var e_score = $('#evalScore').val();
+	if(confirm("평가하시겠습니까?")){
+		document.getElementById('myscore').value = e_score;
+		document.getElementById("eval").submit();
+		
+	}
+})
+*/
 $(function(){
 	if($('.checking_con').val()=="conCheck"){
 		alert("이미 신청한 프로젝트입니다.");
 	};
+	
+	
 });

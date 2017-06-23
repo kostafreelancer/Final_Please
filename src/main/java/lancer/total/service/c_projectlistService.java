@@ -37,5 +37,5 @@ public interface c_projectlistService {
 
 	public int getRelation(HashMap<String, Integer> map) throws Exception;
 
-
+	public double myEval(HashMap<String, Integer> map) throws Exception;
 }

@@ -287,6 +287,7 @@ $(function(){
 									<a id="third">★ </a>
 									<a id="fourth">★ </a>
 									<a id="fifth">★</a>
+									<span id="e_score"> ${client.f_score }</span> 
 								</p>
 							</td>
 						</tr>

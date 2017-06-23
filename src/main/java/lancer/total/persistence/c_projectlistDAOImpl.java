@@ -108,6 +108,11 @@ public class c_projectlistDAOImpl implements c_projectlistDAO {
 		return session.selectOne(namespace + ".getRelation2", e_pr_num);
 	}
 
+	@Override
+	public double myEval(HashMap<String, Integer> map) throws Exception {
+		return session.selectOne(namespace + ".myEval", map);
+	}
+
 	
 
 }

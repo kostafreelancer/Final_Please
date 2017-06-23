@@ -16,6 +16,7 @@ import lancer.f_mypage.domain.ApplyProject;
 import lancer.f_mypage.domain.Calendar;
 import lancer.f_mypage.domain.Career;
 import lancer.f_mypage.domain.Certificate;
+import lancer.f_mypage.domain.E_grade;
 import lancer.f_mypage.domain.F_job;
 import lancer.f_mypage.domain.Freelancer;
 import lancer.f_mypage.domain.NowProject;
@@ -246,4 +247,23 @@ public class F_MypageDAO {
 	public int evaluateCheck(HashMap<String, Integer> map) throws Exception{
 		return session.selectOne(namespace + ".evaluateCheck", map); 
 	}
+	
+	public int countAllE_grade() throws Exception{
+		return session.selectOne(namespace + ".countAllE_grade");
+	}
+	
+	public void insertE_grade(E_grade e_grade) throws Exception{
+		session.insert(namespace+ ".insertE_grade", e_grade);
+	}
+	
+	public double getAvgE_grade(int e_num) throws Exception{
+		return session.selectOne(namespace + ".getAvgE_grade", e_num);
+	}
+	
+	
+	public void updateE_grade(HashMap<String, Object> map) throws Exception{
+		session.update(namespace + ".updateE_grade", map);
+	}
+	
+	
 }

@@ -7,6 +7,8 @@ public class F_grade {
 	private int f_grade_num;
 	private double f_grade_star;
 	
+	public F_grade(){};
+	
 	public F_grade(int e_pr_num, int e_num, int f_num, int f_grade_num, double f_grade_star) {
 		super();
 		this.e_pr_num = e_pr_num;

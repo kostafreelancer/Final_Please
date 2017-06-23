@@ -719,10 +719,21 @@ public class F_MypageController {
 	}
 	
 	@RequestMapping(value="/gotoEval", method=RequestMethod.POST)
-	public void gotoEval(E_grade e_grade, Model model) throws Exception{
+	public String gotoEval(E_grade e_grade, Model model) throws Exception{
+		System.out.println(e_grade.getE_grade_star());
 		System.out.println(e_grade.getE_num());
 		System.out.println(e_grade.getE_pr_num());
-		System.out.println(e_grade.getE_grade_star());
 		System.out.println(e_grade.getF_num());
+		
+		e_grade.setE_grade_num(service.countAllE_grade()+1);
+		service.insertE_grade(e_grade);
+		
+		double avg = service.getAvgE_grade(e_grade.getE_num());
+		System.out.println(avg);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("e_num", e_grade.getE_num());
+		map.put("e_score", avg);
+		service.updateE_grade(map);
+		return "redirect:/f_mypage/myInfo";
 	}
 }

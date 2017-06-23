@@ -130,6 +130,11 @@
 	<select id="getRelation2" parameterType="int" resultType="int" >
 		select count(*) from project where e_pr_num = #{e_pr_num} and p_state = '완료'
 	</select>
+	
+	<select id="myEval" parameterType="hashmap" resultType="double">
+		select e_grade_star from e_grade where f_num=#{f_num} and e_pr_num = #{e_pr_num}
+	</select>
+
 
 </mapper>
 
