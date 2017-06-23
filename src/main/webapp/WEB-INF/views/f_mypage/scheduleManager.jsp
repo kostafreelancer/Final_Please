@@ -129,8 +129,26 @@ newJquery(document).ready(function() {
 					});
 		   
 		    },
-		    dayClick: function() {
-		    	window.open('/f_mypage/scheduleAdd','win','width=350, height=250');
+		    dayClick: function(date) {
+		   		var tempYear = ''+date.getFullYear()+'';
+		   		var myYear = tempYear.substring(2);
+		    	var myMonth =  date.getMonth()+1;
+		    	if(myMonth < 10){
+		    		myMonth = '0' + myMonth;
+		    	}
+		    	var myDate = date.getDate();
+		    	if(myDate <10){
+		    		myDate = '0' + myDate;
+		    	}
+		    	console.log(myYear);
+		    	console.log(myMonth);
+		    	console.log(myDate);
+		    	var finalDate = myYear + "/" + myMonth + "/" + myDate;
+		    	console.log(finalDate);
+		    	var popupX = (window.screen.width / 2) - (200 / 2);
+		    	var popupY= (window.screen.height /2) - (300 / 2);
+	//	        window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
+		    	window.open('/f_mypage/scheduleAdd?clickDate='+finalDate,'win','width=350, height=250, left='+popupX+', top='+popupY);
 		    }
 			/* events: [
 				{

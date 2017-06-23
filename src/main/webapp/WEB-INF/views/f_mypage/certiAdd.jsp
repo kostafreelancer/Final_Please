@@ -27,8 +27,10 @@ function check(){
 	<label>취득일자</label>
 	<input type="text" name="accept_date" placeholder="ex) 17/06/20" required><br>
 
+<center>
 	<input type="submit" value="저장">
 	<input type="reset" value="초기화">
+	</center>
 	</fieldset>
 </form>
 </body>

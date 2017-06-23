@@ -27,7 +27,6 @@ function check(){
 }
 </script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/newWindow.css" type="text/css" media="screen" />
-
 </head>
 <body>
 <form name="myform" onsubmit="return check();">

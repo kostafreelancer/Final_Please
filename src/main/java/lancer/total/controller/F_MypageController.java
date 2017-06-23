@@ -526,7 +526,8 @@ public class F_MypageController {
 	}
 	
 	@RequestMapping(value="/scheduleAdd", method=RequestMethod.GET)
-	public void scheduleAdd() throws Exception{
+	public void scheduleAdd(@RequestParam("clickDate") String date, Model model) throws Exception{
+		model.addAttribute("clickDate", date);
 	}
 	
 	@RequestMapping(value="/scheduleAdd", method=RequestMethod.POST)

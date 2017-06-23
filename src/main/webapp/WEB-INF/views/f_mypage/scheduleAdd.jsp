@@ -14,18 +14,23 @@ function check(){
 	self.close();
 }
 </script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/f_mypage_css/newWindow.css" type="text/css" media="screen" />
 </head>
 <body>
-<h3>스케줄 추가</h3>
-<form name="myform">
-<label>일정이름</label>
-<input type="text" name="contents"><br>
-<label>시작일</label>
-<input type="text" name="startdate"><br>
-<label>종료일</label>
-<input type="text" name="enddate"><br>
-<input type="button" value="저장" onclick="check();">
-<input type="reset" value="초기화">
+
+<form name="myform" onsubmit="return check();">
+	<fieldset>
+	<label>일정이름</label>
+	<input type="text" name="contents" placeholder="미팅 잡기" required><br>
+	<label>시작일</label>
+	<input type="text" name="startdate" placeholder="ex) 17/06/01" value="${clickDate}" required ><br>
+	<label>종료일</label>
+	<input type="text" name="enddate" placeholder="ex) 17/06/16" required><br>
+	<center>
+	<input type="submit" value="저장">
+	<input type="reset" value="초기화">
+	</center>
+	</fieldset>
 </form>
 </body>
 </html>

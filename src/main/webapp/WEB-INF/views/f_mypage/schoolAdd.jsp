@@ -33,8 +33,10 @@ function check(){
 	<input type="text" name="location" placeholder="ex) 미국" required><br>
 	<label>학위</label>
 	<input type="text" name="degree" placeholder="ex) 학사" required><br>
+	<center>
 	<input type="submit" value="저장">
 	<input type="reset" value="초기화">
+	</center>
 	</fieldset>
 </form>
 </body>
