@@ -13,7 +13,6 @@ app.get('/', function (req, res) {
 	  
 });
 app.get('/client',function(req, res){
-	console.log('여기 안드와?');
 	username = req.param("username");
 	res.sendfile(__dirname + '/client.html');
 	
@@ -22,7 +21,6 @@ app.use('/script',express.static(__dirname));
 
 io.sockets.on('connection', function (socket) {
 
-	console.log("emit되는거지?"+username);
 	socket.emit('sendusername',username);
 	
 	socket.on('sendchat',function(data,user){

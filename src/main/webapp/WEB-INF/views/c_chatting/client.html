@@ -8,7 +8,6 @@
 	var myname;
 	var usernames = [];
 	socket.on('sendusername',function(username){
-		alert("여기 드오지?"+username);
 		myname = username;
 		socket.emit('adduser', myname);
 	});
@@ -49,16 +48,19 @@ $(document).ready(function() {
 	// 클라이언트에서 SEND 버튼을 클릭할 때
 	/* var user; */
 	$('#datasend').click( function() {
-		var message = $('#data').val();
+		/* var message = $('#data').val(); */
+		var message = $('.chat_text_put').val();
 		if(message === ''){
 			return;
 		}
 		if(user===''){
 			alert("대화할 대상을 지정하세요.");
 			$('#data').val('');
+			$('.chat_text_put').val('');
 			return;
 		}
 		$('#data').val('');
+		$('.chat_text_put').val('');
 		// 서버에서 sendchat 함수를 실행하도록 알려주며, 하나의 파라미터를 전달한다
 		socket.emit('sendchat', message,user);
 		$('.chat_content').append('<p class="client"><span>'+message+'</span></p>');
@@ -69,6 +71,7 @@ $(document).ready(function() {
 		user= $(this).text();
 		$('.toggle').css("display","none");
 		$('.chat_text_area').css("display", "block");
+		$('.text_submit').css("display", "block");
 	});
 	 $('.chat_menu').click(function(event){
 		event.preventDefault();
@@ -77,19 +80,8 @@ $(document).ready(function() {
 		$('.toggle').append(usernames); 
 		$('.chat_text_area').toggle();
 		$('.toggle').toggle();
+		$('.text_submit').toggle();
 	});
-	 $('.exit_menu').click(function(event){
-		 event.preventDefault();
-		window.top.exam();
-		alert($('.messengerWrapper').parent().parent().parent().text());
-		$('.messengerWrapper').parent().parent().parent().empty();  
-		socket.emit('disconnected',myname,user);
-		/* location.href="//localhost:8000/"; */
-		/* $(parent.document).exma(); */
-		
-		
-	 });
-	
 	
 });
 
@@ -124,13 +116,17 @@ $(document).ready(function() {
 			<div class="toggle" style="display: none;">
 					<h1>으아</h1>
 			</div>
-			<div class="chat_text_input">
-				<!-- <textarea class="chat_text_put" placeholder="메시지를 입력하세요.."></textarea> -->
-				<input id="data" style="width:230px;" />
+			<div class="text_submit">
+				<div class="chat_text_input">
+					<textarea class="chat_text_put" placeholder="메시지를 입력하세요.."></textarea> 
+					<!-- <input id="data" style="width:230px;" value="메시지를 입력하세요." /> -->
 				
-			</div>
+				</div>
 				<div id="datasend">전송</div>
 				<!-- <input type="button" id="datasend" value="send" /> -->
+			
+			</div>
+			
 			<!-- <div class="chat_send">전송</div> -->
 		</div>
 	</div>
@@ -150,7 +146,9 @@ $(document).ready(function() {
     width: 270px;
     z-index: 10000000; */
 } 
-
+#data{
+	border: none;
+}
 .server span{
 	border: 1px solid;
     padding-left: 10px;
@@ -178,9 +176,9 @@ $(document).ready(function() {
     margin-left: 10;
 }
 .messengerWrapper {
-	width: 318px;
-	height: 593px;
-	border: 1px solid;
+	width: 290px;
+	height: 572px;
+/* 	border: 1px solid; */
 	border-radius: 12px;
 	background-color: white;
 }
@@ -214,11 +212,19 @@ $(document).ready(function() {
 }
 
 .chat_text_area {
-	height: 495px;
+	height: 480px;
 	background-color: #ffffff;
 	text-align: center;
 	border-bottom: 1px solid #c0c0c0;
 	overflow:auto;
+}
+
+.toggle{
+	overflow: auto;
+}
+.toggle li{
+	list-style: none;
+    padding-left: 50px;
 }
 .userlist{
 	height: 465px;
@@ -229,6 +235,7 @@ $(document).ready(function() {
 }
 
 .chat_text_input {
+	border: none;
 	background-color: #ffffff;
 	padding-left: 10px;
 	padding-top: 7px;
@@ -238,11 +245,13 @@ $(document).ready(function() {
 }
 
 .chat_text_put {
-	border: none;
-	text-align: center;
+	width: 200;
+	resize: none;
 	padding-bottom: 6px;
-	height: 20px;
-	padding-top: 6px;
+	height: 30px;
+	padding-top: 4px;
+	border: none;
+	margin-left: 15px;
 }
 #datasend{
 	padding-top: 7px;

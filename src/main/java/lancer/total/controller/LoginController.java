@@ -1,6 +1,7 @@
 package lancer.total.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import lancer.c_login.domain.c_loginVO;
+import lancer.c_login.domain.c_login_alramVO;
 import lancer.c_login.domain.c_login_enterpriseVO;
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.c_login.domain.c_login_url;
@@ -69,6 +71,11 @@ public class LoginController {
 			session.setAttribute("identity", identity);
 			int chang_num = ((c_login_freelancerVO)(session.getAttribute("client"))).getF_num();
 			session.setAttribute("chang_num", service.chang_check(chang_num));
+			List<c_login_alramVO> a_list = service.alram_contents(identity.getFree().getF_num());
+			session.setAttribute("a_list", a_list);
+			for(int i=0;i<a_list.size();i++){
+				System.out.println(a_list.get(i).getP_name()+"이거 프로젝트 명 ");
+			}
 		}else if(checked.equals("enterprise")){
 			if(service.select_e_login(vo)!=null){
 				identity.setEnter(service.select_e_login(vo));

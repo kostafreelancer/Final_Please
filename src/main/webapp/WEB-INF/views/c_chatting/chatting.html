@@ -6,12 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="/resources/c_common_css/chatting.css"
-	type="text/css" media="screen" />
-<link rel="stylesheet"
-	href="/resources/c_common_css/chatting_chang.css"
-	type="text/css" media="screen" />
+	<!-- <link rel="stylesheet"
+		href="/resources/c_common_css/chatting.css"
+		type="text/css" media="screen" />
+	<link rel="stylesheet"
+		href="/resources/c_common_css/chatting_chang.css"
+		type="text/css" media="screen" />  -->
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- <script type="text/javascript"
 	src="/resources/c_common_js/chatting.js"></script> -->
@@ -23,7 +23,6 @@ $(function(){
 	$('.chatting_se').append('<iframe id ="iframe_id" name="iframe_name" src="http://localhost:8000/client?username='+username+'" width="300" height="465"></iframe>');
 	$('.chatting_Detail').click(function(){
 		var username = localStorage.getItem('username');
-		alert(localStorage.getItem('username')+"이거?");
 		$(this).toggle();
 		$('.windowWrapper').toggle();
 	/*  $(this).after('<div class="chatting_se"><iframe id ="iframe_id" name="iframe_name" src="http://localhost:8000/client?username='+username+'" width="300" height="465"></iframe></div>');  */
@@ -72,7 +71,7 @@ $(function(){
     overflow: hidden;
     position: fixed;
     right: 25px;
-    width: 320px;
+    width: 293px;
     z-index: 10000000;
 }
 .chatting_img {

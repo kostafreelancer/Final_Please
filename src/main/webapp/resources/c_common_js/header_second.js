@@ -7,10 +7,11 @@ $(window).load(function() {
 		$('.iframe_id').remove();
 	});
 	if($('.header_welcome_content span').text() != ''){
-		localStorage.setItem('username',$('.header_welcome_content span').text());
+		/*localStorage.setItem('username',$('.header_welcome_content span').text());*/
 		$('.header_welcome_content span').append("<span>님 환영합니다</span>");
 		$('.login_checking a').text("로그 아웃");
 		$('.header_join').hide();
+		/*localStorage.setItem('username',$('.header_welcome_content span').text());*/
 	}
 	$('.c_home').click(function(event){
 		event.preventDefault();
@@ -94,7 +95,7 @@ $(window).load(function() {
 						window.location.reload();
 				}});
 		}else{
-			 
+			
 			self.location = "/c_login/login";
 		}
 	});

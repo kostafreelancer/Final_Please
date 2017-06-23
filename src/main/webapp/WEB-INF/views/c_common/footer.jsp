@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet"
-	href="/resources/c_common_css/footer.css"
-	type="text/css" media="screen" />
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/resources/c_common_css/footer.css" type="text/css" media="screen" />
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script> 
- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script> 
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>  -->
 
 <script type="text/javascript" src="/resources/c_common_js/footer.js"></script>
 </head>
@@ -18,7 +17,22 @@
 	<c:if test="${identity.identity ne null}">
 		<%@include file="../c_chatting/chatting.html"%>
 	</c:if>
-		
+	<div class="header_welcome_content">
+				<c:choose>
+					<c:when test="${identity.identity == 'freelancer' }">
+						<span id="c_freelancer">${client.f_name}</span>
+					</c:when>
+					<c:when test="${identity.identity == 'enterprise' }">
+						<span id="enterprise">${client.e_name}</span>
+					</c:when>
+					<c:when test="${identity.identity == 'admin' }">
+						<span id="admin">${client.ad_id}</span>
+					</c:when>
+					<c:otherwise>
+						<span id="c_freelancer">${client.f_name}</span>
+					</c:otherwise> 
+				</c:choose>
+		</div>
 	
 	<div class="footer_wrap">
 		<div class="footer_box">

@@ -156,17 +156,51 @@ body {
 	font-family: 'NanumGothic_b';
 	text-shadow: 0 0 5px #00c6ff;
 }
-
-.header_check{
+.red{
 	position: absolute;
     background-color: red;
+    width: 24px;
+    height: 20px;
+    left: 130px;
+    top: 11px;
+    border-radius: 15px;
+}
+.header_check{
+	position: absolute;
+   /*  background-color: red; */
     width: 23px;
     left: 130px;
     top: 10px;
     border-radius: 15px;
     text-align: center;
 }
-.header_check span{
+.ee{
 	color: white;
     font-weight: bold;
 }
+.header_check:hover > ul { opacity: 1; }
+
+.ee ul li {
+	height: 0;
+	overflow: hidden;
+	padding: 0;
+	list-style:none;
+	-webkit-transition: height .25s ease .1s;
+	-moz-transition: height .25s ease .1s;
+	-o-transition: height .25s ease .1s;
+	-ms-transition: height .25s ease .1s;
+	transition: height .25s ease .1s;
+}
+.ee ul li a{
+	color: white;
+	list-style:none;
+}
+.ee:hover > ul li {
+	height: 36px;
+	overflow: visible;
+	padding: 0;
+	width: 200px;
+}
+
+
+

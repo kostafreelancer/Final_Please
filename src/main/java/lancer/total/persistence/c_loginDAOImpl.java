@@ -1,5 +1,7 @@
 package lancer.total.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import lancer.c_login.domain.c_loginVO;
 import lancer.c_login.domain.c_login_adminVO;
+import lancer.c_login.domain.c_login_alramVO;
 import lancer.c_login.domain.c_login_enterpriseVO;
 import lancer.c_login.domain.c_login_freelancerVO;
 @Repository
@@ -50,6 +53,10 @@ public class c_loginDAOImpl implements c_loginDAO {
 	public int chang_check(int f_num) {
 		System.out.println(f_num+"이게 에프넘여기 안들어 오지? ");
 		return session.selectOne(namespace+".chang_check",f_num);
+	}
+	@Override
+	public List<c_login_alramVO> alram_contents(int f_num) {
+		return session.selectList(namespace+".alram_contents",f_num);
 	}
 	
 	

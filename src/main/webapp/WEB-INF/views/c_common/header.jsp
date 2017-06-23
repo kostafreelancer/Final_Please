@@ -9,9 +9,6 @@
 <link rel="stylesheet" href="/resources/c_common_css/header.css"
 	type="text/css" media="screen" />
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<!-- <script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.6.4.min.js"></script> -->
-
 <script type="text/javascript" src="/resources/c_common_js/header.js"></script>
 <script type="text/javascript"
 	src="/resources/c_common_js/header_second.js"></script>
@@ -20,8 +17,15 @@
 <body>
 	<div class="header">
 		<div class="header_top_menu">
+		<div class="red"></div>
 			<div class="header_check">
-				<span>${chang_num}</span>
+				<div class='ee'>${chang_num}
+					<ul>
+						<c:forEach var="item" items="${a_list }" >
+							<li><a href="/f_mypage/myInfo2">프로젝트 ${item.p_content } 1건</a></li>
+						</c:forEach>
+					</ul>					
+				</div>
 			</div>
 			<div class="header_welcome_content">
 				<c:choose>

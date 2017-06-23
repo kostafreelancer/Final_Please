@@ -1,11 +1,14 @@
 package lancer.total.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
 import lancer.c_login.domain.c_loginVO;
 import lancer.c_login.domain.c_login_adminVO;
+import lancer.c_login.domain.c_login_alramVO;
 import lancer.c_login.domain.c_login_enterpriseVO;
 import lancer.c_login.domain.c_login_freelancerVO;
 import lancer.total.persistence.c_loginDAO;
@@ -56,6 +59,11 @@ public class c_loginServiceImpl implements c_loginService {
 	public int chang_check(int f_num) {
 		System.out.println(f_num+"이게 f_num");
 		return dao.chang_check(f_num);
+	}
+
+	@Override
+	public List<c_login_alramVO> alram_contents(int f_num) {
+		return dao.alram_contents(f_num);
 	}
 	
 }
