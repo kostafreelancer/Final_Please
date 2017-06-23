@@ -138,7 +138,7 @@ public class LoginController {
 	public void iframe_remove(){
 		System.out.println("여기 들어와??");
 	}
-	
+	/*
 	@ResponseBody
 	@RequestMapping(value="/validateRecaptcha", method = RequestMethod.POST)
 	public String validateRecaptcha(@RequestParam Map<String, String> paramMap) {
@@ -165,5 +165,5 @@ public class LoginController {
 	    return check;
 	 
 	}
-
+*/
 }

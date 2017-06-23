@@ -30,8 +30,14 @@ $(function(){
 			$('#fm_passwd').focus();
 			return 0;
 		}
+		if (grecaptcha.getResponse() == ""){ 
+			alert("사람이 아니더냐?");
+			return 0; 
+		}
 		$('.c_login').submit();
 		
+	
+
 	});
 	  
 	/*
