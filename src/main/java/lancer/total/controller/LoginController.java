@@ -2,6 +2,7 @@ package lancer.total.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.support.RequestPartServletServerHttpRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -30,6 +32,8 @@ import lancer.c_login.domain.c_login_url;
 import lancer.c_login.domain.checking_identity;
 import lancer.f_mypage.domain.Freelancer;
 import lancer.total.service.c_loginService;
+import net.tanesha.recaptcha.ReCaptchaImpl;
+import net.tanesha.recaptcha.ReCaptchaResponse;
 
 
 @Controller
@@ -134,4 +138,32 @@ public class LoginController {
 	public void iframe_remove(){
 		System.out.println("여기 들어와??");
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/validateRecaptcha", method = RequestMethod.POST)
+	public String validateRecaptcha(@RequestParam Map<String, String> paramMap) {
+	     
+	    String check = "Y";
+	     
+	    ReCaptchaImpl reCaptcha = new ReCaptchaImpl();
+	    reCaptcha.setPrivateKey("6LfYlSYUAAAAAKDiknP7QAjP2-xrQnbhbC2TR6bj");//Secret key
+	 
+	    String host = paramMap.get("host");
+	    String challenge = paramMap.get("challenge");
+	    String res = paramMap.get("response");
+	     
+	    ReCaptchaResponse reCaptchaResponse = reCaptcha.checkAnswer(host, challenge, res);
+	 
+	    if (reCaptchaResponse.isValid()) {
+	        System.out.println("true");
+	        check = "Y";
+	    } else {
+	        System.out.println("false");
+	        check = "N";
+	    }
+	     
+	    return check;
+	 
+	}
+
 }

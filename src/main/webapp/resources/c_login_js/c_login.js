@@ -33,6 +33,39 @@ $(function(){
 		$('.c_login').submit();
 		
 	});
+	  
+	/*
+    var siteKey = "6LfYlSYUAAAAAH7l4BXuLSs-t5VpAWhzylIBSu6j";//Site key
+    var div = "recaptcha";
+    Recaptcha.create(siteKey, div, {theme: "red"});
+         
+    $("#recaptchaCheck").click(function(){
+         
+        var challenge = Recaptcha.get_challenge();
+        var response = Recaptcha.get_response();
+        var host = $(location).attr('host');
+        console.log("띠용");
+        $.ajax({
+            type: "POST",
+            url: "/c_login/validateRecaptcha",
+            async: false,
+            data: {
+                host: host,
+                challenge: challenge,
+                response: response
+            },
+            success: function(data) {
+                if(data == "Y") {
+                    document.getElementById("message").innerHTML = "Success!";
+                }else{
+                    document.getElementById("message").innerHTML = "Incorrect Recaptcha! Please try again!";
+                    Recaptcha.reload();
+                }
+            }
+        });
+         
+    });
+	*/
 	
 
 })

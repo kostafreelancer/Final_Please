@@ -4,10 +4,20 @@
 
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <script type="text/javascript" src="/resources/c_login_js/c_login.js"></script>
+<script type="text/javascript">
+/* 	var onloadCallback = function(){
+		greCAPCHA.render('html_element', {
+			'sitekey' : '6LfYlSYUAAAAAH7l4BXuLSs-t5VpAWhzylIBSu6j',
+			'theme' : 'light'
+		});
+	}; */
+</script>
 
 <link rel="stylesheet" href="/resources/c_login_css/join.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/resources/c_login_css/reset.css" type="text/css" media="screen" />
+
 
 <%@include file="../c_common/header.jsp"%>
 <%-- <%@include file="../c_chatting/chatting.html"%> --%>
@@ -61,6 +71,8 @@
 							<a href="${pageContext.request.contextPath}/verification/verificationPop" onclick="window.open(this.href, '_blanck', 'width=620, height=270, top=100, left=100'); return false" class="pass_find">아이디 패스워드 찾기
 								&gt;</a>
 						</div>
+						<div class="g-recaptcha" data-sitekey="6LfYlSYUAAAAAH7l4BXuLSs-t5VpAWhzylIBSu6j"></div>
+						<br>
 						<p>
 							<!-- <a href="javascript:;" class="btn_login">로그인
                                 	
@@ -70,6 +82,7 @@
 							<a href=${pageContext.request.contextPath}"/c_join/c_join_step1"
 								class="btn_join">회원가입</a>
 						</p>
+						   
 					</form>
 				</div>
 
@@ -95,5 +108,10 @@
 
 
 </div>
+
+<!--  <div id="message" style="color:#ff0000; "></div>
+<div id="g-recaptcha"></div>
+<input id="recaptchaCheck" type="button" value="Check"> -->
+
 <!-- //wrap : e -->
 <%@include file="../c_common/footer.jsp"%>
