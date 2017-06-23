@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" href="/resources/e_mypage_css/e_updateproject.css"
+<link rel="stylesheet" href="/resources/e_mypage_css/e_projectUpdate.css"
 	type="text/css" media="screen" />
 
 	
@@ -14,10 +14,24 @@
 <title>Insert title here</title>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
 
-<script type="text/javascript" src="/resources/e_mypage_css/e_updateproject.js"></script>
-<script type="text/javascript" src="/resources/e_mypage_css/e_updateproject2.js"></script>
-<script type="text/javascript" src="/resources/e_mypage_css/calendar.js"></script>
+<script type="text/javascript" src="/resources/e_mypage_js/e_projectUpdate.js"></script>
+<script type="text/javascript" src="/resources/e_mypage_js/e_projectUpdate2.js"></script>
+<script type="text/javascript" src="/resources/e_mypage_js/calendar.js"></script>
+<script type="text/javascript">
+$(function(){
+   var check = document.getElementsByName("check");
 
+   var arr = new Array();
+
+   <c:forEach var="item" items="${p_job}">
+      arr.push("${item}");
+   </c:forEach>
+
+   for(var i=0; i<arr.length; i++){
+         check[arr[i]-1].checked = true;
+   }
+});
+</script>
 </head>
 <body>
 	<%@include file="../c_common/header.jsp" %>
@@ -27,16 +41,14 @@
 			<div class="nav_txt">
 				<p>
 					<a href="/e_lan/index.php">Home</a> <span class="padd">&gt;</span>
-					<span>프로젝트 등록</span>
+					<span>프로젝트 수정</span>
 				</p>
 			</div>
 		</div>
 		<div id="content">
 			<div class="tit_box">
-				<h2>프로젝트 등록</h2>
-				<p class="tit_txt">
-					성공적인 프로젝트를 원하시나요?<span>검증된 IT 인재가 대기중입니다.</span>
-				</p>
+				<h2>프로젝트 수정</h2>
+
 
 
 
@@ -46,16 +58,11 @@
 					<br>
 					<br>
 					<br>
-					<p class="market_txt01">철저한 IT 인재 Marketplace만을 고집하는 드림랜서 1 to
-						1</p>
-					<p class="market_txt02">기업 / 프리랜서 매칭, IT프로젝트 중계 확실한 보장!</p>
-					<p class="market_txt03">
-						최적화된 인재검색 시스템을 통한 서비스로 귀사에 맞춤형 인재를 추천함으로써<br /> 성공적인 프로젝트를 약속합니다.
-					</p>
+
 				</div>
 				<!-- //market : e -->
 				<div class="table_tit">
-					<h3>프로젝트 등록의뢰</h3>
+					<h3>프로젝트 수정의뢰</h3>
 					<div class="fr">
 						<p>
 							<span class="txt_or">(*) </span>표시는 필수 입력사항입니다.
@@ -115,7 +122,7 @@
 								<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span><label
 									for="fm_name">프로젝트 명</label></th>
 								<td colspan="5"><input type="text" id="p_name"
-									name="p_name" class="wid" /></td>
+									name="p_name" class="wid" value="${project.p_name }"/></td>
 							</tr>
 							<tr>
 								<th scope="row" rowspan="3" class="ac"><span class="txt_or">*</span>기본분야</th>
@@ -299,42 +306,14 @@
 									for="p_content">상세내용</label></th>
 								<td colspan="5"><textarea id="p_content" name="p_content"
 										class="txt_area">
-1.프로젝트명:
-
-2.현재개발진행사항
-1)총투입인력:
-2)현재설계개발상태:
-
-3.담당업무
-1)
-
-4.업무범위:
-
-5.전달사항또는(개발)우대사항:
-1)
-
-6.필요인력:명
-
-7.개발자필요Spec
-1)
-2)
-
-8.근무지:
-
-9.개발기간:
-
-10.월단가:제시바람
-
-11.장비지참여부:
-
-
+										${project.p_content }
                                 </textarea></td>
 							</tr>
 							<tr>
 								<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span>
 									연령</th>
-								<td colspan="2"><select class="wid03" name="p_lowerAge"
-									id="p_lowerAge">
+								<td colspan="2"><select class="wid03" name="p_lowerage"
+									id="p_lowerage">
 										<option value=''>선택</option>
 										<option value='0000'>연령무관</option>
 										<option value='20'>20세(1998년생)</option>
@@ -369,8 +348,8 @@
 										<option value='49'>49세(1969년생)</option>
 										<option value='50'>50세(1968년생)</option>
 
-								</select> <span>~</span> <select class="wid03" name="p_upperAge"
-									id="p_upperAge">
+								</select> <span>~</span> <select class="wid03" name="p_upperage"
+									id="p_upperage">
 										<option value=''>선택</option>
 										<option value='0000'>연령무관</option>
 										<option value='20'>20세(1998년생)</option>
@@ -421,13 +400,13 @@
 							<tr>
 								<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span>
 									모집인원</th>
-								<td colspan="2"><input type="text" id="p_requireNum"
-									name="p_requireNum" class="wid05" /> 
-									<label for="p_requireNum">명</label>
+								<td colspan="2"><input type="text" id="p_requirenum"
+									name="p_requirenum" class="wid05" value=""/> 
+									<label for="p_requirenum">명</label>
 									</td>
 								<th scope="row" class="ac"><span class="txt_or">*</span> <label
 									for="fm_bidedate">모집마감일자</label></th>
-								<td colspan="2"><input type="text"  id="txtDate3" name="p_exDate" onClick="fnPopUpCalendar(txtDate3,txtDate3,'yyyy/mm/dd')"  class="day_inp" />
+								<td colspan="2"><input type="text"  id="txtDate3" name="p_exdate" onClick="fnPopUpCalendar(txtDate3,txtDate3,'yyyy/mm/dd')"  class="day_inp" />
 								
 							</td>
 							</tr>
@@ -435,10 +414,10 @@
 								<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span>프로젝트
 									금액(월단위)</th>
 								<td colspan="5"><label for="fm_minmoney"></label> 
-								<input type="text" id="p_lowerCost" name="p_lowerCost" class="wid03" onKeyPress="javascript:CheckMoney('ProjectWriteFm','fm_minmoney');" onKeyUp="javascript:CheckMoney('ProjectWriteFm','fm_minmoney');" />
+								<input type="text" id="p_lowercost" name="p_lowercost" class="wid03" value="" onKeyPress="javascript:CheckMoney('ProjectWriteFm','fm_minmoney');" onKeyUp="javascript:CheckMoney('ProjectWriteFm','fm_minmoney');" />
 								<span>만원 ~ </span>
 								<label for="fm_maxmoney"></label>
-								<input type="text" id="p_upperCost" name="p_upperCost" class="wid03" onKeyPress="javascript:CheckMoney('ProjectWriteFm','fm_maxmoney');" onKeyUp="javascript:CheckMoney('ProjectWriteFm','fm_maxmoney');" />
+								<input type="text" id="p_uppercost" name="p_uppercost" class="wid03" value="" onKeyPress="javascript:CheckMoney('ProjectWriteFm','fm_maxmoney');" onKeyUp="javascript:CheckMoney('ProjectWriteFm','fm_maxmoney');" />
 								<span>만원 &nbsp;</span> 
 							
 								<span class="txt_red">* VAT별도 금액입니다.</span> <br />
@@ -448,9 +427,9 @@
 							<tr>
 								<th scope="row" colspan="2" class="ac"><span class="txt_or">*</span>근무기간</th>
 								<td colspan="5">
-								<input type="text"  id="txtDate" name="p_startDate" onClick="fnPopUpCalendar(txtDate,txtDate,'yyyy/mm/dd')"  class="day_inp" />
+								<input type="text"  id="txtDate" name="p_startdate" onClick="fnPopUpCalendar(txtDate,txtDate,'yyyy/mm/dd')"  class="day_inp" />
 								<span> ~ </span>
-								<input type="text" id="txtDate2" name="p_endDate" onClick="fnPopUpCalendar(txtDate2,txtDate2,'yyyy/mm/dd')"  class="day_inp" />
+								<input type="text" id="txtDate2" name="p_enddate" onClick="fnPopUpCalendar(txtDate2,txtDate2,'yyyy/mm/dd')"  class="day_inp" />
 								</td>
 							</tr>
 
@@ -524,7 +503,7 @@
 				</div>
 				<div class="btn_box">
 					<input id="checkValue" class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" name="post_a_job"
-						value="프로젝트 정보 등록완료" type="submit">
+						value="프로젝트 정보 수정완료" type="submit">
 						</div>
 						</div>
 						</div>

@@ -3,6 +3,7 @@ package lancer.total.controller;
 import java.util.HashMap;
 import java.util.List;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -301,6 +302,70 @@ public class E_MypageController {
 		fileService.uploadFile(contractFile, "contractfile", c_num, 0);
 		
 		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_num;
+	}
+	
+	@RequestMapping(value = "/e_projectUpdate", method = RequestMethod.GET)
+	public void e_projectUpdateGET(int e_pr_num, Model model, HttpSession session) throws Exception {	
+		c_login_enterpriseVO enterprise = (c_login_enterpriseVO)session.getAttribute("client");
+		
+		// 기업 정보 구하기
+		String[] manager_hphone = enterprise.getManager_hphone().split("-");
+		model.addAttribute("manager_hphone_1", manager_hphone[0]);
+		model.addAttribute("manager_hphone_2", manager_hphone[1]);
+		model.addAttribute("manager_hphone_3", manager_hphone[2]);
+		
+		String[] manager_mail = enterprise.getManager_mail().split("@");
+		model.addAttribute("manager_mail_1", manager_mail[0]);
+		model.addAttribute("manager_mail_2", manager_mail[1]);
+		
+
+		// 프로젝트 정보 구하기
+		
+		int e_num = enterprise.getE_num();
+		
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("e_num", e_num);
+		map.put("e_pr_num", e_pr_num);
+
+		Project project = service.selectProject(map);
+		
+		model.addAttribute("project", project);
+		
+		//상세분야 구하기
+		List<Integer> p_job = service.selectP_job(e_pr_num);
+		model.addAttribute("p_job", p_job);
+		
+	}
+	
+	@RequestMapping(value = "/e_projectUpdate", method = RequestMethod.POST)
+	public String e_projectUpdatePOST(Project project, HttpServletRequest request, HttpSession session, 
+			@ModelAttribute("p_location1") String p_location1, @ModelAttribute("p_location2") String p_location2) throws Exception {		
+		
+		// project
+		int e_pr_num = project.getE_pr_num();
+		project.setP_location(p_location1+" "+p_location2);
+		
+		service.updateProject(project);
+		
+		
+		// p_job
+		dropService.deleteP_job(e_pr_num);
+		
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("e_pr_num", e_pr_num);
+		
+		String check[] = request.getParameterValues("check");
+		for(int i=0;i<check.length;i++)
+		{
+			if(map.get("job_id") == null){
+				map.put("job_id", Integer.parseInt(check[i]));
+			}else{
+				map.replace("job_id", Integer.parseInt(check[i]));
+			}
+			service.insertP_Job(map);
+		}
+		
+		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + project.getE_pr_num();
 	}
 	
 	@RequestMapping(value = "/e_startProject", method = RequestMethod.POST)

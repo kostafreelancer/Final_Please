@@ -3,6 +3,7 @@ package lancer.total.persistence;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -32,6 +33,14 @@ public class E_MypageDao{
 	
 	public void updateEnterprise(c_login_enterpriseVO enterprise) throws Exception {
 		session.update(namespace+".updateEnterprise", enterprise);
+	}
+	
+	public void updateProject(Project project) throws Exception {
+		session.update(namespace+".updateProject", project);
+	}
+	
+	public void insertP_Job(Map<String, Integer> map)throws Exception{
+		session.insert(namespace+".insertP_Job",map);
 	}
 	
 	public List<Project> listProjectReady(int e_num, Criteria cri) throws Exception {

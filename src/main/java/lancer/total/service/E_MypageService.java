@@ -2,6 +2,7 @@ package lancer.total.service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -60,6 +61,14 @@ public class E_MypageService{
 		dao.updateEnterprise(enterprise);
 	}
 	
+	public void updateProject(Project project) throws Exception {
+		dao.updateProject(project);
+	}
+	
+	public void insertP_Job(Map<String, Integer> map) throws Exception{
+	  dao.insertP_Job(map);
+	}
+		
 	public List<Member> selectMember(int e_pr_num, Criteria cri) throws Exception {
 		return dao.selectMember(e_pr_num, cri);
 	}

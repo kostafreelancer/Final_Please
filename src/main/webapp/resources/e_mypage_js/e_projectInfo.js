@@ -92,3 +92,7 @@ $(document).ready(function() {
 	});
 	
 });
+
+function projectUpdate(e_pr_num){
+	location="/e_mypage/e_projectUpdate?e_pr_num=" + e_pr_num;
+}

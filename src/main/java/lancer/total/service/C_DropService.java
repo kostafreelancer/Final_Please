@@ -35,6 +35,10 @@ public class C_DropService {
 		dao.deleteProject(e_pr_num);
 	}
 	
+	public void deleteP_job(int e_pr_num) throws Exception {
+		dao.deleteP_job(e_pr_num);
+	}
+	
 	public void deleteEnterprise(int e_num) throws Exception {
 		dao.deleteE_grade(e_num);
 		dao.deleteEnterpriseAsk(e_num);

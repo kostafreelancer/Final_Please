@@ -36,6 +36,28 @@
 		e_licensefilenum=#{e_licensefilenum} WHERE e_num=#{e_num}
 	</update>
 	
+	<update id="updateProject" parameterType="lancer.e_mypage.domain.Project">
+		UPDATE project SET
+		p_name = #{p_name},
+		p_content = #{p_content},
+		p_lowerage = #{p_lowerage},
+		p_upperage = #{p_upperage},
+		p_academic = #{p_academic},
+		p_requirenum = #{p_requirenum},
+		p_exdate = #{p_exdate},
+		p_lowercost = #{p_lowercost},
+		p_uppercost = #{p_uppercost},
+		p_startdate = #{p_startdate},
+		p_enddate = #{p_enddate},
+		p_location = #{p_location},
+		p_experience = #{p_experience} WHERE e_pr_num=#{e_pr_num}
+	</update>
+
+	<insert id="insertP_Job" parameterType="java.util.HashMap">
+		INSERT INTO p_job(e_pr_num, job_id)
+		VALUES(#{e_pr_num}, #{job_id})
+	</insert>
+	
 	<select id="listProjectReady" resultType="lancer.e_mypage.domain.Project">
 		SELECT * FROM project WHERE e_num = #{e_num} AND p_state IN('모집중', '추가모집')
 	</select>

@@ -164,6 +164,16 @@ public class Project implements Serializable{
 	public void setP_state(String p_state) {
 		this.p_state = p_state;
 	}
+
+	@Override
+	public String toString() {
+		return "Project [e_pr_num=" + e_pr_num + ", e_num=" + e_num + ", p_name=" + p_name + ", p_content=" + p_content
+				+ ", p_lowerage=" + p_lowerage + ", p_upperage=" + p_upperage + ", p_academic=" + p_academic
+				+ ", p_requirenum=" + p_requirenum + ", p_regdate=" + p_regdate + ", p_exdate=" + p_exdate
+				+ ", p_lowercost=" + p_lowercost + ", p_uppercost=" + p_uppercost + ", p_startdate=" + p_startdate
+				+ ", p_enddate=" + p_enddate + ", p_location=" + p_location + ", p_experience=" + p_experience
+				+ ", project_check_state=" + project_check_state + ", ad_num=" + ad_num + ", p_state=" + p_state + "]";
+	}
 	
 		
 	

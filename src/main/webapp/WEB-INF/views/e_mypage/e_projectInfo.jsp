@@ -365,19 +365,15 @@ $(function(){
 													autocomplete="off" value="프로젝트 시작">
 												<input type="button" id="deleteProject" class="btn btn-lg btn-default js-disable-on-click"
 													autocomplete="off" value="프로젝트 삭제">
-												<input class="btn btn-lg btn-default js-disable-on-click"
-													autocomplete="off"  name="save_for_later"
-													value="수정하기" type="submit">
+												<input type="button" id="updateProject" class="btn btn-lg btn-default js-disable-on-click"
+													autocomplete="off" value="수정하기" onclick="projectUpdate(${project.e_pr_num})">
 											 </span>											
 										</c:when>
-									
+										
 										<c:when test="${project.p_state eq '진행중'}">
 											<span>
 												<input type="button" id="endProject" class="btn btn-lg btn-default2 js-disable-on-click"
 													autocomplete="off" value="프로젝트 종료">
-												<input class="btn btn-lg btn-default js-disable-on-click"
-													autocomplete="off" name="save_for_later"
-													value="수정하기" type="submit">
 											 </span>									
 										</c:when>								
 								</c:choose>	
