@@ -8,12 +8,12 @@
 
 	<insert id="insertAlramF" parameterType="hashmap">
 		INSERT INTO alram(alram_num, f_num, e_num, e_pr_num, p_content, alram_check) 
-		VALUES(alram_seq.next, #{f_num}, 0, #{e_pr_num}, #{p_content}, '미확인')
+		VALUES(alram_seq.nextval, #{f_num}, 0, #{e_pr_num}, #{p_content}, '미확인')
 	</insert>
 
 	<insert id="insertAlramE" parameterType="hashmap">
 		INSERT INTO alram(alram_num, f_num, e_num, e_pr_num, p_content, alram_check) 
-		VALUES(alram_seq.next, 0, #{e_num}, #{e_pr_num}, #{p_content}, '미확인')
+		VALUES(alram_seq.nextval, 0, #{e_num}, #{e_pr_num}, #{p_content}, '미확인')
 	</insert>
 
 </mapper>
