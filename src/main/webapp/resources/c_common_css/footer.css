@@ -60,3 +60,10 @@
 	text-align: right;
 	padding-top: 20px;
 }
+.username{
+	color: white;
+}
+
+.header_welcome_contents{
+	position: absolute;
+}

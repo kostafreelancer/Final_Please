@@ -17,7 +17,7 @@
 	<c:if test="${identity.identity ne null}">
 		<%@include file="../c_chatting/chatting.html"%>
 	</c:if>
-	<div class="header_welcome_content">
+	<div class="header_welcome_contents">
 				<c:choose>
 					<c:when test="${identity.identity == 'freelancer' }">
 						<span class="username" id="c_freelancer">${client.f_name}</span>

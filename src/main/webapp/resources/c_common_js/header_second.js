@@ -2,11 +2,17 @@
 
 $(window).load(function() {
 
-
+	if($('.header_sns a').on('mouseover',function(){
+		$(this).css("background-position-y","-30px");
+	}));
+	if($('.header_sns a').on('mouseout',function(){
+		$(this).css("background-position-y","0px");
+	}));
 	if($('.header_welcome_content span').text() != ''){
 		/*localStorage.setItem('username',$('.header_welcome_content span').text());*/
 		$('.header_welcome_content span').append("<span>님 환영합니다</span>");
 		$('.login_checking a').text("로그 아웃");
+		$('.change_menus').css("margin","0");
 		$('.header_join').hide();
 		/*localStorage.setItem('username',$('.header_welcome_content span').text());*/
 	}

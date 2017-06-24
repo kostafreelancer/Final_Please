@@ -325,9 +325,8 @@
 
 		</div>
 	</div>
-	<%-- <div>
+
 		<%@ include file="../c_common/footer.jsp"%>
-	</div> --%>
 	</section>
 
 </body>
