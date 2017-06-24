@@ -22,6 +22,7 @@ button.active{
 .tabcontent{
 	overflow:hidden;
 	border:1px solid lightgray;
+	background-image: url("/resources/e_main_img/bg_content01.jpg;");
 }
 
 .content{

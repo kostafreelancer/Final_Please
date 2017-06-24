@@ -506,7 +506,7 @@ $(function(){
 		<div id="tab2">
 			<div class="tb_box">
 				<div class="ct overf">
-					<h4 class="fl myfl">경력사항</h4>
+					<h4 class="fl myfl">경력사항</h4><span style="padding-top:20px; padding-left:7px; display:block; float:left"><img src="../../../resources/f_mypage_img/profile_employ.png" width="20px" height="20px" ></span>
 						<button id="add" class="career_add" onclick="addCareer();">추가하기</button>
 				</div>
 				<table class="tb_st01 tb_st03">
@@ -596,7 +596,7 @@ $(function(){
 			</div>
 			<div class="tb_box">
 				<div class="ct overf">
-					<h4 class="fl myfl">학력사항</h4>
+					<h4 class="fl myfl">학력사항</h4><span style="padding-top:20px; padding-left:7px; display:block; float:left"><img src="../../../resources/f_mypage_img/profile_edu.png" width="20px" height="20px" ></span>
 					<button id="add" class="school_add" onclick="addSchool();">추가하기</button>
 				</div>
 				<table class="tb_st01 tb_st03">
@@ -679,7 +679,7 @@ $(function(){
 
 			<div class="tb_box">
 				<div class="ct overf">
-					<h4 class="fl myfl">자격증</h4>
+					<h4 class="fl myfl">자격증</h4><span style="padding-top:20px; padding-left:7px; display:block; float:left;"><img src="../../../resources/f_mypage_img/profile_certify.png" width="20px" height="20px" ></span>
 					<button id="add" class="right_add" onclick="addCerti();">추가하기</button>
 				</div>
 				<table class="tb_st01 tb_st03">

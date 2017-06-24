@@ -58,6 +58,16 @@ public class c_loginDAOImpl implements c_loginDAO {
 	public List<c_login_alramVO> alram_contents(int f_num) {
 		return session.selectList(namespace+".alram_contents",f_num);
 	}
+	@Override
+	public void updateRecentLogin(int f_num) {
+		session.update(namespace + ".updateRecentLogin", f_num);	
+	}
+	@Override
+	public void updatef_nowstate(int f_num) {
+		session.update(namespace + ".updatef_nowstate", f_num);
+	}
+	
+	
 	
 	
 }

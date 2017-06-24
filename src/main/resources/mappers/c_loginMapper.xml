@@ -43,6 +43,14 @@
 				and alram_check='미확인'
 	</select>
 	
+	<update id="updateRecentLogin" parameterType="int">
+		update freelancer set f_recentlogin = sysdate where f_num=#{f_num}
+	</update>
+	
+	<update id="updatef_nowstate" parameterType="int">
+		update freelancer set f_nowstate='활동' where f_num=#{f_num}
+	</update>
+	
 </mapper>
 
 

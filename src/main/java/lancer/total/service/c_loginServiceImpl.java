@@ -65,5 +65,15 @@ public class c_loginServiceImpl implements c_loginService {
 	public List<c_login_alramVO> alram_contents(int f_num) {
 		return dao.alram_contents(f_num);
 	}
+
+	@Override
+	public void updateRecentLogin(int f_num) {
+		dao.updateRecentLogin(f_num);
+	}
+
+	@Override
+	public void updatef_nowstate(int f_num) {
+		dao.updatef_nowstate(f_num);
+	}
 	
 }

@@ -1,6 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/main/webapp/resources/c_freelancerlist_css/c_projectInfo.css=UTF-8
 encoding//src/main/webapp/resources/c_freelancerlist_css/join.css=UTF-8
+encoding//src/main/webapp/resources/c_join_css/join.css=UTF-8
+encoding//src/main/webapp/resources/c_login_css/join.css=UTF-8
 encoding//src/main/webapp/resources/c_projectlist_css/c_projectInfo.css=UTF-8
 encoding//src/main/webapp/resources/c_projectlist_css/complete.css=UTF-8
 encoding//src/main/webapp/resources/c_projectlist_css/join.css=UTF-8
