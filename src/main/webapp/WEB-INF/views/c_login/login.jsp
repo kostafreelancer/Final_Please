@@ -39,9 +39,14 @@
 			</h2>
 			<div class="log_box">
 				<div class="log_lef">
+				 <span id="checkEmailConfirm"></span>
+				<form id="sleepMail" name="sleepMail" method="post" action="">
+				<input type="hidden" name="sleepmail" value="${sleepemail}">
+				</form>
 					<p>로그인을 위해 아이디와 패스워드를 입력해 주세요.</p>
 					<form method="post" name="MemberLoginFm" action="insert.c_login"
 						class="c_login">
+						<input type="hidden" name="emailConfirm" id="emailConfirm">
 						<input type="hidden" name="fm_url" value=""> <input
 							type="hidden" name="fm_str" value=""> <input
 							type="hidden" class="checking_login"
