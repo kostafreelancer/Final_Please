@@ -22,9 +22,8 @@ header, footer, section, article, aside, nav, hgroup, details, menu,
 }
 input[type="text"] {
 	display: inline-block;
-	width: 70px;
-	height: 23px;
-	background-color: #2257ad;
+	width: 65px;
+	height: 12px;
 	color: #fff;
 	padding: 8px 0 12px;
 	text-align: center;

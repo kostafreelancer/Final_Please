@@ -147,5 +147,18 @@ public class E_MypageDao{
 	public Integer selectC_num(HashMap<String, Integer> map) throws Exception {
 		return session.selectOne(namespace + ".selectC_num", map);
 	}
+	
+	
+	public Integer existF_grade(HashMap<String, Integer> map) throws Exception {
+		return session.selectOne(namespace + ".existF_grade", map);
+	}
+	
+	public int selectMaxF_grade_num() throws Exception {
+		return session.selectOne(namespace + ".selectMaxF_grade_num");
+	}
+	
+	public void insertF_grade(HashMap<String, Object> map) throws Exception {
+		session.insert(namespace + ".insertF_grade", map);
+	}
 
 }

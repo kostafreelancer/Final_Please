@@ -148,4 +148,23 @@ public class E_MypageService{
 		return dao.selectC_num(map);
 	}
 
+	public Integer existF_grade(HashMap<String, Integer> map) throws Exception {
+		return dao.existF_grade(map);
+	}
+	
+	public int selectMaxF_grade_num() throws Exception {
+		return dao.selectMaxF_grade_num();
+	}
+	
+	public void insertF_grade(int f_grade_num, double f_grade_star, int f_num, int e_num, int e_pr_num) throws Exception {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("f_grade_num", f_grade_num);
+		map.put("f_grade_star", f_grade_star);
+		map.put("f_num", f_num);
+		map.put("e_num", e_num);
+		map.put("e_pr_num", e_pr_num);
+		
+		dao.insertF_grade(map);
+	}
+	
 }

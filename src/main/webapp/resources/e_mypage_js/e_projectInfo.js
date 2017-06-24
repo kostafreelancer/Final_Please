@@ -91,6 +91,20 @@ $(document).ready(function() {
 		}
 	});
 	
+	$('.grade').click(function(){
+		var grade = parseInt($(this).prev().val());
+		var f_num = $(this).parent().prev().text();
+		if(grade > 5 || grade < 0){
+			alert("0.0 ~ 5.0 사이의 값을 입력하세요.");
+			return;
+		}
+		
+		$('input[type="hidden"][name="f_numGrade"]').val(f_num);
+		$('input[type="hidden"][name="grade"]').val(grade);
+		document.gradeFreelancer.submit();
+		
+	});
+	
 });
 
 function projectUpdate(e_pr_num){

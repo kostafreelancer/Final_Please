@@ -16,11 +16,12 @@ public class Member {
 	private String c_state;
 	private String file_num;
 	private String original_file_name;
+	private String graded;
 	
 	public Member(){}
 
 	public Member(int f_num, String f_id, String f_name, String f_sex, String f_hphone, String f_email,
-			String f_major, double f_score, String c_state, String file_num, String original_file_name) {
+			String f_major, double f_score, String c_state, String file_num, String original_file_name, String graded) {
 		super();
 		this.f_num = f_num;
 		this.f_id = f_id;
@@ -33,6 +34,15 @@ public class Member {
 		this.c_state = c_state;
 		this.file_num = file_num;
 		this.original_file_name = original_file_name;
+		this.graded = graded;
+	}
+
+	public String getGraded() {
+		return graded;
+	}
+
+	public void setGraded(String graded) {
+		this.graded = graded;
 	}
 
 	public String getFile_num() {

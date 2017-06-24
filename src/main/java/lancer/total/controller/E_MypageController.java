@@ -271,6 +271,17 @@ public class E_MypageController {
 		// 멤버, 신청, 제안 리스트 구하기
 		
 		List<Member> memberList = service.selectMember(e_pr_num, cri);
+		HashMap<String, Integer> gradeMap = new HashMap<String, Integer>();
+		int tempF_num;
+		for(int i=0; i<memberList.size(); i++){
+			tempF_num = memberList.get(i).getF_num();
+			gradeMap.put("f_num", tempF_num);
+			gradeMap.put("e_pr_num", e_pr_num);
+			if(service.existF_grade(gradeMap) > 0){
+				memberList.get(i).setGraded("graded");
+				System.out.println(memberList.get(i).getF_name());
+			}
+		}
 		List<Member> applicantList = service.selectApplicant(e_pr_num, cri);
 		List<Member> scoutList = service.selectScout(e_pr_num, cri);
 		
@@ -439,5 +450,17 @@ public class E_MypageController {
 		service.cancelScout(f_numCancel, e_pr_numCancel);
 		
 		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numCancel;
+	}
+	
+	@RequestMapping(value = "/e_grade", method = RequestMethod.POST)
+	public String e_gradePOST(int f_numGrade, double grade, int e_pr_numGrade, int e_numGrade) throws Exception {
+		int maxF_grade_num = service.selectMaxF_grade_num();
+		
+		service.insertF_grade(maxF_grade_num+1, grade, f_numGrade, e_numGrade, e_pr_numGrade);
+		
+		// 평균내서 프리랜서 정보에 넣어줘야됨
+		
+		
+		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numGrade;
 	}
 }

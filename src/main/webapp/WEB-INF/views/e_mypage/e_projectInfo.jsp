@@ -463,7 +463,18 @@ $(function(){
 													</div>
 												</form>
 											</td>
-											<td class="ac"><a href="#" class="accept btn btn-lg btn-default2 js-disable-on-click">계약해지</a></td>
+											
+											<c:choose>
+												<c:when test="${m.graded eq 'graded' }">
+													<td class="ac">평가됨<a href="#" class="accept btn btn-lg btn-default2 js-disable-on-click">계약해지</a></td>
+												</c:when>
+											
+												<c:otherwise>
+													<td style="display:none">${m.f_num }</td>
+													<td class="ac"><input type="text" placeholder="0.0 ~ 5.0"><input type="button" class="grade" value="평가하기"></button></td>
+												</c:otherwise>
+											</c:choose>											
+											
 										</tr>
 								</c:forEach>
 							</tbody>
@@ -694,6 +705,12 @@ $(function(){
 			</form>
 			<form action="/c_file/downloadFile" name="fileDownForm" method="post">
 				<input type="hidden" name="file_num" value="">
+			</form>
+			<form action="/e_mypage/e_grade" name="gradeFreelancer" method="post">
+				<input type="hidden" name="f_numGrade" value="">
+				<input type="hidden" name="grade" value="">
+				<input type="hidden" name="e_pr_numGrade" value="${project.e_pr_num }">
+				<input type="hidden" name="e_numGrade" value="${client.e_num }">
 			</form>
 	</c:when>
 	

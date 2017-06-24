@@ -164,11 +164,35 @@
 	</update>	
 	
 	<select id="selectC_num" resultType="Integer">
-		select c_num FROM contract WHERE f_num = #{f_num} AND e_pr_num = #{e_pr_num}
+		SELECT c_num FROM contract WHERE f_num = #{f_num} AND e_pr_num = #{e_pr_num}
 	</select>
 	
+	
+	<select id="existF_grade" parameterType="HashMap" resultType="Integer">
+		SELECT count(*) FROM f_grade WHERE f_num = #{f_num} AND e_pr_num = #{e_pr_num}
+	</select>
+	
+	<select id="selectMaxF_grade_num" resultType="int">
+		SELECT nvl(max(f_grade_num),0) FROM f_grade
+	</select>
+	
+	<select id="selectF_grade" resultType="Integer">
+		SELECT f_grade_num FROM f_grade WHERE f_num = #{f_num} AND e_pr_num = #{e_pr_num}
+	</select>
 
+	<insert id="insertF_grade" parameterType="HashMap">
+		INSERT INTO f_grade(f_grade_num, f_grade_star, f_num, e_num, e_pr_num) 
+			VALUES(#{f_grade_num}, #{f_grade_star}, #{f_num}, #{e_num}, #{e_pr_num})
+	</insert>
+	
+  	<select id="getAvgF_grade" resultType="double" parameterType="int">
+  		SELECT nvl(avg(f_grade_star), 0) FROM f_grade WHERE f_num = #{f_num}
+  	</select>	
 
+   	<update id="updateF_grade" parameterType="hashmap">
+   		UPDATE freelancer SET f_score = #{f_score} WHERE f_num=#{f_num}
+   	</update>
+   	
 </mapper>
 
 
