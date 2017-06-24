@@ -15,6 +15,9 @@ body, input, textarea, select, button, table {
 	/* font-family: 'NanumGothic_r'; */
 	color: #333
 }
+#conainer h2,a,div,strong,td,span{
+	font-family: "NanumGothic_r";
+}
 
 body {
 	color: #333;

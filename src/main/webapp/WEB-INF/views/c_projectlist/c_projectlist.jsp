@@ -12,10 +12,7 @@
 	media="screen" />
 <link rel="stylesheet" href="/resources/c_projectlist_css/reset.css" type="text/css"
 	media="screen" />
-<link rel="stylesheet" href="../common/header.css" type="text/css"
-	media="screen" />
-<link rel="stylesheet" href="../common/footer.css" type="text/css"
-	media="screen" />
+
 
 <title>프로젝트 목록</title>
 <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
@@ -290,7 +287,7 @@
 			
 
 </div>
-
+</div>
 
 <%@include file="../c_common/footer.jsp" %>
 </body>

@@ -141,8 +141,10 @@ float: right;
                 </dd>
 			</dl>
             </div>  
+    
  
- </form>
+
+ </div>
 <%@include file="../c_common/footer.jsp" %>
 </body>
 </html>

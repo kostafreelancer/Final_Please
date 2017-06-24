@@ -7,7 +7,7 @@ public class c_freelancerlist_Criteria {
 
   public c_freelancerlist_Criteria() {
     this.page = 1;
-    this.perPageNum = 5;
+    this.perPageNum = 10;
   }
 
   public void setPage(int page) {

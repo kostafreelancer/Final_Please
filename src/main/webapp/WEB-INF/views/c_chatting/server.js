@@ -24,7 +24,6 @@ io.sockets.on('connection', function (socket) {
 	socket.emit('sendusername',username);
 	
 	socket.on('sendchat',function(data,user){
-		/*io.sockets.emit('updatechat',socket.username,data);*/
 		io.sockets.to(socket_id[user]).emit('hiden',socket.username,data);
 		console.log(data+': '+socket.username);
 	});
