@@ -54,9 +54,6 @@ public class c_freelancerlistController {
 	c_freelancerlistService service; 
 	
 	@Inject
-	E_MypageService e_mypageService;
-	
-	@Inject
 	private C_FileService fileService;
 	
 	@Inject
@@ -226,16 +223,7 @@ public class c_freelancerlistController {
 					
 					service.insertContract(submitVO);
 					
-					
-					HashMap<String, Integer> map = new HashMap<String, Integer>();
-					c_login_enterpriseVO enterprise = (c_login_enterpriseVO)session.getAttribute("client");
-					int e_num = enterprise.getE_num();
-					map.put("e_num", e_num);
-					map.put("e_pr_num", e_pr_num);
-					Project project = e_mypageService.selectProject(map);
-					String p_name = project.getP_name();
-					String ment = p_name + "& 에서 참여 &제안"; 
-					alramService.insertAlramF(f_num, e_pr_num, ment);
+					alramService.insertAlramF(f_num, e_pr_num, "제안");
 				}
 				return "/c_freelancerlist/f_complete";
 			}
