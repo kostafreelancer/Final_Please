@@ -24,6 +24,7 @@ import lancer.c_projectlist.domain.SearchCriteria;
 import lancer.c_projectlist.domain.SubmitVO;
 import lancer.e_insertproject.domain.E_Insert;
 import lancer.e_insertproject.domain.Enterprise;
+import lancer.total.service.C_AlramService;
 import lancer.total.service.c_projectlistService;
 
 @Controller
@@ -32,6 +33,9 @@ public class c_projectlistController {
 	
 	@Inject
 	c_projectlistService service;
+	
+	@Inject
+	C_AlramService alramService;
 	
 	@RequestMapping(value = "/c_projectlist")
 	public void projectlistGET(@ModelAttribute("cri") SearchCriteria cri,Model model,HttpSession session,HttpServletRequest request) throws Exception{
@@ -163,7 +167,10 @@ public class c_projectlistController {
 			contract.setC_num(c_num);
 			
 			service.insertContract(submitVO);
-		
+			
+			String p_name = service.getProjectName(e_pr_num);
+			String ment = p_name + "& 에서 & 참가신청";
+			alramService.insertAlramE(e_num, e_pr_num, ment);
 		}
 		return "/c_projectlist/complete";
 		

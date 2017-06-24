@@ -40,10 +40,10 @@ $(function(){
 			$('#fm_passwd').focus();
 			return 0;
 		}
-		if (grecaptcha.getResponse() == ""){ 
+		/*if (grecaptcha.getResponse() == ""){ 
 			alert("사람이 아니더냐?");
 			return 0; 
-		}
+		}*/
 		if($('#checkEmailConfirm').html() === '인증완료'){
 			$('#emailConfirm').val('인증완료');
 		}

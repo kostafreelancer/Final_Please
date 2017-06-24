@@ -125,5 +125,10 @@ public class c_projectlistServiceImpl implements c_projectlistService {
 	public double myEval(HashMap<String, Integer> map) throws Exception {
 		return dao.myEval(map);
 	}
+
+	@Override
+	public String getProjectName(int e_pr_num) throws Exception {
+		return dao.getProjectName(e_pr_num);
+	}
 	
 }

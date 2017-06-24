@@ -113,6 +113,11 @@ public class c_projectlistDAOImpl implements c_projectlistDAO {
 		return session.selectOne(namespace + ".myEval", map);
 	}
 
+	@Override
+	public String getProjectName(int e_pr_num) throws Exception {
+		return session.selectOne(namespace + ".getProjectName", e_pr_num);
+	}
+
 	
 
 }

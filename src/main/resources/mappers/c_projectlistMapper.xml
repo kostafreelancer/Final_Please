@@ -135,6 +135,9 @@
 		select e_grade_star from e_grade where f_num=#{f_num} and e_pr_num = #{e_pr_num}
 	</select>
 
+	<select id="getProjectName" parameterType="int" resultType="String">
+		select p_name from project where e_pr_num=#{e_pr_num}
+	</select>
 
 </mapper>
 
