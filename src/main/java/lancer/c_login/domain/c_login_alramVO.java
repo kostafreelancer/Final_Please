@@ -6,6 +6,7 @@ public class c_login_alramVO {
 	private String p_content;
 	private String p_name;
 	private String alram_check;
+	private int e_num;
 	public int getE_pr_num() {
 		return e_pr_num;
 	}
@@ -30,6 +31,13 @@ public class c_login_alramVO {
 	public void setAlram_check(String alram_check) {
 		this.alram_check = alram_check;
 	}
+	public int getE_num() {
+		return e_num;
+	}
+	public void setE_num(int e_num) {
+		this.e_num = e_num;
+	}
+	
 	
 	
 }

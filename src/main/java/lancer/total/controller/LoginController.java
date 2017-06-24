@@ -62,7 +62,6 @@ public class LoginController {
 	@RequestMapping(value="/insert.c_login")
 	public String check_login(c_loginVO vo,@ModelAttribute("checking") String checked,Model model,HttpSession session, RedirectAttributes rttr){
 		checking_identity identity = new checking_identity();
-		System.out.println(vo.getEmailConfirm()+"멀ㅇ니러ㅣㄴ멀;ㅣㅁㅇㄴ러ㅏㅣ");
 		if(checked.equals("freelancer")){
 			
 			if(service.select_f_login(vo)!=null){
@@ -96,15 +95,17 @@ public class LoginController {
 			session.setAttribute("chang_num", service.chang_check(chang_num));
 			List<c_login_alramVO> a_list = service.alram_contents(identity.getFree().getF_num());
 			session.setAttribute("a_list", a_list);
-			for(int i=0;i<a_list.size();i++){
-				System.out.println(a_list.get(i).getP_name()+"이거 프로젝트 명 ");
-			}
+			
 		}else if(checked.equals("enterprise")){
 			if(service.select_e_login(vo)!=null){
 				identity.setEnter(service.select_e_login(vo));
 				identity.setIdentity(checked);
 				session.setAttribute("client",identity.getEnter());
-				
+				int e_num = ((c_login_enterpriseVO)(session.getAttribute("client"))).getE_num();
+				System.out.println(service.chang_check_e(e_num)+"창넘");
+				session.setAttribute("chang_num", service.chang_check_e(e_num));
+				List<c_login_alramVO> a_list = service.alram_contents_e(identity.getEnter().getE_num());
+				session.setAttribute("a_list", a_list);
 			}else{
 				/*identity.setIdentity("no");
 				rttr.addFlashAttribute("msg", "no");
@@ -118,6 +119,7 @@ public class LoginController {
 					rttr.addFlashAttribute("msg", "no");
 				}
 				identity.setIdentity("no");
+				
 				return "redirect:/c_login/login";
 			}
 			session.setAttribute("identity", identity);

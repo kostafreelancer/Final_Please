@@ -31,6 +31,15 @@ io.sockets.on('connection', function (socket) {
 	
 	socket.on('adduser',function(username){
 		socket.username = username;
+		if(username == null){
+			return;
+		}
+		for(var i in usernames){
+			if(usernames[i]==username){
+				delete usernames[i];
+				usernames.splice(i,1);
+			}
+		}
 		usernames.push(username);
 		socket_id[username] = socket.id;
 		socket.emit('join','SERVER', username+'님 환영합니다.');

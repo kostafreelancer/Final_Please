@@ -35,6 +35,9 @@
 	<select id="chang_check" parameterType="int" resultType="int">
 		select count(*) from ALRAM where f_num = #{f_num} and alram_check='미확인'
 	</select>
+	<select id="chang_check_e" parameterType="int" resultType="int">
+		select count(*) from ALRAM where e_num = #{e_num} and ALRAM_CHECK='미확인'
+	</select>
 	<select id="alram_contents" parameterType="int" resultType="c_login_alramVO">
 		select a.p_content ,p.p_name ,a.alram_check ,a.e_pr_num
 				from ALRAM a , project p 
@@ -42,6 +45,14 @@
 				and f_num = #{f_num}
 				and alram_check='미확인'
 	</select>
+	
+	<select id="alram_contents_e" parameterType="int" resultType="c_login_alramVO">
+		select a.p_content ,p.p_name ,a.alram_check ,a.e_pr_num
+				from ALRAM a , project p
+				where a.e_pr_num = p.e_pr_num
+				and a.e_num = #{e_num}
+				and alram_check='미확인'
+	</select> 
 	
 	<update id="updateRecentLogin" parameterType="int">
 		update freelancer set f_recentlogin = sysdate where f_num=#{f_num}

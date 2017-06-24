@@ -20,13 +20,19 @@
 		
 		<c:if test="${identity.identity ne null}">
 			<img class="alram_icon" alt="alram" src="/resources/c_common_img/images_b.png">
+			
 			<c:if test="${chang_num > 0 }">
 				<div class="red"></div>
 				<div class="header_check">
 				<div class='ee'>${chang_num}
 					<ul>
 						<c:forEach var="item" items="${a_list }" >
-							<li><a href="/f_mypage/myInfo2">프로젝트 ${item.p_content } 1건</a></li>
+								<c:if test="${identity.identity eq 'freelancer' }">
+									<li><a href="/f_mypage/myInfo2">${item.p_name}에서 ${item.p_content }</a></li>
+								</c:if>
+								<c:if test="${identity.identity eq 'enterprise' }">
+									<li><a href="/e_mypage/e_project">${item.p_name}에서 ${item.p_content }</a></li>
+								</c:if>
 						</c:forEach>
 					</ul>					
 				</div>

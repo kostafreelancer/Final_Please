@@ -16,7 +16,9 @@ public interface c_loginService {
 	public c_login_enterpriseVO select_e_login_idcheck(c_loginVO vo);
 	public c_login_freelancerVO select_f_login_idcheck(c_loginVO vo);
 	public int chang_check(int f_num);
+	public int chang_check_e(int e_num);
 	public List<c_login_alramVO> alram_contents(int f_num);
+	public List<c_login_alramVO> alram_contents_e(int e_num);
 	public void updateRecentLogin(int f_num);
 	public void updatef_nowstate(int f_num);
 }

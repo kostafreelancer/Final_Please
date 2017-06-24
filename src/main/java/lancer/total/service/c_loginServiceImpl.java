@@ -75,5 +75,15 @@ public class c_loginServiceImpl implements c_loginService {
 	public void updatef_nowstate(int f_num) {
 		dao.updatef_nowstate(f_num);
 	}
+
+	@Override
+	public int chang_check_e(int e_num) {
+		return dao.chang_check_e(e_num);
+	}
+
+	@Override
+	public List<c_login_alramVO> alram_contents_e(int e_num) {
+		return dao.alram_contents_E(e_num);
+	}
 	
 }

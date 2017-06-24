@@ -66,6 +66,14 @@ public class c_loginDAOImpl implements c_loginDAO {
 	public void updatef_nowstate(int f_num) {
 		session.update(namespace + ".updatef_nowstate", f_num);
 	}
+	@Override
+	public int chang_check_e(int e_num) {
+		return session.selectOne(namespace+".chang_check_e",e_num);
+	}
+	@Override
+	public List<c_login_alramVO> alram_contents_E(int e_num) {
+		return session.selectList(namespace+".alram_contents_e",e_num);
+	}
 	
 	
 	
