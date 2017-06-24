@@ -20,16 +20,16 @@
 	<div class="header_welcome_content">
 				<c:choose>
 					<c:when test="${identity.identity == 'freelancer' }">
-						<span id="c_freelancer">${client.f_name}</span>
+						<span class="username" id="c_freelancer">${client.f_name}</span>
 					</c:when>
 					<c:when test="${identity.identity == 'enterprise' }">
-						<span id="enterprise">${client.e_name}</span>
+						<span class="username" id="enterprise">${client.e_name}</span>
 					</c:when>
 					<c:when test="${identity.identity == 'admin' }">
-						<span id="admin">${client.ad_id}</span>
+						<span  class="username" id="admin">${client.ad_id}</span>
 					</c:when>
 					<c:otherwise>
-						<span id="c_freelancer">${client.f_name}</span>
+						<span  class="username" id="c_freelancer">${client.f_name}</span>
 					</c:otherwise> 
 				</c:choose>
 		</div>

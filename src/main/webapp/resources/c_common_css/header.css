@@ -8,6 +8,7 @@ body {
 	position: relative;
 	width: 100%;
 	min-width: 980px;
+	width:1520px;
 	margin: 0 auto;
 	background: url("/resources/c_common_img/header_bg.jpg")
 		no-repeat center 0;
@@ -30,26 +31,37 @@ body {
 	float: right;
 	margin: 0px;
 	text-align: right;
-	margin-top: 10px;
+	margin-top: 8px;
 }
-
+.header_top_menus a{
+	position: absolute;
+    right: 17px;
+    top: 4px;
+}
+.header_top_menus img{
+	padding-left: 5px;
+}
 .header_top_menus>li {
+	position: relative;
 	list-style: none;
 	float: right;
-	text-align: center;
-	width: 100px;
-	border-left: 1px solid #999;
+	text-align: left;
+	width: 110px;
+	/* border-left: 1px solid #999; */
 }
-
+.change_menus{
+	margin-left: 15px;
+}
 .header_top_menus li:LAST-CHILD {
 	border-left: none;
 }
 
 .header_top_menus>li>a {
 	text-decoration: none;
-	color: #999;
-	font-size: 13px;
-	padding-bottom: 10px;
+    color: #ffffff;
+    font-size: 13px;
+    font-family: 'NanumGothic_b';
+    text-shadow: 0 0 5px #00c6ff;
 }
 
 .header_menu {
@@ -62,7 +74,7 @@ body {
 	list-style: none;
 	margin-top: 5px;
 	width: 1200px;
-	padding-left: 300px;
+	padding-left: 250px;
 }
 
 .header_menus>li {
@@ -83,7 +95,8 @@ body {
 .header_sns {
 	position: absolute;
 	top: 75px;
-	right: 150px;
+	/* right: 150px; */
+	margin-left: 1200px;
 }
 
 .header_sns a {
@@ -113,7 +126,8 @@ body {
 .clock {
 	top: 160px;
 	width: 230px;
-	right: 250px;
+	/* right: 250px; */
+	margin-left: 1050px;
 	position: absolute;
 	font: bold 12px Arial, Helvetica, sans-serif;
 	color: #fff;
@@ -159,18 +173,26 @@ body {
 .red{
 	position: absolute;
     background-color: red;
-    width: 24px;
+    width: 22px;
     height: 20px;
-    left: 130px;
-    top: 11px;
+    left: 135px;
+    top: 3px;
     border-radius: 15px;
+}
+
+.alram_icon{
+	width: 30px;
+	height: 30px;
+	position: absolute;
+    top: 5px;
+    margin-left: 120px;
+	
 }
 .header_check{
 	position: absolute;
    /*  background-color: red; */
     width: 23px;
-    left: 130px;
-    top: 10px;
+    left: 134px;
     border-radius: 15px;
     text-align: center;
 }
@@ -201,6 +223,8 @@ body {
 	padding: 0;
 	width: 200px;
 }
-
+.header_top_menu{
+	background: #000000;
+}
 
 

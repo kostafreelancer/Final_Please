@@ -17,8 +17,12 @@
 <body>
 	<div class="header">
 		<div class="header_top_menu">
-		<div class="red"></div>
-			<div class="header_check">
+		
+		<c:if test="${identity.identity ne null}">
+			<img class="alram_icon" alt="alram" src="/resources/c_common_img/images_b.png">
+			<c:if test="${chang_num > 0 }">
+				<div class="red"></div>
+				<div class="header_check">
 				<div class='ee'>${chang_num}
 					<ul>
 						<c:forEach var="item" items="${a_list }" >
@@ -27,6 +31,17 @@
 					</ul>					
 				</div>
 			</div>
+			</c:if>
+		</c:if>
+			<%-- <div class="header_check">
+				<div class='ee'>${chang_num}
+					<ul>
+						<c:forEach var="item" items="${a_list }" >
+							<li><a href="/f_mypage/myInfo2">프로젝트 ${item.p_content } 1건</a></li>
+						</c:forEach>
+					</ul>					
+				</div>
+			</div> --%>
 			<div class="header_welcome_content">
 				<c:choose>
 					<c:when test="${identity.identity == 'freelancer' }">
@@ -45,19 +60,19 @@
 			</div>
 			<ul class="header_top_menus">
 				<li><img alt="center_img"
-					src="/resources/c_common_img/header_center_icon.jpg"> <a
+					src="/resources/c_common_img/member_icon.png" width="18px" > <a
 					href=${pageContext.request.contextPath}"/c_membercenter/member_centerMain">고객
 						센터</a></li>
 				<li class="header_join"><img alt="join_img"
-					src="/resources/c_common_img/header_join_icon.jpg"> <a
+					src="/resources/c_common_img/join_icon .png" width="24px" > <a
 					href=${pageContext.request.contextPath}"/c_join/c_join_step1">회원가입</a></li>
 				<li class="login_checking"><img alt="log_img"
-					src="/resources/c_common_img/header_log_icon01.jpg"> <a
+					src="/resources/c_common_img/login_icon.png" width="22px" class="change_menus"> <a
 					href=${pageContext.request.contextPath}"/c_login/login">로그인</a></li>
 
 				<li><img alt="home_img"
-					src="/resources/c_common_img/header_home_icon01.jpg"> <a class="c_home"
-					href=${pageContext.request.contextPath}"/f_main/f_main">홈</a></li>
+					src="/resources/c_common_img/Home-blueberry-256 (1).png" width="25px" class="change_menus"> <a class="c_home"
+					href=${pageContext.request.contextPath}"/f_main/f_main">HOME</a></li>
 			</ul>
 		
 		</div>
