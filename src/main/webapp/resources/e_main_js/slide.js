@@ -10,6 +10,10 @@ $(document).ready(function() {
         $(this).parent().attr("id","current"); // Activate this
         $('#' + $(this).attr('title')).fadeIn(); // Show content for current tab
     });
+    
+     var news1height = $('.news1').height();
+     $('.news2').height(news1height);
+     $('#FreeLancer').css('margin-top', news1height);
 });
 
 $(function(){

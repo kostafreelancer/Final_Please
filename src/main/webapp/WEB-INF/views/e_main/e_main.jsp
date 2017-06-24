@@ -48,19 +48,21 @@
 
 	<section class="news">
 	<h3 class="e_main_h3">IT 뉴스</h3>
-	<div class="news1tab">
-		<div class="news1">
-			<c:forEach var="a" items="${news_pack }">
-				<br><span class="newscon">${a }<br></span>
-			</c:forEach>
+	<div class="newstabs">
+		<div class="news1tab">
+			<div class="news1">
+				<c:forEach var="a" items="${news_pack }">
+					<br><span class="newscon">${a }<br></span>
+				</c:forEach>
+			</div>
 		</div>
-	</div>
-
-	<div class="news2tab">
-		<div class="news2">
-			<c:forEach var="b" items="${news_pack2 }">
-				<br><span class="newscon">${b }<br></span>
-			</c:forEach>
+	
+		<div class="news2tab">
+			<div class="news2">
+				<c:forEach var="b" items="${news_pack2 }">
+					<br><span class="newscon">${b }<br></span>
+				</c:forEach>
+			</div>
 		</div>
 	</div>
 	</section>

@@ -41,6 +41,7 @@ import lancer.f_mypage.domain.FinishProject;
 import lancer.f_mypage.domain.NowProject;
 import lancer.f_mypage.domain.Portfolio;
 import lancer.f_mypage.domain.School;
+import lancer.total.service.C_AlramService;
 import lancer.total.service.C_FileService;
 import lancer.total.service.c_freelancerlistService;
 
@@ -53,6 +54,9 @@ public class c_freelancerlistController {
 	
 	@Inject
 	private C_FileService fileService;
+	
+	@Inject
+	private C_AlramService alramService;
 	
 	
 	@RequestMapping("/f_list")
@@ -217,6 +221,8 @@ public class c_freelancerlistController {
 					contract.setC_num(c_num);
 					
 					service.insertContract(submitVO);
+					alramService.insertAlramF(f_num, e_pr_num, "ㄴㄴ");
+					
 					
 				
 				}

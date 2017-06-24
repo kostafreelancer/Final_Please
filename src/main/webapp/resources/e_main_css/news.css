@@ -4,7 +4,7 @@
 
 .news1 {
 	width: 49.75%;
-	height: 450px;
+	height: auto;
 	background-color: lightgray;
 	float: left;
 	border: 1px solid gray;
