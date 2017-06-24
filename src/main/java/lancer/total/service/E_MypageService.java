@@ -93,7 +93,6 @@ public class E_MypageService{
 		return dao.countScout(e_pr_num);
 	}
 
-	
 	public void acceptApplicant(int f_num, int e_pr_num) throws Exception {
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
 		map.put("f_num", f_num);
