@@ -1,17 +1,23 @@
 @CHARSET "EUC-KR";
 
 #sponsor {
-	border: 1px solid gray;
-	background-color: lightgray;
+	background: #f3f4f7;
 }
 
 #sponsor h3 {
-	margin-left: 150px;
-	margin-top: 30px;
+	padding-top:50px;
+	    margin-top: 0;
+	text-align: center;
+    /* margin-left: 150px; */
+    line-height: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #454545;
+    padding-bottom: 30px;
 }
 
 #sponsor img {
 	display: block;
-	margin-left: 100px;
+	margin-left: 140px;
 	padding: 50px;
 }

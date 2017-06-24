@@ -3,11 +3,10 @@
 }
 
 .news1 {
-	width: 49.75%;
+	width: 100%;
 	height: auto;
-	background-color: lightgray;
+	background-color:#f3f4f7;
 	float: left;
-	border: 1px solid gray;
 }
 
 /* .news1 img {
@@ -19,7 +18,7 @@
 .news2 {
 	width: 49.75%;
 	height: 450px;
-	background-color: lightgray;
+	background-color: #f3f4f7;
 	float: right;
 	border: 1px solid gray;
 }
@@ -30,10 +29,69 @@
 	float: left;
 } */
 .e_main_h3{
-	margin-left: 150px;
+	    text-align: center;
+    /* margin-left: 150px; */
+    /* margin-top: 30px; */
+    line-height: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #454545;
+    /* padding-bottom: 30px; */
+    /* margin-left: 150px; */
+    margin-bottom: 50px;
 }
 
 .newscon{
-	float:left;
+	margin-right: 26px;
+    margin-bottom: 15px;
+	display: inline;
+    float: left;
+    border-radius: 2px;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    background-position: center center;
+    width: 342px;
+    height: 250px;
+    background-color: #fff;
+    border: 1px solid #dedede;
+    border-bottom: 2px solid #dedede;
+    padding: 25px;
+    padding: 22px 20px \9;
 	
+}
+.landing-inner {
+    width: 1260px;
+    margin: 49px auto;
+}
+
+dd._rcount {
+    margin-left: 0;
+    margin-top: 20px;
+    font-family: "Nanum Gothic", "Apple SD Gothic Neo", "¸¼Àº °íµñ", "Malgun Gothic", AppleGothic, µ¸¿ò, Dotum, Helvetica, Arial, sans-serif;
+    line-height: 1.42857;
+    color: rgb(85, 85, 85);
+}
+
+.landing-inner img {
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+.img22{
+	margin-left: 40px;
+}
+
+.landing-inner a{
+	color: #2099bb;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.landing-inner a:hover{
+	font-size: 18px;
+    font-weight: bold;
+	color: #15647a;
+    text-decoration: underline;
 }

@@ -2,17 +2,25 @@
 	
 }
 
-button{
-	border:1px solid #f1f1f1;
-	width:50%;
-	height:50px;
-	float:left;
-	font-weight:bold;
-	font-size:18px;
+button.active {
+    background-color: #4c5c6a !important;
+}
+
+button {
+    margin-left: 0;
+    font-family: "Nanum Gothic", "Apple SD Gothic Neo", "���� ����", "Malgun Gothic", AppleGothic, ����, Dotum, Helvetica, Arial, sans-serif;
+    line-height: 1.42857;
+    border: 1px solid #f1f1f1;
+    width: 50%;
+    height: 60px;
+    float: left;
+    font-size: 18px;
+    color: #fff !important;
 }
 
 button.active{
 	background-color:#ccc;
+	font-weight: bold;
 }
 
 #Project{
@@ -20,9 +28,10 @@ button.active{
 }
 
 .tabcontent{
-	overflow:hidden;
-	border:1px solid lightgray;
-	background-image: url("/resources/e_main_img/bg_content01.jpg;");
+	overflow: hidden;
+    border: 1px solid lightgray;
+    background-color: #2d3a45;
+    padding-bottom: 50px;
 }
 
 .content{
@@ -33,4 +42,172 @@ button.active{
 	display: inline-block;
 	list-style-type: none;
 	padding: 15px;
+}
+
+li.icon1, li.icon2 {
+    margin-right: 17px;
+    margin-bottom: 15px;
+    display: inline;
+    float: left;
+    border-radius: 2px;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    background-position: center center;
+    width: 200px;
+    height: 220px;
+    background-color: #fff;
+    border: 1px solid #dedede;
+    border-bottom: 2px solid #dedede;
+    padding: 25px;
+}
+
+.now{
+	font-weight: normal;
+    font-size: 18px;
+    color: #fff;
+    margin-left: 450px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+
+.txt01 {
+   text-align: center;
+    /* margin-left: 85px; */
+    font-size: 20px;
+    font-weight: bold;
+    color: #212c36;
+    margin-bottom: 0;
+}
+p.num01 {
+    /* margin-top: 0; */
+    text-align: center;
+}
+
+.landing-process {
+	height: 250px;
+    margin-bottom: 0\0;
+    background-color: #fff;
+    border-top: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+}
+ span{
+ font-family: "Nanum Gothic","Apple SD Gothic Neo","맑은 고딕","Malgun Gothic","AppleGothic","돋움",Dotum,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555;
+    }
+    
+.landing-process-inner h4 {
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #454545;
+    padding-bottom: 30px;
+    margin-top: 50px;
+}
+.landing-process-inner img {
+    padding-bottom: 10px;
+    margin-left: 180px;
+}
+.process {
+    width: 1260px;
+    /* padding-bottom: 50px; */
+    /* margin-right: 0; */
+    margin-left: 180px;
+}
+
+.step{
+    margin-right: 129px;
+    font-size: 16px;
+}
+
+.landing-popped {
+    border-left: none;
+    border-right: none;
+    height: 66px;
+    padding: 0;
+    background-color: #4c5c6a;
+    border-bottom: 1px solid #d2d2d2;
+    margin-top: 0px \0;
+    margin-bottom: 0px \0;
+}
+
+.landing-popped .text-center .btn-wishket {
+    color: #fff;
+    background-color: #2099bb;
+    border-color: #1c87a5;
+    margin-left: 25px;
+    text-decoration: none;
+}
+.text-center {
+    padding-top: 13px;
+    line-height: 34px;
+    height: 34px;
+    font-size: 18px;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+.landing-benefit {
+    background-color: #fff;
+    margin-top: 0\0;
+    margin-bottom: 0\0;
+}
+
+.landing .landing-benefit .landing-benefit-title h4 {
+    font-weight: bold;
+    font-size: 18px;
+    color: #454545;
+}
+
+.landing-benefit .benefit-item img {
+    margin-left: 99px;
+    margin-right: 99px;
+}
+
+.landing-benefit .benefit-item .benefit-item-title {
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #2d3a45;
+}
+
+.landing-benefit .benefit-item .benefit-item-desc {
+    color: #454545;
+}
+
+.landing-benefit .benefit-item {
+    float: left;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.landing-popped.text-center .btn-wishket:hover, .landing-popped .text-center .btn-wishket:focus {
+    color: #fff;
+    background-color: #24abd1;
+    border-color: #2099bb;
 }
