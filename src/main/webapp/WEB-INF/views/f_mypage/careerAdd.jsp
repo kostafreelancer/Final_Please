@@ -37,7 +37,7 @@ function check(){
 	<label>소재지</label>
 	<input type="text" name="location" placeholder="ex) 서울" required><br>
 	<label>연차</label>
-	<input type="text" name="year" placeholder="ex) 3" required><br><br>
+	<input type="text" name="year" placeholder="ex) 3" required>년<br><br>
 	<center><input type="submit" value="저장">
 	<input type="reset" value="초기화" ></center>
 	</fieldset>

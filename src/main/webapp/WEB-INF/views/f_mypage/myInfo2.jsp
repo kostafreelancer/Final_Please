@@ -112,7 +112,7 @@
 							<td>${nowProject.p_name}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${nowProject.e_pr_num}&e_num=${nowProject.e_num}&from=mypage'"> </td>
 							<td>${nowProject.manager_hphone}</td>
 							<td>${nowProject.term}</td>
-							<td>${nowProject.p_uppercost}</td>
+							<td>${nowProject.p_uppercost}원</td>
 							<td><a href="/c_file/downloadFile?identy=0&f_num=${nowProject.c_num}&fileType=contractfile">계약서</a></td>
 						</tr>
 						</c:otherwise>
@@ -156,7 +156,7 @@
 							<td>${matchingProject.p_name}&nbsp;&nbsp;<input type="button" name="gotoList" value="상세보기" onclick="location.href='/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num=${matchingProject.e_pr_num}&e_num=${matchingProject.e_num}&from=mypage'"> </td>
 							<td>${matchingProject.manager_hphone}</td>
 							<td>${matchingProject.term}</td>
-							<td>${matchingProject.p_uppercost}</td>
+							<td>${matchingProject.p_uppercost}만원</td>
 							<td><a href="/c_file/downloadFile?identy=0&f_num=${matchingProject.c_num}&fileType=contractfile">계약서</a></td>
 						</tr>
 						</c:otherwise>

@@ -72,6 +72,9 @@
 					<br>
 					<br>
 				</div>
+				</div>
+</div>
+</div>
 
 				<%@include file="../c_common/footer.jsp"%>
 </body>

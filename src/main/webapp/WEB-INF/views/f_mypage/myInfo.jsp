@@ -552,7 +552,7 @@ $(function(){
 							<td>${mycareer.rank}</td>
 							<td>${mycareer.career_term}</td>
 							<td>${mycareer.career_location}</td>
-							<td>${mycareer.career_year}</td>
+							<td>${mycareer.career_year}년</td>
 							<td class="last"><input type="button" value="수정" onclick="modifyCareer(${mycareer.career_num});">&nbsp;&nbsp;<input
 								type="button" value="삭제" onclick="deleteCareer(${mycareer.career_num});"></td>
 
