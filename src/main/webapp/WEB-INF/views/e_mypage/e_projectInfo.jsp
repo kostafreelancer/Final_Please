@@ -381,9 +381,11 @@ $(function(){
 				
 				<form name="startProject" action="/e_mypage/e_startProject" method="post">
 					<input type="hidden" name="e_pr_numStart" value="${project.e_pr_num }">
+					<input type="hidden" name="p_nameStart" value="${project.p_name }">
 				</form>	
 				<form name="endProject" action="/e_mypage/e_endProject" method="post">
 					<input type="hidden" name="e_pr_numEnd" value="${project.e_pr_num }">
+					<input type="hidden" name="p_nameEnd" value="${project.p_name }">
 				</form>
 				<form name="deleteProject" action="/e_mypage/e_deleteProject" method="post">
 					<input type="hidden" name="e_pr_numDelete" value="${project.e_pr_num }">
@@ -679,10 +681,12 @@ $(function(){
 			<form action="/e_mypage/e_acceptApplicant" name="acceptApplicant" method="post">
 				<input type="hidden" name="f_numAccept" value="">
 				<input type="hidden" name="e_pr_numAccept" value="${project.e_pr_num }">
+				<input type="hidden" name="p_nameAccept" value="${project.p_name }">
 			</form>
 			<form action="/e_mypage/e_rejectApplicant" name="rejectApplicant" method="post">
 				<input type="hidden" name="f_numReject" value="">
 				<input type="hidden" name="e_pr_numReject" value="${project.e_pr_num }">
+				<input type="hidden" name="p_nameReject" value="${project.p_name }">
 			</form>
 			<form action="/e_mypage/e_cancelScout" name="cancelScout" method="post">
 				<input type="hidden" name="f_numCancel" value="">

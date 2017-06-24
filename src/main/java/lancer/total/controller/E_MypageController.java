@@ -20,6 +20,7 @@ import lancer.e_mypage.domain.EnterpriseCommand;
 import lancer.e_mypage.domain.Member;
 import lancer.e_mypage.domain.PageMaker;
 import lancer.e_mypage.domain.Project;
+import lancer.total.service.C_AlramService;
 import lancer.total.service.C_DropService;
 import lancer.total.service.C_FileService;
 import lancer.total.service.E_MypageService;
@@ -36,6 +37,9 @@ public class E_MypageController {
 	
 	@Inject
 	private C_DropService dropService;
+	
+	@Inject
+	private C_AlramService alramService;
 
 	@RequestMapping(value = "/e_info", method = RequestMethod.GET)
 	public void e_infoGET(Model model,HttpSession session) throws Exception{
@@ -365,12 +369,24 @@ public class E_MypageController {
 			service.insertP_Job(map);
 		}
 		
+		String ment = project.getP_name() +"& 정보 &수정";
+		
+		List<Member> list = service.selectMemberWithoutCri(e_pr_num);
+		for(int i=0; i<list.size(); i++){
+			alramService.insertAlramF(list.get(i).getF_num(), e_pr_num, ment);
+		}
+		
 		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + project.getE_pr_num();
 	}
 	
 	@RequestMapping(value = "/e_startProject", method = RequestMethod.POST)
-	public String e_startProjectPOST(int e_pr_numStart) throws Exception {
+	public String e_startProjectPOST(int e_pr_numStart, String p_nameStart) throws Exception {
 		service.startProject(e_pr_numStart);
+		String ment = p_nameStart +"& 진행 &시작";
+		List<Member> list = service.selectMemberWithoutCri(e_pr_numStart);
+		for(int i=0; i<list.size(); i++){
+			alramService.insertAlramF(list.get(i).getF_num(), e_pr_numStart, ment);
+		}
 		
 		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numStart;
 	}
@@ -383,8 +399,14 @@ public class E_MypageController {
 	}
 	
 	@RequestMapping(value = "/e_endProject", method = RequestMethod.POST)
-	public String e_endProjectPOST(int e_pr_numEnd) throws Exception {
+	public String e_endProjectPOST(int e_pr_numEnd, String p_nameEnd) throws Exception {
 		service.endProject(e_pr_numEnd);
+		String ment = p_nameEnd +"& 진행 &완료";
+		
+		List<Member> list = service.selectMemberWithoutCri(e_pr_numEnd);
+		for(int i=0; i<list.size(); i++){
+			alramService.insertAlramF(list.get(i).getF_num(), e_pr_numEnd, ment);
+		}
 		
 		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numEnd;
 	}
@@ -399,15 +421,19 @@ public class E_MypageController {
 	
 	
 	@RequestMapping(value = "/e_acceptApplicant", method = RequestMethod.POST)
-	public String e_acceptApplicantPOST(int f_numAccept, int e_pr_numAccept) throws Exception {
+	public String e_acceptApplicantPOST(int f_numAccept, int e_pr_numAccept, String p_nameAccept) throws Exception {
 		service.acceptApplicant(f_numAccept, e_pr_numAccept);
+		String ment = p_nameAccept +"& 참가 신청 &수락";
+		alramService.insertAlramF(f_numAccept, e_pr_numAccept, ment);
 
 		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numAccept;
 	}
 	
 	@RequestMapping(value = "/e_rejectApplicant", method = RequestMethod.POST)
-	public String e_rejectApplicantPOST(int f_numReject, int e_pr_numReject) throws Exception {
+	public String e_rejectApplicantPOST(int f_numReject, int e_pr_numReject, String p_nameReject) throws Exception {
 		service.rejectApplicant(f_numReject, e_pr_numReject);
+		String ment = p_nameReject +"& 참가 신청 &거절";
+		alramService.insertAlramF(f_numReject, e_pr_numReject, ment);	
 		
 		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numReject;
 	}

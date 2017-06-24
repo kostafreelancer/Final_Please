@@ -82,6 +82,10 @@ public class E_MypageDao{
 		return session.selectList(namespace + ".selectMember", e_pr_num, new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
 	}
 	
+	public List<Member> selectMemberWithoutCri(int e_pr_num) throws Exception {
+		return session.selectList(namespace + ".selectMemberWithoutCri", e_pr_num);
+	}
+	
 	public List<Member> selectApplicant(int e_pr_num, Criteria cri) throws Exception {
 		return session.selectList(namespace + ".selectApplicant", e_pr_num, new RowBounds(cri.getPageStart(),cri.getPerPageNum()));
 	}

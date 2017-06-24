@@ -73,6 +73,10 @@ public class E_MypageService{
 		return dao.selectMember(e_pr_num, cri);
 	}
 	
+	public List<Member> selectMemberWithoutCri(int e_pr_num) throws Exception {
+		return dao.selectMemberWithoutCri(e_pr_num);
+	}
+	
 	public List<Member> selectApplicant(int e_pr_num, Criteria cri) throws Exception {
 		return dao.selectApplicant(e_pr_num, cri);
 	}

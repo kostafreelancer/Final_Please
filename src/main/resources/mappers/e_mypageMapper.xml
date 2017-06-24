@@ -99,6 +99,14 @@
 		c_state IN('매칭중', '매칭완료', '진행중', '완료')
 	</select>
 	
+	<select id="selectMemberWithoutCri" resultType="lancer.e_mypage.domain.Member">
+		SELECT * FROM contract c, freelancer f, (SELECT * FROM fileupload WHERE section = 'contractfile') u WHERE
+		c.f_num = f.f_num AND
+		c.c_num = u.common_num(+) AND
+		c.e_pr_num = #{e_pr_num} AND 
+		c_state IN('매칭중', '매칭완료', '진행중', '완료')
+	</select>
+	
 	<select id="selectApplicant" resultType="lancer.e_mypage.domain.Member">
 		SELECT * FROM contract c, freelancer f WHERE c.f_num = f.f_num AND c.e_pr_num = #{e_pr_num} AND c_state IN('신청중', '신청거절')
 	</select>
