@@ -101,17 +101,9 @@ document.location.href = url; */
 					</colgroup>
 					<tbody>
 						<tr>
-							<td rowspan="4">
-							
-								<img name="IMG1" id="IMG1" >
-								<!-- <p>
-								<input type="file" name="f_fname"> -->
-									<!-- <div class="filebox"></div>
-									<div class="filebutton"><span>사진업로드</span><input type="file" name="fm_file1" onchange="PreView(this.value, 'IMG1', '132', '176');" class="searchfile" title="파일 찾기" style="width:820px;"></div>
-									<div class="filebutton"><span>사진업로드</span><input type="file" name="fm_file1" onchange="readURL(this);" class="searchfile" title="파일 찾기" style="width:820px;"></div>
-								 -->
-                                <!-- <span class="pho_txt">최적 해상도:132x176 pixel</span> --> 
-								<!-- 사진업로드</p> -->
+				<td rowspan="4">
+							<img id="f_photo" src= "/c_file/displayFile?fileName=${f_photo}">
+					
 							</td>
 							<th scope="row"><label for="fm_korname"><span
 									class="txt_or">*</span> 성명</label></th>

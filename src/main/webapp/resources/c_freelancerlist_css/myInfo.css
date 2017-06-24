@@ -3,7 +3,8 @@
 #tabs {
 	overflow: hidden;
 	width: 1000px;
-	margin-left: 200px;
+	margin-left: 250px;
+	padding-left: 80px;
 	margin-bottom: 50px;
 	padding: 0;
 	list-style: none;

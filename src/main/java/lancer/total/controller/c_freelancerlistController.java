@@ -1,6 +1,7 @@
 package lancer.total.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -40,6 +41,7 @@ import lancer.f_mypage.domain.FinishProject;
 import lancer.f_mypage.domain.NowProject;
 import lancer.f_mypage.domain.Portfolio;
 import lancer.f_mypage.domain.School;
+import lancer.total.service.C_FileService;
 import lancer.total.service.c_freelancerlistService;
 
 @Controller
@@ -48,6 +50,10 @@ public class c_freelancerlistController {
 	
 	@Inject
 	c_freelancerlistService service; 
+	
+	@Inject
+	private C_FileService fileService;
+	
 	
 	@RequestMapping("/f_list")
 	public void f_list(@ModelAttribute("cri") c_freelancerlist_SearchCriteria cri,HttpServletRequest request,Model model,@ModelAttribute("reset") String reset) throws Exception{
@@ -107,6 +113,14 @@ public class c_freelancerlistController {
 		model.addAttribute("address1", address[0]);
 		model.addAttribute("address2", address[1]);
 		model.addAttribute("address3", address[2]);
+		
+		HashMap<String, Object> f_fnameMap = fileService.selectFile("f_photo", freelancer.getF_num(), 0);
+		System.out.println(f_fnameMap.get("file_num")+"우엑");
+		if(f_fnameMap.get("file_num") != null){
+			HashMap<String, Object> f_fnameMap2 = fileService.selectFileInfo((Integer)f_fnameMap.get("file_num"));
+			model.addAttribute("f_photo", f_fnameMap2.get("stored_file_name"));
+		}
+		
 		
 		//상세분야 구하기
 		List<Integer> f_job =service.selectF_job(f_num);
