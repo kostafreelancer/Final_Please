@@ -19,6 +19,7 @@ import lancer.a_main.domain.Criteria;
 import lancer.a_main.domain.PageMaker;
 import lancer.a_main.domain.askList;
 import lancer.total.service.A_MainService;
+import lancer.total.service.C_AlramService;
 import lancer.total.service.C_DropService;
 
 @Controller
@@ -29,6 +30,8 @@ public class A_MainController {
 	private A_MainService service;
 	@Inject
 	private C_DropService dropService;
+	@Inject
+	private C_AlramService alramService;
 	@Autowired
 	private JavaMailSender mailsender;
 	
@@ -162,8 +165,10 @@ public class A_MainController {
 	}
 	
 	@RequestMapping(value = "/a_permitProject", method = RequestMethod.POST)
-	public String a_permitProjectPOST(@RequestParam("permitE_pr_num") int permitE_pr_num)throws Exception{
+	public String a_permitProjectPOST(@RequestParam("permitE_pr_num") int permitE_pr_num, 
+			@RequestParam("permitE_num") int permitE_num)throws Exception{
 		service.permitProject(permitE_pr_num);
+		alramService.insertAlramE(permitE_num, permitE_pr_num, "승인");
 		
 		return "redirect:/a_main/a_main";
 	}

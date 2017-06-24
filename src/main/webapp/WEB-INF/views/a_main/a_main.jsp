@@ -290,6 +290,7 @@
 							<tr>
 								<th>등록번호</th>
 								<td>${pp.e_pr_num }</td>
+								<td style="display:none">${pp.e_num }</td>
 								<th>프로젝트명</th>
 								<td><a href="/c_projectlist/c_readpage?e_pr_num=${pp.e_pr_num }&e_num=${pp.e_num }&from=list">${pp.p_name}</a></td>
 								<th>회사명</th>
@@ -444,6 +445,7 @@
 	</form>
 	<form action="/a_main/a_permitProject" method="post" name="permitProjectForm">
 		<input type="hidden" name="permitE_pr_num">
+		<input type="hidden" name="permitE_num">
 	</form>
 	
 	</section>
