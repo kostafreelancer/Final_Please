@@ -5,15 +5,15 @@ function button_event(num,e_num,from){
 	}
 }
 
-function button_Accept(e_pr_num, fromF_num){
+function button_Accept(e_pr_num, fromF_num, e_num){
 	if(confirm("제안을 수락하시겠습니까?")){
-		location.href='/f_mypage/suggestFinish?e_pr_num=' + e_pr_num + '&f_num='+fromF_num;
+		location.href='/f_mypage/suggestFinish?e_pr_num=' + e_pr_num + '&f_num='+fromF_num + '&e_num='+e_num;
 	}
 }
 
-function button_Reject(e_pr_num, fromF_num){
+function button_Reject(e_pr_num, fromF_num, e_num){
 	if(confirm("제안을 거절하시겠습니까?")){
-		location.href='/f_mypage/suggestReject?e_pr_num=' + e_pr_num + '&f_num='+fromF_num;
+		location.href='/f_mypage/suggestReject?e_pr_num=' + e_pr_num + '&f_num='+fromF_num + '&e_num='+e_num;
 	}
 }
 

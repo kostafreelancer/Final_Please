@@ -265,5 +265,9 @@ public class F_MypageDAO {
 		session.update(namespace + ".updateE_grade", map);
 	}
 	
+	public String getF_id(int f_num) throws Exception{
+		return session.selectOne(namespace + ".getF_id", f_num);
+	}
+	
 	
 }

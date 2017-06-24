@@ -169,7 +169,7 @@ public class c_projectlistController {
 			service.insertContract(submitVO);
 			
 			String p_name = service.getProjectName(e_pr_num);
-			String ment = p_name + "& 에서 & 참가신청";
+			String ment = p_name + "& 에서 &참가신청";
 			alramService.insertAlramE(e_num, e_pr_num, ment);
 		}
 		return "/c_projectlist/complete";

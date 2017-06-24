@@ -1,5 +1,6 @@
 package lancer.total.controller;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -39,9 +40,11 @@ import lancer.f_mypage.domain.NowProject;
 import lancer.f_mypage.domain.Portfolio;
 import lancer.f_mypage.domain.PortfolioCommand;
 import lancer.f_mypage.domain.School;
+import lancer.total.service.C_AlramService;
 import lancer.total.service.C_DropService;
 import lancer.total.service.C_FileService;
 import lancer.total.service.F_MypageService;
+import lancer.total.service.c_projectlistService;
 
 @Controller
 @RequestMapping("/f_mypage")
@@ -56,6 +59,12 @@ public class F_MypageController {
 	
 	@Inject
 	private C_FileService fileService;
+	
+	@Inject
+	private C_AlramService alramService;
+	
+	@Inject
+	private c_projectlistService projectlistService;
 	
 	@RequestMapping(value="/myInfo", method = RequestMethod.GET)
 	public void myInfo(Model model, HttpSession session) throws Exception{
@@ -694,20 +703,30 @@ public class F_MypageController {
 	
 	
 	@RequestMapping(value = "/suggestFinish", method=RequestMethod.GET)
-	public String suggestFinish(@RequestParam("e_pr_num") int e_pr_num, @RequestParam("f_num") int f_num) throws Exception{
+	public String suggestFinish(@RequestParam("e_pr_num") int e_pr_num, @RequestParam("f_num") int f_num, @RequestParam("e_num") int e_num) throws Exception{
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
 		map.put("e_pr_num", e_pr_num);
 		map.put("f_num", f_num);
 		service.suggestApply(map);
+		
+		String p_name = projectlistService.getProjectName(e_pr_num);
+		String f_id = service.getF_id(f_num);
+		String ment = p_name + "& "+ f_id + " &참여수락";
+		alramService.insertAlramE(e_num, e_pr_num, ment);
 		return "redirect:/f_mypage/matching";
 	}
 	
 	@RequestMapping(value="/suggestReject", method=RequestMethod.GET)
-	public String suggestReject(@RequestParam("e_pr_num") int e_pr_num, @RequestParam("f_num") int f_num) throws Exception{
+	public String suggestReject(@RequestParam("e_pr_num") int e_pr_num, @RequestParam("f_num") int f_num, @RequestParam("e_num") int e_num) throws Exception{
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
 		map.put("e_pr_num", e_pr_num);
 		map.put("f_num", f_num);
 		service.suggestReject(map);
+		
+		String p_name = projectlistService.getProjectName(e_pr_num);
+		String f_id = service.getF_id(f_num);
+		String ment = p_name + "& "+ f_id + " &참여거절";
+		alramService.insertAlramE(e_num, e_pr_num, ment);
 		return "redirect:/f_mypage/matchFail";
 	}
 	

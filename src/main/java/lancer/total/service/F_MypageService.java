@@ -261,4 +261,8 @@ public class F_MypageService {
 	public void updateE_grade(HashMap<String, Object> map) throws Exception{
 		dao.updateE_grade(map);
 	}
+	
+	public String getF_id(int f_num) throws Exception{
+		return dao.getF_id(f_num);
+	}
 }

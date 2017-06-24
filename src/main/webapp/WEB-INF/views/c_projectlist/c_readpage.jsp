@@ -372,12 +372,12 @@ $(function(){
 			
 			<div class="btn_box">
 					<input id="checkValue" class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" name="post_a_job"
-						onclick="button_Accept(${project.e_pr_num}, ${client.f_num});" value="제안 수락하기" type="button">
+						onclick="button_Accept(${project.e_pr_num}, ${client.f_num}, ${project.e_num});" value="제안 수락하기" type="button">
 
 				</div>
 				<div class="btn_box">
 					<input id="checkValue" class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" name="post_a_job"
-						onclick="button_Reject(${project.e_pr_num}, ${client.f_num});" value="제안 거절하기" type="button"> <br>
+						onclick="button_Reject(${project.e_pr_num}, ${client.f_num}, ${project.e_num});" value="제안 거절하기" type="button"> <br>
 						<br>
 						<br>
 				</div>
