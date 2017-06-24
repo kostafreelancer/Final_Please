@@ -243,22 +243,24 @@ public class C_JoinController {
 		e_join.setE_scale(e_join.getE_scale());
 		e_join.setStart_year(e_join.getStart_year());
 
-		System.out.println("license" + e_join.getE_licensefileExist());
-		System.out.println("owner" + e_join.getE_ownerfileExist());
+
+		e_join.setE_ownerfilenum(0);
+		e_join.setE_licensefilenum(0);
+		
 		//파일 업로드
 		if(e_join.getE_ownerfileExist().equals("true")){
 			MultipartFile E_ownerfile = e_join.getE_ownerfile();	
 			System.out.println("owerFile명");
 			System.out.println(E_ownerfile);
 			Integer e_ownerfileNum = fileService.uploadImageFile(E_ownerfile, "e_ownerfile", e_num, 0);
-			e_join.setE_ownerfileNum(e_ownerfileNum);
+			e_join.setE_ownerfilenum(e_ownerfileNum);
 		}
 		if(e_join.getE_licensefileExist().equals("true")){
 			MultipartFile e_licensefile = e_join.getE_licensefile();	
 			System.out.println("licenseFile명");
 			System.out.println(e_licensefile);
 			Integer e_licensefileNum = fileService.uploadFile(e_licensefile, "e_licensefile", e_num, 0);
-			e_join.setE_licensefileNum(e_licensefileNum);
+			e_join.setE_licensefilenum(e_licensefileNum);
 		}		
 		
 		service.insertE_join(e_join);

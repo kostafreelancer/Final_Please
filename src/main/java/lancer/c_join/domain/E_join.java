@@ -48,16 +48,12 @@ public class E_join implements Serializable{
 	private MultipartFile e_licensefile;		// 사업자등록증 파일
 	private String e_ownerfileExist;
 	private String e_licensefileExist;
-	private Integer e_ownerfileNum;
-	private Integer e_licensefileNum;
+	private Integer e_ownerfilenum;
+	private Integer e_licensefilenum;
 	
 	
 	public E_join(){
 	}
-
-
-
-
 
 	public E_join(int e_num, String e_id, String e_pwd, String e_mail, String e_mail1, String e_mail2, String e_name,
 			String e_ename, String e_owner, String e_regno, String e_regno1, String e_regno2, String e_regno3,
@@ -66,8 +62,8 @@ public class E_join implements Serializable{
 			String manager_mail, String manager_mail1, String manager_mail2, String e_address, String e_address1,
 			String e_address2, String e_address3, String e_homepage, int start_year, int e_enum, String e_listing,
 			int e_capital, int e_sales, String e_scale, String e_check, double e_score, MultipartFile e_ownerfile,
-			MultipartFile e_licensefile, String e_ownerfileExist, String e_licensefileExist, Integer e_ownerfileNum,
-			Integer e_licensefileNum) {
+			MultipartFile e_licensefile, String e_ownerfileExist, String e_licensefileExist, Integer e_ownerfilenum,
+			Integer e_licensefilenum) {
 		super();
 		this.e_num = e_num;
 		this.e_id = e_id;
@@ -112,475 +108,370 @@ public class E_join implements Serializable{
 		this.e_licensefile = e_licensefile;
 		this.e_ownerfileExist = e_ownerfileExist;
 		this.e_licensefileExist = e_licensefileExist;
-		this.e_ownerfileNum = e_ownerfileNum;
-		this.e_licensefileNum = e_licensefileNum;
+		this.e_ownerfilenum = e_ownerfilenum;
+		this.e_licensefilenum = e_licensefilenum;
 	}
-
-
-
-
 
 	public int getE_num() {
 		return e_num;
 	}
 
-
 	public void setE_num(int e_num) {
 		this.e_num = e_num;
 	}
-
 
 	public String getE_id() {
 		return e_id;
 	}
 
-
 	public void setE_id(String e_id) {
 		this.e_id = e_id;
 	}
-
 
 	public String getE_pwd() {
 		return e_pwd;
 	}
 
-
 	public void setE_pwd(String e_pwd) {
 		this.e_pwd = e_pwd;
 	}
-
 
 	public String getE_mail() {
 		return e_mail;
 	}
 
-
 	public void setE_mail(String e_mail) {
 		this.e_mail = e_mail;
 	}
-
 
 	public String getE_mail1() {
 		return e_mail1;
 	}
 
-
 	public void setE_mail1(String e_mail1) {
 		this.e_mail1 = e_mail1;
 	}
-
 
 	public String getE_mail2() {
 		return e_mail2;
 	}
 
-
 	public void setE_mail2(String e_mail2) {
 		this.e_mail2 = e_mail2;
 	}
-
 
 	public String getE_name() {
 		return e_name;
 	}
 
-
 	public void setE_name(String e_name) {
 		this.e_name = e_name;
 	}
-
 
 	public String getE_ename() {
 		return e_ename;
 	}
 
-
 	public void setE_ename(String e_ename) {
 		this.e_ename = e_ename;
 	}
-
 
 	public String getE_owner() {
 		return e_owner;
 	}
 
-
 	public void setE_owner(String e_owner) {
 		this.e_owner = e_owner;
 	}
-
 
 	public String getE_regno() {
 		return e_regno;
 	}
 
-
 	public void setE_regno(String e_regno) {
 		this.e_regno = e_regno;
 	}
-
 
 	public String getE_regno1() {
 		return e_regno1;
 	}
 
-
 	public void setE_regno1(String e_regno1) {
 		this.e_regno1 = e_regno1;
 	}
-
 
 	public String getE_regno2() {
 		return e_regno2;
 	}
 
-
 	public void setE_regno2(String e_regno2) {
 		this.e_regno2 = e_regno2;
 	}
-
 
 	public String getE_regno3() {
 		return e_regno3;
 	}
 
-
 	public void setE_regno3(String e_regno3) {
 		this.e_regno3 = e_regno3;
 	}
-
 
 	public String getE_phone() {
 		return e_phone;
 	}
 
-
 	public void setE_phone(String e_phone) {
 		this.e_phone = e_phone;
 	}
-
 
 	public String getE_phone1() {
 		return e_phone1;
 	}
 
-
 	public void setE_phone1(String e_phone1) {
 		this.e_phone1 = e_phone1;
 	}
-
 
 	public String getE_phone2() {
 		return e_phone2;
 	}
 
-
 	public void setE_phone2(String e_phone2) {
 		this.e_phone2 = e_phone2;
 	}
-
 
 	public String getE_phone3() {
 		return e_phone3;
 	}
 
-
 	public void setE_phone3(String e_phone3) {
 		this.e_phone3 = e_phone3;
 	}
-
 
 	public String getE_bf() {
 		return e_bf;
 	}
 
-
 	public void setE_bf(String e_bf) {
 		this.e_bf = e_bf;
 	}
-
 
 	public String getManager_name() {
 		return manager_name;
 	}
 
-
 	public void setManager_name(String manager_name) {
 		this.manager_name = manager_name;
 	}
-
 
 	public String getManager_hphone() {
 		return manager_hphone;
 	}
 
-
 	public void setManager_hphone(String manager_hphone) {
 		this.manager_hphone = manager_hphone;
 	}
-
 
 	public String getManager_hphone1() {
 		return manager_hphone1;
 	}
 
-
 	public void setManager_hphone1(String manager_hphone1) {
 		this.manager_hphone1 = manager_hphone1;
 	}
-
 
 	public String getManager_hphone2() {
 		return manager_hphone2;
 	}
 
-
 	public void setManager_hphone2(String manager_hphone2) {
 		this.manager_hphone2 = manager_hphone2;
 	}
-
 
 	public String getManager_hphone3() {
 		return manager_hphone3;
 	}
 
-
 	public void setManager_hphone3(String manager_hphone3) {
 		this.manager_hphone3 = manager_hphone3;
 	}
-
 
 	public String getManager_mail() {
 		return manager_mail;
 	}
 
-
 	public void setManager_mail(String manager_mail) {
 		this.manager_mail = manager_mail;
 	}
-
 
 	public String getManager_mail1() {
 		return manager_mail1;
 	}
 
-
 	public void setManager_mail1(String manager_mail1) {
 		this.manager_mail1 = manager_mail1;
 	}
-
 
 	public String getManager_mail2() {
 		return manager_mail2;
 	}
 
-
 	public void setManager_mail2(String manager_mail2) {
 		this.manager_mail2 = manager_mail2;
 	}
-
 
 	public String getE_address() {
 		return e_address;
 	}
 
-
 	public void setE_address(String e_address) {
 		this.e_address = e_address;
 	}
-
 
 	public String getE_address1() {
 		return e_address1;
 	}
 
-
 	public void setE_address1(String e_address1) {
 		this.e_address1 = e_address1;
 	}
-
 
 	public String getE_address2() {
 		return e_address2;
 	}
 
-
 	public void setE_address2(String e_address2) {
 		this.e_address2 = e_address2;
 	}
-
 
 	public String getE_address3() {
 		return e_address3;
 	}
 
-
 	public void setE_address3(String e_address3) {
 		this.e_address3 = e_address3;
 	}
-
 
 	public String getE_homepage() {
 		return e_homepage;
 	}
 
-
 	public void setE_homepage(String e_homepage) {
 		this.e_homepage = e_homepage;
 	}
-
 
 	public int getStart_year() {
 		return start_year;
 	}
 
-
 	public void setStart_year(int start_year) {
 		this.start_year = start_year;
 	}
-
 
 	public int getE_enum() {
 		return e_enum;
 	}
 
-
 	public void setE_enum(int e_enum) {
 		this.e_enum = e_enum;
 	}
-
 
 	public String getE_listing() {
 		return e_listing;
 	}
 
-
 	public void setE_listing(String e_listing) {
 		this.e_listing = e_listing;
 	}
-
 
 	public int getE_capital() {
 		return e_capital;
 	}
 
-
 	public void setE_capital(int e_capital) {
 		this.e_capital = e_capital;
 	}
-
 
 	public int getE_sales() {
 		return e_sales;
 	}
 
-
 	public void setE_sales(int e_sales) {
 		this.e_sales = e_sales;
 	}
-
 
 	public String getE_scale() {
 		return e_scale;
 	}
 
-
 	public void setE_scale(String e_scale) {
 		this.e_scale = e_scale;
 	}
-
 
 	public String getE_check() {
 		return e_check;
 	}
 
-
 	public void setE_check(String e_check) {
 		this.e_check = e_check;
 	}
-
 
 	public double getE_score() {
 		return e_score;
 	}
 
-
 	public void setE_score(double e_score) {
 		this.e_score = e_score;
 	}
-
 
 	public MultipartFile getE_ownerfile() {
 		return e_ownerfile;
 	}
 
-
 	public void setE_ownerfile(MultipartFile e_ownerfile) {
 		this.e_ownerfile = e_ownerfile;
 	}
-
 
 	public MultipartFile getE_licensefile() {
 		return e_licensefile;
 	}
 
-
 	public void setE_licensefile(MultipartFile e_licensefile) {
 		this.e_licensefile = e_licensefile;
 	}
-
 
 	public String getE_ownerfileExist() {
 		return e_ownerfileExist;
 	}
 
-
 	public void setE_ownerfileExist(String e_ownerfileExist) {
 		this.e_ownerfileExist = e_ownerfileExist;
 	}
-
 
 	public String getE_licensefileExist() {
 		return e_licensefileExist;
 	}
 
-
 	public void setE_licensefileExist(String e_licensefileExist) {
 		this.e_licensefileExist = e_licensefileExist;
 	}
 
+	public Integer getE_ownerfilenum() {
+		return e_ownerfilenum;
+	}
 
+	public void setE_ownerfilenum(Integer e_ownerfilenum) {
+		this.e_ownerfilenum = e_ownerfilenum;
+	}
 
+	public Integer getE_licensefilenum() {
+		return e_licensefilenum;
+	}
 
-
-	public Integer getE_ownerfileNum() {
-		return e_ownerfileNum;
+	public void setE_licensefilenum(Integer e_licensefilenum) {
+		this.e_licensefilenum = e_licensefilenum;
 	}
 
 
 
-
-
-	public void setE_ownerfileNum(Integer e_ownerfileNum) {
-		this.e_ownerfileNum = e_ownerfileNum;
-	}
-
-
-
-
-
-	public Integer getE_licensefileNum() {
-		return e_licensefileNum;
-	}
-
-
-
-
-
-	public void setE_licensefileNum(Integer e_licensefileNum) {
-		this.e_licensefileNum = e_licensefileNum;
-	}
-
-
-	
 }
