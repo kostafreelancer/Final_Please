@@ -11,7 +11,7 @@ public class recommendProject implements Serializable{
 	public int e_pr_num;
 	public int e_num;
 	public String e_name;
-	
+	public String p_content;
 	
 	public String getE_name() {
 		return e_name;
@@ -55,13 +55,20 @@ public class recommendProject implements Serializable{
 	public void setP_startdate(String p_startdate) {
 		this.p_startdate = p_startdate;
 	}
+	
+	public String getP_content() {
+		return p_content;
+	}
+	public void setP_content(String p_content) {
+		this.p_content = p_content;
+	}
 	@Override
 	public String toString() {
-		return "recomandProject [p_name=" + p_name + ", p_lowercost=" + p_lowercost + ", p_uppercost=" + p_uppercost
-				+ ", p_startdate=" + p_startdate + "]";
+		return "recommendProject [p_name=" + p_name + ", p_lowercost=" + p_lowercost + ", p_uppercost=" + p_uppercost
+				+ ", p_startdate=" + p_startdate + ", e_pr_num=" + e_pr_num + ", e_num=" + e_num + ", e_name=" + e_name
+				+ ", p_content=" + p_content + "]";
 	}
-	
-	
+
 	
 	
 }

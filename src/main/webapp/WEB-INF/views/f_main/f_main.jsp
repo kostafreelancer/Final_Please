@@ -48,6 +48,7 @@ function drawMultSeries() {
  
       var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
       chart.draw(data, options);
+      
     }  
     
 /* 	window.location.href="f_main.fm" */
@@ -90,23 +91,27 @@ function drawMultSeries() {
 			</div>
 	<div class="main_slide" style="position: relative; z-index: 1;">
 		<div class="slideshow_images">
-		
-			<a href="#" class="slide"><img src="../../../resources/f_main_img/bg_visual01.jpg"
+			<h2>당신의 프리랜서는 여기에!</h2>
+				<div class="slideshow_detail">
+					<a href="#" class="slide"><img src="../../../resources/f_main_img/test/151.png"
+				alt="" width="150px" height="300px" align="middle"></a>
+				</div>
+<!-- 			<a href="#" class="slide"><img src="../../../resources/f_main_img/bg_visual01.jpg"
 				alt="" width="1911" height="432"></a> <a href="#" class="slide"><img
 				src="../../../resources/f_main_img/bg_visual02.jpg" alt="" width="1911" height="432"></a>
 			<a href="#" class="slide"><img src="../../../resources/f_main_img/bg_visual03.jpg"
 				alt="" width="1911" height="432"></a> <a href="#" class="slide"><img
-				src="../../../resources/f_main_img/bg_visual04.jpg" alt="" width="1911" height="432"></a>
+				src="../../../resources/f_main_img/bg_visual04.jpg" alt="" width="1911" height="432"></a> -->
 		</div>
 	</div>
 
 	<div class="main_news">
 		<c:choose>
 			<c:when test="${identity.identity == 'freelancer' }">
-				<h1>${client.f_name }님을 위한 추천 프로젝트</h1>
+				<h3>${client.f_name }님을 위한 추천 프로젝트</h3>
 			</c:when>
 			<c:otherwise>
-				<h1>드림랜서입니다!</h1>
+				<h3>드림랜서 현황</h3>
 			</c:otherwise>
 		</c:choose>
 		
@@ -117,19 +122,25 @@ function drawMultSeries() {
 				 <c:choose>
 		<c:when test="${identity.identity == 'freelancer' }">
 			<c:forEach items="${recommend }" var="recommendProject">
-				
-					<li>---------------------------------<br>
-					${recommendProject.e_name }<br>
-					<a style = "text-decoration: none" href="/c_projectlist/c_readpage?e_pr_num=${recommendProject.e_pr_num }&e_num=${recommendProject.e_num}">${recommendProject.p_name }</a><br><br>
-					${recommendProject.p_lowercost }만원 ~ ${recommendProject.p_uppercost }만원 <br>
-					${recommendProject.p_startdate } 부터 시작<br>
-					
-					---------------------------------</li>
-				
+					<li>
+					<h4>${recommendProject.e_name }</h4>
+					<a style = "text-decoration: none" href="/c_projectlist/c_readpage?e_pr_num=${recommendProject.e_pr_num }&e_num=${recommendProject.e_num}">${recommendProject.p_name }</a>
+					<h5>
+					<br>
+					<p class="test"><img alt="" src="../../../resources/f_main_img/money.PNG"> ${recommendProject.p_lowercost }만원 ~ ${recommendProject.p_uppercost }만원</p>
+					<p  class="test"><img alt="" src="../../../resources/f_main_img/clock.PNG">  ${recommendProject.p_startdate } 부터 시작</p>
+					<p class="test_content">${recommendProject.p_content }</p>
+					</h5>
+					</li>
 			</c:forEach>
 		</c:when>
 		<c:otherwise>
-			<li>드림랜서입니다!</li>
+			<li>반갑습니다! 드림랜서입니다!<br> IT프로젝트 중계분야 으뜸!<br> 
+			프로젝트 / 프리랜서 등록수 최고!
+			<br>맞춤형 프로젝트가 회원님을 기다리고 있습니다!
+			<br>전 세계 실력 최고 프리랜서들이 프로젝트를 기다리고 있습니다!
+			<br>회원가입 후 더 다양한 혜택을 이용해보세요.
+			</li>
 		</c:otherwise>
 	</c:choose>
 			
@@ -139,59 +150,71 @@ function drawMultSeries() {
 		<div id="chart_div"></div>
 	</div>
 	
+	<div class="main_join">
+		<div class="text_join">
+			프로젝트를 찾고 계신 프리랜서인가요? <a class="btn_join" href="../c_join/c_join_step1">회원가입하기</a>
+		</div>
+	</div>
+	
 	<div id="active_inf">
-		<ul id="tabs">
+<!-- 		<ul id="tabs">
 			<li><a href="#" title="tab1">프리랜서</a></li>
 			<li><a href="#" title="tab2">프로젝트</a></li>
 
-		</ul>
+		</ul> -->
 
-		<div id="content">
-			<div id="tab1">
-				<h2>프리랜서 정보</h2>
-				<h3>현재 활동중인 프리랜서는 ${count }명 입니다.</h3>
-				<img alt="" src="../../../resources/f_main_img/icon01_off.png"> <img alt=""
-					src="../../../resources/f_main_img/icon02_off.png"> <img alt=""
-					src="../../../resources/f_main_img/icon03_off.png"> 
+	<div id="content_test"> 
+
+				<!-- <h2>프리랜서 정보</h2> -->
+				<div class="section_title">${count }명의 프리랜서 활동중</div>
+				<p class="section_img"><img alt="" src="../../../resources/f_main_img/icon01_off.png"></p> 
+				<p class="section_img"><img alt="" src="../../../resources/f_main_img/icon02_off.png"></p>
+				<p class="section_img"><img alt="" src="../../../resources/f_main_img/icon03_off.png"> </p>
 				<form action="" method="post">
 					<table class="active_p">
 						<tr>
 							
-							<td>개발 : </td>							
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							개발 : </td>							
 							<th>${f_create } 명</th>
-							<td>디자인 : </td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							디자인 : </td>
 							<th>${f_design } 명</th>
-							<td>기획</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							기획</td>
 							<th>${f_planner } 명</th>
 							
 						</tr>
 					
 					</table>
 				</form>
-			</div>
-			<div id="tab2">
-				<h2>프로젝트 정보</h2>
-				<h3>현재 모집중인 프로젝트 수</h3>
-				<h3>현재 모집중인 프로젝트 수는 ${countP }개 입니다.</h3>
-				<img alt="" src="../../../resources/f_main_img/icon01_off.png"><img alt=""
-					src="../../../resources/f_main_img/icon02_off.png"> <img alt=""
-					src="../../../resources/f_main_img/icon03_off.png"> <img alt=""
-					src="../../../resources/f_main_img/icon04_off.png">
-				<h3>--분야별 프로젝트 수 구현예정--</h3>
+				<br><br>
+				
+				<!-- 성준햄이해준대여~~~~~ -->
+
+				<!-- <h2>프로젝트 정보</h2>
+				<h3>현재 모집중인 프로젝트 수</h3> -->
+				<div class="section_title">${countP }개의 프로젝트 모집 중</div>
+
+				<p class="section_img"><img alt="" src="../../../resources/f_main_img/icon01_off.png"></p>
+				<p class="section_img"><img alt="" src="../../../resources/f_main_img/icon02_off.png"></p>
+				<p class="section_img"><img alt="" src="../../../resources/f_main_img/icon03_off.png"></p>
 				<table>
 				<tr>
-					<td>1 프로젝트DB</td>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<td>2 프로젝트DB</td>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<td>3 프로젝트DB</td>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<td>4 프로젝트DB</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							개발 : </td>							
+							<th>${f_create } 개</th>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							디자인 : </td>
+							<th>${f_design } 개</th>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							기획</td>
+							<th>${f_planner } 개</th>
 				</tr>
 				</table>
-			</div>
+		 	</div>
 
-		</div>
+
 
 	</div>
 	<div id="introduce_site">
@@ -202,9 +225,24 @@ function drawMultSeries() {
 
 			<img alt="" src="../../../resources/f_main_img/cont04_icon01.png"> <img alt=""
 				src="../../../resources/f_main_img/cont04_icon02.png"> <img alt=""
-				src="../../../resources/f_main_img/cont04_icon03.png"> <img alt=""
-				src=../../../resources/f_main_img/cont04_icon04.png">
-
+				src="../../../resources/f_main_img/cont04_icon03.png"> <!-- <img alt=""
+				src=../../../resources/f_main_img/cont04_icon04.png"> -->
+			<table class="introduce_text">
+				<tr>
+					<td>
+					무료로 더 쉽게 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<br>프로젝트를 등록&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</td>			
+					<td>
+					실력있는 지원자를&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<br> 한눈에 비교 선택&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</td>
+					<td>
+					좋은 기업들의&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<br> 다양한 프로젝트&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</td>
+				</tr>
+				</table>
 		</div>
 	</div>
 	
