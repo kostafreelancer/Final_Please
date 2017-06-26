@@ -441,7 +441,7 @@ $(function(){
 								<c:forEach var="m" items="${memberList }">
 										<tr>
 											<td class="hidden">${m.f_num }</td>
-											<td class="ac">${m.f_id}</td>
+											<td class="ac"><a href="/c_freelancerlist/f_readpage?f_num=${m.f_num}"><b>${m.f_id}</b></a></td>
 											<td class="ac">${m.f_name }</td>
 											<td class="ac">${m.f_sex }</td>
 											<td class="ac">${m.f_major }</td>
@@ -463,18 +463,24 @@ $(function(){
 													</div>
 												</form>
 											</td>
+										<c:choose>
+											<c:when test="${project.p_state eq '완료' }">
+												<c:choose>
+													<c:when test="${m.graded eq 'graded'}">
+														<td class="ac">${m.f_score }점</td>
+													</c:when>
+												
+													<c:otherwise>
+														<td style="display:none">${m.f_num }</td>
+														<td class="ac"><input type="text" placeholder="0.0 ~ 5.0"><input type="button" class="grade" value="평가하기"></button></td>
+													</c:otherwise>
+												</c:choose>											
+											</c:when>
 											
-											<c:choose>
-												<c:when test="${m.graded eq 'graded' }">
-													<td class="ac">${m.f_score }점</td>
-												</c:when>
-											
-												<c:otherwise>
-													<td style="display:none">${m.f_num }</td>
-													<td class="ac"><input type="text" placeholder="0.0 ~ 5.0"><input type="button" class="grade" value="평가하기"></button></td>
-												</c:otherwise>
-											</c:choose>											
-											
+											<c:otherwise>
+												<td class="ac">-</td>
+											</c:otherwise>
+										</c:choose>
 										</tr>
 								</c:forEach>
 							</tbody>
@@ -549,7 +555,7 @@ $(function(){
 									</c:otherwise>
 								</c:choose>
 											<td class="hidden">${a.f_num }</td>
-											<td class="ac">${a.f_id}</td>
+											<td class="ac"><a href="/c_freelancerlist/f_readpage?f_num=${a.f_num}"><b>${a.f_id}</b></a></td>
 											<td class="ac">${a.f_name }</td>
 											<td class="ac">${a.f_sex }</td>
 											<td class="ac">${a.f_major }</td>
@@ -636,7 +642,7 @@ $(function(){
 									</c:otherwise>
 								</c:choose>
 											<td class="hidden">${s.f_num }</td>
-											<td class="ac">${s.f_id}</td>
+											<td class="ac"><a href="/c_freelancerlist/f_readpage?f_num=${s.f_num}"><b>${s.f_id}</b></a></td>
 											<td class="ac">${s.f_name }</td>
 											<td class="ac">${s.f_sex }</td>
 											<td class="ac">${s.f_major }</td>
