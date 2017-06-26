@@ -37,14 +37,16 @@ button.active{
 	margin-left:150px;
 }
 
-.freelancer_sort{
-	margin-left: 7%;
-}
+/* .card{
+	margin-left: 10%;
+} */
+
 
 .e_main_content_ul li {
 	display: inline-block;
 	list-style-type: none;
 	padding: 15px;
+	margin-left: 5%;
 
 }
 

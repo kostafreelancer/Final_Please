@@ -47,6 +47,11 @@ public class e_mainController {
 		model.addAttribute("e_developer", e_mainService.e_developer());
 		model.addAttribute("e_designer", e_mainService.e_designer());
 		model.addAttribute("e_planner", e_mainService.e_planner());
+		model.addAttribute("development", e_mainService.development());
+		model.addAttribute("design", e_mainService.design());
+		model.addAttribute("planning", e_mainService.planning());
+		
+		
 	}
 
 }

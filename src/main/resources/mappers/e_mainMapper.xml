@@ -5,25 +5,38 @@
   
 <mapper namespace="lancer.mappers.e_mainMapper">
 	
-	<select id="countFreelancer" resultType="int">
+	<select id="countFreelancer" resultType="Integer">
 		select count(*) from FREELANCER
 	</select>
 	
-	<select id="countProject" resultType="int">
+	<select id="countProject" resultType="Integer">
 		select count(*) from PROJECT
 	</select>
 	
-	<select id="e_developer" resultType="int">
-		select count(f_major) from freelancer where f_major = '개발'
+	<select id="e_developer" resultType="Integer">
+		select count(*) from freelancer where f_major = '개발'
 	</select>
 	
-	<select id="e_designer" resultType="int">
-		select count(f_major) from freelancer where f_major = '디자인'
+	<select id="e_designer" resultType="Integer">
+		select count(*) from freelancer where f_major = '디자인'
 	</select>
 	
-	<select id="e_planner" resultType="int">
-		select count(f_major) from freelancer where f_major = '기획'
+	<select id="e_planner" resultType="Integer">
+		select count(*) from freelancer where f_major = '기획'
 	</select>
+	
+	<select id="development" resultType="Integer">
+		<![CDATA[select count(*) from P_job where job_id > 1 and job_id < 29]]>
+	</select>
+	
+	<select id="design" resultType="Integer">
+		<![CDATA[select count(*) from P_job where job_id > 30 and job_id < 40]]>
+	</select>
+	
+	<select id="planning" resultType="Integer">
+		<![CDATA[select count(*) from P_job where job_id > 40 and job_id < 47]]>
+	</select>
+	
   
 </mapper>  
 

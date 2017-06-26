@@ -1,5 +1,7 @@
 package lancer.total.service;
 
+import java.awt.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -13,33 +15,54 @@ public class e_MainServiceImpl implements e_MainService {
 	e_mainDAO e_mainDao;
 	
 	@Override
-	public int countFreelancer() throws Exception {
+	public Integer countFreelancer() throws Exception {
 		
 		return e_mainDao.countFreelancer();
 	}
 
 	@Override
-	public int countProject() throws Exception {
+	public Integer countProject() throws Exception {
 		
 		return e_mainDao.countProject();
 	}
 
 	@Override
-	public int e_developer() throws Exception {
+	public Integer e_developer() throws Exception {
 		
 		return e_mainDao.e_developer();
 	}
 
 	@Override
-	public int e_designer() throws Exception {
+	public Integer e_designer() throws Exception {
 		
 		return e_mainDao.e_designer();
 	}
 
 	@Override
-	public int e_planner() throws Exception {
+	public Integer e_planner() throws Exception {
 		
 		return e_mainDao.e_planner();
 	}
+
+	@Override
+	public Integer development() throws Exception {
+		
+		return e_mainDao.development();
+	}
+
+	@Override
+	public Integer design() throws Exception {
+		
+		return e_mainDao.design();
+	}
+
+	@Override
+	public Integer planning() throws Exception {
+		
+		return e_mainDao.planning();
+	}
+	
+	
+	
 
 }

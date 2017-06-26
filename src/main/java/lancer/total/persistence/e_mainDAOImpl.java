@@ -14,33 +14,53 @@ public class e_mainDAOImpl implements e_mainDAO {
 	private static String namespace = "lancer.mappers.e_mainMapper";
 	
 	@Override
-	public int countFreelancer() throws Exception {
+	public Integer countFreelancer() throws Exception {
 	
 		return session.selectOne(namespace+".countFreelancer");
 	}
 
 	@Override
-	public int countProject() throws Exception {
+	public Integer countProject() throws Exception {
 		
 		return session.selectOne(namespace+".countProject");
 	}
 
 	@Override
-	public int e_developer() throws Exception {
+	public Integer e_developer() throws Exception {
 		
 		return session.selectOne(namespace+".e_developer");
 	}
 
 	@Override
-	public int e_designer() throws Exception {
+	public Integer e_designer() throws Exception {
 		
 		return session.selectOne(namespace+".e_designer");
 	}
 
 	@Override
-	public int e_planner() throws Exception {
+	public Integer e_planner() throws Exception {
 		
 		return session.selectOne(namespace+".e_planner");
 	}
+
+	@Override
+	public Integer development() throws Exception {
+		
+		return session.selectOne(namespace+".development");
+	}
+
+	@Override
+	public Integer design() throws Exception {
+		
+		return session.selectOne(namespace+".design");
+	}
+
+	@Override
+	public Integer planning() throws Exception {
+		
+		return session.selectOne(namespace+".planning");
+	}
+
+	
 
 }

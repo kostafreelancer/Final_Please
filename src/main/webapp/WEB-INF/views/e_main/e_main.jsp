@@ -85,20 +85,22 @@
 		<div class="content">
 			<h3 class="now">현재 활동 중인 프리랜서 : ${freelancerNum }명</h3>
 
-			<ul class="e_main_content_ul">
-
-				<li class="icon1"><a href=''><img
-						class="img22" src="../../../resources/e_main_img/cont04_icon01.png"></a><br>
-					<p class="txt01">개발</span><p class="num01">${e_developer }명</span></li>
-
-				<li class="icon2"><a href=''><img
-						class="img22" src="../../../resources/e_main_img/cont04_icon01.png"></a><br>
-					<p class="txt01">디자인</span><p class="num01">${e_designer }명</p></li>
-				<li class="icon2"><a href=''><img
-						class="img22" src="../../../resources/e_main_img/cont04_icon01.png"></a><br>
-					<p class="txt01">기획</span><p class="num01">${e_planner }명</p></li>
-				
-			</ul>
+			<div class="card">
+				<ul class="e_main_content_ul">
+	
+					<li class="icon1"><a href=''><img
+							class="img22" src="../../../resources/e_main_img/cont04_icon01.png"></a><br>
+						<p class="txt01">개발</span><p class="num01">${e_developer }명</span></li>
+	
+					<li class="icon2"><a href=''><img
+							class="img22" src="../../../resources/e_main_img/cont04_icon01.png"></a><br>
+						<p class="txt01">디자인</span><p class="num01">${e_designer }명</p></li>
+					<li class="icon2"><a href=''><img
+							class="img22" src="../../../resources/e_main_img/cont04_icon01.png"></a><br>
+						<p class="txt01">기획</span><p class="num01">${e_planner }명</p></li>
+					
+				</ul>
+			</div>
 		</div>
 	</div>
 
@@ -106,23 +108,24 @@
 		<div class="content">
 			<h3 class="now">현재 등록된 프로젝트 : ${projectNum }개</h3>
 			
-				<div class="freelancer_sort">
+				<div class="card">
+				
 					<ul class="e_main_content_ul">
 		
 						<li class="icon1"><a href=''><img
 								class="img22" src="../../../resources/e_main_img/icon01_off.png"></a><br>
-							<p class="txt01">개발</p> <p class="num01">${e_developer }명</p>
+							<p class="txt01">개발</p> <p class="num01">${development }명</p>
 						</li>
 						<li class="icon1"><a href=''><img
 								class="img22" src="../../../resources/e_main_img/icon03_off.png"></a><br>
-							<p class="txt01">디자인</p><p class="num01">${e_designer }명</p>
+							<p class="txt01">디자인</p><p class="num01">${design }명</p>
 						</li>
 		
 						<li class="icon1"><a href=''><img
 								class="img22" src="../../../resources/e_main_img/icon05_off.png"></a><br>
-							<p class="txt01">기획</p><p class="num01">${e_planner }명</p>
+							<p class="txt01">기획</p><p class="num01">${planning }명</p>
 						</li>
-										
+						
 					</ul>
 				</div>
 			
