@@ -4,18 +4,17 @@
 
 button.active {
     background-color: #4c5c6a !important;
+    color:white;
 }
 
 button {
     margin-left: 0;
-    font-family: "Nanum Gothic", "Apple SD Gothic Neo", "���� ����", "Malgun Gothic", AppleGothic, ����, Dotum, Helvetica, Arial, sans-serif;
     line-height: 1.42857;
     border: 1px solid #f1f1f1;
     width: 50%;
     height: 60px;
     float: left;
     font-size: 18px;
-    color: #fff !important;
 }
 
 button.active{
@@ -30,7 +29,7 @@ button.active{
 .tabcontent{
 	overflow: hidden;
     border: 1px solid lightgray;
-    background-color: #2d3a45;
+    background-color: #4c5c6a;
     padding-bottom: 50px;
 }
 

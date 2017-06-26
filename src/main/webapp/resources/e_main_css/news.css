@@ -15,13 +15,13 @@
 	float: left;
 } */
 
-.news2 {
+/* .news2 {
 	width: 49.75%;
 	height: 450px;
 	background-color: #f3f4f7;
 	float: right;
 	border: 1px solid gray;
-}
+} */
 
 /* .news2 img {
 	margin-top: 20px;
@@ -69,7 +69,7 @@
 dd._rcount {
     margin-left: 0;
     margin-top: 20px;
-    font-family: "Nanum Gothic", "Apple SD Gothic Neo", "¸¼Àº °íµñ", "Malgun Gothic", AppleGothic, µ¸¿ò, Dotum, Helvetica, Arial, sans-serif;
+    font-family: "Nanum Gothic", "Apple SD Gothic Neo", "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½", "Malgun Gothic", AppleGothic, ï¿½ï¿½ï¿½ï¿½, Dotum, Helvetica, Arial, sans-serif;
     line-height: 1.42857;
     color: rgb(85, 85, 85);
 }
