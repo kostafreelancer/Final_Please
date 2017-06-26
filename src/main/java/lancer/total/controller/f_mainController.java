@@ -68,7 +68,7 @@ public class f_mainController {
 			model.addAttribute("alram", service.alram(f_num));
 			model.addAttribute("recommend", service.recommendProject(f_num));
 			
-			System.out.println(service.recommendProject(f_num).toString());
+			/*System.out.println(service.recommendProject(f_num).toString());*/
 			model.addAttribute("f_read", service.f_read(f_num));
 			
 		

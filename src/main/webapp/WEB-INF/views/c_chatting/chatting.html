@@ -20,7 +20,7 @@
 
 $(function(){
 	var username = localStorage.getItem('username');
-	$('.chatting_se').append('<iframe id ="iframe_id" name="iframe_name" src="http://localhost:8000/client?username='+username+'" width="300" height="465"></iframe>');
+	$('.chatting_se').append('<iframe id ="iframe_id" name="iframe_name" src="http://106.242.203.68:8084/client?username='+username+'" width="300" height="465"></iframe>');
 	$('.chatting_Detail').click(function(){
 		var username = localStorage.getItem('username');
 		$(this).toggle();
@@ -156,25 +156,11 @@ body{
 				<a href="#" class="iframe_close"> 
 					<img alt="chat_menu" src="https://cdn.channel.io/plugin/images/exit-white.png">  
 				</a>
-				<!-- <iframe id ="iframe_id" name="iframe_name" src="http://localhost:8000/client?username=${zxc}" width="300" height="465"></iframe> -->
 			</div>
 		</div>
 	</div>
 	
-	<!-- <div class="chatting">
-			<div class="chatting_Detail">
-				<img class="chatting_img" alt="catting_open"
-					src="//cdn.channel.io/plugin/images/plugin-bubble-icon-white.png" height="40px">
-				<p>채팅 문의</p>
-			</div>
-	</div>
 	
-	<div class="iframe_view">
-		<a href="#" class="iframe_close"> <img alt="chat_menu"
-						src="https://cdn.channel.io/plugin/images/exit-white.png">  
-					</a>
-		<iframe id ="iframe_id" name="iframe_name" src='http://localhost:8000/client?username=' width="300" height="465"></iframe>
-	</div> -->
 	
 </body>
 </html>

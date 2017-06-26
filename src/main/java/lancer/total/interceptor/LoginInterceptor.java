@@ -26,6 +26,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		
 		HttpSession session = request.getSession();
 		checking_identity identity = (checking_identity)session.getAttribute("identity");
+	
+	
 		if(identity.getIdentity().equals("no")){
 			response.sendRedirect("/c_login/login");
 		}
@@ -36,9 +38,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			Object dest = session.getAttribute("dest");
 			
 			if(dest != null){
-				if(((String)dest).matches("/e_.*") & (identity.getIdentity().equals("freelancer"))){
+				if(((String)dest).matches("/e_.*") && (identity.getIdentity().equals("freelancer"))){
 					response.sendRedirect("/f_main/f_main");
-				}else if(((String)dest).matches("/f_.*") & (identity.getIdentity().equals("enterprise"))){
+				}else if(((String)dest).matches("/f_.*") && (identity.getIdentity().equals("enterprise"))){
 					response.sendRedirect("/e_main/e_main");
 				}else if(identity.getIdentity().equals("admin")){
 					response.sendRedirect("/a_main/a_main");

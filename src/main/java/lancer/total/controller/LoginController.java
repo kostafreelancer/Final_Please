@@ -94,6 +94,7 @@ public class LoginController {
 			int chang_num = ((c_login_freelancerVO)(session.getAttribute("client"))).getF_num();
 			session.setAttribute("chang_num", service.chang_check(chang_num));
 			List<c_login_alramVO> a_list = service.alram_contents(identity.getFree().getF_num());
+			System.out.println("알람 개수: "+a_list.size());
 			session.setAttribute("a_list", a_list);
 			
 		}else if(checked.equals("enterprise")){
@@ -105,11 +106,10 @@ public class LoginController {
 				System.out.println(service.chang_check_e(e_num)+"창넘");
 				session.setAttribute("chang_num", service.chang_check_e(e_num));
 				List<c_login_alramVO> a_list = service.alram_contents_e(identity.getEnter().getE_num());
+				System.out.println("알람 개수: "+a_list.size());
 				session.setAttribute("a_list", a_list);
 			}else{
-				/*identity.setIdentity("no");
-				rttr.addFlashAttribute("msg", "no");
-				return "redirect:/c_login/login";*/
+			
 				if(service.select_e_login_nocheck(vo)!=null){
 					System.out.println("여기 들어 오는거 아냐?");
 					rttr.addFlashAttribute("msg", "nocheck");

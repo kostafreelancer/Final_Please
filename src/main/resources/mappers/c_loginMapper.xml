@@ -54,6 +54,7 @@
 				and alram_check='미확인'
 	</select> 
 	
+	
 	<update id="updateRecentLogin" parameterType="int">
 		update freelancer set f_recentlogin = sysdate where f_num=#{f_num}
 	</update>
