@@ -37,7 +37,13 @@
 		<![CDATA[select count(*) from P_job where job_id > 40 and job_id < 47]]>
 	</select>
 	
-  
+  	<select id="allproject" resultType="Integer">
+  		select count(*) from project
+  	</select>
+  	
+  	<select id="allfreelancer" resultType="Integer">
+  		select count(*) from freelancer
+  	</select>
 </mapper>  
 
 

@@ -1,5 +1,6 @@
 package lancer.total.controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +52,9 @@ public class e_mainController {
 		model.addAttribute("design", e_mainService.design());
 		model.addAttribute("planning", e_mainService.planning());
 		
+		
+		model.addAttribute("allfreelancer", e_mainService.allfreelancer());
+		model.addAttribute("allproject",e_mainService.allproject());
 		
 	}
 

@@ -40,4 +40,6 @@ public interface c_projectlistService {
 	public double myEval(HashMap<String, Integer> map) throws Exception;
 	
 	public String getProjectName(int e_pr_num) throws Exception;
+	
+	
 }

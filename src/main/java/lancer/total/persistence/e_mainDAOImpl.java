@@ -61,6 +61,18 @@ public class e_mainDAOImpl implements e_mainDAO {
 		return session.selectOne(namespace+".planning");
 	}
 
+	@Override
+	public Integer allproject() throws Exception {
+		
+		return session.selectOne(namespace+".allproject");
+	}
+
+	@Override
+	public Integer allfreelancer() throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne(namespace+".allfreelancer");
+	}
+
 	
 
 }

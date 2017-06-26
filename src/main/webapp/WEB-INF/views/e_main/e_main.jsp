@@ -31,9 +31,7 @@
 </head>
 <body>
 	<%@include file="../c_common/header.jsp" %>
-	<!-- <video controls width="100%"> 
-		<source src="/resources/e_main_img/video.mp4" >
-	</video> -->
+
 	
 	<!-- <section id="slide">
 	<div class="sp-slideshow">
@@ -49,6 +47,39 @@
 			</div>
 		</div> 
 	</section> -->
+	<div class="inbox">
+		<div class="oneTop-middle">
+			<dl class="title">
+				<dt>
+					<span>신속한</span>
+				맞춤 매칭
+				</dt>
+				<dd>웹/앱,프로그램,개발,디자인</dd>
+			</dl>
+			<div class="projregist">
+				<a href="/e_insertproject/e_insertproject" class="btn">프로젝트 등록하기</a>
+			</div>
+		</div>
+		<div class="onesTop-bottom">
+			<ul class="sort-item-wrap">
+				<li class="sort-item">
+					<div class="sort_itemd1">
+						<div class="tit">등록된 프로젝트</div>
+						<div class="data">${allproject}</div>
+					</div>
+				</li>
+				<li class="sort-item">
+					<div class="sort_itemd">
+						<div class="tit">등록된 프리렌서</div>
+						<div class="data">${allfreelancer}</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>	
+	<div class="onesbg"></div>
+	</div>
+	
 	<div class="video">
 		<video id="landingVideo" class="videobcg" loop="loop" autoplay="autoplay" poster="http://freemoa.smilecast.co.kr/Image/main-view.png" style="width:100%">
 			<source src="http://freemoa.smilecast.co.kr/145740747649209.mp4" type="video/mp4">

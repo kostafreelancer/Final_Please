@@ -1,5 +1,7 @@
 .news {
 	max-width:100%;
+	z-index: 1000;
+	padding-top: 650px;
 }
 
 .news1 {
@@ -62,7 +64,7 @@
 	
 }
 .landing-inner {
-    width: 1260px;
+    width: 1300px;
     margin: 49px auto;
 }
 

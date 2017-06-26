@@ -61,6 +61,17 @@ public class e_MainServiceImpl implements e_MainService {
 		
 		return e_mainDao.planning();
 	}
+
+	@Override
+	public Integer allproject() throws Exception {
+		return e_mainDao.allproject();
+	}
+
+	@Override
+	public Integer allfreelancer() throws Exception {
+		
+		return e_mainDao.allfreelancer();
+	}
 	
 	
 	

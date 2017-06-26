@@ -15,7 +15,7 @@
 </head>
 <body>
 	<c:if test="${identity.identity ne null}">
-		<%@include file="../c_chatting/chatting.html"%>
+		<%-- <%@include file="../c_chatting/chatting.html"%> --%>
 	</c:if>
 	<div class="header_welcome_contents">
 				<c:choose>

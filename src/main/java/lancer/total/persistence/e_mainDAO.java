@@ -17,4 +17,8 @@ public interface e_mainDAO {
 	public Integer design()throws Exception;
 	
 	public Integer planning()throws Exception;
+	
+	public Integer allproject()throws Exception;
+	
+	public Integer allfreelancer()throws Exception;
 }
