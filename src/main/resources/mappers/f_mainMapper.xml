@@ -20,8 +20,8 @@
 	</select>
 
 	<select id="countProject" resultType="int">
-		select count(*) from project
-		where p_state = '모집중'
+		select count(*) from project 
+		where project_check_state = '승인'
 	</select>
 
 	<select id="recommendProject" resultType="recommendProject">

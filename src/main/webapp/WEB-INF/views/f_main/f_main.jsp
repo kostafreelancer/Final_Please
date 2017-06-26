@@ -124,7 +124,7 @@ function drawMultSeries() {
 			<c:forEach items="${recommend }" var="recommendProject">
 					<li>
 					<h4>${recommendProject.e_name }</h4>
-					<a style = "text-decoration: none" href="/c_projectlist/c_readpage?e_pr_num=${recommendProject.e_pr_num }&e_num=${recommendProject.e_num}">${recommendProject.p_name }</a>
+					<a style = "text-decoration: none" href="/c_projectlist/c_readpage?e_pr_num=${recommendProject.e_pr_num }&e_num=${recommendProject.e_num}&from=list&f_num=0">${recommendProject.p_name }</a>
 					<h5>
 					<br>
 					<p class="test"><img alt="" src="../../../resources/f_main_img/money.PNG"> ${recommendProject.p_lowercost }만원 ~ ${recommendProject.p_uppercost }만원</p>
@@ -149,12 +149,20 @@ function drawMultSeries() {
 		</div>
 		<div id="chart_div"></div>
 	</div>
-	
-	<div class="main_join">
+	<c:choose>
+		<c:when test="${identity.identity == 'freelancer' }">
+			
+		</c:when>
+		<c:otherwise>
+		<div class="main_join">
 		<div class="text_join">
 			프로젝트를 찾고 계신 프리랜서인가요? <a class="btn_join" href="../c_join/c_join_step1">회원가입하기</a>
 		</div>
 	</div>
+		</c:otherwise>
+	</c:choose>
+	
+	
 	
 	<div id="active_inf">
 <!-- 		<ul id="tabs">
