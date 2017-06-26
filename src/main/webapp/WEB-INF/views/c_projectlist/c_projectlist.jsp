@@ -259,11 +259,14 @@
 			</div>
 			
 			<div class="num_box">
-					
-							
-								<a
-									href="c_projectlist${pageMaker.makeSearch(pageMaker.startPage - 1) }" class="first"></a>
-						
+							<c:choose>
+								<c:when test="${pageMaker.prev}">
+									<a href="c_projectlist${pageMaker.makeSearch(pageMaker.startPage - 1) }" class="first"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="first"></a>
+								</c:otherwise>
+							</c:choose>
 
 							<c:forEach begin="${pageMaker.startPage }"
 								end="${pageMaker.endPage }" var="idx">
@@ -273,10 +276,15 @@
 								</span>
 							</c:forEach>
 
-							
-								<a
-									href="c_projectlist${pageMaker.makeSearch(pageMaker.endPage +1) }" class="last"></a>
-							
+							<c:choose>
+								<c:when test="${pageMaker.next && pageMaker.endPage > 0}">
+									<a href="c_projectlist${pageMaker.makeSearch(pageMaker.endPage +1) }" class="last"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="last"></a>
+								</c:otherwise>
+							</c:choose>
+								
 							
 		
 					<br>

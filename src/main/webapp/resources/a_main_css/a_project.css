@@ -216,6 +216,7 @@ section td {
 	overflow: hidden;
 	border: 1px solid #999;
 	margin-right: -3px;
+	height: 25px;
 }
 
 .num_box .last {
@@ -224,6 +225,7 @@ section td {
 	overflow: hidden;
 	border: 1px solid #999;
 	margin-right: -3px;
+	height: 25px;
 }
 
 .hidden{

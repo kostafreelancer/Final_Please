@@ -542,12 +542,15 @@
 		</div> -->
 			 <div class="num_box">
 		
-					
+							<c:choose>
+								<c:when test="${pageMaker.prev}">
+									<a href="f_list${pageMaker.makeSearch(pageMaker.startPage - 1) }" class="first"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="first"></a>
+								</c:otherwise>
+							</c:choose>							
 							
-								<a
-									href="f_list${pageMaker.makeSearch(pageMaker.startPage - 1) }" class="first"></a>
-						
-
 							<c:forEach begin="${pageMaker.startPage }"
 								end="${pageMaker.endPage }" var="idx">
 								<span
@@ -556,8 +559,15 @@
 								</span>
 							</c:forEach>
 
-								<a
-									href="f_list${pageMaker.makeSearch(pageMaker.endPage +1) }" class="last"></a>
+							<c:choose>
+								<c:when test="${pageMaker.next && pageMaker.endPage > 0}">
+									<a href="f_list${pageMaker.makeSearch(pageMaker.endPage +1) }" class="last"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="last"></a>
+								</c:otherwise>
+							</c:choose>
+								
 							
 							
 						
