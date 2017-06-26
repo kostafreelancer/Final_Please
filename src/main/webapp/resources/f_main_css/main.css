@@ -388,3 +388,21 @@
 .introduce_text td{
 	margin-right: 300px;
 }
+
+#active_inf{
+	margin-left : 120px;
+}
+
+.hello{
+	margin : 20px;
+	font-size: 20px;
+	color: #2257ad;
+	float: left;
+	font-family: 'NanumGothic_b';
+	line-height: 20px;
+	font-weight: bold;
+}
+
+.hello2{
+	margin : 20px;
+}

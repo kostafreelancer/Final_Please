@@ -135,12 +135,12 @@ function drawMultSeries() {
 			</c:forEach>
 		</c:when>
 		<c:otherwise>
-			<li>반갑습니다! 드림랜서입니다!<br> IT프로젝트 중계분야 으뜸!<br> 
+			<p class="hello">반갑습니다! 드림랜서입니다!</p><br><br><br><p class="hello2"> IT프로젝트 중계분야 으뜸!<br> 
 			프로젝트 / 프리랜서 등록수 최고!
 			<br>맞춤형 프로젝트가 회원님을 기다리고 있습니다!
 			<br>전 세계 실력 최고 프리랜서들이 프로젝트를 기다리고 있습니다!
 			<br>회원가입 후 더 다양한 혜택을 이용해보세요.
-			</li>
+			</p>
 		</c:otherwise>
 	</c:choose>
 			
