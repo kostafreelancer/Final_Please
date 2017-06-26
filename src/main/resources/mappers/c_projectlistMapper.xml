@@ -127,8 +127,8 @@
 		select count(*) from contract where f_num=#{f_num} and e_pr_num = #{e_pr_num} and c_state in ('신청중', '신청거절', '매칭중', '매칭완료', '진행중', '완료')
 	</select>
 	
-	<select id="getRelation2" parameterType="int" resultType="int" >
-		select count(*) from project where e_pr_num = #{e_pr_num} and p_state = '완료'
+	<select id="getRelation2" parameterType="hashmap" resultType="int" >
+		select count(*) from e_grade where e_pr_num = #{e_pr_num} and f_num = #{f_num}
 	</select>
 	
 	<select id="myEval" parameterType="hashmap" resultType="double">

@@ -104,8 +104,8 @@ public class c_projectlistDAOImpl implements c_projectlistDAO {
 	}
 
 	@Override
-	public int getRelation2(int e_pr_num) throws Exception {
-		return session.selectOne(namespace + ".getRelation2", e_pr_num);
+	public int getRelation2(HashMap<String, Integer> map) throws Exception {
+		return session.selectOne(namespace + ".getRelation2", map);
 	}
 
 	@Override

@@ -118,7 +118,9 @@ public class c_projectlistServiceImpl implements c_projectlistService {
 
 	@Override
 	public int getRelation(HashMap<String, Integer> map) throws Exception {
-		return (dao.getRelation(map)+dao.getRelation2(map.get("e_pr_num")));
+		System.out.println(dao.getRelation(map)+"관계1");
+		System.out.println(dao.getRelation2(map)+"관계2");
+		return (dao.getRelation(map)+dao.getRelation2(map));
 	}
 
 	@Override

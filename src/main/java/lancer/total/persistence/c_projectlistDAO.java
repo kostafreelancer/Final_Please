@@ -37,7 +37,7 @@ public interface c_projectlistDAO {
 
 	public int getRelation(HashMap<String, Integer> map) throws Exception;
 	
-	public int getRelation2(int e_pr_num) throws Exception;
+	public int getRelation2(HashMap<String, Integer> map) throws Exception;
 
 	public double myEval(HashMap<String, Integer> map) throws Exception;
 	

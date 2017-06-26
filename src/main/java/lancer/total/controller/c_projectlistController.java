@@ -101,8 +101,9 @@ public class c_projectlistController {
 				model.addAttribute("myEval", myEval);
 			}
 		}
-		System.out.println(myRelation);
+		System.out.println(myRelation + "마이릴레이션");
 		model.addAttribute("myRelation", myRelation);
+		
 
 		
 	

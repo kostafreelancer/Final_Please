@@ -385,28 +385,38 @@ $(function(){
 		
 			<c:when test="${from eq 'mypage' && identity.identity eq 'freelancer' && myRelation eq 2}">
 							
-				<table>
+				<table class="tb_st01">
 					<tr>
-						<td>내가 준 평가</td>
-						<td>${myEval}</td>
+						<th scope="row" colspan="2" class="ac" id="evalTable">내가 준 평가</th>
+						
+						<td colspan="5">
+						<p class="star_rating">
+									<input type="hidden" id="hiddenscore" value="${myEval}">
+									<a id="first">★ </a>
+									<a id="second">★ </a>
+									<a id="third">★ </a>
+									<a id="fourth">★ </a>
+									<a id="fifth">★</a>
+									<span id="f_score">${myEval}</span> 
+								</p>
+								</td>
 					</tr>
 				</table>
 			</c:when>
 		
-			<c:when test="${from eq 'evaluate' && identity.identity eq 'freelancer'}">
+			<c:when test="${from eq 'evaluate' && identity.identity eq 'freelancer' && myRelation eq 1}">
 				<div class="btn_box">
 				
 				<form name="eval" id="eval" action="/f_mypage/gotoEval" method="post">
 				<input type="hidden" name="e_num" value="${project.e_num}">
 				<input type="hidden" name="f_num" value="${client.f_num}">
 				<input type="hidden" name="e_pr_num" value="${project.e_pr_num}">
-				<table>
+				<table class="tb_st01">
 					<tr>
-					<td>평가</td>
-					<td>
-					<input type="text" name="e_grade_star" id="evalScore">
-					</td>
-					<td>	<input type="submit" class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" 
+					<th scope="row" colspan="2" class="ac" id="evalTable">평가하기</th>
+					<td colspan="5">
+					<input type="text" name="e_grade_star" id="evalScore" style="margin-left:-470px">
+					<input type="submit" class="btn btn-lg btn-client js-disable-on-click btn-submit" autocomplete="off" data-loading-text="제출 중" 
 					value="평가하기">
 					</td>
 					</tr>
