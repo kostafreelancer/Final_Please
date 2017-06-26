@@ -98,8 +98,8 @@ body {
 .header_sns {
 	position: absolute;
 	top: 75px;
-	/* right: 150px; */
-	margin-left: 1200px;
+	right: 150px;
+
 }
 
 .header_sns a {

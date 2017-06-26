@@ -212,3 +212,7 @@ p.num01 {
     background-color: #24abd1;
     border-color: #2099bb;
 }
+
+.video{
+	position: absolute;
+}

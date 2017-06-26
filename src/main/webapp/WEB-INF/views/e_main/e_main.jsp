@@ -31,10 +31,13 @@
 </head>
 <body>
 	<%@include file="../c_common/header.jsp" %>
-
-	<section id="slide">
+	<!-- <video controls width="100%"> 
+		<source src="/resources/e_main_img/video.mp4" >
+	</video> -->
+	
+	<!-- <section id="slide">
 	<div class="sp-slideshow">
-		<div class="main_slide">
+		 <div class="main_slide">
 			<div class="slideshow_images">
 				<a href="#" class="slide"><img
 					src="../../../resources/e_main_img/company1.jpg" alt=""
@@ -44,9 +47,18 @@
 					src="../../../resources/e_main_img/company3.jpg" alt=""
 					width="1911" height="432"></a>
 			</div>
-		</div>
-	</section>
-
+		</div> 
+	</section> -->
+	<div class="video">
+		<video id="landingVideo" class="videobcg" loop="loop" autoplay="autoplay" poster="http://freemoa.smilecast.co.kr/Image/main-view.png" style="width:100%">
+			<source src="http://freemoa.smilecast.co.kr/145740747649209.mp4" type="video/mp4">
+			<source src="/public/images/movie/main-view.webm" type="video/webm">
+			<source src="/public/images/movie/main-view.ogg" type="video/ogg">
+			<!--[if lte IE 9]>											
+				<img src="/public/images/movie/main-view.jpg" width="100%" height="684" alt="이미지" />						
+			<![endif]-->					
+		</video>
+	</div>
 	<section class="news">
 	<div class="newstabs">
 		<div class="news1tab">
@@ -74,6 +86,8 @@
 	</div>  --%>
 	
 	</section>
+	
+	
 	
 	<section id="info">
 	<div class="tab">

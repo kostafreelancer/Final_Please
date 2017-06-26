@@ -107,19 +107,20 @@
 				<c:choose>
 					<c:when test="${identity.identity == 'freelancer' }">자유 게시판</c:when>
 					<c:when test="${identity.identity == 'enterprise' }">프로젝트 등록</c:when>
-					<c:otherwise>자유 게시판</c:otherwise>
+					<c:when test="${identity.identity == 'admin' }"> </c:when>
+					<c:otherwise>자유 게시판</c:otherwise> 
 				</c:choose>
 				</a></li>
 				<li><a class="menus_two" href="#">
 				<c:choose>
-					<c:when test="${identity.identity == 'admin' }">메일함</c:when>
+					<c:when test="${identity.identity == 'admin' }"> </c:when> 
 					<c:otherwise>프로젝트 목록</c:otherwise>
 				</c:choose>
 				</a></li>
 				
 				<li><a class="menus_three" href="#">
 				<c:choose>
-					<c:when test="${identity.identity == 'admin' }">프로젝트 관리</c:when>
+					<c:when test="${identity.identity == 'admin' }"> </c:when> 
 					<c:otherwise>프리랜서 목록</c:otherwise>
 				</c:choose>
 				</a></li>
@@ -127,7 +128,7 @@
 				
 				<li><a class="menus_four" href="#">
 				<c:choose>
-					<c:when test="${identity.identity == 'admin' }">회원 관리</c:when>
+					<c:when test="${identity.identity == 'admin' }"> </c:when> 
 					<c:otherwise>마이페이지</c:otherwise>
 				</c:choose>
 				</a></li>
@@ -145,7 +146,9 @@
 			<form class="c_f_menus_two2" action="#" method="get"></form>  <!--여기 메일함 주소-->
 			<form class="c_f_menus_three" action="/c_freelancerlist/f_list" method="get"></form>
 			<form class="c_f_menus_three2" action="#" method="get"></form> <!--여기 프로젝트 관리 url -->
-			<form class="c_f_menus_four" action="/f_mypage/myInfo" method="get"></form>
+			<form class="c_f_menus_four" action="/f_mypage/myInfo" method="get">
+				<input type="hidden" name="where" value="1">
+			</form>
 			<form class="c_f_menus_four3" action="/e_mypage/e_info" method="get"></form>
 			<form class="c_f_menus_four2" action="/a_main/a_main" method="get"></form> 
 		</div>
