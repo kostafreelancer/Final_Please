@@ -29,7 +29,6 @@ float: right;
 			location.href="/f_board/f_register";
 		})
 
-
 	});
 
 </script>

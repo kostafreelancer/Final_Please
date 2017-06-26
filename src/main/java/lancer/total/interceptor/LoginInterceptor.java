@@ -34,16 +34,18 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			logger.info("new login success");
 			System.out.println("new login success");
 			Object dest = session.getAttribute("dest");
-			/*if(identity.getIdentity().equals("freelancer")){
-				System.out.println(((c_login_freelancerVO)(session.getAttribute("client"))).getF_num()+"이거이거");
-				int chang_num = service.chang_check(((c_login_freelancerVO)(session.getAttribute("client"))).getF_num());
-				System.out.println("여기서 에러 나는거야?"+chang_num);
-				session.setAttribute("chang_check", chang_num);
-			}*/
-			
 			
 			if(dest != null){
-				response.sendRedirect((String)dest);
+				if(((String)dest).matches("/e_.*") & (identity.getIdentity().equals("freelancer"))){
+					response.sendRedirect("/f_main/f_main");
+				}else if(((String)dest).matches("/f_.*") & (identity.getIdentity().equals("enterprise"))){
+					response.sendRedirect("/e_main/e_main");
+				}else if(identity.getIdentity().equals("admin")){
+					response.sendRedirect("/a_main/a_main");
+				}
+				else{
+					response.sendRedirect((String)dest);
+				}
 			}else if(identity.getIdentity().equals("freelancer")){
 				response.sendRedirect("/f_main/f_main");
 			}else if(identity.getIdentity().equals("enterprise")){
