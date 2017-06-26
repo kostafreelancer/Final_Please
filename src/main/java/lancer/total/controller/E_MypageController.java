@@ -273,13 +273,15 @@ public class E_MypageController {
 		List<Member> memberList = service.selectMember(e_pr_num, cri);
 		HashMap<String, Integer> gradeMap = new HashMap<String, Integer>();
 		int tempF_num;
+		double f_score;
 		for(int i=0; i<memberList.size(); i++){
 			tempF_num = memberList.get(i).getF_num();
 			gradeMap.put("f_num", tempF_num);
 			gradeMap.put("e_pr_num", e_pr_num);
 			if(service.existF_grade(gradeMap) > 0){
+				f_score = service.selectF_grade_star(tempF_num, e_pr_num);
+				memberList.get(i).setF_score(f_score);
 				memberList.get(i).setGraded("graded");
-				System.out.println(memberList.get(i).getF_name());
 			}
 		}
 		List<Member> applicantList = service.selectApplicant(e_pr_num, cri);
@@ -459,7 +461,9 @@ public class E_MypageController {
 		service.insertF_grade(maxF_grade_num+1, grade, f_numGrade, e_numGrade, e_pr_numGrade);
 		
 		// 평균내서 프리랜서 정보에 넣어줘야됨
-		
+		double avg = service.getAvgF_grade(f_numGrade);
+		System.out.println(avg);
+		service.updateF_grade(f_numGrade, avg);
 		
 		return "redirect:/e_mypage/e_projectInfo?e_pr_num=" + e_pr_numGrade;
 	}

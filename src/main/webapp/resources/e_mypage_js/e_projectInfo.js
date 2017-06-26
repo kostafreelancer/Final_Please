@@ -92,8 +92,11 @@ $(document).ready(function() {
 	});
 	
 	$('.grade').click(function(){
-		var grade = parseInt($(this).prev().val());
+		var grade = $(this).prev().val();
+		grade = parseFloat(grade);
+		
 		var f_num = $(this).parent().prev().text();
+		
 		if(grade > 5 || grade < 0){
 			alert("0.0 ~ 5.0 사이의 값을 입력하세요.");
 			return;

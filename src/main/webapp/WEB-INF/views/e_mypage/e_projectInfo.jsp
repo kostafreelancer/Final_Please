@@ -466,7 +466,7 @@ $(function(){
 											
 											<c:choose>
 												<c:when test="${m.graded eq 'graded' }">
-													<td class="ac">평가됨<a href="#" class="accept btn btn-lg btn-default2 js-disable-on-click">계약해지</a></td>
+													<td class="ac">${m.f_score }점</td>
 												</c:when>
 											
 												<c:otherwise>

@@ -161,4 +161,16 @@ public class E_MypageDao{
 		session.insert(namespace + ".insertF_grade", map);
 	}
 
+	public double getAvgF_grade(int f_num) throws Exception {
+		return session.selectOne(namespace + ".getAvgF_grade", f_num);
+	}
+	
+	public int updateF_grade(HashMap<String, Object> map) throws Exception {
+		return session.update(namespace + ".updateF_grade", map);
+	}
+	
+	public double selectF_grade_star(HashMap<String, Integer> map) throws Exception {
+		return session.selectOne(namespace + ".selectF_grade_star", map);
+	}
+
 }

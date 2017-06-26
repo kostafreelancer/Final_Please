@@ -167,4 +167,23 @@ public class E_MypageService{
 		dao.insertF_grade(map);
 	}
 	
+	public double getAvgF_grade(int f_num) throws Exception {
+		return dao.getAvgF_grade(f_num);
+	}
+	
+	public void updateF_grade(int f_num, double f_score) throws Exception {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("f_num", f_num);
+		map.put("f_score", f_score);		
+		
+		dao.updateF_grade(map);
+	}
+	
+	public double selectF_grade_star(int f_num, int e_pr_num) throws Exception {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("f_num", f_num);
+		map.put("e_pr_num", e_pr_num);		
+		
+		return dao.selectF_grade_star(map);
+	}
 }
