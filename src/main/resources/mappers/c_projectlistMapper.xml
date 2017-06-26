@@ -30,10 +30,12 @@
 		select * from project where project_check_state='승인'
 		   <if test="jobs != null">
 			<!-- <where> -->
-			  <foreach collection="jobs" item="item" separator="AND" open="(" close=")">
-			    and e_pr_num in (select e_pr_num from p_job where job_id = #{item})
+			and 
+			  <foreach collection="jobs" item="item" separator="AND" >
+			    e_pr_num in (select e_pr_num from p_job where job_id = #{item})
 			   
-			  </foreach>
+			  </foreach> 
+		
 			  <if test="fr !=null">
 			   	  and p_state='모집중' or p_state='추가모집'
 			 </if>
@@ -67,10 +69,12 @@
 		  select count(*) from project where project_check_state='승인'
 		   <if test="jobs != null">
 			<!-- <where> -->
-			  <foreach collection="jobs" item="item" separator="AND" open="(" close=")">
-			    and e_pr_num in (select e_pr_num from p_job where job_id = #{item})
+			and
+			 <foreach collection="jobs" item="item" separator="AND" >
+			     e_pr_num in (select e_pr_num from p_job where job_id = #{item})
 			   
-			  </foreach>
+			  </foreach> 
+			
 			  <if test="fr !=null">
 			   	  and p_state='모집중' or p_state='추가모집'
 			 </if>
