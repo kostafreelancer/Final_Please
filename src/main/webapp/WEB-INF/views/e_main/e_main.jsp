@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
 <link rel="stylesheet" type="text/css"
 	href="../../../resources/e_main_css/slide.css">
@@ -88,18 +89,14 @@
 
 				<li class="icon1"><a href=''><img
 						class="img22" src="../../../resources/e_main_img/cont04_icon01.png"></a><br>
-					<p class="txt01">개발</span><p class="num01">000,000명</span></li>
+					<p class="txt01">개발</span><p class="num01">${e_developer }명</span></li>
 
 				<li class="icon2"><a href=''><img
 						class="img22" src="../../../resources/e_main_img/cont04_icon01.png"></a><br>
-					<p class="txt01">디자인</span><p class="num01">000,000명</p></li>
+					<p class="txt01">디자인</span><p class="num01">${e_designer }명</p></li>
 				<li class="icon2"><a href=''><img
 						class="img22" src="../../../resources/e_main_img/cont04_icon01.png"></a><br>
-					<p class="txt01">기획</span><p class="num01">000,000명</p></li>
-				
-				<li class="icon2"><a href=''><img
-						class="img22" src="../../../resources/e_main_img/cont04_icon01.png"></a><br>
-					<p class="txt01">통합</span><p class="num01">000,000명</p></li>
+					<p class="txt01">기획</span><p class="num01">${e_planner }명</p></li>
 				
 			</ul>
 		</div>
@@ -108,29 +105,27 @@
 	<div id="Project" class="tabcontent">
 		<div class="content">
 			<h3 class="now">현재 등록된 프로젝트 : ${projectNum }개</h3>
-			<ul class="e_main_content_ul">
-
-				<li class="icon1"><a href=''><img
-						class="img22" src="../../../resources/e_main_img/icon01_off.png"></a><br>
-					<p class="txt01">개발</p> <p class="num01">000,000명</p>
-				</li>
-				<li class="icon1"><a href=''><img
-						class="img22" src="../../../resources/e_main_img/icon03_off.png"></a><br>
-					<p class="txt01">디자인</p><p class="num01">000,000명</p>
-				</li>
-
-				<li class="icon1"><a href=''><img
-						class="img22" src="../../../resources/e_main_img/icon05_off.png"></a><br>
-					<p class="txt01">기획</p><p class="num01">000,000명</p>
-				</li>
-				
-				<li class="icon1"><a href=''><img
-						class="img22" src="../../../resources/e_main_img/icon02_off.png"></a><br>
-					<p class="txt01">통합</p><p class="num01">000,000명</p>
-				</li>
-				
-
-			</ul>
+			
+				<div class="freelancer_sort">
+					<ul class="e_main_content_ul">
+		
+						<li class="icon1"><a href=''><img
+								class="img22" src="../../../resources/e_main_img/icon01_off.png"></a><br>
+							<p class="txt01">개발</p> <p class="num01">${e_developer }명</p>
+						</li>
+						<li class="icon1"><a href=''><img
+								class="img22" src="../../../resources/e_main_img/icon03_off.png"></a><br>
+							<p class="txt01">디자인</p><p class="num01">${e_designer }명</p>
+						</li>
+		
+						<li class="icon1"><a href=''><img
+								class="img22" src="../../../resources/e_main_img/icon05_off.png"></a><br>
+							<p class="txt01">기획</p><p class="num01">${e_planner }명</p>
+						</li>
+										
+					</ul>
+				</div>
+			
 		</div>
 	</div>
 	</section>

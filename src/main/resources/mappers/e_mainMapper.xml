@@ -12,6 +12,18 @@
 	<select id="countProject" resultType="int">
 		select count(*) from PROJECT
 	</select>
+	
+	<select id="e_developer" resultType="int">
+		select count(f_major) from freelancer where f_major = '개발'
+	</select>
+	
+	<select id="e_designer" resultType="int">
+		select count(f_major) from freelancer where f_major = '디자인'
+	</select>
+	
+	<select id="e_planner" resultType="int">
+		select count(f_major) from freelancer where f_major = '기획'
+	</select>
   
 </mapper>  
 

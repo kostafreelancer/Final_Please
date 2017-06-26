@@ -24,4 +24,22 @@ public class e_MainServiceImpl implements e_MainService {
 		return e_mainDao.countProject();
 	}
 
+	@Override
+	public int e_developer() throws Exception {
+		
+		return e_mainDao.e_developer();
+	}
+
+	@Override
+	public int e_designer() throws Exception {
+		
+		return e_mainDao.e_designer();
+	}
+
+	@Override
+	public int e_planner() throws Exception {
+		
+		return e_mainDao.e_planner();
+	}
+
 }

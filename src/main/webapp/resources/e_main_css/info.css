@@ -37,10 +37,15 @@ button.active{
 	margin-left:150px;
 }
 
+.freelancer_sort{
+	margin-left: 7%;
+}
+
 .e_main_content_ul li {
 	display: inline-block;
 	list-style-type: none;
 	padding: 15px;
+
 }
 
 li.icon1, li.icon2 {
@@ -91,12 +96,7 @@ p.num01 {
     border-top: 1px solid #d2d2d2;
     border-bottom: 1px solid #d2d2d2;
 }
- span{
- font-family: "Nanum Gothic","Apple SD Gothic Neo","맑은 고딕","Malgun Gothic","AppleGothic","돋움",Dotum,Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 1.428571429;
-    color: #555;
-    }
+
     
 .landing-process-inner h4 {
     text-align: center;

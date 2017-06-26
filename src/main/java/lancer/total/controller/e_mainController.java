@@ -44,6 +44,9 @@ public class e_mainController {
 		
 		model.addAttribute("freelancerNum", e_mainService.countFreelancer());
 		model.addAttribute("projectNum", e_mainService.countProject());
+		model.addAttribute("e_developer", e_mainService.e_developer());
+		model.addAttribute("e_designer", e_mainService.e_designer());
+		model.addAttribute("e_planner", e_mainService.e_planner());
 	}
 
 }

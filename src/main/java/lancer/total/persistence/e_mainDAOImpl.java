@@ -25,4 +25,22 @@ public class e_mainDAOImpl implements e_mainDAO {
 		return session.selectOne(namespace+".countProject");
 	}
 
+	@Override
+	public int e_developer() throws Exception {
+		
+		return session.selectOne(namespace+".e_developer");
+	}
+
+	@Override
+	public int e_designer() throws Exception {
+		
+		return session.selectOne(namespace+".e_designer");
+	}
+
+	@Override
+	public int e_planner() throws Exception {
+		
+		return session.selectOne(namespace+".e_planner");
+	}
+
 }
