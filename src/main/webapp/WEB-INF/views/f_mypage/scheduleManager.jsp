@@ -88,12 +88,15 @@ newJquery(document).ready(function() {
 			},
 		 	eventDrop: function(event, delta, revertFunc) {
 
-		        alert(event.title + " was dropped on " + event.start);
+		      //  alert(event.title + " was dropped on " + event.start);
+		        if(confirm("일정을 옮기시겠습니까?")){
 				var start = event.start;
 				var smonth = start.getMonth()+1;
+				console.log(smonth);
 				var end = event.end;
 				var emonth = end.getMonth()+1;
-				console.log(start);
+				console.log(end);
+			
 		            $.ajax({
 						url : "scheduleModify",
 						type : "get",
@@ -111,11 +114,11 @@ newJquery(document).ready(function() {
 				            //revertFunc();
 						}
 						});
-
+		       }
 		    },  
 		    
 		    eventClick: function(event) {
-		    	
+		    	if(confirm("일정을 삭제하시겠습니까?")){
 		    		$.ajax({
 						url : "scheduleDelete",
 						type : "get",
@@ -127,7 +130,7 @@ newJquery(document).ready(function() {
 							  });
 						}
 					});
-		   
+		    	}
 		    },
 		    dayClick: function(date) {
 		   		var tempYear = ''+date.getFullYear()+'';

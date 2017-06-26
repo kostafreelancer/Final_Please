@@ -71,7 +71,7 @@ $(function(){
 	</div>
 
 	<section id="firstsection">
-	<input type="text" id="openPage" value="${where}">
+	<input type="hidden" id="openPage" value="${where}">
 	<ul id="tabs">
 		<li><a href="#" title="tab1">내 정보</a></li>
 		<li><a href="#" title="tab2">이력 정보</a></li>
@@ -495,7 +495,7 @@ $(function(){
 				</table>
 			</div> 
 			<div class="btn_box mb30 mb02">
-				<input type="button" class="toDrop" value="회원탈퇴" onclick="toDrop(${client.f_num});">
+				<input type="button" class="toDrop btn_check04" value="회원탈퇴" onclick="toDrop(${client.f_num});">
 				<input type="submit" class="btn_check04" value="수정하기">
 				<input type="reset" class="btn_check02" value="초기화">
 			</div>
