@@ -67,9 +67,10 @@ public class F_MypageController {
 	private c_projectlistService projectlistService;
 	
 	@RequestMapping(value="/myInfo", method = RequestMethod.GET)
-	public void myInfo(Model model, HttpSession session) throws Exception{
+	public void myInfo(Model model, HttpSession session, @RequestParam("where") String where) throws Exception{
 		System.out.println(session);
 		System.out.println(session.getAttribute("client"));
+		model.addAttribute("where", where);
 		c_login_freelancerVO freelancer = (c_login_freelancerVO) session.getAttribute("client");
 		
 		model.addAttribute("freelancer", freelancer);
@@ -188,9 +189,10 @@ public class F_MypageController {
 	}
 	
 	@RequestMapping(value="/myInfo2", method = RequestMethod.GET)
-	public void myInfo2(Model model, HttpSession session) throws Exception{
+	public void myInfo2(Model model, HttpSession session, @RequestParam("where") String where) throws Exception{
 		System.out.println(session);
 		System.out.println(session.getAttribute("client"));
+		model.addAttribute("where", where);
 		c_login_freelancerVO freelancer = (c_login_freelancerVO) session.getAttribute("client");
 		
 		model.addAttribute("freelancer", freelancer);
@@ -330,12 +332,13 @@ public class F_MypageController {
 				forward.setRedirect(true);
 				forward.setPath("/Matching_Project/f_mypage/updateSuccess.jsp?f_num="+freelancer.getF_num());
 			}*/
-			return "redirect:/f_mypage/updateSuccess";
+			return "redirect:/f_mypage/updateSuccess?where=1";
 			}
 	}
 	
-	@RequestMapping(value="/updateSuccess")
-	public void updateSuccess() throws Exception{
+	@RequestMapping(value="/updateSuccess", method=RequestMethod.GET)
+	public void updateSuccess(@RequestParam("where") String where, Model model) throws Exception{
+		model.addAttribute("where", where);
 	}
 	
 	@RequestMapping(value="/dropFreelancer", method=RequestMethod.GET)
@@ -353,7 +356,7 @@ public class F_MypageController {
 	public String careerAdd(Career career) throws Exception{
 		career.setCareer_num(service.getCareerNum()+1);
 		service.insertCareer(career);
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=2";
 	}
 	
 	@RequestMapping(value="/careerModify", method=RequestMethod.GET)
@@ -368,12 +371,12 @@ public class F_MypageController {
 	@RequestMapping(value="/updateCareer", method=RequestMethod.POST)
 	public String updateCareer(Career career) throws Exception{
 		service.updateCareer(career);
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=2";
 	}
 	@RequestMapping(value="/deleteCareer", method=RequestMethod.GET)
 	public String deleteCareer(@RequestParam("deleteCareer_num") int career_num) throws Exception{
 		service.deleteCareer(career_num);
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=2";
 	}
 	
 	
@@ -385,7 +388,7 @@ public class F_MypageController {
 	public String schoolAdd(School school) throws Exception{
 		school.setSchool_num(service.getSchoolNum()+1);
 		service.insertSchool(school);
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=2";
 	}
 	
 	@RequestMapping(value="/schoolModify", method=RequestMethod.POST)
@@ -396,13 +399,13 @@ public class F_MypageController {
 	@RequestMapping(value="/updateSchool", method=RequestMethod.POST)
 	public String updateSchool(School school) throws Exception{
 		service.updateSchool(school);
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=2";
 	}
 	@RequestMapping(value="/deleteSchool", method=RequestMethod.GET)
 	public String deleteSchool(@RequestParam("deleteSchool_num") int school_num) throws Exception{
 		service.deleteSchool(school_num);
 		System.out.println(school_num);
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=2";
 	}
 	
 	
@@ -416,7 +419,7 @@ public class F_MypageController {
 	public String certiAdd(Certificate certi) throws Exception{
 		certi.setCertificate_num(service.getCertiNum()+1);
 		service.insertCerti(certi);
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=2";
 	}
 	@RequestMapping(value="/certiModify", method=RequestMethod.POST)
 	public void certiModify(Certificate certi, Model model) throws Exception{
@@ -425,12 +428,12 @@ public class F_MypageController {
 	@RequestMapping(value="/updateCerti", method=RequestMethod.POST)
 	public String updateCerti(Certificate certi) throws Exception{
 		service.updateCerti(certi);
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=2";
 	}
 	@RequestMapping(value="/deleteCerti", method=RequestMethod.GET)
 	public String deleteCerti(@RequestParam("deleteCerti_num") int certi_num) throws Exception{
 		service.deleteCerti(certi_num);
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=2";
 	}
 	
 	@RequestMapping(value="/portfolioAdd", method=RequestMethod.POST)
@@ -482,8 +485,7 @@ public class F_MypageController {
 			
 			
 		}
-		
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=3";
 	}
 	
 	@RequestMapping(value="/deletePortfolio", method = RequestMethod.GET)
@@ -491,19 +493,19 @@ public class F_MypageController {
 		Portfolio portfolio = service.selectOnePortfolio(portfolio_num);
 		fileService.deleteFile("portfile",  portfolio.getF_num(), portfolio.getPortfile_iden());
 		service.deletePortfolio(portfolio_num);
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=3";
 	}
 
 	@RequestMapping(value="/applyCancel", method=RequestMethod.POST)
 	public String applyCancel(ApplyProject applyproject) throws Exception{
 		service.deleteApplyProject(applyproject.getC_num());
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=6";
 	}
 	
 	@RequestMapping(value="/suggestCancel", method=RequestMethod.POST)
 	public String suggestCancel(ApplyProject suggestproject) throws Exception{
 		service.rejectSuggestProject(suggestproject.getC_num());
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=6";
 	}
 	
 	
@@ -597,11 +599,20 @@ public class F_MypageController {
 		if(spendList.size()==0){
 			model.addAttribute("spendListCheck", 0);
 		}
+		else{
+			for(int i=0; i<spendList.size(); i++){
+				spendList.get(i).setFormatMoney((String.format("%,d", spendList.get(i).getA_money())));		
+			}
+		}
 		model.addAttribute("spendList", spendList);
 		
 		List<Accounting> incomeList = service.getIncomeAccounting(f_num);
 		if(incomeList.size()==0){
 			model.addAttribute("incomeListCheck", 0);
+		}else{
+			for(int i=0; i<incomeList.size(); i++){
+				incomeList.get(i).setFormatMoney((String.format("%,d", incomeList.get(i).getA_money())));		
+			}
 		}
 		model.addAttribute("incomeList", incomeList);
 		
@@ -665,7 +676,7 @@ public class F_MypageController {
 			fileService.uploadFile(a_addfile, "accfile", accounting.getF_num(),accounting.getAccfile_iden());
 		}
 
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=8";
 	}
 	
 	@RequestMapping(value="/deleteSpendList", method = RequestMethod.GET)
@@ -674,7 +685,7 @@ public class F_MypageController {
 	
 		fileService.deleteFile("portfile",  accouting.getF_num(), accouting.getAccfile_iden());
 		service.deleteAccounting(a_num);
-		return "redirect:/f_mypage/updateSuccess";
+		return "redirect:/f_mypage/updateSuccess?where=8";
 	}
 
 	
@@ -684,19 +695,43 @@ public class F_MypageController {
 	public void accountingSearch(Model model, @RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate, @RequestParam("f_num") int f_num) throws Exception{
 		System.out.println(startDate);
 		System.out.println(endDate);
+		System.out.println(startDate.substring(5, 7));
+		String searchMonth = startDate.substring(5, 7);
+		model.addAttribute("search", "yes");
+		model.addAttribute("searchMonth", searchMonth);
 		HashMap<String, Object> searchDateMap = new HashMap<String, Object>();
 		searchDateMap.put("startDate", startDate.substring(2));
 		searchDateMap.put("endDate", endDate.substring(2));
 		searchDateMap.put("f_num", f_num);
 		List<Accounting>searchSpendList = service.searchSpendList(searchDateMap);
+		int totalSpend=0;
+		int totalIncome=0;
 		if(searchSpendList.size()==0){
 			model.addAttribute("spendListCheck", 0);
+			model.addAttribute("totalSpendCount", 0);
+			model.addAttribute("totalSpend", 0);
+		}else{
+			for(int i=0; i<searchSpendList.size(); i++){
+				totalSpend += searchSpendList.get(i).getA_money();
+				searchSpendList.get(i).setFormatMoney((String.format("%,d", searchSpendList.get(i).getA_money())));
+			}
+			model.addAttribute("totalSpendCount", searchSpendList.size());
+			model.addAttribute("totalSpend", String.format("%,d", totalSpend));
 		}
 		model.addAttribute("spendList", searchSpendList);
 		
 		List<Accounting> searchIncomeList = service.searchIncomeList(searchDateMap);
 		if(searchIncomeList.size()==0){
 			model.addAttribute("incomeListCheck", 0);
+			model.addAttribute("totalIncomeCount", 0);
+			model.addAttribute("totalIncome", 0);
+		}else{
+			for(int i=0; i<searchIncomeList.size(); i++){
+				totalIncome += searchIncomeList.get(i).getA_money();
+				searchIncomeList.get(i).setFormatMoney((String.format("%,d", searchIncomeList.get(i).getA_money())));
+			}
+			model.addAttribute("totalIncomeCount", searchIncomeList.size());
+			model.addAttribute("totalIncome", String.format("%,d", totalIncome));
 		}
 		model.addAttribute("incomeList", searchIncomeList);
 	}

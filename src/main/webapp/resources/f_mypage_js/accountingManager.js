@@ -407,6 +407,16 @@ function modifySpendList(num){
 	document.tempSpendListAdd.accfile_iden.value = document.getElementById(wantForm).accfile_iden.value;	
 }
 
+function modifyIncomeList(num){
+	var wantForm = 'incomeListForm' + num;
+	document.tempIncomeListAdd.detail_usage.value = document.getElementById(wantForm).detail_usage.value;
+	document.tempIncomeListAdd.a_num.value = document.getElementById(wantForm).a_num.value;
+	document.tempIncomeListAdd.a_money.value = document.getElementById(wantForm).a_money.value;
+	document.tempIncomeListAdd.a_using_date.value = document.getElementById(wantForm).a_using_date.value;
+	document.tempIncomeListAdd.project_relation_check.value = document.getElementById(wantForm).project_relation_check.value;
+	document.tempIncomeListAdd.accfile_iden.value = document.getElementById(wantForm).accfile_iden.value;	
+}
+
 function deleteIncomeList(num){
 	var wantForm = 'incomeListForm' + num;
 	document.tempIncomeListAdd.detail_usage.value = document.getElementById(wantForm).detail_usage.value;

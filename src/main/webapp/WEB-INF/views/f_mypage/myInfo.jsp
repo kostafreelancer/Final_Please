@@ -64,14 +64,14 @@ $(function(){
 			<ul class="left_menu_contents">
 				<li><a href="/f_mypage/scheduleManager">일정 관리</a></li>
 				<li><a href="/f_mypage/accountingManager">회계 관리</a></li>
-				<li><a href="/f_mypage/myInfo">내 정보</a></li>
-				<li><a href="/f_mypage/myInfo2">프로젝트</a></li>
+				<li><a href="/f_mypage/myInfo?where=1">내 정보</a></li>
+				<li><a href="/f_mypage/myInfo2?where=4">프로젝트</a></li>
 			</ul>
 		</div>
 	</div>
 
 	<section id="firstsection">
-
+	<input type="text" id="openPage" value="${where}">
 	<ul id="tabs">
 		<li><a href="#" title="tab1">내 정보</a></li>
 		<li><a href="#" title="tab2">이력 정보</a></li>
@@ -506,7 +506,7 @@ $(function(){
 		<div id="tab2">
 			<div class="tb_box">
 				<div class="ct overf">
-					<h4 class="fl myfl">경력사항</h4><span style="padding-top:20px; padding-left:7px; display:block; float:left"><img src="../../../resources/f_mypage_img/profile_employ.png" width="20px" height="20px" ></span>
+					<h4 class="fl myfl">경력사항</h4><span style="padding-top:20px; padding-left:7px; display:block; float:left"><img src="../../../resources/f_mypage_img/profile_employ_2.jpg" width="20px" height="20px" ></span>
 						<button id="add" class="career_add" onclick="addCareer();">추가하기</button>
 				</div>
 				<table class="tb_st01 tb_st03">
@@ -596,7 +596,7 @@ $(function(){
 			</div>
 			<div class="tb_box">
 				<div class="ct overf">
-					<h4 class="fl myfl">학력사항</h4><span style="padding-top:20px; padding-left:7px; display:block; float:left"><img src="../../../resources/f_mypage_img/profile_edu.png" width="20px" height="20px" ></span>
+					<h4 class="fl myfl">학력사항</h4><span style="padding-top:20px; padding-left:7px; display:block; float:left"><img src="../../../resources/f_mypage_img/profile_edu_2.jpg" width="20px" height="20px" ></span>
 					<button id="add" class="school_add" onclick="addSchool();">추가하기</button>
 				</div>
 				<table class="tb_st01 tb_st03">
@@ -679,7 +679,7 @@ $(function(){
 
 			<div class="tb_box">
 				<div class="ct overf">
-					<h4 class="fl myfl">자격증</h4><span style="padding-top:20px; padding-left:7px; display:block; float:left;"><img src="../../../resources/f_mypage_img/profile_certify.png" width="20px" height="20px" ></span>
+					<h4 class="fl myfl">자격증</h4><span style="padding-top:20px; padding-left:7px; display:block; float:left;"><img src="../../../resources/f_mypage_img/profile_certify_2.jpg" width="20px" height="20px" ></span>
 					<button id="add" class="right_add" onclick="addCerti();">추가하기</button>
 				</div>
 				<table class="tb_st01 tb_st03">

@@ -21,7 +21,7 @@
 <!-- <script type="text/javascript" src="f_mypage_js/myInfo.js"></script>
 <script type="text/javascript" src="f_mypage_js/my.js"></script> -->
 <script src="${pageContext.request.contextPath}/c_common/c_common_js/header.js"></script>
-<script src="${pageContext.request.contextPath}/resources/f_mypage_js/myInfo.js"></script> 
+<script src="${pageContext.request.contextPath}/resources/f_mypage_js/myInfo2.js"></script> 
 <script src="${pageContext.request.contextPath}/resources/f_mypage_js/my.js"></script>
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript">
@@ -64,14 +64,14 @@
 			<ul class="left_menu_contents">
 				<li><a href="/f_mypage/scheduleManager">일정 관리</a></li>
 				<li><a href="/f_mypage/accountingManager">회계 관리</a></li>
-				<li><a href="/f_mypage/myInfo">내 정보</a></li>
-				<li><a href="/f_mypage/myInfo2">프로젝트</a></li>
+				<li><a href="/f_mypage/myInfo?where=1">내 정보</a></li>
+				<li><a href="/f_mypage/myInfo2?where=4">프로젝트</a></li>
 			</ul>
 		</div>
 	</div>
 
 	<section id="firstsection">
-
+	<input type="text" id="openPage" value="${where}">
 	<ul id="tabs">
 		<li><a href="#" title="tab1">진행중인 프로젝트</a></li>
 		<li><a href="#" title="tab2">매칭중인 프로젝트</a></li>

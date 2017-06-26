@@ -6,6 +6,7 @@ public class Accounting  implements Serializable{
 	private int a_num;
 	private String detail_usage;
 	private int a_money;
+	private String formatMoney;
 	private String a_addfile;
 	private String a_using_date;
 	private int f_num;
@@ -16,12 +17,16 @@ public class Accounting  implements Serializable{
 	public Accounting(){}
 	
 	
-	public Accounting(int a_num, String detail_usage, int a_money, String a_addfile, String a_using_date, int f_num,
-			String project_relation_check, String monet_state, int accfile_iden) {
+
+
+
+	public Accounting(int a_num, String detail_usage, int a_money, String formatMoney, String a_addfile,
+			String a_using_date, int f_num, String project_relation_check, String monet_state, int accfile_iden) {
 		super();
 		this.a_num = a_num;
 		this.detail_usage = detail_usage;
 		this.a_money = a_money;
+		this.formatMoney = formatMoney;
 		this.a_addfile = a_addfile;
 		this.a_using_date = a_using_date;
 		this.f_num = f_num;
@@ -29,6 +34,9 @@ public class Accounting  implements Serializable{
 		this.monet_state = monet_state;
 		this.accfile_iden = accfile_iden;
 	}
+
+
+
 
 
 	public int getA_num() {
@@ -88,6 +96,19 @@ public class Accounting  implements Serializable{
 
 	public void setAccfile_iden(int accfile_iden) {
 		this.accfile_iden = accfile_iden;
+	}
+
+
+
+
+
+	public String getFormatMoney() {
+		return formatMoney;
+	}
+
+
+	public void setFormatMoney(String formatMoney) {
+		this.formatMoney = formatMoney;
 	}
 	
 	

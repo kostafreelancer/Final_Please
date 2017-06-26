@@ -56,7 +56,7 @@
 	<div id="content">
 		<div id="tab1">
 		<div>
-			<h4 class="fl myfl">검색하기</h4>
+			<h4 class="fl myfl">[검색하기]</h4>
 		</div>
 			<br><br><br>
 
@@ -82,11 +82,27 @@
 				<input type="submit" value="검색">
 			</form>
 	
+			<c:if test="${search eq 'yes'}">
+				<div>
+				<table class="tb_st01">
+				<tr>
+				<th  scope="row" colspan="2" class="ac" id="myTable">${searchMonth}월의 지출 건수</th>
+				<td>${totalSpendCount}건</td>
+				<th  scope="row" colspan="2" class="ac" id="myTable">${searchMonth}월의 지출 금액</th>
+				<td>${totalSpend}원</td>
+				</tr> 
+				<th scope="row" colspan="2" class="ac" id="myTable">${searchMonth}월의 수입 건수</th>
+				<td>${totalIncomeCount}건</td>
+				<th  scope="row" colspan="2" class="ac" id="myTable">${searchMonth}월의 지출 금액</th>
+				<td>${totalIncome}원</td>
+				</table>
+				</div>
+			</c:if>
 			<div class="tb_box">
 				<div class="ct overf">
 					<br>
 
-					<h4 class="fl myfl">지출</h4>
+					<h4 class="fl myfl">[지출 상세 내역]</h4>
 					<br>
 
 				</div>
@@ -133,7 +149,7 @@
 								<tr>
 
 									<td>${myspendList.detail_usage}</td>
-									<td>${myspendList.a_money}</td>
+									<td>${myspendList.formatMoney}원</td>
 									<td>${myspendList.a_using_date}</td>
 									<td>${myspendList.project_relation_check}</td>
 									<td><a href="/c_file/downloadFile?identy=${myspendList.accfile_iden}&f_num=${client.f_num}&fileType=accfile">${myspendList.a_addfile}</a></td>
@@ -153,7 +169,7 @@
 						<div class="ct overf">
 					<br>
 
-					<h4 class="fl myfl">수입</h4>
+					<h4 class="fl myfl">[수입 상세 내역]</h4>
 					<br>
 
 
@@ -197,7 +213,7 @@
 								<input type="text" hidden name="accfile_iden" value="${myincomeList.accfile_iden}">
 								<tr>
 									<td>${myincomeList.detail_usage}</td>
-									<td>${myincomeList.a_money}</td>
+									<td>${myincomeList.formatMoney}원</td>
 									<td>${myincomeList.a_using_date}</td>
 									<td>${myincomeList.project_relation_check}</td>
 									<td><a href="/c_file/downloadFile?identy=${myincomeList.accfile_iden}&f_num=${client.f_num}&fileType=accfile">${myincomeList.a_addfile}</a></td>

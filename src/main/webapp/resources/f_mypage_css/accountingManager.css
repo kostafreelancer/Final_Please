@@ -1,5 +1,8 @@
 @CHARSET "utf-8";
 
+#myTable{
+	width:5px;
+}
 .day_inp {
 	background: url(../f_mypage_img/bg_day.jpg) right top no-repeat;
 	padding: 9px 45px 9px 0 !important;

@@ -1,15 +1,18 @@
 
 $(document).ready(function() {
 	$("#content>div").hide(); // Initially hide all content
-	if($("#openPage").val() == "2"){
+	if($("#openPage").val() == "5"){
 		$("#tabs li:nth-child(2)").attr("id","current"); // Activate first tab
 		$("#content>div:nth-child(2)").fadeIn(); // Show first tab content
-	}else if($("#openPage").val() == "1"){
+	}else if($("#openPage").val() == "4"){
 		$("#tabs li:first").attr("id","current"); // Activate first tab
 		$("#content>div:first").fadeIn(); // Show first tab content
-	}else{
+	}else if($("#openPage").val() == "6"){
 		$("#tabs li:nth-child(3)").attr("id","current"); // Activate first tab
 		$("#content>div:nth-child(3)").fadeIn(); // Show first tab content
+	}else{
+		$("#tabs li:nth-child(4)").attr("id","current"); // Activate first tab
+		$("#content>div:nth-child(4)").fadeIn(); // Show first tab content
 	}
 	
     $('#tabs a').click(function(e) {
