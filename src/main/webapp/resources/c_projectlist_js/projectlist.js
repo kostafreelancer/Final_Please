@@ -54,6 +54,9 @@ $(function(){
 		alert("이미 신청한 프로젝트입니다.");
 	};
 	
+	if($('#evalTemp').val() == "success"){
+		alert("평가가 완료되었습니다.");
+	}
 	
 	
 });

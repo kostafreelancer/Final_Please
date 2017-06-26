@@ -55,7 +55,7 @@ $(function(){
 				</p>
 			</div>
 		</div>
-
+<input hidden id="evalTemp" value="${evalTemp}">
 		<div id="content">
 			<div class="tit_box">
 				<h2>${E_Insert.p_name }</h2>

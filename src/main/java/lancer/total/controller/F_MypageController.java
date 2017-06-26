@@ -754,6 +754,6 @@ public class F_MypageController {
 		map.put("e_num", e_grade.getE_num());
 		map.put("e_score", avg);
 		service.updateE_grade(map);
-		return "redirect:/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num="+e_grade.getE_pr_num()+"&e_num="+e_grade.getE_num() + "&from=mypage";
+		return "redirect:/c_projectlist/c_readpage?page=1&perPageNum=10&jobs&e_pr_num="+e_grade.getE_pr_num()+"&e_num="+e_grade.getE_num() + "&from=evalEnd";
 	}
 }
