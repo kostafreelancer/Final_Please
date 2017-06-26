@@ -265,4 +265,8 @@ public class F_MypageService {
 	public String getF_id(int f_num) throws Exception{
 		return dao.getF_id(f_num);
 	}
+	
+	public void updateAlramCheck(int f_num) throws Exception{
+		dao.updateAlramCheck(f_num);
+	}
 }

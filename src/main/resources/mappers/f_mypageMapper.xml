@@ -262,6 +262,10 @@
    	<select id="getF_id" parameterType="int" resultType="String">
    		select f_id from freelancer where f_num=#{f_num}
    	</select>
+   	
+   	<update id="updateAlramCheck" parameterType="int" >
+   		update alram set alram_check = '확인' where f_num=#{f_num}
+   	</update>
 </mapper>  
 
 

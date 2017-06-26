@@ -269,5 +269,9 @@ public class F_MypageDAO {
 		return session.selectOne(namespace + ".getF_id", f_num);
 	}
 	
+	public void updateAlramCheck(int f_num) throws Exception{
+		session.update(namespace +".updateAlramCheck", f_num);
+	}
+	
 	
 }

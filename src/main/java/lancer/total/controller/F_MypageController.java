@@ -193,8 +193,11 @@ public class F_MypageController {
 		System.out.println(session);
 		System.out.println(session.getAttribute("client"));
 		model.addAttribute("where", where);
-		c_login_freelancerVO freelancer = (c_login_freelancerVO) session.getAttribute("client");
 		
+		c_login_freelancerVO freelancer = (c_login_freelancerVO) session.getAttribute("client");
+		service.updateAlramCheck(freelancer.getF_num());
+		session.setAttribute("chang_num", 0);
+		session.setAttribute("a_list", "");
 		model.addAttribute("freelancer", freelancer);
 		
 		List<Integer> joblist = service.showFreelancerJobInfo(freelancer.getF_num());
