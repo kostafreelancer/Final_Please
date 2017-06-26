@@ -103,9 +103,15 @@
 				</form>
 			</div>
 			<div class="num_box">
-								<a
-									href="/a_main/a_main${pageMakerFreelancer.makeSearch(pageMakerFreelancer.startPage - 1) }" class="first"></a>
-
+							<c:choose>
+								<c:when test="${pageMakerFreelancer.prev}">
+									<a href="/a_main/a_main${pageMakerpageMakerFreelancerEnterprise.makeSearch(pageMakerFreelancer.startPage - 1) }" class="first"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="first"></a>
+								</c:otherwise>
+							</c:choose>	
+							
 							<c:forEach begin="${pageMakerFreelancer.startPage }"
 								end="${pageMakerFreelancer.endPage }" var="idx">
 								<span
@@ -114,8 +120,14 @@
 								</span>
 							</c:forEach>
 
-								<span><a
-									href="/a_main/a_main${pageMakerFreelancer.makeSearch(pageMakerFreelancer.endPage +1) }" class="last"></a></span>
+							<c:choose>
+								<c:when test="${pageMakerFreelancer.next && pageMakerFreelancer.endPage > 0}">
+									<a href="/a_main/a_main${pageMakerFreelancer.makeSearch(pageMakerFreelancer.endPage +1) }" class="last"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="last"></a>
+								</c:otherwise>
+							</c:choose>
 			</div>
 		</div>
 
@@ -171,11 +183,14 @@
 				</table>
 			</div>
 			<div class="num_box">
-				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a></span> 
-							<c:if test="${pageMakerEnterprise.prev}">
-								<a
-									href="/a_main/a_main${pageMakerEnterprise.makeSearch(pageMakerEnterprise.startPage - 1) }">&laquo;</a>
-							</c:if>
+							<c:choose>
+								<c:when test="${pageMakerEnterprise.prev}">
+									<a href="/a_main/a_main${pageMakerEnterprise.makeSearch(pageMakerEnterprise.startPage - 1) }" class="first"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="first"></a>
+								</c:otherwise>
+							</c:choose>								
 
 							<c:forEach begin="${pageMakerEnterprise.startPage }"
 								end="${pageMakerEnterprise.endPage }" var="idx">
@@ -185,11 +200,14 @@
 								</span>
 							</c:forEach>
 
-							<c:if test="${pageMakerEnterprise.next && pageMakerEnterprise.endPage > 0}">
-								<li><a
-									href="/a_main/a_main${pageMakerEnterprise.makeSearch(pageMakerEnterprise.endPage +1) }">&raquo;</a></li>
-							</c:if>						
-				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a></span>
+							<c:choose>
+								<c:when test="${pageMakerEnterprise.next && pageMakerEnterprise.endPage > 0}">
+									<a href="/a_main/a_main${pageMakerEnterprise.makeSearch(pageMakerEnterprise.endPage +1) }" class="last"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="last"></a>
+								</c:otherwise>
+							</c:choose>				
 			</div>
 		</div>
 
@@ -245,11 +263,15 @@
 				</table>
 			</div>
 			<div class="num_box">
-				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a></span> 
-							<c:if test="${pageMakerEnterprisePermit.prev}">
-								<a
-									href="/a_main/a_main${pageMakerEnterprisePermit.makeSearch(pageMakerEnterprisePermit.startPage - 1) }">&laquo;</a>
-							</c:if>
+							<c:choose>
+								<c:when test="${pageMakerEnterprisePermit.prev}">
+									<a href="/a_main/a_main${pageMakerEnterprisePermit.makeSearch(pageMakerEnterprisePermit.startPage - 1) }" class="first"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="first"></a>
+								</c:otherwise>
+							</c:choose>
+							
 							<c:forEach begin="${pageMakerEnterprisePermit.startPage }"
 								end="${pageMakerEnterprisePermit.endPage }" var="idx">
 								<span
@@ -258,11 +280,14 @@
 								</span>
 							</c:forEach>
 
-							<c:if test="${pageMakerEnterprisePermit.next && pageMakerEnterprisePermit.endPage > 0}">
-								<li><a
-									href="/a_main/a_main${pageMakerEnterprisePermit.makeSearch(pageMakerEnterprisePermit.endPage +1) }">&raquo;</a></li>
-							</c:if>						
-				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a></span>
+							<c:choose>
+								<c:when test="${pageMakerEnterprisePermit.next && pageMakerEnterprisePermit.endPage > 0}">
+									<a href="/a_main/a_main${pageMakerEnterprisePermit.makeSearch(pageMakerEnterprisePermit.endPage +1) }" class="last"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="last"></a>
+								</c:otherwise>
+							</c:choose>						
 			</div>
 		</div>		
 		
@@ -310,11 +335,15 @@
 				</table>
 			</div>
 			<div class="num_box">
-				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a></span> 
-							<c:if test="${pageMakerProjectPermit.prev}">
-								<a
-									href="/a_main/a_main${pageMakerProjectPermit.makeSearch(pageMakerProjectPermit.startPage - 1) }">&laquo;</a>
-							</c:if>
+							<c:choose>
+								<c:when test="${pageMakerProjectPermit.prev}">
+									<a href="/a_main/a_main${pageMakerProjectPermit.makeSearch(pageMakerProjectPermit.startPage - 1) }" class="first"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="first"></a>
+								</c:otherwise>
+							</c:choose>
+							
 							<c:forEach begin="${pageMakerProjectPermit.startPage }"
 								end="${pageMakerProjectPermit.endPage }" var="idx">
 								<span
@@ -323,11 +352,14 @@
 								</span>
 							</c:forEach>
 
-							<c:if test="${pageMakerProjectPermit.next && pageMakerProjectPermit.endPage > 0}">
-								<li><a
-									href="/a_main/a_main${pageMakerProjectPermit.makeSearch(pageMakerProjectPermit.endPage +1) }">&raquo;</a></li>
-							</c:if>						
-				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a></span>
+							<c:choose>
+								<c:when test="${pageMakerProjectPermit.next && pageMakerProjectPermit.endPage > 0}">
+									<a href="/a_main/a_main${pageMakerProjectPermit.makeSearch(pageMakerProjectPermit.endPage +1) }" class="last"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="last"></a>
+								</c:otherwise>
+							</c:choose>						
 			</div>
 		</div>		
 		
@@ -357,11 +389,14 @@
             </form>
          </div>
          <div class="num_box">
-				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a></span> 
-							<c:if test="${pageMakerAskList.prev}">
-								<a
-									href="/a_main/a_main${pageMakerAskList.makeSearch(pageMakerAskList.startPage - 1) }">&laquo;</a>
-							</c:if>
+							<c:choose>
+								<c:when test="${pageMakerAskList.prev}">
+									<a href="/a_main/a_main${pageMakerAskList.makeSearch(pageMakerAskList.startPage - 1) }" class="first"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="first"></a>
+								</c:otherwise>
+							</c:choose>
 
 							<c:forEach begin="${pageMakerAskList.startPage }"
 								end="${pageMakerAskList.endPage }" var="idx">
@@ -371,11 +406,14 @@
 								</span>
 							</c:forEach>
 
-							<c:if test="${pageMakerAskList.next && pageMakerAskList.endPage > 0}">
-								<li><a
-									href="/a_main/a_main${pageMakerAskList.makeSearch(pageMakerAskList.endPage +1) }">&raquo;</a></li>
-							</c:if>						
-				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a></span>
+							<c:choose>
+								<c:when test="${pageMakerAskList.next && pageMakerAskList.endPage > 0}">
+									<a href="/a_main/a_main${pageMakerAskList.makeSearch(pageMakerAskList.endPage +1) }" class="last"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="last"></a>
+								</c:otherwise>
+							</c:choose>						
          </div>
       </div>
       
@@ -404,11 +442,14 @@
             </form>
          </div>
          <div class="num_box">
-				<span class="btn_lef"> <a href="" class="first" alt="처음으로"></a></span> 
-							<c:if test="${pageMakerAnswerOK.prev}">
-								<a
-									href="/a_main/a_main${pageMakerAnswerOK.makeSearch(pageMakerAnswerOK.startPage - 1) }">&laquo;</a>
-							</c:if>
+							<c:choose>
+								<c:when test="${pageMakerAnswerOK.prev}">
+									<a href="/a_main/a_main${pageMakerAnswerOK.makeSearch(pageMakerAnswerOK.startPage - 1) }" class="first"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="first"></a>
+								</c:otherwise>
+							</c:choose>
 
 							<c:forEach begin="${pageMakerAnswerOK.startPage }"
 								end="${pageMakerAnswerOK.endPage }" var="idx">
@@ -418,11 +459,14 @@
 								</span>
 							</c:forEach>
 
-							<c:if test="${pageMakerAnswerOK.next && pageMakerAnswerOK.endPage > 0}">
-								<li><a
-									href="/a_main/a_main${pageMakerAnswerOK.makeSearch(pageMakerAnswerOK.endPage +1) }">&raquo;</a></li>
-							</c:if>						
-				<span class="btn_rit"> <a href="" class="last" alt="마지막으로"></a></span>
+							<c:choose>
+								<c:when test="${pageMakerAnswerOK.next && pageMakerAnswerOK.endPage > 0}">
+									<a href="/a_main/a_main${pageMakerAnswerOK.makeSearch(pageMakerAnswerOK.endPage +1) }" class="last"></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" class="last"></a>
+								</c:otherwise>
+							</c:choose>
          </div>
       </div>
  </div>
