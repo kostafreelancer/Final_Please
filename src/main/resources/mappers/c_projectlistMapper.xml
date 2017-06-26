@@ -61,7 +61,7 @@
 		  	 
 		  </if>
 		  
-		 order by e_pr_num desc
+		 order by e_pr_num asc
 	</select>
 	
 	<select id="listSearchCount" resultType="int" parameterType="SearchCriteria">
