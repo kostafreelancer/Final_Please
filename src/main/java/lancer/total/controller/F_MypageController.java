@@ -198,6 +198,7 @@ public class F_MypageController {
 		service.updateAlramCheck(freelancer.getF_num());
 		session.setAttribute("chang_num", 0);
 		session.setAttribute("a_list", "");
+		
 		model.addAttribute("freelancer", freelancer);
 		
 		List<Integer> joblist = service.showFreelancerJobInfo(freelancer.getF_num());

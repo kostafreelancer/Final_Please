@@ -262,11 +262,7 @@ function addScheduleSubmit(){
 	</div>
 	<div id="space"></div>
 	<input type="text" id="resultPrint" value="">
-	<ul>
-		<li><span id="firstSch">첫번</span></li>
-		<li><span id="secondSch">두번째</span></li>
-		<li><span id="thirdSch">메롱</span></li>
-	</ul>
+
 
 	<form name="scheduleAdd" action="/f_mypage/scheduleAdd" method="post">
 		<input type="text" hidden name="f_num" value="${client.f_num}">

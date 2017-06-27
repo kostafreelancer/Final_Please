@@ -4,12 +4,13 @@ $(document).ready(function() {
 	if($("#openPage").val() == "2"){
 		$("#tabs li:nth-child(2)").attr("id","current"); // Activate first tab
 		$("#content>div:nth-child(2)").fadeIn(); // Show first tab content
-	}else if($("#openPage").val() == "1"){
-		$("#tabs li:first").attr("id","current"); // Activate first tab
-		$("#content>div:first").fadeIn(); // Show first tab content
-	}else{
+	}else if($("#openPage").val() == "3"){
 		$("#tabs li:nth-child(3)").attr("id","current"); // Activate first tab
 		$("#content>div:nth-child(3)").fadeIn(); // Show first tab content
+		
+	}else{
+		$("#tabs li:first").attr("id","current"); // Activate first tab
+		$("#content>div:first").fadeIn(); // Show first tab content
 	}
 	
     $('#tabs a').click(function(e) {

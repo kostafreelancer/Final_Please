@@ -71,7 +71,7 @@
 	</div>
 
 	<section id="firstsection">
-	<input type="text" id="openPage" value="${where}">
+	<input type="hidden" id="openPage" value="${where}">
 	<ul id="tabs">
 		<li><a href="#" title="tab1">진행중인 프로젝트</a></li>
 		<li><a href="#" title="tab2">매칭중인 프로젝트</a></li>
