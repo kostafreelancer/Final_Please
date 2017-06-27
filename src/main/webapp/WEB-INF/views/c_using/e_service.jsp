@@ -231,7 +231,7 @@
 						</div>
 						<div class="p5-clientUsage-step-img">
 							<!-- 여기에 우리 사진 들어가야함! -->
-							<img src="/resources/c_using_img/intro_usecase_one.PNG">
+							<img src="/resources/c_using_img/chat.PNG">
 						</div>
 						<div class="p5-clientUsage-step-info">
 							<div class="p5-clientUsage-step-info-line">- 프로젝트 대금을 입금
