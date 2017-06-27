@@ -60,37 +60,7 @@ function drawMultSeries() {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("f_main.fm");
 	%> --%>
 	<%@ include file="../c_common/header.jsp"%>
-	<section id="slides">
-	<%-- <div class="read" style="position: relative; z-index: 9999">
-				<c:choose>
-					<c:when test="${identity.identity == 'freelancer' }">
-					
-					<div class="readCount">${f_read }</div>개의 새로운 알림이 있습니다.				
-					</c:when>
-					
-					<c:otherwise>
-					
-					</c:otherwise>
-				</c:choose>
-				
-				<div class="read_2" style="position : relative; z-index: 2;">
-				<c:choose>
-					<c:when test="${identity.identity == 'freelancer' }">
-					<ul>
-					<c:forEach items="${alram }" var="alram">
-				
-					
-						<li><a href="/c_membercenter/member_centerMain" style="text-decoration: none; color: #2257ad;">${alram.asktitle }</a> 문의에 대한 답변글이 달렸습니다.</li>
-			
-				
-					</c:forEach>
-					</ul>
-					</c:when>
-				</c:choose>
-				</div>
-		</div> --%>
-			<!--  -->
-	 	<div class="inbox">
+	<div class="inbox">
 			<div class="oneTop-middle">
 				<dl class="title">
 					<dt>
@@ -128,6 +98,76 @@ function drawMultSeries() {
 			<source src="/resources/e_main_img/main_bg.mp4" type="video/mp4">
 		</video>
 	</div> 
+	
+	
+	<section id="slides">
+	<%-- <div class="read" style="position: relative; z-index: 9999">
+				<c:choose>
+					<c:when test="${identity.identity == 'freelancer' }">
+					
+					<div class="readCount">${f_read }</div>개의 새로운 알림이 있습니다.				
+					</c:when>
+					
+					<c:otherwise>
+					
+					</c:otherwise>
+				</c:choose>
+				
+				<div class="read_2" style="position : relative; z-index: 2;">
+				<c:choose>
+					<c:when test="${identity.identity == 'freelancer' }">
+					<ul>
+					<c:forEach items="${alram }" var="alram">
+				
+					
+						<li><a href="/c_membercenter/member_centerMain" style="text-decoration: none; color: #2257ad;">${alram.asktitle }</a> 문의에 대한 답변글이 달렸습니다.</li>
+			
+				
+					</c:forEach>
+					</ul>
+					</c:when>
+				</c:choose>
+				</div>
+		</div> --%>
+			<!--  -->
+	 	<%-- <div class="inbox">
+			<div class="oneTop-middle">
+				<dl class="title">
+					<dt>
+						<span>신속한</span>
+						맞춤 매칭
+					</dt>
+				<dd>웹/앱,프로그램,개발,디자인</dd>
+			</dl>
+			<div class="projregist">
+				<a href="/e_insertproject/e_insertproject" class="btn">프로젝트 등록하기</a>
+			</div>
+		</div>
+		<div class="onesTop-bottom">
+			<ul class="sort-item-wrap">
+				<li class="sort-item">
+					<div class="sort_itemd1">
+						<div class="tit">등록된 프로젝트</div>
+						<div class="data">${countP }</div>
+					</div>
+				</li>
+				<li class="sort-item">
+					<div class="sort_itemd">
+						<div class="tit">등록된 기업</div>
+						<div class="data">${allfreelancer}</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>	
+	<div class="onesbg"></div>
+
+	
+	<div class="video">
+		<video id="landingVideo" class="videobcg" loop="loop" autoplay="autoplay" poster="http://freemoa.smilecast.co.kr/Image/main-view.png" style="width:100%">
+			<source src="/resources/e_main_img/main_bg.mp4" type="video/mp4">
+		</video>
+	</div>  --%>
 		
 			
 			<!--  -->

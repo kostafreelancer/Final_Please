@@ -249,7 +249,7 @@
 	
 	max-width: 100%;
     z-index: 1000;
-    padding-top: 650px;
+   /*  padding-top: 650px; */
 }
 }
 
@@ -418,7 +418,7 @@
 
 .video{
 	width: 100%;
-	/* position: absolute; */
+	position: absolute; 
 	z-index: -10;
 }
 .inbox{
@@ -430,7 +430,7 @@
 	position: relative;
 	text-align: center;
 	/* left: 500px; */
-	top: 100px;
+	top: 50px;
 }
 .title dt{
 	font: bold;
@@ -451,7 +451,7 @@
 }
 .projregist{
 	text-align: center;
-	padding-top: 170px;
+	padding-top: 140px;
 }
 .projregist a{
 	color: white;
@@ -503,4 +503,7 @@
 }
 .projregist a{
 	text-decoration: none;
+}
+.slides{
+	padding-top: 560px;
 }
