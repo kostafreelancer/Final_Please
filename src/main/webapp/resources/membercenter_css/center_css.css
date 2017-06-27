@@ -409,3 +409,33 @@ h1 {
 	color : white;
 }
 
+.num_box {
+	text-align: center;
+	margin-bottom: 200px;
+}
+
+
+.num_box a {
+	width: 25px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.first {
+	background: #fff url(../e_mypage_img/bg_first.jpg) center 10px no-repeat;
+	text-indent: -9999px;
+	overflow: hidden;
+	border: 1px solid #999;
+	margin-right: -3px;
+	height: 25px;
+}
+
+.num_box .last {
+	background: #fff url(../e_mypage_img/bg_last.jpg) center 10px no-repeat;
+	text-indent: -9999px;
+	overflow: hidden;
+	border: 1px solid #999;
+	margin-right: -3px;
+	height: 25px;
+}

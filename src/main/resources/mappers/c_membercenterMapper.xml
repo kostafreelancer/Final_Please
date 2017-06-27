@@ -32,6 +32,7 @@
 		and read = '읽음'
 		order by ask_state desc
 	</select>
+	
 	<select id="e_myAskList" resultType="lancer.c_membercenter.domain.MembercenterASKVO">
 		select writer, asktitle, askdate , answercontents, answerdate, asknum, ad_num, ask_state, read from ask
 		where e_num = #{e_num}
