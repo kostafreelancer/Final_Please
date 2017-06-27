@@ -160,16 +160,16 @@
 		
 						<li class="icon1"><a href=''><img
 								class="img22" src="../../../resources/e_main_img/icon01_off.png"></a><br>
-							<p class="txt01">개발</p> <p class="num01">${development }명</p>
+							<p class="txt01">개발</p> <p class="num01">${development }개</p>
 						</li>
 						<li class="icon1"><a href=''><img
 								class="img22" src="../../../resources/e_main_img/icon03_off.png"></a><br>
-							<p class="txt01">디자인</p><p class="num01">${design }명</p>
+							<p class="txt01">디자인</p><p class="num01">${design }개</p>
 						</li>
 		
 						<li class="icon1"><a href=''><img
 								class="img22" src="../../../resources/e_main_img/icon05_off.png"></a><br>
-							<p class="txt01">기획</p><p class="num01">${planning }명</p>
+							<p class="txt01">기획</p><p class="num01">${planning }개</p>
 						</li>
 						
 					</ul>
