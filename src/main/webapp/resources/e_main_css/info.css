@@ -299,3 +299,6 @@ p.num01 {
     border-left: none;
     border-color: darkgray;
 }
+.projregist a{
+	text-decoration: none;
+}

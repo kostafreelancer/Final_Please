@@ -217,6 +217,7 @@ body {
 	transition: height .25s ease .1s;
 }
 .ee ul li a{
+	text-decoration: none;
 	color: white;
 	list-style:none;
 	font-size: 14px;
