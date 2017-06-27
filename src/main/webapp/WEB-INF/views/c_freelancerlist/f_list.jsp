@@ -247,7 +247,8 @@
 							<tr>
 								<td class="img_box">
 								<a href='/c_freelancerlist/f_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&f_num=${totallist.f_num}' class="tooltip" data-tooltip="${totallist.f_field}">
-								<img src="/resources/c_freelancerlist_img/Basic.jpg" class="fl" width="50px" />
+<!-- 								<img src="/resources/c_freelancerlist_img/Basic.jpg" class="fl" width="50px" />
+ -->								<img src="/c_file/displayFile?fileName=${totallist.f_photo}" class="fl" width="50px" />
 								</a>
 								<div class="name">
 									<a href='/c_freelancerlist/f_readpage${pageMaker.makeSearch(pageMaker.cri.page) }&f_num=${totallist.f_num}'>
