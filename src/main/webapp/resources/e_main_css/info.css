@@ -216,6 +216,7 @@ p.num01 {
 .video{
 	position: absolute;
 	z-index: -10;
+	width: 100%;
 }
 .inbox{
 	font: inherit;
@@ -226,7 +227,7 @@ p.num01 {
 	position: relative;
 	text-align: center;
 	/* left: 500px; */
-	top: 100px;
+	top: 50px;
 }
 .title dt{
 	font: bold;

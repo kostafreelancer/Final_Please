@@ -61,7 +61,7 @@ function drawMultSeries() {
 	%> --%>
 	<%@ include file="../c_common/header.jsp"%>
 	<section id="slides">
-	<div class="read" style="position: relative; z-index: 9999">
+	<%-- <div class="read" style="position: relative; z-index: 9999">
 				<c:choose>
 					<c:when test="${identity.identity == 'freelancer' }">
 					
@@ -88,35 +88,79 @@ function drawMultSeries() {
 					</c:when>
 				</c:choose>
 				</div>
+		</div> --%>
+			<!--  -->
+	 	<div class="inbox">
+			<div class="oneTop-middle">
+				<dl class="title">
+					<dt>
+						<span>신속한</span>
+						맞춤 매칭
+					</dt>
+				<dd>웹/앱,프로그램,개발,디자인</dd>
+			</dl>
+			<div class="projregist">
+				<a href="/e_insertproject/e_insertproject" class="btn">프로젝트 등록하기</a>
 			</div>
-	<div class="main_slide" style="position: relative; z-index: 1;">
+		</div>
+		<div class="onesTop-bottom">
+			<ul class="sort-item-wrap">
+				<li class="sort-item">
+					<div class="sort_itemd1">
+						<div class="tit">등록된 프로젝트</div>
+						<div class="data">${countP }</div>
+					</div>
+				</li>
+				<li class="sort-item">
+					<div class="sort_itemd">
+						<div class="tit">등록된 기업</div>
+						<div class="data">${allfreelancer}</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>	
+	<div class="onesbg"></div>
+
+	
+	<div class="video">
+		<video id="landingVideo" class="videobcg" loop="loop" autoplay="autoplay" poster="http://freemoa.smilecast.co.kr/Image/main-view.png" style="width:100%">
+			<source src="/resources/e_main_img/main_bg.mp4" type="video/mp4">
+		</video>
+	</div> 
+		
+			
+			<!--  -->
+<!-- 	<div class="main_slide" style="position: relative; z-index: 1;">
 		<div class="slideshow_images">
 			<h2>당신의 프리랜서는 여기에!</h2>
 				<div class="slideshow_detail">
 					<a href="#" class="slide"><img src="../../../resources/f_main_img/test/151.png"
 				alt="" width="150px" height="300px" align="middle"></a>
 				</div>
-<!-- 			<a href="#" class="slide"><img src="../../../resources/f_main_img/bg_visual01.jpg"
+			<a href="#" class="slide"><img src="../../../resources/f_main_img/bg_visual01.jpg"
 				alt="" width="1911" height="432"></a> <a href="#" class="slide"><img
 				src="../../../resources/f_main_img/bg_visual02.jpg" alt="" width="1911" height="432"></a>
 			<a href="#" class="slide"><img src="../../../resources/f_main_img/bg_visual03.jpg"
 				alt="" width="1911" height="432"></a> <a href="#" class="slide"><img
-				src="../../../resources/f_main_img/bg_visual04.jpg" alt="" width="1911" height="432"></a> -->
+				src="../../../resources/f_main_img/bg_visual04.jpg" alt="" width="1911" height="432"></a>
 		</div>
-	</div>
+	</div> -->
 
 	<div class="main_news">
-		<c:choose>
+		 <c:choose>
 			<c:when test="${identity.identity == 'freelancer' }">
 				<h3>${client.f_name }님을 위한 추천 프로젝트</h3>
 			</c:when>
 			<c:otherwise>
 				<h3>드림랜서 현황</h3>
 			</c:otherwise>
-		</c:choose>
+		</c:choose> 
 		
 		<%-- <h1>${recommend }raasdr</h1> --%>
 		<div class="left_news">
+			
+			
 			<%-- <c:when test="${identity.identity == 'freelancer' }"> --%>
 				<ul class="recommend" >
 				 <c:choose>

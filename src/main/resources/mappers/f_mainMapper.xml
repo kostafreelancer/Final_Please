@@ -64,6 +64,10 @@
 		and ask_state = '답변완료'
 		and read = '안읽음'
 	</select>
+	
+	<select id="countenterprise" resultType="int">
+		select count(*) from enterprise
+	</select>
 </mapper>
 
 

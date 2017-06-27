@@ -78,13 +78,14 @@
 		</div>
 	</div>	
 	<div class="onesbg"></div>
-	</div>
+
 	
 	<div class="video">
 		<video id="landingVideo" class="videobcg" loop="loop" autoplay="autoplay" poster="http://freemoa.smilecast.co.kr/Image/main-view.png" style="width:100%">
-			<source src="http://freemoa.smilecast.co.kr/145740747649209.mp4" type="video/mp4">
-			<source src="/public/images/movie/main-view.webm" type="video/webm">
-			<source src="/public/images/movie/main-view.ogg" type="video/ogg">
+			<source src="/resources/e_main_img/main_bg.mp4" type="video/mp4">
+<!-- 			<source src="http://freemoa.smilecast.co.kr/145740747649209.mp4" type="video/mp4"> -->
+			<!-- <source src="/public/images/movie/main-view.webm" type="video/webm">
+			<source src="/public/images/movie/main-view.ogg" type="video/ogg"> -->
 			<!--[if lte IE 9]>											
 				<img src="/public/images/movie/main-view.jpg" width="100%" height="684" alt="이미지" />						
 			<![endif]-->					

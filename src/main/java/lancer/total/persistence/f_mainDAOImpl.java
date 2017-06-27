@@ -69,4 +69,10 @@ public class f_mainDAOImpl implements f_mainDAO {
 	public List<alram> alram(int f_num) throws Exception{
 		return session.selectList(namespace + ".alram" , f_num);
 	}
+
+	@Override
+	public int countenterprise() throws Exception {
+		
+		return session.selectOne(namespace + ".countenterprise");
+	}
 }

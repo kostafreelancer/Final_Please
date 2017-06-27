@@ -66,4 +66,9 @@ public class f_mainServiceImpl implements f_mainService {
 	public List<alram> alram(int f_num) throws Exception{
 		return dao.alram(f_num);
 	}
+
+	@Override
+	public int countenterprise() throws Exception {
+		return dao.countenterprise();
+	}
 }

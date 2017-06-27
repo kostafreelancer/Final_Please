@@ -17,4 +17,5 @@ public interface f_mainDAO {
 	public int f_planner() throws Exception;
 	public int f_read(int f_num) throws Exception;
 	public List<alram> alram(int f_num) throws Exception;
+	public int countenterprise()throws Exception;
 }
