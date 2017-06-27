@@ -28,7 +28,7 @@
 					<ul>
 						<c:forEach var="item" items="${a_list }" >
 								<c:if test="${identity.identity eq 'freelancer' }">
-									<li><a href="/f_mypage/myInfo2">${item.p_name}에서 ${item.p_content }</a></li>
+									<li><a href="/f_mypage/myInfo2?where=4">${item.p_name}에서 ${item.p_content }</a></li>
 								</c:if>
 								<c:if test="${identity.identity eq 'enterprise' }">
 									<li><a href="/e_mypage/e_project">${item.p_name}에서 ${item.p_content }</a></li>
