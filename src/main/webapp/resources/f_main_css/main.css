@@ -463,6 +463,8 @@
     padding: 15px;
     padding-left: 50px;
     padding-right: 50px;
+    background-color: #1c87a5;
+    font-weight:bold;
 }
 .sort-item-wrap{
 	list-style: none;
