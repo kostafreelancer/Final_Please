@@ -227,7 +227,7 @@ p.num01 {
 	position: relative;
 	text-align: center;
 	/* left: 500px; */
-	top: 50px;
+	top: 10px;
 }
 .title dt{
 	font: bold;
@@ -244,11 +244,11 @@ p.num01 {
     font-size: 29px;
     text-align: center;
     margin: 0px;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 .projregist{
 	text-align: center;
-	padding-top: 170px;
+	padding-top: 90px;
 }
 .projregist a{
 	color: white;
@@ -275,7 +275,7 @@ p.num01 {
     margin-right: 100px;
 }
 .onesTop-bottom{
-	margin-top: 100px;
+	margin-top: 70px;
 }
 .tit{
 	display: inline-block;

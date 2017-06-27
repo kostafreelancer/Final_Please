@@ -244,7 +244,7 @@
 	background: #2d3a45;
 	/* margin-top: 600px; */
 	text-align: center;
-	color: white;
+	/* color: white; */
 	padding-top: 20px;
 	
 	max-width: 100%;
@@ -430,7 +430,7 @@
 	position: relative;
 	text-align: center;
 	/* left: 500px; */
-	top: 50px;
+	top: 20px;
 }
 .title dt{
 	font: bold;
@@ -447,11 +447,11 @@
     font-size: 29px;
     text-align: center;
     margin: 0px;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 .projregist{
 	text-align: center;
-	padding-top: 140px;
+	padding-top: 110px;
 }
 .projregist a{
 	color: white;
@@ -478,7 +478,7 @@
     margin-right: 100px;
 }
 .onesTop-bottom{
-	margin-top: 100px;
+	margin-top: 90px;
 }
 .tit{
 	display: inline-block;
@@ -492,7 +492,6 @@
     letter-spacing: -6px;
 }
 
-
 .sort_itemd1{
 	border: 1px solid;
     border-bottom: none;
@@ -504,6 +503,6 @@
 .projregist a{
 	text-decoration: none;
 }
-.slides{
-	padding-top: 560px;
+#slides{
+	padding-top: 500px;
 }

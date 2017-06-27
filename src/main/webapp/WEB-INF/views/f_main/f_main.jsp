@@ -94,7 +94,7 @@ function drawMultSeries() {
 
 	
 	<div class="video">
-		<video id="landingVideo" class="videobcg" loop="loop" autoplay="autoplay" poster="http://freemoa.smilecast.co.kr/Image/main-view.png" style="width:100%">
+		<video id="landingVideo" class="videobcg" loop="loop" autoplay="autoplay"  style="width:100%">
 			<source src="/resources/e_main_img/main_bg.mp4" type="video/mp4">
 		</video>
 	</div> 

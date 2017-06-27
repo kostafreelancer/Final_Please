@@ -785,6 +785,7 @@ public class F_MypageController {
 		
 		e_grade.setE_grade_num(service.countAllE_grade()+1);
 		service.insertE_grade(e_grade);
+		System.out.println("hellowordld");
 		
 		double avg = service.getAvgE_grade(e_grade.getE_num());
 		System.out.println(avg);
