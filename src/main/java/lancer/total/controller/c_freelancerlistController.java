@@ -1,6 +1,7 @@
 package lancer.total.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -78,6 +79,14 @@ public class c_freelancerlistController {
 			}
 		}else{
 			cri.setJobs(job);
+		}
+		
+	
+		int year = Calendar.getInstance().get(Calendar.YEAR);
+		for(int i=0; i<list.size(); i++){
+			String tempAge = "19" + list.get(i).getF_birth().substring(0,2);
+			int finalage = year - Integer.parseInt(tempAge);
+			list.get(i).setF_age(finalage);
 		}
 		
 		model.addAttribute("totallists", list);
