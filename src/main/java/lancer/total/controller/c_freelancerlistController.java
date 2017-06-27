@@ -87,7 +87,16 @@ public class c_freelancerlistController {
 			String tempAge = "19" + list.get(i).getF_birth().substring(0,2);
 			int finalage = year - Integer.parseInt(tempAge);
 			list.get(i).setF_age(finalage);
+			
+			HashMap<String, Object> f_fnameMap = fileService.selectFile("f_photo", list.get(i).getF_num(), 0);
+			System.out.println(f_fnameMap.get("file_num")+"우엑");
+			if(f_fnameMap.get("file_num") != null){
+				HashMap<String, Object> f_fnameMap2 = fileService.selectFileInfo((Integer)f_fnameMap.get("file_num"));
+				list.get(i).setF_photo(f_fnameMap2.get("stored_file_name"));
+				//model.addAttribute("f_photo", );
+			}
 		}
+	
 		
 		model.addAttribute("totallists", list);
 		c_freelancerlist_PageMaker pageMaker = new c_freelancerlist_PageMaker();
