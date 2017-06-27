@@ -176,7 +176,7 @@
 #content_test {
 /* 	background: #fff; */
 	width: 700px;
-	margin-left: 300px;
+	margin-left: 360px;
 	padding-left: 30px;
 	padding-top: 10px;
 	height: 600px;
@@ -265,14 +265,15 @@
 }
 
 #introduce_img {
- 	margin-left: 25%; 
+     padding-left: 150px;
 }
 
 #introduce_site{
-	margin-bottom: 100px;
+	
 	background: #2d3a45;
 	padding-top: 20px;
 	padding-bottom: 60px;
+	text-align: center;
 }
 
 .recommend a{
@@ -307,7 +308,8 @@
 	float : left;
 }
 .read{
-	background-image : url(../f_main_img/bg_list_bu.jpg);
+	/* background-image : url(../f_main_img/bg_list_bu.jpg); */
+	background-color: #0687ec;
 	padding-left : 50px;
 	padding-right: -500px;
 }
@@ -393,14 +395,14 @@
 .introduce_text{
 	color:white;
 	text-align: center;
+	padding-top: 10px;
+    padding-left: 260px;
 }
 .introduce_text td{
 	margin-right: 300px;
 }
 
-#active_inf{
-	margin-left : 120px;
-}
+
 
 .hello{
 	margin : 20px;

@@ -60,6 +60,35 @@ function drawMultSeries() {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("f_main.fm");
 	%> --%>
 	<%@ include file="../c_common/header.jsp"%>
+	<div class="read" style="position: relative; z-index: 9999">
+				<c:choose>
+					<c:when test="${identity.identity == 'freelancer' }">
+					
+					<div class="readCount">${f_read }</div>개의 새로운 알림이 있습니다.				
+					</c:when>
+					
+					<c:otherwise>
+					
+					</c:otherwise>
+				</c:choose>
+				
+				<div class="read_2" style="position : relative; z-index: 2;">
+				<c:choose>
+					<c:when test="${identity.identity == 'freelancer' }">
+					<ul>
+					<c:forEach items="${alram }" var="alram">
+				
+					
+						<li><a href="/c_membercenter/member_centerMain" style="text-decoration: none; color: #2257ad;">${alram.asktitle }</a> 문의에 대한 답변글이 달렸습니다.</li>
+			
+				
+					</c:forEach>
+					</ul>
+					</c:when>
+				</c:choose>
+				</div>
+		</div> 
+	
 	<div class="inbox">
 			<div class="oneTop-middle">
 				<dl class="title">
@@ -128,7 +157,7 @@ function drawMultSeries() {
 					</c:when>
 				</c:choose>
 				</div>
-		</div> --%>
+		</div>  --%>
 			<!--  -->
 	 	<%-- <div class="inbox">
 			<div class="oneTop-middle">

@@ -1,7 +1,7 @@
 .news {
 	max-width:100%;
 	z-index: 1000;
-	padding-top: 650px;
+	padding-top: 500px;
 }
 
 .news1 {
@@ -66,12 +66,13 @@
 .landing-inner {
     width: 1300px;
     margin: 49px auto;
+    padding-left: 70px;
 }
 
 dd._rcount {
     margin-left: 0;
     margin-top: 20px;
-    font-family: "Nanum Gothic", "Apple SD Gothic Neo", "���� ���", "Malgun Gothic", AppleGothic, ����, Dotum, Helvetica, Arial, sans-serif;
+    font-family: "Nanum Gothic", "Apple SD Gothic Neo", "占쏙옙占쏙옙 占쏙옙占�", "Malgun Gothic", AppleGothic, 占쏙옙占쏙옙, Dotum, Helvetica, Arial, sans-serif;
     line-height: 1.42857;
     color: rgb(85, 85, 85);
 }
