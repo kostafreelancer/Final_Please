@@ -60,7 +60,7 @@ function drawMultSeries() {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("f_main.fm");
 	%> --%>
 	<%@ include file="../c_common/header.jsp"%>
-	<div class="read" style="position: relative; z-index: 9999">
+	<div class="read" style="position: relative"">
 				<c:choose>
 					<c:when test="${identity.identity == 'freelancer' }">
 					

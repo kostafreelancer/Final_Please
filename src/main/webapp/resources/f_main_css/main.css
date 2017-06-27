@@ -248,7 +248,7 @@
 	padding-top: 20px;
 	
 	max-width: 100%;
-    z-index: 1000;
+    /* z-index: 1000; */
    /*  padding-top: 650px; */
 }
 }
