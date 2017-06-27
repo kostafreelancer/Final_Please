@@ -54,7 +54,7 @@
 					<span>신속한</span>
 				맞춤 매칭
 				</dt>
-				<dd>웹/앱,프로그램,개발,디자인</dd>
+				<dd>웹/앱,프로그램,개발,디자인(끄앙)</dd>
 			</dl>
 			<div class="projregist">
 				<a href="/e_insertproject/e_insertproject" class="btn">프로젝트 등록하기</a>
