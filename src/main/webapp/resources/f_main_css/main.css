@@ -244,7 +244,7 @@
 	background: #2d3a45;
 	/* margin-top: 600px; */
 	text-align: center;
-	/* color: white; */
+	color: white;
 	padding-top: 20px;
 	
 	max-width: 100%;
@@ -269,7 +269,7 @@
 }
 
 #introduce_site{
-	
+	color:white;
 	background: #2d3a45;
 	padding-top: 20px;
 	padding-bottom: 60px;
