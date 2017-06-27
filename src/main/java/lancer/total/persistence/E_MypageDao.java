@@ -172,5 +172,9 @@ public class E_MypageDao{
 	public double selectF_grade_star(HashMap<String, Integer> map) throws Exception {
 		return session.selectOne(namespace + ".selectF_grade_star", map);
 	}
+	
+	public void updateAlramCheck(int e_num) throws Exception {
+		session.update(namespace + ".updateAlramCheck", e_num);
+	}
 
 }

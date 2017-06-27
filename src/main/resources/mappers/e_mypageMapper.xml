@@ -192,7 +192,10 @@
    	<update id="updateF_grade" parameterType="hashmap">
    		UPDATE freelancer SET f_score = #{f_score} WHERE f_num=#{f_num}
    	</update>
-   	
+
+   	<update id="updateAlramCheck" parameterType="int" >
+   		UPDATE alram SET alram_check = '확인' WHERE e_num=#{e_num}
+   	</update>   	
 </mapper>
 
 

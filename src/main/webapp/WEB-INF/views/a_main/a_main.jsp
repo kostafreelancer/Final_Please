@@ -253,7 +253,7 @@
 								<td><a href="${ep.e_licensefilenum}" class="license">다운로드</a></td>
 								<th>승인여부</th>
 								<td>${ep.e_check}</td>
-								<th  colspan="2"><button id="mailSend">메일 발송</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="permitJoin">가입 승인</button></th>
+								<th  colspan="2"><button class="permitJoin">가입 승인</button></th>
 							</tr>
 							<tr>
 								<td colspan="8"></td>
@@ -311,7 +311,7 @@
 								<td>${pp.e_pr_num }</td>
 								<td style="display:none">${pp.e_num }</td>
 								<th>프로젝트명</th>
-								<td><a href="/c_projectlist/c_readpage?e_pr_num=${pp.e_pr_num }&e_num=${pp.e_num }&from=list">${pp.p_name}</a></td>
+								<td><a href="/c_projectlist/c_readpage?e_pr_num=${pp.e_pr_num }&e_num=${pp.e_num }&from=list"><b>${pp.p_name}</b></a></td>
 								<th>회사명</th>
 								<td>${pp.e_ename}</td>
 								<th>매니저 연락처</th>
