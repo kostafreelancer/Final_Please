@@ -60,7 +60,7 @@ function drawMultSeries() {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("f_main.fm");
 	%> --%>
 	<%@ include file="../c_common/header.jsp"%>
-	<div class="read" style="position: relative"">
+	<div class="read" style="position: relative; z-index : 1;" >
 				<c:choose>
 					<c:when test="${identity.identity == 'freelancer' }">
 					
@@ -324,13 +324,13 @@ function drawMultSeries() {
 				<tr>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							개발 : </td>							
-							<th>${f_create } 개</th>
+							<th>327 개</th>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							디자인 : </td>
-							<th>${f_design } 개</th>
+							<th>208 개</th>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							기획</td>
-							<th>${f_planner } 개</th>
+							<th>136 개</th>
 				</tr>
 				</table>
 		 	</div>
