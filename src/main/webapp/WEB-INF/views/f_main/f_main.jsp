@@ -367,6 +367,41 @@ function drawMultSeries() {
 		</div>
 	</div>
 	
+	<div id="active_inf">
+<!-- 		<ul id="tabs">
+			<li><a href="#" title="tab1">프리랜서</a></li>
+			<li><a href="#" title="tab2">프로젝트</a></li>
+
+		</ul> -->
+
+	<div id="content_test2"> 
+
+				<!-- <h2>프리랜서 정보</h2> -->
+				<%-- <div class="section_title">${count }명의 프리랜서 활동중</div> --%>
+				<p class="section_img2"><img id="img2" alt="" src="../../../resources/f_main_img/draw00.JPG"></p>
+				<p class="section_img2"><img alt="" src="../../../resources/f_main_img/draw01.JPG"></p>
+				<!-- <p class="section_img"><img alt="" src="../../../resources/f_main_img/icon03_off.png"> </p> -->
+				<%-- <form action="" method="post">
+					<table class="active_p">
+						<tr>
+							
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							개발 : </td>							
+							<th>${f_create } 명</th>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							디자인 : </td>
+							<th>${f_design } 명</th>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							기획</td>
+							<th>${f_planner } 명</th>
+							
+						</tr>
+					
+					</table>
+				</form> --%>
+
+	</div>
+	
 	</section>
 	<%@ include file="../c_common/footer.jsp"%>
 

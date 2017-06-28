@@ -247,7 +247,7 @@ function addScheduleSubmit(){
 	<input type="text" hidden id="clientnum" name="clientnum"
 		value="${client.f_num}">
 	<div id="list">
-		<table border="1px solid" cellpadding="0" cellspacing="0">
+		<table border="0px solid" cellpadding="0" cellspacing="0">
 			<tr>
 				<td>${proName}</td>
 			</tr>
@@ -261,7 +261,7 @@ function addScheduleSubmit(){
 		</table>
 	</div>
 	<div id="space"></div>
-	<input type="text" id="resultPrint" value="">
+	<input type="hidden" id="resultPrint" value="">
 
 
 	<form name="scheduleAdd" action="/f_mypage/scheduleAdd" method="post">
