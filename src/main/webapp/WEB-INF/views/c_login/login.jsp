@@ -76,7 +76,7 @@
 							<a href="${pageContext.request.contextPath}/verification/verificationPop" onclick="window.open(this.href, '_blanck', 'width=620, height=270, top=100, left=100'); return false" class="pass_find">아이디 패스워드 찾기
 								&gt;</a>
 						</div>
-						<div class="g-recaptcha" data-sitekey="6LfYlSYUAAAAAH7l4BXuLSs-t5VpAWhzylIBSu6j"></div>
+						<!-- <div class="g-recaptcha" data-sitekey="6LfYlSYUAAAAAH7l4BXuLSs-t5VpAWhzylIBSu6j"></div> -->
 						<br>
 						<p>
 							<!-- <a href="javascript:;" class="btn_login">로그인
