@@ -99,7 +99,7 @@ function drawMultSeries() {
 				<dd>웹/앱,프로그램,개발,디자인</dd>
 			</dl>
 			<div class="projregist">
-				<a href="/e_insertproject/e_insertproject" class="btn">프로젝트 등록하기</a>
+				<a href="/c_projectlist/c_projectlist" class="btn">프로젝트 신청하기</a>
 			</div>
 		</div>
 		<div class="onesTop-bottom">

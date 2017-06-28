@@ -36,7 +36,7 @@
 		};
 	});
 	socket.on('disconneted_alram',function(username){
-			$('.chat_content').append('<p class="server_name">'+username+' �떂�씠 �젒�냽�쓣 醫낅즺 �븯�뀲�뒿�땲�떎.</p>');
+			$('.chat_content').append('<p class="server_name">'+username+' 님 환영합니다.</p>');
 			user='';
 	});
 	
@@ -97,7 +97,7 @@ $(document).ready(function() {
 			
 				</div>
 				
-					<span class="top_title">�뱶由� �옖�꽌</span>
+					<span class="top_title">드림 랜서</span>
 				
 				<!-- <div>
 					<a href="#" class="exit_menu"> <img alt="chat_menu"
@@ -107,22 +107,22 @@ $(document).ready(function() {
 				 
 			</div>
 			<div class="chat_text_area">
-				<span>�삤�뒛</span>
+				<span>오늘</span>
 				
 				<div class="chat_content">
 					
 				</div>
 			</div>
 			<div class="toggle" style="display: none;">
-					<h1>�쑝�븘</h1>
+					<h1>채팅 문의</h1>
 			</div>
 			<div class="text_submit">
 				<div class="chat_text_input">
-					<textarea class="chat_text_put" placeholder="硫붿떆吏�瑜� �엯�젰�븯�꽭�슂.."></textarea> 
+					<textarea class="chat_text_put" placeholder="메시지를 입력해주세요.."></textarea> 
 					<!-- <input id="data" style="width:230px;" value="硫붿떆吏�瑜� �엯�젰�븯�꽭�슂." /> -->
 				
 				</div>
-				<div id="datasend">�쟾�넚</div>
+				<div id="datasend">전송</div>
 				<!-- <input type="button" id="datasend" value="send" /> -->
 			
 			</div>
@@ -177,7 +177,7 @@ $(document).ready(function() {
 }
 .messengerWrapper {
 	width: 290px;
-	/* height: 572px; */
+	height: 480px;
 /* 	border: 1px solid; */
 	border-radius: 12px;
 	background-color: white;
@@ -212,7 +212,7 @@ $(document).ready(function() {
 }
 
 .chat_text_area {
-	height: 395px;
+	height: 385px;
 	background-color: #ffffff;
 	text-align: center;
 	border-bottom: 1px solid #c0c0c0;

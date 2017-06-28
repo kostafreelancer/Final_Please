@@ -209,11 +209,12 @@ h1 {
 }
 
 .tit_box {
-	padding: 50px 0 40px 200px;
+	/* padding: 50px 0 40px 200px; */
 	clear: both;
 	overflow: hidden;
 	border-bottom: 1px solid #d6d6d6;
-	margin-bottom: 50px
+	margin-bottom: 20px;
+	padding-top: 40px;
 }
 
 .tit_box h2 {
@@ -221,7 +222,8 @@ h1 {
 	color: #2257ad;
 	float: left;
 	line-height: 36px;
-	margin-right: 25px
+	margin-right: 25px;
+	padding-bottom: 10px;
 }
 
 .tit_txt {
@@ -438,4 +440,7 @@ h1 {
 	border: 1px solid #999;
 	margin-right: -3px;
 	height: 25px;
+}
+.container{
+	padding-left: 100px;
 }
