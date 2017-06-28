@@ -38,7 +38,7 @@
 								
 								<input type="text"
 									id="fm_name" name="writer" class="wid02"
-									value="작성자">
+									value="${freelancer.f_name }">
 								
 								</td>
 							</tr>
@@ -47,7 +47,7 @@
 									for="fm_phone">연락처</label></th>
 								<td colspan="3" class="join"><input type="text"
 									id="fm_phone" name="fm_phone" class="wid02"
-									value="연락처">
+									value="">
 								</td>
 							</tr>
 							<tr>

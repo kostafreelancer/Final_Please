@@ -186,4 +186,8 @@ public class E_MypageService{
 		
 		return dao.selectF_grade_star(map);
 	}
+	
+	public void updateAlramCheck(int e_num) throws Exception {
+		dao.updateAlramCheck(e_num);
+	}
 }

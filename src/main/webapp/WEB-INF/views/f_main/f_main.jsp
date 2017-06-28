@@ -60,7 +60,7 @@ function drawMultSeries() {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("f_main.fm");
 	%> --%>
 	<%@ include file="../c_common/header.jsp"%>
-	<div class="read" style="position: relative; z-index: 9999">
+	<div class="read" style="position: relative; z-index : 1;" >
 				<c:choose>
 					<c:when test="${identity.identity == 'freelancer' }">
 					
@@ -99,7 +99,7 @@ function drawMultSeries() {
 				<dd>웹/앱,프로그램,개발,디자인</dd>
 			</dl>
 			<div class="projregist">
-				<a href="/e_insertproject/e_insertproject" class="btn">프로젝트 등록하기</a>
+				<a href="/c_projectlist/c_projectlist" class="btn">프로젝트 신청하기</a>
 			</div>
 		</div>
 		<div class="onesTop-bottom">
@@ -324,13 +324,13 @@ function drawMultSeries() {
 				<tr>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							개발 : </td>							
-							<th>${f_create } 개</th>
+							<th>327 개</th>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							디자인 : </td>
-							<th>${f_design } 개</th>
+							<th>208 개</th>
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							기획</td>
-							<th>${f_planner } 개</th>
+							<th>136 개</th>
 				</tr>
 				</table>
 		 	</div>
@@ -365,6 +365,41 @@ function drawMultSeries() {
 				</tr>
 				</table>
 		</div>
+	</div>
+	
+	<div id="active_inf">
+<!-- 		<ul id="tabs">
+			<li><a href="#" title="tab1">프리랜서</a></li>
+			<li><a href="#" title="tab2">프로젝트</a></li>
+
+		</ul> -->
+
+	<div id="content_test2"> 
+
+				<!-- <h2>프리랜서 정보</h2> -->
+				<%-- <div class="section_title">${count }명의 프리랜서 활동중</div> --%>
+				<p class="section_img2"><img id="img2" alt="" src="../../../resources/f_main_img/draw00.JPG"></p>
+				<p class="section_img2"><img alt="" src="../../../resources/f_main_img/draw01.JPG"></p>
+				<!-- <p class="section_img"><img alt="" src="../../../resources/f_main_img/icon03_off.png"> </p> -->
+				<%-- <form action="" method="post">
+					<table class="active_p">
+						<tr>
+							
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							개발 : </td>							
+							<th>${f_create } 명</th>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							디자인 : </td>
+							<th>${f_design } 명</th>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							기획</td>
+							<th>${f_planner } 명</th>
+							
+						</tr>
+					
+					</table>
+				</form> --%>
+
 	</div>
 	
 	</section>

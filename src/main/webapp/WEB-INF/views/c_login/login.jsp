@@ -114,7 +114,7 @@
 
 </div>
 
-<!--  <div id="message" style="color:#ff0000; "></div>
+<!-- <div id="message" style="color:#ff0000; "></div>
 <div id="g-recaptcha"></div>
 <input id="recaptchaCheck" type="button" value="Check"> -->
 

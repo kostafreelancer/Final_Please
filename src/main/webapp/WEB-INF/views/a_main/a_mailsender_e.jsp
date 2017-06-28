@@ -40,7 +40,7 @@
 								
 								<input type="text"
 									id="fm_name" name="writer" class="wid02"
-									value="작성자">
+									value="${enterprise.e_name }">
 								
 								</td>
 							</tr>
@@ -49,7 +49,7 @@
 									for="fm_phone">연락처</label></th>
 								<td colspan="3" class="join"><input type="text"
 									id="fm_phone" name="fm_phone" class="wid02"
-									value="연락처">
+									value="">
 								</td>
 							</tr>
 							<tr>
@@ -91,7 +91,7 @@
 					</table>
 					<p class="email_send">
 							<!-- <a href="#" class="email_btn">작성완료</a> -->
-							<input type="submit" value="메일발송" class="btn" id="email_ok2">
+							<input type="submit" value="메일발송" class="btn" id="doAsk">
 							
 
 						</p>

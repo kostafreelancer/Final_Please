@@ -90,6 +90,10 @@ public class E_MypageController {
 		model.addAttribute("e_licenseFileName", e_licensefileMap.get("original_file_name"));
 		model.addAttribute("e_licenseFileSize", e_licensefileMap.get("file_size"));
 		
+		// 알림 확인
+		service.updateAlramCheck(enterprise.getE_num());
+		session.setAttribute("chang_num", 0);
+		session.setAttribute("a_list", "")	;
 
 	}
 	
@@ -231,6 +235,12 @@ public class E_MypageController {
 		model.addAttribute("pageMakerReady", pageMakerReady);
 		model.addAttribute("pageMakerDoing", pageMakerDoing);
 		model.addAttribute("pageMakerDone", pageMakerDone);
+		
+		// 알림 확인
+		service.updateAlramCheck(enterprise.getE_num());
+		session.setAttribute("chang_num", 0);
+		session.setAttribute("a_list", "")	;		
+		
 		
 		return "/e_mypage/e_project";
 	}

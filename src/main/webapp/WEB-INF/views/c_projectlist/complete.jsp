@@ -63,7 +63,7 @@
 						<a href="/c_projectlist/c_projectlist" class="btn btn-lg btn-default js-disable-on-click"
 						autocomplete="off" data-loading-text="저장 중" name="save_for_later"
 						 type="submit">프로젝트 목록</a>
-				    <a href="/f_mypage/myInfo" class="btn btn-lg btn-client js-disable-on-click btn-submit"
+				    <a href="/f_mypage/myInfo?where=1" class="btn btn-lg btn-client js-disable-on-click btn-submit"
 						autocomplete="off" data-loading-text="제출 중" name="post_a_job"
 						 type="submit">마이페이지</a>
 						<br>
