@@ -36,7 +36,7 @@
 		};
 	});
 	socket.on('disconneted_alram',function(username){
-			$('.chat_content').append('<p class="server_name">'+username+' 님이 접속을 종료 하셨습니다.</p>');
+			$('.chat_content').append('<p class="server_name">'+username+' �떂�씠 �젒�냽�쓣 醫낅즺 �븯�뀲�뒿�땲�떎.</p>');
 			user='';
 	});
 	
@@ -45,7 +45,7 @@
 <!-- </script>
 <script> -->
 $(document).ready(function() {
-	// 클라이언트에서 SEND 버튼을 클릭할 때
+	// �겢�씪�씠�뼵�듃�뿉�꽌 SEND 踰꾪듉�쓣 �겢由��븷 �븣
 	/* var user; */
 	$('#datasend').click( function() {
 		/* var message = $('#data').val(); */
@@ -54,14 +54,14 @@ $(document).ready(function() {
 			return;
 		}
 		if(user===''){
-			alert("대화할 대상을 지정하세요.");
+			alert("���솕�븷 ���긽�쓣 吏��젙�븯�꽭�슂.");
 			$('#data').val('');
 			$('.chat_text_put').val('');
 			return;
 		}
 		$('#data').val('');
 		$('.chat_text_put').val('');
-		// 서버에서 sendchat 함수를 실행하도록 알려주며, 하나의 파라미터를 전달한다
+		// �꽌踰꾩뿉�꽌 sendchat �븿�닔瑜� �떎�뻾�븯�룄濡� �븣�젮二쇰ŉ, �븯�굹�쓽 �뙆�씪誘명꽣瑜� �쟾�떖�븳�떎
 		socket.emit('sendchat', message,user);
 		$('.chat_content').append('<p class="client"><span>'+message+'</span></p>');
 	});
@@ -97,7 +97,7 @@ $(document).ready(function() {
 			
 				</div>
 				
-					<span class="top_title">드림 랜서</span>
+					<span class="top_title">�뱶由� �옖�꽌</span>
 				
 				<!-- <div>
 					<a href="#" class="exit_menu"> <img alt="chat_menu"
@@ -107,27 +107,27 @@ $(document).ready(function() {
 				 
 			</div>
 			<div class="chat_text_area">
-				<span>오늘</span>
+				<span>�삤�뒛</span>
 				
 				<div class="chat_content">
 					
 				</div>
 			</div>
 			<div class="toggle" style="display: none;">
-					<h1>으아</h1>
+					<h1>�쑝�븘</h1>
 			</div>
 			<div class="text_submit">
 				<div class="chat_text_input">
-					<textarea class="chat_text_put" placeholder="메시지를 입력하세요.."></textarea> 
-					<!-- <input id="data" style="width:230px;" value="메시지를 입력하세요." /> -->
+					<textarea class="chat_text_put" placeholder="硫붿떆吏�瑜� �엯�젰�븯�꽭�슂.."></textarea> 
+					<!-- <input id="data" style="width:230px;" value="硫붿떆吏�瑜� �엯�젰�븯�꽭�슂." /> -->
 				
 				</div>
-				<div id="datasend">전송</div>
+				<div id="datasend">�쟾�넚</div>
 				<!-- <input type="button" id="datasend" value="send" /> -->
 			
 			</div>
 			
-			<!-- <div class="chat_send">전송</div> -->
+			<!-- <div class="chat_send">�쟾�넚</div> -->
 		</div>
 	</div>
 <!-- </body> -->
@@ -177,7 +177,7 @@ $(document).ready(function() {
 }
 .messengerWrapper {
 	width: 290px;
-	height: 572px;
+	/* height: 572px; */
 /* 	border: 1px solid; */
 	border-radius: 12px;
 	background-color: white;
@@ -212,7 +212,7 @@ $(document).ready(function() {
 }
 
 .chat_text_area {
-	height: 480px;
+	height: 395px;
 	background-color: #ffffff;
 	text-align: center;
 	border-bottom: 1px solid #c0c0c0;
